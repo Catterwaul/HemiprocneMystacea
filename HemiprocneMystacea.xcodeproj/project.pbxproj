@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
+		49CBE0011C3329EF00E8EFCC /* HemiprocneMystaceaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0001C3329EF00E8EFCC /* HemiprocneMystaceaTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49CBDFFD1C3329EF00E8EFCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49CBDFE81C3329EF00E8EFCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49CBDFF01C3329EF00E8EFCC;
+			remoteInfo = HemiprocneMystacea;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
+		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemiprocneMystaceaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CBE0001C3329EF00E8EFCC /* HemiprocneMystaceaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemiprocneMystaceaTests.swift; sourceTree = "<group>"; };
+		49CBE0021C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49CBDFED1C3329EF00E8EFCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CBDFF81C3329EF00E8EFCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49CBDFE71C3329EF00E8EFCC = {
+			isa = PBXGroup;
+			children = (
+				49CBDFF31C3329EF00E8EFCC /* HemiprocneMystacea */,
+				49CBDFFF1C3329EF00E8EFCC /* HemiprocneMystaceaTests */,
+				49CBDFF21C3329EF00E8EFCC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49CBDFF21C3329EF00E8EFCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */,
+				49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49CBDFF31C3329EF00E8EFCC /* HemiprocneMystacea */ = {
+			isa = PBXGroup;
+			children = (
+				49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */,
+				49CBDFF61C3329EF00E8EFCC /* Info.plist */,
+			);
+			path = HemiprocneMystacea;
+			sourceTree = "<group>";
+		};
+		49CBDFFF1C3329EF00E8EFCC /* HemiprocneMystaceaTests */ = {
+			isa = PBXGroup;
+			children = (
+				49CBE0001C3329EF00E8EFCC /* HemiprocneMystaceaTests.swift */,
+				49CBE0021C3329EF00E8EFCC /* Info.plist */,
+			);
+			path = HemiprocneMystaceaTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		49CBDFEE1C3329EF00E8EFCC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		49CBDFF01C3329EF00E8EFCC /* HemiprocneMystacea */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49CBE0051C3329EF00E8EFCC /* Build configuration list for PBXNativeTarget "HemiprocneMystacea" */;
+			buildPhases = (
+				49CBDFEC1C3329EF00E8EFCC /* Sources */,
+				49CBDFED1C3329EF00E8EFCC /* Frameworks */,
+				49CBDFEE1C3329EF00E8EFCC /* Headers */,
+				49CBDFEF1C3329EF00E8EFCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HemiprocneMystacea;
+			productName = HemiprocneMystacea;
+			productReference = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		49CBDFFA1C3329EF00E8EFCC /* HemiprocneMystaceaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49CBE0081C3329EF00E8EFCC /* Build configuration list for PBXNativeTarget "HemiprocneMystaceaTests" */;
+			buildPhases = (
+				49CBDFF71C3329EF00E8EFCC /* Sources */,
+				49CBDFF81C3329EF00E8EFCC /* Frameworks */,
+				49CBDFF91C3329EF00E8EFCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49CBDFFE1C3329EF00E8EFCC /* PBXTargetDependency */,
+			);
+			name = HemiprocneMystaceaTests;
+			productName = HemiprocneMystaceaTests;
+			productReference = 49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49CBDFE81C3329EF00E8EFCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Catterwaul;
+				TargetAttributes = {
+					49CBDFF01C3329EF00E8EFCC = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					49CBDFFA1C3329EF00E8EFCC = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 49CBDFEB1C3329EF00E8EFCC /* Build configuration list for PBXProject "HemiprocneMystacea" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 49CBDFE71C3329EF00E8EFCC;
+			productRefGroup = 49CBDFF21C3329EF00E8EFCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49CBDFF01C3329EF00E8EFCC /* HemiprocneMystacea */,
+				49CBDFFA1C3329EF00E8EFCC /* HemiprocneMystaceaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49CBDFEF1C3329EF00E8EFCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CBDFF91C3329EF00E8EFCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49CBDFEC1C3329EF00E8EFCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49CBDFF71C3329EF00E8EFCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CBE0011C3329EF00E8EFCC /* HemiprocneMystaceaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49CBDFFE1C3329EF00E8EFCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49CBDFF01C3329EF00E8EFCC /* HemiprocneMystacea */;
+			targetProxy = 49CBDFFD1C3329EF00E8EFCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		49CBE0031C3329EF00E8EFCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		49CBE0041C3329EF00E8EFCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		49CBE0061C3329EF00E8EFCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HemiprocneMystacea/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		49CBE0071C3329EF00E8EFCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HemiprocneMystacea/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		49CBE0091C3329EF00E8EFCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HemiprocneMystaceaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		49CBE00A1C3329EF00E8EFCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HemiprocneMystaceaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49CBDFEB1C3329EF00E8EFCC /* Build configuration list for PBXProject "HemiprocneMystacea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CBE0031C3329EF00E8EFCC /* Debug */,
+				49CBE0041C3329EF00E8EFCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49CBE0051C3329EF00E8EFCC /* Build configuration list for PBXNativeTarget "HemiprocneMystacea" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CBE0061C3329EF00E8EFCC /* Debug */,
+				49CBE0071C3329EF00E8EFCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49CBE0081C3329EF00E8EFCC /* Build configuration list for PBXNativeTarget "HemiprocneMystaceaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CBE0091C3329EF00E8EFCC /* Debug */,
+				49CBE00A1C3329EF00E8EFCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49CBDFE81C3329EF00E8EFCC /* Project object */;
+}
