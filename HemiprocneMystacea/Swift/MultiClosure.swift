@@ -1,10 +1,10 @@
-final class MultiClosure<Input>: EquatableClass {
+public final class MultiClosure<Input>: EquatableClass {
 	/// We can't override () so maybe brackets are the next best thing?
-	subscript(input: Input) -> () {
+	public subscript(input: Input) -> () {
 		closures.forEach{$0.reference?[input]}
 	}
    
-   init(_ closures: EquatableClosure<Input>...) {self += closures}
+   public init(_ closures: EquatableClosure<Input>...) {self += closures}
    
 	private var closures = Set<
 		WeakReferencer<EquatableClosure<Input>>
@@ -15,10 +15,10 @@ final class MultiClosure<Input>: EquatableClass {
 	}
 }
 
-final class EquatableClosure<Input>: EquatableClass {
-	init(_ closure: Input -> ()) {self.closure = closure}
+public final class EquatableClosure<Input>: EquatableClass {
+	public init(_ closure: Input -> ()) {self.closure = closure}
 
-	subscript(input: Input) -> () {closure(input)}
+	public subscript(input: Input) -> () {closure(input)}
 
 	private let closure: Input -> ()
 
@@ -31,16 +31,25 @@ final class EquatableClosure<Input>: EquatableClass {
 	}
 }
 
-func += <Input>(multiClosure: MultiClosure<Input>, closure: EquatableClosure<Input>) {
+public func += <Input>(
+   multiClosure: MultiClosure<Input>,
+   closure: EquatableClosure<Input>
+) {
    multiClosure.closures += WeakReferencer(closure)
    closure.multiClosures += WeakReferencer(multiClosure)
 }
 
-func += <Input>(multiClosure: MultiClosure<Input>, closures: [EquatableClosure<Input>]) {
+public func += <Input>(
+   multiClosure: MultiClosure<Input>,
+   closures: [EquatableClosure<Input>]
+) {
    for closure in closures {multiClosure += closure}
 }
 
-func -= <Input>(multiClosure: MultiClosure<Input>, closure: EquatableClosure<Input>) {
+public func -= <Input>(
+   multiClosure: MultiClosure<Input>,
+   closure: EquatableClosure<Input>
+) {
 	multiClosure.closures -= closure
 	closure.multiClosures -= multiClosure
 }

@@ -1,4 +1,4 @@
-func nils<
+public func nils<
    Arguments1, Return1,
    Arguments2, Return2
 >() -> (
@@ -8,7 +8,7 @@ func nils<
    return ({_ in nil}, {_ in nil})
 }
 
-func nils<
+public func nils<
    Arguments1, Return1,
    Arguments2, Return2,
    Arguments3, Return3
@@ -20,7 +20,7 @@ func nils<
    return ({_ in nil}, {_ in nil}, {_ in nil})
 }
 
-func nils<
+public func nils<
    Arguments1, Return1,
    Arguments2, Return2,
    Arguments3, Return3,

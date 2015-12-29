@@ -1,4 +1,4 @@
-extension String {
+public extension String {
    ///- Returns: nil if `character` isn't present
    func upTo(character: Character, includeTheCharacter: Bool = false) -> String? {
       guard let index = characters.indexOf(character) else {return nil}

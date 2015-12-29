@@ -1,4 +1,4 @@
-extension UIButton {
+public extension UIButton {
     var disabledAndDim: Bool {
         get {return !enabled}
         set {

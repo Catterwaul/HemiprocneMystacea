@@ -2,7 +2,7 @@ import CoreData
 
 extension NSPersistentStoreCoordinator {
    /// Set this upon app launch. Creates `forManagedObjectModel`
-   static var managedObjectModelName: String! {
+   public static var managedObjectModelName: String! {
       get {setOnlyPropertyGetterError(__FUNCTION__)}
       set {
          forManagedObjectModel = {

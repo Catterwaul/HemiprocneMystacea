@@ -1,4 +1,4 @@
-extension UITextField {
+public extension UITextField {
    func onEditingChanged() {editingChanged📡[]}
    var editingChanged📡: MultiClosure<()> {
       return HemiprocneMystacea.editingChanged📡[self]

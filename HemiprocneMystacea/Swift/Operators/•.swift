@@ -12,7 +12,7 @@ infix operator • {precedence 255}
 ///
 ///- Note: Swift's "instance methods" are a lot like this.
 ///  They're really static methods that take an instance as their first parameter.
-func •<Any, Property>(
+public func •<Any, Property>(
    instance: Any,
    @noescape property: (of: Any) -> Property
 ) -> Property {

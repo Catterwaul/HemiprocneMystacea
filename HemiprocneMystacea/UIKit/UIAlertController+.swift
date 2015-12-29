@@ -1,4 +1,4 @@
-extension UIAlertController {
+public extension UIAlertController {
    typealias Action = (
       title: String,
       style: UIAlertActionStyle,

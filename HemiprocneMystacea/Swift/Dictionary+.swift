@@ -40,7 +40,7 @@ extension Dictionary {
 
 }
 extension SequenceType {
-   func Dictionary<Key, Value>(
+   public func Dictionary<Key, Value>(
       key🔗value: Generator.Element -> (Key, Value)
    ) -> Swift.Dictionary<Key, Value> {
       return Swift.Dictionary(self, key🔗value)

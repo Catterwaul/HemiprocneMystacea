@@ -1,3 +1,3 @@
 extension Bool {
-   mutating func toggle() {self = !self}
+   public mutating func toggle() {self = !self}
 }

@@ -1,8 +1,8 @@
-protocol UIPageViewControllerDataSourceWithConnections: UIPageViewControllerDataSource {
+public protocol UIPageViewControllerDataSourceWithConnections: UIPageViewControllerDataSource {
     var connectedViewControllers: [UIViewController] {get}
 }
 
-extension UIPageViewControllerDataSourceWithConnections {
+public extension UIPageViewControllerDataSourceWithConnections {
     final func 😾pageViewController(pageViewController: UIPageViewController,
         viewControllerBeforeViewController viewController: UIViewController
     ) -> UIViewController? {return connectedViewController(

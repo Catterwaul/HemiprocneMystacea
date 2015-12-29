@@ -1,4 +1,4 @@
-extension UIViewController {
+public extension UIViewController {
    func dismissViewController(animated: Bool = true) {
       dismissViewControllerAnimated(animated, completion: nil)
    }

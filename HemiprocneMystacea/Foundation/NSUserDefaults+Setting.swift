@@ -1,5 +1,5 @@
 public struct Setting<Value: AnyObject> {
-	init(key: String, defaultValue: Value) {
+	public init(key: String, defaultValue: Value) {
 		self.key = key
 		NSUserDefaults.standardUserDefaults().registerDefaults(
 			[key: defaultValue]
@@ -29,14 +29,14 @@ public struct Setting<Value: AnyObject> {
 }
 
 extension Setting where Value: BooleanLiteralConvertible {
-	var value: Bool {
+	public var value: Bool {
 		get {return value(getter: NSUserDefaults.boolForKey)}
 		set {value_set(newValue, setter: NSUserDefaults.setBool)}
 	}
 }
 
 extension Setting where Value: IntegerLiteralConvertible {
-	var value: Int {
+	public var value: Int {
 		get {return value(getter: NSUserDefaults.integerForKey)}
 		set {value_set(newValue, setter: NSUserDefaults.setInteger)}
 	}

@@ -13,7 +13,7 @@ func nillifyUponCall<In, Out>(
    closure = nilledUponCall(closure, closure_set)
 }
 
-func nilledUponCall<In, Out>(
+public func nilledUponCall<In, Out>(
    closure: (In -> Out)!,
    _ closure_set: (In -> Out)! -> ()
 ) -> (In -> Out)! {

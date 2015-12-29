@@ -1,5 +1,5 @@
-struct Keyboard {
-	static var
+public struct Keyboard {
+	public static var
 		willShow📡 = Keyboard.📡(UIKeyboardWillShowNotification),
 		willHide📡 = Keyboard.📡(UIKeyboardWillHideNotification)
 	

@@ -1,10 +1,10 @@
 extension SequenceType {
-	func first🔎(@noescape predicate: Generator.Element -> Bool) -> Generator.Element? {
+	public func first🔎(@noescape predicate: Generator.Element -> Bool) -> Generator.Element? {
 		return self.lazy.filter(predicate).first
 	}
    
    @warn_unused_result
-   func sorted<Comparable: Swift.Comparable>(@noescape by comparable: Generator.Element -> Comparable)
+   public func sorted<Comparable: Swift.Comparable>(@noescape by comparable: Generator.Element -> Comparable)
    -> [Generator.Element] {
       return self.sort{$0•comparable < $1•comparable}
    }
@@ -13,7 +13,7 @@ extension SequenceType {
 infix operator ∀ {}
 /// The mathematical symbol meaning "for all".
 ///- Returns: whether all elements of the sequence satisfy `predicate`
-func ∀ <Sequence: SequenceType>(
+public func ∀ <Sequence: SequenceType>(
    sequence: Sequence,
    @noescape predicate: Sequence.Generator.Element -> Bool
 ) -> Bool {
@@ -21,13 +21,13 @@ func ∀ <Sequence: SequenceType>(
 }
 
 extension SequenceType where Generator.Element: Hashable {
-    var uniqueElements: [Generator.Element] {
+    public var uniqueElements: [Generator.Element] {
         return Array(Set(self))
     }
 }
 
 extension SequenceType where Generator.Element: Equatable {
-    var uniqueElements: [Generator.Element] {
+    public var uniqueElements: [Generator.Element] {
         return reduce([]) {uniqueElements, element in
             uniqueElements.contains(element) ? uniqueElements
             : uniqueElements + [element]
@@ -38,5 +38,5 @@ extension SequenceType where Generator.Element: Equatable {
 extension SequenceType where
 	Generator.Element: protocol<IntegerLiteralConvertible, IntegerArithmeticType>
 {
-	var sum: Generator.Element {return self.reduce(0, combine: +)}
+	public var sum: Generator.Element {return self.reduce(0, combine: +)}
 }

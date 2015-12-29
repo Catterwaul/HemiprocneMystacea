@@ -18,7 +18,7 @@
 		49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter+.swift */; };
 		49CBE0AE1C332ADE00E8EFCC /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07C1C332ADE00E8EFCC /* NSObject+.swift */; };
-		49CBE0AF1C332ADE00E8EFCC /* NSURLCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07D1C332ADE00E8EFCC /* NSURLCredential.swift */; };
+		49CBE0AF1C332ADE00E8EFCC /* NSURLCredential+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */; };
 		49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */; };
 		49CBE0B11C332ADE00E8EFCC /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0801C332ADE00E8EFCC /* Array+.swift */; };
 		49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */; };
@@ -83,7 +83,7 @@
 		49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSByteCountFormatter+.swift"; sourceTree = "<group>"; };
 		49CBE07C1C332ADE00E8EFCC /* NSObject+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
-		49CBE07D1C332ADE00E8EFCC /* NSURLCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLCredential.swift; sourceTree = "<group>"; };
+		49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLCredential+.swift"; sourceTree = "<group>"; };
 		49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Setting.swift"; sourceTree = "<group>"; };
 		49CBE0801C332ADE00E8EFCC /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitShiftable.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
 				49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter+.swift */,
 				49CBE07C1C332ADE00E8EFCC /* NSObject+.swift */,
-				49CBE07D1C332ADE00E8EFCC /* NSURLCredential.swift */,
+				49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */,
 				49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */,
 			);
 			path = Foundation;
@@ -225,21 +225,19 @@
 		49CBE07F1C332ADE00E8EFCC /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				49D7AC2D1C33420800E40F5A /* Conversions */,
+				49CBE08E1C332ADE00E8EFCC /* Operators */,
 				49CBE0801C332ADE00E8EFCC /* Array+.swift */,
 				49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */,
 				49CBE0821C332ADE00E8EFCC /* Bool+.swift */,
 				49CBE0831C332ADE00E8EFCC /* closures.swift */,
 				49CBE0841C332ADE00E8EFCC /* Dictionary+.swift */,
-				49CBE0851C332ADE00E8EFCC /* Double🎀.swift */,
 				49CBE0861C332ADE00E8EFCC /* Equatable+.swift */,
 				49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */,
 				49CBE0881C332ADE00E8EFCC /* HashableClass.swift */,
-				49CBE0891C332ADE00E8EFCC /* integer conversion.swift */,
 				49CBE08A1C332ADE00E8EFCC /* IntegerLiteralConvertible+.swift */,
-				49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */,
 				49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */,
 				49CBE08D1C332ADE00E8EFCC /* nils.swift */,
-				49CBE08E1C332ADE00E8EFCC /* Operators */,
 				49CBE0921C332ADE00E8EFCC /* OptionSetType+.swift */,
 				49CBE0931C332ADE00E8EFCC /* properties.swift */,
 				49CBE0941C332ADE00E8EFCC /* Referencers.swift */,
@@ -247,7 +245,6 @@
 				49CBE0961C332ADE00E8EFCC /* Set+.swift */,
 				49CBE0971C332ADE00E8EFCC /* SetAlgebraType+.swift */,
 				49CBE0981C332ADE00E8EFCC /* String+.swift */,
-				49CBE0991C332ADE00E8EFCC /* String🎁.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -278,6 +275,17 @@
 				49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		49D7AC2D1C33420800E40F5A /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				49CBE0891C332ADE00E8EFCC /* integer conversion.swift */,
+				49CBE0851C332ADE00E8EFCC /* Double🎀.swift */,
+				49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */,
+				49CBE0991C332ADE00E8EFCC /* String🎁.swift */,
+			);
+			path = Conversions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,7 +432,7 @@
 				49CBE0AB1C332ADE00E8EFCC /* Dispatch+.swift in Sources */,
 				49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
-				49CBE0AF1C332ADE00E8EFCC /* NSURLCredential.swift in Sources */,
+				49CBE0AF1C332ADE00E8EFCC /* NSURLCredential+.swift in Sources */,
 				49CBE0BC1C332ADE00E8EFCC /* Int🎁.swift in Sources */,
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
@@ -554,6 +562,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = HemiprocneMystacea/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,6 +579,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = HemiprocneMystacea/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -616,6 +626,7 @@
 				49CBE0071C3329EF00E8EFCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49CBE0081C3329EF00E8EFCC /* Build configuration list for PBXNativeTarget "HemiprocneMystaceaTests" */ = {
 			isa = XCConfigurationList;
@@ -624,6 +635,7 @@
 				49CBE00A1C3329EF00E8EFCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

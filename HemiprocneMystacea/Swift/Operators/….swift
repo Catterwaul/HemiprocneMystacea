@@ -16,7 +16,7 @@ infix operator … {precedence 255}
 ///     }
 ///
 ///- Remark: Hold option, press ;
-func …<Type>(instance: Type, ƒ: Type -> ()) -> Type {
+public func …<Type>(instance: Type, @noescape ƒ: Type -> ()) -> Type {
    ƒ(instance)
    return instance
 }

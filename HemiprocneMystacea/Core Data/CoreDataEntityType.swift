@@ -1,7 +1,7 @@
 import CoreData
 
 /// Designed to add functionality to classes deriving from *NSManagedObject*
-protocol CoreDataEntityType {
+public protocol CoreDataEntityType {
 	typealias Self🍲
    func matches(self🍲: Self🍲) -> Bool
 	func Self_init(self🍲: Self🍲)
@@ -9,7 +9,7 @@ protocol CoreDataEntityType {
 
 // Every CoreDataEntityType will be an NSManagedObject.
 extension CoreDataEntityType where Self: NSManagedObject {
-   static var inContext🔍: [Self] {
+   public static var inContext🔍: [Self] {
       let fetchRequest = NSFetchRequest(entityName: className)
       fetchRequest.entity = NSEntityDescription.entityForName(className,
          inManagedObjectContext: NSManagedObjectContext.forMainQueue
@@ -20,7 +20,7 @@ extension CoreDataEntityType where Self: NSManagedObject {
          ?? []
    }
    
-   init(_ self🍲: Self🍲) {
+   public init(_ self🍲: Self🍲) {
       self.init(
          entity: NSEntityDescription.entityForName(Self.className,
             inManagedObjectContext: NSManagedObjectContext.forMainQueue
@@ -32,7 +32,7 @@ extension CoreDataEntityType where Self: NSManagedObject {
 
    ///- Returns: if an instance exists already, that;
    ///  otherwise, a new instance.
-   static func instance(matching self🍲: Self🍲) -> Self {
+   public static func instance(matching self🍲: Self🍲) -> Self {
       return Self.inContext🔍.matching(self🍲) ?? Self(self🍲)
 	}
 }
@@ -41,7 +41,7 @@ extension SequenceType where
    Generator.Element: CoreDataEntityType,
    Generator.Element: NSManagedObject
 {
-   func matching(self🍲: Generator.Element.Self🍲) -> Generator.Element? {
+   public func matching(self🍲: Generator.Element.Self🍲) -> Generator.Element? {
       return first🔎{$0.matches(self🍲)}
    }
 }
