@@ -1,7 +1,7 @@
 public func -= <Element: Equatable>(inout left: [Element], right: Element) {
-	left = left.filter {$0 != right}
+   if let index = left.indexOf(right) {left.removeAtIndex(index)}
 }
 
-public func -= <T>(inout left: [T], right: T -> Bool) {
+public func -= <Element>(inout left: [Element], right: Element -> Bool) {
 	if let index = left.indexOf(right) {left.removeAtIndex(index)}
 }
