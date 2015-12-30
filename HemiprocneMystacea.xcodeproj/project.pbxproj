@@ -18,6 +18,7 @@
 		49B182E31C33807000529B08 /* SetAlgebraType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D91C33807000529B08 /* SetAlgebraType.swift */; };
 		49B182E41C33807000529B08 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182DA1C33807000529B08 /* String.swift */; };
 		49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182E61C33839900529B08 /* ArrayTestCase.swift */; };
+		49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182E81C338D6900529B08 /* BoolTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -81,6 +82,7 @@
 		49B182D91C33807000529B08 /* SetAlgebraType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebraType.swift; sourceTree = "<group>"; };
 		49B182DA1C33807000529B08 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		49B182E61C33839900529B08 /* ArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTestCase.swift; sourceTree = "<group>"; };
+		49B182E81C338D6900529B08 /* BoolTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				49B182E61C33839900529B08 /* ArrayTestCase.swift */,
+				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
 			);
 			name = Extensions;
 			path = Swift/Extensions;
@@ -479,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
+				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
