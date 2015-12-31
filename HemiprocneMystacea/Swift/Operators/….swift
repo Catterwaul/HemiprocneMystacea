@@ -9,14 +9,17 @@ infix operator … {precedence 255}
 ///- Returns: `instance`
 ///
 /// Example:
-///
-///     var instance = Type()…{
-///        $0.property = newValue
-///        $0.doSomething()
-///     }
-///
+///```
+/// var instance = Type()…{
+///    $0.property = newValue
+///    $0.doSomething()
+/// }
+///```
 ///- Remark: Hold option, press ;
-public func …<Type>(instance: Type, @noescape ƒ: Type -> ()) -> Type {
+public func …<Instance>(
+   instance: Instance,
+   @noescape ƒ: Instance -> ()
+) -> Instance {
    ƒ(instance)
    return instance
 }
