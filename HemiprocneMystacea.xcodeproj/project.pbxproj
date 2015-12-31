@@ -11,7 +11,7 @@
 		49B182DC1C33807000529B08 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D21C33807000529B08 /* Bool.swift */; };
 		49B182DD1C33807000529B08 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D31C33807000529B08 /* Dictionary.swift */; };
 		49B182DE1C33807000529B08 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D41C33807000529B08 /* Equatable.swift */; };
-		49B182DF1C33807000529B08 /* IntegerLiteralConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D51C33807000529B08 /* IntegerLiteralConvertible.swift */; };
+		49B182DF1C33807000529B08 /* integers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D51C33807000529B08 /* integers.swift */; };
 		49B182E01C33807000529B08 /* OptionSetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSetType.swift */; };
 		49B182E11C33807000529B08 /* SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* SequenceType.swift */; };
 		49B182E21C33807000529B08 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D81C33807000529B08 /* Set.swift */; };
@@ -58,6 +58,7 @@
 		49CBE0D21C332ADE00E8EFCC /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A31C332ADE00E8EFCC /* UITableView+.swift */; };
 		49CBE0D31C332ADE00E8EFCC /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */; };
 		49CBE0D41C332ADE00E8EFCC /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */; };
+		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,7 @@
 		49B182D21C33807000529B08 /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		49B182D31C33807000529B08 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		49B182D41C33807000529B08 /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
-		49B182D51C33807000529B08 /* IntegerLiteralConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegerLiteralConvertible.swift; sourceTree = "<group>"; };
+		49B182D51C33807000529B08 /* integers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = integers.swift; sourceTree = "<group>"; };
 		49B182D61C33807000529B08 /* OptionSetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetType.swift; sourceTree = "<group>"; };
 		49B182D71C33807000529B08 /* SequenceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
 		49B182D81C33807000529B08 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		49CBE0A31C332ADE00E8EFCC /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,11 +159,11 @@
 		49B182D01C33807000529B08 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				49B182D51C33807000529B08 /* integers.swift */,
 				49B182D11C33807000529B08 /* Array.swift */,
 				49B182D21C33807000529B08 /* Bool.swift */,
 				49B182D31C33807000529B08 /* Dictionary.swift */,
 				49B182D41C33807000529B08 /* Equatable.swift */,
-				49B182D51C33807000529B08 /* IntegerLiteralConvertible.swift */,
 				49B182D61C33807000529B08 /* OptionSetType.swift */,
 				49B182D71C33807000529B08 /* SequenceType.swift */,
 				49B182D81C33807000529B08 /* Set.swift */,
@@ -174,6 +176,7 @@
 		49B182E51C33807C00529B08 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */,
 				49B182E61C33839900529B08 /* ArrayTestCase.swift */,
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
 			);
@@ -435,7 +438,7 @@
 				49CBE0A81C332ADE00E8EFCC /* NSManagedObject+.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext+.swift in Sources */,
-				49B182DF1C33807000529B08 /* IntegerLiteralConvertible.swift in Sources */,
+				49B182DF1C33807000529B08 /* integers.swift in Sources */,
 				49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter+.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton+.swift in Sources */,
@@ -481,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 			);
