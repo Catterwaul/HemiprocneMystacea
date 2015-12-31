@@ -1,23 +1,27 @@
-public func += <Any>(inout set: Set<Any>, element: Any) {
+/// insert
+public func += <Element>(inout set: Set<Element>, element: Element) {
 	set.insert(element)
 }
 
-public func -= <Any>(inout set: Set<Any>, element: Any) {
+/// remove
+public func -= <Element>(inout set: Set<Element>, element: Element) {
 	set.remove(element)
 }
 
 /// intersect
-/// - Remark: 
-///	1. control-command-space
-///	2. "interse"
-public func ∩ <Any>(left: Set<Any>, right: Set<Any>) -> Set<Any> {
+///
+///- Remark:
+/// 1. control-command-space
+/// 2. "interse"
+public func ∩ <Element>(left: Set<Element>, right: Set<Element>) -> Set<Element> {
 	return left.intersect(right)
 }
 
 /// union
+///
 ///- Remark:
 /// 1. control-command-space
 /// 2. "unio"
-public func ∪ <Any>(left: Set<Any>, right: Set<Any>) -> Set<Any> {
+public func ∪ <Element>(left: Set<Element>, right: Set<Element>) -> Set<Element> {
 	return left.union(right)
 }
