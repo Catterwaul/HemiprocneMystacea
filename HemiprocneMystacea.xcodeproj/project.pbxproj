@@ -23,6 +23,9 @@
 		49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */; };
 		49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434321C34F02700B6C530 /* StringTestCase.swift */; };
 		49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434341C34F33000B6C530 /* OperatorsTestCase.swift */; };
+		49C434381C35DCCF00B6C530 /* properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434371C35DCCF00B6C530 /* properties.swift */; };
+		49C4343A1C35DCF900B6C530 /* Mutable Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434391C35DCF900B6C530 /* Mutable Properties.swift */; };
+		49C4343C1C35E10900B6C530 /* MutablePropertiesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4343B1C35E10900B6C530 /* MutablePropertiesTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -48,7 +51,6 @@
 		49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08F1C332ADE00E8EFCC /* operators.swift */; };
 		49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0901C332ADE00E8EFCC /* •.swift */; };
 		49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0911C332ADE00E8EFCC /* ….swift */; };
-		49CBE0C31C332ADE00E8EFCC /* properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0931C332ADE00E8EFCC /* properties.swift */; };
 		49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0941C332ADE00E8EFCC /* Referencers.swift */; };
 		49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0991C332ADE00E8EFCC /* String🎁.swift */; };
 		49CBE0CA1C332ADE00E8EFCC /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */; };
@@ -93,6 +95,9 @@
 		49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTypeTestCase.swift; sourceTree = "<group>"; };
 		49C434321C34F02700B6C530 /* StringTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTestCase.swift; sourceTree = "<group>"; };
 		49C434341C34F33000B6C530 /* OperatorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperatorsTestCase.swift; path = Swift/OperatorsTestCase.swift; sourceTree = "<group>"; };
+		49C434371C35DCCF00B6C530 /* properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = properties.swift; sourceTree = "<group>"; };
+		49C434391C35DCF900B6C530 /* Mutable Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mutable Properties.swift"; sourceTree = "<group>"; };
+		49C4343B1C35E10900B6C530 /* MutablePropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MutablePropertiesTestCase.swift; path = Swift/Properties/MutablePropertiesTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,7 +126,6 @@
 		49CBE08F1C332ADE00E8EFCC /* operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = operators.swift; sourceTree = "<group>"; };
 		49CBE0901C332ADE00E8EFCC /* •.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "•.swift"; sourceTree = "<group>"; };
 		49CBE0911C332ADE00E8EFCC /* ….swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "….swift"; sourceTree = "<group>"; };
-		49CBE0931C332ADE00E8EFCC /* properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = properties.swift; sourceTree = "<group>"; };
 		49CBE0941C332ADE00E8EFCC /* Referencers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Referencers.swift; sourceTree = "<group>"; };
 		49CBE0991C332ADE00E8EFCC /* String🎁.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String🎁.swift"; sourceTree = "<group>"; };
 		49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
@@ -161,8 +165,9 @@
 		49B182CF1C337D6800529B08 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				49B182E51C33807C00529B08 /* Extensions */,
 				49C434341C34F33000B6C530 /* OperatorsTestCase.swift */,
+				49B182E51C33807C00529B08 /* Extensions */,
+				49C4343D1C35E11400B6C530 /* Properties */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -197,6 +202,23 @@
 			);
 			name = Extensions;
 			path = Swift/Extensions;
+			sourceTree = "<group>";
+		};
+		49C434361C35DCCF00B6C530 /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				49C434371C35DCCF00B6C530 /* properties.swift */,
+				49C434391C35DCF900B6C530 /* Mutable Properties.swift */,
+			);
+			path = Properties;
+			sourceTree = "<group>";
+		};
+		49C4343D1C35E11400B6C530 /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				49C4343B1C35E10900B6C530 /* MutablePropertiesTestCase.swift */,
+			);
+			name = Properties;
 			sourceTree = "<group>";
 		};
 		49CBDFE71C3329EF00E8EFCC = {
@@ -286,13 +308,13 @@
 				49D7AC2D1C33420800E40F5A /* Conversions */,
 				49B182D01C33807000529B08 /* Extensions */,
 				49CBE08E1C332ADE00E8EFCC /* Operators */,
-				49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */,
+				49C434361C35DCCF00B6C530 /* Properties */,
 				49CBE0831C332ADE00E8EFCC /* closures.swift */,
+				49CBE08D1C332ADE00E8EFCC /* nils.swift */,
+				49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */,
 				49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */,
 				49CBE0881C332ADE00E8EFCC /* HashableClass.swift */,
 				49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */,
-				49CBE08D1C332ADE00E8EFCC /* nils.swift */,
-				49CBE0931C332ADE00E8EFCC /* properties.swift */,
 				49CBE0941C332ADE00E8EFCC /* Referencers.swift */,
 			);
 			path = Swift;
@@ -467,8 +489,8 @@
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49B182E11C33807000529B08 /* SequenceType.swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel+.swift in Sources */,
-				49CBE0C31C332ADE00E8EFCC /* properties.swift in Sources */,
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
+				49C4343A1C35DCF900B6C530 /* Mutable Properties.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController+.swift in Sources */,
 				49CBE0B41C332ADE00E8EFCC /* closures.swift in Sources */,
 				49CBE0BE1C332ADE00E8EFCC /* nils.swift in Sources */,
@@ -476,6 +498,7 @@
 				49CBE0D41C332ADE00E8EFCC /* UIViewController+.swift in Sources */,
 				49CBE0D01C332ADE00E8EFCC /* UINavigationController+.swift in Sources */,
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
+				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
 				49CBE0AB1C332ADE00E8EFCC /* Dispatch+.swift in Sources */,
 				49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
@@ -501,6 +524,7 @@
 			files = (
 				49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */,
 				49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */,
+				49C4343C1C35E10900B6C530 /* MutablePropertiesTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
