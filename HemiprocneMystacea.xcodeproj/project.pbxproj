@@ -21,6 +21,8 @@
 		49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182E81C338D6900529B08 /* BoolTestCase.swift */; };
 		49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */; };
 		49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */; };
+		49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434321C34F02700B6C530 /* StringTestCase.swift */; };
+		49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434341C34F33000B6C530 /* OperatorsTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -89,6 +91,8 @@
 		49B182E81C338D6900529B08 /* BoolTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTestCase.swift; sourceTree = "<group>"; };
 		49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebraTypeTestCase.swift; sourceTree = "<group>"; };
 		49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTypeTestCase.swift; sourceTree = "<group>"; };
+		49C434321C34F02700B6C530 /* StringTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTestCase.swift; sourceTree = "<group>"; };
+		49C434341C34F33000B6C530 /* OperatorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperatorsTestCase.swift; path = Swift/OperatorsTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				49B182E51C33807C00529B08 /* Extensions */,
+				49C434341C34F33000B6C530 /* OperatorsTestCase.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */,
 				49FCF0731C34D06E005338F6 /* SetTestCase.swift */,
 				49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */,
+				49C434321C34F02700B6C530 /* StringTestCase.swift */,
 			);
 			name = Extensions;
 			path = Swift/Extensions;
@@ -497,6 +503,8 @@
 				49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
+				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
+				49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */,
 			);
