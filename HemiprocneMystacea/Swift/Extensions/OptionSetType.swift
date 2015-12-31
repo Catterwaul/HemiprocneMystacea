@@ -1,32 +1,43 @@
-extension OptionSetType where RawValue: BitShiftable {
-   init(bit: RawValue) {
-      self.init(rawValue: bit <= 1 ? bit : 1 << (bit - 1))
-   }
-   
-   static func BitFlags(startingFlag startingFlag: RawValue)
+public extension OptionSetType where RawValue: BitShiftable {
+   /// Provides two options.
+   ///
+   ///- Parameter startingIndex: shifts 0b11 if > 1
+   static func Flags(startingIndex startingIndex: RawValue = 1)
    -> (Self, Self) {
       return (
-         Self(bit: startingFlag),
-         Self(bit: startingFlag + 1)
+         Self(flagIndex: startingIndex),
+         Self(flagIndex: startingIndex + 1)
       )
    }
    
-   static func BitFlags(startingFlag startingFlag: RawValue)
+   /// Provides three options.
+   ///
+   ///- Parameter startingIndex: shifts 0b111 if > 1
+   static func Flags(startingIndex startingIndex: RawValue = 1)
    -> (Self, Self, Self) {
       return (
-         Self(bit: startingFlag),
-         Self(bit: startingFlag + 1),
-         Self(bit: startingFlag + 2)
+         Self(flagIndex: startingIndex),
+         Self(flagIndex: startingIndex + 1),
+         Self(flagIndex: startingIndex + 2)
       )
    }
    
-   static func BitFlags(startingFlag startingFlag: RawValue)
+   /// Provides four options.
+   ///
+   ///- Parameter startingIndex: shifts 0b1111 if > 1
+   static func Flags(startingIndex startingIndex: RawValue = 1)
    -> (Self, Self, Self, Self) {
       return (
-         Self(bit: startingFlag),
-         Self(bit: startingFlag + 1),
-         Self(bit: startingFlag + 2),
-         Self(bit: startingFlag + 3)
+         Self(flagIndex: startingIndex),
+         Self(flagIndex: startingIndex + 1),
+         Self(flagIndex: startingIndex + 2),
+         Self(flagIndex: startingIndex + 3)
+      )
+   }
+   
+   private init(flagIndex: RawValue) {
+      self.init(
+         rawValue: flagIndex <= 1 ? flagIndex : 1 << (flagIndex - 1)
       )
    }
 }
