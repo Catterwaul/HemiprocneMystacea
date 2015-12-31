@@ -185,9 +185,9 @@
 				49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */,
 				49B182E61C33839900529B08 /* ArrayTestCase.swift */,
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
+				49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */,
 				49FCF0731C34D06E005338F6 /* SetTestCase.swift */,
 				49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */,
-				49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */,
 			);
 			name = Extensions;
 			path = Swift/Extensions;

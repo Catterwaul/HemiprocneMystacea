@@ -35,6 +35,35 @@ public extension OptionSetType where RawValue: BitShiftable {
       )
    }
    
+   /// Provides five options.
+   ///
+   ///- Parameter startingIndex: shifts 0b1_1111 if > 1
+   static func Flags(startingIndex startingIndex: RawValue = 1)
+   -> (Self, Self, Self, Self, Self) {
+      return (
+         Self(flagIndex: startingIndex),
+         Self(flagIndex: startingIndex + 1),
+         Self(flagIndex: startingIndex + 2),
+         Self(flagIndex: startingIndex + 3),
+         Self(flagIndex: startingIndex + 4)
+      )
+   }
+   
+   /// Provides six options.
+   ///
+   ///- Parameter startingIndex: shifts 0b11_1111 if > 1
+   static func Flags(startingIndex startingIndex: RawValue = 1)
+   -> (Self, Self, Self, Self, Self, Self) {
+      return (
+         Self(flagIndex: startingIndex),
+         Self(flagIndex: startingIndex + 1),
+         Self(flagIndex: startingIndex + 2),
+         Self(flagIndex: startingIndex + 3),
+         Self(flagIndex: startingIndex + 4),
+         Self(flagIndex: startingIndex + 5)
+      )
+   }
+   
    private init(flagIndex: RawValue) {
       self.init(
          rawValue: flagIndex <= 1 ? flagIndex : 1 << (flagIndex - 1)
