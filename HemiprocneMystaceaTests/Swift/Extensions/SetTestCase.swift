@@ -16,12 +16,12 @@ final class SetTestCase: XCTestCase {
    }
    
    func testIntersect() {
-      let set = [1, 2, 3] ∩ [2, 3, 4, 785723948]
+      let set: Set = [1, 2, 3] ∩ [2, 3, 4, 785723948]
       XCTAssertEqual(set, [2, 3])
    }
    
    func testUnion() {
-      let set = [0, 1, 2, 3] ∪ [2, 3, 4, 5, 6]
+      let set: Set = [0, 1, 2, 3] ∪ [2, 3, 4, 5, 6]
       XCTAssertEqual(set, [0, 1, 2, 3, 4, 5, 6])
    }
 }
