@@ -1,11 +1,13 @@
-final class UnownedReferencer<Reference: AnyObject>: HashableClass {
-	unowned let reference: Reference
-	init(_ reference: Reference) {self.reference = reference}
+/// Use this until Swift has unowned-referencing collections.
+public final class UnownedReferencer<Reference: AnyObject>: HashableClass {
+	public init(_ reference: Reference) {self.reference = reference}
+   public unowned let reference: Reference
 }
 
-final class WeakReferencer<Reference: AnyObject>: HashableClass {
-	weak var reference: Reference?
-	init(_ reference: Reference) {self.reference = reference}
+/// Use this until Swift has weak-referencing collections.
+public final class WeakReferencer<Reference: AnyObject>: HashableClass {
+   public init(_ reference: Reference) {self.reference = reference}
+	public weak var reference: Reference?
 }
 
 func -= <Reference: Equatable>

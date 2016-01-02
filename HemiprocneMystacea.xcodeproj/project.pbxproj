@@ -28,6 +28,7 @@
 		49C4343C1C35E10900B6C530 /* MutablePropertiesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4343B1C35E10900B6C530 /* MutablePropertiesTestCase.swift */; };
 		49C4346B1C375BAC00B6C530 /* NSObjectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346A1C375BAC00B6C530 /* NSObjectTestCase.swift */; };
 		49C4346E1C37600E00B6C530 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346D1C37600E00B6C530 /* NSObject.swift */; };
+		49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -101,6 +102,7 @@
 		49C4343B1C35E10900B6C530 /* MutablePropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MutablePropertiesTestCase.swift; path = Swift/Properties/MutablePropertiesTestCase.swift; sourceTree = "<group>"; };
 		49C4346A1C375BAC00B6C530 /* NSObjectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectTestCase.swift; path = Foundation/NSObjectTestCase.swift; sourceTree = "<group>"; };
 		49C4346D1C37600E00B6C530 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				49C434341C34F33000B6C530 /* OperatorsTestCase.swift */,
 				49B182E51C33807C00529B08 /* Extensions */,
 				49C4343D1C35E11400B6C530 /* Properties */,
+				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
+				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */,

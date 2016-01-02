@@ -1,4 +1,4 @@
 public protocol HashableClass: EquatableClass, Hashable {}
-extension HashableClass {
+public extension HashableClass {
 	var hashValue: Int {return ObjectIdentifier(self).hashValue}
 }
