@@ -2,12 +2,10 @@ import HemiprocneMystacea
 import XCTest
 
 final class StringTestCase: XCTestCase {
-   func testEpsilon() {
-      XCTAssertEqual(
-       ∑["a", "bc", "d"],
-      "abcd"
-      )
-   }
+	func testAfter() {
+		XCTAssertEqual("chunky skunky".after("s"), "kunky")
+		XCTAssertNil("aaabbbccc".after("z"))
+	}
 
    func testSplit() {
       let string = "boo, gee,rye"
@@ -38,4 +36,19 @@ final class StringTestCase: XCTestCase {
          nil
       )
    }
+	
+//MARK: Sequences of Strings
+	func testJoined() {
+		XCTAssertEqual(
+			["cat", "goes", "", "Meow"].joined(with: "! "),
+			"cat! goes! Meow"
+		)
+	}
+	
+	func testEpsilon() {
+		XCTAssertEqual(
+			∑["a", "bc", "d"],
+			"abcd"
+		)
+	}
 }
