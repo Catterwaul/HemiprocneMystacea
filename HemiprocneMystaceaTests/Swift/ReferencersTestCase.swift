@@ -5,8 +5,11 @@ final class ReferencersTestCase: XCTestCase {
 //MARK:- UnownedReferencer
    func testUnownedReferencer() {
       var `class`: Class! = Class()
-      let referencer = UnownedReferencer(`class`)
-      weak var reference = referencer.reference
+      let referencers = [
+         UnownedReferencer(`class`),
+         UnownedReferencer(`class`)
+      ]
+      weak var reference = referencers.last!.reference
       XCTAssertNotNil(reference)
       `class` = nil
       XCTAssertNil(reference)
@@ -21,10 +24,13 @@ final class ReferencersTestCase: XCTestCase {
    
 //MARK:- WeakReferencer
    func testWeakReferencer() {
-      var `class`: Class? = Class()
-      let referencer = WeakReferencer(`class`!)
+      var `class`: Class! = Class()
+      let referencers = [
+         WeakReferencer(`class`),
+         WeakReferencer(`class`)
+      ]
       `class` = nil
-      XCTAssertNil(referencer.reference)
+      XCTAssertNil(referencers.last!.reference)
    }
    
    func testWeakReferencerSetRemoval() {
