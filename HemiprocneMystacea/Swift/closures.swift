@@ -1,18 +1,8 @@
-///- Parameter closure_set: setter for the closure
+///- Parameter closure.set: setter for the closure
 ///
 ///- Note: *Usage will look like this:*
-/// `nillifyUponCall(closure){closure = $0}`
-func nillifyUponCall<In, Out>(
-   closure: In -> Out,
-   closure_set: (In -> Out)! -> ()
-) {
-   var closure: (In -> Out)! {
-      get {return closure}
-      set {closure_set(newValue)}
-   }
-   closure = nilledUponCall(closure, closure_set)
-}
-
+/// ```
+/// closure = nilledUponCall(closure){closure = $0}
 public func nilledUponCall<In, Out>(
    closure: (In -> Out)!,
    _ closure_set: (In -> Out)! -> ()
@@ -28,4 +18,23 @@ public func nilledUponCall<In, Out>(
       defer {closure = nil}
       return closure($0)
    }
+}
+
+///- Parameter closure.set: setter for the closure
+///
+///- Note: *Usage will look like this:*
+///```
+/// nillifyUponCall(closure){closure = $0}`
+///```
+///- Important: You can't use this in a didSet;
+///  that would result in infinite recursion.
+public func nillifyUponCall<In, Out>(
+   closure: In -> Out,
+   closure_set: (In -> Out)! -> ()
+) {
+   var closure: (In -> Out)! {
+      get {return closure}
+      set {closure_set(newValue)}
+   }
+   closure = nilledUponCall(closure, closure_set)
 }

@@ -28,6 +28,7 @@
 		49C4346B1C375BAC00B6C530 /* NSObjectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346A1C375BAC00B6C530 /* NSObjectTestCase.swift */; };
 		49C4346E1C37600E00B6C530 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346D1C37600E00B6C530 /* NSObject.swift */; };
 		49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */; };
+		49C434741C379F0000B6C530 /* ClosuresTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434731C379F0000B6C530 /* ClosuresTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -35,7 +36,7 @@
 		49CBE0A81C332ADE00E8EFCC /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject+.swift */; };
 		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */; };
 		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */; };
-		49CBE0AB1C332ADE00E8EFCC /* Dispatch+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0781C332ADE00E8EFCC /* Dispatch+.swift */; };
+		49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0781C332ADE00E8EFCC /* Dispatch.swift */; };
 		49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter+.swift */; };
 		49CBE0AF1C332ADE00E8EFCC /* NSURLCredential+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */; };
@@ -101,6 +102,7 @@
 		49C4346A1C375BAC00B6C530 /* NSObjectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectTestCase.swift; path = Foundation/NSObjectTestCase.swift; sourceTree = "<group>"; };
 		49C4346D1C37600E00B6C530 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
+		49C434731C379F0000B6C530 /* ClosuresTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosuresTestCase.swift; path = Swift/ClosuresTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +113,7 @@
 		49CBE0741C332ADE00E8EFCC /* NSManagedObject+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
 		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
 		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+.swift"; sourceTree = "<group>"; };
-		49CBE0781C332ADE00E8EFCC /* Dispatch+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dispatch+.swift"; sourceTree = "<group>"; };
+		49CBE0781C332ADE00E8EFCC /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSByteCountFormatter+.swift"; sourceTree = "<group>"; };
 		49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLCredential+.swift"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				49B182E51C33807C00529B08 /* Extensions */,
 				49C4343D1C35E11400B6C530 /* Properties */,
 				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
+				49C434731C379F0000B6C530 /* ClosuresTestCase.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -296,7 +299,7 @@
 		49CBE0771C332ADE00E8EFCC /* Dispatch */ = {
 			isa = PBXGroup;
 			children = (
-				49CBE0781C332ADE00E8EFCC /* Dispatch+.swift */,
+				49CBE0781C332ADE00E8EFCC /* Dispatch.swift */,
 			);
 			path = Dispatch;
 			sourceTree = "<group>";
@@ -511,7 +514,7 @@
 				49CBE0D01C332ADE00E8EFCC /* UINavigationController+.swift in Sources */,
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
-				49CBE0AB1C332ADE00E8EFCC /* Dispatch+.swift in Sources */,
+				49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */,
 				49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
 				49CBE0AF1C332ADE00E8EFCC /* NSURLCredential+.swift in Sources */,
@@ -541,6 +544,7 @@
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */,
+				49C434741C379F0000B6C530 /* ClosuresTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */,
 			);
