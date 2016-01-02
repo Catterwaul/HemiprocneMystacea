@@ -28,7 +28,7 @@
 		49C4346B1C375BAC00B6C530 /* NSObjectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346A1C375BAC00B6C530 /* NSObjectTestCase.swift */; };
 		49C4346E1C37600E00B6C530 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346D1C37600E00B6C530 /* NSObject.swift */; };
 		49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */; };
-		49C434741C379F0000B6C530 /* ClosuresTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434731C379F0000B6C530 /* ClosuresTestCase.swift */; };
+		49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -42,14 +42,13 @@
 		49CBE0AF1C332ADE00E8EFCC /* NSURLCredential+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */; };
 		49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */; };
 		49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */; };
-		49CBE0B41C332ADE00E8EFCC /* closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0831C332ADE00E8EFCC /* closures.swift */; };
 		49CBE0B61C332ADE00E8EFCC /* Double🎀.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0851C332ADE00E8EFCC /* Double🎀.swift */; };
 		49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */; };
 		49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0881C332ADE00E8EFCC /* HashableClass.swift */; };
 		49CBE0BA1C332ADE00E8EFCC /* integer conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0891C332ADE00E8EFCC /* integer conversion.swift */; };
 		49CBE0BC1C332ADE00E8EFCC /* Int🎁.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */; };
 		49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */; };
-		49CBE0BE1C332ADE00E8EFCC /* nils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08D1C332ADE00E8EFCC /* nils.swift */; };
+		49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08D1C332ADE00E8EFCC /* nil closures.swift */; };
 		49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08F1C332ADE00E8EFCC /* operators.swift */; };
 		49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0901C332ADE00E8EFCC /* •.swift */; };
 		49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0911C332ADE00E8EFCC /* ….swift */; };
@@ -102,7 +101,7 @@
 		49C4346A1C375BAC00B6C530 /* NSObjectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObjectTestCase.swift; path = Foundation/NSObjectTestCase.swift; sourceTree = "<group>"; };
 		49C4346D1C37600E00B6C530 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
-		49C434731C379F0000B6C530 /* ClosuresTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosuresTestCase.swift; path = Swift/ClosuresTestCase.swift; sourceTree = "<group>"; };
+		49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NilClosuresTestCase.swift; path = Swift/NilClosuresTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,14 +118,13 @@
 		49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLCredential+.swift"; sourceTree = "<group>"; };
 		49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Setting.swift"; sourceTree = "<group>"; };
 		49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitShiftable.swift; sourceTree = "<group>"; };
-		49CBE0831C332ADE00E8EFCC /* closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = closures.swift; sourceTree = "<group>"; };
 		49CBE0851C332ADE00E8EFCC /* Double🎀.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double🎀.swift"; sourceTree = "<group>"; };
 		49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableClass.swift; sourceTree = "<group>"; };
 		49CBE0881C332ADE00E8EFCC /* HashableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableClass.swift; sourceTree = "<group>"; };
 		49CBE0891C332ADE00E8EFCC /* integer conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "integer conversion.swift"; sourceTree = "<group>"; };
 		49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int🎁.swift"; sourceTree = "<group>"; };
 		49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiClosure.swift; sourceTree = "<group>"; };
-		49CBE08D1C332ADE00E8EFCC /* nils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nils.swift; sourceTree = "<group>"; };
+		49CBE08D1C332ADE00E8EFCC /* nil closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "nil closures.swift"; sourceTree = "<group>"; };
 		49CBE08F1C332ADE00E8EFCC /* operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = operators.swift; sourceTree = "<group>"; };
 		49CBE0901C332ADE00E8EFCC /* •.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "•.swift"; sourceTree = "<group>"; };
 		49CBE0911C332ADE00E8EFCC /* ….swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "….swift"; sourceTree = "<group>"; };
@@ -173,7 +171,7 @@
 				49B182E51C33807C00529B08 /* Extensions */,
 				49C4343D1C35E11400B6C530 /* Properties */,
 				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
-				49C434731C379F0000B6C530 /* ClosuresTestCase.swift */,
+				49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -323,8 +321,7 @@
 				49B182D01C33807000529B08 /* Extensions */,
 				49CBE08E1C332ADE00E8EFCC /* Operators */,
 				49C434361C35DCCF00B6C530 /* Properties */,
-				49CBE0831C332ADE00E8EFCC /* closures.swift */,
-				49CBE08D1C332ADE00E8EFCC /* nils.swift */,
+				49CBE08D1C332ADE00E8EFCC /* nil closures.swift */,
 				49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */,
 				49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */,
 				49CBE0881C332ADE00E8EFCC /* HashableClass.swift */,
@@ -507,8 +504,7 @@
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* Mutable Properties.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController+.swift in Sources */,
-				49CBE0B41C332ADE00E8EFCC /* closures.swift in Sources */,
-				49CBE0BE1C332ADE00E8EFCC /* nils.swift in Sources */,
+				49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */,
 				49CBE0CE1C332ADE00E8EFCC /* UIControl+.swift in Sources */,
 				49CBE0D41C332ADE00E8EFCC /* UIViewController+.swift in Sources */,
 				49CBE0D01C332ADE00E8EFCC /* UINavigationController+.swift in Sources */,
@@ -544,7 +540,7 @@
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */,
-				49C434741C379F0000B6C530 /* ClosuresTestCase.swift in Sources */,
+				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */,
 			);
