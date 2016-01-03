@@ -1,14 +1,6 @@
 import CoreData
 
-/// Designed to add functionality to classes deriving from *NSManagedObject*
-public protocol CoreDataEntityType {
-	typealias Self🍲
-   func matches(self🍲: Self🍲) -> Bool
-	func Self_init(self🍲: Self🍲)
-}
-
-// Every CoreDataEntityType will be an NSManagedObject.
-extension CoreDataEntityType where Self: NSManagedObject {
+extension Self🍲 where Self: NSManagedObject {
    public static var inContext🔍: [Self] {
       let fetchRequest = NSFetchRequest(entityName: className)
       fetchRequest.entity = NSEntityDescription.entityForName(className,
@@ -37,11 +29,12 @@ extension CoreDataEntityType where Self: NSManagedObject {
 	}
 }
 
-extension SequenceType where
-   Generator.Element: CoreDataEntityType,
-   Generator.Element: NSManagedObject
+public extension SequenceType where
+   Generator.Element: NSManagedObject,
+   Generator.Element: Self🍲
 {
-   public func matching(self🍲: Generator.Element.Self🍲) -> Generator.Element? {
+   ///- Returns: first match (according to `CoreDataEntityType.matches`)
+   func matching(self🍲: Generator.Element.Self🍲) -> Generator.Element? {
       return first🔎{$0.matches(self🍲)}
    }
 }

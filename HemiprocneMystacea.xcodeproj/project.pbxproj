@@ -19,6 +19,7 @@
 		49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182E61C33839900529B08 /* ArrayTestCase.swift */; };
 		49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182E81C338D6900529B08 /* BoolTestCase.swift */; };
 		49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */; };
+		49BF89901C38C8FD0050A49B /* Self🍲.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF898F1C38C8FD0050A49B /* Self🍲.swift */; };
 		49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */; };
 		49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */; };
 		49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434321C34F02700B6C530 /* StringTestCase.swift */; };
@@ -33,8 +34,8 @@
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
-		49CBE0A71C332ADE00E8EFCC /* CoreDataEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0731C332ADE00E8EFCC /* CoreDataEntityType.swift */; };
-		49CBE0A81C332ADE00E8EFCC /* NSManagedObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject+.swift */; };
+		49CBE0A71C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */; };
+		49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */; };
 		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */; };
 		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */; };
 		49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0781C332ADE00E8EFCC /* Dispatch.swift */; };
@@ -93,6 +94,7 @@
 		49B182E61C33839900529B08 /* ArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTestCase.swift; sourceTree = "<group>"; };
 		49B182E81C338D6900529B08 /* BoolTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTestCase.swift; sourceTree = "<group>"; };
 		49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiClosureTestCase.swift; path = Swift/MultiClosureTestCase.swift; sourceTree = "<group>"; };
+		49BF898F1C38C8FD0050A49B /* Self🍲.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Self🍲.swift"; sourceTree = "<group>"; };
 		49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebraTypeTestCase.swift; sourceTree = "<group>"; };
 		49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTypeTestCase.swift; sourceTree = "<group>"; };
 		49C434321C34F02700B6C530 /* StringTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTestCase.swift; sourceTree = "<group>"; };
@@ -110,8 +112,8 @@
 		49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemiprocneMystaceaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBE0021C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CBE0711C332ADE00E8EFCC /* CNContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNContainer.swift; sourceTree = "<group>"; };
-		49CBE0731C332ADE00E8EFCC /* CoreDataEntityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataEntityType.swift; sourceTree = "<group>"; };
-		49CBE0741C332ADE00E8EFCC /* NSManagedObject+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+.swift"; sourceTree = "<group>"; };
+		49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Self🍲.swift"; sourceTree = "<group>"; };
+		49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
 		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+.swift"; sourceTree = "<group>"; };
 		49CBE0781C332ADE00E8EFCC /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
@@ -289,8 +291,8 @@
 		49CBE0721C332ADE00E8EFCC /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				49CBE0731C332ADE00E8EFCC /* CoreDataEntityType.swift */,
-				49CBE0741C332ADE00E8EFCC /* NSManagedObject+.swift */,
+				49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */,
+				49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */,
 				49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */,
 				49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */,
 			);
@@ -330,6 +332,7 @@
 				49CBE0881C332ADE00E8EFCC /* HashableClass.swift */,
 				49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */,
 				49CBE0941C332ADE00E8EFCC /* Referencers.swift */,
+				49BF898F1C38C8FD0050A49B /* Self🍲.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -486,7 +489,7 @@
 				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				49CBE0D21C332ADE00E8EFCC /* UITableView+.swift in Sources */,
-				49CBE0A81C332ADE00E8EFCC /* NSManagedObject+.swift in Sources */,
+				49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext+.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
@@ -501,6 +504,7 @@
 				49CBE0CA1C332ADE00E8EFCC /* Keyboard.swift in Sources */,
 				49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */,
 				49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */,
+				49BF89901C38C8FD0050A49B /* Self🍲.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49B182E11C33807000529B08 /* SequenceType.swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel+.swift in Sources */,
@@ -525,7 +529,7 @@
 				49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */,
 				49CBE0D31C332ADE00E8EFCC /* UITextField+.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
-				49CBE0A71C332ADE00E8EFCC /* CoreDataEntityType.swift in Sources */,
+				49CBE0A71C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
