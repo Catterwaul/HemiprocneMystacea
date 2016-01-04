@@ -9,9 +9,9 @@
 ///
 ///- Experiment:
 /// - 🔗: Stuff that's "linked" together in a tuple
-func == <Any, Property: Equatable>(
-   left: Any,
-   right🔗property: (right: Any, Any -> Property)
+public func == <Type, Property: Equatable>(
+   left: Type,
+   right🔗property: (right: Type, Type -> Property)
 ) -> Bool {
    let right = right🔗property.right,
       property = right🔗property.1
@@ -29,19 +29,19 @@ func == <Any, Property: Equatable>(
 ///
 ///- Experiment:
 /// - 🔗: Stuff that's "linked" together in a tuple
-func == <Any,
+public func == <Type,
    Property1: Equatable,
    Property2: Equatable
 >(
-   left: Any,
-   right🔗properties: (right: Any,
-      Any -> Property1,
-      Any -> Property2
+   left: Type,
+   right🔗properties: (right: Type,
+      Type -> Property1,
+      Type -> Property2
    )
 ) -> Bool {
    let right = right🔗properties.right,
       properties = right🔗properties
-   return left•properties.1 == right•properties.1
+   return left == (right, properties.1)
       && left•properties.2 == right•properties.2
 }
 
@@ -56,23 +56,23 @@ func == <Any,
 ///
 ///- Experiment:
 /// - 🔗: Stuff that's "linked" together in a tuple
-func == <Any,
+public func == <Type,
    Property1: Equatable,
    Property2: Equatable,
    Property3: Equatable
 >(
-   left: Any,
-   right🔗properties: (right: Any,
-      Any -> Property1,
-      Any -> Property2,
-      Any -> Property3
+   left: Type,
+   right🔗properties: (right: Type,
+      Type -> Property1,
+      Type -> Property2,
+      Type -> Property3
    )
 ) -> Bool {
    let right = right🔗properties.right,
       properties = right🔗properties
-   return left•properties.1 == right•properties.1
-      && left•properties.2 == right•properties.2
-      && left•properties.3 == right•properties.3
+   return left == (right,
+      properties.1, properties.2
+   ) && left•properties.3 == right•properties.3
 }
 
 /// Used to implement Equatable using 4 properties
@@ -86,26 +86,25 @@ func == <Any,
 ///
 ///- Experiment:
 /// - 🔗: Stuff that's "linked" together in a tuple
-func == <Any,
+public func == <Type,
    Property1: Equatable,
    Property2: Equatable,
    Property3: Equatable,
    Property4: Equatable
 >(
-   left: Any,
-   right🔗properties: (right: Any,
-      Any -> Property1,
-      Any -> Property2,
-      Any -> Property3,
-      Any -> Property4
+   left: Type,
+   right🔗properties: (right: Type,
+      Type -> Property1,
+      Type -> Property2,
+      Type -> Property3,
+      Type -> Property4
    )
 ) -> Bool {
    let right = right🔗properties.right,
       properties = right🔗properties
-   return left•properties.1 == right•properties.1
-      && left•properties.2 == right•properties.2
-      && left•properties.3 == right•properties.3
-      && left•properties.4 == right•properties.4
+   return left == (right,
+      properties.1, properties.2, properties.3
+   ) && left•properties.4 == right•properties.4
 }
 
 /// Used to implement Equatable using 5 properties
@@ -119,27 +118,25 @@ func == <Any,
 ///
 ///- Experiment:
 /// - 🔗: Stuff that's "linked" together in a tuple
-func == <Any,
+public func == <Type,
    Property1: Equatable,
    Property2: Equatable,
    Property3: Equatable,
    Property4: Equatable,
    Property5: Equatable
 >(
-   left: Any,
-   right🔗properties: (right: Any,
-      Any -> Property1,
-      Any -> Property2,
-      Any -> Property3,
-      Any -> Property4,
-      Any -> Property5
+   left: Type,
+   right🔗properties: (right: Type,
+      Type -> Property1,
+      Type -> Property2,
+      Type -> Property3,
+      Type -> Property4,
+      Type -> Property5
    )
 ) -> Bool {
    let right = right🔗properties.right,
       properties = right🔗properties
-   return left•properties.1 == right•properties.1
-      && left•properties.2 == right•properties.2
-      && left•properties.3 == right•properties.3
-      && left•properties.4 == right•properties.4
-      && left•properties.5 == right•properties.5
+   return left == (right,
+      properties.1, properties.2, properties.3, properties.4
+   ) && left•properties.5 == right•properties.5
 }
