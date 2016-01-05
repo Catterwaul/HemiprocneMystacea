@@ -35,7 +35,7 @@ extension NSManagedObjectContext {
       guard let parentContext = parentContext else {fatalError()}
       parentContext.performBlock{
          do {try parentContext.save()}
-         catch let error as NSError {fatalError(error.description)}
+         catch let error as NSError {print(error.description)}
       }
    }
 }

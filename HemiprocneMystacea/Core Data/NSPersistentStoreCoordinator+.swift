@@ -26,6 +26,7 @@ extension NSPersistentStoreCoordinator {
       }
    }
    
+   ///- Precondition: managedObjectModelName has been assigned
    @nonobjc private(set) static var forManagedObjectModel: NSPersistentStoreCoordinator!
 
    private convenience init(managedObjectModelName: String) {
