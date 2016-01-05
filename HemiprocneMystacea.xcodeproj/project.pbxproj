@@ -37,8 +37,8 @@
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
 		49CBE0A71C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */; };
 		49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */; };
-		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */; };
-		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */; };
+		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */; };
+		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */; };
 		49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0781C332ADE00E8EFCC /* Dispatch.swift */; };
 		49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter+.swift */; };
@@ -116,8 +116,8 @@
 		49CBE0711C332ADE00E8EFCC /* CNContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNContainer.swift; sourceTree = "<group>"; };
 		49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Self🍲.swift"; sourceTree = "<group>"; };
 		49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
-		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+.swift"; sourceTree = "<group>"; };
-		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPersistentStoreCoordinator+.swift"; sourceTree = "<group>"; };
+		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
+		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPersistentStoreCoordinator.swift; sourceTree = "<group>"; };
 		49CBE0781C332ADE00E8EFCC /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSByteCountFormatter+.swift"; sourceTree = "<group>"; };
@@ -296,8 +296,8 @@
 			children = (
 				49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */,
 				49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */,
-				49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext+.swift */,
-				49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift */,
+				49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */,
+				49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -489,12 +489,12 @@
 			files = (
 				49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
-				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator+.swift in Sources */,
+				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				49CBE0D21C332ADE00E8EFCC /* UITableView+.swift in Sources */,
 				49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
-				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext+.swift in Sources */,
+				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
 				49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter+.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
