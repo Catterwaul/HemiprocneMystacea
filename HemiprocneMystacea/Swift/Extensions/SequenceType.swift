@@ -1,11 +1,11 @@
 extension SequenceType {
-	public func first🔎(@noescape predicate: Generator.Element -> Bool) -> Generator.Element? {
-		return self.lazy.filter(predicate).first
-	}
+   public func first🔎(@noescape predicate: Generator.Element -> Bool)
+   -> Generator.Element? {return self.lazy.filter(predicate).first}
    
    @warn_unused_result
-   public func sorted<Comparable: Swift.Comparable>(@noescape by comparable: Generator.Element -> Comparable)
-   -> [Generator.Element] {
+   public func sorted<Comparable: Swift.Comparable>(
+      @noescape by comparable: Generator.Element -> Comparable
+   ) -> [Generator.Element] {
       return self.sort{$0•comparable < $1•comparable}
    }
 }
