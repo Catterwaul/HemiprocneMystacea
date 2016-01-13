@@ -1,6 +1,6 @@
 extension Dictionary {
 //MARK:- Initializers
-   // Splats init(dictionaryLiteral elements: (Key, Value)...)
+   /// Splats init(dictionaryLiteral elements: (Key, Value)...)
    public init<KeyValueSequence: SequenceType
       where KeyValueSequence.Generator.Element == Element
    >(_ elements: KeyValueSequence) {

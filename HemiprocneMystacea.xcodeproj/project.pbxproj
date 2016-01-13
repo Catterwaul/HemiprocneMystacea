@@ -60,15 +60,15 @@
 		49CBE0CA1C332ADE00E8EFCC /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */; };
 		49CBE0CB1C332ADE00E8EFCC /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */; };
 		49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09D1C332ADE00E8EFCC /* UIButton.swift */; };
-		49CBE0CD1C332ADE00E8EFCC /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09E1C332ADE00E8EFCC /* UICollectionView+.swift */; };
+		49CBE0CD1C332ADE00E8EFCC /* dequeuedReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */; };
 		49CBE0CE1C332ADE00E8EFCC /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09F1C332ADE00E8EFCC /* UIControl+.swift */; };
 		49CBE0CF1C332ADE00E8EFCC /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A01C332ADE00E8EFCC /* UILabel+.swift */; };
 		49CBE0D01C332ADE00E8EFCC /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A11C332ADE00E8EFCC /* UINavigationController+.swift */; };
 		49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */; };
-		49CBE0D21C332ADE00E8EFCC /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A31C332ADE00E8EFCC /* UITableView+.swift */; };
 		49CBE0D31C332ADE00E8EFCC /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */; };
 		49CBE0D41C332ADE00E8EFCC /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */; };
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
+		49E4AD171C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD161C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
 		49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0731C34D06E005338F6 /* SetTestCase.swift */; };
 /* End PBXBuildFile section */
@@ -140,15 +140,15 @@
 		49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		49CBE09D1C332ADE00E8EFCC /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		49CBE09E1C332ADE00E8EFCC /* UICollectionView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dequeuedReusableCell.swift; sourceTree = "<group>"; };
 		49CBE09F1C332ADE00E8EFCC /* UIControl+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
 		49CBE0A01C332ADE00E8EFCC /* UILabel+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		49CBE0A11C332ADE00E8EFCC /* UINavigationController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPageViewControllerDataSourceWithConnections.swift; sourceTree = "<group>"; };
-		49CBE0A31C332ADE00E8EFCC /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
+		49E4AD161C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = dequeuedReusableCellTestCase.swift; path = UIKit/dequeuedReusableCellTestCase.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
 		49FCF0731C34D06E005338F6 /* SetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -356,15 +356,14 @@
 		49CBE09A1C332ADE00E8EFCC /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */,
 				49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */,
 				49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
-				49CBE09E1C332ADE00E8EFCC /* UICollectionView+.swift */,
 				49CBE09F1C332ADE00E8EFCC /* UIControl+.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel+.swift */,
 				49CBE0A11C332ADE00E8EFCC /* UINavigationController+.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
-				49CBE0A31C332ADE00E8EFCC /* UITableView+.swift */,
 				49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */,
 				49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */,
 			);
@@ -385,6 +384,7 @@
 		49E4AD131C45ABDC007BCBA5 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				49E4AD161C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift */,
 				49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */,
 			);
 			name = UIKit;
@@ -502,7 +502,6 @@
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
 				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
-				49CBE0D21C332ADE00E8EFCC /* UITableView+.swift in Sources */,
 				49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */,
@@ -539,7 +538,7 @@
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
 				49B182E31C33807000529B08 /* SetAlgebraType.swift in Sources */,
-				49CBE0CD1C332ADE00E8EFCC /* UICollectionView+.swift in Sources */,
+				49CBE0CD1C332ADE00E8EFCC /* dequeuedReusableCell.swift in Sources */,
 				49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */,
 				49CBE0D31C332ADE00E8EFCC /* UITextField+.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
@@ -566,6 +565,7 @@
 				49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */,
 				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
+				49E4AD171C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
