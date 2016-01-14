@@ -65,12 +65,12 @@
 		49CBE0CB1C332ADE00E8EFCC /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */; };
 		49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09D1C332ADE00E8EFCC /* UIButton.swift */; };
 		49CBE0CD1C332ADE00E8EFCC /* dequeuedReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */; };
-		49CBE0CE1C332ADE00E8EFCC /* UIControl+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09F1C332ADE00E8EFCC /* UIControl+.swift */; };
-		49CBE0CF1C332ADE00E8EFCC /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A01C332ADE00E8EFCC /* UILabel+.swift */; };
-		49CBE0D01C332ADE00E8EFCC /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A11C332ADE00E8EFCC /* UINavigationController+.swift */; };
+		49CBE0CE1C332ADE00E8EFCC /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09F1C332ADE00E8EFCC /* UIControl.swift */; };
+		49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A01C332ADE00E8EFCC /* UILabel.swift */; };
+		49CBE0D01C332ADE00E8EFCC /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A11C332ADE00E8EFCC /* UINavigationController.swift */; };
 		49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */; };
-		49CBE0D31C332ADE00E8EFCC /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */; };
-		49CBE0D41C332ADE00E8EFCC /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */; };
+		49CBE0D31C332ADE00E8EFCC /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A41C332ADE00E8EFCC /* UITextField.swift */; };
+		49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */; };
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
 		49E4AD171C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD161C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
@@ -149,12 +149,12 @@
 		49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		49CBE09D1C332ADE00E8EFCC /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dequeuedReusableCell.swift; sourceTree = "<group>"; };
-		49CBE09F1C332ADE00E8EFCC /* UIControl+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+.swift"; sourceTree = "<group>"; };
-		49CBE0A01C332ADE00E8EFCC /* UILabel+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
-		49CBE0A11C332ADE00E8EFCC /* UINavigationController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		49CBE09F1C332ADE00E8EFCC /* UIControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
+		49CBE0A01C332ADE00E8EFCC /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		49CBE0A11C332ADE00E8EFCC /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPageViewControllerDataSourceWithConnections.swift; sourceTree = "<group>"; };
-		49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
-		49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		49CBE0A41C332ADE00E8EFCC /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49E4AD161C46D5B3007BCBA5 /* dequeuedReusableCellTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = dequeuedReusableCellTestCase.swift; path = UIKit/dequeuedReusableCellTestCase.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
@@ -380,12 +380,12 @@
 				49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */,
 				49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
-				49CBE09F1C332ADE00E8EFCC /* UIControl+.swift */,
-				49CBE0A01C332ADE00E8EFCC /* UILabel+.swift */,
-				49CBE0A11C332ADE00E8EFCC /* UINavigationController+.swift */,
+				49CBE09F1C332ADE00E8EFCC /* UIControl.swift */,
+				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
+				49CBE0A11C332ADE00E8EFCC /* UINavigationController.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
-				49CBE0A41C332ADE00E8EFCC /* UITextField+.swift */,
-				49CBE0A51C332ADE00E8EFCC /* UIViewController+.swift */,
+				49CBE0A41C332ADE00E8EFCC /* UITextField.swift */,
+				49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -540,14 +540,14 @@
 				49BF89901C38C8FD0050A49B /* Self🍲.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49B182E11C33807000529B08 /* SequenceType.swift in Sources */,
-				49CBE0CF1C332ADE00E8EFCC /* UILabel+.swift in Sources */,
+				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* Mutable Properties.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController+.swift in Sources */,
 				49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */,
-				49CBE0CE1C332ADE00E8EFCC /* UIControl+.swift in Sources */,
-				49CBE0D41C332ADE00E8EFCC /* UIViewController+.swift in Sources */,
-				49CBE0D01C332ADE00E8EFCC /* UINavigationController+.swift in Sources */,
+				49CBE0CE1C332ADE00E8EFCC /* UIControl.swift in Sources */,
+				49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */,
+				49CBE0D01C332ADE00E8EFCC /* UINavigationController.swift in Sources */,
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
 				49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */,
@@ -559,7 +559,7 @@
 				49B182E31C33807000529B08 /* SetAlgebraType.swift in Sources */,
 				49CBE0CD1C332ADE00E8EFCC /* dequeuedReusableCell.swift in Sources */,
 				49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */,
-				49CBE0D31C332ADE00E8EFCC /* UITextField+.swift in Sources */,
+				49CBE0D31C332ADE00E8EFCC /* UITextField.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
 				49CBE0A71C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,

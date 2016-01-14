@@ -1,13 +1,13 @@
 public extension UIViewController {
-   func dismissViewController(animated: Bool = true) {
+   final func dismissViewController(animated: Bool = true) {
       dismissViewControllerAnimated(animated, completion: nil)
    }
 
-   func performSegue(identifier identifier: String) {
+   final func performSegue(identifier identifier: String) {
       performSegueWithIdentifier(identifier, sender: self)
    }
 
-	func presentAlert(
+	final func presentAlert(
 		title title: String?,
 		message: String? = nil,
       style: UIAlertControllerStyle = .Alert,
@@ -27,7 +27,7 @@ public extension UIViewController {
 		presentViewController(alert, animated: true, completion: nil)
 	}
 	
-	func present(
+	final func present(
 		viewController viewController: UIViewController,
 		animated: Bool = true,
 		🔜: (() -> ())? = nil

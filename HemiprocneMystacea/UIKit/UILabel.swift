@@ -1,5 +1,5 @@
 public extension UILabel {
-	public func hyphenateText() {
+   final func hyphenateText() {
       guard let text = text else {return}
       
 		let paragraphStyle = NSMutableParagraphStyle()

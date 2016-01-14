@@ -19,7 +19,7 @@ public extension dequeuedReusableCell where Self: UICollectionView {
    ///
    ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
    ///  for a cell that this Collection View uses
-   func dequeuedReusableCell<Cell: UICollectionViewCell>(forPath indexPath: NSIndexPath) -> Cell {
+   final func dequeuedReusableCell<Cell: UICollectionViewCell>(forPath indexPath: NSIndexPath) -> Cell {
       return 😾dequeuedReusableCell(forPath: indexPath)
    }
 }
@@ -30,13 +30,13 @@ public extension dequeuedReusableCell where Self: UITableView {
    ///
    ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
    ///  for a cell that this Table View uses
-   func dequeuedReusableCell<Cell: UITableViewCell>(forPath indexPath: NSIndexPath) -> Cell {
+   final func dequeuedReusableCell<Cell: UITableViewCell>(forPath indexPath: NSIndexPath) -> Cell {
       return 😾dequeuedReusableCell(forPath: indexPath)
    }
 }
 
 private extension dequeuedReusableCell {
-   func 😾dequeuedReusableCell<Cell: UIView>(forPath indexPath: NSIndexPath) -> Cell {
+   final func 😾dequeuedReusableCell<Cell: UIView>(forPath indexPath: NSIndexPath) -> Cell {
       return dequeueReusableCellWithReuseIdentifier(Cell.className,
          forIndexPath: indexPath
       ) as! Cell
@@ -46,7 +46,7 @@ private extension dequeuedReusableCell {
 //MARK:- Conformance
 extension UICollectionView: dequeuedReusableCell {}
 extension UITableView: dequeuedReusableCell {
-   public func dequeueReusableCellWithReuseIdentifier(
+   public final func dequeueReusableCellWithReuseIdentifier(
       identifier: String,
       forIndexPath indexPath: NSIndexPath
    ) -> UITableViewCell {
