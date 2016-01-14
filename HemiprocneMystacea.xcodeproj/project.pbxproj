@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4905A4D61C47F58F0001402A /* IntegerConversionTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */; };
+		4905A4D91C47F9BF0001402A /* Double🎀TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */; };
+		4905A4DB1C47FA470001402A /* Int🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */; };
+		4905A4DD1C47FC440001402A /* String🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DC1C47FC440001402A /* String🎁TestCase.swift */; };
 		494D27651C470BCF00401F27 /* NSByteCountFormatterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		49B182DB1C33807000529B08 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D11C33807000529B08 /* Array.swift */; };
@@ -43,7 +47,6 @@
 		49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0781C332ADE00E8EFCC /* Dispatch.swift */; };
 		49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter.swift */; };
-		49CBE0AF1C332ADE00E8EFCC /* NSURLCredential+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */; };
 		49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */; };
 		49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */; };
 		49CBE0B61C332ADE00E8EFCC /* Double🎀.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0851C332ADE00E8EFCC /* Double🎀.swift */; };
@@ -85,6 +88,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegerConversionTestCase.swift; path = Swift/Conversions/IntegerConversionTestCase.swift; sourceTree = "<group>"; };
+		4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double🎀TestCase.swift"; path = "Swift/Conversions/Double🎀TestCase.swift"; sourceTree = "<group>"; };
+		4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int🎁TestCase.swift"; path = "Swift/Conversions/Int🎁TestCase.swift"; sourceTree = "<group>"; };
+		4905A4DC1C47FC440001402A /* String🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String🎁TestCase.swift"; path = "Swift/Conversions/String🎁TestCase.swift"; sourceTree = "<group>"; };
 		494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSByteCountFormatterTestCase.swift; path = Foundation/NSByteCountFormatterTestCase.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		49B182D11C33807000529B08 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -124,7 +131,6 @@
 		49CBE0781C332ADE00E8EFCC /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSByteCountFormatter.swift; sourceTree = "<group>"; };
-		49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLCredential+.swift"; sourceTree = "<group>"; };
 		49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Setting.swift"; sourceTree = "<group>"; };
 		49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitShiftable.swift; sourceTree = "<group>"; };
 		49CBE0851C332ADE00E8EFCC /* Double🎀.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double🎀.swift"; sourceTree = "<group>"; };
@@ -174,11 +180,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4905A4D71C47F5AD0001402A /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */,
+				4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */,
+				4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */,
+				4905A4DC1C47FC440001402A /* String🎁TestCase.swift */,
+			);
+			name = Conversions;
+			sourceTree = "<group>";
+		};
 		49B182CF1C337D6800529B08 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				49C434341C34F33000B6C530 /* OperatorsTestCase.swift */,
+				4905A4D71C47F5AD0001402A /* Conversions */,
 				49B182E51C33807C00529B08 /* Extensions */,
+				49C434341C34F33000B6C530 /* OperatorsTestCase.swift */,
 				49C4343D1C35E11400B6C530 /* Properties */,
 				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
 				49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */,
@@ -322,7 +340,6 @@
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
 				49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter.swift */,
 				49C4346D1C37600E00B6C530 /* NSObject.swift */,
-				49CBE07D1C332ADE00E8EFCC /* NSURLCredential+.swift */,
 				49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */,
 			);
 			path = Foundation;
@@ -536,7 +553,6 @@
 				49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */,
 				49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
-				49CBE0AF1C332ADE00E8EFCC /* NSURLCredential+.swift in Sources */,
 				49CBE0BC1C332ADE00E8EFCC /* Int🎁.swift in Sources */,
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
@@ -560,10 +576,14 @@
 				49C4346B1C375BAC00B6C530 /* NSObjectTestCase.swift in Sources */,
 				49C4343C1C35E10900B6C530 /* MutablePropertiesTestCase.swift in Sources */,
 				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
+				4905A4DB1C47FA470001402A /* Int🎁TestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
+				4905A4D91C47F9BF0001402A /* Double🎀TestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
+				4905A4D61C47F58F0001402A /* IntegerConversionTestCase.swift in Sources */,
+				4905A4DD1C47FC440001402A /* String🎁TestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				494D27651C470BCF00401F27 /* NSByteCountFormatterTestCase.swift in Sources */,
 				49C434351C34F33000B6C530 /* OperatorsTestCase.swift in Sources */,

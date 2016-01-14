@@ -7,17 +7,17 @@ extension Int64: Int🎀 {
 
 
 public protocol Int64🎀 {
-	var Int64: Swift.Int64 {get}
-}
-extension Int: Int64🎀 {
-	public var Int64: Swift.Int64 {return Swift.Int64(self)}
+   var Int64: Swift.Int64 {get}
 }
 extension Int64: Int64🎀 {
-	public var Int64: Swift.Int64 {return Swift.Int64(self)}
+   public var Int64: Swift.Int64 {return self}
+}
+extension Int: Int64🎀 {
+   public var Int64: Swift.Int64 {return Swift.Int64(self)}
 }
 extension UInt: Int64🎀 {
-	public var Int64: Swift.Int64 {return Swift.Int64(self)}
+   public var Int64: Swift.Int64 {return Swift.Int64(self)}
 }
 extension UInt64: Int64🎀 {
-	public var Int64: Swift.Int64 {return Swift.Int64(self)}
+   public var Int64: Swift.Int64 {return Swift.Int64(self)}
 }
