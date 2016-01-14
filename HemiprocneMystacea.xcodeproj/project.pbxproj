@@ -12,6 +12,7 @@
 		4905A4DB1C47FA470001402A /* Int🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */; };
 		4905A4DD1C47FC440001402A /* String🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DC1C47FC440001402A /* String🎁TestCase.swift */; };
 		494D27651C470BCF00401F27 /* NSByteCountFormatterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */; };
+		495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		49B182DB1C33807000529B08 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D11C33807000529B08 /* Array.swift */; };
 		49B182DC1C33807000529B08 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D21C33807000529B08 /* Bool.swift */; };
@@ -93,6 +94,7 @@
 		4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int🎁TestCase.swift"; path = "Swift/Conversions/Int🎁TestCase.swift"; sourceTree = "<group>"; };
 		4905A4DC1C47FC440001402A /* String🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String🎁TestCase.swift"; path = "Swift/Conversions/String🎁TestCase.swift"; sourceTree = "<group>"; };
 		494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSByteCountFormatterTestCase.swift; path = Foundation/NSByteCountFormatterTestCase.swift; sourceTree = "<group>"; };
+		495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenter.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		49B182D11C33807000529B08 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		49B182D21C33807000529B08 /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			children = (
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
 				49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter.swift */,
+				495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */,
 				49C4346D1C37600E00B6C530 /* NSObject.swift */,
 				49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */,
 			);
@@ -550,6 +553,7 @@
 				49CBE0D01C332ADE00E8EFCC /* UINavigationController.swift in Sources */,
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
+				495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */,
 				49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */,
 				49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
