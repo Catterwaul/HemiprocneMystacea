@@ -73,25 +73,26 @@ extension SequenceType {
 //	}
 //}
 
-///- Returns: the combination of `dictionary` with a key-value pair `sequence`
-public func + <Key, Value, Sequence: SequenceType
-   where Sequence.Generator.Element == (Key, Value)
->(var dictionary: Dictionary<Key, Value>, sequence: Sequence) -> Dictionary<Key, Value> {
-   for (key, value) in sequence {dictionary[key] = value}
+///- Returns: the combination of `dictionary` with a key-value pair sequence
+public func + <Key, Value, Keys🔗Values: SequenceType where Keys🔗Values.Generator.Element == (Key, Value)>
+(var dictionary: Dictionary<Key, Value>, keys🔗values: Keys🔗Values) -> Dictionary<Key, Value> {
+   for (key, value) in keys🔗values {dictionary[key] = value}
 	return dictionary
 }
-/// Combine `dictionary` with a key-value pair `sequence`
-public func += <Key, Value, Sequence: SequenceType
-   where Sequence.Generator.Element == (Key, Value)
->(inout dictionary: Dictionary<Key, Value>, sequence: Sequence) {
-   dictionary = dictionary + sequence
+/// Combine `dictionary` with a key-value pair sequence
+public func += <Key, Value, Keys🔗Values: SequenceType where Keys🔗Values.Generator.Element == (Key, Value)>
+(inout dictionary: Dictionary<Key, Value>, keys🔗values: Keys🔗Values) {
+   dictionary = dictionary + keys🔗values
 }
 
-func - <Key, Value>(var left: Dictionary<Key, Value>, right: Dictionary<Key, Value>)
--> Dictionary<Key, Value> {
-	for key in right.keys {left[key] = nil}
-	return left
+///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
+public func - <Key, Value, KeysToSetNil: SequenceType where KeysToSetNil.Generator.Element == Key>
+(var dictionary: Dictionary<Key, Value>, keysToSetNil: KeysToSetNil) -> Dictionary<Key, Value> {
+   for key in keysToSetNil {dictionary[key] = nil}
+	return dictionary
 }
-func -= <Key, Value>(inout left: Dictionary<Key, Value>, right: Dictionary<Key, Value>) {
-	left = left - right
+/// For `dictionary`, assign nil for every key in `keysToSetNil`
+public func -= <Key, Value, KeysToSetNil: SequenceType where KeysToSetNil.Generator.Element == Key>
+(inout dictionary: Dictionary<Key, Value>, keysToSetNil: KeysToSetNil) {
+   dictionary = dictionary - keysToSetNil
 }

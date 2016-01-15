@@ -18,4 +18,18 @@ final class DictionaryTestCase: XCTestCase {
          [1: 10, 2: 20, 3: 30, 4: 40]
       )
    }
+   
+   func testMinus() {
+      let dictionary = [1: 10, 2: 20, 3: 30]
+      XCTAssertEqual(
+         dictionary - [1, 3],
+         [2: 20]
+      )
+   }
+   
+   func testMinusEquals() {
+      var dictionary = [1: 10, 2: 20, 3: 30]
+      dictionary -= [2: "🏩", 1: "🤘🏽"].keys
+      XCTAssertEqual(dictionary, [3: 30])
+   }
 }
