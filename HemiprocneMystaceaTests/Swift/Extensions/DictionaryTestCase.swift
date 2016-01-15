@@ -2,6 +2,29 @@ import HemiprocneMystacea
 import XCTest
 
 final class DictionaryTestCase: XCTestCase {
+//MARK:- Subscripts
+   func testOptionalKeySubscript() {
+      let dictionary = ["key": "value"]
+      let key: String? = "key"
+      let none: String? = nil
+      XCTAssertEqual(dictionary[key], "value")
+      XCTAssertEqual(dictionary[none], nil)
+   }
+   
+   func testValueAddedIfNilSubscript() {
+      var dictionary = ["key": "value"]
+      let valyoo = "valyoo"
+      XCTAssertEqual(
+         dictionary["kee", valueAddedIfNil: valyoo],
+         valyoo
+      )
+      XCTAssertEqual(
+         dictionary,
+         ["key": "value", "kee": "valyoo"]
+      )
+   }
+
+//MARK:- Operators
    func testPlus() {
       let dictionary = [1: 10, 2: 20]
       XCTAssertEqual(

@@ -1,26 +1,27 @@
-extension Dictionary {
+public extension Dictionary {
 //MARK:- Initializers
    /// Splats init(dictionaryLiteral elements: (Key, Value)...)
-   public init<KeyValueSequence: SequenceType
+   init<KeyValueSequence: SequenceType
       where KeyValueSequence.Generator.Element == Element
    >(_ elements: KeyValueSequence) {
       self.init()
       for element in elements {self[element.0] = element.1}
    }
    
-   public init<Sequence: SequenceType>(
+   init<Sequence: SequenceType>(
       _ sequence: Sequence,
       _ key🔗value: Sequence.Generator.Element -> (Key, Value)
    ) {
       self.init(sequence.map{$0•key🔗value})
    }
    
-   public init<Any>(
+   init<Any>(
       _ instances: Any...,
       _ key🔗value: Any -> (Key, Value)
    ) {self.init(instances, key🔗value)}
    
 //MARK:- Subscripts
+   ///- Returns: nil if `key` is nil
    subscript(key: Key?) -> Value? {
       guard let key = key else {return nil}
       return self[key]
@@ -37,7 +38,6 @@ extension Dictionary {
 			}()
 		}
 	}
-
 }
 extension SequenceType {
    public func Dictionary<Key, Value>(
