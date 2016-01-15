@@ -2,8 +2,8 @@ import CoreData
 
 extension Self🍲 where Self: NSManagedObject {
    public static var inContext🔍: [Self] {
-      let fetchRequest = NSFetchRequest(entityName: className)
-      fetchRequest.entity = NSEntityDescription.entityForName(className,
+      let fetchRequest = NSFetchRequest(entityName: String(Self))
+      fetchRequest.entity = NSEntityDescription.entityForName(String(Self),
          inManagedObjectContext: NSManagedObjectContext.forMainQueue
       )!
       return
@@ -14,7 +14,7 @@ extension Self🍲 where Self: NSManagedObject {
    
    public init(_ self🍲: Self🍲) {
       self.init(
-         entity: NSEntityDescription.entityForName(Self.className,
+         entity: NSEntityDescription.entityForName(String(Self),
             inManagedObjectContext: NSManagedObjectContext.forMainQueue
          )!,
          insertIntoManagedObjectContext: NSManagedObjectContext.forMainQueue

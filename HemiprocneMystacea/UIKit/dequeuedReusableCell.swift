@@ -37,7 +37,7 @@ public extension dequeuedReusableCell where Self: UITableView {
 
 private extension dequeuedReusableCell {
    final func 😾dequeuedReusableCell<Cell: UIView>(forPath indexPath: NSIndexPath) -> Cell {
-      return dequeueReusableCellWithReuseIdentifier(Cell.className,
+      return dequeueReusableCellWithReuseIdentifier(String(Cell),
          forIndexPath: indexPath
       ) as! Cell
    }
