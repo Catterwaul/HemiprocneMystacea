@@ -73,14 +73,15 @@ extension SequenceType {
 //	}
 //}
 
-
-func + <Key, Value, Sequence: SequenceType
+///- Returns: the combination of `dictionary` with a key-value pair `sequence`
+public func + <Key, Value, Sequence: SequenceType
    where Sequence.Generator.Element == (Key, Value)
 >(var dictionary: Dictionary<Key, Value>, sequence: Sequence) -> Dictionary<Key, Value> {
    for (key, value) in sequence {dictionary[key] = value}
 	return dictionary
 }
-func += <Key, Value, Sequence: SequenceType
+/// Combine `dictionary` with a key-value pair `sequence`
+public func += <Key, Value, Sequence: SequenceType
    where Sequence.Generator.Element == (Key, Value)
 >(inout dictionary: Dictionary<Key, Value>, sequence: Sequence) {
    dictionary = dictionary + sequence
