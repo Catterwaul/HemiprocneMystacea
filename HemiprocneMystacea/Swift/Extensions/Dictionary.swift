@@ -48,32 +48,7 @@ public extension SequenceType {
    }
 }
 
-//extension Dictionary where Value: _ArrayType {
-//	init(_ values: Value, key_get key: Value.Generator.Element -> Key) {
-//		self.init()
-//		self = values.reduce(self) {(var `self`, value) in
-//			let key = value•key
-//			let valuesForKey = `self`[key] ?? Value()
-//			`self`[key] = valuesForKey + [value]
-//			return `self`
-//		}
-//	}
-//	
-//	func 🔒<Key, Value>(🔐: Element -> (Key, Value)) -> [Key: Value] {
-//		return self.reduce([Key: Value]()) {(var `self`, keyValuePair) in
-//			let keyValuePair = 🔐(keyValuePair)
-//			`self`[keyValuePair.0] = keyValuePair.1
-//			return `self`
-//		}
-//	}
-//}
-
-//extension _ArrayType {
-//	func 🔐<Key>(key: Generator.Element -> Key) -> [Key: Self] {
-//		return [Key: Self](self, key_get: key)
-//	}
-//}
-
+//MARK:- Operators
 ///- Returns: the combination of `dictionary` with a key-value pair sequence
 public func + <Key, Value, Keys🔗Values: SequenceType where Keys🔗Values.Generator.Element == (Key, Value)>
 (var dictionary: Dictionary<Key, Value>, keys🔗values: Keys🔗Values) -> Dictionary<Key, Value> {
