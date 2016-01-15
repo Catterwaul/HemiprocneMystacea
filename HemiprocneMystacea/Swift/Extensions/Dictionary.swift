@@ -14,10 +14,9 @@ public extension Dictionary {
    ) {
       self.init(sequence.map{$0•key🔗value})
    }
-   
-   init<Any>(
-      _ instances: Any...,
-      _ key🔗value: Any -> (Key, Value)
+   init<Element>(
+      _ instances: Element...,
+      _ key🔗value: Element -> (Key, Value)
    ) {self.init(instances, key🔗value)}
    
 //MARK:- Subscripts

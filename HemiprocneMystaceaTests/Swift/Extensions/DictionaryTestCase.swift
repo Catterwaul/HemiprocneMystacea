@@ -17,6 +17,13 @@ final class DictionaryTestCase: XCTestCase {
          [1: "1", 2: "2", 3: "3"]
       )
    }
+   func testInitializeFromSequence_Splatted() {
+      XCTAssertEqual(
+         Dictionary(1, 2, 3){($0, $0.String!)},
+         [1: "1", 2: "2", 3: "3"]
+      )
+   }
+
    
 //MARK:- Conversion
    func testConversionFromSequence() {
