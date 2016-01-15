@@ -1,13 +1,13 @@
 public extension Dictionary {
 //MARK:- Initializers
    /// Splats init(dictionaryLiteral elements: (Key, Value)...)
-   init<KeyValueSequence: SequenceType
-      where KeyValueSequence.Generator.Element == Element
-   >(_ elements: KeyValueSequence) {
+   init<Keys🔗Values: SequenceType where Keys🔗Values.Generator.Element == Element>
+   (_ elements: Keys🔗Values) {
       self.init()
       for element in elements {self[element.0] = element.1}
    }
    
+   /// SequenceType.Dictionary relies on this
    init<Sequence: SequenceType>(
       _ sequence: Sequence,
       _ key🔗value: Sequence.Generator.Element -> (Key, Value)
@@ -39,10 +39,12 @@ public extension Dictionary {
 		}
 	}
 }
-extension SequenceType {
-   public func Dictionary<Key, Value>(
+
+//MARK:- Conversion
+public extension SequenceType {
+   func Dictionary<Key, Value>(
       key🔗value: Generator.Element -> (Key, Value)
-   ) -> Swift.Dictionary<Key, Value> {
+   ) -> [Key: Value] {
       return Swift.Dictionary(self, key🔗value)
    }
 }

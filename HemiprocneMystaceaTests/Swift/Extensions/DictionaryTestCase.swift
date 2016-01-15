@@ -2,6 +2,30 @@ import HemiprocneMystacea
 import XCTest
 
 final class DictionaryTestCase: XCTestCase {
+//MARK:- Initializers
+   func testKeys🔗ValuesInit() {
+      let keys🔗values = [(1, "wonth"), (2, "tooth")]
+      XCTAssertEqual(
+         Dictionary(keys🔗values),
+         [1: "wonth", 2: "tooth"]
+      )
+   }
+   
+   func testInitializeFromSequence() {
+      XCTAssertEqual(
+         Dictionary([1, 2, 3]){($0, $0.String!)},
+         [1: "1", 2: "2", 3: "3"]
+      )
+   }
+   
+//MARK:- Conversion
+   func testConversionFromSequence() {
+      XCTAssertEqual(
+         [1, 2, 3].Dictionary{($0, $0.String!)},
+         [1: "1", 2: "2", 3: "3"]
+      )
+   }
+
 //MARK:- Subscripts
    func testOptionalKeySubscript() {
       let dictionary = ["key": "value"]
