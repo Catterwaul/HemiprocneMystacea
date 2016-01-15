@@ -1,7 +1,7 @@
 import CoreData
 
-extension Self🍲 where Self: NSManagedObject {
-   public static var inContext🔍: [Self] {
+public extension Self🍲 where Self: NSManagedObject {
+   static var inContext🔍: [Self] {
       let fetchRequest = NSFetchRequest(entityName: String(Self))
       fetchRequest.entity = NSEntityDescription.entityForName(String(Self),
          inManagedObjectContext: NSManagedObjectContext.forMainQueue
@@ -12,7 +12,7 @@ extension Self🍲 where Self: NSManagedObject {
          ?? []
    }
    
-   public init(_ self🍲: Self🍲) {
+   init(_ self🍲: Self🍲) {
       self.init(
          entity: NSEntityDescription.entityForName(String(Self),
             inManagedObjectContext: NSManagedObjectContext.forMainQueue
@@ -24,7 +24,7 @@ extension Self🍲 where Self: NSManagedObject {
 
    ///- Returns: if an instance exists already, that;
    ///  otherwise, a new instance.
-   public static func instance(matching self🍲: Self🍲) -> Self {
+   static func instance(matching self🍲: Self🍲) -> Self {
       return Self.inContext🔍.matching(self🍲) ?? Self(self🍲)
 	}
 }
