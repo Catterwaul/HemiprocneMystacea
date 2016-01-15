@@ -1,10 +1,8 @@
 public extension UITextField {
-   final func onEditingChanged() {editingChanged📡[]}
    final var editingChanged📡: MultiClosure<()> {
       return HemiprocneMystacea.editingChanged📡[self]
    }
    
-   final func onEditingDidEndOnExit() {editingDidEndOnExit📡[]}
    final var editingDidEndOnExit📡: MultiClosure<()> {
       return HemiprocneMystacea.editingDidEndOnExit📡[self]
    }
@@ -19,3 +17,9 @@ private var
       controlEvent: .EditingDidEndOnExit,
       selector: "onEditingDidEndOnExit"
    )
+
+// Won't work if private.
+extension UITextField {
+   func onEditingChanged() {editingChanged📡[]}
+   func onEditingDidEndOnExit() {editingDidEndOnExit📡[]}
+}
