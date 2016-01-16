@@ -2,6 +2,22 @@ import HemiprocneMystacea
 import XCTest
 
 final class SequenceTypeTestCase: XCTestCase {
+	func testSortedBy() {
+		let sortedArray = [
+			TypeWith1EquatableProperty(int: 3),
+			TypeWith1EquatableProperty(int: 1),
+			TypeWith1EquatableProperty(int: 2)
+		].sorted{$0.int}
+		XCTAssertEqual(
+			sortedArray,
+			[
+				TypeWith1EquatableProperty(int: 1),
+				TypeWith1EquatableProperty(int: 2),
+				TypeWith1EquatableProperty(int: 3)
+			]
+		)
+	}
+	
 	func testForAll() {
 		XCTAssertEqual([1, 2, 3] ∀ {$0 == 3}, false)
 		XCTAssertEqual([1, 1, 1] ∀ {$0 == 1}, true)

@@ -1,9 +1,9 @@
-extension SequenceType {
-   public func first🔎(@noescape predicate: Generator.Element -> Bool)
+public extension SequenceType {
+   func first🔎(@noescape predicate: Generator.Element -> Bool)
    -> Generator.Element? {return self.lazy.filter(predicate).first}
    
    @warn_unused_result
-   public func sorted<Comparable: Swift.Comparable>(
+   func sorted<Comparable: Swift.Comparable>(
       @noescape by comparable: Generator.Element -> Comparable
    ) -> [Generator.Element] {
       return self.sort{$0•comparable < $1•comparable}
@@ -12,7 +12,9 @@ extension SequenceType {
 
 infix operator ∀ {}
 /// The mathematical symbol meaning "for all".
+///
 ///- Returns: whether all elements of the sequence satisfy `predicate`
+///
 ///- Remark:
 ///  1. control-command-space
 ///  2. "for al"
