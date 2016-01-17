@@ -20,6 +20,12 @@ public extension String {
    }
 }
 
+/// `left`, with all occurrences of `right` removed
+@warn_unused_result
+public func - (left: String, right: String) -> String {
+   return left.stringByReplacingOccurrencesOfString(right, withString: "")
+}
+
 extension SequenceType where Generator.Element == String {
     /// Same as `joinWithSeparator`, but with the empty strings removed
     @warn_unused_result

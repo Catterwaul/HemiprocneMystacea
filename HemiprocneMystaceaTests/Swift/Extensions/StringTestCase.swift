@@ -36,8 +36,16 @@ final class StringTestCase: XCTestCase {
          nil
       )
    }
+   
+//MARK:- Operators
+   func testMinus() {
+      XCTAssertEqual(
+         " 123🐉Boodee Bop! 123🐉" - " 123🐉",
+         "Boodee Bop!"
+      )
+   }
 	
-//MARK: Sequences of Strings
+//MARK:- Sequences of Strings
 	func testJoined() {
 		XCTAssertEqual(
 			["cat", "goes", "", "Meow"].joined(with: "! "),
