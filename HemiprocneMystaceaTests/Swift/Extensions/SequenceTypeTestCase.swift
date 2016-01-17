@@ -1,7 +1,11 @@
 import HemiprocneMystacea
 import XCTest
 
-final class SequenceTypeTestCase: XCTestCase {
+final class SequenceTypeTestCase: XCTestCase {	
+	func testFirst🔎() {
+		XCTAssertEqual([1, 5, 3].first🔎{$0 == 5}, 5)
+	}
+	
 	func testSortedBy() {
 		let sortedArray = [
 			TypeWith1EquatableProperty(int: 3),
@@ -29,11 +33,11 @@ final class SequenceTypeTestCase: XCTestCase {
 	}
 	
 	func testUniqueElements_Equatable() {
-		let array = [
+		let uniqueArray = [
 			TypeWith1EquatableProperty(int: 1),
 			TypeWith1EquatableProperty(int: 1)
 		].uniqueElements
-		XCTAssertEqual(array, [TypeWith1EquatableProperty(int: 1)])
+		XCTAssertEqual(uniqueArray, [TypeWith1EquatableProperty(int: 1)])
 	}
 //MARK:-
 	
@@ -42,7 +46,6 @@ final class SequenceTypeTestCase: XCTestCase {
 		XCTAssertEqual(sum, 3)
 	}
 }
-
 
 //MARK:- For testUniqueElements_Equatable
 private struct TypeWith1EquatableProperty: Equatable {
