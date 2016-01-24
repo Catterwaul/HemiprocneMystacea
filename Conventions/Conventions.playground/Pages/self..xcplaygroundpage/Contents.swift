@@ -1,66 +1,37 @@
 /*:
-## When to use explicit “self.”
-
-**Don't use “self.” when it means “my “**
-
-**Use “self.” when it means "I", "me", or "myself"** (_though conjugation maps atrociously..._)
-* “myself, filter(ed)” or “me, reduce(d)”
-* “I contains(-s)” [from Erica Sadun: The curious case of the self in the night: #swiftlang]
-
-### Examples can be found in:
-* SequenceType.swift
-* String.swift
-
-[from Erica Sadun: The curious case of the self in the night: #swiftlang]: http://ericasadun.com/2015/08/14/the-curious-case-of-the-self-in-the-night-swiftlang/ ""
+# When to use explicit "***`self.`***"
 */
-import HemiprocneMystacea
-
 /*:
-### From SequenceType
+## ***Don't*** use `self.` when it means “my “ or "self, "
+This represents the vast majority of where `self.` can *optionally* be used, and is always redundant.
+* ***my*** is meant before nouns
+* ***self*** is meant before verbs
 */
-public extension SequenceType {
-	func first🔎(@noescape predicate: Generator.Element -> Bool)
-		-> Generator.Element? {return self.lazy.filter(predicate).first}
-	// myself, lazily, filtered
-	
-	func sorted<Comparable: Swift.Comparable>(
-		@noescape by comparable: Generator.Element -> Comparable
-		) -> [Generator.Element] {
-			return self.sort{$0•comparable < $1•comparable}
-			// myself, sorted
-	}
+struct Struct {
+   let thing: Any
+   // self.thing = "my thing"
+   
+   func doSomething() {}
+   // self.doSomething = "Self, do something."
 }
-
-extension SequenceType where
-	Generator.Element: protocol<IntegerLiteralConvertible, IntegerArithmeticType>
-{
-	public var sum: Generator.Element {return self.reduce(0, combine: +)}
-	// myself, reduced
-}
-
-
 /*:
-### From String
+## ***Do*** use `self.` when it means "me"
+When this applies is often non-obvious, due to incorrect names. For example, in **`SequenceType`**…
+* .lazy = _me, lazily_
+* .map = _me, mapped_
+* .filter = _me, filtered_
+* .reduce = _me, reduced_
 */
-public extension String {
-	func after(character: Character) -> String? {
-		guard let index = characters.indexOf(character) else {return nil}
-		return self.substringFromIndex(index.advancedBy(1))
-		// myself, from index
-	}
-	
-	func upTo(character: Character, characterIsIncluded: Bool = false) -> String? {
-		guard let index = characters.indexOf(character) else {return nil}
-		return self.substringToIndex(
-			characterIsIncluded ? index.advancedBy(1) : index
-			// myself, up to index
-		)
-	}
-}
+/*:
+## ***Do*** use `self.` when it means "my self"
+This interpretation may always come before a boolean-returning property or function; we haven't found contrary examples yet.
+### Example: **`SequenceType.contains`**
+* self.contains = _my self contains_
+* same meaning as, but gramatically more correct than **_I contains_**
+* Thanks to [Erica Sadun] for this example
 
-extension SequenceType where Generator.Element == String {
-	public func joined(with separator: String) -> String {
-		return self.filter{!$0.isEmpty}.joinWithSeparator(separator)
-		// myself, filtered
-	}
-}
+[Erica Sadun]: http://ericasadun.com/2015/08/14/the-curious-case-of-the-self-in-the-night-swiftlang/
+
+### Example: **`Set.isSubsetOf`**
+* self.isSubsetOf(sequence) = _my self is subset of sequence_
+*/
