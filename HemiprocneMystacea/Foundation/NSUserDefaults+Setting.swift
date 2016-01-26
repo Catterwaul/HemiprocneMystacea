@@ -15,7 +15,7 @@ public struct Setting<Value: AnyObject> {
 	private func value<Value>(
       getter value: NSUserDefaults -> (`for`: String) -> Value
    ) -> Value {
-		return (NSUserDefaults.standardUserDefaults()•value)(`for`: key)
+		return (NSUserDefaults.standardUserDefaults()•value)(for: key)
 	}
    
    ///- Returns: The setter for **value**
@@ -24,7 +24,7 @@ public struct Setting<Value: AnyObject> {
 	private func value_set<Value>(value: Value,
 		setter set: NSUserDefaults -> (Value, `for`: String) -> ()
 	) {
-		(NSUserDefaults.standardUserDefaults()•set)(value, `for`: self.key)
+		(NSUserDefaults.standardUserDefaults()•set)(value, for: self.key)
 	}
 }
 
