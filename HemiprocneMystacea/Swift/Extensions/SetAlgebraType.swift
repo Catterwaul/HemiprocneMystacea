@@ -15,8 +15,8 @@ public func -= <Set: SetAlgebraType>(inout set: Set, element: Set.Element) {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "interse"
-public func ∩ <Set: SetAlgebraType>(left: Set, right: Set) -> Set {
-	return left.intersect(right)
+public func ∩ <Set: SetAlgebraType>(_0: Set, _1: Set) -> Set {
+	return _0.intersect(_1)
 }
 
 /// intersect "in place"
@@ -24,8 +24,8 @@ public func ∩ <Set: SetAlgebraType>(left: Set, right: Set) -> Set {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "interse"
-public func ∩= <Set: SetAlgebraType>(inout left: Set, right: Set) {
-	left.intersectInPlace(right)
+public func ∩= <Set: SetAlgebraType>(inout _0: Set, _1: Set) {
+	_0.intersectInPlace(_1)
 }
 
 /// union
@@ -33,8 +33,8 @@ public func ∩= <Set: SetAlgebraType>(inout left: Set, right: Set) {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "unio"
-public func ∪ <Set: SetAlgebraType>(left: Set, right: Set) -> Set {
-	return left.union(right)
+public func ∪ <Set: SetAlgebraType>(_0: Set, _1: Set) -> Set {
+	return _0.union(_1)
 }
 
 /// union "in place"
@@ -42,6 +42,6 @@ public func ∪ <Set: SetAlgebraType>(left: Set, right: Set) -> Set {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "unio"
-public func ∪= <Set: SetAlgebraType>(inout left: Set, right: Set) {
-	left.unionInPlace(right)
+public func ∪= <Set: SetAlgebraType>(inout _0: Set, _1: Set) {
+	_0.unionInPlace(_1)
 }

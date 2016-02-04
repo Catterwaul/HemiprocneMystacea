@@ -15,9 +15,9 @@ public extension Dictionary {
       self.init(sequence.map{$0•key🔗value})
    }
    init<Element>(
-      _ instances: Element...,
+      _ elements: Element...,
       _ key🔗value: Element -> (Key, Value)
-   ) {self.init(instances, key🔗value)}
+   ) {self.init(elements, key🔗value)}
    
 //MARK:- Subscripts
    ///- Returns: nil if `key` is nil

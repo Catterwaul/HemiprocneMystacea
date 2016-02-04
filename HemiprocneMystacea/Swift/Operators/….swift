@@ -3,10 +3,7 @@ infix operator … {precedence 255}
 /// Useful for initializing something and doing 
 /// things with it immediately thereafter.
 ///
-///- Parameter instance: Becomes $0 in…
-///- Parameter ƒ: the function that uses `instance`.
-///
-///- Returns: `instance`
+///- Returns: `$0`
 ///
 /// Example:
 ///```
@@ -16,12 +13,9 @@ infix operator … {precedence 255}
 /// }
 ///```
 ///- Remark: Hold option, press ;
-public func …<Type>(
-   instance: Type,
-   @noescape ƒ: Type -> ()
-) -> Type {
-   ƒ(instance)
-   return instance
+public func …<🃏>(_0: 🃏, @noescape ƒ: 🃏 -> ()) -> 🃏 {
+   ƒ(_0)
+   return _0
 }
 
 // This results in a Segmentation fault; 
@@ -30,7 +24,7 @@ public func …<Type>(
 //   return (instances)…(recursed)
 //}
 
-/// Recursively get `Type`s via the `recursed` function
-public func …<Type>(instances: [Type], recursed: Type -> [Type]) -> [Type]  {
+/// Recursively get instances via the `recursed` function
+public func …<🃏>(instances: [🃏], recursed: 🃏 -> [🃏]) -> [🃏] {
    return instances.flatMap{[$0] + recursed($0)…recursed}
 }

@@ -20,10 +20,10 @@ public extension String {
    }
 }
 
-/// `left`, with all occurrences of `right` removed
+/// `_0`, with all occurrences of `_1` removed
 @warn_unused_result
-public func - (left: String, right: String) -> String {
-   return left.stringByReplacingOccurrencesOfString(right, withString: "")
+public func - (_0: String, _1: String) -> String {
+   return _0.stringByReplacingOccurrencesOfString(_1, withString: "")
 }
 
 extension SequenceType where Generator.Element == String {
