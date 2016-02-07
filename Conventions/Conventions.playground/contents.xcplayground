@@ -2,6 +2,7 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='Functions, no return value'/>
+        <page name='Functions with return values'/>
         <page name='🎁 and 🎀'/>
         <page name='😾'/>
         <page name='Events'/>
