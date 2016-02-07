@@ -3,6 +3,7 @@
     <pages>
         <page name='Functions, no return value'/>
         <page name='Functions with return values'/>
+        <page name='Closures'/>
         <page name='🎁 and 🎀'/>
         <page name='😾'/>
         <page name='Events'/>
