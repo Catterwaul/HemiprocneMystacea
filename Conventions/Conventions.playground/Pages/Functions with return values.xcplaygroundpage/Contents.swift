@@ -56,7 +56,7 @@ Swift doesn't yet have named subscripts. Until then, use parentheses as if they 
 
 */
 import UIKit
-func cell(indexPath: NSIndexPath) -> UICollectionViewCell {
+func cells(indexPath: NSIndexPath) -> UICollectionViewCell {
    // Real code would dequeue a cell based on `indexPath`
    return UICollectionViewCell()
 }
