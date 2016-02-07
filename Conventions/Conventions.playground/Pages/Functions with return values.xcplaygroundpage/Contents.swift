@@ -52,9 +52,27 @@ var things: [$] {
 */
 /*:
 ## …Stand-ins for named subscripts
+Swift doesn't yet have named subscripts. Until then, use parentheses as if they were square brackets.
 
 */
+import UIKit
+func cell(indexPath: NSIndexPath) -> UICollectionViewCell {
+   // Real code would dequeue a cell based on `indexPath`
+   return UICollectionViewCell()
+}
 
+/// Future Swift
+/*
+subscript cells[indexPath NSIndexPath]: UICollectionViewCell {
+   // Dequeue a cell based on `indexPath`
+}
+*/
+/// …and even more-Future Swift?
+/*
+subscript cells[NSIndexPath]: UICollectionViewCell {
+   // Dequeue a cell based on .0
+}
+*/
 /*:
 ## …Verbs
 Normally, verb-functions don't return values. But Swift doesn't seem to have an accepted way, in source, to express when a function is a verb, yet also returns something. In these cases, use the `Returns` markup to document what will be returned, but don't include whatever that returned value is, in the function's name.
