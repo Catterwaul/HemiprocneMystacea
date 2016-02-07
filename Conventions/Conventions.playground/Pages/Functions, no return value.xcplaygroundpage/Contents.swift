@@ -16,7 +16,7 @@ Only the verb remains outside the parentheses.
 */
 func write(sentence sentence: String) {}
 /*:
-Sometimes giving a direct object a parameter name does not add meaning. Frequently, this will be the case with generic functions with no, or very nonrestrictive, constraints. Closures currently utilize `$0` for this, but Swift doesn't yet allow us to omit parameter names in functions, and we can't begin parameter names with $. Use `_0` instead of `_$0`, because closures should use the term `.0`, instead of `$0`. Assume that as Swift improves, your underscores will eventually becoming dots, or at least dollar signs, with no correspongding manual parameter name.
+Sometimes giving a direct object a parameter name does not add meaning. Frequently, this will be the case with generic functions with no, or very nonrestrictive, constraints. Closures currently utilize `$0` for this, but Swift doesn't yet allow us to omit parameter names in functions, and we can't begin parameter names with $. Use `_0` instead of `_$0`, because closures should use the term `.0`, instead of `$0`. Assume that as Swift improves, your underscores will eventually becoming dots, or at least dollar signs, with no corresponding manual parameter name.
 */
 func write<🃏>(_0: 🃏) {print(_0)}
 write("✍️")
