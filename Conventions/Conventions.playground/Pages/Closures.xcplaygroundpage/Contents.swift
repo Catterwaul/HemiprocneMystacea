@@ -15,7 +15,6 @@ struct Struct {
 }
 
 Struct(write: write).write(stuff: "🐹🍖🚀")
-
 /*:
 ## Overloads
 Closures cannot yet be overloaded. They also can't have default values, which sometimes causes related problems. Use the alternate characters named ***SMALL LEFT PARENTHESIS***, ***FULLWIDTH COMMA***, and ***SMALL RIGHT PARENTHESIS***, to deal with this. Inside of those hacky parentheses, use internal parameter names, not external.
