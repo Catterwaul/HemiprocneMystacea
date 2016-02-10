@@ -11,20 +11,17 @@ public extension UIViewController {
 		title title: String?,
 		message: String? = nil,
       style: UIAlertControllerStyle = .Alert,
-		actions: [UIAlertController.Action]? = nil
+		actions: [UIAlertController.Action] = []
 	) {
-		let alert: UIAlertController
-		if let actions = actions {alert = UIAlertController(
-			title: title,
-			message: message,
-         style: style,
-			actions: actions
-		)} else {alert = UIAlertController(
-         title: title,
-         message: message,
-         style: style
-      )}
-		presentViewController(alert, animated: true, completion: nil)
+		presentViewController(UIAlertController(
+            title: title,
+            message: message,
+            style: style,
+            actions: actions
+         ),
+         animated: true,
+         completion: nil
+      )
 	}
 	
 	final func present(

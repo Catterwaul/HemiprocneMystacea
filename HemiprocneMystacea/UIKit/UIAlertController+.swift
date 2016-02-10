@@ -1,10 +1,10 @@
-public extension UIAlertController {
-   typealias Action = (
-      title: String,
-      style: UIAlertActionStyle,
-      ƒ: (() -> ())?
-   )
+public extension UIAlertController {typealias Action = (
+   title: String,
+   style: UIAlertActionStyle,
+   ƒ: (() -> ())?
+)}
 
+public extension UIAlertController {
 	convenience init(
 		title: String?,
 		message: String?,
@@ -16,13 +16,20 @@ public extension UIAlertController {
          message: message,
          preferredStyle: style
       )
-		for action in actions {addAction(UIAlertAction(
-			title: action.title,
-			style: action.style,
-			handler: {
-				guard let ƒ = action.ƒ else {return nil}
-				return {_ in ƒ()}
-			}()
-		))}
-	}
+		self += actions
+   }
+}
+
+public func += (controller: UIAlertController, action: UIAlertController.Action) {
+   controller.addAction(UIAlertAction(
+      title: action.title,
+      style: action.style,
+      handler: {
+         guard let ƒ = action.ƒ else {return nil}
+         return {_ in ƒ()}
+      }()
+   ))
+}
+public func += (controller: UIAlertController, actions: [UIAlertController.Action]) {
+   for action in actions {controller += action}
 }
