@@ -1,7 +1,7 @@
-/// Utilizes the `Self🍲` tuple for initialization 
+/// Utilizes the `Self🍲` tuple for initialization
 /// and "matching" with other instances.
-public protocol Self🍲 {
+public protocol 🍲 {
 	typealias Self🍲
-   func matches(self🍲: Self🍲) -> Bool
-	func Self_init(self🍲: Self🍲)
+   func matches(_: Self🍲) -> Bool
+	func Self_init(_: Self🍲)
 }

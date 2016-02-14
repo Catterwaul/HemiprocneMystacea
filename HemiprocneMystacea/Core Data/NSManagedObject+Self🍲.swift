@@ -1,6 +1,6 @@
 import CoreData
 
-public extension Self🍲 where Self: NSManagedObject {
+public extension 🍲 where Self: NSManagedObject {
    static var inContext🔍: [Self] {
       let fetchRequest = NSFetchRequest(entityName: String(Self))
       fetchRequest.entity = NSEntityDescription.entityForName(String(Self),
@@ -12,29 +12,29 @@ public extension Self🍲 where Self: NSManagedObject {
          ?? []
    }
    
-   init(_ self🍲: Self🍲) {
+   init(_ _0: Self🍲) {
       self.init(
          entity: NSEntityDescription.entityForName(String(Self),
             inManagedObjectContext: NSManagedObjectContext.forMainQueue
          )!,
          insertIntoManagedObjectContext: NSManagedObjectContext.forMainQueue
       )
-      Self_init(self🍲)
+      Self_init(_0)
    }
 
    ///- Returns: if an instance exists already, that;
    ///  otherwise, a new instance.
-   static func instance(matching self🍲: Self🍲) -> Self {
-      return Self.inContext🔍.matching(self🍲) ?? Self(self🍲)
+   static func instance(matching _0: Self🍲) -> Self {
+      return Self.inContext🔍.matching(_0) ?? Self(_0)
 	}
 }
 
 public extension SequenceType where
    Generator.Element: NSManagedObject,
-   Generator.Element: Self🍲
+   Generator.Element: 🍲
 {
    ///- Returns: first match (according to `CoreDataEntityType.matches`)
-   func matching(self🍲: Generator.Element.Self🍲) -> Generator.Element? {
-      return first🔎{$0.matches(self🍲)}
+   func matching(_0: Generator.Element.Self🍲) -> Generator.Element? {
+      return first🔎{$0.matches(_0)}
    }
 }
