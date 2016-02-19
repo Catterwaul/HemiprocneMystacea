@@ -5,7 +5,12 @@ final class SequenceTypeTestCase: XCTestCase {
 	func testFirst🔎() {
 		XCTAssertEqual([1, 5, 3].first🔎{$0 == 5}, 5)
 	}
-	
+   
+   func testObeys() {
+      XCTAssertEqual([1, 2, 3].obeys{$0 == 3}, false)
+      XCTAssertEqual([1, 1, 1].obeys{$0 == 1}, true)
+   }
+   
 	func testSortedBy() {
 		let sortedArray = [
 			TypeWith1EquatableProperty(int: 3),
@@ -20,11 +25,6 @@ final class SequenceTypeTestCase: XCTestCase {
 				TypeWith1EquatableProperty(int: 3)
 			]
 		)
-	}
-	
-	func testForAll() {
-		XCTAssertEqual([1, 2, 3] ∀ {$0 == 3}, false)
-		XCTAssertEqual([1, 1, 1] ∀ {$0 == 1}, true)
 	}
 	
 //MARK:- Unique Elements
