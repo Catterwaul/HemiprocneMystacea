@@ -3,7 +3,7 @@
 public protocol 🍲 {
 	typealias Self🍲
    
-   /// HACK: This should be a real initializer, 
+   ///- Important: This should be a real initializer,
    /// but conforming types can't override that and call it as `super.init`
    func Self_init(_: Self🍲)
    

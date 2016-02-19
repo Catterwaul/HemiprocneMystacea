@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
+        <page name='self.'/>
         <page name='Functions, no return value'/>
         <page name='Functions with return values'/>
         <page name='Closures'/>
@@ -8,7 +9,5 @@
         <page name='😾'/>
         <page name='Events'/>
         <page name='Tuples &amp; Plurality'/>
-        <page name='🔍 and 🔎'/>
-        <page name='self.'/>
     </pages>
 </playground>

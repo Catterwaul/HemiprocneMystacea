@@ -1,5 +1,6 @@
 public extension SequenceType {
-   func first🔎(@noescape predicate: Generator.Element -> Bool)
+   ///- Returns: the first element that satisfies `predicate`
+   func first(@noescape predicate: Generator.Element -> Bool)
    -> Generator.Element? {return self.lazy.filter(predicate).first}
    
    ///- Returns: whether all elements of the sequence satisfy `predicate`

@@ -13,13 +13,13 @@ public final class WeakReferencer<Reference: AnyObject>: HashableClass {
 /// Remove the first `UnownedReferencer` with this `reference`
 public func -= <Reference: Equatable>
    (inout set: Set<UnownedReferencer<Reference>>, reference: Reference) {
-   guard let referencer = set.first🔎({$0.reference == reference}) else {return}
+   guard let referencer = set.first({$0.reference == reference}) else {return}
    set -= referencer
 }
 
 /// Remove the first `WeakReferencer` with this `reference`
 public func -= <Reference: Equatable>
    (inout set: Set<WeakReferencer<Reference>>, reference: Reference) {
-   guard let referencer = set.first🔎({$0.reference == reference}) else {return}
+   guard let referencer = set.first({$0.reference == reference}) else {return}
    set -= referencer
 }

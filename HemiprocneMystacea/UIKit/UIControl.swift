@@ -31,7 +31,7 @@ struct Event📦 {
             self[control] = multiClosure
             return multiClosure
          }
-         return events.first🔎{$0.0.reference == control}?.1
+         return events.first{$0.0.reference == control}?.1
             ?? Event()
 		}
       set {

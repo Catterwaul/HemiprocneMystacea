@@ -2,8 +2,8 @@ import HemiprocneMystacea
 import XCTest
 
 final class SequenceTypeTestCase: XCTestCase {	
-	func testFirst🔎() {
-		XCTAssertEqual([1, 5, 3].first🔎{$0 == 5}, 5)
+	func testFirst() {
+		XCTAssertEqual([1, 5, 3].first{$0 == 5}, 5)
 	}
    
    func testObeys() {
