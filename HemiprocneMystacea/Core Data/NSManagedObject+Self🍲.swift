@@ -33,8 +33,8 @@ public extension SequenceType where
    Generator.Element: NSManagedObject,
    Generator.Element: 🍲
 {
-   ///- Returns: first match (according to `CoreDataEntityType.matches`)
+   ///- Returns: first match (according to `🍲.matches`)
    func matching(_0: Generator.Element.Self🍲) -> Generator.Element? {
-      return first🔎{$0.matches(_0)}
+      return self.first🔎{$0.matches(_0)}
    }
 }
