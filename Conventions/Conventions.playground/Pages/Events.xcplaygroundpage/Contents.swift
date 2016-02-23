@@ -5,30 +5,29 @@
 2. signal, which is those arguments
 3. receiver of the signal, whose signature matches the signal (📻)
 
-The name of events will typically be past tense, to denote that they *just* happened. Emoji come after the name, to denote whether they are broadcasters or receivers.
+The name of events will typically be past tense, to denote that they *just* happened. Emoji come before the name, to denote whether they are broadcasters or receivers.
 */
-
 struct Transmitter {
-   static var thingHappened📻: (Int -> ())?
+   static var 📻thingHappened: (Int -> ())?
    
    // Normally this would only be called from within a Transmitter.
-   func thingHappened📡(int: Int) {Transmitter.thingHappened📻?(int)}
+   func 📡thingHappened(int: Int) {Transmitter.📻thingHappened?(int)}
 }
 
 struct Receiver {
-   init() {Transmitter.thingHappened📻 = thingHappened📻}
-   func thingHappened📻(int: Int) {print(int)}
+   init() {Transmitter.📻thingHappened = 📻thingHappened}
+   func 📻thingHappened(int: Int) {print(int)}
 }
 
 Receiver()
-Transmitter().thingHappened📡(Int.max)
+Transmitter().📡thingHappened(Int.max)
 /*:
 ### Rationale for these Emoji
 * 📡: An event is a signal being transmitted.
 * 📻: A radio receives a signal and does something meaningful with it.
 ### Pronunciation
-* 📡: Say "transmit" before the English. It's backwards but easier to work with the autocompletion this way.
-* 📻: Say "receive" before the English. 
+* 📡: "Transmit"
+* 📻: "Receive"
 ### Possibilities
 * 📡s might be functions or `MultiClosure`s.
 * 📻s might be functions, closures, or `EquatableClosure`s.
