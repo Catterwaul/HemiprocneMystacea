@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A8DEF851C48993B00DF1CF7 /* SequenceTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTypeTestCase.swift */; };
+		0AF3CFCA1C869AA4007C8BD7 /* Double🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3CFC91C869AA4007C8BD7 /* Double🎁TestCase.swift */; };
+		0AF3CFCC1C869B2D007C8BD7 /* Double🎁.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3CFCB1C869B2D007C8BD7 /* Double🎁.swift */; };
 		4905A4D61C47F58F0001402A /* IntegerConversionTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */; };
 		4905A4D91C47F9BF0001402A /* Double🎀TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */; };
 		4905A4DB1C47FA470001402A /* Int🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */; };
@@ -90,6 +92,8 @@
 
 /* Begin PBXFileReference section */
 		0A8DEF841C48993B00DF1CF7 /* SequenceTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTestCase.swift; sourceTree = "<group>"; };
+		0AF3CFC91C869AA4007C8BD7 /* Double🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double🎁TestCase.swift"; path = "Swift/Conversions/Double🎁TestCase.swift"; sourceTree = "<group>"; };
+		0AF3CFCB1C869B2D007C8BD7 /* Double🎁.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double🎁.swift"; sourceTree = "<group>"; };
 		4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegerConversionTestCase.swift; path = Swift/Conversions/IntegerConversionTestCase.swift; sourceTree = "<group>"; };
 		4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double🎀TestCase.swift"; path = "Swift/Conversions/Double🎀TestCase.swift"; sourceTree = "<group>"; };
 		4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int🎁TestCase.swift"; path = "Swift/Conversions/Int🎁TestCase.swift"; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			children = (
 				4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */,
 				4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */,
+				0AF3CFC91C869AA4007C8BD7 /* Double🎁TestCase.swift */,
 				4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */,
 				4905A4DC1C47FC440001402A /* String🎁TestCase.swift */,
 			);
@@ -398,6 +403,7 @@
 			children = (
 				49CBE0891C332ADE00E8EFCC /* integer conversion.swift */,
 				49CBE0851C332ADE00E8EFCC /* Double🎀.swift */,
+				0AF3CFCB1C869B2D007C8BD7 /* Double🎁.swift */,
 				49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */,
 				49CBE0991C332ADE00E8EFCC /* String🎁.swift */,
 			);
@@ -562,6 +568,7 @@
 				49B182E31C33807000529B08 /* SetAlgebraType.swift in Sources */,
 				49CBE0CD1C332ADE00E8EFCC /* dequeuedReusableCell.swift in Sources */,
 				49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */,
+				0AF3CFCC1C869B2D007C8BD7 /* Double🎁.swift in Sources */,
 				49CBE0D31C332ADE00E8EFCC /* UITextField.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
 				49CBE0A71C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift in Sources */,
@@ -573,6 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF3CFCA1C869AA4007C8BD7 /* Double🎁TestCase.swift in Sources */,
 				49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */,
 				49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */,
 				49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */,
