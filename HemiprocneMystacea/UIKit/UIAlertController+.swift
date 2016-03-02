@@ -5,11 +5,15 @@ public extension UIAlertController {typealias Action = (
 )}
 
 public extension UIAlertController {
+   static let defaultActions: [UIAlertController.Action] = [(title: "OK", style: .Default, nil)]
+}
+
+public extension UIAlertController {
 	convenience init(
 		title: String?,
 		message: String?,
       style: UIAlertControllerStyle = .Alert,
-		actions: [Action] = [(title: "OK", style: .Default, nil)]
+		actions: [Action] = UIAlertController.defaultActions
 	) {
 		self.init(
          title: title,

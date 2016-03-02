@@ -11,7 +11,7 @@ public extension UIViewController {
 		title title: String?,
 		message: String? = nil,
       style: UIAlertControllerStyle = .Alert,
-		actions: [UIAlertController.Action] = []
+		actions: [UIAlertController.Action] = UIAlertController.defaultActions
 	) {
 		presentViewController(UIAlertController(
             title: title,
