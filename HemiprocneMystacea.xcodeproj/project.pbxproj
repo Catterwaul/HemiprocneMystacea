@@ -43,7 +43,7 @@
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
-		49CBE0A71C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */; };
+		49CBE0A71C332ADE00E8EFCC /* NSManagedObject+🍲.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0731C332ADE00E8EFCC /* NSManagedObject+🍲.swift */; };
 		49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */; };
 		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */; };
 		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */; };
@@ -65,7 +65,7 @@
 		49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0941C332ADE00E8EFCC /* Referencers.swift */; };
 		49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0991C332ADE00E8EFCC /* String🎁.swift */; };
 		49CBE0CA1C332ADE00E8EFCC /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */; };
-		49CBE0CB1C332ADE00E8EFCC /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */; };
+		49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */; };
 		49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09D1C332ADE00E8EFCC /* UIButton.swift */; };
 		49CBE0CD1C332ADE00E8EFCC /* dequeuedReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */; };
 		49CBE0CE1C332ADE00E8EFCC /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09F1C332ADE00E8EFCC /* UIControl.swift */; };
@@ -130,7 +130,7 @@
 		49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemiprocneMystaceaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBE0021C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CBE0711C332ADE00E8EFCC /* CNContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNContainer.swift; sourceTree = "<group>"; };
-		49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Self🍲.swift"; sourceTree = "<group>"; };
+		49CBE0731C332ADE00E8EFCC /* NSManagedObject+🍲.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+🍲.swift"; sourceTree = "<group>"; };
 		49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPersistentStoreCoordinator.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		49CBE0941C332ADE00E8EFCC /* Referencers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Referencers.swift; sourceTree = "<group>"; };
 		49CBE0991C332ADE00E8EFCC /* String🎁.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String🎁.swift"; sourceTree = "<group>"; };
 		49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
-		49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
+		49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		49CBE09D1C332ADE00E8EFCC /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dequeuedReusableCell.swift; sourceTree = "<group>"; };
 		49CBE09F1C332ADE00E8EFCC /* UIControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */,
-				49CBE0731C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift */,
+				49CBE0731C332ADE00E8EFCC /* NSManagedObject+🍲.swift */,
 				49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */,
 				49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */,
 			);
@@ -386,7 +386,7 @@
 			children = (
 				49CBE09E1C332ADE00E8EFCC /* dequeuedReusableCell.swift */,
 				49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */,
-				49CBE09C1C332ADE00E8EFCC /* UIAlertController+.swift */,
+				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
 				49CBE09F1C332ADE00E8EFCC /* UIControl.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
@@ -551,7 +551,7 @@
 				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* Mutable Properties.swift in Sources */,
-				49CBE0CB1C332ADE00E8EFCC /* UIAlertController+.swift in Sources */,
+				49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */,
 				49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */,
 				49CBE0CE1C332ADE00E8EFCC /* UIControl.swift in Sources */,
 				49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */,
@@ -571,7 +571,7 @@
 				0AF3CFCC1C869B2D007C8BD7 /* Double🎁.swift in Sources */,
 				49CBE0D31C332ADE00E8EFCC /* UITextField.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
-				49CBE0A71C332ADE00E8EFCC /* NSManagedObject+Self🍲.swift in Sources */,
+				49CBE0A71C332ADE00E8EFCC /* NSManagedObject+🍲.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
