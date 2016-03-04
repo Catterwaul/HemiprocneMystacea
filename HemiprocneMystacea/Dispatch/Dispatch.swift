@@ -17,11 +17,12 @@ import Dispatch; public struct Dispatch {
    }
 }
 
-public extension Dispatch {enum GlobalQueue {
+public extension Dispatch {enum GlobalQueue {}}
+public extension Dispatch.GlobalQueue {
    static var background: dispatch_queue_t {return `subscript`(QOS_CLASS_BACKGROUND)}
    static var userInitiated: dispatch_queue_t {return `subscript`(QOS_CLASS_USER_INITIATED)}
    static var utility: dispatch_queue_t {return `subscript`(QOS_CLASS_UTILITY)}
-}}
+}
 private extension Dispatch.GlobalQueue {
    /// Usage woud ideally look like:
    ///```
