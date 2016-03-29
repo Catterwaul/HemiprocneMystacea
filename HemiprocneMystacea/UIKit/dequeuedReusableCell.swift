@@ -5,7 +5,7 @@ public protocol dequeuedReusableCell {
       forIndexPath indexPath: NSIndexPath
    ) -> Cell
    
-   typealias Cell: UIView
+   associatedtype Cell: UIView
 }
 
 

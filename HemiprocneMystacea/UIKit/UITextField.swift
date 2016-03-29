@@ -11,15 +11,19 @@ public extension UITextField {
 private var
    editingChanged📡 = UIControl.Event📦(
       controlEvent: .EditingChanged,
-      selector: "onEditingChanged"
+      selector: #selector(UITextFieldSelectors.onEditingChanged)
    ),
    editingDidEndOnExit📡 = UIControl.Event📦(
       controlEvent: .EditingDidEndOnExit,
-      selector: "onEditingDidEndOnExit"
+      selector: #selector(UITextFieldSelectors.onEditingDidEndOnExit)
    )
 
 // Won't work if private.
 extension UITextField {
    func onEditingChanged() {editingChanged📡[]}
    func onEditingDidEndOnExit() {editingDidEndOnExit📡[]}
+}
+@objc private protocol UITextFieldSelectors {
+	func onEditingChanged()
+	func onEditingDidEndOnExit()
 }

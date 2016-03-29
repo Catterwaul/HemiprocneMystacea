@@ -51,8 +51,9 @@ public extension SequenceType {
 //MARK:- Operators
 ///- Returns: the combination of `dictionary` with a key-value pair sequence
 public func + <Key, Value, Keys🔗Values: SequenceType where Keys🔗Values.Generator.Element == (Key, Value)>
-(var dictionary: Dictionary<Key, Value>, keys🔗values: Keys🔗Values) -> Dictionary<Key, Value> {
-   for (key, value) in keys🔗values {dictionary[key] = value}
+(dictionary: Dictionary<Key, Value>, keys🔗values: Keys🔗Values) -> Dictionary<Key, Value> {
+	var dictionary = dictionary
+	for (key, value) in keys🔗values {dictionary[key] = value}
 	return dictionary
 }
 /// Combine `dictionary` with a key-value pair sequence
@@ -63,8 +64,9 @@ public func += <Key, Value, Keys🔗Values: SequenceType where Keys🔗Values.Ge
 
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
 public func - <Key, Value, KeysToSetNil: SequenceType where KeysToSetNil.Generator.Element == Key>
-(var dictionary: Dictionary<Key, Value>, keysToSetNil: KeysToSetNil) -> Dictionary<Key, Value> {
-   for key in keysToSetNil {dictionary[key] = nil}
+(dictionary: Dictionary<Key, Value>, keysToSetNil: KeysToSetNil) -> Dictionary<Key, Value> {
+	var dictionary = dictionary
+	for key in keysToSetNil {dictionary[key] = nil}
 	return dictionary
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`
