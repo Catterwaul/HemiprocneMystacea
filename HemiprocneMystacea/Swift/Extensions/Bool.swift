@@ -14,3 +14,17 @@ public extension Bool {
    /// Makes true be false and vice versa.
    mutating func toggle() {self = !self}
 }
+
+public extension SequenceType where Generator.Element == Bool {
+	/// Use this directly until conforming to BooleanType is possible.
+	var boolValue: Bool {
+		return !self.contains{!$0}
+	}
+}
+
+public extension SequenceType where Generator.Element == () -> Bool {
+	/// Use this directly until conforming to BooleanType is possible.
+	var boolValue: Bool {
+		return !self.contains{!$0()}
+	}
+}

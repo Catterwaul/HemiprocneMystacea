@@ -15,4 +15,31 @@ final class BoolTestCase: XCTestCase {
       bool.toggle()
       XCTAssertTrue(bool)
    }
+	
+//MARK:- Sequences of Bools
+	func testFakeBooleanTypeConformance() {
+		let trueConditions = [
+			true,
+			1 < 2,
+			"🦁" == "🦁"
+		]
+		XCTAssertTrue(trueConditions.boolValue)
+		
+		XCTAssertFalse(
+			(trueConditions + [false]).boolValue
+		)
+	}
+	
+	func testFakeBooleanTypeConformanceWithClosures() {
+		let trueConditions = [
+			{true},
+			{1 < 2},
+			{"🦁" == "🦁"}
+		]
+		XCTAssertTrue(trueConditions.boolValue)
+		
+		XCTAssertFalse(
+			(trueConditions + [{false}]).boolValue
+		)
+	}
 }
