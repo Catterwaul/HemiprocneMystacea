@@ -6,9 +6,16 @@ final class SequenceTypeTestCase: XCTestCase {
 		XCTAssertEqual([1, 5, 3].first{$0 == 5}, 5)
 	}
    
-   func testObeys() {
-      XCTAssertEqual([1, 2, 3].obeys{$0 == 3}, false)
-      XCTAssertEqual([1, 1, 1].obeys{$0 == 1}, true)
+   func testContainsOnly() {
+		let
+			ones = [1, 1, 1],
+			oneTwoThree = [1, 2, 3]
+		
+		XCTAssertTrue(ones.containsOnly(1))
+		XCTAssertFalse(oneTwoThree.containsOnly(2))
+		
+		XCTAssertTrue(ones.containsOnly{$0 == 1})
+      XCTAssertFalse(oneTwoThree.containsOnly{$0 == 3})
    }
    
 	func testSortedBy() {

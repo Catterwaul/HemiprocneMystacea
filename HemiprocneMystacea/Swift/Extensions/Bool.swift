@@ -15,16 +15,10 @@ public extension Bool {
    mutating func toggle() {self = !self}
 }
 
-public extension SequenceType where Generator.Element == Bool {
-	/// Use this directly until conforming to BooleanType is possible.
-	var boolValue: Bool {
-		return !self.contains{!$0}
-	}
-}
-
 public extension SequenceType where Generator.Element == () -> Bool {
-	/// Use this directly until conforming to BooleanType is possible.
-	var boolValue: Bool {
-		return !self.contains{!$0()}
-	}
+	///- Returns: whether all elements of the sequence evalute to `bool`
+   @warn_unused_result
+   func containsOnly(bool: Bool) -> Bool {
+      return self.containsOnly{$0() == bool}
+   }
 }
