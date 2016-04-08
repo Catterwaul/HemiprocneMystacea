@@ -16,7 +16,7 @@ public extension Bool {
 }
 
 public extension SequenceType where Generator.Element == () -> Bool {
-	///- Returns: whether all elements of the sequence evalute to `bool`
+	///- Returns: whether all elements of the sequence evaluate to `bool`
    @warn_unused_result
    func containsOnly(bool: Bool) -> Bool {
       return self.containsOnly{$0() == bool}
