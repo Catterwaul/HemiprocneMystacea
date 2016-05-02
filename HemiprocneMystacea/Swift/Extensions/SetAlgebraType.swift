@@ -1,4 +1,4 @@
-extension Swift.Set: SetAlgebraType {}
+extension Set: SetAlgebraType {}
 
 /// insert
 public func += <Set: SetAlgebraType>(inout set: Set, element: Set.Element) {

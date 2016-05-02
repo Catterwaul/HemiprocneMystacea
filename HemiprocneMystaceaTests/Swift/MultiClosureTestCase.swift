@@ -20,6 +20,7 @@ final class MultiClosureTestCase: XCTestCase {
       let
          closure: EquatableClosure<()>! = EquatableClosure{},
          multiClosure = MultiClosure(closure)
+		
       XCTAssertNotEqual(multiClosure.closures, [])
       XCTAssertNotEqual(closure.multiClosures, [])
       multiClosure -= closure
@@ -27,19 +28,19 @@ final class MultiClosureTestCase: XCTestCase {
       XCTAssertEqual(closure.multiClosures, [])
    }
 
-   func testDeallocation() {
-      var
-         closure: EquatableClosure<()>! = EquatableClosure{},
-         multiClosure: MultiClosure<()>! = MultiClosure(closure)
-      
-      XCTAssertNotEqual(multiClosure.closures, [])
-      closure = nil
-      XCTAssertEqual(multiClosure.closures, [])
-      
-      closure = EquatableClosure{}
-      multiClosure += closure
-      XCTAssertNotEqual(closure.multiClosures, [])
-      multiClosure = nil
-      XCTAssertEqual(closure.multiClosures, [])
-   }
+	func testDeallocation() {
+		var
+			closure: EquatableClosure<()>! = EquatableClosure{},
+			multiClosure: MultiClosure<()>! = MultiClosure(closure)
+		
+		XCTAssertNotEqual(multiClosure.closures, [])
+		closure = nil
+		XCTAssertEqual(multiClosure.closures, [])
+		
+		closure = EquatableClosure{}
+		multiClosure += closure
+		XCTAssertNotEqual(closure.multiClosures, [])
+		multiClosure = nil
+		XCTAssertEqual(closure.multiClosures, [])
+	}
 }
