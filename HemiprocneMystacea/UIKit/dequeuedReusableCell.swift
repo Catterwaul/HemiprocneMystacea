@@ -1,11 +1,11 @@
 public protocol dequeuedReusableCell {
+associatedtype Cell: UIView
+
    ///- Attention: Called dequeueReusableCellWithIdentifier in UITableView
    func dequeueReusableCellWithReuseIdentifier(
       identifier: String,
       forIndexPath indexPath: NSIndexPath
    ) -> Cell
-   
-   associatedtype Cell: UIView
 }
 
 

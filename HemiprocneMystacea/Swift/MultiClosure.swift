@@ -3,35 +3,42 @@
 ///- Note: Designed for one-to-many events, hence no return value.
 ///  Returning a single value from multiple closures doesn't make sense.
 public final class MultiClosure<Input>: EquatableClass {
-   public init(_ closures: EquatableClosure<Input>...) {self += closures}
-   
-   public init<Closures: SequenceType
-      where Closures.Generator.Element == EquatableClosure<Input>
-   >(_ closures: Closures) {self += closures}
-   
-   /// Execute every closure
-   ///
-   /// ***Rationale:***
-   /// We can't override () so maybe brackets are the next best thing?
-   public subscript(input: Input) -> () {
-      closures.forEach{$0.reference[input]}
-   }
-   
-   var closures = Set<
-      UnownedReferencer<EquatableClosure<Input>>
-   >()
-   
+	public init(_ closures: EquatableClosure<Input>...) {self += closures}
+	
+	public init<
+		Closures: SequenceType
+		where
+		Closures.Generator.Element == EquatableClosure<Input>
+	>(_ closures: Closures) {
+		self += closures
+	}
+	
+	/// Execute every closure
+	///
+	/// ***Rationale:***
+	/// We can't override () so maybe brackets are the next best thing?
+	public subscript(input: Input) -> () {
+		closures.forEach{$0.reference[input]}
+	}
+	
+	var closures = Set<
+		UnownedReferencer<
+			EquatableClosure<Input>
+		>
+	>()
+	
 //MARK:- Deallocation
-   // We can't find self in `closures` without this.
-   private lazy var unownedSelf: UnownedReferencer<MultiClosure<Input>>
-   = UnownedReferencer(self)
-   
-   // Even though this MultiClosure will be deallocated,
-   // its corresponding WeakReferencers won't be,
-   // unless we take this manual action or similar.
-   deinit {
-      closures.forEach{$0.reference.multiClosures -= unownedSelf}
-   }
+	// We can't find self in `closures` without this.
+	private lazy var unownedSelf: UnownedReferencer<
+		MultiClosure<Input>
+	> = UnownedReferencer(self)
+	
+	// Even though this MultiClosure will be deallocated,
+	// its corresponding WeakReferencers won't be,
+	// unless we take this manual action or similar.
+	deinit {
+		closures.forEach{$0.reference.multiClosures -= unownedSelf}
+	}
 }
 
 /// A wrapper around a closure, for use with MultiClosures
@@ -47,16 +54,14 @@ public final class EquatableClosure<Input>: EquatableClass {
 	private let closure: Input -> ()
 
 //MARK:- Deallocation
-   var multiClosures = Set<
-      UnownedReferencer<MultiClosure<Input>>
-   >()
-   
-   // We can't find self in `multiClosures` without this.
-   private lazy var unownedSelf: UnownedReferencer<EquatableClosure<Input>>
-   = UnownedReferencer(self)
-   
+	var multiClosures = Set<UnownedReferencer<MultiClosure<Input>>>()
+	
+	// We can't find self in `multiClosures` without this.
+	private lazy var unownedSelf: UnownedReferencer<EquatableClosure<Input>>
+	= UnownedReferencer(self)
+	
 	deinit {
- 		multiClosures.forEach{$0.reference.closures -= unownedSelf}
+		multiClosures.forEach{$0.reference.closures -= unownedSelf}
 	}
 }
 
@@ -74,8 +79,13 @@ public func += <Input>(
 /// when `multiClosure` does
 public func += <
    Input,
-   Closures: SequenceType where Closures.Generator.Element == EquatableClosure<Input>
->(multiClosure: MultiClosure<Input>, closures: Closures) {
+   Closures: SequenceType
+	 where
+	 Closures.Generator.Element == EquatableClosure<Input>
+>(
+	multiClosure: MultiClosure<Input>,
+	closures: Closures
+) {
    for closure in closures {multiClosure += closure}
 }
 
@@ -86,5 +96,5 @@ public func -= <Input>(
    closure: EquatableClosure<Input>
 ) {
 	multiClosure.closures -= closure.unownedSelf
-   closure.multiClosures -= multiClosure.unownedSelf
+	closure.multiClosures -= multiClosure.unownedSelf
 }
