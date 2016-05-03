@@ -1,39 +1,30 @@
-public extension UIAlertController {typealias Action = (
-   title: String,
-   style: UIAlertActionStyle,
-   ƒ: (() -> ())?
-)}
-
-public extension UIAlertController {
-   static let defaultActions: [UIAlertController.Action] = [(title: "OK", style: .Default, nil)]
-}
-
 public extension UIAlertController {
 	convenience init(
 		title: String?,
 		message: String?,
-      style: UIAlertControllerStyle = .Alert,
-		actions: [Action] = UIAlertController.defaultActions
+		style: UIAlertControllerStyle = .Alert,
+		actions: [UIAlertAction] = [UIAlertAction.`default`]
 	) {
 		self.init(
-         title: title,
-         message: message,
-         preferredStyle: style
-      )
+			title: title,
+			message: message,
+			preferredStyle: style
+		)
 		self += actions
-   }
+	}
 }
 
-public func += (controller: UIAlertController, action: UIAlertController.Action) {
-   controller.addAction(UIAlertAction(
-      title: action.title,
-      style: action.style,
-      handler: {
-         guard let ƒ = action.ƒ else {return nil}
-         return {_ in ƒ()}
-      }()
-   ))
+//MARK: +=
+public func += (
+	controller: UIAlertController,
+	action: UIAlertAction
+) {
+	controller.addAction(action)
 }
-public func += (controller: UIAlertController, actions: [UIAlertController.Action]) {
-   for action in actions {controller += action}
+
+public func += (
+	controller: UIAlertController,
+	actions: [UIAlertAction]
+) {
+	actions.forEach{controller += $0}
 }
