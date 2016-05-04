@@ -11,7 +11,8 @@ public extension UIViewController {
 		title title: String? = nil,
 		message: String? = nil,
 		style: UIAlertControllerStyle = .Alert,
-		actions: [UIAlertAction] = [UIAlertAction.`default`]
+		actions: [UIAlertAction] = [UIAlertAction.`default`],
+		sourceView: UIView? = nil
 	) {
 		present(
 			viewController: UIAlertController(
@@ -19,7 +20,17 @@ public extension UIViewController {
 				message: message,
 				style: style,
 				actions: actions
-			)
+			)…{
+				guard let
+					popoverPresentationController = $0.popoverPresentationController,
+					sourceView = sourceView
+				else {return}
+				
+				popoverPresentationController…{
+					$0.sourceView = sourceView
+					$0.sourceRect = sourceView.bounds
+				}
+			}
 		)
 	}
 	
