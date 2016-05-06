@@ -14,6 +14,7 @@
 		4905A4D91C47F9BF0001402A /* Double🎀TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */; };
 		4905A4DB1C47FA470001402A /* Int🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */; };
 		4905A4DD1C47FC440001402A /* String🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DC1C47FC440001402A /* String🎁TestCase.swift */; };
+		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		494D27651C470BCF00401F27 /* NSByteCountFormatterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */; };
 		495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
@@ -102,6 +103,7 @@
 		4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double🎀TestCase.swift"; path = "Swift/Conversions/Double🎀TestCase.swift"; sourceTree = "<group>"; };
 		4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int🎁TestCase.swift"; path = "Swift/Conversions/Int🎁TestCase.swift"; sourceTree = "<group>"; };
 		4905A4DC1C47FC440001402A /* String🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String🎁TestCase.swift"; path = "Swift/Conversions/String🎁TestCase.swift"; sourceTree = "<group>"; };
+		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSByteCountFormatterTestCase.swift; path = Foundation/NSByteCountFormatterTestCase.swift; sourceTree = "<group>"; };
 		495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenter.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
 				49CBE0A41C332ADE00E8EFCC /* UITextField.swift */,
 				49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */,
+				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* Mutable Properties.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */,
+				491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */,
 				49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */,
 				49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */,
 				49CBE0CE1C332ADE00E8EFCC /* UIControl.swift in Sources */,
