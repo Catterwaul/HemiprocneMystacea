@@ -1,12 +1,20 @@
 extension Set: SetAlgebraType {}
 
 /// insert
-public func += <Set: SetAlgebraType>(inout set: Set, element: Set.Element) {
+public func +=
+<Set: SetAlgebraType>(
+	inout set: Set,
+	element: Set.Element
+) {
 	set.insert(element)
 }
 
 /// remove
-public func -= <Set: SetAlgebraType>(inout set: Set, element: Set.Element) {
+public func -=
+<Set: SetAlgebraType>(
+	inout set: Set,
+	element: Set.Element
+) {
 	set.remove(element)
 }
 
@@ -15,8 +23,12 @@ public func -= <Set: SetAlgebraType>(inout set: Set, element: Set.Element) {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "interse"
-public func ∩ <Set: SetAlgebraType>(_0: Set, _1: Set) -> Set {
-	return _0.intersect(_1)
+public func ∩
+<Set: SetAlgebraType>(
+	💰0: Set,
+	💰1: Set
+) -> Set {
+	return 💰0.intersect(💰1)
 }
 
 /// intersect "in place"
@@ -24,8 +36,12 @@ public func ∩ <Set: SetAlgebraType>(_0: Set, _1: Set) -> Set {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "interse"
-public func ∩= <Set: SetAlgebraType>(inout _0: Set, _1: Set) {
-	_0.intersectInPlace(_1)
+public func ∩=
+<Set: SetAlgebraType>(
+	inout 💰0: Set,
+	💰1: Set
+) {
+	💰0.intersectInPlace(💰1)
 }
 
 /// union
@@ -33,8 +49,12 @@ public func ∩= <Set: SetAlgebraType>(inout _0: Set, _1: Set) {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "unio"
-public func ∪ <Set: SetAlgebraType>(_0: Set, _1: Set) -> Set {
-	return _0.union(_1)
+public func ∪
+<Set: SetAlgebraType>(
+	💰0: Set,
+	💰1: Set
+) -> Set {
+	return 💰0.union(💰1)
 }
 
 /// union "in place"
@@ -42,6 +62,10 @@ public func ∪ <Set: SetAlgebraType>(_0: Set, _1: Set) -> Set {
 ///- Remark:
 ///  1. control-command-space
 ///  2. "unio"
-public func ∪= <Set: SetAlgebraType>(inout _0: Set, _1: Set) {
-	_0.unionInPlace(_1)
+public func ∪=
+<Set: SetAlgebraType>(
+	inout 💰0: Set,
+	💰1: Set
+) {
+	💰0.unionInPlace(💰1)
 }

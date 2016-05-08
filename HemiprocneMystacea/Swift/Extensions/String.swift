@@ -20,23 +20,31 @@ public extension String {
    }
 }
 
-/// `_0`, with all occurrences of `_1` removed
+/// `💰0`, with all occurrences of `💰1` removed
 @warn_unused_result
-public func - (_0: String, _1: String) -> String {
-   return _0.stringByReplacingOccurrencesOfString(_1, withString: "")
+public func - (
+	💰0: String,
+	💰1: String
+) -> String {
+	return 💰0.stringByReplacingOccurrencesOfString(💰1,
+		withString: ""
+	)
 }
 
 extension SequenceType where Generator.Element == String {
-    /// Same as `joinWithSeparator`, but with the empty strings removed
-    @warn_unused_result
-    public func joined(with separator: String) -> String {
-      return self.filter{!$0.isEmpty}.joinWithSeparator(separator)
-    }
+	/// Same as `joinWithSeparator`, but with the empty strings removed
+	@warn_unused_result
+	public func joined(with separator: String) -> String {
+		return self.filter{!$0.isEmpty}
+			.joinWithSeparator(separator)
+	}
 }
 
 ///- Returns: `strings`, concatenated
 ///- Remark: option-W
 @warn_unused_result
-public prefix func ∑<Strings: SequenceType where Strings.Generator.Element == String>
-(strings: Strings) -> String
-{return strings.reduce("", combine: +)}
+public prefix func ∑
+<Strings: SequenceType where Strings.Generator.Element == String>
+(strings: Strings) -> String {
+	return strings.reduce("", combine: +)
+}

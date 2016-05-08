@@ -14,20 +14,20 @@ public extension 🍲 where Self: NSManagedObject {
    }
    
    /// Calls `Self_init` after being initialized into `NSManagedObjectContext.forMainQueue`.
-   init(_ _0: Self🍲) {
+   init(_ 💰0: Self🍲) {
       self.init(
          entity: NSEntityDescription.entityForName(String(Self),
             inManagedObjectContext: NSManagedObjectContext.forMainQueue
          )!,
          insertIntoManagedObjectContext: NSManagedObjectContext.forMainQueue
       )
-      Self_init(_0)
+      Self_init(💰0)
    }
 
    ///- Returns: if an instance exists already, that;
    ///  otherwise, a new instance.
-   static func instance(matching _0: Self🍲) -> Self {
-      return Self.inContext.matching(_0) ?? Self(_0)
+   static func instance(matching 💰0: Self🍲) -> Self {
+      return Self.inContext.matching(💰0) ?? Self(💰0)
 	}
 }
 
@@ -36,7 +36,7 @@ public extension SequenceType where
    Generator.Element: 🍲
 {
    ///- Returns: first match (according to `🍲.matches`)
-   func matching(_0: Generator.Element.Self🍲) -> Generator.Element? {
-      return self.first{$0.matches(_0)}
+   func matching(potentialMatch: Generator.Element.Self🍲) -> Generator.Element? {
+      return self.first{$0.matches(potentialMatch)}
    }
 }
