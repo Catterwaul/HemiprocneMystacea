@@ -105,17 +105,21 @@ subscript cells[NSIndexPath]: UICollectionViewCell {
 Normally, verb-functions don't return values. But Swift doesn't seem to have an accepted way, in source, to express when a function is a verb, yet also returns something. In these cases, use the `Returns` markup to document what will be returned, but don't include whatever that returned value is, in the function's name.
 */
 struct Iterator {
-   init(limit: Int) {self.limit = limit}
-   
-   ///- Returns: Current iteration
-   @warn_unused_result
-   mutating func iterate() -> Int? {
-      iteration += 1
-      return iteration > limit ? nil : iteration
-   }
-   
-   private var iteration = 0
-   private let limit: Int
+	init(limit: Int) {
+		self.limit = limit
+	}
+	
+	///- Returns: Current iteration
+	@warn_unused_result
+	mutating func iterate() -> Int? {
+		iteration += 1
+		return iteration > limit
+			? nil
+			: iteration
+	}
+	
+	private var iteration = 0
+	private let limit: Int
 }
 
 var iterator = Iterator(limit: 2)

@@ -8,15 +8,22 @@
 The name of events will typically be past tense, to denote that they *just* happened. Emoji come before the name, to denote whether they are broadcasters or receivers.
 */
 struct Transmitter {
-   static var 📻thingHappened: (Int -> ())?
-   
-   // Normally this would only be called from within a Transmitter.
-   func 📡thingHappened(int: Int) {Transmitter.📻thingHappened?(int)}
+	static var 📻thingHappened: (Int -> ())?
+	
+	// Normally this would only be called from within a Transmitter.
+	func 📡thingHappened(int: Int) {
+		Transmitter.📻thingHappened?(int)
+	}
 }
 
 struct Receiver {
-   init() {Transmitter.📻thingHappened = 📻thingHappened}
-   func 📻thingHappened(int: Int) {print(int)}
+	init() {
+		Transmitter.📻thingHappened = 📻thingHappened
+	}
+	
+	func 📻thingHappened(int: Int) {
+		print(int)
+	}
 }
 
 Receiver()
