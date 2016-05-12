@@ -10,8 +10,8 @@ public func == <
 	🃏,
 	Property: Equatable
 >(
-   💰0: 🃏,
-   💰1🔗property: (
+	💰0: 🃏,
+	💰1🔗property: (
 		🃏,
 		🃏 -> Property
 	)
