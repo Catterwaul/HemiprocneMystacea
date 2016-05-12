@@ -11,9 +11,8 @@ struct Cat {
 		self.cool = cool
 	}
 	
-	let
-		color: String,
-		cool: Bool
+	let color: String
+	let cool: Bool
 }
 
 func orangeCat_init() -> Cat {
@@ -37,7 +36,9 @@ func cat(color: String) -> Cat {
 ## …Stand-ins for generic properties
 Until Swift has generic properties, we have to use functions that stand in as their getters. Use `_get`, after the property name.
 */
-func things_get<Thing>() -> [Thing] {
+func things_get
+<Thing>
+() -> [Thing] {
 	let things: [Any] = [
 		false,
 		0,
@@ -46,14 +47,22 @@ func things_get<Thing>() -> [Thing] {
 	]
 	return things.flatMap{$0 as? Thing}
 }
-var bools: [Bool] {return things_get()}
+
+var bools: [Bool] {
+	return things_get()
+}
 bools
-var ints: [Int] {return things_get()}
+
+var ints: [Int] {
+	return things_get()
+}
 ints
 
 /// Future Swift 
 /* 
-var things<Thing>: [Thing] {
+var things
+<Thing>
+: [Thing] {
 	let things: [Any] = [
 		false, 
 		0,
@@ -62,8 +71,12 @@ var things<Thing>: [Thing] {
 	]
 	return things.flatMap{$0 as? Thing}
 }
-var bools: [Bool] {return things}
-var ints: [Int] {return things}
+var bools: [Bool] {
+	return things
+}
+var ints: [Int] {
+	return things
+}
 */
 /// …and even more-Future Swift?
 /*
@@ -84,8 +97,8 @@ Swift doesn't yet have named subscripts. Until then, use parentheses as if they 
 */
 import UIKit
 func cells(indexPath: NSIndexPath) -> UICollectionViewCell {
-   // Real code would dequeue a cell based on `indexPath`
-   return UICollectionViewCell()
+	// Real code would dequeue a cell based on `indexPath`
+	return UICollectionViewCell()
 }
 
 /// Future Swift

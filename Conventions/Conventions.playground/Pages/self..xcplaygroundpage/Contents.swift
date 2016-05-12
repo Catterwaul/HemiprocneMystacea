@@ -8,11 +8,11 @@ This represents the vast majority of where `self.` can *optionally* be used, and
 * ***self*** is meant before verbs
 */
 struct Struct {
-   let thing: Any
-   // self.thing = "my thing"
-   
-   func doSomething() {}
-   // self.doSomething = "Self, do something."
+	let thing: Any
+	// self.thing = "my thing"
+	
+	func doSomething() {}
+	// self.doSomething = "Self, do something."
 }
 /*:
 ## ***Do*** use `self.` when it means "me"

@@ -20,8 +20,8 @@ let number📦 = (
 If it’s a typealias and will be reused, use PascalCase.
 */
 typealias Number📦 = (
-   values: [Int],
-   name: String
+	values: [Int],
+	name: String
 )
 /*:
 ## Use 🔗 when a grouped name isn't clearer
@@ -43,8 +43,8 @@ typealias Function🍲 = (
 )
 func function(function🍲: Function🍲) {}
 let function🍲 = Function🍲(
-   bool: true,
-   int: 800,
-   string: "Groon"
+	bool: true,
+	int: 800,
+	string: "Groon"
 )
 function(function🍲)

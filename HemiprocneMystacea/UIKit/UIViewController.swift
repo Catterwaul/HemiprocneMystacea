@@ -3,13 +3,17 @@ public extension UIViewController {
 		animated: Bool = true,
 		📻viewDidDisappear: (() -> ())? = nil
 	) {
-		dismissViewControllerAnimated(animated,
+		dismissViewControllerAnimated(
+			animated,
 			completion: 📻viewDidDisappear
 		)
 	}
 	
 	final func performSegue(identifier identifier: String) {
-		performSegueWithIdentifier(identifier, sender: self)
+		performSegueWithIdentifier(
+			identifier,
+			sender: self
+		)
 	}
 	
 	final func present(
