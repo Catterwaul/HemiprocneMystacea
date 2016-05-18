@@ -13,34 +13,34 @@ final class OperatorsTestCase: XCTestCase {
 		class Class {
 			var bool: Bool!
 		}
-		let `class` = Class()…{
-			$0.bool = true
-		}
+		let `class` = Class()…{$0.bool = true}
 		XCTAssertTrue(`class`.bool)
 	}
 
 	func testRecursionEllipsis() {
 		struct Branch {
-			let datum: Int
-			let branches: [Branch]
+			let
+			datum: Int,
+			branches: [Branch]
 		}
 		
-		let branch1 = Branch(
+		let
+		branch1 = Branch(
 			datum: 1,
 			branches: []
-		)
-		let branch2 = Branch(
+		),
+		branch2 = Branch(
 			datum: 2,
 			branches: [branch1]
-		)
-		let branch3 = Branch(
+		),
+		branch3 = Branch(
 			datum: 3,
 			branches: [
 				branch2,
 				branch1
 			]
-		)
-		let branch4 = Branch(
+		),
+		branch4 = Branch(
 			datum: 4,
 			branches: [
 				branch3,

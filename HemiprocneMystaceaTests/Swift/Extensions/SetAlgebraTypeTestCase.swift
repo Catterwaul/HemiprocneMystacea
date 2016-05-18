@@ -138,5 +138,5 @@ private struct Options: OptionSetType {
 		D4,
 		E5,
 		F6
-	) = Options.Flags()
+	) = Options.selfs()
 }

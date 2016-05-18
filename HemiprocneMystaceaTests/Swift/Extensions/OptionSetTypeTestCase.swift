@@ -78,27 +78,27 @@ private struct Options: OptionSetType {
 	static let
 	(	Option1,
 		Option2
-	) = Options.Flags(),
+	) = Options.selfs(),
 	(	Option3,
 		Option4,
 		Option5
-	) = Options.Flags(startingIndex: 3),
+	) = Options.selfs(startingFlagIndex: 3),
 	(	Option6,
 		Option7,
 		Option8,
 		Option9
-	) = Options.Flags(startingIndex: 6),
+	) = Options.selfs(startingFlagIndex: 6),
 	(	Option10,
 		Option11,
 		Option12,
 		Option13,
 		Option14
-	) = Options.Flags(startingIndex: 10),
+	) = Options.selfs(startingFlagIndex: 10),
 	(	Option15,
 		Option16,
 		Option17,
 		Option18,
 		Option19,
 		Option20
-	) = Options.Flags(startingIndex: 15)
+	) = Options.selfs(startingFlagIndex: 15)
 }
