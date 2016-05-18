@@ -32,7 +32,9 @@ public extension Dictionary {
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
 	subscript(key: Key?) -> Value? {
-		guard let key = key else {return nil}
+		guard let key = key
+		else {return nil}
+		
 		return self[key]
 	}
 
@@ -78,8 +80,7 @@ public func + <
 }
 /// Combine `dictionary` with a key-value pair sequence
 public func += <
-	Key,
-	Value,
+	Key, Value,
 	Keys🔗Values: SequenceType
 	where
 	Keys🔗Values.Generator.Element == (Key, Value)
@@ -92,8 +93,7 @@ public func += <
 
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
 public func - <
-	Key,
-	Value,
+	Key, Value,
 	KeysToSetNil: SequenceType
 	where
 	KeysToSetNil.Generator.Element == Key
@@ -109,8 +109,7 @@ public func - <
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`
 public func -= <
-	Key,
-	Value,
+	Key, Value,
 	KeysToSetNil: SequenceType
 	where
 	KeysToSetNil.Generator.Element == Key
