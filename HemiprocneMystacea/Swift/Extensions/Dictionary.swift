@@ -53,7 +53,8 @@ public extension Dictionary {
 
 //MARK: Conversion
 public extension SequenceType {
-	func Dictionary<Key, Value>(
+	func Dictionary
+	<Key, Value>(
 		key🔗value: Generator.Element -> (Key, Value)
 	) -> [Key: Value] {
 		return Swift.Dictionary(self, key🔗value)
