@@ -1,5 +1,5 @@
 /*:
-Sometimes, using an parameter name does not add meaning. Frequently, this will be the case with generic functions with no, or very nonrestrictive, constraints. Closures can currently utilize `$0` for such parameters, but Swift doesn't yet allow us to omit parameter names in functions, and we can't begin parameter names with `$`. Emulate that and call attention to the fact that it's not official notation, by using a `💰` instead.
+Sometimes, using a parameter name does not add meaning. Frequently, this will be the case with generic functions with no, or very nonrestrictive, constraints. Closures can currently utilize `$0` for such parameters, but Swift doesn't yet allow us to omit parameter names in functions, and we can't begin parameter names with `$`. Emulate that and call attention to the fact that it's not official notation, by using a `💰` instead.
 */
 func write
 <🃏>
@@ -15,7 +15,7 @@ Internal parameter names can't be enforced via protocols. This would be a great 
 */
 protocol Protocol {
 	func ƒ(
-		_ lie1: Int,
+		lie1: Int,
 		_ lie2: Int
 	)
 }
