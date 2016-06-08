@@ -1,34 +1,33 @@
 public extension String {
-   ///- Returns: nil if `character` isn't present
+	///- Returns: nil if `character` isn't present
 	@warn_unused_result
-   func after(character: Character) -> String? {
-      guard let index = characters.indexOf(character) else {return nil}
-      return self.substringFromIndex(index.advancedBy(1))
-   }
+	func after(character: Character) -> String? {
+		guard let index = characters.indexOf(character)
+		else {return nil}
+
+		return self.substringFromIndex(index.advancedBy(1))
+	}
 
 	@warn_unused_result
-   func split(by separator: Character) -> [String] {
-      return characters.split(separator).map(String.init)
-   }
+	func split(by separator: Character) -> [String] {
+		return characters.split(separator).map(String.init)
+	}
 
-   ///- Returns: nil if `character` isn't present
-   func upTo(character: Character, characterIsIncluded: Bool = false) -> String? {
-      guard let index = characters.indexOf(character) else {return nil}
-      return self.substringToIndex(
-         characterIsIncluded ? index.advancedBy(1) : index
-      )
-   }
-}
+	///- Returns: nil if `character` isn't present
+	@warn_unused_result
+	func upTo(
+		character: Character,
+		characterIsIncluded: Bool = false
+	) -> String? {
+		guard let index = characters.indexOf(character)
+		else {return nil}
 
-/// `💰0`, with all occurrences of `💰1` removed
-@warn_unused_result
-public func - (
-	💰0: String,
-	💰1: String
-) -> String {
-	return 💰0.stringByReplacingOccurrencesOfString(💰1,
-		withString: ""
-	)
+		return self.substringToIndex(
+			characterIsIncluded
+				? index.advancedBy(1)
+				: index
+		)
+	}
 }
 
 extension SequenceType where Generator.Element == String {
@@ -47,4 +46,16 @@ public prefix func ∑
 <Strings: SequenceType where Strings.Generator.Element == String>
 (strings: Strings) -> String {
 	return strings.reduce("", combine: +)
+}
+
+/// `string0`, with all occurrences of `string1` removed
+@warn_unused_result
+public func - (
+	string0: String,
+	string1: String
+) -> String {
+	return string0.stringByReplacingOccurrencesOfString(
+		string1,
+		withString: ""
+	)
 }

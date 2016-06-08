@@ -13,6 +13,15 @@ public extension SequenceType {
 	}
 }
 
+extension SequenceType where Generator.Element: protocol<
+	IntegerLiteralConvertible,
+	IntegerArithmeticType
+> {
+	public var sum: Generator.Element {
+		return self.reduce(0, combine: +)
+	}
+}
+
 //MARK: containsOnly
 public extension SequenceType {
 	///- Returns: whether all elements of the sequence satisfy `predicate`
@@ -48,13 +57,4 @@ public extension SequenceType where Generator.Element: Equatable {
       : uniqueElements + [element]
     }
   }
-}
-//MARK:-
-
-extension SequenceType
-where Generator.Element: protocol<
-	IntegerLiteralConvertible,
-	IntegerArithmeticType
-> {
-	public var sum: Generator.Element {return self.reduce(0, combine: +)}
 }
