@@ -4,7 +4,7 @@ public extension Bool {
 	/// true for 1,
 	/// nil otherwise
 	init?(_ string: String) {
-		guard let int = string.Int()
+		guard let int = Int(string)
 		where [
 			0,
 			1
