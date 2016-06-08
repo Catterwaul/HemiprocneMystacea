@@ -4,43 +4,54 @@ import XCTest
 final class MutablePropertiesTestCase: XCTestCase {
 	func testMutableComputedProperty() {
 		var _property = 0
-		var property = MutableComputedProperty(
+
+		let property1 = ComputedProperty(
 			get: {_property},
 			set: {_property = $0}
 		)
-		property.set(5)
+		property1.set(5)
 		XCTAssertEqual(
-			property.get(),
+			property1.get(),
 			5
 		)
-		property.get = {3}
+
+		let property2 = ComputedProperty(
+			property1,
+			get: {3}
+		)
 		XCTAssertEqual(
-			property.get(),
+			property2.get(),
 			3
 		)
-		property.set = {_ in}
-		property.set(100)
+
+		let property3 = ComputedProperty(
+			property2,
+			set: {_ in}
+		)
+		property3.set(100)
 		XCTAssertNotEqual(
-			_property,
-			property.get()
+			100,
+			property3.get()
 		)
 	}
 	
 	func testMutableObservableProperty() {
-		var property = MutableObservableProperty(value: 1)
+		let property1 = ObservedProperty(value: 1)
 		XCTAssertEqual(
-			property.value,
+			property1.value,
 			1
 		)
-		
-		func didSet(
-			oldValue: Int,
-			inout value: Int
-		) {
-			value = oldValue - 1
-		}
-		property.didSet = didSet
-		property.value = 2
-		XCTAssertEqual(property.value, 0)
+
+		var property2 = ObservedProperty(
+			property1,
+			didSet: {
+			(	oldValue: Int,
+				inout value: Int
+			) in
+				value = oldValue - 1
+			}
+		)
+		property2.value = 2
+		XCTAssertEqual(property2.value, 0)
 	}
 }
