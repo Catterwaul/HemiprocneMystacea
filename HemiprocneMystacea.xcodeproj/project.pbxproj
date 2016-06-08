@@ -84,6 +84,7 @@
 		49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F01CD91A940067F27E /* CABasicAnimation.swift */; };
 		49FD14F41CD91C070067F27E /* CABasicAnimation.Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F31CD91C070067F27E /* CABasicAnimation.Values.swift */; };
 		49FD14F71CD91D470067F27E /* CABasicAnimationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F61CD91D470067F27E /* CABasicAnimationTestCase.swift */; };
+		E361AD231D089E52007CDA72 /* Dispatch.GlobalQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		49FD14F01CD91A940067F27E /* CABasicAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CABasicAnimation.swift; path = QuartzCore/CABasicAnimation.swift; sourceTree = "<group>"; };
 		49FD14F31CD91C070067F27E /* CABasicAnimation.Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CABasicAnimation.Values.swift; path = QuartzCore/CABasicAnimation/CABasicAnimation.Values.swift; sourceTree = "<group>"; };
 		49FD14F61CD91D470067F27E /* CABasicAnimationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CABasicAnimationTestCase.swift; path = QuartzCore/CABasicAnimationTestCase.swift; sourceTree = "<group>"; };
+		E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.GlobalQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				49CBE0781C332ADE00E8EFCC /* Dispatch.swift */,
+				E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */,
 			);
 			path = Dispatch;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				490B98A91CED00AF008BE911 /* Int64🎀.swift in Sources */,
 				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
+				E361AD231D089E52007CDA72 /* Dispatch.GlobalQueue.swift in Sources */,
 				49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */,
