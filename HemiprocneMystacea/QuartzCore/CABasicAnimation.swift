@@ -3,7 +3,7 @@ import QuartzCore
 public extension CABasicAnimation {
 	convenience init(
 		keyPath: String,
-		values: CABasicAnimation_Values,
+		values: Values,
 		duration: CFTimeInterval
 	) {
 		self.init(keyPath: keyPath)

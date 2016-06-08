@@ -388,7 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				49FD14F21CD91BE00067F27E /* CABasicAnimation */,
-				49FD14F01CD91A940067F27E /* CABasicAnimation.swift */,
 			);
 			name = QuartzCore;
 			sourceTree = "<group>";
@@ -396,6 +395,7 @@
 		49FD14F21CD91BE00067F27E /* CABasicAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				49FD14F01CD91A940067F27E /* CABasicAnimation.swift */,
 				49FD14F31CD91C070067F27E /* CABasicAnimation.Values.swift */,
 			);
 			name = CABasicAnimation;

@@ -22,7 +22,7 @@ final class DictionaryTestCase: XCTestCase {
 				1,
 				2,
 				3
-			]){($0, $0.String()!)},
+			]){($0, String($0))},
 			[	1: "1",
 				2: "2",
 				3: "3"
@@ -35,7 +35,7 @@ final class DictionaryTestCase: XCTestCase {
 				1,
 				2,
 				3
-			){($0, $0.String()!)},
+			){($0, String($0))},
 			[	1: "1",
 				2: "2",
 				3: "3"
@@ -49,7 +49,7 @@ final class DictionaryTestCase: XCTestCase {
 			[	1,
 				2,
 				3
-			].Dictionary{($0, $0.String()!)},
+			].Dictionary{($0, String($0))},
 			[	1: "1",
 				2: "2",
 				3: "3"
