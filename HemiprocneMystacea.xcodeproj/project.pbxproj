@@ -8,13 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A8DEF851C48993B00DF1CF7 /* SequenceTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTypeTestCase.swift */; };
-		0AF3CFCA1C869AA4007C8BD7 /* Double🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3CFC91C869AA4007C8BD7 /* Double🎁TestCase.swift */; };
-		0AF3CFCC1C869B2D007C8BD7 /* Double🎁.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF3CFCB1C869B2D007C8BD7 /* Double🎁.swift */; };
-		4905A4D61C47F58F0001402A /* IntegerConversionTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */; };
-		4905A4D91C47F9BF0001402A /* Double🎀TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */; };
-		4905A4DB1C47FA470001402A /* Int🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */; };
-		4905A4DD1C47FC440001402A /* String🎁TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4905A4DC1C47FC440001402A /* String🎁TestCase.swift */; };
-		490B98A91CED00AF008BE911 /* Int64🎀.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B98A81CED00AF008BE911 /* Int64🎀.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		494D27651C470BCF00401F27 /* NSByteCountFormatterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */; };
 		495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */; };
@@ -54,18 +47,14 @@
 		49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter.swift */; };
 		49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */; };
 		49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */; };
-		49CBE0B61C332ADE00E8EFCC /* Double🎀.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0851C332ADE00E8EFCC /* Double🎀.swift */; };
 		49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */; };
 		49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0881C332ADE00E8EFCC /* HashableClass.swift */; };
-		49CBE0BA1C332ADE00E8EFCC /* Int🎀.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0891C332ADE00E8EFCC /* Int🎀.swift */; };
-		49CBE0BC1C332ADE00E8EFCC /* Int🎁.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */; };
 		49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */; };
 		49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08D1C332ADE00E8EFCC /* nil closures.swift */; };
 		49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08F1C332ADE00E8EFCC /* operators.swift */; };
 		49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0901C332ADE00E8EFCC /* •.swift */; };
 		49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0911C332ADE00E8EFCC /* ….swift */; };
 		49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0941C332ADE00E8EFCC /* Referencers.swift */; };
-		49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0991C332ADE00E8EFCC /* String🎁.swift */; };
 		49CBE0CA1C332ADE00E8EFCC /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */; };
 		49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */; };
 		49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09D1C332ADE00E8EFCC /* UIButton.swift */; };
@@ -99,13 +88,6 @@
 
 /* Begin PBXFileReference section */
 		0A8DEF841C48993B00DF1CF7 /* SequenceTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTestCase.swift; sourceTree = "<group>"; };
-		0AF3CFC91C869AA4007C8BD7 /* Double🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double🎁TestCase.swift"; path = "Swift/Conversions/Double🎁TestCase.swift"; sourceTree = "<group>"; };
-		0AF3CFCB1C869B2D007C8BD7 /* Double🎁.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double🎁.swift"; sourceTree = "<group>"; };
-		4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegerConversionTestCase.swift; path = Swift/Conversions/IntegerConversionTestCase.swift; sourceTree = "<group>"; };
-		4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double🎀TestCase.swift"; path = "Swift/Conversions/Double🎀TestCase.swift"; sourceTree = "<group>"; };
-		4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int🎁TestCase.swift"; path = "Swift/Conversions/Int🎁TestCase.swift"; sourceTree = "<group>"; };
-		4905A4DC1C47FC440001402A /* String🎁TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String🎁TestCase.swift"; path = "Swift/Conversions/String🎁TestCase.swift"; sourceTree = "<group>"; };
-		490B98A81CED00AF008BE911 /* Int64🎀.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int64🎀.swift"; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		494D27641C470BCF00401F27 /* NSByteCountFormatterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSByteCountFormatterTestCase.swift; path = Foundation/NSByteCountFormatterTestCase.swift; sourceTree = "<group>"; };
 		495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenter.swift; sourceTree = "<group>"; };
@@ -148,18 +130,14 @@
 		49CBE07B1C332ADE00E8EFCC /* NSByteCountFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSByteCountFormatter.swift; sourceTree = "<group>"; };
 		49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Setting.swift"; sourceTree = "<group>"; };
 		49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitShiftable.swift; sourceTree = "<group>"; };
-		49CBE0851C332ADE00E8EFCC /* Double🎀.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double🎀.swift"; sourceTree = "<group>"; };
 		49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableClass.swift; sourceTree = "<group>"; };
 		49CBE0881C332ADE00E8EFCC /* HashableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableClass.swift; sourceTree = "<group>"; };
-		49CBE0891C332ADE00E8EFCC /* Int🎀.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int🎀.swift"; sourceTree = "<group>"; };
-		49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int🎁.swift"; sourceTree = "<group>"; };
 		49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiClosure.swift; sourceTree = "<group>"; };
 		49CBE08D1C332ADE00E8EFCC /* nil closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "nil closures.swift"; sourceTree = "<group>"; };
 		49CBE08F1C332ADE00E8EFCC /* operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = operators.swift; sourceTree = "<group>"; };
 		49CBE0901C332ADE00E8EFCC /* •.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "•.swift"; sourceTree = "<group>"; };
 		49CBE0911C332ADE00E8EFCC /* ….swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "….swift"; sourceTree = "<group>"; };
 		49CBE0941C332ADE00E8EFCC /* Referencers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Referencers.swift; sourceTree = "<group>"; };
-		49CBE0991C332ADE00E8EFCC /* String🎁.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String🎁.swift"; sourceTree = "<group>"; };
 		49CBE09B1C332ADE00E8EFCC /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		49CBE09D1C332ADE00E8EFCC /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -200,22 +178,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4905A4D71C47F5AD0001402A /* Conversions */ = {
-			isa = PBXGroup;
-			children = (
-				4905A4D51C47F58F0001402A /* IntegerConversionTestCase.swift */,
-				4905A4D81C47F9BF0001402A /* Double🎀TestCase.swift */,
-				0AF3CFC91C869AA4007C8BD7 /* Double🎁TestCase.swift */,
-				4905A4DA1C47FA470001402A /* Int🎁TestCase.swift */,
-				4905A4DC1C47FC440001402A /* String🎁TestCase.swift */,
-			);
-			name = Conversions;
-			sourceTree = "<group>";
-		};
 		49B182CF1C337D6800529B08 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				4905A4D71C47F5AD0001402A /* Conversions */,
 				49B182E51C33807C00529B08 /* Extensions */,
 				49C434341C34F33000B6C530 /* OperatorsTestCase.swift */,
 				49C4343D1C35E11400B6C530 /* Properties */,
@@ -373,7 +338,6 @@
 		49CBE07F1C332ADE00E8EFCC /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				49D7AC2D1C33420800E40F5A /* Conversions */,
 				49B182D01C33807000529B08 /* Extensions */,
 				49CBE08E1C332ADE00E8EFCC /* Operators */,
 				49C434361C35DCCF00B6C530 /* Properties */,
@@ -415,19 +379,6 @@
 				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		49D7AC2D1C33420800E40F5A /* Conversions */ = {
-			isa = PBXGroup;
-			children = (
-				49CBE0851C332ADE00E8EFCC /* Double🎀.swift */,
-				0AF3CFCB1C869B2D007C8BD7 /* Double🎁.swift */,
-				49CBE0891C332ADE00E8EFCC /* Int🎀.swift */,
-				49CBE08B1C332ADE00E8EFCC /* Int🎁.swift */,
-				490B98A81CED00AF008BE911 /* Int64🎀.swift */,
-				49CBE0991C332ADE00E8EFCC /* String🎁.swift */,
-			);
-			path = Conversions;
 			sourceTree = "<group>";
 		};
 		49E4AD131C45ABDC007BCBA5 /* UIKit */ = {
@@ -574,7 +525,6 @@
 			files = (
 				49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
-				490B98A91CED00AF008BE911 /* Int64🎀.swift in Sources */,
 				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				E361AD231D089E52007CDA72 /* Dispatch.GlobalQueue.swift in Sources */,
@@ -585,8 +535,6 @@
 				49CBE0AD1C332ADE00E8EFCC /* NSByteCountFormatter.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
-				49CBE0BA1C332ADE00E8EFCC /* Int🎀.swift in Sources */,
-				49CBE0B61C332ADE00E8EFCC /* Double🎀.swift in Sources */,
 				49B182DB1C33807000529B08 /* Array.swift in Sources */,
 				49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */,
 				49CBE0CA1C332ADE00E8EFCC /* Keyboard.swift in Sources */,
@@ -610,15 +558,12 @@
 				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
 				495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */,
 				49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */,
-				49CBE0C91C332ADE00E8EFCC /* String🎁.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
-				49CBE0BC1C332ADE00E8EFCC /* Int🎁.swift in Sources */,
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
 				49B182E31C33807000529B08 /* SetAlgebraType.swift in Sources */,
 				49CBE0CD1C332ADE00E8EFCC /* dequeuedReusableCell.swift in Sources */,
 				49CBE0C01C332ADE00E8EFCC /* •.swift in Sources */,
-				0AF3CFCC1C869B2D007C8BD7 /* Double🎁.swift in Sources */,
 				49CBE0D31C332ADE00E8EFCC /* UITextField.swift in Sources */,
 				49FD14F41CD91C070067F27E /* CABasicAnimation.Values.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
@@ -631,20 +576,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AF3CFCA1C869AA4007C8BD7 /* Double🎁TestCase.swift in Sources */,
 				49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */,
 				49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */,
 				49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */,
 				49C4343C1C35E10900B6C530 /* MutablePropertiesTestCase.swift in Sources */,
 				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
-				4905A4DB1C47FA470001402A /* Int🎁TestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
-				4905A4D91C47F9BF0001402A /* Double🎀TestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
-				4905A4D61C47F58F0001402A /* IntegerConversionTestCase.swift in Sources */,
-				4905A4DD1C47FC440001402A /* String🎁TestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				494D27651C470BCF00401F27 /* NSByteCountFormatterTestCase.swift in Sources */,
 				0A8DEF851C48993B00DF1CF7 /* SequenceTypeTestCase.swift in Sources */,

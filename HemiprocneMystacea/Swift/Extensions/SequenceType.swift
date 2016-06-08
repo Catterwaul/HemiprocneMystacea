@@ -30,19 +30,24 @@ public extension SequenceType where Generator.Element: Equatable {
 }
 
 //MARK:- uniqueElements
-extension SequenceType where Generator.Element: Hashable {
-	public var uniqueElements: [Generator.Element] {
-		return Array(Set(self))
-	}
+public extension SequenceType where Generator.Element: Hashable {
+  var uniqueElements: [Generator.Element] {
+    return Array(
+      Set(self)
+    )
+  }
 }
-extension SequenceType where Generator.Element: Equatable {
-	public var uniqueElements: [Generator.Element] {
-		return reduce([]){uniqueElements, element in
-			uniqueElements.contains(element)
-			? uniqueElements
-			: uniqueElements + [element]
-		}
-	}
+public extension SequenceType where Generator.Element: Equatable {
+  var uniqueElements: [Generator.Element] {
+    return self.reduce([]){
+      uniqueElements,
+      element
+    in
+      uniqueElements.contains(element)
+      ? uniqueElements
+      : uniqueElements + [element]
+    }
+  }
 }
 //MARK:-
 
