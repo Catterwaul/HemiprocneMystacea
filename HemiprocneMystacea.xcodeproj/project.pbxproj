@@ -12,6 +12,7 @@
 		495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
+		49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4861B1D09132500A55CCD /* CGRectTestCase.swift */; };
 		49B182DB1C33807000529B08 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D11C33807000529B08 /* Array.swift */; };
 		49B182DC1C33807000529B08 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D21C33807000529B08 /* Bool.swift */; };
 		49B182DD1C33807000529B08 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D31C33807000529B08 /* Dictionary.swift */; };
@@ -94,6 +95,7 @@
 		495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenter.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTestCase.swift; sourceTree = "<group>"; };
+		49A4861B1D09132500A55CCD /* CGRectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectTestCase.swift; path = "Core Graphics/CGRectTestCase.swift"; sourceTree = "<group>"; };
 		49B182D11C33807000529B08 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		49B182D21C33807000529B08 /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		49B182D31C33807000529B08 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				49FD14F51CD91D1F0067F27E /* QuartzCore */,
 				49B182CF1C337D6800529B08 /* Swift */,
 				49E4AD131C45ABDC007BCBA5 /* UIKit */,
+				49A4861B1D09132500A55CCD /* CGRectTestCase.swift */,
 			);
 			path = HemiprocneMystaceaTests;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
 				49FD14F71CD91D470067F27E /* CABasicAnimationTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
+				49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */,
 				4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */,
 			);

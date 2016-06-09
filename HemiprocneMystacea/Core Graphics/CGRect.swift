@@ -1,17 +1,5 @@
 public extension CGRect {
 	init(
-		_ rect: CGRect,
-		height: CGFloat
-	) {
-		self.init(
-			x: rect.origin.x,
-			y: rect.origin.y,
-			width: rect.width,
-			height: height
-		)
-	}
-
-	init(
 		x: CGFloat,
 		y: CGFloat,
 		size: CGSize
@@ -24,6 +12,18 @@ public extension CGRect {
 			size: size
 		)
 	}
+
+  init(
+    _ rect: CGRect,
+      height: CGFloat
+    ) {
+    self.init(
+      x: rect.origin.x,
+      y: rect.origin.y,
+      width: rect.width,
+      height: height
+    )
+  }
 
 	var max: CGPoint {
 		return CGPoint(
