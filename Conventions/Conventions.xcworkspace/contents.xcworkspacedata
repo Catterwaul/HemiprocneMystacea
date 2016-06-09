@@ -7,4 +7,7 @@
    <FileRef
       location = "group:Conventions.playground">
    </FileRef>
+   <FileRef
+      location = "group:Hungaremoji.playground">
+   </FileRef>
 </Workspace>
