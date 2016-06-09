@@ -19,6 +19,7 @@ final class ReferencersTestCase: XCTestCase {
       let `class` = Class()
       var referencers: Set = [UnownedReferencer(`class`)]
       referencers -= `class`
+      referencers -= Class()
       XCTAssertEqual(referencers, [])
    }
    
@@ -37,6 +38,7 @@ final class ReferencersTestCase: XCTestCase {
       let `class` = Class()
       var referencers: Set = [WeakReferencer(`class`)]
       referencers -= `class`
+      referencers -= Class()
       XCTAssertEqual(referencers, [])
    }
 }
