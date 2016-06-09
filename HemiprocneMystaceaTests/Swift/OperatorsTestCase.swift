@@ -35,10 +35,7 @@ final class OperatorsTestCase: XCTestCase {
 		),
 		branch3 = Branch(
 			datum: 3,
-			branches: [
-				branch2,
-				branch1
-			]
+			branches: [branch2, branch1]
 		),
 		branch4 = Branch(
 			datum: 4,
@@ -55,7 +52,7 @@ final class OperatorsTestCase: XCTestCase {
 				branch3,
 				branch4
 			]…{$0.branches})
-			.map{$0.datum},
+        .map{$0.datum},
 			[ 1,
 				2,
 					1,

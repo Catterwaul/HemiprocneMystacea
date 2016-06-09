@@ -3,15 +3,9 @@ import XCTest
 
 final class ArrayTestCase: XCTestCase {
    func testMinusEquals() {
-      var array = [
-				1,
-				2
-			]
+      var array = [1, 2]
       array -= 1
-      XCTAssertEqual(
-				array,
-				[2]
-			)
+      XCTAssertEqual(array, [2])
    }
    
    func testMinusEquals_Predicate() {
@@ -23,9 +17,7 @@ final class ArrayTestCase: XCTestCase {
       array -= {$0 >= 2}
       XCTAssertEqual(
 				array,
-				[	1,
-					3
-				]
+				[1, 3]
 			)
    }
 }

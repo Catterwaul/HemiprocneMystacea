@@ -3,10 +3,7 @@ import XCTest
 
 final class SetTestCase: XCTestCase {
 	func testInsert() {
-		var set: Set = [
-			1,
-			2
-		]
+		var set: Set = [1, 2]
 		set += 3
 		XCTAssertEqual(
 			set,
@@ -18,16 +15,10 @@ final class SetTestCase: XCTestCase {
 	}
 	
 	func testRemove() {
-		var set: Set = [
-			1,
-			2
-		]
+		var set: Set = [1, 2]
 		set -= 1
 		set -= 3
-		XCTAssertEqual(
-			set,
-			[2]
-		)
+		XCTAssertEqual(set, [2])
 	}
 	
 	func testIntersect() {
@@ -43,9 +34,7 @@ final class SetTestCase: XCTestCase {
 		]
 		XCTAssertEqual(
 			set,
-			[	2,
-				3
-			]
+			[2, 3]
 		)
 	}
 	

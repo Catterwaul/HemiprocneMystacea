@@ -42,9 +42,8 @@ final class StringTestCase: XCTestCase {
 	}
 	
 	func testUpToWithNonPresentCharacter() {
-		XCTAssertEqual(
-			"boogalawncare".upTo("z"),
-			nil
+		XCTAssertNil(
+      "boogalawncare".upTo("z")
 		)
 	}
 	
@@ -59,8 +58,7 @@ final class StringTestCase: XCTestCase {
 //MARK: Sequences of Strings
 	func testJoined() {
 		XCTAssertEqual(
-			[
-				"cat",
+			[ "cat",
 				"goes",
 				"",
 				"Meow"
@@ -72,7 +70,7 @@ final class StringTestCase: XCTestCase {
 	func testEpsilon() {
 		XCTAssertEqual(
 			∑[
-				"a",
+        "a",
 				"bc",
 				"d"
 			],

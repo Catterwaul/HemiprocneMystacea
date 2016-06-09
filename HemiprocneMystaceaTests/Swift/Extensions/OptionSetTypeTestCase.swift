@@ -3,14 +3,8 @@ import XCTest
 
 final class OptionSetTypeTestCase: XCTestCase {
 	func test2Flags() {
-		let options: Options = [
-			.Option1,
-			.Option2
-		]
-		XCTAssertEqual(
-			options.rawValue,
-			0b11
-		)
+		let options: Options = [.Option1, .Option2]
+		XCTAssertEqual(options.rawValue, 0b11)
 	}
 	
 	func test3Flags() {
@@ -19,10 +13,7 @@ final class OptionSetTypeTestCase: XCTestCase {
 			.Option4,
 			.Option5
 		]
-		XCTAssertEqual(
-			options.rawValue,
-			0b1_1100
-		)
+		XCTAssertEqual(options.rawValue, 0b1_1100)
 	}
 	
 	func test4Flags() {
@@ -32,10 +23,7 @@ final class OptionSetTypeTestCase: XCTestCase {
 			.Option8,
 			.Option9
 		]
-		XCTAssertEqual(
-			options.rawValue,
-			0b1_1110_0000
-		)
+		XCTAssertEqual(options.rawValue, 0b1_1110_0000)
 	}
 	
 	func test5Flags() {
@@ -46,10 +34,7 @@ final class OptionSetTypeTestCase: XCTestCase {
 			.Option13,
 			.Option14
 		]
-		XCTAssertEqual(
-			options.rawValue,
-			0b11_1110_0000_0000
-		)
+		XCTAssertEqual(options.rawValue, 0b11_1110_0000_0000)
 	}
 	
 	func test6Flags() {
@@ -61,10 +46,7 @@ final class OptionSetTypeTestCase: XCTestCase {
 			.Option19,
 			.Option20
 		]
-		XCTAssertEqual(
-			options.rawValue,
-			0b1111_1100_0000_0000_0000
-		)
+		XCTAssertEqual(options.rawValue, 0b1111_1100_0000_0000_0000)
 	}
 }
 
@@ -76,25 +58,27 @@ private struct Options: OptionSetType {
 	let rawValue: UInt
 	
 	static let
-	(	Option1,
-		Option2
-	) = Options.selfs(),
-	(	Option3,
+  (Option1, Option2) = Options.selfs()
+	static let (
+    Option3,
 		Option4,
 		Option5
-	) = Options.selfs(startingFlagIndex: 3),
-	(	Option6,
+	) = Options.selfs(startingFlagIndex: 3)
+	static let (
+  	Option6,
 		Option7,
 		Option8,
 		Option9
-	) = Options.selfs(startingFlagIndex: 6),
-	(	Option10,
+	) = Options.selfs(startingFlagIndex: 6)
+  static let (
+    Option10,
 		Option11,
 		Option12,
 		Option13,
 		Option14
-	) = Options.selfs(startingFlagIndex: 10),
-	(	Option15,
+	) = Options.selfs(startingFlagIndex: 10)
+	static let (
+    Option15,
 		Option16,
 		Option17,
 		Option18,

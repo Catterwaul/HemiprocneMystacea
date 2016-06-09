@@ -3,10 +3,7 @@ import XCTest
 
 final class SetAlgebraTypeTestCase: XCTestCase {
 	func testInsert() {
-		var options: Options = [
-			.A1,
-			.B2
-		]
+		var options: Options = [.A1, .B2]
 		options += .C3
 		XCTAssertEqual(
 			options,
@@ -18,16 +15,10 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 	}
 	
 	func testRemove() {
-		var options: Options = [
-			.A1,
-			.B2
-		]
+		var options: Options = [.A1, .B2]
 		options -= .C3
 		options -= .A1
-		XCTAssertEqual(
-			options,
-			[.B2]
-		)
+		XCTAssertEqual(options, [.B2])
 	}
 	
 	func testIntersect() {
@@ -44,9 +35,7 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 		]
 		XCTAssertEqual(
 			options,
-			[	.C3,
-				.A1
-			]
+      [.C3, .A1]
 		)
 	}
 	
@@ -64,9 +53,7 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 		]
 		XCTAssertEqual(
 			options,
-			[	.C3,
-				.A1
-			]
+			[.C3, .A1]
 		)
 	}
 	
@@ -112,8 +99,7 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 		]
 		XCTAssertEqual(
 			options,
-			[
-				.A1,
+			[ .A1,
 				.B2,
 				.C3,
 				.D4,

@@ -5,7 +5,7 @@ public extension Dictionary {
 	 <Keys🔗Values: SequenceType where Keys🔗Values.Generator.Element == Element>
    (_ keys🔗values: Keys🔗Values) {
       self.init()
-			for (key, value) in keys🔗values {
+			keys🔗values.forEach{key, value in
 				self[key] = value
 			}
    }
@@ -51,16 +51,6 @@ public extension Dictionary {
 	}
 }
 
-//MARK: Conversion
-public extension SequenceType {
-	func Dictionary
-	<Key, Value>(
-		key🔗value: Generator.Element -> (Key, Value)
-	) -> [Key: Value] {
-		return Swift.Dictionary(self, key🔗value)
-	}
-}
-
 //MARK: Operators
 ///- Returns: the combination of `dictionary` with a key-value pair sequence
 public func + <
@@ -74,9 +64,9 @@ public func + <
 	keys🔗values: Keys🔗Values
 ) -> Dictionary<Key, Value> {
 	var dictionary = dictionary
-	for (key, value) in keys🔗values {
-		dictionary[key] = value
-	}
+  keys🔗values.forEach{key, value in
+    dictionary[key] = value
+  }
 	return dictionary
 }
 /// Combine `dictionary` with a key-value pair sequence
@@ -103,9 +93,7 @@ public func - <
 	keysToSetNil: KeysToSetNil
 ) -> Dictionary<Key, Value> {
 	var dictionary = dictionary
-	for key in keysToSetNil {
-		dictionary[key] = nil
-	}
+	keysToSetNil.forEach{dictionary[$0] = nil}
 	return dictionary
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`

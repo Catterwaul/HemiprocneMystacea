@@ -2,7 +2,7 @@ import HemiprocneMystacea
 import XCTest
 
 final class DictionaryTestCase: XCTestCase {
-	//MARK:- Initializers
+//MARK: initializers
 	func testKeys🔗ValuesInit() {
 		let keys🔗values = [
 			(1, "wonth"),
@@ -18,11 +18,16 @@ final class DictionaryTestCase: XCTestCase {
 	
 	func testInitializeFromSequence() {
 		XCTAssertEqual(
-			Dictionary([
-				1,
-				2,
-				3
-			]){($0, String($0))},
+			Dictionary(
+        [ 1,
+          2,
+          3
+        ]
+      ){
+        ( $0,
+          String($0)
+        )
+      },
 			[	1: "1",
 				2: "2",
 				3: "3"
@@ -35,28 +40,18 @@ final class DictionaryTestCase: XCTestCase {
 				1,
 				2,
 				3
-			){($0, String($0))},
+			){
+        ( $0,
+          String($0)
+        )
+      },
 			[	1: "1",
 				2: "2",
 				3: "3"
 			]
 		)
 	}
-	
-//MARK: Conversion
-	func testConversionFromSequence() {
-		XCTAssertEqual(
-			[	1,
-				2,
-				3
-			].Dictionary{($0, String($0))},
-			[	1: "1",
-				2: "2",
-				3: "3"
-			]
-		)
-	}
-	
+		
 //MARK: Subscripts
 	func testOptionalKeySubscript() {
 		let
@@ -64,14 +59,8 @@ final class DictionaryTestCase: XCTestCase {
 		key: String? = "key",
 		`nil`: String? = nil
 		
-		XCTAssertEqual(
-			dictionary[key],
-			"value"
-		)
-		XCTAssertEqual(
-			dictionary[`nil`],
-			nil
-		)
+		XCTAssertEqual(dictionary[key], "value")
+		XCTAssertEqual(dictionary[`nil`], nil)
 	}
 	
 	func testValueAddedIfNilSubscript() {
@@ -137,10 +126,7 @@ final class DictionaryTestCase: XCTestCase {
 			3: 30
 		]
 		XCTAssertEqual(
-			dictionary - [
-				1,
-				3
-			],
+			dictionary - [1, 3],
 			[2: 20]
 		)
 	}
