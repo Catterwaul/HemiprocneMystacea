@@ -1,8 +1,8 @@
 import HemiprocneMystacea
 import XCTest
 
-final class MutablePropertiesTestCase: XCTestCase {
-	func testMutableComputedProperty() {
+final class PropertiesTestCase: XCTestCase {
+	func testComputedProperty() {
 		var _property = 0
 
 		let property1 = ComputedProperty(
@@ -35,8 +35,11 @@ final class MutablePropertiesTestCase: XCTestCase {
 		)
 	}
 	
-	func testMutableObservableProperty() {
-		let property1 = ObservedProperty(value: 1)
+	func testObservedProperty() {
+		let property1 = ObservedProperty(
+      value: 1,
+      didSet: {_ in}
+    )
 		XCTAssertEqual(
 			property1.value,
 			1
@@ -52,6 +55,9 @@ final class MutablePropertiesTestCase: XCTestCase {
 			}
 		)
 		property2.value = 2
-		XCTAssertEqual(property2.value, 0)
-	}
+    XCTAssertEqual(
+      property2.value,
+      0
+    )
+  }
 }
