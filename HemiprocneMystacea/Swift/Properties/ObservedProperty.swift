@@ -1,19 +1,24 @@
-public struct ObservedProperty
-<Property> {
+public final class ObservedProperty
+<Value>
+: Property
+{
 	public typealias DidSet = (
-		oldValue: Property,
-		inout value: Property
+		oldValue: Value,
+		inout value: Value
 	) -> ()
 
 	public init(
-		value: Property,
+		value: Value,
 		didSet: DidSet
 	) {
 		self.value = value
 		self.didSet = didSet
 	}
 
-	public var value: Property {
+	private let didSet: DidSet
+
+//MARK: Property
+	public var value: Value {
 		didSet {
 			didSet(
 				oldValue: oldValue,
@@ -21,16 +26,17 @@ public struct ObservedProperty
 			)
 		}
 	}
-
-	private let
-	didSet: DidSet
 }
+
+//MARK: public
 public extension ObservedProperty {
-	init(
-		_ observedProperty: ObservedProperty<Property>,
+	convenience init(
+		_ observedProperty: ObservedProperty<Value>,
 		didSet: DidSet
 	) {
-		value = observedProperty.value
-		self.didSet = didSet
+		self.init(
+			value: observedProperty.value,
+			didSet: didSet
+		)
 	}
 }

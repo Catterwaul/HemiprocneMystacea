@@ -78,6 +78,7 @@
 		E348A4371D08C1B0003D8024 /* matchingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4361D08C1B0003D8024 /* matchingMethod.swift */; };
 		E348A4391D08CB03003D8024 /* ObservedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4381D08CB03003D8024 /* ObservedProperty.swift */; };
 		E361AD231D089E52007CDA72 /* Dispatch.GlobalQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */; };
+		E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A83B3A1D099C7B000D7B08 /* Property.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		E348A4361D08C1B0003D8024 /* matchingMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchingMethod.swift; sourceTree = "<group>"; };
 		E348A4381D08CB03003D8024 /* ObservedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservedProperty.swift; sourceTree = "<group>"; };
 		E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.GlobalQueue.swift; sourceTree = "<group>"; };
+		E3A83B3A1D099C7B000D7B08 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				49C434371C35DCCF00B6C530 /* properties.swift */,
+				E3A83B3A1D099C7B000D7B08 /* Property.swift */,
 				49C434391C35DCF900B6C530 /* ComputedProperty.swift */,
 				E348A4381D08CB03003D8024 /* ObservedProperty.swift */,
 			);
@@ -556,6 +559,7 @@
 				49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
 				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */,
+				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				E361AD231D089E52007CDA72 /* Dispatch.GlobalQueue.swift in Sources */,
 				49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */,

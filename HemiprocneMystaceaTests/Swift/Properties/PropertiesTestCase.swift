@@ -9,9 +9,9 @@ final class PropertiesTestCase: XCTestCase {
 			get: {_property},
 			set: {_property = $0}
 		)
-		property1.set(5)
+		property1.value = 5
 		XCTAssertEqual(
-			property1.get(),
+			property1.value,
 			5
 		)
 
@@ -20,7 +20,7 @@ final class PropertiesTestCase: XCTestCase {
 			get: {3}
 		)
 		XCTAssertEqual(
-			property2.get(),
+			property2.value,
 			3
 		)
 
@@ -28,10 +28,10 @@ final class PropertiesTestCase: XCTestCase {
 			property2,
 			set: {_ in}
 		)
-		property3.set(100)
+		property3.value = 100
 		XCTAssertNotEqual(
 			100,
-			property3.get()
+			property3.value
 		)
 	}
 	
@@ -45,7 +45,7 @@ final class PropertiesTestCase: XCTestCase {
 			1
 		)
 
-		var property2 = ObservedProperty(
+		let property2 = ObservedProperty(
 			property1,
 			didSet: {
 			(	oldValue: Int,
@@ -60,4 +60,26 @@ final class PropertiesTestCase: XCTestCase {
       0
     )
   }
+
+	func testCaptureProperty() {
+		func setValue
+		<Property: HemiprocneMystacea.Property>(
+			property property: Property,
+			value: Property.Value
+		) {
+			property.value = value
+		}
+
+		var _property = 0
+		let property = ComputedProperty(
+			get: {_property},
+			set: {_property = $0}
+		)
+		setValue(
+			property: property,
+			value: 777
+		)
+
+		XCTAssertEqual(property.value, 777)
+	}
 }

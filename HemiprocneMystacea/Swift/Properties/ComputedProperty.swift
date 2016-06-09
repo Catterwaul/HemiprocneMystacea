@@ -1,7 +1,8 @@
-public struct ComputedProperty
-<Property> {
-	public typealias Get = () -> Property
-	public typealias Set = Property -> ()
+public final class ComputedProperty
+<Value>
+{
+	public typealias Get = () -> Value
+	public typealias Set = Value -> ()
 
 	public init(
 		get: Get,
@@ -11,24 +12,42 @@ public struct ComputedProperty
 		self.set = set
 	}
 
-	public let
+	private let
 	get: Get,
 	set: Set
 }
+
+//MARK: public
 public extension ComputedProperty {
-	init(
-		_ computedProperty: ComputedProperty<Property>,
+	convenience init(
+		_ computedProperty: ComputedProperty<Value>,
 		get: Get
 	) {
-		self.get = get
-		set = computedProperty.set
+		self.init(
+			get: get,
+			set: computedProperty.set
+		)
 	}
 
-	init(
-		_ computedProperty: ComputedProperty<Property>,
+	convenience init(
+		_ computedProperty: ComputedProperty<Value>,
 		set: Set
 	) {
-		get = computedProperty.get
-		self.set = set
+		self.init(
+			get: computedProperty.get,
+			set: set
+		)
+	}
+}
+
+//MARK: Property
+extension ComputedProperty: Property {
+	public var value: Value {
+		get {
+			return get()
+		}
+		set {
+			set(newValue)
+		}
 	}
 }
