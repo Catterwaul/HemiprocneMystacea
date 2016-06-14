@@ -30,22 +30,17 @@ public extension String {
 	}
 }
 
-extension SequenceType where Generator.Element == String {
+public extension SequenceType where Generator.Element == String {
+    var concatenated: String {
+        return self.reduce("", combine: +)
+    }
+
 	/// Same as `joinWithSeparator`, but with the empty strings removed
 	@warn_unused_result
-	public func joined(with separator: String) -> String {
+	func joined(with separator: String) -> String {
 		return self.filter{!$0.isEmpty}
 			.joinWithSeparator(separator)
 	}
-}
-
-///- Returns: `strings`, concatenated
-///- Remark: option-W
-@warn_unused_result
-public prefix func ∑
-<Strings: SequenceType where Strings.Generator.Element == String>
-(strings: Strings) -> String {
-	return strings.reduce("", combine: +)
 }
 
 /// `string0`, with all occurrences of `string1` removed
@@ -58,4 +53,14 @@ public func - (
 		string1,
 		withString: ""
 	)
+}
+
+/// `string`, with all occurrences of each of the `strings` removed
+@warn_unused_result
+public func -
+<Strings: SequenceType where Strings.Generator.Element == String>(
+    string: String,
+    strings: Strings
+) -> String {
+    return strings.reduce(string, combine: -)
 }
