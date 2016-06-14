@@ -1,6 +1,6 @@
+//MARK: cell
 // This should be one function in one extension
 // but it doesn't seem possible to express.
-
 public extension dequeueReusableCellWithReuseIdentifier where Self: UICollectionView {
 	///- Returns: A reusable cell dequeued without the standard need
 	///  for passing its name as a `String`,
@@ -15,6 +15,20 @@ public extension dequeueReusableCellWithReuseIdentifier where Self: UICollection
 	}
 }
 public extension dequeueReusableCellWithReuseIdentifier where Self: UITableView {
+    ///- Returns: A reusable cell dequeued without the standard need
+    ///  for passing its name as a `String`,
+    ///  and then casting to the desired type
+    ///
+    ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
+    ///  for a cell that this Table View uses
+    final func cell
+    <Cell: UIView>
+    () -> Cell {
+        return dequeueReusableCellWithIdentifier(
+            String(Cell)
+        ) as! Cell
+    }
+
 	///- Returns: A reusable cell dequeued without the standard need
 	///  for passing its name as a `String`,
 	///  and then casting to the desired type
@@ -38,7 +52,7 @@ private extension dequeueReusableCellWithReuseIdentifier {
 	}
 }
 
-//MARK: Conformance
+//MARK:- dequeueReusableCellWithReuseIdentifier
 public protocol dequeueReusableCellWithReuseIdentifier {
 	associatedtype Cell: UIView
 
