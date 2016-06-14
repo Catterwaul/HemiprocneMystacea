@@ -9,7 +9,7 @@ public extension SequenceType {
 	func sorted
 	<Comparable: Swift.Comparable>
 	(@noescape by comparable: Generator.Element -> Comparable) -> [Generator.Element] {
-		return self.sort{$0•comparable < $1•comparable}
+		return self.sort{$0…comparable < $1…comparable}
 	}
 }
 

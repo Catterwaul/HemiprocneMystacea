@@ -9,6 +9,7 @@ final class PropertiesTestCase: XCTestCase {
 			get: {_property},
 			set: {_property = $0}
 		)
+		
 		property1.value = 5
 		XCTAssertEqual(
 			property1.value,

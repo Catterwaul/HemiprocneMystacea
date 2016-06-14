@@ -1,22 +1,27 @@
 import HemiprocneMystacea
 import XCTest
 
-final class OperatorsTestCase: XCTestCase {
-	func testBullet() {
+final class EllipsisTestCase: XCTestCase {
+	func testEllipsis() {
 		func string(int: Int) -> String {
 			return String(int)
 		}
-		XCTAssertEqual(22•string, "22")
-	}
-	
-	func testInitializationEllipsis() {
+		XCTAssertEqual(22…string, "22")
+		
 		class Class {
 			var bool: Bool!
 		}
 		let `class` = Class()…{$0.bool = true}
 		XCTAssertTrue(`class`.bool)
 	}
-
+	
+	func testInOutEllipsis() {
+		XCTAssertEqual(
+			"🐢"…{$0 + "🔋"},
+			"🐢🔋"
+		)
+	}
+	
 	func testRecursionEllipsis() {
 		struct Branch {
 			let

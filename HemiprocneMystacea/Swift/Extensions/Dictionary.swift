@@ -16,7 +16,7 @@ public extension Dictionary {
 		_ sequence: Sequence,
 		_ key🔗value: Sequence.Generator.Element -> (Key, Value)
 	) {
-		self.init(sequence.map{$0•key🔗value})
+		self.init(sequence.map{$0…key🔗value})
 	}
 	init
 	<🃏>(

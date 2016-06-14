@@ -1,25 +1,25 @@
 infix operator … {precedence 255}
 
-/// Useful for initializing something and doing 
-/// things with it immediately thereafter.
-///
-///- Returns: `💰0`
-///
-/// Example:
-///```
-/// var instance = Type()…{
-///    $0.property = newValue
-///    $0.doSomething()
-/// }
-///```
+///- Parameter ƒ: a closure whose argument is `input`
+///- Returns: `input`
 ///- Remark: Hold option, press ;
 public func …
-<🃏>(
-	💰0: 🃏,
-	@noescape ƒ: 🃏 -> ()
-) -> 🃏 {
-   ƒ(💰0)
-   return 💰0
+<Input>(
+	input: Input,
+	@noescape ƒ: Input -> ()
+) -> Input {
+   ƒ(input)
+   return input
+}
+
+///- Returns: `output(input)`
+///- Remark: Hold option, press ;
+public func …
+<Input, Output>(
+	input: Input,
+	@noescape output: Input -> Output
+) -> Output {
+	return output(input)
 }
 
 // This results in a Segmentation fault; 
