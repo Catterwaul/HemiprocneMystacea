@@ -27,7 +27,7 @@ final class JSONTestCase: XCTestCase {
 			try jSON.`subscript`(oldKey) as Bool
 		){error in
 			switch error {
-			case JSON.Error.typeCastFailure(let key):
+			case JSON.HemiprocneMystacea.Error.typeCastFailure(let key):
 				XCTAssertEqual(oldKey, key)
 			default: XCTFail()
 			}
