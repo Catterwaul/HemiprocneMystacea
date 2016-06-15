@@ -48,7 +48,6 @@
 		49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */; };
 		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */; };
 		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */; };
-		49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0781C332ADE00E8EFCC /* Dispatch.swift */; };
 		49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */; };
 		49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */; };
@@ -81,7 +80,6 @@
 		E348A4351D08C146003D8024 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4341D08C146003D8024 /* Optional.swift */; };
 		E348A4371D08C1B0003D8024 /* matchingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4361D08C1B0003D8024 /* matchingMethod.swift */; };
 		E348A4391D08CB03003D8024 /* ObservedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4381D08CB03003D8024 /* ObservedProperty.swift */; };
-		E361AD231D089E52007CDA72 /* Dispatch.GlobalQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */; };
 		E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A83B3A1D099C7B000D7B08 /* Property.swift */; };
 		E3BE34041D0B2688008D532C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BE34031D0B2688008D532C /* JSON.swift */; };
 		E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BE340A1D0EF2A0008D532C /* weakClosure.swift */; };
@@ -142,7 +140,6 @@
 		49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPersistentStoreCoordinator.swift; sourceTree = "<group>"; };
-		49CBE0781C332ADE00E8EFCC /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 		49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Setting.swift"; sourceTree = "<group>"; };
 		49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitShiftable.swift; sourceTree = "<group>"; };
@@ -175,7 +172,6 @@
 		E348A4341D08C146003D8024 /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		E348A4361D08C1B0003D8024 /* matchingMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchingMethod.swift; sourceTree = "<group>"; };
 		E348A4381D08CB03003D8024 /* ObservedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservedProperty.swift; sourceTree = "<group>"; };
-		E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.GlobalQueue.swift; sourceTree = "<group>"; };
 		E3A83B3A1D099C7B000D7B08 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		E3BE34031D0B2688008D532C /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		E3BE340A1D0EF2A0008D532C /* weakClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weakClosure.swift; sourceTree = "<group>"; };
@@ -312,7 +308,6 @@
 				49CBE0701C332ADE00E8EFCC /* Contacts */,
 				49CBE0721C332ADE00E8EFCC /* Core Data */,
 				E348A4311D08C08B003D8024 /* Core Graphics */,
-				49CBE0771C332ADE00E8EFCC /* Dispatch */,
 				49CBE0791C332ADE00E8EFCC /* Foundation */,
 				49FD14EF1CD91A240067F27E /* QuartzCore */,
 				49CBE07F1C332ADE00E8EFCC /* Swift */,
@@ -353,15 +348,6 @@
 				49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */,
 			);
 			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		49CBE0771C332ADE00E8EFCC /* Dispatch */ = {
-			isa = PBXGroup;
-			children = (
-				49CBE0781C332ADE00E8EFCC /* Dispatch.swift */,
-				E361AD221D089E52007CDA72 /* Dispatch.GlobalQueue.swift */,
-			);
-			path = Dispatch;
 			sourceTree = "<group>";
 		};
 		49CBE0791C332ADE00E8EFCC /* Foundation */ = {
@@ -523,14 +509,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Catterwaul;
 				TargetAttributes = {
 					49CBDFF01C3329EF00E8EFCC = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					49CBDFFA1C3329EF00E8EFCC = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -595,7 +583,6 @@
 				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */,
 				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
-				E361AD231D089E52007CDA72 /* Dispatch.GlobalQueue.swift in Sources */,
 				49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */,
@@ -631,7 +618,6 @@
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
 				495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */,
-				49CBE0AB1C332ADE00E8EFCC /* Dispatch.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
@@ -790,6 +776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -807,6 +794,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -819,6 +808,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -830,6 +820,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
