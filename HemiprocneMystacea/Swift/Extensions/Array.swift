@@ -1,24 +1,24 @@
 /// Removes `element` from `array`, if present.
 public func -=
 <Element: Equatable>(
-	inout array: [Element],
+	array: inout [Element],
 	element: Element
 ) {
-	guard let index = array.indexOf(element)
+	guard let index = array.index(of: element)
 	else {return}
 
-	array.removeAtIndex(index)
+	array.remove(at: index)
 }
 
 /// Removes first element that satisfies `predicate` from `array`,
 /// if such an element exists.
 public func -=
 <Element>(
-	inout array: [Element],
-	@noescape predicate: Element -> Bool
+	array: inout [Element],
+	predicate: @noescape (Element) -> Bool
 ) {
-	guard let index = array.indexOf(predicate)
+	guard let index = array.index(where: predicate)
 	else {return}
 
-	array.removeAtIndex(index)
+	array.remove(at: index)
 }
