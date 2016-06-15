@@ -72,15 +72,5 @@ final class StringTestCase: XCTestCase {
             "abcd"
         )
     }
-
-	func testJoined() {
-		XCTAssertEqual(
-			[ "cat",
-				"goes",
-				"",
-				"Meow"
-			].joined(with: "! "),
-			"cat! goes! Meow"
-		)
 	}
 }

@@ -1,66 +1,55 @@
 public extension String {
 	///- Returns: nil if `character` isn't present
-	@warn_unused_result
-	func after(character: Character) -> String? {
-		guard let index = characters.indexOf(character)
-		else {return nil}
-
-		return self.substringFromIndex(index.advancedBy(1))
+	func after(_ character: Character) -> String? {
+		return characters.index(of: character) ?… {
+			self.substring(
+				from: characters.index(after: $0)
+			)
+		}
 	}
 
-	@warn_unused_result
 	func split(by separator: Character) -> [String] {
-		return characters.split(separator).map(String.init)
+		return characters.split(separator: separator).map(String.init)
 	}
 
 	///- Returns: nil if `character` isn't present
-	@warn_unused_result
 	func upTo(
-		character: Character,
+		_ character: Character,
 		characterIsIncluded: Bool = false
 	) -> String? {
-		guard let index = characters.indexOf(character)
+		guard let index = characters.index(of: character)
 		else {return nil}
 
-		return self.substringToIndex(
-			characterIsIncluded
-				? index.advancedBy(1)
+		return self.substring(
+			to: characterIsIncluded
+				? characters.index(after: index)
 				: index
 		)
 	}
 }
 
-public extension SequenceType where Generator.Element == String {
-    var concatenated: String {
-        return self.reduce("", combine: +)
-    }
-
-	/// Same as `joinWithSeparator`, but with the empty strings removed
-	@warn_unused_result
-	func joined(with separator: String) -> String {
-		return self.filter{!$0.isEmpty}
-			.joinWithSeparator(separator)
-	}
+public extension Sequence where Iterator.Element == String {
+	var concatenated: String {
+		return self.reduce("", combine: +)
+	}	
 }
 
 /// `string0`, with all occurrences of `string1` removed
-@warn_unused_result
 public func - (
 	string0: String,
 	string1: String
 ) -> String {
-	return string0.stringByReplacingOccurrencesOfString(
-		string1,
-		withString: ""
+	return string0.replacingOccurrences(
+		of: string1,
+		with: ""
 	)
 }
 
 /// `string`, with all occurrences of each of the `strings` removed
-@warn_unused_result
 public func -
-<Strings: SequenceType where Strings.Generator.Element == String>(
-    string: String,
-    strings: Strings
+<Strings: Sequence where Strings.Iterator.Element == String>(
+	string: String,
+	strings: Strings
 ) -> String {
-    return strings.reduce(string, combine: -)
+	return strings.reduce(string, combine: -)
 }
