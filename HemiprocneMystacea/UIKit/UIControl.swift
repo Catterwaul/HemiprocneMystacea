@@ -25,7 +25,7 @@ struct Event📦 {
          func Event() -> MultiClosure<()> {
             control.addTarget(control,
                action: selector,
-               forControlEvents: controlEvent
+               for: controlEvent
             )
             let multiClosure = MultiClosure<()>()
             self[control] = multiClosure
