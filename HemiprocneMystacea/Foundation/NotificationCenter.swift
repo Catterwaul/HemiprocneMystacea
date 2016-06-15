@@ -1,4 +1,4 @@
-extension NSNotificationCenter {
+extension NotificationCenter {
   /// Creates MultiClosure "events" based on `NSNotification`s
   ///
   ///- Parameter notificationName: An observer for this will be added.
@@ -6,16 +6,16 @@ extension NSNotificationCenter {
   ///  from an `NSNotification`'s `userInfo` dictionary
   static func 📡init
   <Signal>(
-    notificationName notificationName: String,
-    Signal_init: [NSObject: AnyObject] -> Signal
+    notificationName: NSNotification.Name,
+    Signal_init: ([NSObject: AnyObject]) -> Signal
   ) -> MultiClosure<Signal> {
     let 📡 = MultiClosure<Signal>()
-    NSNotificationCenter.defaultCenter().addObserverForName(
-      notificationName,
+    NotificationCenter.default().addObserver(
+      forName: notificationName,
       object: nil,
-      queue: NSOperationQueue.mainQueue()
+      queue: OperationQueue.main()
     ){notification in
-      📡[Signal_init(notification.userInfo!)]
+      📡[Signal_init((notification as NSNotification).userInfo!)]
     }
     return 📡
   }
