@@ -3,7 +3,7 @@ import XCTest
 
 final class EllipsisTestCase: XCTestCase {
 	func testEllipsis() {
-		func string(int: Int) -> String {
+		func string(_ int: Int) -> String {
 			return String(int)
 		}
 		XCTAssertEqual(22…string, "22")

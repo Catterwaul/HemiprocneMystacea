@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A8DEF851C48993B00DF1CF7 /* SequenceTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTypeTestCase.swift */; };
+		0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
@@ -25,7 +25,7 @@
 		49B182DE1C33807000529B08 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D41C33807000529B08 /* Equatable.swift */; };
 		49B182DF1C33807000529B08 /* integers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D51C33807000529B08 /* integers.swift */; };
 		49B182E01C33807000529B08 /* OptionSetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSetType.swift */; };
-		49B182E11C33807000529B08 /* SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* SequenceType.swift */; };
+		49B182E11C33807000529B08 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* Sequence.swift */; };
 		49B182E31C33807000529B08 /* SetAlgebraType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D91C33807000529B08 /* SetAlgebraType.swift */; };
 		49B182E41C33807000529B08 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182DA1C33807000529B08 /* String.swift */; };
 		49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182E61C33839900529B08 /* ArrayTestCase.swift */; };
@@ -96,7 +96,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A8DEF841C48993B00DF1CF7 /* SequenceTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTypeTestCase.swift; sourceTree = "<group>"; };
+		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenter.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		49B182D41C33807000529B08 /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		49B182D51C33807000529B08 /* integers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = integers.swift; sourceTree = "<group>"; };
 		49B182D61C33807000529B08 /* OptionSetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetType.swift; sourceTree = "<group>"; };
-		49B182D71C33807000529B08 /* SequenceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
+		49B182D71C33807000529B08 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		49B182D91C33807000529B08 /* SetAlgebraType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebraType.swift; sourceTree = "<group>"; };
 		49B182DA1C33807000529B08 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		49B182E61C33839900529B08 /* ArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayTestCase.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 				49B182D41C33807000529B08 /* Equatable.swift */,
 				49B182D61C33807000529B08 /* OptionSetType.swift */,
 				E348A4341D08C146003D8024 /* Optional.swift */,
-				49B182D71C33807000529B08 /* SequenceType.swift */,
+				49B182D71C33807000529B08 /* Sequence.swift */,
 				49B182D91C33807000529B08 /* SetAlgebraType.swift */,
 				49B182DA1C33807000529B08 /* String.swift */,
 			);
@@ -255,7 +255,7 @@
 				496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */,
 				49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */,
 				49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */,
-				0A8DEF841C48993B00DF1CF7 /* SequenceTypeTestCase.swift */,
+				0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */,
 				49FCF0731C34D06E005338F6 /* SetTestCase.swift */,
 				49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */,
 				49C434321C34F02700B6C530 /* StringTestCase.swift */,
@@ -598,7 +598,7 @@
 				49BF89901C38C8FD0050A49B /* Self🍲.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
-				49B182E11C33807000529B08 /* SequenceType.swift in Sources */,
+				49B182E11C33807000529B08 /* Sequence.swift in Sources */,
 				49AE42681D10C97E0013301A /* ?….swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
@@ -646,7 +646,7 @@
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
-				0A8DEF851C48993B00DF1CF7 /* SequenceTypeTestCase.swift in Sources */,
+				0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */,
 				49C434351C34F33000B6C530 /* ?…TestCase.swift in Sources */,
 				49AE426B1D10CE010013301A /* …TestCase.swift in Sources */,
 				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
