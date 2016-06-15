@@ -1,7 +1,7 @@
 import HemiprocneMystacea
 import XCTest
 
-final class SequenceTypeTestCase: XCTestCase {
+final class SequenceTestCase: XCTestCase {
 	func testContainsOnly() {
 		let
 		ones = [
@@ -53,10 +53,7 @@ final class SequenceTypeTestCase: XCTestCase {
 			1,
 			1
 		].sum
-		XCTAssertEqual(
-			sum,
-			3
-		)
+		XCTAssertEqual(sum, 3)
 	}
 	
 //MARK: Unique Elements
@@ -87,11 +84,11 @@ private struct TypeWith1EquatableProperty: Equatable {
 	let int: Int
 }
 private func == (
-	💰0: TypeWith1EquatableProperty,
-	💰1: TypeWith1EquatableProperty
+	operand0: TypeWith1EquatableProperty,
+	operand1: TypeWith1EquatableProperty
 )
 -> Bool {
-	return 💰0 == (💰1,
+	return operand0 == (operand1,
 		{$0.int}
 	)
 }
