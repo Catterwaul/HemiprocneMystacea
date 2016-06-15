@@ -2,6 +2,7 @@ infix operator ?… {precedence 255}
 
 ///- Returns: `output(input)`, or `nil` if `input` is `nil`
 ///- Remark: Hold option, press ;
+@discardableResult
 public func ?…
 <Input, Output>(
 	input: Input?,
