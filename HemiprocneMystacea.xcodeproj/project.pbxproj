@@ -126,7 +126,7 @@
 		49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebraTypeTestCase.swift; sourceTree = "<group>"; };
 		49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTypeTestCase.swift; sourceTree = "<group>"; };
 		49C434321C34F02700B6C530 /* StringTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTestCase.swift; sourceTree = "<group>"; };
-		49C434341C34F33000B6C530 /* ?…TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "?…TestCase.swift"; path = "Swift/?…TestCase.swift"; sourceTree = "<group>"; };
+		49C434341C34F33000B6C530 /* ?…TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "?…TestCase.swift"; path = "Swift/Operators/?…TestCase.swift"; sourceTree = "<group>"; };
 		49C434371C35DCCF00B6C530 /* properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = properties.swift; sourceTree = "<group>"; };
 		49C434391C35DCF900B6C530 /* ComputedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputedProperty.swift; sourceTree = "<group>"; };
 		49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesTestCase.swift; path = Swift/Properties/PropertiesTestCase.swift; sourceTree = "<group>"; };
