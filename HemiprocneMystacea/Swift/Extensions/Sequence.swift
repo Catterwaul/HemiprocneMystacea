@@ -6,15 +6,6 @@ public extension Sequence {
 	}
 }
 
-extension Sequence where Iterator.Element: protocol<
-	IntegerLiteralConvertible,
-	IntegerArithmetic
-> {
-	public var sum: Iterator.Element {
-		return self.reduce(0, combine: +)
-	}
-}
-
 //MARK: containsOnly
 public extension Sequence {
 	///- Returns: whether all elements of the sequence satisfy `predicate`

@@ -5,7 +5,7 @@ infix operator ?… {precedence 255}
 public func ?…
 <Input, Output>(
 	input: Input?,
-	@noescape output: Input -> Output
+	output: @noescape (Input) -> Output
 ) -> Output? {
 	guard let input = input
 	else {return nil}
@@ -18,7 +18,7 @@ public func ?…
 public func ?…
 <Input, Output>(
 	input: Input?,
-	@noescape output: Input -> Output?
+	output: @noescape (Input) -> Output?
 ) -> Output? {
 	guard let input = input
 	else {return nil}
