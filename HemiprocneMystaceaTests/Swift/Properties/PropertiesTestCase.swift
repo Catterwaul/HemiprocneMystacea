@@ -39,7 +39,7 @@ final class PropertiesTestCase: XCTestCase {
 	func testObservedProperty() {
 		let property1 = ObservedProperty(
       value: 1,
-      didSet: {_ in}
+      didSet: {_, _ in}
     )
 		XCTAssertEqual(
 			property1.value,
@@ -50,7 +50,7 @@ final class PropertiesTestCase: XCTestCase {
 			property1,
 			didSet: {
 			(	oldValue: Int,
-				inout value: Int
+				value: inout Int
 			) in
 				value = oldValue - 1
 			}
@@ -65,7 +65,7 @@ final class PropertiesTestCase: XCTestCase {
 	func testCaptureProperty() {
 		func setValue
 		<Property: HemiprocneMystacea.Property>(
-			property property: Property,
+			property: Property,
 			value: Property.Value
 		) {
 			property.value = value
