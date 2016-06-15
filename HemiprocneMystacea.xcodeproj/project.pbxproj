@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
-		495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */; };
+		495DAF4D1C4828E300103B24 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495DAF4C1C4828E300103B24 /* NotificationCenter.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
 		499C71921D0F7636009797BC /* JSONTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71911D0F7636009797BC /* JSONTestCase.swift */; };
@@ -33,7 +33,7 @@
 		49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */; };
 		49BF89901C38C8FD0050A49B /* Self🍲.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF898F1C38C8FD0050A49B /* Self🍲.swift */; };
 		49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */; };
-		49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */; };
+		49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */; };
 		49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434321C34F02700B6C530 /* StringTestCase.swift */; };
 		49C434351C34F33000B6C530 /* ?…TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434341C34F33000B6C530 /* ?…TestCase.swift */; };
 		49C434381C35DCCF00B6C530 /* properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434371C35DCCF00B6C530 /* properties.swift */; };
@@ -49,7 +49,7 @@
 		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */; };
 		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */; };
 		49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
-		49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */; };
+		49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */; };
 		49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */; };
 		49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */; };
 		49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0881C332ADE00E8EFCC /* HashableClass.swift */; };
@@ -98,7 +98,7 @@
 /* Begin PBXFileReference section */
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
-		495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenter.swift; sourceTree = "<group>"; };
+		495DAF4C1C4828E300103B24 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTestCase.swift; sourceTree = "<group>"; };
 		499C71911D0F7636009797BC /* JSONTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTestCase.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiClosureTestCase.swift; path = Swift/MultiClosureTestCase.swift; sourceTree = "<group>"; };
 		49BF898F1C38C8FD0050A49B /* Self🍲.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Self🍲.swift"; sourceTree = "<group>"; };
 		49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebraTypeTestCase.swift; sourceTree = "<group>"; };
-		49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTypeTestCase.swift; sourceTree = "<group>"; };
+		49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTestCase.swift; sourceTree = "<group>"; };
 		49C434321C34F02700B6C530 /* StringTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTestCase.swift; sourceTree = "<group>"; };
 		49C434341C34F33000B6C530 /* ?…TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "?…TestCase.swift"; path = "Swift/Operators/?…TestCase.swift"; sourceTree = "<group>"; };
 		49C434371C35DCCF00B6C530 /* properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = properties.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
 		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPersistentStoreCoordinator.swift; sourceTree = "<group>"; };
 		49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
-		49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Setting.swift"; sourceTree = "<group>"; };
+		49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Setting.swift"; sourceTree = "<group>"; };
 		49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitShiftable.swift; sourceTree = "<group>"; };
 		49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableClass.swift; sourceTree = "<group>"; };
 		49CBE0881C332ADE00E8EFCC /* HashableClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableClass.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
 				4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */,
 				496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */,
-				49C434301C34DCD400B6C530 /* OptionSetTypeTestCase.swift */,
+				49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */,
 				49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */,
 				0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */,
 				49FCF0731C34D06E005338F6 /* SetTestCase.swift */,
@@ -354,8 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
-				495DAF4C1C4828E300103B24 /* NSNotificationCenter.swift */,
-				49CBE07E1C332ADE00E8EFCC /* NSUserDefaults+Setting.swift */,
+				495DAF4C1C4828E300103B24 /* NotificationCenter.swift */,
+				49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -590,7 +590,7 @@
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
 				49B182DB1C33807000529B08 /* Array.swift in Sources */,
-				49CBE0B01C332ADE00E8EFCC /* NSUserDefaults+Setting.swift in Sources */,
+				49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */,
 				49CBE0CA1C332ADE00E8EFCC /* Keyboard.swift in Sources */,
 				E348A4391D08CB03003D8024 /* ObservedProperty.swift in Sources */,
 				49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */,
@@ -617,7 +617,7 @@
 				49CBE0D01C332ADE00E8EFCC /* UINavigationController.swift in Sources */,
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
-				495DAF4D1C4828E300103B24 /* NSNotificationCenter.swift in Sources */,
+				495DAF4D1C4828E300103B24 /* NotificationCenter.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
@@ -658,7 +658,7 @@
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */,
 				4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */,
-				49C434311C34DCD400B6C530 /* OptionSetTypeTestCase.swift in Sources */,
+				49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
