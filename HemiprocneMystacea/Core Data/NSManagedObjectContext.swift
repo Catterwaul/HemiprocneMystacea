@@ -22,7 +22,9 @@ public extension NSManagedObjectContext {
 		}
 		
 		guard let parentContext = parent
-		else {fatalError()}
+		else {
+			fatalError()
+		}
 		
 		parentContext.perform{
 			do {
