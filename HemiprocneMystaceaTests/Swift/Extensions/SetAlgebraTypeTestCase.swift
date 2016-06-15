@@ -110,7 +110,7 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 	}
 }
 
-private struct Options: OptionSetType {
+private struct Options: OptionSet {
 	init(rawValue: UInt) {
 		self.rawValue = rawValue
 	}
