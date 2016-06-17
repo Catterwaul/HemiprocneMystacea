@@ -1,27 +1,27 @@
 public struct Keyboard {
-  public static let
-  willShow📡 = 📡init(notificationName: UIKeyboardWillShowNotification),
-  willHide📡 = 📡init(notificationName: UIKeyboardWillHideNotification)
+	public static let
+	willShow📡 = 📡init(notificationName: .UIKeyboardWillShow),
+	willHide📡 = 📡init(notificationName: .UIKeyboardWillHide)
 }
 
 public extension Keyboard {
-  struct Frame📦 {
-    public let
-    begin: CGRect,
-    end: CGRect
-  }
+	struct Frame📦 {
+		public let
+		begin: CGRect,
+		end: CGRect
+	}
 }
 
 private extension Keyboard.Frame📦 {
-  init(userInfo: [String: NSValue]) {
-    begin = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue()
-    end = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
-  }
+	init(userInfo: [String: NSValue]) {
+		begin = userInfo[UIKeyboardFrameBeginUserInfoKey]!.cgRectValue()
+		end = userInfo[UIKeyboardFrameEndUserInfoKey]!.cgRectValue()
+	}
 }
 
 private func 📡init
-(notificationName notificationName: String) -> MultiClosure<Keyboard.Frame📦> {
-    return NSNotificationCenter.📡init(notificationName: notificationName){
-      Keyboard.Frame📦(userInfo: $0 as! [String: NSValue])
-    }
+(notificationName: Notification.Name) -> MultiClosure<Keyboard.Frame📦> {
+	return NotificationCenter.📡init(notificationName: notificationName){
+		Keyboard.Frame📦(userInfo: $0 as! [String: NSValue])
+	}
 }
