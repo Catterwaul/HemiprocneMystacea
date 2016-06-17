@@ -15,16 +15,15 @@ public extension NSManagedObjectContext {
 	///- Precondition: parentContext is not nil
 	func saveSelfAndParent() {
 		performAndWait{
-			do {try self.save()}
-			catch let error as NSError {
+			do {
+				try self.save()
+			} catch let error as NSError {
 				fatalError(error.description)
 			}
 		}
 		
 		guard let parentContext = parent
-		else {
-			fatalError()
-		}
+		else {fatalError()}
 		
 		parentContext.perform{
 			do {
