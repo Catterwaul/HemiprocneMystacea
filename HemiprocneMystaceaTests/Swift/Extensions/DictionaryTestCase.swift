@@ -5,8 +5,8 @@ final class DictionaryTestCase: XCTestCase {
 //MARK: initializers
 	func testKeys🔗ValuesInit() {
 		let keys🔗values = [
-			(1, "wonth"),
-			(2, "tooth")
+			(key: 1, value: "wonth"),
+			(key: 2, value: "tooth")
 		]
 		XCTAssertEqual(
 			Dictionary(keys🔗values),
@@ -19,18 +19,18 @@ final class DictionaryTestCase: XCTestCase {
 	func testInitializeFromSequence() {
 		XCTAssertEqual(
 			Dictionary(
-        [ 1,
-          2,
-          3
-        ]
-      ){
-        ( $0,
-          String($0)
-        )
-      },
+				[ 1,
+				  2,
+				  3
+				]
+			){
+				( key: $0,
+				  value: String($0)
+				)
+			},
 			[	1: "1",
-				2: "2",
-				3: "3"
+			 	2: "2",
+			 	3: "3"
 			]
 		)
 	}
@@ -41,13 +41,13 @@ final class DictionaryTestCase: XCTestCase {
 				2,
 				3
 			){
-        ( $0,
-          String($0)
-        )
-      },
+				(	key: $0,
+					value: String($0)
+				)
+			},
 			[	1: "1",
-				2: "2",
-				3: "3"
+			 	2: "2",
+			 	3: "3"
 			]
 		)
 	}
