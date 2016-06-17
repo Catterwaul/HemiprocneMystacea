@@ -3,7 +3,7 @@ public extension UIAlertAction {
   
   convenience init(
     title: String? = nil,
-    style: UIAlertActionStyle = .Default,
+    style: UIAlertActionStyle = .default,
     📻selection: () -> () = {}
   ) {
     self.init(

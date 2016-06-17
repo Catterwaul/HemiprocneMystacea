@@ -12,7 +12,7 @@ public extension JSON {
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
 	func `subscript`
 	<Value>
-	(key: String) throws -> Value {
+	(_ key: String) throws -> Value {
 		guard let anyObject = jSON[key]!
 		else {throw Error.noValue(key: key)}
 		
@@ -25,7 +25,7 @@ public extension JSON {
 
 //MARK:- Error
 public extension JSON {
-	enum Error: ErrorType {
+	enum Error: ErrorProtocol {
 		case
 		noValue(key: String),
 		typeCastFailure(key: String)

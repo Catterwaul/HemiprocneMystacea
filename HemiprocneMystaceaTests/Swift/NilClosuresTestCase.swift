@@ -3,14 +3,14 @@ import XCTest
 
 final class NilClosuresTestCase: XCTestCase {
   func testNilledUponCall() {
-    var closure: (() -> ())! {
+    var closure: (() -> ())? {
       didSet {
         closure = nilledUponCall(closure){closure = $0}
       }
     }
     closure = {}
     XCTAssertNotNil(closure)
-    closure()
+    closure!()
     XCTAssertNil(closure)
   }
   
@@ -24,7 +24,7 @@ final class NilClosuresTestCase: XCTestCase {
   
   func test2Nils() {
     let ƒ: (
-      Int -> ()?,
+      (Int) -> ()?,
       () -> Bool?
     ) = Nils()
     XCTAssertNil(
@@ -37,9 +37,9 @@ final class NilClosuresTestCase: XCTestCase {
   
   func test3Nils() {
     let ƒ: (
-      Int -> ()?,
+      (Int) -> ()?,
       () -> Bool?,
-      String -> String?
+      (String) -> String?
     ) = Nils()
     XCTAssertNil(
       ƒ.0(Int.min)
@@ -54,9 +54,9 @@ final class NilClosuresTestCase: XCTestCase {
   
   func test4Nils() {
     let ƒ: (
-      Int -> ()?,
+      (Int) -> ()?,
       () -> Bool?,
-      String -> String?,
+      (String) -> String?,
       () -> ()?
     ) = Nils()
     XCTAssertNil(

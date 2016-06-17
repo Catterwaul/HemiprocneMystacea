@@ -11,9 +11,9 @@ public final class MultiClosure
   }
 	
 	public init<
-		Closures: SequenceType
+		Closures: Sequence
     where
-		Closures.Generator.Element == EquatableClosure<Input>
+		Closures.Iterator.Element == EquatableClosure<Input>
 	>(_ closures: Closures) {
 		self += closures
 	}
@@ -51,7 +51,7 @@ public final class EquatableClosure
 <Input>
 : EquatableClass
 {
-	public init(_ closure: Input -> ()) {
+	public init(_ closure: (Input) -> ()) {
     self.closure = closure
   }
 
@@ -63,7 +63,7 @@ public final class EquatableClosure
     closure(input)
   }
 
-	private let closure: Input -> ()
+	private let closure: (Input) -> ()
 
 //MARK: deallocation
 	var multiClosures = Set<
@@ -97,9 +97,9 @@ public func +=
 /// when `multiClosure` does
 public func += <
    Input,
-   Closures: SequenceType
+   Closures: Sequence
 	 where
-	 Closures.Generator.Element == EquatableClosure<Input>
+	 Closures.Iterator.Element == EquatableClosure<Input>
 >(
 	multiClosure: MultiClosure<Input>,
 	closures: Closures

@@ -54,33 +54,22 @@ final class StringTestCase: XCTestCase {
 			"Boodee Bop!"
 		)
 	}
-
-    func testMinusWithSequence() {
-        XCTAssertEqual(
-            " 123🐉Boodee Bop! 123🐉" - [" 123🐉", "Bo"],
-            "odee p!"
-        )
-    }
+	
+	func testMinusWithSequence() {
+		XCTAssertEqual(
+			" 123🐉Boodee Bop! 123🐉" - [" 123🐉", "Bo"],
+			"odee p!"
+		)
+	}
 	
 //MARK: Sequences of Strings
-    func testConcatenated() {
-        XCTAssertEqual(
-            [   "a",
-                "bc",
-                "d"
-            ].concatenated,
-            "abcd"
-        )
-    }
-
-	func testJoined() {
+	func testConcatenated() {
 		XCTAssertEqual(
-			[ "cat",
-				"goes",
-				"",
-				"Meow"
-			].joined(with: "! "),
-			"cat! goes! Meow"
+			[   "a",
+			    "bc",
+			    "d"
+				].concatenated,
+			"abcd"
 		)
 	}
 }

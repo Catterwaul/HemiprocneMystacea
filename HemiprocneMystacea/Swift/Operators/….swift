@@ -3,10 +3,11 @@ infix operator … {precedence 255}
 ///- Parameter ƒ: a closure whose argument is `input`
 ///- Returns: `input`
 ///- Remark: Hold option, press ;
+@discardableResult
 public func …
 <Input>(
 	input: Input,
-	@noescape ƒ: Input -> ()
+	ƒ: @noescape (Input) -> ()
 ) -> Input {
    ƒ(input)
    return input
@@ -17,7 +18,7 @@ public func …
 public func …
 <Input, Output>(
 	input: Input,
-	@noescape output: Input -> Output
+	output: @noescape (Input) -> Output
 ) -> Output {
 	return output(input)
 }
@@ -32,7 +33,7 @@ public func …
 public func …
 <🃏>(
 	instances: [🃏],
-	recursed: 🃏 -> [🃏]
+	recursed: (🃏) -> [🃏]
 ) -> [🃏] {
    return instances.flatMap{[$0] + recursed($0)…recursed}
 }

@@ -9,11 +9,11 @@ public extension UITextField {
 }
 
 private var editingChanged📡 = UIControl.Event📦(
-  controlEvent: .EditingChanged,
+  controlEvent: .editingChanged,
   selector: #selector(UITextFieldSelectors.onEditingChanged)
 )
 private var editingDidEndOnExit📡 = UIControl.Event📦(
-  controlEvent: .EditingDidEndOnExit,
+  controlEvent: .editingDidEndOnExit,
   selector: #selector(UITextFieldSelectors.onEditingDidEndOnExit)
 )
 

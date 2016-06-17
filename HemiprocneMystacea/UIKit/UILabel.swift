@@ -8,10 +8,10 @@ public extension UILabel {
 			attributes: [
 				NSParagraphStyleAttributeName: NSMutableParagraphStyle()…{
 					$0.hyphenationFactor = 1
-					$0.alignment = .Center
+					$0.alignment = .center
 				}
 			]
 		)
-		lineBreakMode = .ByTruncatingTail
+		lineBreakMode = .byTruncatingTail
 	}
 }

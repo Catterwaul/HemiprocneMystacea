@@ -2,7 +2,7 @@ import Contacts
 
 extension CNContainer {
 	var isICloud: Bool {
-		return type == .CardDAV
+		return type == .cardDAV
 			&& name == "Card"
 	}
 }

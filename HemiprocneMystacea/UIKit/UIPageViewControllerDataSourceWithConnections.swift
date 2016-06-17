@@ -4,7 +4,7 @@ public protocol UIPageViewControllerDataSourceWithConnections: UIPageViewControl
 
 public extension UIPageViewControllerDataSourceWithConnections {
   final func 😾pageViewController(
-    pageViewController: UIPageViewController,
+    _ pageViewController: UIPageViewController,
     viewControllerBeforeViewController viewController: UIViewController
   ) -> UIViewController? {
     return connectedViewController(
@@ -14,7 +14,7 @@ public extension UIPageViewControllerDataSourceWithConnections {
   }
   
   final func 😾pageViewController(
-    pageViewController: UIPageViewController,
+    _ pageViewController: UIPageViewController,
     viewControllerAfterViewController viewController: UIViewController
   ) -> UIViewController? {
     return connectedViewController(
@@ -28,7 +28,7 @@ public extension UIPageViewControllerDataSourceWithConnections {
     adjustIndex: (Int, Int) -> Int
   ) -> UIViewController? {
     let requestedIndex = adjustIndex(
-      connectedViewControllers.indexOf(viewController)!,
+      connectedViewControllers.index(of: viewController)!,
       1
     )
     return connectedViewControllers.indices.contains(requestedIndex)
@@ -37,7 +37,7 @@ public extension UIPageViewControllerDataSourceWithConnections {
   }
   
   final func presentationCountForPageViewController
-  (pageViewController: UIPageViewController) -> Int {
+  (_ pageViewController: UIPageViewController) -> Int {
     return connectedViewControllers.count
   }
 }

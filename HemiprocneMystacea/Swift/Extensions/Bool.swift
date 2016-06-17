@@ -5,10 +5,7 @@ public extension Bool {
 	/// nil otherwise
 	init?(_ string: String) {
 		guard let int = Int(string)
-		where [
-			0,
-			1
-		].contains(int)
+		where [0, 1].contains(int)
 		else {return nil}
 		
 		self.init(int)
@@ -20,10 +17,9 @@ public extension Bool {
 	}
 }
 
-public extension SequenceType where Generator.Element == () -> Bool {
+public extension Sequence where Iterator.Element == () -> Bool {
 	///- Returns: whether all elements of the sequence evaluate to `bool`
-	@warn_unused_result
-	func containsOnly(bool: Bool) -> Bool {
+	func containsOnly(_ bool: Bool) -> Bool {
 		return self.containsOnly{$0() == bool}
 	}
 }

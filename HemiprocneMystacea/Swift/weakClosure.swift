@@ -8,14 +8,11 @@ public func weakClosure<
 	Reference: AnyObject,
 	Return
 >(
-	reference: Reference?,
-	return: Reference -> Return
+	_ reference: Reference?,
+	return: (Reference) -> Return
 ) -> () -> Return? {
 	return {[weak reference] in
-		guard let reference = reference
-		else {return nil}
-
-		return `return`(reference)
+		reference ?… `return`
 	}
 }
 
@@ -32,9 +29,9 @@ public func weakClosure<
 	Parameter,
 	Return
 >(
-	reference: Reference?,
+	_ reference: Reference?,
 	return: (Reference, Parameter) -> Return
-) -> () -> (Parameter -> Return)? {
+) -> () -> ((Parameter) -> Return)? {
 	return weakClosure(reference){reference in
 		{`return`(reference, $0)}
 	}

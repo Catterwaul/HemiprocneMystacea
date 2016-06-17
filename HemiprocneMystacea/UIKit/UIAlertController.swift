@@ -2,7 +2,7 @@ public extension UIAlertController {
 	convenience init(
 		title: String?,
 		message: String?,
-		style: UIAlertControllerStyle = .Alert,
+		style: UIAlertControllerStyle = .alert,
 		actions: [UIAlertAction] = [UIAlertAction.`default`]
 	) {
 		self.init(

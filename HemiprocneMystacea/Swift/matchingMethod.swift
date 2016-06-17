@@ -14,11 +14,11 @@ public func matchingMethod<
 	PotentialInstanceType2,
 	Method
 >(
-	instance instance: Any,
+	instance: Any,
 	methods: (
-		PotentialInstanceType0 -> Method,
-		PotentialInstanceType1 -> Method,
-		PotentialInstanceType2 -> Method
+		(PotentialInstanceType0) -> Method,
+		(PotentialInstanceType1) -> Method,
+		(PotentialInstanceType2) -> Method
 	)
 ) -> Method {
 	switch instance {

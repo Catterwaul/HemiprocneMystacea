@@ -2,7 +2,7 @@ public final class ComputedProperty
 <Value>
 {
 	public typealias Get = () -> Value
-	public typealias Set = Value -> ()
+	public typealias Set = (Value) -> ()
 
 	public init(
 		get: Get,

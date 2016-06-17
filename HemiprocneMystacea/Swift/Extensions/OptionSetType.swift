@@ -1,8 +1,8 @@
-public extension OptionSetType where RawValue: BitShiftable {
+public extension OptionSet where RawValue: BitShiftable {
 	/// Provides two options.
 	///
 	///- Parameter startingFlagIndex: shifts 0b11 if > 1
-	static func selfs(startingFlagIndex startingFlagIndex: RawValue = 1) -> (
+	static func selfs(startingFlagIndex: RawValue = 1) -> (
 		Self,
 		Self
 	) {
@@ -15,7 +15,7 @@ public extension OptionSetType where RawValue: BitShiftable {
 	/// Provides three options.
 	///
 	///- Parameter startingFlagIndex: shifts 0b111 if > 1
-	static func selfs(startingFlagIndex startingFlagIndex: RawValue = 1) -> (
+	static func selfs(startingFlagIndex: RawValue = 1) -> (
 		Self,
 		Self,
 		Self
@@ -30,7 +30,7 @@ public extension OptionSetType where RawValue: BitShiftable {
 	/// Provides four options.
 	///
 	///- Parameter startingFlagIndex: shifts 0b1111 if > 1
-	static func selfs(startingFlagIndex startingFlagIndex: RawValue = 1) -> (
+	static func selfs(startingFlagIndex: RawValue = 1) -> (
 		Self,
 		Self,
 		Self,
@@ -47,7 +47,7 @@ public extension OptionSetType where RawValue: BitShiftable {
 	/// Provides five options.
 	///
 	///- Parameter startingFlagIndex: shifts 0b1_1111 if > 1
-	static func selfs(startingFlagIndex startingFlagIndex: RawValue = 1) -> (
+	static func selfs(startingFlagIndex: RawValue = 1) -> (
 		Self,
 		Self,
 		Self,
@@ -66,7 +66,7 @@ public extension OptionSetType where RawValue: BitShiftable {
 	/// Provides six options.
 	///
 	///- Parameter startingFlagIndex: shifts 0b11_1111 if > 1
-	static func selfs(startingFlagIndex startingFlagIndex: RawValue = 1) -> (
+	static func selfs(startingFlagIndex: RawValue = 1) -> (
 		Self,
 		Self,
 		Self,
@@ -84,7 +84,7 @@ public extension OptionSetType where RawValue: BitShiftable {
 		)
 	}
 }
-private extension OptionSetType where RawValue: BitShiftable {
+private extension OptionSet where RawValue: BitShiftable {
 	init(flagIndex: RawValue) {
 		self.init(
 			rawValue: flagIndex <= 1

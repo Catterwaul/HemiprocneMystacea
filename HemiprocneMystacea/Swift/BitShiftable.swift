@@ -1,6 +1,6 @@
-public protocol BitShiftable: IntegerType {
-   func <<(value: Self, bitShift: Self) -> Self
-   func >>(value: Self, bitShift: Self) -> Self
+public protocol BitShiftable: Integer {
+   func << (value: Self, bitShift: Self) -> Self
+   func >> (value: Self, bitShift: Self) -> Self
 }
 
 extension Int: BitShiftable {}
