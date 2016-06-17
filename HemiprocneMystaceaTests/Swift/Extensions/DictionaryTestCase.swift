@@ -83,10 +83,10 @@ final class DictionaryTestCase: XCTestCase {
 
 //MARK: Operators
 	func testPlus() {
-		let dictionary = [
+		let dictionary: [Int: Int] = [
 			1: 10,
 			2: 20
-		]
+		] + [3: 30]
 		XCTAssertEqual(
 			dictionary + [
 				3: 30,

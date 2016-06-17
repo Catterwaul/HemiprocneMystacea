@@ -2,26 +2,26 @@ public extension Dictionary {
 //MARK: Initializers
    /// Splats init(dictionaryLiteral elements: (Key, Value)...)
    init
-	 <Keys🔗Values: SequenceType where Keys🔗Values.Generator.Element == Element>
+	<Keys🔗Values: Sequence where Keys🔗Values.Iterator.Element == (Key, Value)>
    (_ keys🔗values: Keys🔗Values) {
       self.init()
-			keys🔗values.forEach{key, value in
-				self[key] = value
-			}
+		keys🔗values.forEach{key, value in
+			self[key] = value
+		}
    }
    
 	/// SequenceType.Dictionary relies on this
 	init
-	<Sequence: SequenceType>(
+	<Sequence: Swift.Sequence>(
 		_ sequence: Sequence,
-		_ key🔗value: Sequence.Generator.Element -> (Key, Value)
+		_ key🔗value: (Sequence.Iterator.Element) -> (Key, Value)
 	) {
 		self.init(sequence.map{$0…key🔗value})
 	}
 	init
-	<🃏>(
-		_ elements: 🃏...,
-		_ key🔗value: 🃏 -> (Key, Value)
+	<Element>(
+		_ elements: Element...,
+		_ key🔗value: (Element) -> (Key, Value)
 	) {
 		self.init(
 			elements,
@@ -32,19 +32,18 @@ public extension Dictionary {
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
 	subscript(key: Key?) -> Value? {
-		guard let key = key
-		else {return nil}
-		
-		return self[key]
+		return key ?… {
+			self[$0]
+		}
 	}
 
 	subscript(
 		key: Key,
-		@autoclosure valueAddedIfNil Value: () -> Dictionary.Value
+		valueAddedIfNil value_get: @autoclosure() -> Dictionary.Value
 	) -> Dictionary.Value {
 		mutating get {
 			return self[key] ?? {
-				self[key] = Value()
+				self[key] = value_get()
 				return self[key]!
 			}()
 		}
@@ -54,29 +53,28 @@ public extension Dictionary {
 //MARK: Operators
 ///- Returns: the combination of `dictionary` with a key-value pair sequence
 public func + <
-	Key,
-	Value,
-	Keys🔗Values: SequenceType
+	Key, Value,
+	Keys🔗Values: Sequence
 	where
-	Keys🔗Values.Generator.Element == (Key, Value)
+	Keys🔗Values.Iterator.Element == (key: Key, value: Value)
 >(
 	dictionary: Dictionary<Key, Value>,
 	keys🔗values: Keys🔗Values
 ) -> Dictionary<Key, Value> {
 	var dictionary = dictionary
-  keys🔗values.forEach{key, value in
-    dictionary[key] = value
-  }
+	keys🔗values.forEach{key, value in
+		dictionary[key] = value
+	}
 	return dictionary
 }
 /// Combine `dictionary` with a key-value pair sequence
 public func += <
 	Key, Value,
-	Keys🔗Values: SequenceType
+	Keys🔗Values: Sequence
 	where
-	Keys🔗Values.Generator.Element == (Key, Value)
+	Keys🔗Values.Iterator.Element == (key: Key, value: Value)
 >(
-	inout dictionary: Dictionary<Key, Value>,
+	dictionary: inout Dictionary<Key, Value>,
 	keys🔗values: Keys🔗Values
 ) {
    dictionary = dictionary + keys🔗values
@@ -84,10 +82,10 @@ public func += <
 
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
 public func - <
-	Key, Value,
-	KeysToSetNil: SequenceType
+	Key: Hashable, Value,
+	KeysToSetNil: Sequence
 	where
-	KeysToSetNil.Generator.Element == Key
+	KeysToSetNil.Iterator.Element == Key
 >(
 	dictionary: Dictionary<Key, Value>,
 	keysToSetNil: KeysToSetNil
@@ -98,12 +96,12 @@ public func - <
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`
 public func -= <
-	Key, Value,
-	KeysToSetNil: SequenceType
+	Key: Hashable, Value,
+	KeysToSetNil: Sequence
 	where
-	KeysToSetNil.Generator.Element == Key
+	KeysToSetNil.Iterator.Element == Key
 >(
-	inout dictionary: Dictionary<Key, Value>,
+	dictionary: inout Dictionary<Key, Value>,
 	keysToSetNil: KeysToSetNil
 ) {
 	dictionary = dictionary - keysToSetNil

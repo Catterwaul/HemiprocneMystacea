@@ -3,14 +3,14 @@ import XCTest
 
 final class NilClosuresTestCase: XCTestCase {
   func testNilledUponCall() {
-    var closure: (() -> ())! {
+    var closure: (() -> ())? {
       didSet {
         closure = nilledUponCall(closure){closure = $0}
       }
     }
     closure = {}
     XCTAssertNotNil(closure)
-    closure()
+    closure!()
     XCTAssertNil(closure)
   }
   
