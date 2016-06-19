@@ -11,8 +11,9 @@ struct Cat {
 		self.cool = cool
 	}
 	
-	let color: String
-	let cool: Bool
+	let
+	color: String,
+	cool: Bool
 }
 
 func orangeCat_init() -> Cat {
@@ -24,13 +25,6 @@ func uncoolCat_init(color: String) -> Cat {
 		color: color,
 		cool: false
 	)
-}
-/*:
-## …Abstractions of initializers, or not!
-Frequently, it's not important to know whether a function returns a new instance, an existing one, or a copy of an existing one. If there's a chance it doesn't exist already, use a method instead of a computed property.
-*/
-func cat(color: String) -> Cat {
-	return Cat(color: color)
 }
 /*:
 ## …Stand-ins for generic properties
@@ -92,11 +86,14 @@ var things: [$] {
 */
 /*:
 ## …Stand-ins for named subscripts
-Swift doesn't yet have named subscripts. Until then, use parentheses as if they were square brackets.
-
+Computed properties can't take arguments. If they could (and there are a variety of reasons that they should, such as stisfying the case when it's not important to know whether a new, existing, or copied instance should be returned), they would do so with subscript notation. Swift doesn't have such named subscripts. Instead, use `_get`, after the property name.
 */
+func cat_get(color: String) -> Cat {
+	return Cat(color: color)
+}
+
 import UIKit
-func cells(indexPath: NSIndexPath) -> UICollectionViewCell {
+func cell_get(indexPath: NSIndexPath) -> UICollectionViewCell {
 	// Real code would dequeue a cell based on `indexPath`
 	return UICollectionViewCell()
 }
@@ -131,8 +128,8 @@ struct Iterator {
 			: iteration
 	}
 	
-	private var iteration = 0
 	private let limit: Int
+	private var iteration = 0
 }
 
 var iterator = Iterator(limit: 2)
