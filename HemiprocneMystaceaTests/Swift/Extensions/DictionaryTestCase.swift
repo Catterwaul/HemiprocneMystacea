@@ -3,7 +3,7 @@ import XCTest
 
 final class DictionaryTestCase: XCTestCase {
 //MARK: initializers
-	func testKeys🔗ValuesInit() {
+	func testSequenceInit() {
 		let keys🔗values = [
 			(key: 1, value: "wonth"),
 			(key: 2, value: "tooth")
@@ -15,7 +15,7 @@ final class DictionaryTestCase: XCTestCase {
 			]
 		)
 	}
-	
+
 	func testInitializeFromSequence() {
 		XCTAssertEqual(
 			Dictionary(

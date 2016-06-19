@@ -1,40 +1,37 @@
 public extension Dictionary {
 //MARK: Initializers
    /// Splats init(dictionaryLiteral elements: (Key, Value)...)
-   init
-	<Keys🔗Values: Sequence where Keys🔗Values.Iterator.Element == Element>
-   (_ keys🔗values: Keys🔗Values) {
+   init<Sequence: Swift.Sequence where Sequence.Iterator.Element == Element>
+	(_ sequence: Sequence) {
       self.init()
-		keys🔗values.forEach{//key, value in
-			self[$0.key] = $0.value
-		}
+		sequence.forEach{self[$0.key] = $0.value}
    }
    
 	/// SequenceType.Dictionary relies on this
 	init
 	<Sequence: Swift.Sequence>(
 		_ sequence: Sequence,
-		_ key🔗value: (Sequence.Iterator.Element) -> Element
+		_ ﹙key，value﹚_get: (Sequence.Iterator.Element) -> Element
 	) {
-		self.init(sequence.map{$0…key🔗value})
+		self.init(
+			sequence.map{﹙key，value﹚_get($0)}
+		)
 	}
 	init
 	<Element>(
 		_ elements: Element...,
-		_ key🔗value: (Element) -> Dictionary.Element
+		_ ﹙key，value﹚_get: (Element) -> Dictionary.Element
 	) {
 		self.init(
 			elements,
-			key🔗value
+			﹙key，value﹚_get
 		)
 	}
    
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
 	subscript(key: Key?) -> Value? {
-		return key ?… {
-			self[$0]
-		}
+		return key ?… {self[$0]}
 	}
 
 	subscript(
@@ -54,30 +51,34 @@ public extension Dictionary {
 ///- Returns: the combination of `dictionary` with a key-value pair sequence
 public func + <
 	Key, Value,
-	Keys🔗Values: Sequence
+	Sequence: Swift.Sequence
 	where
-	Keys🔗Values.Iterator.Element == (key: Key, value: Value)
+	Sequence.Iterator.Element == (
+		key: Key,
+		value: Value
+	)
 >(
 	dictionary: Dictionary<Key, Value>,
-	keys🔗values: Keys🔗Values
+	sequence: Sequence
 ) -> Dictionary<Key, Value> {
 	var dictionary = dictionary
-	keys🔗values.forEach{key, value in
-		dictionary[key] = value
-	}
+	sequence.forEach{dictionary[$0.key] = $0.value}
 	return dictionary
 }
 /// Combine `dictionary` with a key-value pair sequence
 public func += <
 	Key, Value,
-	Keys🔗Values: Sequence
+	Sequence: Swift.Sequence
 	where
-	Keys🔗Values.Iterator.Element == (key: Key, value: Value)
+	Sequence.Iterator.Element == (
+		key: Key,
+		value: Value
+	)
 >(
 	dictionary: inout Dictionary<Key, Value>,
-	keys🔗values: Keys🔗Values
+	sequence: Sequence
 ) {
-   dictionary = dictionary + keys🔗values
+   dictionary = dictionary + sequence
 }
 
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil

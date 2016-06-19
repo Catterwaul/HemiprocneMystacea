@@ -5,14 +5,14 @@ public struct Keyboard {
 }
 
 public extension Keyboard {
-	struct Frame📦 {
+	struct Frames {
 		public let
 		begin: CGRect,
 		end: CGRect
 	}
 }
 
-private extension Keyboard.Frame📦 {
+private extension Keyboard.Frames {
 	init(userInfo: [String: NSValue]) {
 		begin = userInfo[UIKeyboardFrameBeginUserInfoKey]!.cgRectValue()
 		end = userInfo[UIKeyboardFrameEndUserInfoKey]!.cgRectValue()
@@ -20,8 +20,8 @@ private extension Keyboard.Frame📦 {
 }
 
 private func 📡init
-(notificationName: Notification.Name) -> MultiClosure<Keyboard.Frame📦> {
+(notificationName: Notification.Name) -> MultiClosure<Keyboard.Frames> {
 	return NotificationCenter.📡init(notificationName: notificationName){
-		Keyboard.Frame📦(userInfo: $0 as! [String: NSValue])
+		Keyboard.Frames(userInfo: $0 as! [String: NSValue])
 	}
 }
