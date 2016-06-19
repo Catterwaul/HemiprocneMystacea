@@ -1,4 +1,4 @@
-//MARK: dequeuedCell
+//MARK: cell_get
 // This should be one function in one extension
 // but it doesn't seem possible to express.
 public extension dequeueReusableCell where Self: UICollectionView {
@@ -8,10 +8,10 @@ public extension dequeueReusableCell where Self: UICollectionView {
 	///
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Collection View uses
-	final func dequeuedCell
+	final func cell_get
 	<Cell: UICollectionViewCell>
 	(indexPath: IndexPath) -> Cell {
-		return dequeueReusableCell_dequeuedCell(indexPath: indexPath)
+		return dequeueReusableCell_cell_get(indexPath: indexPath)
 	}
 }
 public extension dequeueReusableCell where Self: UITableView {
@@ -21,7 +21,7 @@ public extension dequeueReusableCell where Self: UITableView {
     ///
     ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
     ///  for a cell that this Table View uses
-    final func dequeuedCell
+    final func cell_get
     <Cell: UITableViewCell>
 	 () -> Cell {
         return dequeueReusableCell(
@@ -35,14 +35,14 @@ public extension dequeueReusableCell where Self: UITableView {
 	///
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Table View uses
-	final func dequeuedCell
+	final func cell_get
 	<Cell: UITableViewCell>
 	(indexPath: IndexPath) -> Cell {
-		return dequeueReusableCell_dequeuedCell(indexPath: indexPath)
+		return dequeueReusableCell_cell_get(indexPath: indexPath)
 	}
 }
 private extension dequeueReusableCell {
-	final func dequeueReusableCell_dequeuedCell
+	final func dequeueReusableCell_cell_get
 	<Cell: UIView>
 	(indexPath: IndexPath) -> Cell {
 		return dequeueReusableCell(
