@@ -31,7 +31,9 @@ public func weakClosure<
 >(
 	_ reference: Reference?,
 	return: (Reference, Parameter) -> Return
-) -> () -> ((Parameter) -> Return)? {
+) -> () -> (
+	(Parameter) -> Return
+)? {
 	return weakClosure(reference){reference in
 		{`return`(reference, $0)}
 	}
