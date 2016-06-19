@@ -32,19 +32,3 @@ let bool🔗string = (
 	true,
 	"Probably something sorta related"
 )
-/*:
-## 🍲: A tuple representing the parameters/arguments of a function.
-### Pronunciation: "Food". Emoji name: "Pot of food".
-*/
-typealias Function🍲 = (
-	bool: Bool,
-	int: Int,
-	string: String
-)
-func function(function🍲: Function🍲) {}
-let function🍲 = Function🍲(
-	bool: true,
-	int: 800,
-	string: "Groon"
-)
-function(function🍲)

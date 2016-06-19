@@ -2,6 +2,7 @@
 <playground version='6.0' target-platform='ios' display-mode='rendered'>
     <pages>
         <page name='💰'/>
-        <page name='Hungaremoji'/>
+        <page name='📡📻 – Events'/>
+        <page name='📦🔗 – Tuples &amp; Plurality '/>
     </pages>
 </playground>
