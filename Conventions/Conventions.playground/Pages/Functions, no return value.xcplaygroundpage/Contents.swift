@@ -14,17 +14,29 @@ When the direct object does need to be an argument, it will have the same parame
 
 Only the verb remains outside the parentheses.
 */
-func write(sentence sentence: String) {}
+func write(sentence: String) {}
 /*:
 Indirect objects need external parameter names, but not necessarily internal ones. The external parameter names will  either be…
 ### …Prepositions…
 */
-func write(to buddy: AnyObject) {}
 func write
-<🃏>
-(to 💰0: 🃏) {}
+<Buddy>
+(to buddy: Buddy) {}
+
+write(to: "🐩")
 /*:
 ### …or Prepositions and their objects.
-When this happens, the corresponding interal parameter name will be the same, but with the preposition removed.
+When this happens, the corresponding interal parameter name will be the same, but with the preposition removed. 
+
+*This is rarely necessary; the direct objects should normally be clear enough from the arguments.*
 */
-func write(toBuddy buddy: AnyObject) {}
+func write
+<Babby, Buggy>(
+	toBabby babby: Babby,
+	butNotToBuggy buggy: Buggy
+) {}
+
+write(
+	toBabby: 👶,
+	butNotToBuggy: 🐞
+)
