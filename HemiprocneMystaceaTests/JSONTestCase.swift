@@ -8,13 +8,13 @@ final class JSONTestCase: XCTestCase {
 		jSON = JSON([oldKey: "🔑"])
 		
 		XCTAssertEqual(
-			try jSON.`subscript`(oldKey),
+			try jSON.subscript(oldKey),
 			"🔑"
 		)
 		
 		let turKey = "🦃"
 		XCTAssertThrowsError(
-			try jSON.`subscript`(turKey) as Any
+			try jSON.subscript(turKey) as Any
 		){error in
 			switch error {
 			case JSON.Error.noValue(let key):
@@ -24,11 +24,56 @@ final class JSONTestCase: XCTestCase {
 		}
 		
 		XCTAssertThrowsError(
-			try jSON.`subscript`(oldKey) as Bool
+			try jSON.subscript(oldKey) as Bool
 		){error in
 			switch error {
 			case JSON.Error.typeCastFailure(let key):
-				XCTAssertEqual(oldKey, key)
+				XCTAssertEqual(key, oldKey)
+			default: XCTFail()
+			}
+		}
+	}
+	
+	func testInitializableWithJSONArray_init() {
+		struct Instrument: InitializableWithJSON {
+			init(jSON: JSON) {
+				visualization = try! jSON.subscript("visualization")
+			}
+			
+			let visualization: String
+		}
+		
+		let jSON = [
+			"instruments": [
+				["visualization": "🎹"],
+				["visualization": "🎸"],
+				["visualization": "🎷"]
+			]
+		]
+		
+		let instruments = try! [Instrument](
+			jSON: jSON,
+			key: "instruments"
+		)
+		
+		XCTAssertEqual(
+			instruments.map{$0.visualization},
+			[	"🎹",
+				"🎸",
+				"🎷"
+			]
+		)
+		
+		let turKeyboard = "🦃⌨️"
+		XCTAssertThrowsError(
+			try [Instrument](
+				jSON: jSON,
+				key: turKeyboard
+			)
+		){error in
+			switch error {
+			case JSON.Error.noValue(let key):
+				XCTAssertEqual(key, turKeyboard)
 			default: XCTFail()
 			}
 		}

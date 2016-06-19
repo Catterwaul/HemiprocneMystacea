@@ -8,7 +8,7 @@ public extension JSON {
 	init(_ jSON: AnyObject) {
 		self.jSON = jSON
 	}
-	
+
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
 	func `subscript`
 	<Value>
@@ -29,5 +29,26 @@ public extension JSON {
 		case
 		noValue(key: String),
 		typeCastFailure(key: String)
+	}
+}
+
+//MARK:- InitializableWithJSON
+public protocol InitializableWithJSON {
+	init(jSON: JSON)
+}
+
+public extension Array where Element: InitializableWithJSON {
+	init(
+		jSON: AnyObject,
+		key: String
+	) throws {
+		guard let anyObjects = jSON[key] as? [AnyObject]
+		else {throw JSON.Error.noValue(key: key)}
+		
+		self = anyObjects.map{
+			Element(
+				jSON: JSON($0)
+			)
+		}
 	}
 }
