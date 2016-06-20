@@ -3,5 +3,3 @@ Mostly, this is a lot of extensions to Swift and various -provided "Kits". We
 import HemiprocneMystacea
 ```
 everywhere. 😖
-
-The **Conventions** playground documents stuff we're using in our code which we wouldn't expect most people to know already. We anticipate it to chiefly involve emoji.
