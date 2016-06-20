@@ -99,23 +99,12 @@ private struct 💀 {
 }
 		
 extension 👻: ConvertibleToJSON {
-	var jSONKeys: [JSONKey] {
-		return [
-			.boool,
-			.skoool
-		]
-	}
-	
 	enum JSONKey: String {
 		case boool, skoool
 	}
 }
 
 extension 💀: ConvertibleToJSON {
-	var jSONKeys: [JSONKey] {
-		return [.skool]
-	}
-	
 	enum JSONKey: String {
 		case skool
 	}

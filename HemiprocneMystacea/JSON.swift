@@ -64,9 +64,7 @@ public extension Array where Element: InitializableWithJSON {
 //MARK:- ConvertibleToJSON
 public protocol ConvertibleToJSON: ConvertibleToJSON_where_JSONKey_RawValue_is_String {
 	associatedtype JSONKey: RawRepresentable
-	var jSONKeys: [JSONKey] {get}
 }
-
 public protocol ConvertibleToJSON_where_JSONKey_RawValue_is_String {
 	var jSONDictionary: [String: AnyObject] {get}
 }
@@ -83,8 +81,7 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
 		return Dictionary(
 			Mirror(reflecting: self).children.flatMap{label, value in
 				guard let label = label
-				where jSONKeys.map({$0.rawValue})
-					.contains(label)
+				where JSONKey(rawValue: label) != nil
 				else {return nil}
 				
 				return (
