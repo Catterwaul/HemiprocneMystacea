@@ -78,4 +78,34 @@ final class JSONTestCase: XCTestCase {
 			}
 		}
 	}
+	
+	func testConvertToJSON() {
+		let s = String(
+			bytes: try! 👻().jSONData_get(),
+			encoding: .utf8
+		)!
+		print(s)
+	}
+}
+
+private struct 👻 {
+	let
+	boool = true,
+	skoool = 💀()
+}
+
+private struct 💀 {
+	let skool = "🏫"
+}
+		
+extension 👻: ConvertibleToJSON {
+	enum JSONKey: String {
+		case boool, skoool
+	}
+}
+
+extension 💀: ConvertibleToJSON {
+	enum JSONKey: String {
+		case skool
+	}
 }

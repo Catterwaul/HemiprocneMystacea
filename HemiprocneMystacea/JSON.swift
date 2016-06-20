@@ -21,6 +21,14 @@ public extension JSON {
 		
 		return value
 	}
+	/// Should just be a generic, throwing subscript, but those don't exist yet.
+	func `subscript`<
+		Key: RawRepresentable,
+		Value
+		where Key.RawValue == String
+	>(_ key: Key) throws -> Value {
+		return try self.subscript(key.rawValue)
+	}
 }
 
 //MARK:- Error
@@ -50,5 +58,43 @@ public extension Array where Element: InitializableWithJSON {
 				jSON: JSON($0)
 			)
 		}
+	}
+}
+
+//MARK:- ConvertibleToJSON
+public protocol ConvertibleToJSON: ConvertibleToJSON_where_JSONKey_RawValue_is_String {
+	associatedtype JSONKey: RawRepresentable
+}
+public protocol ConvertibleToJSON_where_JSONKey_RawValue_is_String {
+	var jSONDictionary: [String: AnyObject] {get}
+}
+
+public extension ConvertibleToJSON where JSONKey.RawValue == String {
+	func jSONData_get() throws -> Data {
+		return try JSONSerialization.data(
+			withJSONObject: jSONDictionary,
+			options: .prettyPrinted
+		)
+	}
+
+	var jSONDictionary: [String: AnyObject] {
+		return Dictionary(
+			Mirror(reflecting: self).children.flatMap{label, value in
+				guard let label = label
+				where JSONKey(rawValue: label) != nil
+				else {return nil}
+				
+				return (
+					key: label,
+					value: {
+						switch value {
+						case let value as ConvertibleToJSON_where_JSONKey_RawValue_is_String:
+							return value.jSONDictionary
+						default: return value as! AnyObject
+						}
+					}()
+				)
+			}
+		)
 	}
 }
