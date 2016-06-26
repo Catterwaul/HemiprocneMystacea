@@ -6,25 +6,26 @@ public extension Dictionary {
       self.init()
 		sequence.forEach{self[$0.key] = $0.value}
    }
-   
-	/// SequenceType.Dictionary relies on this
+	
 	init
 	<Sequence: Swift.Sequence>(
 		_ sequence: Sequence,
-		_ ﹙key，value﹚_get: (Sequence.Iterator.Element) -> Element
+		_ transformTo﹙key，value﹚: (Sequence.Iterator.Element) -> Element
 	) {
 		self.init(
-			sequence.map{﹙key，value﹚_get($0)}
+			sequence.map(
+				transformTo﹙key，value﹚
+			)
 		)
 	}
 	init
 	<Element>(
 		_ elements: Element...,
-		_ ﹙key，value﹚_get: (Element) -> Dictionary.Element
+		_ transformTo﹙key，value﹚: (Element) -> Dictionary.Element
 	) {
 		self.init(
 			elements,
-			﹙key，value﹚_get
+			transformTo﹙key，value﹚
 		)
 	}
    
