@@ -58,7 +58,7 @@
 		49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0941C332ADE00E8EFCC /* Referencers.swift */; };
 		49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */; };
 		49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09D1C332ADE00E8EFCC /* UIButton.swift */; };
-		49CBE0CD1C332ADE00E8EFCC /* cell_get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09E1C332ADE00E8EFCC /* cell_get.swift */; };
+		49CBE0CD1C332ADE00E8EFCC /* get_cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE09E1C332ADE00E8EFCC /* get_cell.swift */; };
 		49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A01C332ADE00E8EFCC /* UILabel.swift */; };
 		49CBE0D01C332ADE00E8EFCC /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A11C332ADE00E8EFCC /* UINavigationController.swift */; };
 		49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */; };
@@ -145,7 +145,7 @@
 		49CBE0941C332ADE00E8EFCC /* Referencers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Referencers.swift; sourceTree = "<group>"; };
 		49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		49CBE09D1C332ADE00E8EFCC /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
-		49CBE09E1C332ADE00E8EFCC /* cell_get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cell_get.swift; sourceTree = "<group>"; };
+		49CBE09E1C332ADE00E8EFCC /* get_cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = get_cell.swift; sourceTree = "<group>"; };
 		49CBE0A01C332ADE00E8EFCC /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		49CBE0A11C332ADE00E8EFCC /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPageViewControllerDataSourceWithConnections.swift; sourceTree = "<group>"; };
@@ -380,7 +380,7 @@
 		49CBE09A1C332ADE00E8EFCC /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				49CBE09E1C332ADE00E8EFCC /* cell_get.swift */,
+				49CBE09E1C332ADE00E8EFCC /* get_cell.swift */,
 				49DBA1E21CD940BF0058181A /* UIAlertAction.swift */,
 				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
@@ -604,7 +604,7 @@
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
 				49B182E31C33807000529B08 /* SetAlgebra.swift in Sources */,
-				49CBE0CD1C332ADE00E8EFCC /* cell_get.swift in Sources */,
+				49CBE0CD1C332ADE00E8EFCC /* get_cell.swift in Sources */,
 				49FD14F41CD91C070067F27E /* CABasicAnimation.Values.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
