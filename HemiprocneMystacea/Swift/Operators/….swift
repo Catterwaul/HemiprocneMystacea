@@ -1,4 +1,4 @@
-infix operator … {precedence 255}
+infix operator … {associativity left precedence 255}
 
 ///- Parameter ƒ: a closure whose argument is `input`
 ///- Returns: `input`
@@ -13,27 +13,12 @@ public func …
    return input
 }
 
-///- Returns: `output(input)`
+///- Returns: `transform(input)`
 ///- Remark: Hold option, press ;
 public func …
 <Input, Output>(
 	input: Input,
-	output: @noescape (Input) -> Output
+	transform: @noescape (Input) -> Output
 ) -> Output {
-	return output(input)
-}
-
-// This results in a Segmentation fault; 
-// use it when that's no longer the case.
-//public func …<Type>(instances: Type..., recursed: Type -> [Type]) -> [Type]  {
-//   return (instances)…(recursed)
-//}
-
-/// Recursively get instances via the `recursed` function
-public func …
-<🃏>(
-	instances: [🃏],
-	recursed: (🃏) -> [🃏]
-) -> [🃏] {
-   return instances.flatMap{[$0] + recursed($0)…recursed}
+	return transform(input)
 }

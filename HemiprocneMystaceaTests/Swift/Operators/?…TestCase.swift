@@ -2,7 +2,7 @@ import HemiprocneMystacea
 import XCTest
 
 final class QuestionMarkEllipsisTestCase: XCTestCase {	
-	func testQuestionMarkEllipsis() {
+	func test() {
 		var int: Int? = 1
 		
 		XCTAssertEqual(
@@ -17,7 +17,7 @@ final class QuestionMarkEllipsisTestCase: XCTestCase {
 		)
 	}
 	
-	func testQuestionMarkEllipsisOptional() {
+	func testWithOptionalOutput() {
 		let textField = UITextField()
 		
 		XCTAssertNil(

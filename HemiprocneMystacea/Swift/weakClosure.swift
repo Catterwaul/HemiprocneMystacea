@@ -1,40 +1,40 @@
 ///- Parameter reference: An object that is expected to be nil sometimes, when `return` runs.
-///- Parameter return: A closure whose argument is an unwrapped `Reference?`. 
+///- Parameter transform: A closure whose argument is an unwrapped `Reference?`.
 ///  It returns a `Return`.
 ///
 ///- Returns: getter for a closure that returns a `Return`.
 ///  This closure will be nil when `reference` is nil
 public func weakClosure<
 	Reference: AnyObject,
-	Return
+	Transformed
 >(
 	_ reference: Reference?,
-	return: (Reference) -> Return
-) -> () -> Return? {
+	transform: (Reference) -> Transformed
+) -> () -> Transformed? {
 	return {[weak reference] in
-		reference ?… `return`
+		reference ?… transform
 	}
 }
 
 ///- Parameter reference: An object that is expected to be nil sometimes, when `return` runs.
-///- Parameter return: A closure whose arguments are
+///- Parameter transform: A closure whose arguments are
 ///  $0: an unwrapped `Reference?`.
 ///  $1: a `Parameter`.
-///  It returns a `Return`.
+///  It returns a `Transformed`.
 ///
 ///- Returns: getter for a closure that takes a `Parameter` and returns a `Return`.
 ///  This closure will be nil when `reference` is nil
 public func weakClosure<
 	Reference: AnyObject,
 	Parameter,
-	Return
+	Transformed
 >(
 	_ reference: Reference?,
-	return: (Reference, Parameter) -> Return
+	transform: (Reference, Parameter) -> Transformed
 ) -> () -> (
-	(Parameter) -> Return
+	(Parameter) -> Transformed
 )? {
 	return weakClosure(reference){reference in
-		{`return`(reference, $0)}
+		{transform(reference, $0)}
 	}
 }
