@@ -2,7 +2,7 @@ import HemiprocneMystacea
 import XCTest
 
 final class StringTestCase: XCTestCase {
-	func testAfter() {
+	func test_after() {
 		XCTAssertEqual(
 			"chunky skunky".after("s"),
 			"kunky"
@@ -12,7 +12,7 @@ final class StringTestCase: XCTestCase {
 		)
 	}
 	
-	func testSplit() {
+	func test_split() {
 		let string = "boo, gee,rye"
 		XCTAssertEqual(
 			string.split(by: ","),
@@ -23,15 +23,12 @@ final class StringTestCase: XCTestCase {
 		)
 	}
 	
-//MARK: upTo
-	func testUpTo() {
+	func test_upTo() {
 		XCTAssertEqual(
 			"glorb14prawn".upTo("1"),
 			"glorb"
 		)
-	}
-	
-	func testUpToWithCharacterIncluded() {
+		
 		XCTAssertEqual(
 			"glorb14prawn".upTo(
 				"1",
@@ -39,23 +36,21 @@ final class StringTestCase: XCTestCase {
 			),
 			"glorb1"
 		)
-	}
-	
-	func testUpToWithNonPresentCharacter() {
+		
 		XCTAssertNil(
-      "boogalawncare".upTo("z")
+			"boogalawncare".upTo("z")
 		)
 	}
 	
 //MARK: Operators
-	func testMinus() {
+	func test_minus() {
 		XCTAssertEqual(
 			" 123🐉Boodee Bop! 123🐉" - " 123🐉",
 			"Boodee Bop!"
 		)
 	}
 	
-	func testMinusWithSequence() {
+	func test_minusWithSequence() {
 		XCTAssertEqual(
 			" 123🐉Boodee Bop! 123🐉" - [" 123🐉", "Bo"],
 			"odee p!"
@@ -63,12 +58,12 @@ final class StringTestCase: XCTestCase {
 	}
 	
 //MARK: Sequences of Strings
-	func testConcatenated() {
+	func test_concatenated() {
 		XCTAssertEqual(
 			[   "a",
 			    "bc",
 			    "d"
-				].concatenated,
+			].concatenated,
 			"abcd"
 		)
 	}
