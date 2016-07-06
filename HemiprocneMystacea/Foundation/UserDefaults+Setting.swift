@@ -6,10 +6,10 @@ public struct Setting
 		defaultValue: Value
 	) {
 		self.key = key
-		UserDefaults.standard().register(
+		UserDefaults.standard.register(
 			[key: defaultValue]
 		)
-		UserDefaults.standard().synchronize()
+		UserDefaults.standard.synchronize()
 	}
 	
 	private let key: String
@@ -55,7 +55,7 @@ private extension Setting {
   <Value>(
       getter value: (UserDefaults) -> (for: String) -> Value
   ) -> Value {
-		return (UserDefaults.standard()…value)(for: key)
+		return (UserDefaults.standard…value)(for: key)
 	}
    
    ///- Returns: The setter for **value**
@@ -66,6 +66,6 @@ private extension Setting {
     _ value: Value,
 		setter set: (UserDefaults) -> (Value, for: String) -> ()
 	) {
-		(UserDefaults.standard()…set)(value, for: self.key)
+		(UserDefaults.standard…set)(value, for: self.key)
 	}
 }

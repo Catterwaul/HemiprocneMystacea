@@ -11,7 +11,7 @@ public extension InitializableWithParameters where Self: NSManagedObject {
 	static var inContext: [Self] {
 		let fetchRequest = Self.fetchRequest()
 		fetchRequest.entity = NSEntityDescription.entity(
-			forEntityName: String(Self),
+			forEntityName: String(Self.self),
 			in: NSManagedObjectContext.forMainQueue
 		)!
 		return (
@@ -24,7 +24,7 @@ public extension InitializableWithParameters where Self: NSManagedObject {
 	init(_ parameters: Parameters) {
 		self.init(
 			entity: NSEntityDescription.entity(
-				forEntityName: String(Self),
+				forEntityName: String(Self.self),
 				in: NSManagedObjectContext.forMainQueue
 			)!,
 			insertInto: NSManagedObjectContext.forMainQueue

@@ -25,7 +25,7 @@ public extension dequeueReusableCell where Self: UITableView {
     <Cell: UITableViewCell>
 	 () -> Cell {
         return dequeueReusableCell(
-            withIdentifier: String(Cell)
+            withIdentifier: String(Cell.self)
         ) as! Cell
     }
 
@@ -46,7 +46,7 @@ private extension dequeueReusableCell {
 	<Cell: UIView>
 	(indexPath: IndexPath) -> Cell {
 		return dequeueReusableCell(
-			withReuseIdentifier: String(Cell),
+			withReuseIdentifier: String(Cell.self),
 			for: indexPath
 		) as! Cell
 	}

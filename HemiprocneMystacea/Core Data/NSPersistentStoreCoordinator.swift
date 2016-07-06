@@ -13,7 +13,7 @@ extension NSPersistentStoreCoordinator {
 					try coordinator.addPersistentStore(
 						ofType: NSSQLiteStoreType,
 						configurationName: nil,
-						at: try! FileManager.default().urlsForDirectory(
+						at: try! FileManager.default.urlsForDirectory(
 							.documentDirectory,
 							inDomains: .userDomainMask
 						).last!.appendingPathComponent("\(newValue).sqlite"),
@@ -39,7 +39,7 @@ private extension NSPersistentStoreCoordinator {
 	convenience init(managedObjectModelName: String) {
 		self.init(
 			managedObjectModel: NSManagedObjectModel(
-				contentsOf: Bundle.main().urlForResource(
+				contentsOf: Bundle.main.urlForResource(
 					managedObjectModelName,
 					withExtension: "momd"
 				)!
