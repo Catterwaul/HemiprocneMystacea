@@ -38,6 +38,11 @@
                BlueprintName = "HemiprocneMystaceaTests"
                ReferencedContainer = "container:HemiprocneMystacea.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "NilClosuresTestCase/testNilledUponCall()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
