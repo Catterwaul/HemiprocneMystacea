@@ -1,8 +1,6 @@
-public final class ComputedProperty
-<Value>
-{
-	public typealias Get = () -> Value
-	public typealias Set = (Value) -> ()
+public final class ComputedProperty<Value> {
+	public typealias Get = Computed<Value>.Get
+	public typealias Set = Computed<Value>.Set
 
 	public init(
 		get: Get,
