@@ -8,27 +8,31 @@ final class JSONTestCase: XCTestCase {
 		jSON = JSON([oldKey: "🔑"])
 		
 		XCTAssertEqual(
-			try jSON.subscript(oldKey),
+			try jSON.get_value(key: oldKey),
 			"🔑"
 		)
 		
 		let turKey = "🦃"
 		XCTAssertThrowsError(
-			try jSON.subscript(turKey) as Any
-		){error in
+			try jSON.get_value(key: turKey) as Any
+		){	error in
+            
 			switch error {
 			case JSON.Error.noValue(let key):
 				XCTAssertEqual(key, turKey)
+                
 			default: XCTFail()
 			}
 		}
 		
 		XCTAssertThrowsError(
-			try jSON.subscript(oldKey) as Bool
-		){error in
+			try jSON.get_value(key: oldKey) as Bool
+		){  error in
+            
 			switch error {
 			case JSON.Error.typeCastFailure(let key):
 				XCTAssertEqual(key, oldKey)
+                
 			default: XCTFail()
 			}
 		}
@@ -37,7 +41,7 @@ final class JSONTestCase: XCTestCase {
 	func testInitializableWithJSONArray_init() {
 		struct Instrument: InitializableWithJSON {
 			init(jSON: JSON) {
-				visualization = try! jSON.subscript("visualization")
+				visualization = try! jSON.get_value(key: "visualization")
 			}
 			
 			let visualization: String
@@ -58,7 +62,8 @@ final class JSONTestCase: XCTestCase {
 		
 		XCTAssertEqual(
 			instruments.map{$0.visualization},
-			[	"🎹",
+			[
+				"🎹",
 				"🎸",
 				"🎷"
 			]
@@ -70,42 +75,14 @@ final class JSONTestCase: XCTestCase {
 				jSON: jSON,
 				key: turKeyboard
 			)
-		){error in
+		){ error in
+            
 			switch error {
 			case JSON.Error.noValue(let key):
 				XCTAssertEqual(key, turKeyboard)
+                
 			default: XCTFail()
 			}
 		}
-	}
-	
-	func testConvertToJSON() {
-		let s = String(
-			bytes: try! 👻().jSONData_get(),
-			encoding: .utf8
-		)!
-		print(s)
-	}
-}
-
-private struct 👻 {
-	let
-	boool = true,
-	skoool = 💀()
-}
-
-private struct 💀 {
-	let skool = "🏫"
-}
-		
-extension 👻: ConvertibleToJSON {
-	enum JSONKey: String {
-		case boool, skoool
-	}
-}
-
-extension 💀: ConvertibleToJSON {
-	enum JSONKey: String {
-		case skool
 	}
 }
