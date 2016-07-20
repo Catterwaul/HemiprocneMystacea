@@ -51,13 +51,10 @@ public protocol InitializableWithJSON {
 
 public extension Array where Element: InitializableWithJSON {
 	init(
-		jSON: AnyObject,
+		jSON: JSON,
 		key: String
 	) throws {
-		guard let anyObjects = jSON[key] as? [AnyObject]
-		else {
-			throw JSON.Error.noValue(key: key)
-		}
+		let anyObjects: [AnyObject] = try jSON.get_value(key: key)
 		
 		self = anyObjects.map{
 			Element(

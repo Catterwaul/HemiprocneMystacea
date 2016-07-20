@@ -56,7 +56,7 @@ final class JSONTestCase: XCTestCase {
 		]
 		
 		let instruments = try! [Instrument](
-			jSON: jSON,
+			jSON: JSON(jSON),
 			key: "instruments"
 		)
 		
@@ -72,7 +72,7 @@ final class JSONTestCase: XCTestCase {
 		let turKeyboard = "🦃⌨️"
 		XCTAssertThrowsError(
 			try [Instrument](
-				jSON: jSON,
+				jSON: JSON(jSON),
 				key: turKeyboard
 			)
 		){ error in
