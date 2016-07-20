@@ -2,14 +2,30 @@ import HemiprocneMystacea
 import XCTest
 
 final class errors_TestCase: XCTestCase {
-	func test() {
+	func test_noErrors() {
+		do {
+			try validate(
+				[
+					{_ in}
+				],
+				parameters: "whatever",
+				errorType: Error.self
+			)
+		}
+		catch {
+			XCTFail()
+		}
+	}
+	
+	func test_errors() {
 		XCTAssertThrowsError(
 			try validate(
 				[throwBad, throwsStrongBads],
 				parameters: false,
 				errorType: Error.self
 			)
-		){error in
+		){	error in
+			
 			guard case let errors as Errors<Error> = error
 			else {
 				XCTFail()

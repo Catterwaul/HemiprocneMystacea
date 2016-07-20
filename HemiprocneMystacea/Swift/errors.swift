@@ -28,18 +28,21 @@ public func validate<
 	parameters: Parameters,
 	errorType: Error.Type
 ) throws {
-	let errors = validates.flatMap{validate -> Set<Error> in
+	let errors = validates.flatMap{
+		validate -> Set<Error> in
+		
 		do {
 			try validate(parameters)
 			return []
-		} catch let error as Error {
-			return [error]
-		} catch let errors as Errors<Error> {
-			return errors.set
-		} catch {
+		}
+		catch let error as Error {return [error]}
+		catch let errors as Errors<Error> {return errors.set}
+		catch {
 			fatalError()
 		}
 	}
 	guard errors.isEmpty
-	else {throw Errors(errors)}
+	else {
+		throw Errors(errors)
+	}
 }
