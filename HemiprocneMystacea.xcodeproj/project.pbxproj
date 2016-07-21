@@ -103,7 +103,7 @@
 		49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */; };
 		49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */; };
+		49CBDFFC1C3329EF00E8EFCC /* HM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HM.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
 		49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */; };
 		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */; };
@@ -153,7 +153,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A72FC211D4081580041845B /* HemiprocneMystaceaTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystaceaTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A72FC211D4081580041845B /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystaceaTV.h; sourceTree = "<group>"; };
 		0A72FC241D4081580041845B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesTestCase.swift; path = Swift/Properties/PropertiesTestCase.swift; sourceTree = "<group>"; };
 		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
 		49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NilClosuresTestCase.swift; path = Swift/NilClosuresTestCase.swift; sourceTree = "<group>"; };
-		49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HemiprocneMystacea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CBDFF11C3329EF00E8EFCC /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemiprocneMystaceaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,7 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CBDFFC1C3329EF00E8EFCC /* HemiprocneMystacea.framework in Frameworks */,
+				49CBDFFC1C3329EF00E8EFCC /* HM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,9 +405,9 @@
 		49CBDFF21C3329EF00E8EFCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */,
+				49CBDFF11C3329EF00E8EFCC /* HM.framework */,
 				49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */,
-				0A72FC211D4081580041845B /* HemiprocneMystaceaTV.framework */,
+				0A72FC211D4081580041845B /* HM.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -599,7 +599,7 @@
 			);
 			name = HemiprocneMystaceaTV;
 			productName = HemiprocneMystaceaTV;
-			productReference = 0A72FC211D4081580041845B /* HemiprocneMystaceaTV.framework */;
+			productReference = 0A72FC211D4081580041845B /* HM.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		49CBDFF01C3329EF00E8EFCC /* HemiprocneMystacea */ = {
@@ -618,7 +618,7 @@
 			);
 			name = HemiprocneMystacea;
 			productName = HemiprocneMystacea;
-			productReference = 49CBDFF11C3329EF00E8EFCC /* HemiprocneMystacea.framework */;
+			productReference = 49CBDFF11C3329EF00E8EFCC /* HM.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		49CBDFFA1C3329EF00E8EFCC /* HemiprocneMystaceaTests */ = {
@@ -899,7 +899,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HM;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -922,7 +922,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HM;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1033,7 +1033,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HM;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1051,7 +1051,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = HM;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;

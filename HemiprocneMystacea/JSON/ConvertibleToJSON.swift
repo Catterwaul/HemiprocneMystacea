@@ -1,3 +1,5 @@
+import Foundation
+
 public protocol ConvertibleToJSON {
     ///- Important: This is a nested type with this signature:
     ///  `enum JSONKey: String`
@@ -30,15 +32,9 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
     }
 }
 
-#if os(tvOS)
-public typealias Framework_ConvertibleToJSON = HemiprocneMystaceaTV.ConvertibleToJSON
-#else
-public typealias Framework_ConvertibleToJSON = HemiprocneMystacea.ConvertibleToJSON
-#endif
-
 public extension JSON {
 	init
-	<ConvertibleToJSON: Framework_ConvertibleToJSON>
+	<ConvertibleToJSON: HM.ConvertibleToJSON>
 	(_ convertibleToJSON: ConvertibleToJSON) throws {
 		try self.init(
 			data: try Data(convertibleToJSON: convertibleToJSON)
@@ -48,7 +44,7 @@ public extension JSON {
 
 public extension Data {
     init
-    <ConvertibleToJSON: Framework_ConvertibleToJSON>
+    <ConvertibleToJSON: HM.ConvertibleToJSON>
     (convertibleToJSON: ConvertibleToJSON) throws {
 			try self = JSONSerialization.data(
 				 withJSONObject: convertibleToJSON.jSONDictionary,

@@ -1,3 +1,5 @@
+import Foundation
+
 /// Adds strong typing to treating JSON as a dictionary.
 public struct JSON {
     public init(object: AnyObject) {

@@ -1,3 +1,5 @@
+import UIKit
+
 public protocol UIPageViewControllerDataSourceWithConnections: UIPageViewControllerDataSource {
   var connectedViewControllers: [UIViewController] {get}
 }

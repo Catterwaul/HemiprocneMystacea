@@ -1,3 +1,5 @@
+import CoreGraphics
+
 public extension CGRect {
 	init(
 		x: CGFloat,

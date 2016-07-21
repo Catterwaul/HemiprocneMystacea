@@ -1,3 +1,5 @@
+import UIKit
+
 public extension UILabel {
 	final func hyphenateText() {
 		guard let text = text

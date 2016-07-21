@@ -1,3 +1,5 @@
+import CoreGraphics
+
 public extension CGSize {
 	init(_ point: CGPoint) {
 		self.init(

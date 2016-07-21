@@ -1,3 +1,5 @@
+import QuartzCore
+
 public extension CABasicAnimation {
 	public struct Values {
 		public init
