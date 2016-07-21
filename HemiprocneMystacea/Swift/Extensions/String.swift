@@ -26,6 +26,15 @@ public extension String {
 				: index
 		)
 	}
+	
+	func without(suffix: String) -> String? {
+		guard self.hasSuffix(suffix)
+		else {return nil}
+		
+		return String(
+			characters.dropLast(suffix.characters.count)
+		)
+	}
 }
 
 public extension Sequence where Iterator.Element == String {

@@ -42,6 +42,19 @@ final class StringTestCase: XCTestCase {
 		)
 	}
 	
+	func test_without() {
+		let rabbitsAndEars = "👯🐇🐰👂🌽"
+		
+		XCTAssertNil(
+			rabbitsAndEars.without(suffix: "🐰")
+		)
+		
+		XCTAssertEqual(
+			rabbitsAndEars.without(suffix: "🌽"),
+			"👯🐇🐰👂"
+		)
+	}
+	
 //MARK: Operators
 	func test_minus() {
 		XCTAssertEqual(
