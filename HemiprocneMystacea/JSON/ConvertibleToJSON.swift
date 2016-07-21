@@ -1,5 +1,6 @@
 public protocol ConvertibleToJSON {
-	///- Important: `enum JSONKey: String`
+    ///- Important: This is a nested type with this signature:
+    ///  `enum JSONKey: String`
 	associatedtype JSONKey: RawRepresentable
 	
 	var jSONDictionary: [String: AnyObject] {get}
@@ -33,10 +34,8 @@ public extension JSON {
 	init
 	<ConvertibleToJSON: HemiprocneMystacea.ConvertibleToJSON>
 	(_ convertibleToJSON: ConvertibleToJSON) throws {
-		self.init(
-			try JSONSerialization.jsonObject(
-				with: try Data(convertibleToJSON: convertibleToJSON)
-			)
+		try self.init(
+			data: try Data(convertibleToJSON: convertibleToJSON)
 		)
 	}
 }

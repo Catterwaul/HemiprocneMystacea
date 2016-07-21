@@ -58,7 +58,7 @@ extension 👻: InitializableWithJSON {
 			boool: try! jSON.get_value(key: JSONKey.boool),
 			skoool: 💀(
 				jSON: try! JSON(
-					jSON.get_value(key: JSONKey.skoool)
+					object: jSON.get_value(key: JSONKey.skoool)
 				)
 			)
 		)

@@ -1,19 +1,28 @@
 /// Adds strong typing to treating JSON as a dictionary.
 public struct JSON {
-	private let jSON: AnyObject
+    public init(object: AnyObject) {
+        self.object = object
+    }
+
+    private let object: AnyObject
 }
 
 //MARK: public
 public extension JSON {
-	init(_ jSON: AnyObject) {
-		self.jSON = jSON
-	}
+    init(data: Data) throws {
+        self.init(
+            object: try JSONSerialization.jsonObject(
+					with: data,
+					options: .allowFragments
+            )
+        )
+    }
 
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
 	func get_value
 	<Value>
 	(key: String) throws -> Value {
-		guard let anyObject = jSON[key]!
+		guard let anyObject = object[key]!
 		else {
 			throw Error.noValue(key: key)
 		}
@@ -54,11 +63,10 @@ public extension Array where Element: InitializableWithJSON {
 		jSON: JSON,
 		key: String
 	) throws {
-		let anyObjects: [AnyObject] = try jSON.get_value(key: key)
-		
-		self = anyObjects.map{
+		let objects: [AnyObject] = try jSON.get_value(key: key)
+		self = objects.map{
 			Element(
-				jSON: JSON($0)
+				jSON: JSON(object: $0)
 			)
 		}
 	}

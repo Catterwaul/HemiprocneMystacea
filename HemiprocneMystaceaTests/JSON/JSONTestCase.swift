@@ -5,7 +5,7 @@ final class JSONTestCase: XCTestCase {
 	func testJSON() {
 		let
 		oldKey = "🗝",
-		jSON = JSON([oldKey: "🔑"])
+		jSON = JSON(object: [oldKey: "🔑"])
 		
 		XCTAssertEqual(
 			try jSON.get_value(key: oldKey),
@@ -47,7 +47,7 @@ final class JSONTestCase: XCTestCase {
 			let visualization: String
 		}
 		
-		let jSON = [
+		let jSObject = [
 			"instruments": [
 				["visualization": "🎹"],
 				["visualization": "🎸"],
@@ -56,7 +56,7 @@ final class JSONTestCase: XCTestCase {
 		]
 		
 		let instruments = try! [Instrument](
-			jSON: JSON(jSON),
+			jSON: JSON(object: jSObject),
 			key: "instruments"
 		)
 		
@@ -72,7 +72,7 @@ final class JSONTestCase: XCTestCase {
 		let turKeyboard = "🦃⌨️"
 		XCTAssertThrowsError(
 			try [Instrument](
-				jSON: JSON(jSON),
+				jSON: JSON(object: jSObject),
 				key: turKeyboard
 			)
 		){ error in
