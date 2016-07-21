@@ -1,3 +1,5 @@
+import UIKit
+
 public extension UINavigationController {
   final func push(
     viewController: UIViewController,

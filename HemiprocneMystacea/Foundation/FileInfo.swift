@@ -1,3 +1,5 @@
+import Foundation
+
 struct FileInfo {
 	init(path: String) throws {
 		try attributes = FileManager.default.attributesOfItem(atPath: path)

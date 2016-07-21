@@ -1,3 +1,5 @@
+import UIKit
+
 public extension UIAlertController {
 	convenience init(
 		title: String?,

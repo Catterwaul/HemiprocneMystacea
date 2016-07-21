@@ -1,3 +1,5 @@
+import UIKit
+
 public extension UIViewController {
 	final func dismiss(
 		animated: Bool = true,
