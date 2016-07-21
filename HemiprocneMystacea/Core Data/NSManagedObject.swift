@@ -6,7 +6,7 @@ public extension NSManagedObject {
    }
 }
 
-@available(iOS 10.0, *)
+@available(iOS 10, tvOS 10, *)
 public extension InitializableWithParameters where Self: NSManagedObject {
 	///- Returns: the entities of this type that are in the main Managed Object Context
 	static var inContext: [Self] {
