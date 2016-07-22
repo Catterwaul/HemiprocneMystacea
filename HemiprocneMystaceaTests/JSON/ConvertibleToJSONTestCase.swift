@@ -1,15 +1,15 @@
-import HemiprocneMystacea
+import HM
 import XCTest
 
 final class ConvertibleToJSONTestCase: XCTestCase {
-	func test_💀_jSONDictionary() {
+	func test_jSONDictionary() {
 		XCTAssertEqual(
 			💀(skool: "🏫").jSONDictionary as! [String: String],
 			["skool": "🏫"]
 		)
 	}
 	
-	func test_initDataWith💀() {
+	func test_initialize_JSON() {
 		let
 		crossBonez = 💀(skool: "☠️"),
 		reconstructedCrossBonez = 💀(
@@ -19,19 +19,52 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 		XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
 	}
 	
-	func test_👻() {
+	func test_initialize_nestedJSON() {
 		let
-		default👻 = 👻(
+		👻instance = 👻(
 			boool: true,
 			skoool: 💀(skool: "👠L")
 		),
-		reconstructedDefault👻 = 👻(
-			jSON: try! JSON(default👻)
+		reconstructed👻 = 👻(
+			jSON: try! JSON(
+				👻instance)
 		)
 
-		XCTAssertTrue(reconstructedDefault👻.boool)
-		XCTAssertEqual(reconstructedDefault👻.skoool.skool, "👠L")
+		XCTAssertTrue(reconstructed👻.boool)
+		XCTAssertEqual(reconstructed👻.skoool.skool, "👠L")
 	}
+	
+	func test_initialize_JSON_usingKey() {
+		do {
+			let
+			data = try! Data(
+				key: "👻",
+				value: 👻(
+					boool: false,
+					skoool: 💀(skool: "🏫")
+				)
+			),
+			jSON = try! JSON(data: data),
+			👻object: AnyObject = try jSON.get_value(key: "👻"),
+			reconstruction = 👻(
+				jSON: JSON(object: 👻object)
+				
+			)
+
+			XCTAssertFalse(reconstruction.boool)
+			XCTAssertEqual(reconstruction.skoool.skool, "🏫")
+		}
+		catch JSON.Error.noValue(let key) {
+			XCTFail(key)
+		}
+		catch JSON.Error.typeCastFailure(let key) {
+			XCTFail(key)
+		}
+		catch {
+			XCTFail()
+		}
+	}
+
 }
 
 private struct 👻 {

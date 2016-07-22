@@ -24,12 +24,12 @@ public extension JSON {
 	func get_value
 	<Value>
 	(key: String) throws -> Value {
-		guard let anyObject = object[key]!
+		guard let object: AnyObject = object[key]
 		else {
 			throw Error.noValue(key: key)
 		}
 		
-		guard let value = anyObject as? Value
+		guard let value = object as? Value
 		else {
 			throw Error.typeCastFailure(key: key)
 		}

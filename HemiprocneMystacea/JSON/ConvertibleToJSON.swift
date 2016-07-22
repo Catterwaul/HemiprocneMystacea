@@ -1,15 +1,19 @@
 import Foundation
 
+public extension JSON {
+	typealias Dictionary = [String: AnyObject]
+}
+
 public protocol ConvertibleToJSON {
     ///- Important: This is a nested type with this signature:
     ///  `enum JSONKey: String`
 	associatedtype JSONKey: RawRepresentable
 	
-	var jSONDictionary: [String: AnyObject] {get}
+	var jSONDictionary: JSON.Dictionary {get}
 }
 
 public extension ConvertibleToJSON where JSONKey.RawValue == String {
-    var jSONDictionary: [String: AnyObject] {
+    var jSONDictionary: JSON.Dictionary {
         return Mirror(reflecting: self).children.flatMap{
             label, value in
             
@@ -43,12 +47,25 @@ public extension JSON {
 }
 
 public extension Data {
-    init
-    <ConvertibleToJSON: HM.ConvertibleToJSON>
-    (convertibleToJSON: ConvertibleToJSON) throws {
-			try self = JSONSerialization.data(
-				 withJSONObject: convertibleToJSON.jSONDictionary,
-				 options: .prettyPrinted
-			)
-    }
+	init
+	<ConvertibleToJSON: HM.ConvertibleToJSON>
+	(convertibleToJSON: ConvertibleToJSON) throws {
+		try self.init(jSONObject: convertibleToJSON.jSONDictionary)
+	}
+	
+	init
+	<ConvertibleToJSON: HM.ConvertibleToJSON>(
+		key: String, value: ConvertibleToJSON
+	) throws {
+		try self.init(
+			jSONObject: [key: value.jSONDictionary]
+		)
+	}
+	
+	init(jSONObject: AnyObject) throws {
+		try self = JSONSerialization.data(
+			withJSONObject: jSONObject,
+			options: .prettyPrinted
+		)
+	}
 }
