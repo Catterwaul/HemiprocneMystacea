@@ -1,4 +1,4 @@
-@testable import HemiprocneMystacea
+@testable import HM
 import XCTest
 
 final class MultiClosureTestCase: XCTestCase {

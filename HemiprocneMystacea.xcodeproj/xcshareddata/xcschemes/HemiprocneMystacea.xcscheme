@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49CBDFF01C3329EF00E8EFCC"
-               BuildableName = "HemiprocneMystacea.framework"
+               BuildableName = "HM.framework"
                BlueprintName = "HemiprocneMystacea"
                ReferencedContainer = "container:HemiprocneMystacea.xcodeproj">
             </BuildableReference>
@@ -49,7 +49,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49CBDFF01C3329EF00E8EFCC"
-            BuildableName = "HemiprocneMystacea.framework"
+            BuildableName = "HM.framework"
             BlueprintName = "HemiprocneMystacea"
             ReferencedContainer = "container:HemiprocneMystacea.xcodeproj">
          </BuildableReference>
@@ -71,7 +71,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49CBDFF01C3329EF00E8EFCC"
-            BuildableName = "HemiprocneMystacea.framework"
+            BuildableName = "HM.framework"
             BlueprintName = "HemiprocneMystacea"
             ReferencedContainer = "container:HemiprocneMystacea.xcodeproj">
          </BuildableReference>
@@ -89,7 +89,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49CBDFF01C3329EF00E8EFCC"
-            BuildableName = "HemiprocneMystacea.framework"
+            BuildableName = "HM.framework"
             BlueprintName = "HemiprocneMystacea"
             ReferencedContainer = "container:HemiprocneMystacea.xcodeproj">
          </BuildableReference>

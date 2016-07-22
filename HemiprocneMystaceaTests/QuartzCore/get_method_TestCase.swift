@@ -1,4 +1,4 @@
-import HemiprocneMystacea
+import HM
 import XCTest
 
 final class get_method_TestCase: XCTestCase {
