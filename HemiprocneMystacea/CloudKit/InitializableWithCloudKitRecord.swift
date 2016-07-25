@@ -16,3 +16,14 @@ public extension InitializableWithCloudKitRecord {
 		)
 	}
 }
+
+public protocol InitializableWithCloudKitRecordAndReferences {
+	associatedtype Reference: InitializableWithCloudKitRecord
+	
+	static var referenceKey: String {get}
+	
+	init(
+		record: CKRecord,
+		references: [Reference]
+	)
+}
