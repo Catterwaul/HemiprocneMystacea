@@ -2,8 +2,7 @@ import QuartzCore
 
 public extension CABasicAnimation {
 	public struct Values {
-		public init
-		<Interpolable>(
+		public init<Interpolable>(
 			from: Interpolable,
 			to: Interpolable
 		) {

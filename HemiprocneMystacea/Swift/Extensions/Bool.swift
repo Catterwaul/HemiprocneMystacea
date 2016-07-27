@@ -17,9 +17,11 @@ public extension Bool {
 	}
 }
 
-public extension Sequence where Iterator.Element == () -> Bool {
+public extension Sequence where Iterator.Element == Computed<Bool>.Get {
 	///- Returns: whether all elements of the sequence evaluate to `bool`
 	func containsOnly(_ bool: Bool) -> Bool {
-		return self.containsOnly{$0() == bool}
+		return self.containsOnly{
+			get_bool in get_bool() == bool
+		}
 	}
 }

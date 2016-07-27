@@ -45,7 +45,7 @@ public func == <
 	
 	return operand0 == (operand1,
 		properties.1
-	) && operand0…properties.2 == operand1…properties.2
+	)	&& operand0…properties.2 == operand1…properties.2
 }
 
 /// Used to implement Equatable using 3 properties
@@ -75,7 +75,7 @@ public func == <
 	return operand0 == (operand1,
 		properties.1,
 		properties.2
-	) && operand0…properties.3 == operand1…properties.3
+	)	&& operand0…properties.3 == operand1…properties.3
 }
 
 /// Used to implement Equatable using 4 properties
@@ -108,7 +108,7 @@ public func == <
 		properties.1,
 		properties.2,
 		properties.3
-	) && operand0…properties.4 == operand1…properties.4
+	)	&& operand0…properties.4 == operand1…properties.4
 }
 
 /// Used to implement Equatable using 5 properties
@@ -144,5 +144,5 @@ public func == <
 		properties.2,
 		properties.3,
 		properties.4
-	) && operand0…properties.5 == operand1…properties.5
+	)	&& operand0…properties.5 == operand1…properties.5
 }

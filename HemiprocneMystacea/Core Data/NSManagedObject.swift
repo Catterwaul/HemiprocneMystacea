@@ -36,7 +36,8 @@ public extension InitializableWithParameters where Self: NSManagedObject {
 	///- Returns: if an instance exists already, that;
 	///  otherwise, a new instance.
 	static func instance(matching parameters: Parameters) -> Self {
-		return Self.inContext.matching(parameters) ?? Self(parameters)
+		return Self.inContext.matching(parameters)
+			?? Self(parameters)
 	}
 }
 

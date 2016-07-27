@@ -10,6 +10,9 @@ extension Sequence where Iterator.Element: protocol<
 	IntegerArithmetic
 > {
 	public var sum: Iterator.Element {
-		return self.reduce(0, combine: +)
+		return self.reduce(
+			0,
+			combine: +
+		)
 	}
 }

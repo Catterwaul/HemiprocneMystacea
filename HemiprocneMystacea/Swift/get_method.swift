@@ -32,9 +32,9 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		(PotentialInstanceType0) -> Method,
-		(PotentialInstanceType1) -> Method,
-		(PotentialInstanceType2) -> Method
+		@noescape (PotentialInstanceType0) -> Method,
+		@noescape (PotentialInstanceType1) -> Method,
+		@noescape (PotentialInstanceType2) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -43,7 +43,7 @@ public func get_method<
 			potentialMatches.0,
 			potentialMatches.1
 		)
-	) ?? instance as? PotentialInstanceType2 ?… potentialMatches.2
+	)	?? instance as? PotentialInstanceType2 ?… potentialMatches.2
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -59,10 +59,10 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		(PotentialInstanceType0) -> Method,
-		(PotentialInstanceType1) -> Method,
-		(PotentialInstanceType2) -> Method,
-		(PotentialInstanceType3) -> Method
+		@noescape (PotentialInstanceType0) -> Method,
+		@noescape (PotentialInstanceType1) -> Method,
+		@noescape (PotentialInstanceType2) -> Method,
+		@noescape (PotentialInstanceType3) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -72,7 +72,7 @@ public func get_method<
 			potentialMatches.1,
 			potentialMatches.2
 		)
-	) ?? instance as? PotentialInstanceType3 ?… potentialMatches.3
+	)	?? instance as? PotentialInstanceType3 ?… potentialMatches.3
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -89,11 +89,11 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		(PotentialInstanceType0) -> Method,
-		(PotentialInstanceType1) -> Method,
-		(PotentialInstanceType2) -> Method,
-		(PotentialInstanceType3) -> Method,
-		(PotentialInstanceType4) -> Method
+		@noescape (PotentialInstanceType0) -> Method,
+		@noescape (PotentialInstanceType1) -> Method,
+		@noescape (PotentialInstanceType2) -> Method,
+		@noescape (PotentialInstanceType3) -> Method,
+		@noescape (PotentialInstanceType4) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -104,7 +104,7 @@ public func get_method<
 			potentialMatches.2,
 			potentialMatches.3
 		)
-	) ?? instance as? PotentialInstanceType4 ?… potentialMatches.4
+	)	?? instance as? PotentialInstanceType4 ?… potentialMatches.4
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -122,12 +122,12 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		(PotentialInstanceType0) -> Method,
-		(PotentialInstanceType1) -> Method,
-		(PotentialInstanceType2) -> Method,
-		(PotentialInstanceType3) -> Method,
-		(PotentialInstanceType4) -> Method,
-		(PotentialInstanceType5) -> Method
+		@noescape (PotentialInstanceType0) -> Method,
+		@noescape (PotentialInstanceType1) -> Method,
+		@noescape (PotentialInstanceType2) -> Method,
+		@noescape (PotentialInstanceType3) -> Method,
+		@noescape (PotentialInstanceType4) -> Method,
+		@noescape (PotentialInstanceType5) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -139,7 +139,7 @@ public func get_method<
 			potentialMatches.3,
 			potentialMatches.4
 		)
-	) ?? instance as? PotentialInstanceType5 ?… potentialMatches.5
+	)	?? instance as? PotentialInstanceType5 ?… potentialMatches.5
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -158,13 +158,13 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		(PotentialInstanceType0) -> Method,
-		(PotentialInstanceType1) -> Method,
-		(PotentialInstanceType2) -> Method,
-		(PotentialInstanceType3) -> Method,
-		(PotentialInstanceType4) -> Method,
-		(PotentialInstanceType5) -> Method,
-		(PotentialInstanceType6) -> Method
+		@noescape (PotentialInstanceType0) -> Method,
+		@noescape (PotentialInstanceType1) -> Method,
+		@noescape (PotentialInstanceType2) -> Method,
+		@noescape (PotentialInstanceType3) -> Method,
+		@noescape (PotentialInstanceType4) -> Method,
+		@noescape (PotentialInstanceType5) -> Method,
+		@noescape (PotentialInstanceType6) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -177,5 +177,5 @@ public func get_method<
 			potentialMatches.4,
 			potentialMatches.5
 		)
-	) ?? instance as? PotentialInstanceType6 ?… potentialMatches.6
+	)	?? instance as? PotentialInstanceType6 ?… potentialMatches.6
 }

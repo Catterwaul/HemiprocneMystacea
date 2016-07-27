@@ -27,7 +27,7 @@ final class SequenceTestCase: XCTestCase {
 			[	1,
 				5,
 				3
-			].first{$0 == 5},
+			]	.first{$0 == 5},
 			5
 		)
 	}
@@ -37,7 +37,8 @@ final class SequenceTestCase: XCTestCase {
 			TypeWith1EquatableProperty(int: 3),
 			TypeWith1EquatableProperty(int: 1),
 			TypeWith1EquatableProperty(int: 2)
-		].sorted{$0.int}
+		]	.sorted{$0.int}
+		
 		XCTAssertEqual(
 			sortedArray,
 			[ TypeWith1EquatableProperty(int: 1),
@@ -52,7 +53,7 @@ final class SequenceTestCase: XCTestCase {
 			1,
 			1,
 			1
-		].sum
+		]	.sum
 		XCTAssertEqual(sum, 3)
 	}
 	
@@ -71,7 +72,7 @@ final class SequenceTestCase: XCTestCase {
 		let uniqueArray = [
 			TypeWith1EquatableProperty(int: 1),
 			TypeWith1EquatableProperty(int: 1)
-		].uniqueElements
+		]	.uniqueElements
 		XCTAssertEqual(
 			uniqueArray,
 			[TypeWith1EquatableProperty(int: 1)]
