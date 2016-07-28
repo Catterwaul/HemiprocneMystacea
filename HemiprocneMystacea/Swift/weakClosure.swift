@@ -11,9 +11,7 @@ public func weakClosure<
 	_ reference: Reference?,
 	transform: (Reference) -> Transformed
 ) -> () -> Transformed? {
-	return {[weak reference] in
-		reference ?… transform
-	}
+	return {[weak reference] in reference.map(transform)}
 }
 
 ///- Parameter reference: An object that is expected to be nil sometimes, when `return` runs.
@@ -34,7 +32,7 @@ public func weakClosure<
 ) -> () -> (
 	(Parameter) -> Transformed
 )? {
-	return weakClosure(reference){reference in
-		{transform(reference, $0)}
+	return weakClosure(reference){
+		reference in {transform(reference, $0)}
 	}
 }

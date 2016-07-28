@@ -4,13 +4,16 @@
 /// ```
 /// closure = nillifyUponCall(closure){closure = $0}
 public typealias nillifyUponCall_Closure<Input, Output> = (Input) -> Output
-public func nillifyUponCall
-<Input, Output>(
+public func nillifyUponCall<Input, Output>(
    _ closure: nillifyUponCall_Closure<Input, Output>?,
-   _ closure_set: (nillifyUponCall_Closure<Input, Output>?) -> ()
+   _ closure_set: Computed<
+		nillifyUponCall_Closure<Input, Output>?
+	>	.Set
 ) -> nillifyUponCall_Closure<Input, Output>? {
-	return closure ?… {closure in
-		{input in
+	return closure.map{
+		closure in {
+			input in
+			
 			defer {closure_set(nil)}
 			return closure(input)
 		}
@@ -27,7 +30,10 @@ public func Nils<
    (Arguments1) -> Return1?,
    (Arguments2) -> Return2?
 ) {
-   return ({_ in nil}, {_ in nil})
+   return (
+		{_ in nil},
+		{_ in nil}
+	)
 }
 
 ///- Returns: - Returns: Three generic closures which return nil

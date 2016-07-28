@@ -4,10 +4,9 @@ infix operator … {associativity left precedence 255}
 ///- Returns: `input`
 ///- Remark: Hold option, press ;
 @discardableResult
-public func …
-<Input>(
+public func … <Input>(
 	input: Input,
-	ƒ: @noescape (Input) -> ()
+	ƒ: @noescape (Input) -> Void
 ) -> Input {
    ƒ(input)
    return input
@@ -15,8 +14,7 @@ public func …
 
 ///- Returns: `transform(input)`
 ///- Remark: Hold option, press ;
-public func …
-<Input, Output>(
+public func … <Input, Output>(
 	input: Input,
 	transform: @noescape (Input) -> Output
 ) -> Output {

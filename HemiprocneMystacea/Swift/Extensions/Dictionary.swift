@@ -28,7 +28,7 @@ public extension Dictionary {
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
 	subscript(key: Key?) -> Value? {
-		return key ?… {self[$0]}
+		return key.flatMap{self[$0]}
 	}
 
 	subscript(

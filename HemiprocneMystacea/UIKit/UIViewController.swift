@@ -42,7 +42,7 @@ public extension UIViewController {
 				style: .actionSheet,
 				actions: actions
 			)…{
-				$0.popoverPresentationController ?… {
+				_ = $0.popoverPresentationController.map{
 					$0.sourceView = sourceView
 					$0.sourceRect = sourceView.bounds
 				}

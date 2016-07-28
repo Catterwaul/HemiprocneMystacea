@@ -25,7 +25,9 @@ final class NilClosuresTestCase: XCTestCase {
 		let ƒ: (
 			(Int) -> ()?,
 			() -> Bool?
-		) = Nils()
+		)
+			= Nils()
+		
 		XCTAssertNil(
 			ƒ.0(Int.min)
 		)
@@ -39,7 +41,9 @@ final class NilClosuresTestCase: XCTestCase {
 			(Int) -> ()?,
 			() -> Bool?,
 			(String) -> String?
-		) = Nils()
+		)
+			= Nils()
+		
 		XCTAssertNil(
 			ƒ.0(Int.min)
 		)
@@ -57,7 +61,9 @@ final class NilClosuresTestCase: XCTestCase {
 			() -> Bool?,
 			(String) -> String?,
 			() -> ()?
-		) = Nils()
+		)
+			= Nils()
+		
 		XCTAssertNil(
 			ƒ.0(Int.min)
 		)
