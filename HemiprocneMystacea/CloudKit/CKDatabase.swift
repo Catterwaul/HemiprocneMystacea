@@ -3,7 +3,9 @@ import CloudKit
 public extension CKDatabase {
 	func request<Requested: InitializableWithCloudKitRecord>(
 		predicate: Predicate = Predicate(value: true),
-		process: Process< Throwing.Get<[Requested]> >
+		process: Process<
+			Throwing.Get<[Requested]>
+		>
 	){
 		perform(
 			CKQuery(
@@ -18,62 +20,72 @@ public extension CKDatabase {
 				return
 			}
 			
-			process{
-				records!.map(Requested.init)
-			}
+			process{records!.map(Requested.init)}
 		}
 	}
 	
 	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
 		predicate: Predicate = Predicate(value: true),
-		process: Process<[Requested]>
+		process: Process<
+			Throwing.Get<[Requested]>
+		>
 	) {
 		let dispatchGroup = DispatchGroup()
 		
-		var requesteds: [Requested] = []
+		var
+		requesteds: [Requested] = [],
+		errors: Set<NSError> = []
 		
 		dispatchGroup.enter()
 		
-		let requestedQueryOperation = CKQuery(
-			recordType: String(Requested.self),
-			predicate: predicate
-		)…CKQueryOperation.init…{
+		let requestedQueryOperation = CKQueryOperation(
+			query: CKQuery(
+				recordType: String(Requested.self),
+				predicate: predicate
+			)
+		)…{
 			$0.recordFetchedBlock = {
 				requestedRecord in
 				
 				dispatchGroup.enter()
 				
 				let referencesFetchOperation = CKFetchRecordsOperation(
-					recordIDs: (
-						requestedRecord[Requested.referenceKey] as! [CKReference]
-					).map{$0.recordID}
-				)…{
-					$0.fetchRecordsCompletionBlock = {
-						records, error in
+					references: requestedRecord[Requested.referenceKey] as! [CKReference]
+				){	get_records in
+					
+					do {
+						let records = try get_records()
 						
 						requesteds += [
 							Requested(
 								record: requestedRecord,
-								references: records!.values.map(Requested.Reference.init)
+								references: records.map(Requested.Reference.init)
 							)
 						]
-						
-						dispatchGroup.leave()
 					}
+					catch let error as NSError {
+						errors.insert(error)
+					}
+						
+					dispatchGroup.leave()
 				}
 				self.add(referencesFetchOperation)
 			}
 			
-			$0.queryCompletionBlock = {
-				_ in dispatchGroup.leave()
-			}
+			$0.queryCompletionBlock = {_ in dispatchGroup.leave()}
 		}
 		add(requestedQueryOperation)
 		
 		dispatchGroup.notify(
 			queue: DispatchQueue(label: "")
 		){
-			process(requesteds)
+			guard errors.isEmpty
+			else {
+				process{throw Errors(errors)}
+				return
+			}
+			
+			process{requesteds}
 		}
 	}
 }

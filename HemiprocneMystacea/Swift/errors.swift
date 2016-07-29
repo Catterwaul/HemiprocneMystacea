@@ -1,11 +1,9 @@
 public typealias HashableError = protocol<ErrorProtocol, Hashable>
 
-public struct Errors
-<Error: HashableError>
-: ErrorProtocol {
-	public init<
-		Errors: Sequence where Errors.Iterator.Element == Error
-	>(_ errors: Errors) {
+public struct Errors<Error: HashableError>: ErrorProtocol {
+	public init
+	<Errors: Sequence where Errors.Iterator.Element == Error>
+	(_ errors: Errors) {
 		set = Set(errors)
 	}
 	public init(_ errors: Error...) {
@@ -35,9 +33,15 @@ public func validate<
 			try validate(parameters)
 			return []
 		}
-		catch let error as Error {return [error]}
-		catch let errors as Errors<Error> {return errors.set}
-		catch {fatalError()}
+		catch let error as Error {
+			return [error]
+		}
+		catch let errors as Errors<Error> {
+			return errors.set
+		}
+		catch {
+			fatalError()
+		}
 	}
 	guard errors.isEmpty
 	else {throw Errors(errors)}

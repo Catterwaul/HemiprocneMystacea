@@ -8,7 +8,9 @@ public extension InitializableWithCloudKitRecord {
 	static func request(
 		database: CKDatabase,
 		predicate: Predicate = Predicate(value: true),
-		process: Process< Throwing.Get<[Self]> >
+		process: Process<
+			Throwing.Get<[Self]>
+		>
 	) {
 		database.request(
 			predicate: predicate,
@@ -26,4 +28,19 @@ public protocol InitializableWithCloudKitRecordAndReferences {
 		record: CKRecord,
 		references: [Reference]
 	)
+}
+
+public extension InitializableWithCloudKitRecordAndReferences {
+	static func request(
+		database: CKDatabase,
+		predicate: Predicate = Predicate(value: true),
+		process: Process<
+			Throwing.Get<[Self]>
+		>
+	) {
+		database.request(
+			predicate: predicate,
+			process: process
+		)
+	}
 }
