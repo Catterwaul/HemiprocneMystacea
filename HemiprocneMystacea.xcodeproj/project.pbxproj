@@ -73,6 +73,7 @@
 		499C71941D0F7E94009797BC /* CGSizeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71931D0F7E94009797BC /* CGSizeTestCase.swift */; };
 		499C71961D0F8079009797BC /* WeakClosureTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71951D0F8079009797BC /* WeakClosureTestCase.swift */; };
 		499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
+		499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
 		49A36BDA1D407C6200A4BFEB /* CKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BD91D407C6200A4BFEB /* CKDatabase.swift */; };
 		49A36BDD1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */; };
 		49A36BDF1D407CD200A4BFEB /* CKRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BDE1D407CD200A4BFEB /* CKRecord.swift */; };
@@ -757,6 +758,7 @@
 				0A72FC5A1D40819D0041845B /* get_method.swift in Sources */,
 				0A72FC591D40819D0041845B /* errors.swift in Sources */,
 				0A72FC571D40819D0041845B /* ComputedProperty.swift in Sources */,
+				499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */,
 				0A72FC431D40819D0041845B /* UserDefaults+Setting.swift in Sources */,
 				0A72FC611D40819D0041845B /* InitializableWithParameters.swift in Sources */,
 				0A72FC501D40819D0041845B /* SetAlgebra.swift in Sources */,
