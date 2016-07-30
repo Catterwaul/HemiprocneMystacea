@@ -1,14 +1,14 @@
 infix operator … {associativity left precedence 255}
 
-///- Parameter ƒ: a closure whose argument is `input`
+///- Parameter process: a closure whose argument is `input`
 ///- Returns: `input`
 ///- Remark: Hold option, press ;
 @discardableResult
 public func … <Input>(
 	input: Input,
-	ƒ: @noescape (Input) -> Void
+	process: @noescape (Input) -> Void
 ) -> Input {
-   ƒ(input)
+   process(input)
    return input
 }
 
