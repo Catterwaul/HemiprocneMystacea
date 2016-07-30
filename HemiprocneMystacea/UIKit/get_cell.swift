@@ -23,9 +23,7 @@ public extension dequeueReusableCell where Self: UITableView {
     ///
     ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
     ///  for a cell that this Table View uses
-    final func get_cell
-    <Cell: UITableViewCell>
-	 () -> Cell {
+    final func get_cell<Cell: UITableViewCell>() -> Cell {
         return dequeueReusableCell(
             withIdentifier: String(Cell.self)
         ) as! Cell
@@ -56,13 +54,13 @@ private extension dequeueReusableCell {
 
 //MARK:- dequeueReusableCell
 public protocol dequeueReusableCell {
-	associatedtype Cell: UIView
+	associatedtype ReusableCell: UIView
 	
 	///- Attention: Called dequeueReusableCellWithIdentifier in UITableView
 	func dequeueReusableCell(
 		withReuseIdentifier: String,
 		for: IndexPath
-	) -> Cell
+	) -> ReusableCell
 }
 
 extension UICollectionView: dequeueReusableCell {}
