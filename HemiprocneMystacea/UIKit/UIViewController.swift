@@ -3,11 +3,11 @@ import UIKit
 public extension UIViewController {
 	final func dismiss(
 		animated: Bool = true,
-		📻viewDidDisappear: (() -> ())? = nil
+		respondTo_viewDidDisappear: (() -> ())? = nil
 	) {
 		dismiss(
 			animated: animated,
-			completion: 📻viewDidDisappear
+			completion: respondTo_viewDidDisappear
 		)
 	}
 	
@@ -21,11 +21,11 @@ public extension UIViewController {
 	final func present(
 		viewController: UIViewController,
 		animated: Bool = true,
-		📻viewDidAppear: (() -> ())? = nil
+		respondTo_viewDidAppear: (() -> ())? = nil
 	) {
 		present(viewController,
 			animated: animated,
-			completion: 📻viewDidAppear
+			completion: respondTo_viewDidAppear
 		)
 	}
 

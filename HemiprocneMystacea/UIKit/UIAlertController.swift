@@ -20,9 +20,7 @@ public extension UIAlertController {
 public func += (
 	controller: UIAlertController,
 	action: UIAlertAction
-) {
-	controller.addAction(action)
-}
+) {controller.addAction(action)}
 
 public func += (
 	controller: UIAlertController,
