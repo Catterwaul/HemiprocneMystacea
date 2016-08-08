@@ -15,4 +15,5 @@ public extension Computed {
 public enum Throwing {}
 public extension Throwing {
 	typealias Get<Value> = () throws -> Value
+	typealias Set<Value> = (Value) throws -> Void
 }
