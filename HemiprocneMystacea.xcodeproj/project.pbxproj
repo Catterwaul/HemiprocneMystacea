@@ -61,6 +61,7 @@
 		0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
+		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
 		4933D5091D3849DC00A09D47 /* typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933D5081D3849DC00A09D47 /* typealiases.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
@@ -755,6 +756,7 @@
 				0A72FC4A1D40819D0041845B /* Bool.swift in Sources */,
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
 				0A72FC3E1D40819D0041845B /* NSManagedObjectContext.swift in Sources */,
+				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
 				0A72FC441D40819D0041845B /* JSON.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */,
 				0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */,
