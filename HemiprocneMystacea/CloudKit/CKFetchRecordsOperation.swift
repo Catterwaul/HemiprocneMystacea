@@ -7,7 +7,9 @@ public extension CKFetchRecordsOperation {
 			Throwing.Get<[CKRecord]>
 		>
 	) {
-		self.init(recordIDs: references.map{$0.recordID})
+		let iDs = references.map{$0.recordID}
+		
+		self.init(recordIDs: iDs)
 		fetchRecordsCompletionBlock = {
 			records, error in
 			
@@ -16,7 +18,9 @@ public extension CKFetchRecordsOperation {
 				return
 			}
 			
-			process{[CKRecord](records!.values)}
+			process{
+				iDs.map{records![$0]!}
+			}
 		}
 	}
 }
