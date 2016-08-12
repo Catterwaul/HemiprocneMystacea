@@ -37,7 +37,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		_ process_get_requested: Process<
 			Throwing.Get<Self>
 		>,
-		process_verifyCompletion: Process<() throws -> Void>
+		_ process_verifyCompletion: Process<() throws -> Void>
 	) {
 		database.request(
 			predicate: predicate,
