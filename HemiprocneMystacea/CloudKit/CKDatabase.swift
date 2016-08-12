@@ -38,13 +38,8 @@ public extension CKDatabase {
 		
 		dispatchGroup.enter()
 		
-		let requestedQueryOperation = CKQueryOperation(
-			query: CKQuery(
-				recordType: String(Requested.self),
-				predicate: predicate
-			)
-		)…{
-			$0.recordFetchedBlock = {
+		func initialize(operation: CKQueryOperation) {
+			operation.recordFetchedBlock = {
 				requestedRecord in
 				
 				dispatchGroup.enter()
@@ -72,9 +67,32 @@ public extension CKDatabase {
 				self.add(referencesFetchOperation)
 			}
 			
-			$0.queryCompletionBlock = {_ in dispatchGroup.leave()}
+			operation.queryCompletionBlock = {
+				cursor, error in
+				
+				if let error = error {
+					errors.insert(error)
+					dispatchGroup.leave()
+				}
+				else if let cursor = cursor {
+					self.add(
+						CKQueryOperation(cursor: cursor)…initialize
+					)
+				}
+				else {
+					dispatchGroup.leave()
+				}
+			}
 		}
-		add(requestedQueryOperation)
+		
+		add(
+			CKQueryOperation(
+				query: CKQuery(
+					recordType: String(Requested.self),
+					predicate: predicate
+				)
+			)…initialize
+		)
 		
 		dispatchGroup.notify(
 			queue: DispatchQueue(label: "")
