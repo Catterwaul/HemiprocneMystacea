@@ -5,9 +5,7 @@ final class errors_TestCase: XCTestCase {
 	func test_noErrors() {
 		do {
 			try validate(
-				[
-					{_ in}
-				],
+				[{_ in}],
 				parameters: "whatever",
 				errorType: Error.self
 			)

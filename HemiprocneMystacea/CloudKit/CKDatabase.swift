@@ -26,23 +26,14 @@ public extension CKDatabase {
 	
 	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
 		predicate: Predicate = Predicate(value: true),
-		process: Process<
-			Throwing.Get<[Requested]>
-		>
+		_ process_get_requested: Process<
+			Throwing.Get<Requested>
+		>,
+		_ process_verifyCompletion: Process<() throws -> Void>
 	) {
-		let dispatchGroup = DispatchGroup()
-		
-		var
-		requesteds: [Requested] = [],
-		errors: Set<NSError> = []
-		
-		dispatchGroup.enter()
-		
 		func initialize(operation: CKQueryOperation) {
 			operation.recordFetchedBlock = {
 				requestedRecord in
-				
-				dispatchGroup.enter()
 				
 				let referencesFetchOperation = CKFetchRecordsOperation(
 					references: requestedRecord[Requested.referenceKey] as! [CKReference]
@@ -51,18 +42,17 @@ public extension CKDatabase {
 					do {
 						let records = try get_records()
 						
-						requesteds += [
+						process_get_requested{
 							Requested(
 								record: requestedRecord,
 								references: records.map(Requested.Reference.init)
 							)
-						]
+						}
 					}
 					catch let error as NSError {
-						errors.insert(error)
+						process_get_requested{throw error}
 					}
 						
-					dispatchGroup.leave()
 				}
 				self.add(referencesFetchOperation)
 			}
@@ -71,8 +61,7 @@ public extension CKDatabase {
 				cursor, error in
 				
 				if let error = error {
-					errors.insert(error)
-					dispatchGroup.leave()
+					process_verifyCompletion{throw error}
 				}
 				else if let cursor = cursor {
 					self.add(
@@ -80,7 +69,7 @@ public extension CKDatabase {
 					)
 				}
 				else {
-					dispatchGroup.leave()
+					process_verifyCompletion{}
 				}
 			}
 		}
@@ -93,17 +82,5 @@ public extension CKDatabase {
 				)
 			)…initialize
 		)
-		
-		dispatchGroup.notify(
-			queue: DispatchQueue(label: "")
-		){
-			guard errors.isEmpty
-			else {
-				process{throw Errors(errors)}
-				return
-			}
-			
-			process{requesteds}
-		}
 	}
 }
