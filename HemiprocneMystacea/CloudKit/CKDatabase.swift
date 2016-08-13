@@ -31,11 +31,14 @@ public extension CKDatabase {
 		>,
 		_ process_verifyCompletion: Process<() throws -> Void>
 	) {
+		let dispatchGroup = DispatchGroup()
+		
 		func initialize(operation: CKQueryOperation) {
 			operation.recordFetchedBlock = {
 				requestedRecord in
 				
-				let referencesFetchOperation = CKFetchRecordsOperation(
+				dispatchGroup.enter()
+				CKFetchRecordsOperation(
 					references: requestedRecord[Requested.referenceKey] as! [CKReference]
 				){	get_records in
 					
@@ -52,9 +55,9 @@ public extension CKDatabase {
 					catch let error as NSError {
 						process_get_requested{throw error}
 					}
-						
-				}
-				self.add(referencesFetchOperation)
+					
+					dispatchGroup.leave()
+				}…self.add
 			}
 			
 			operation.queryCompletionBlock = {
@@ -69,7 +72,11 @@ public extension CKDatabase {
 					)
 				}
 				else {
-					process_verifyCompletion{}
+					dispatchGroup.notify(
+						queue: DispatchQueue(label: "")
+					){
+						process_verifyCompletion{}
+					}
 				}
 			}
 		}
