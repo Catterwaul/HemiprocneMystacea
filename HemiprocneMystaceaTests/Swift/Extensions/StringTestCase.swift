@@ -46,6 +46,15 @@ final class StringTestCase: XCTestCase {
 		let rabbitsAndEars = "👯🐇🐰👂🌽"
 		
 		XCTAssertNil(
+			rabbitsAndEars.without(prefix: "🐰")
+		)
+		
+		XCTAssertEqual(
+			rabbitsAndEars.without(prefix: "👯🐇"),
+			"🐰👂🌽"
+		)
+		
+		XCTAssertNil(
 			rabbitsAndEars.without(suffix: "🐰")
 		)
 		
