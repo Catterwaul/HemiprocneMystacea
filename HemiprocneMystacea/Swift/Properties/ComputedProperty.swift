@@ -1,6 +1,6 @@
 public final class ComputedProperty<Value> {
-	public typealias Get = Computed<Value>.Get
-	public typealias Set = Computed<Value>.Set
+	public typealias Get = () -> Value
+	public typealias Set = (Value) -> Void
 
 	public init(
 		get: Get,
@@ -10,7 +10,7 @@ public final class ComputedProperty<Value> {
 		self.set = set
 	}
 
-	private let
+	fileprivate let
 	get: Get,
 	set: Set
 }
@@ -41,11 +41,7 @@ public extension ComputedProperty {
 //MARK: Property
 extension ComputedProperty: Property {
 	public var value: Value {
-		get {
-			return get()
-		}
-		set {
-			set(newValue)
-		}
+		get {return get()}
+		set {set(newValue)}
 	}
 }

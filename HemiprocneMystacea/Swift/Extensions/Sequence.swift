@@ -1,7 +1,7 @@
 public extension Sequence {
 	func sorted
 	<Comparable: Swift.Comparable>(
-		by comparable: @noescape (Iterator.Element) -> Comparable
+		by comparable: (Iterator.Element) -> Comparable
 	) -> [Iterator.Element] {
 		return self.sorted{$0…comparable < $1…comparable}
 	}
@@ -11,7 +11,7 @@ public extension Sequence {
 public extension Sequence {
 	///- Returns: whether all elements of the sequence satisfy `predicate`
 	func containsOnly(
-		_ predicate: @noescape (Iterator.Element) -> Bool
+		_ predicate: (Iterator.Element) -> Bool
 	) -> Bool {
 		return !self.contains{!predicate($0)}
 	}

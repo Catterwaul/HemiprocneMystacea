@@ -9,8 +9,8 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		@noescape (PotentialInstanceType0) -> Method,
-		@noescape (PotentialInstanceType1) -> Method
+		(PotentialInstanceType0) -> Method,
+		(PotentialInstanceType1) -> Method
 	)
 ) -> Method? {
 	switch instance {
@@ -32,9 +32,9 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		@noescape (PotentialInstanceType0) -> Method,
-		@noescape (PotentialInstanceType1) -> Method,
-		@noescape (PotentialInstanceType2) -> Method
+		(PotentialInstanceType0) -> Method,
+		(PotentialInstanceType1) -> Method,
+		(PotentialInstanceType2) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -61,10 +61,10 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		@noescape (PotentialInstanceType0) -> Method,
-		@noescape (PotentialInstanceType1) -> Method,
-		@noescape (PotentialInstanceType2) -> Method,
-		@noescape (PotentialInstanceType3) -> Method
+		(PotentialInstanceType0) -> Method,
+		(PotentialInstanceType1) -> Method,
+		(PotentialInstanceType2) -> Method,
+		(PotentialInstanceType3) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -93,11 +93,11 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		@noescape (PotentialInstanceType0) -> Method,
-		@noescape (PotentialInstanceType1) -> Method,
-		@noescape (PotentialInstanceType2) -> Method,
-		@noescape (PotentialInstanceType3) -> Method,
-		@noescape (PotentialInstanceType4) -> Method
+		(PotentialInstanceType0) -> Method,
+		(PotentialInstanceType1) -> Method,
+		(PotentialInstanceType2) -> Method,
+		(PotentialInstanceType3) -> Method,
+		(PotentialInstanceType4) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -128,12 +128,12 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		@noescape (PotentialInstanceType0) -> Method,
-		@noescape (PotentialInstanceType1) -> Method,
-		@noescape (PotentialInstanceType2) -> Method,
-		@noescape (PotentialInstanceType3) -> Method,
-		@noescape (PotentialInstanceType4) -> Method,
-		@noescape (PotentialInstanceType5) -> Method
+		(PotentialInstanceType0) -> Method,
+		(PotentialInstanceType1) -> Method,
+		(PotentialInstanceType2) -> Method,
+		(PotentialInstanceType3) -> Method,
+		(PotentialInstanceType4) -> Method,
+		(PotentialInstanceType5) -> Method
 	)
 ) -> Method? {
 	return get_method(
@@ -166,13 +166,13 @@ public func get_method<
 >(
 	instance: Any,
 	potentialMatches: (
-		@noescape (PotentialInstanceType0) -> Method,
-		@noescape (PotentialInstanceType1) -> Method,
-		@noescape (PotentialInstanceType2) -> Method,
-		@noescape (PotentialInstanceType3) -> Method,
-		@noescape (PotentialInstanceType4) -> Method,
-		@noescape (PotentialInstanceType5) -> Method,
-		@noescape (PotentialInstanceType6) -> Method
+		(PotentialInstanceType0) -> Method,
+		(PotentialInstanceType1) -> Method,
+		(PotentialInstanceType2) -> Method,
+		(PotentialInstanceType3) -> Method,
+		(PotentialInstanceType4) -> Method,
+		(PotentialInstanceType5) -> Method,
+		(PotentialInstanceType6) -> Method
 	)
 ) -> Method? {
 	return get_method(

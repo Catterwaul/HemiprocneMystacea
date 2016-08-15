@@ -7,10 +7,10 @@ public protocol InitializableWithCloudKitRecord {
 public extension InitializableWithCloudKitRecord {
 	static func request(
 		database: CKDatabase,
-		predicate: Predicate = Predicate(value: true),
-		process: Process<
-			Throwing.Get<[Self]>
-		>
+		predicate: NSPredicate = NSPredicate(value: true),
+		process: @escaping (
+			() throws -> [Self]
+		) -> Void
 	) {
 		database.request(
 			predicate: predicate,
@@ -33,16 +33,18 @@ public protocol InitializableWithCloudKitRecordAndReferences {
 public extension InitializableWithCloudKitRecordAndReferences {
 	static func request(
 		database: CKDatabase,
-		predicate: Predicate = Predicate(value: true),
-		_ process_get_requested: Process<
-			Throwing.Get<Self>
-		>,
-		_ process_verifyCompletion: Process<() throws -> Void>
+		predicate: NSPredicate = NSPredicate(value: true),
+		_ process﹙get_requested﹚: @escaping (
+			() throws -> Self
+		) -> Void,
+		_ process﹙verifyCompletion﹚: @escaping (
+			() throws -> Void
+		) -> Void
 	) {
 		database.request(
 			predicate: predicate,
-			process_get_requested,
-			process_verifyCompletion
+			process﹙get_requested﹚,
+			process﹙verifyCompletion﹚
 		)
 	}
 }

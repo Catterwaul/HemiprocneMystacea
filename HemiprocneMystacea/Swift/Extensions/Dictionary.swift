@@ -1,15 +1,14 @@
 public extension Dictionary {
 //MARK: Initializers
    /// Splats init(dictionaryLiteral elements: (Key, Value)...)
-   init
-	<Sequence: Swift.Sequence where Sequence.Iterator.Element == Element>
-	(_ sequence: Sequence) {
+   init<Sequence: Swift.Sequence>
+	(_ sequence: Sequence)
+	where Sequence.Iterator.Element == Element {
       self.init()
 		sequence.forEach{self[$0.key] = $0.value}
    }
 	
-	init
-	<Sequence: Swift.Sequence>(
+	init<Sequence: Swift.Sequence>(
 		_ sequence: Sequence,
 		_ transform: (Sequence.Iterator.Element) -> Element
 	) {
@@ -49,15 +48,16 @@ public extension Dictionary {
 public func + <
 	Key, Value,
 	Sequence: Swift.Sequence
+>(
+	dictionary: Dictionary<Key, Value>,
+	sequence: Sequence
+) -> Dictionary<Key, Value>
 	where
 	Sequence.Iterator.Element == (
 		key: Key,
 		value: Value
 	)
->(
-	dictionary: Dictionary<Key, Value>,
-	sequence: Sequence
-) -> Dictionary<Key, Value> {
+{
 	var dictionary = dictionary
 	sequence.forEach{dictionary[$0.key] = $0.value}
 	return dictionary
@@ -66,28 +66,30 @@ public func + <
 public func += <
 	Key, Value,
 	Sequence: Swift.Sequence
+>(
+	dictionary: inout Dictionary<Key, Value>,
+	sequence: Sequence
+)
 	where
 	Sequence.Iterator.Element == (
 		key: Key,
 		value: Value
 	)
->(
-	dictionary: inout Dictionary<Key, Value>,
-	sequence: Sequence
-) {
-   dictionary = dictionary + sequence
+{
+	dictionary = dictionary + sequence
 }
 
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
 public func - <
 	Key: Hashable, Value,
 	KeysToSetNil: Sequence
-	where
-	KeysToSetNil.Iterator.Element == Key
 >(
 	dictionary: Dictionary<Key, Value>,
 	keysToSetNil: KeysToSetNil
-) -> Dictionary<Key, Value> {
+) -> Dictionary<Key, Value>
+	where
+	KeysToSetNil.Iterator.Element == Key
+{
 	var dictionary = dictionary
 	keysToSetNil.forEach{dictionary[$0] = nil}
 	return dictionary
@@ -96,11 +98,13 @@ public func - <
 public func -= <
 	Key: Hashable, Value,
 	KeysToSetNil: Sequence
-	where
-	KeysToSetNil.Iterator.Element == Key
 >(
 	dictionary: inout Dictionary<Key, Value>,
 	keysToSetNil: KeysToSetNil
-) {
+)
+	where	KeysToSetNil.Iterator.Element == Key
+{
 	dictionary = dictionary - keysToSetNil
 }
+
+

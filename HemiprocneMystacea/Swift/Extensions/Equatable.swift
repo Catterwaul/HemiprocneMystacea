@@ -11,7 +11,7 @@ public func == <
 	operand0: Operand,
 	operand1🔗property: (
 		Operand,
-		@noescape (Operand) -> Property
+		(Operand) -> Property
 	)
 ) -> Bool {
 	let
@@ -35,8 +35,8 @@ public func == <
 	operand0: Operand,
 	operand1🔗properties: (
 		Operand,
-		@noescape (Operand) -> Property1,
-		@noescape (Operand) -> Property2
+		(Operand) -> Property1,
+		(Operand) -> Property2
 	)
 ) -> Bool {
 	let
@@ -64,9 +64,9 @@ public func == <
 	operand0: Operand,
 	operand1🔗properties: (
 		Operand,
-		@noescape (Operand) -> Property1,
-		@noescape (Operand) -> Property2,
-		@noescape (Operand) -> Property3
+		(Operand) -> Property1,
+		(Operand) -> Property2,
+		(Operand) -> Property3
 	)
 ) -> Bool {
 	let
@@ -96,10 +96,10 @@ public func == <
 	operand0: Operand,
 	operand1🔗properties: (
 		Operand,
-		@noescape (Operand) -> Property1,
-		@noescape (Operand) -> Property2,
-		@noescape (Operand) -> Property3,
-		@noescape (Operand) -> Property4
+		(Operand) -> Property1,
+		(Operand) -> Property2,
+		(Operand) -> Property3,
+		(Operand) -> Property4
 	)
 ) -> Bool {
 	let
@@ -131,11 +131,11 @@ public func == <
 	operand0: Operand,
 	operand1🔗properties: (
 		Operand,
-		@noescape (Operand) -> Property1,
-		@noescape (Operand) -> Property2,
-		@noescape (Operand) -> Property3,
-		@noescape (Operand) -> Property4,
-		@noescape (Operand) -> Property5
+		(Operand) -> Property1,
+		(Operand) -> Property2,
+		(Operand) -> Property3,
+		(Operand) -> Property4,
+		(Operand) -> Property5
 	)
 ) -> Bool {
 	let

@@ -9,7 +9,7 @@ public func weakClosure<
 	Transformed
 >(
 	_ reference: Reference?,
-	transform: (Reference) -> Transformed
+	transform: @escaping (Reference) -> Transformed
 ) -> () -> Transformed? {
 	return {[weak reference] in reference.map(transform)}
 }
@@ -28,7 +28,7 @@ public func weakClosure<
 	Transformed
 >(
 	_ reference: Reference?,
-	transform: (Reference, Parameter) -> Transformed
+	transform: @escaping (Reference, Parameter) -> Transformed
 ) -> () -> (
 	(Parameter) -> Transformed
 )? {

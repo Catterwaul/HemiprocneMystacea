@@ -1,10 +1,7 @@
-public final class ObservedProperty
-<Value>
-: Property
-{
+public final class ObservedProperty<Value>: Property {
 	public typealias DidSet = (
-		oldValue: Value,
-		inout value: Value
+		_ oldValue: Value,
+		_ value: inout Value
 	) -> ()
 
 	public init(
@@ -21,8 +18,8 @@ public final class ObservedProperty
 	public var value: Value {
 		didSet {
 			didSet(
-				oldValue: oldValue,
-				value: &value
+				oldValue,
+				&value
 			)
 		}
 	}

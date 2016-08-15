@@ -1,9 +1,9 @@
-public typealias HashableError = protocol<ErrorProtocol, Hashable>
+public typealias HashableError = Hashable & Error
 
-public struct Errors<Error: HashableError>: ErrorProtocol {
-	public init
-	<Errors: Sequence where Errors.Iterator.Element == Error>
-	(_ errors: Errors) {
+public struct Errors<Error: HashableError>: Swift.Error {
+	public init<Errors: Sequence>
+	(_ errors: Errors)
+	where Errors.Iterator.Element == Error {
 		set = Set(errors)
 	}
 	public init(_ errors: Error...) {
@@ -20,12 +20,13 @@ public func validate<
 	Validates: Swift.Sequence,
 	Parameters,
 	Error: HashableError
-	where Validates.Iterator.Element == Validate<Parameters>
 >(
 	_ validates: Validates,
 	parameters: Parameters,
 	errorType: Error.Type
-) throws {
+) throws
+	where Validates.Iterator.Element == Validate<Parameters>
+{
 	let errors = validates.flatMap{
 		validate -> Set<Error> in
 		

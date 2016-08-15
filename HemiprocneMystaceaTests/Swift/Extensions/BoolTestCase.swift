@@ -2,19 +2,19 @@ import HM
 import XCTest
 
 final class BoolTestCase: XCTestCase {
-	func testInitWithString() {
+	func testInitWithBinaryString() {		
 		XCTAssertFalse(
-			Bool("0")!
+			Bool(binaryString: "0")!
 		)
 		XCTAssertTrue(
-			Bool("1")!
+			Bool(binaryString: "1")!
 		)
 		
 		XCTAssertNil(
-			Bool("-1")
+			Bool(binaryString: "-1")
 		)
 		XCTAssertNil(
-			Bool("2")
+			Bool(binaryString: "2")
 		)
 	}
 	

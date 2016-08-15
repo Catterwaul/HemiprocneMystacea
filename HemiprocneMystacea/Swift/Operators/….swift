@@ -1,4 +1,9 @@
-infix operator … {associativity left precedence 255}
+infix operator … : EllipsisPrecedence
+
+precedencegroup EllipsisPrecedence {
+	associativity: left
+	higherThan: BitwiseShiftPrecedence
+}
 
 ///- Parameter process: a closure whose argument is `input`
 ///- Returns: `input`
@@ -6,7 +11,7 @@ infix operator … {associativity left precedence 255}
 @discardableResult
 public func … <Input>(
 	input: Input,
-	process: @noescape (Input) -> Void
+	process: (Input) -> Void
 ) -> Input {
    process(input)
    return input
@@ -16,7 +21,7 @@ public func … <Input>(
 ///- Remark: Hold option, press ;
 public func … <Input, Output>(
 	input: Input,
-	transform: @noescape (Input) -> Output
+	transform: (Input) -> Output
 ) -> Output {
 	return transform(input)
 }
