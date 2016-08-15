@@ -48,10 +48,7 @@ public extension String {
 
 public extension Sequence where Iterator.Element == String {
 	var concatenated: String {
-		return self.reduce(
-			"",
-			combine: +
-		)
+		return self.reduce("", +)
 	}	
 }
 
@@ -67,13 +64,9 @@ public func - (
 }
 
 /// `string`, with all occurrences of each of the `strings` removed
-public func -
-<Strings: Sequence where Strings.Iterator.Element == String>(
+public func - <Strings: Sequence>(
 	string: String,
 	strings: Strings
-) -> String {
-	return strings.reduce(
-		string,
-		combine: -
-	)
-}
+) -> String
+where Strings.Iterator.Element == String
+{return strings.reduce(string, -)}

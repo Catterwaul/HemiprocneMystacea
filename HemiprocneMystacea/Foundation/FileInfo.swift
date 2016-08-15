@@ -5,7 +5,7 @@ struct FileInfo {
 		try attributes = FileManager.default.attributesOfItem(atPath: path)
 	}
 
-	private let attributes: [FileAttributeKey: AnyObject]
+	fileprivate let attributes: [FileAttributeKey: Any]
 }
 
 //MARK: public

@@ -2,25 +2,7 @@ import HM
 import XCTest
 
 final class NilClosuresTestCase: XCTestCase {
-	func testNilledUponCall() {
-		var closure: (
-			() -> Void
-		)? {
-			didSet {
-				closure = nillifyUponCall(closure){closure = $0}
-			}
-		}
-		
-		XCTAssertNil(closure)
-		
-		closure = {}
-		XCTAssertNotNil(closure)
-		
-		closure!()
-		XCTAssertNil(closure)
-	}
-	
-	//MARK:- Nils
+//MARK:- Nils
 	func test2Nils() {
 		let ƒ: (
 			(Int) -> ()?,

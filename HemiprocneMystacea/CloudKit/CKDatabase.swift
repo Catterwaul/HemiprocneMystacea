@@ -2,14 +2,14 @@ import CloudKit
 
 public extension CKDatabase {
 	func request<Requested: InitializableWithCloudKitRecord>(
-		predicate: Predicate = Predicate(value: true),
-		process: Process<
-			Throwing.Get<[Requested]>
-		>
+		predicate: NSPredicate = NSPredicate(value: true),
+		process: @escaping (
+			() throws -> [Requested]
+		) -> Void
 	){
 		perform(
 			CKQuery(
-				recordType: String(Requested.self),
+				recordType: String(describing: Requested.self),
 				predicate: predicate
 			),
 			inZoneWith: nil
@@ -25,11 +25,13 @@ public extension CKDatabase {
 	}
 	
 	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
-		predicate: Predicate = Predicate(value: true),
-		_ process_get_requested: Process<
-			Throwing.Get<Requested>
-		>,
-		_ process_verifyCompletion: Process<() throws -> Void>
+		predicate: NSPredicate = NSPredicate(value: true),
+		_ process﹙get_requested﹚: @escaping (
+			() throws -> Requested
+		) -> Void,
+		_ process﹙verifyCompletion﹚: @escaping (
+			() throws -> Void
+		) -> Void
 	) {
 		let dispatchGroup = DispatchGroup()
 		
@@ -45,7 +47,7 @@ public extension CKDatabase {
 					do {
 						let records = try get_records()
 						
-						process_get_requested{
+						process﹙get_requested﹚{
 							Requested(
 								record: requestedRecord,
 								references: records.map(Requested.Reference.init)
@@ -53,7 +55,7 @@ public extension CKDatabase {
 						}
 					}
 					catch let error as NSError {
-						process_get_requested{throw error}
+						process﹙get_requested﹚{throw error}
 					}
 					
 					dispatchGroup.leave()
@@ -64,7 +66,7 @@ public extension CKDatabase {
 				cursor, error in
 				
 				if let error = error {
-					process_verifyCompletion{throw error}
+					process﹙verifyCompletion﹚{throw error}
 				}
 				else if let cursor = cursor {
 					self.add(
@@ -75,7 +77,7 @@ public extension CKDatabase {
 					dispatchGroup.notify(
 						queue: DispatchQueue(label: "")
 					){
-						process_verifyCompletion{}
+						process﹙verifyCompletion﹚{}
 					}
 				}
 			}
@@ -84,7 +86,7 @@ public extension CKDatabase {
 		add(
 			CKQueryOperation(
 				query: CKQuery(
-					recordType: String(Requested.self),
+					recordType: String(describing: Requested.self),
 					predicate: predicate
 				)
 			)…initialize

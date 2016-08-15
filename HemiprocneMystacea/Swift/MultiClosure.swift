@@ -2,21 +2,15 @@
 /// from a collection of closures.
 ///- Note: Designed for one-to-many events, hence no return value.
 ///  Returning a single value from multiple closures doesn't make sense.
-public final class MultiClosure
-<Input>
-: EquatableClass
-{
+public final class MultiClosure<Input>: EquatableClass {
 	public init(_ closures: EquatableClosure<Input>...) {
-    self += closures
-  }
-	
-	public init<
-		Closures: Sequence
-    where
-		Closures.Iterator.Element == EquatableClosure<Input>
-	>(_ closures: Closures) {
 		self += closures
 	}
+	
+	public init<Closures: Sequence>
+	(_ closures: Closures)
+	where Closures.Iterator.Element == EquatableClosure<Input>
+	{self += closures}
 	
 	/// Execute every closure
 	///
@@ -34,7 +28,7 @@ public final class MultiClosure
 	
 //MARK: deallocation
 	// We can't find self in `closures` without this.
-	private lazy var unownedSelf: UnownedReferencer<
+	fileprivate lazy var unownedSelf: UnownedReferencer<
 		MultiClosure<Input>
 	> = UnownedReferencer(self)
 	
@@ -47,35 +41,32 @@ public final class MultiClosure
 }
 
 /// A wrapper around a closure, for use with MultiClosures
-public final class EquatableClosure
-<Input>
-: EquatableClass
-{
-	public init(_ closure: (Input) -> ()) {
-    self.closure = closure
-  }
+public final class EquatableClosure<Input>: EquatableClass {
+	public init(
+		_ closure: @escaping (Input) -> ()
+	) {self.closure = closure}
 
-   /// Execute the closure
-   ///
-   /// ***Rationale:***
-   /// We can't override () so maybe brackets are the next best thing?
-	public subscript(input: Input) -> () {
-    closure(input)
-  }
-
+	/// Execute the closure
+	///
+	/// ***Rationale:***
+	/// We can't override () so maybe brackets are the next best thing?
+	public subscript(input: Input) -> Void {
+		closure(input)
+	}
+	
 	private let closure: (Input) -> ()
 
 //MARK: deallocation
-	var multiClosures = Set<
-    UnownedReferencer<
-      MultiClosure<Input>
-    >
-  >()
+	var multiClosures: Set<
+		UnownedReferencer<
+			MultiClosure<Input>
+		>
+	> = []
 	
 	// We can't find self in `multiClosures` without this.
-	private lazy var unownedSelf: UnownedReferencer<
-    EquatableClosure<Input>
-  > = UnownedReferencer(self)
+	fileprivate lazy var unownedSelf: UnownedReferencer<
+		EquatableClosure<Input>
+	> = UnownedReferencer(self)
 	
 	deinit {
 		multiClosures.forEach{$0.reference.closures -= unownedSelf}
@@ -98,12 +89,12 @@ public func +=
 public func += <
    Input,
    Closures: Sequence
-	 where
-	 Closures.Iterator.Element == EquatableClosure<Input>
 >(
 	multiClosure: MultiClosure<Input>,
 	closures: Closures
-) {
+)
+where Closures.Iterator.Element == EquatableClosure<Input>
+{
    closures.forEach{multiClosure += $0}
 }
 

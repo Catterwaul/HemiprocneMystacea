@@ -2,11 +2,11 @@ import Foundation
 
 /// Adds strong typing to treating JSON as a dictionary.
 public struct JSON {
-    public init(object: AnyObject) {
-        self.object = object
-    }
-
-    private let object: AnyObject
+	fileprivate typealias Object = [String: AnyObject]
+	
+	public init(object: Any) {self.object = object as! Object}
+	
+	fileprivate let object: Object
 }
 
 //MARK: public
@@ -16,7 +16,7 @@ public extension JSON {
             object: try JSONSerialization.jsonObject(
 					with: data,
 					options: .allowFragments
-            )
+            ) as! Object
         )
     }
 
@@ -25,14 +25,10 @@ public extension JSON {
 	<Value>
 	(key: String) throws -> Value {
 		guard let object: AnyObject = object[key]
-		else {
-			throw Error.noValue(key: key)
-		}
+		else {throw Error.noValue(key: key)}
 		
 		guard let value = object as? Value
-		else {
-			throw Error.typeCastFailure(key: key)
-		}
+		else {throw Error.typeCastFailure(key: key)}
 		
 		return value
 	}
@@ -40,15 +36,14 @@ public extension JSON {
 	func get_value<
 		Key: RawRepresentable,
 		Value
-		where Key.RawValue == String
-	>(key: Key) throws -> Value {
-		return try self.get_value(key: key.rawValue)
-	}
+	>(key: Key) throws -> Value
+	where Key.RawValue == String
+	{return try self.get_value(key: key.rawValue)}
 }
 
 //MARK:- Error
 public extension JSON {
-	enum Error: ErrorProtocol {
+	enum Error: Swift.Error {
 		case
 		noValue(key: String),
 		typeCastFailure(key: String)

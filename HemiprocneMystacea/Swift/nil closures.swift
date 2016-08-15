@@ -1,25 +1,3 @@
-///- Parameter closure.set: setter for the closure
-///
-///- Note: *Usage will look like this:*
-/// ```
-/// closure = nillifyUponCall(closure){closure = $0}
-public typealias nillifyUponCall_Closure<Input, Output> = (Input) -> Output
-public func nillifyUponCall<Input, Output>(
-   _ closure: nillifyUponCall_Closure<Input, Output>?,
-   _ closure_set: Computed<
-		nillifyUponCall_Closure<Input, Output>?
-	>	.Set
-) -> nillifyUponCall_Closure<Input, Output>? {
-	return closure.map{
-		closure in {
-			input in
-			
-			defer {closure_set(nil)}
-			return closure(input)
-		}
-	}
-}
-
 //MARK:- nils
 
 ///- Returns: Two generic closures which return nil

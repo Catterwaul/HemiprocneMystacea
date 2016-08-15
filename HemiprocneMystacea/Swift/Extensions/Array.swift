@@ -1,6 +1,5 @@
 /// Removes `element` from `array`, if present.
-public func -=
-<Element: Equatable>(
+public func -= <Element: Equatable>(
 	array: inout [Element],
 	element: Element
 ) {
@@ -12,10 +11,9 @@ public func -=
 
 /// Removes first element that satisfies `predicate` from `array`,
 /// if such an element exists.
-public func -=
-<Element>(
+public func -=	<Element>(
 	array: inout [Element],
-	predicate: @noescape (Element) -> Bool
+	predicate: (Element) -> Bool
 ) {
 	guard let index = array.index(where: predicate)
 	else {return}

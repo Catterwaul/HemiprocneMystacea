@@ -1,63 +1,59 @@
 import Foundation
 
-public struct Setting
-<Value: AnyObject>
-{
+public struct Setting<Value: AnyObject>{
 	public init(
 		key: String,
 		defaultValue: Value
 	) {
 		self.key = key
-		UserDefaults.standard.register(
-			[key: defaultValue]
-		)
+		UserDefaults.standard.register(defaults: [key: defaultValue])
 		UserDefaults.standard.synchronize()
 	}
 	
-	private let key: String
+	fileprivate let key: String
 }
 
 //MARK: BooleanLiteralConvertible
-public extension Setting where Value: BooleanLiteralConvertible {
+public extension Setting where Value: ExpressibleByBooleanLiteral {
 	var value: Bool {
 		get {
-      return value(getter: UserDefaults.bool(forKey:))
-    }
+			return value(getter: UserDefaults.bool(forKey:))
+		}
 		set {
-      value_set(
+			value_set(
 				newValue,
 				setter: UserDefaults.set
 			)
-    }
+		}
 	}
 }
 
 //MARK: IntegerLiteralConvertible
-public extension Setting where Value: IntegerLiteralConvertible {
+public extension Setting where Value: ExpressibleByIntegerLiteral {
 	var value: Int {
 		get {
-      return value(getter: UserDefaults.integer(forKey:))
-    }
+			return value(
+				getter: UserDefaults.integer(forKey:)
+			)
+		}
 		set {
-      value_set(
+			value_set(
 				newValue,
 				setter: UserDefaults.set
 			)
-    }
+		}
 	}
 }
 
-
-//MARK: private 
-private extension Setting {
+//MARK: private
+fileprivate extension Setting {
 	///- Returns: **value**
 	///- Parameter getter: The method of `NSUserDefaults` that returns a **`Value`**,
 	///  when supplied with a key that is a `String`
-	func value
-  <Value>(
-      getter value: (UserDefaults) -> (for: String) -> Value
-  ) -> Value {
-		return (UserDefaults.standard…value)(for: key)
+	func value<Value>(
+		getter value: (UserDefaults) -> (_ for: String) -> Value
+	) -> Value {
+		return (UserDefaults.standard…value)(key)
 	}
    
    ///- Returns: The setter for **value**
@@ -66,8 +62,8 @@ private extension Setting {
 	func value_set
   <Value>(
     _ value: Value,
-		setter set: (UserDefaults) -> (Value, for: String) -> ()
+		setter set: (UserDefaults) -> (Value, _ for: String) -> ()
 	) {
-		(UserDefaults.standard…set)(value, for: self.key)
+		(UserDefaults.standard…set)(value, key)
 	}
 }

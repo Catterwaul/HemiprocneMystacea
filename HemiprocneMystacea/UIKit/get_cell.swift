@@ -17,26 +17,25 @@ public extension dequeueReusableCell where Self: UICollectionView {
 	}
 }
 public extension dequeueReusableCell where Self: UITableView {
-    ///- Returns: A reusable cell 
-	 ///  dequeued without the standard need for passing its name as a `String`,
-    ///  and then casting to the desired type
-    ///
-    ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
-    ///  for a cell that this Table View uses
-    final func get_cell<Cell: UITableViewCell>() -> Cell {
-        return dequeueReusableCell(
-            withIdentifier: String(Cell.self)
-        ) as! Cell
-    }
-
-	///- Returns: A reusable cell 
+	///- Returns: A reusable cell
 	///  dequeued without the standard need for passing its name as a `String`,
 	///  and then casting to the desired type
 	///
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Table View uses
-	final func get_cell
-	<Cell: UITableViewCell>
+	final func get_cell<Cell: UITableViewCell>() -> Cell {
+		return dequeueReusableCell(
+			withIdentifier: String(describing: Cell.self)
+		) as! Cell
+	}
+
+	///- Returns: A reusable cell
+	///  dequeued without the standard need for passing its name as a `String`,
+	///  and then casting to the desired type
+	///
+	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
+	///  for a cell that this Table View uses
+	final func get_cell<Cell: UITableViewCell>
 	(indexPath: IndexPath) -> Cell {
 		return dequeueReusableCell_get_cell(indexPath: indexPath)
 	}
@@ -46,7 +45,7 @@ private extension dequeueReusableCell {
 	<Cell: UIView>
 	(indexPath: IndexPath) -> Cell {
 		return dequeueReusableCell(
-			withReuseIdentifier: String(Cell.self),
+			withReuseIdentifier: String(describing: Cell.self),
 			for: indexPath
 		) as! Cell
 	}

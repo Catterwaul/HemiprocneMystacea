@@ -6,8 +6,8 @@ public extension CABasicAnimation {
 			from: Interpolable,
 			to: Interpolable
 		) {
-			self.from = from as! AnyObject
-			self.to = to as! AnyObject
+			self.from = from as AnyObject
+			self.to = to as AnyObject
 		}
 		
 		let

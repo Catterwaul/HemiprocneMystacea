@@ -38,7 +38,7 @@ final class errors_TestCase: XCTestCase {
 	}
 }
 
-private enum Error: ErrorProtocol {
+private enum Error: Swift.Error {
 	case bad, strongBad
 }
 

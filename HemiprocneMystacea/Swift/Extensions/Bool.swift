@@ -3,25 +3,22 @@ public extension Bool {
 	/// false for 0,
 	/// true for 1,
 	/// nil otherwise
-	init?(_ string: String) {
-		guard let int = Int(string)
-		where [0, 1].contains(int)
+	init?(binaryString: String) {
+		guard
+			let int = Int(binaryString),
+			[0, 1].contains(int)
 		else {return nil}
 		
-		self.init(int)
+		self = int == 1
 	}
 	
 	/// Makes true be false and vice versa.
-	mutating func toggle() {
-		self = !self
-	}
+	mutating func toggle() {self = !self}
 }
 
-public extension Sequence where Iterator.Element == Computed<Bool>.Get {
+public extension Sequence where Iterator.Element == () -> Bool {
 	///- Returns: whether all elements of the sequence evaluate to `bool`
 	func containsOnly(_ bool: Bool) -> Bool {
-		return self.containsOnly{
-			get_bool in get_bool() == bool
-		}
+		return self.containsOnly{get_bool in get_bool() == bool}
 	}
 }
