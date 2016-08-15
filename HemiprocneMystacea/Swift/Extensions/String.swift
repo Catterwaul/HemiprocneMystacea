@@ -29,6 +29,13 @@ public extension String {
 		)
 	}
 	
+	func without(prefix: String) -> String? {
+		guard self.hasPrefix(prefix)
+		else {return nil}
+		
+		return characters.dropFirst(prefix.characters.count)…String.init
+	}
+	
 	func without(suffix: String) -> String? {
 		guard self.hasSuffix(suffix)
 		else {return nil}
