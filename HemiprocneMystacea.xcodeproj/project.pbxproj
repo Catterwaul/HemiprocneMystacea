@@ -12,9 +12,6 @@
 		0A72FC391D40819D0041845B /* CKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BD91D407C6200A4BFEB /* CKDatabase.swift */; };
 		0A72FC3A1D40819D0041845B /* CKRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BDE1D407CD200A4BFEB /* CKRecord.swift */; };
 		0A72FC3B1D40819D0041845B /* InitializableWithCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */; };
-		0A72FC3D1D40819D0041845B /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */; };
-		0A72FC3E1D40819D0041845B /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */; };
-		0A72FC3F1D40819D0041845B /* NSPersistentStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */; };
 		0A72FC401D40819D0041845B /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A42F1D08C085003D8024 /* CGRect.swift */; };
 		0A72FC411D40819D0041845B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4321D08C0DE003D8024 /* CGSize.swift */; };
 		0A72FC421D40819D0041845B /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
@@ -35,7 +32,6 @@
 		0A72FC511D40819D0041845B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182DA1C33807000529B08 /* String.swift */; };
 		0A72FC521D40819D0041845B /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE08F1C332ADE00E8EFCC /* operators.swift */; };
 		0A72FC531D40819D0041845B /* ….swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0911C332ADE00E8EFCC /* ….swift */; };
-		0A72FC551D40819D0041845B /* properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434371C35DCCF00B6C530 /* properties.swift */; };
 		0A72FC561D40819D0041845B /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A83B3A1D099C7B000D7B08 /* Property.swift */; };
 		0A72FC571D40819D0041845B /* ComputedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434391C35DCF900B6C530 /* ComputedProperty.swift */; };
 		0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4381D08CB03003D8024 /* ObservedProperty.swift */; };
@@ -98,7 +94,6 @@
 		49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */; };
 		49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */; };
 		49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434321C34F02700B6C530 /* StringTestCase.swift */; };
-		49C434381C35DCCF00B6C530 /* properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434371C35DCCF00B6C530 /* properties.swift */; };
 		49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434391C35DCF900B6C530 /* ComputedProperty.swift */; };
 		49C4343C1C35E10900B6C530 /* PropertiesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */; };
 		49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */; };
@@ -106,9 +101,6 @@
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HM.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
-		49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */; };
-		49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */; };
-		49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */; };
 		49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */; };
 		49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */; };
@@ -194,7 +186,6 @@
 		49C4342E1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebraTypeTestCase.swift; sourceTree = "<group>"; };
 		49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTestCase.swift; sourceTree = "<group>"; };
 		49C434321C34F02700B6C530 /* StringTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTestCase.swift; sourceTree = "<group>"; };
-		49C434371C35DCCF00B6C530 /* properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = properties.swift; sourceTree = "<group>"; };
 		49C434391C35DCF900B6C530 /* ComputedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputedProperty.swift; sourceTree = "<group>"; };
 		49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesTestCase.swift; path = Swift/Properties/PropertiesTestCase.swift; sourceTree = "<group>"; };
 		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
@@ -205,9 +196,6 @@
 		49CBDFFB1C3329EF00E8EFCC /* HemiprocneMystaceaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemiprocneMystaceaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBE0021C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CBE0711C332ADE00E8EFCC /* CNContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNContainer.swift; sourceTree = "<group>"; };
-		49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
-		49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
-		49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSPersistentStoreCoordinator.swift; sourceTree = "<group>"; };
 		49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInfo.swift; sourceTree = "<group>"; };
 		49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Setting.swift"; sourceTree = "<group>"; };
 		49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitShiftable.swift; sourceTree = "<group>"; };
@@ -379,7 +367,6 @@
 		49C434361C35DCCF00B6C530 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
-				49C434371C35DCCF00B6C530 /* properties.swift */,
 				E3A83B3A1D099C7B000D7B08 /* Property.swift */,
 				49C434391C35DCF900B6C530 /* ComputedProperty.swift */,
 				E348A4381D08CB03003D8024 /* ObservedProperty.swift */,
@@ -421,7 +408,6 @@
 				49CBDFF61C3329EF00E8EFCC /* Info.plist */,
 				49A36BDB1D407C6A00A4BFEB /* CloudKit */,
 				49CBE0701C332ADE00E8EFCC /* Contacts */,
-				49CBE0721C332ADE00E8EFCC /* Core Data */,
 				E348A4311D08C08B003D8024 /* Core Graphics */,
 				49CBE0791C332ADE00E8EFCC /* Foundation */,
 				498F6CC71D3EBA28006534BF /* JSON */,
@@ -452,16 +438,6 @@
 				49CBE0711C332ADE00E8EFCC /* CNContainer.swift */,
 			);
 			path = Contacts;
-			sourceTree = "<group>";
-		};
-		49CBE0721C332ADE00E8EFCC /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-				49CBE0741C332ADE00E8EFCC /* NSManagedObject.swift */,
-				49CBE0751C332ADE00E8EFCC /* NSManagedObjectContext.swift */,
-				49CBE0761C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift */,
-			);
-			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		49CBE0791C332ADE00E8EFCC /* Foundation */ = {
@@ -745,8 +721,6 @@
 				0A72FC461D40819D0041845B /* CABasicAnimation.swift in Sources */,
 				0A72FC5D1D40819D0041845B /* weakClosure.swift in Sources */,
 				0A72FC4B1D40819D0041845B /* Dictionary.swift in Sources */,
-				0A72FC551D40819D0041845B /* properties.swift in Sources */,
-				0A72FC3F1D40819D0041845B /* NSPersistentStoreCoordinator.swift in Sources */,
 				0A72FC621D40819D0041845B /* MultiClosure.swift in Sources */,
 				0A72FC491D40819D0041845B /* Array.swift in Sources */,
 				0A72FC671D40819D0041845B /* UIButton.swift in Sources */,
@@ -755,7 +729,6 @@
 				0A72FC631D40819D0041845B /* Referencers.swift in Sources */,
 				0A72FC4A1D40819D0041845B /* Bool.swift in Sources */,
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
-				0A72FC3E1D40819D0041845B /* NSManagedObjectContext.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
 				0A72FC441D40819D0041845B /* JSON.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */,
@@ -771,7 +744,6 @@
 				0A72FC661D40819D0041845B /* UIAlertController.swift in Sources */,
 				0A72FC601D40819D0041845B /* HashableClass.swift in Sources */,
 				0A72FC651D40819D0041845B /* UIAlertAction.swift in Sources */,
-				0A72FC3D1D40819D0041845B /* NSManagedObject.swift in Sources */,
 				0A72FC3A1D40819D0041845B /* CKRecord.swift in Sources */,
 				0A72FC511D40819D0041845B /* String.swift in Sources */,
 				0A72FC481D40819D0041845B /* integers.swift in Sources */,
@@ -793,12 +765,9 @@
 				4933D5091D3849DC00A09D47 /* typealiases.swift in Sources */,
 				49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
-				49CBE0AA1C332ADE00E8EFCC /* NSPersistentStoreCoordinator.swift in Sources */,
 				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
-				49CBE0A81C332ADE00E8EFCC /* NSManagedObject.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
-				49CBE0A91C332ADE00E8EFCC /* NSManagedObjectContext.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
@@ -831,7 +800,6 @@
 				49CBE0D01C332ADE00E8EFCC /* UINavigationController.swift in Sources */,
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49A36BDD1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift in Sources */,
-				49C434381C35DCCF00B6C530 /* properties.swift in Sources */,
 				49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */,
 				49CBE0BF1C332ADE00E8EFCC /* operators.swift in Sources */,
 				49CBE0B21C332ADE00E8EFCC /* BitShiftable.swift in Sources */,
