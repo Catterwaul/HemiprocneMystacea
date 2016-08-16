@@ -8,9 +8,7 @@ public extension InitializableWithCloudKitRecord {
 	static func request(
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping (
-			() throws -> [Self]
-		) -> Void
+		process: AsynchronouslyProcess<() throws -> [Self]>
 	) {
 		database.request(
 			predicate: predicate,
@@ -34,12 +32,8 @@ public extension InitializableWithCloudKitRecordAndReferences {
 	static func request(
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
-		_ process﹙get_requested﹚: @escaping (
-			() throws -> Self
-		) -> Void,
-		_ process﹙verifyCompletion﹚: @escaping (
-			() throws -> Void
-		) -> Void
+		_ process﹙get_requested﹚: AsynchronouslyProcess<() throws -> Self>,
+		_ process﹙verifyCompletion﹚: AsynchronouslyProcess<() throws -> Void>
 	) {
 		database.request(
 			predicate: predicate,

@@ -3,9 +3,7 @@ import CloudKit
 public extension CKFetchRecordsOperation {
 	convenience init(
 		references: [CKReference],
-		process﹙get_records﹚: @escaping (
-			() throws -> [CKRecord]
-		) -> Void
+		process﹙get_records﹚: AsynchronouslyProcess<() throws -> [CKRecord]>
 	) {
 		let iDs = references.map{$0.recordID}
 		

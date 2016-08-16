@@ -3,9 +3,7 @@ import CloudKit
 public extension CKDatabase {
 	func request<Requested: InitializableWithCloudKitRecord>(
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping (
-			() throws -> [Requested]
-		) -> Void
+		process: AsynchronouslyProcess<() throws -> [Requested]>
 	){
 		perform(
 			CKQuery(
@@ -26,12 +24,8 @@ public extension CKDatabase {
 	
 	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
 		predicate: NSPredicate = NSPredicate(value: true),
-		_ process﹙get_requested﹚: @escaping (
-			() throws -> Requested
-		) -> Void,
-		_ process﹙verifyCompletion﹚: @escaping (
-			() throws -> Void
-		) -> Void
+		_ process﹙get_requested﹚: AsynchronouslyProcess<() throws -> Requested>,
+		_ process﹙verifyCompletion﹚: AsynchronouslyProcess<() throws -> Void>
 	) {
 		let dispatchGroup = DispatchGroup()
 		
