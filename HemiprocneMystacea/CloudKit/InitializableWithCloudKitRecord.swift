@@ -1,7 +1,7 @@
 import CloudKit
 
 public protocol InitializableWithCloudKitRecord {
-	init(record: CKRecord)
+	init(record: CKRecord) throws
 }
 
 public extension InitializableWithCloudKitRecord {
@@ -41,4 +41,8 @@ public extension InitializableWithCloudKitRecordAndReferences {
 			process﹙verifyCompletion﹚
 		)
 	}
+}
+
+enum InitializableWithCloudKitRecordAndReferences_Error: Error {
+	case emptyReferenceList
 }

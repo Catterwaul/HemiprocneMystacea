@@ -18,7 +18,7 @@ public extension CKDatabase {
 				return
 			}
 			
-			process{records!.map(Requested.init)}
+			process{try records!.map(Requested.init)}
 		}
 	}
 	
@@ -33,18 +33,25 @@ public extension CKDatabase {
 			operation.recordFetchedBlock = {
 				requestedRecord in
 				
+				guard let references = requestedRecord[Requested.referenceKey] as? [CKReference]
+				else {
+					process﹙get_requested﹚{
+						throw InitializableWithCloudKitRecordAndReferences_Error.emptyReferenceList
+					}
+					return
+				}
+				
 				dispatchGroup.enter()
-				CKFetchRecordsOperation(
-					references: requestedRecord[Requested.referenceKey] as! [CKReference]
-				){	get_records in
+				CKFetchRecordsOperation(references: references){
+					get_records in
 					
 					do {
-						let records = try get_records()
+						let references = try get_records().map(Requested.Reference.init)
 						
 						process﹙get_requested﹚{
 							Requested(
 								record: requestedRecord,
-								references: records.map(Requested.Reference.init)
+								references: references
 							)
 						}
 					}
