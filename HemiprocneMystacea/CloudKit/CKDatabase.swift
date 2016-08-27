@@ -49,7 +49,7 @@ public extension CKDatabase {
 						let references = try get_records().map(Requested.Reference.init)
 						
 						process﹙get_requested﹚{
-							Requested(
+							try Requested(
 								record: requestedRecord,
 								references: references
 							)

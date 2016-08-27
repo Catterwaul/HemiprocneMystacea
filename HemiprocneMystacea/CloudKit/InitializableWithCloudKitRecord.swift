@@ -25,7 +25,7 @@ public protocol InitializableWithCloudKitRecordAndReferences {
 	init(
 		record: CKRecord,
 		references: [Reference]
-	)
+	) throws
 }
 
 public extension InitializableWithCloudKitRecordAndReferences {
