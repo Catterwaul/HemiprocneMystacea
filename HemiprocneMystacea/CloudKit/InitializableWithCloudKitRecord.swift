@@ -32,7 +32,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 	static func request(
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
-		_ process﹙get_requested﹚: AsynchronouslyProcess<() throws -> Self>,
+		_ process﹙get_requested﹚: AsynchronouslyProcessThrowingGet<Self>,
 		_ process﹙verifyCompletion﹚: AsynchronouslyProcess<() throws -> Void>
 	) {
 		database.request(
@@ -40,6 +40,44 @@ public extension InitializableWithCloudKitRecordAndReferences {
 			process﹙get_requested﹚,
 			process﹙verifyCompletion﹚
 		)
+	}
+	
+	static func request(
+		database: CKDatabase,
+		predicate: NSPredicate = NSPredicate(value: true),
+		_ process﹙get_requesteds﹚: AsynchronouslyProcessThrowingGet<[Self]>
+	) {
+		let operationQueue = OperationQueue()…{$0.maxConcurrentOperationCount = 1}
+		
+		var requesteds: [Self] = []
+		
+		request(
+			database: database,
+			predicate: predicate,
+			{	get_requested in
+		
+				do {
+					let requested = try get_requested()
+					
+					operationQueue.addOperation{requesteds += [requested]}
+				}
+				catch {
+					process﹙get_requesteds﹚{throw error}
+				}
+			}
+		){	verifyCompletion in
+			
+			do {
+				try verifyCompletion()
+				
+				operationQueue.addOperation{
+					process﹙get_requesteds﹚{requesteds}
+				}
+			}
+			catch {
+				process﹙get_requesteds﹚{throw error}
+			}
+		}
 	}
 }
 

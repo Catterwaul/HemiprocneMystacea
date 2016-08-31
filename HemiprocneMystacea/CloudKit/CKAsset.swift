@@ -8,8 +8,6 @@ public extension UIImage {
 				data: try Data(contentsOf: asset.fileURL)
 			)
 		}
-		catch {
-			return nil
-		}
+		catch {return nil}
 	}
 }
