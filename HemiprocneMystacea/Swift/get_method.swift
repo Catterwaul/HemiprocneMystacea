@@ -14,9 +14,9 @@ public func get_method<
 	)
 ) -> Method? {
 	switch instance {
-	case let instance as PotentialInstanceType0: return potentialMatches.0(instance)
-	case let instance as PotentialInstanceType1: return potentialMatches.1(instance)
-	default: return nil
+		case let instance as PotentialInstanceType0: return potentialMatches.0(instance)
+		case let instance as PotentialInstanceType1: return potentialMatches.1(instance)
+		default: return nil
 	}
 }
 
@@ -43,8 +43,7 @@ public func get_method<
 			potentialMatches.0,
 			potentialMatches.1
 		)
-	)
-	?? (instance as? PotentialInstanceType2)
+	) ?? (instance as? PotentialInstanceType2)
 		.map(potentialMatches.2)
 }
 
@@ -74,8 +73,7 @@ public func get_method<
 			potentialMatches.1,
 			potentialMatches.2
 		)
-	)
-	?? (instance as? PotentialInstanceType3)
+	) ?? (instance as? PotentialInstanceType3)
 		.map(potentialMatches.3)
 }
 

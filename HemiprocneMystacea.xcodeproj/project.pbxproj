@@ -120,6 +120,10 @@
 		49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */; };
 		49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBA1E21CD940BF0058181A /* UIAlertAction.swift */; };
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
+		49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
+		49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
+		49EF28071D7D0E5E00993226 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28061D7D0E5E00993226 /* UITableView.swift */; };
+		49EF28081D7D0E5E00993226 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28061D7D0E5E00993226 /* UITableView.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
 		49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0731C34D06E005338F6 /* SetTestCase.swift */; };
 		49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F01CD91A940067F27E /* CABasicAnimation.swift */; };
@@ -215,6 +219,8 @@
 		49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		49DBA1E21CD940BF0058181A /* UIAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
+		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
+		49EF28061D7D0E5E00993226 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
 		49FCF0731C34D06E005338F6 /* SetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTestCase.swift; sourceTree = "<group>"; };
 		49FD14F01CD91A940067F27E /* CABasicAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CABasicAnimation.swift; path = QuartzCore/CABasicAnimation.swift; sourceTree = "<group>"; };
@@ -483,14 +489,16 @@
 			isa = PBXGroup;
 			children = (
 				49CBE09E1C332ADE00E8EFCC /* get_cell.swift */,
+				49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */,
 				49DBA1E21CD940BF0058181A /* UIAlertAction.swift */,
 				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
+				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
 				49CBE0A11C332ADE00E8EFCC /* UINavigationController.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
+				49EF28061D7D0E5E00993226 /* UITableView.swift */,
 				49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */,
-				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -714,6 +722,7 @@
 				0A72FC531D40819D0041845B /* ….swift in Sources */,
 				0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */,
 				0A72FC451D40819D0041845B /* ConvertibleToJSON.swift in Sources */,
+				49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				0A72FC691D40819D0041845B /* UINavigationController.swift in Sources */,
 				0A72FC6B1D40819D0041845B /* UIViewController.swift in Sources */,
 				0A72FC4F1D40819D0041845B /* Sequence.swift in Sources */,
@@ -742,6 +751,7 @@
 				0A72FC501D40819D0041845B /* SetAlgebra.swift in Sources */,
 				0A72FC3B1D40819D0041845B /* InitializableWithCloudKitRecord.swift in Sources */,
 				0A72FC661D40819D0041845B /* UIAlertController.swift in Sources */,
+				49EF28081D7D0E5E00993226 /* UITableView.swift in Sources */,
 				0A72FC601D40819D0041845B /* HashableClass.swift in Sources */,
 				0A72FC651D40819D0041845B /* UIAlertAction.swift in Sources */,
 				0A72FC3A1D40819D0041845B /* CKRecord.swift in Sources */,
@@ -768,9 +778,11 @@
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
+				49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
 				49B182DB1C33807000529B08 /* Array.swift in Sources */,
+				49EF28071D7D0E5E00993226 /* UITableView.swift in Sources */,
 				49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */,
 				49A1982E1D62B358005C251A /* typealiases.swift in Sources */,
 				E348A4391D08CB03003D8024 /* ObservedProperty.swift in Sources */,

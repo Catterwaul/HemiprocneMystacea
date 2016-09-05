@@ -59,8 +59,7 @@ fileprivate extension Setting {
    ///- Returns: The setter for **value**
 	///- Parameter setter: The method of `NSUserDefaults` that writes a **`Value`**,
 	///  for a key that is a `String`
-	func value_set
-  <Value>(
+	func value_set<Value>(
     _ value: Value,
 		setter set: (UserDefaults) -> (Value, _ for: String) -> ()
 	) {

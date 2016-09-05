@@ -1,6 +1,9 @@
 import UIKit
 
 public extension UIViewController {
+	public typealias Prepare﹙for：Segue﹚ = (UIStoryboardSegue) -> Void
+	public typealias RespondToViewDidLoad = () -> Void
+	
 	final func dismiss(
 		animated: Bool = true,
 		respondTo_viewDidDisappear: (() -> ())? = nil
