@@ -1,3 +1,3 @@
-public typealias AsynchronouslyProcess<Processable> = @escaping (Processable) -> Void
-public typealias AsynchronouslyProcessThrowingGet<Gettable> = AsynchronouslyProcess<() throws -> Gettable>
-public typealias AsynchronouslyVerify = AsynchronouslyProcessThrowingGet<Void>
+public typealias Process<Processable> = (Processable) -> Void
+public typealias ProcessThrowingGet<Gettable> = Process<() throws -> Gettable>
+public typealias Verify = ProcessThrowingGet<Void>

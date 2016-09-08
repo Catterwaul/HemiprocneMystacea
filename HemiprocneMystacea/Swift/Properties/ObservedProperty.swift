@@ -6,7 +6,7 @@ public final class ObservedProperty<Value>: Property {
 
 	public init(
 		value: Value,
-		didSet: DidSet
+		didSet: @escaping DidSet
 	) {
 		self.value = value
 		self.didSet = didSet
@@ -29,7 +29,7 @@ public final class ObservedProperty<Value>: Property {
 public extension ObservedProperty {
 	convenience init(
 		_ observedProperty: ObservedProperty<Value>,
-		didSet: DidSet
+		didSet: @escaping DidSet
 	) {
 		self.init(
 			value: observedProperty.value,

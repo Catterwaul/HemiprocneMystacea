@@ -3,8 +3,8 @@ public final class ComputedProperty<Value> {
 	public typealias Set = (Value) -> Void
 
 	public init(
-		get: Get,
-		set: Set
+		get: @escaping Get,
+		set: @escaping Set
 	) {
 		self.get = get
 		self.set = set
@@ -19,7 +19,7 @@ public final class ComputedProperty<Value> {
 public extension ComputedProperty {
 	convenience init(
 		_ computedProperty: ComputedProperty<Value>,
-		get: Get
+		get: @escaping Get
 	) {
 		self.init(
 			get: get,
@@ -29,7 +29,7 @@ public extension ComputedProperty {
 
 	convenience init(
 		_ computedProperty: ComputedProperty<Value>,
-		set: Set
+		set: @escaping Set
 	) {
 		self.init(
 			get: computedProperty.get,
