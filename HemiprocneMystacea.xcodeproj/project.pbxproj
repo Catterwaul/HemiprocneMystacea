@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */; };
 		0A72FC311D4081580041845B /* HemiprocneMystaceaTV.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A72FC381D40819D0041845B /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; };
 		0A72FC391D40819D0041845B /* CKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BD91D407C6200A4BFEB /* CKDatabase.swift */; };
@@ -155,6 +156,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasurementTestCase.swift; path = Foundation/MeasurementTestCase.swift; sourceTree = "<group>"; };
 		0A72FC211D4081580041845B /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystaceaTV.h; sourceTree = "<group>"; };
 		0A72FC241D4081580041845B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 		49C4346C1C375BB400B6C530 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
 				49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */,
 				49817E5E1D2C9BD20025A6CA /* get_method_TestCase.swift in Sources */,
+				0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */,
 				49FD14F71CD91D470067F27E /* CABasicAnimationTestCase.swift in Sources */,
 				498F6CCA1D3EBC20006534BF /* ConvertibleToJSONTestCase.swift in Sources */,
 				499C71961D0F8079009797BC /* WeakClosureTestCase.swift in Sources */,

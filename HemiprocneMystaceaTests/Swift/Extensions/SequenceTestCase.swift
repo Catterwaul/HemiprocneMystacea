@@ -27,7 +27,7 @@ final class SequenceTestCase: XCTestCase {
 			[	1,
 				5,
 				3
-			]	.first{$0 == 5},
+			].first{$0 == 5},
 			5
 		)
 	}

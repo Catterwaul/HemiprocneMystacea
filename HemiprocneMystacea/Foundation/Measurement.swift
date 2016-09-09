@@ -1,24 +1,25 @@
 import Foundation
 
-public extension Sequence where Iterator.Element: MeasurementProtocol {
-	var sum: Self {
-		let zero = Iterator.Element.init(
-			value: 0,
-			unit: unit
-		)
+public extension Collection where Iterator.Element: MeasurementProtocol {
+	var sum: Iterator.Element? {
+		guard let zero = first?.zero
+		else {return nil}
 		
 		return self.reduce(zero, +)
 	}
 }
 
 public protocol MeasurementProtocol {
-	associatedtype UnitType: Unit
-	
 	static func + (_: Self, _: Self) -> Self
-	
-	init(value: Double, unit: UnitType)
-	
-	var unit: UnitType {get}
+
+	var zero: Self {get}
 }
 
-extension Measurement: MeasurementProtocol {}
+extension Measurement: MeasurementProtocol {
+	public var zero: Measurement {
+		return Measurement(
+			value: 0,
+			unit: unit
+		)
+	}
+}
