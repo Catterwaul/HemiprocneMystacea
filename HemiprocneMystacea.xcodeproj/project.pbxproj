@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */; };
 		0A72FC311D4081580041845B /* HemiprocneMystaceaTV.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A72FC381D40819D0041845B /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; };
 		0A72FC391D40819D0041845B /* CKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BD91D407C6200A4BFEB /* CKDatabase.swift */; };
@@ -127,6 +128,8 @@
 		49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
 		49EF28071D7D0E5E00993226 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28061D7D0E5E00993226 /* UITableView.swift */; };
 		49EF28081D7D0E5E00993226 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28061D7D0E5E00993226 /* UITableView.swift */; };
+		49FA036C1D82A43B0092026E /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* Measurement.swift */; };
+		49FA036D1D82A43B0092026E /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* Measurement.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
 		49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0731C34D06E005338F6 /* SetTestCase.swift */; };
 		49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F01CD91A940067F27E /* CABasicAnimation.swift */; };
@@ -153,6 +156,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasurementTestCase.swift; path = Foundation/MeasurementTestCase.swift; sourceTree = "<group>"; };
 		0A72FC211D4081580041845B /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystaceaTV.h; sourceTree = "<group>"; };
 		0A72FC241D4081580041845B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
 		49EF28061D7D0E5E00993226 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		49FA036B1D82A43B0092026E /* Measurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
 		49FCF0731C34D06E005338F6 /* SetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTestCase.swift; sourceTree = "<group>"; };
 		49FD14F01CD91A940067F27E /* CABasicAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CABasicAnimation.swift; path = QuartzCore/CABasicAnimation.swift; sourceTree = "<group>"; };
@@ -390,6 +395,7 @@
 		49C4346C1C375BB400B6C530 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
+				49FA036B1D82A43B0092026E /* Measurement.swift */,
 				49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */,
 			);
 			path = Foundation;
@@ -755,6 +762,7 @@
 				499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */,
 				0A72FC431D40819D0041845B /* UserDefaults+Setting.swift in Sources */,
 				0A72FC611D40819D0041845B /* InitializableWithParameters.swift in Sources */,
+				49FA036D1D82A43B0092026E /* Measurement.swift in Sources */,
 				0A72FC501D40819D0041845B /* SetAlgebra.swift in Sources */,
 				0A72FC3B1D40819D0041845B /* InitializableWithCloudKitRecord.swift in Sources */,
 				0A72FC661D40819D0041845B /* UIAlertController.swift in Sources */,
@@ -816,6 +824,7 @@
 				49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */,
 				49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */,
 				499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */,
+				49FA036C1D82A43B0092026E /* Measurement.swift in Sources */,
 				E348A4371D08C1B0003D8024 /* get_method.swift in Sources */,
 				49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */,
 				49CBE0D01C332ADE00E8EFCC /* UINavigationController.swift in Sources */,
@@ -855,6 +864,7 @@
 				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
 				49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */,
 				49817E5E1D2C9BD20025A6CA /* get_method_TestCase.swift in Sources */,
+				0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */,
 				49FD14F71CD91D470067F27E /* CABasicAnimationTestCase.swift in Sources */,
 				498F6CCA1D3EBC20006534BF /* ConvertibleToJSONTestCase.swift in Sources */,
 				499C71961D0F8079009797BC /* WeakClosureTestCase.swift in Sources */,
