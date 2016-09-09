@@ -1,6 +1,9 @@
 public extension Sequence {
-	func sorted
-	<Comparable: Swift.Comparable>(
+	var first: Iterator.Element? {
+		return self.first{_ in true}
+	}
+	
+	func sorted<Comparable: Swift.Comparable>(
 		by comparable: (Iterator.Element) -> Comparable
 	) -> [Iterator.Element] {
 		return self.sorted{$0…comparable < $1…comparable}

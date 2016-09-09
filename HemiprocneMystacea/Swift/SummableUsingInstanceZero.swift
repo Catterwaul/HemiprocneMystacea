@@ -1,6 +1,6 @@
 import Foundation
 
-public extension Collection where Iterator.Element: MeasurementProtocol {
+public extension Sequence where Iterator.Element: SummableUsingInstanceZero {
 	var sum: Iterator.Element? {
 		guard let zero = first?.zero
 		else {return nil}
@@ -9,13 +9,13 @@ public extension Collection where Iterator.Element: MeasurementProtocol {
 	}
 }
 
-public protocol MeasurementProtocol {
+public protocol SummableUsingInstanceZero {
 	static func + (_: Self, _: Self) -> Self
 
 	var zero: Self {get}
 }
 
-extension Measurement: MeasurementProtocol {
+extension Measurement: SummableUsingInstanceZero {
 	public var zero: Measurement {
 		return Measurement(
 			value: 0,
