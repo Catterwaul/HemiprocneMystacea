@@ -4,7 +4,9 @@ import Foundation
 public struct JSON {
 	fileprivate typealias Object = [String: AnyObject]
 	
-	public init(object: Any) {self.object = object as! Object}
+	public init(object: Any) {
+		self.object = object as! Object
+	}
 	
 	fileprivate let object: Object
 }
@@ -20,10 +22,9 @@ public extension JSON {
         )
     }
 
+//MARK:
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	func get_value
-	<Value>
-	(key: String) throws -> Value {
+	func get_value<Value>(key: String) throws -> Value {
 		guard let object: AnyObject = object[key]
 		else {throw Error.noValue(key: key)}
 		
@@ -32,13 +33,15 @@ public extension JSON {
 		
 		return value
 	}
+	
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
 	func get_value<
 		Key: RawRepresentable,
 		Value
 	>(key: Key) throws -> Value
-	where Key.RawValue == String
-	{return try self.get_value(key: key.rawValue)}
+	where Key.RawValue == String {
+		return try self.get_value(key: key.rawValue)
+	}
 }
 
 //MARK:- Error

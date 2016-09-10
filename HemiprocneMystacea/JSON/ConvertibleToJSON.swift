@@ -24,11 +24,9 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
 			
 			let value: AnyObject = {
 				switch value {
-				case let value as ConvertibleToJSON:
-					return value.jSONDictionary as AnyObject
-				
-				default:
-					return value as AnyObject
+					case let value as ConvertibleToJSON:
+						return value.jSONDictionary as AnyObject
+					default: return value as AnyObject
 				}
 			}()
 			
