@@ -53,10 +53,7 @@ public extension Sequence where Iterator.Element == String {
 }
 
 /// `string0`, with all occurrences of `string1` removed
-public func - (
-	string0: String,
-	string1: String
-) -> String {
+public func - (string0: String, string1: String) -> String {
 	return string0.replacingOccurrences(
 		of: string1,
 		with: ""
@@ -64,9 +61,8 @@ public func - (
 }
 
 /// `string`, with all occurrences of each of the `strings` removed
-public func - <Strings: Sequence>(
-	string: String,
-	strings: Strings
-) -> String
-where Strings.Iterator.Element == String
-{return strings.reduce(string, -)}
+public func - <Strings: Sequence>
+(string: String, strings: Strings) -> String
+where Strings.Iterator.Element == String {
+	return strings.reduce(string, -)
+}

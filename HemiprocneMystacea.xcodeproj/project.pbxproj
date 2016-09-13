@@ -59,6 +59,8 @@
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
+		492634A21D87A5AC00AD131D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492634A11D87A5AC00AD131D /* UICollectionView.swift */; };
+		492634A31D87A5AC00AD131D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492634A11D87A5AC00AD131D /* UICollectionView.swift */; };
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
@@ -165,6 +167,7 @@
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
+		492634A11D87A5AC00AD131D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTestCase.swift; sourceTree = "<group>"; };
 		49817E5D1D2C9BD20025A6CA /* get_method_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = get_method_TestCase.swift; path = QuartzCore/get_method_TestCase.swift; sourceTree = "<group>"; };
@@ -512,6 +515,7 @@
 				4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */,
 				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
+				492634A11D87A5AC00AD131D /* UICollectionView.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
 				49CBE0A11C332ADE00E8EFCC /* UINavigationController.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
@@ -744,6 +748,7 @@
 				0A72FC691D40819D0041845B /* UINavigationController.swift in Sources */,
 				0A72FC6B1D40819D0041845B /* UIViewController.swift in Sources */,
 				0A72FC4F1D40819D0041845B /* Sequence.swift in Sources */,
+				492634A31D87A5AC00AD131D /* UICollectionView.swift in Sources */,
 				0A72FC4E1D40819D0041845B /* Optional.swift in Sources */,
 				0A72FC641D40819D0041845B /* get_cell.swift in Sources */,
 				0A72FC461D40819D0041845B /* CABasicAnimation.swift in Sources */,
@@ -812,6 +817,7 @@
 				49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */,
 				498880851D58BFB400AE24FC /* CKAsset.swift in Sources */,
 				49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */,
+				492634A21D87A5AC00AD131D /* UICollectionView.swift in Sources */,
 				49BF89901C38C8FD0050A49B /* InitializableWithParameters.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
