@@ -1,14 +1,16 @@
 public typealias HashableError = Hashable & Error
 
 public struct Errors<Error: HashableError>: Swift.Error {
-	public init<Errors: Sequence>
-	(_ errors: Errors)
+//MARK:
+	public init<Errors: Sequence>(_ errors: Errors)
 	where Errors.Iterator.Element == Error {
 		set = Set(errors)
 	}
+	
 	public init(_ errors: Error...) {
 		self.init(errors)
 	}
+//MARK:
 	
 	public let set: Set<Error>
 }
@@ -25,8 +27,7 @@ public func validate<
 	parameters: Parameters,
 	errorType: Error.Type
 ) throws
-	where Validates.Iterator.Element == Validate<Parameters>
-{
+where Validates.Iterator.Element == Validate<Parameters> {
 	let errors = validates.flatMap{
 		validate -> Set<Error> in
 		
@@ -44,6 +45,7 @@ public func validate<
 			fatalError()
 		}
 	}
+	
 	guard errors.isEmpty
 	else {throw Errors(errors)}
 }

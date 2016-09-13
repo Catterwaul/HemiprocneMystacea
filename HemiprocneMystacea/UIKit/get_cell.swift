@@ -10,9 +10,7 @@ public extension dequeueReusableCell where Self: UICollectionView {
 	///
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Collection View uses
-	final func get_cell
-	<Cell: UICollectionViewCell>
-	(indexPath: IndexPath) -> Cell {
+	final func get_cell<Cell: UICollectionViewCell>(indexPath: IndexPath) -> Cell {
 		return dequeueReusableCell_get_cell(indexPath: indexPath)
 	}
 }
