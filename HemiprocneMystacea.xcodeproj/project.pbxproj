@@ -134,6 +134,8 @@
 		49EF28081D7D0E5E00993226 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28061D7D0E5E00993226 /* UITableView.swift */; };
 		49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
+		49F6DE3B1D9743C5004B91B6 /* UIViewWithInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE3A1D9743C5004B91B6 /* UIViewWithInitialize.swift */; };
+		49F6DE3C1D9743C5004B91B6 /* UIViewWithInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE3A1D9743C5004B91B6 /* UIViewWithInitialize.swift */; };
 		49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
 		49FA036D1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
@@ -239,6 +241,7 @@
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
 		49EF28061D7D0E5E00993226 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
+		49F6DE3A1D9743C5004B91B6 /* UIViewWithInitialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewWithInitialize.swift; sourceTree = "<group>"; };
 		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
 		49FCF0731C34D06E005338F6 /* SetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTestCase.swift; sourceTree = "<group>"; };
@@ -513,6 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				49CBE09E1C332ADE00E8EFCC /* get_cell.swift */,
+				49F6DE3A1D9743C5004B91B6 /* UIViewWithInitialize.swift */,
 				49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */,
 				49DBA1E21CD940BF0058181A /* UIAlertAction.swift */,
 				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
@@ -764,6 +768,7 @@
 				0A72FC671D40819D0041845B /* UIButton.swift in Sources */,
 				0A72FC5E1D40819D0041845B /* BitShiftable.swift in Sources */,
 				0A72FC631D40819D0041845B /* Referencers.swift in Sources */,
+				49F6DE3C1D9743C5004B91B6 /* UIViewWithInitialize.swift in Sources */,
 				0A72FC4A1D40819D0041845B /* Bool.swift in Sources */,
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
@@ -815,6 +820,7 @@
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
 				49B182DB1C33807000529B08 /* Array.swift in Sources */,
 				49EF28071D7D0E5E00993226 /* UITableView.swift in Sources */,
+				49F6DE3B1D9743C5004B91B6 /* UIViewWithInitialize.swift in Sources */,
 				498B54C71D828CF300C07620 /* FloatingPoint.swift in Sources */,
 				49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */,
 				49A1982E1D62B358005C251A /* typealiases.swift in Sources */,
