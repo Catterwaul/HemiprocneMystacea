@@ -132,6 +132,8 @@
 		49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
 		49EF28071D7D0E5E00993226 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28061D7D0E5E00993226 /* UITableView.swift */; };
 		49EF28081D7D0E5E00993226 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28061D7D0E5E00993226 /* UITableView.swift */; };
+		49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
+		49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
 		49FA036D1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
@@ -236,6 +238,7 @@
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
 		49EF28061D7D0E5E00993226 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
 		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
 		49FCF0731C34D06E005338F6 /* SetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTestCase.swift; sourceTree = "<group>"; };
@@ -482,6 +485,7 @@
 				49C434361C35DCCF00B6C530 /* Properties */,
 				49817E5F1D2CA99A0025A6CA /* errors.swift */,
 				E348A4361D08C1B0003D8024 /* get_method.swift */,
+				49F6DE371D972D70004B91B6 /* injectDependencies.swift */,
 				49CBE08D1C332ADE00E8EFCC /* nil closures.swift */,
 				49A1982D1D62B358005C251A /* typealiases.swift */,
 				E3BE340A1D0EF2A0008D532C /* weakClosure.swift */,
@@ -738,6 +742,7 @@
 			files = (
 				49A1982F1D62B358005C251A /* typealiases.swift in Sources */,
 				0A72FC561D40819D0041845B /* Property.swift in Sources */,
+				49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */,
 				0A72FC5F1D40819D0041845B /* EquatableClass.swift in Sources */,
 				0A72FC5B1D40819D0041845B /* nil closures.swift in Sources */,
 				0A72FC6A1D40819D0041845B /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
@@ -820,6 +825,7 @@
 				492634A21D87A5AC00AD131D /* UICollectionView.swift in Sources */,
 				49BF89901C38C8FD0050A49B /* InitializableWithParameters.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
+				49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */,
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
 				49B182E11C33807000529B08 /* Sequence.swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
