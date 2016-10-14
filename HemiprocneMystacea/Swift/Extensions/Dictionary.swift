@@ -105,5 +105,3 @@ public func -= <
 {
 	dictionary = dictionary - keysToSetNil
 }
-
-

@@ -24,74 +24,76 @@ public extension CKDatabase {
 	
 	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
 		predicate: NSPredicate = NSPredicate(value: true),
-		_ process﹙get_requested﹚: @escaping Process<() throws -> Requested>,
-		_ process﹙verifyCompletion﹚: @escaping Process<() throws -> Void>
+		_ processGetRequested: @escaping ProcessThrowingGet<Requested>,
+		_ processVerifyCompletion: @escaping Process<Verify>
 	) {
 		let dispatchGroup = DispatchGroup()
 		
-		func initialize(operation: CKQueryOperation) {
+		func initialize(_ operation: CKQueryOperation) {
 			operation.recordFetchedBlock = {
 				requestedRecord in
 				
 				guard let references = requestedRecord[Requested.referenceKey] as? [CKReference]
 				else {
-					process﹙get_requested﹚{
+					processGetRequested{
 						throw InitializableWithCloudKitRecordAndReferences_Error.emptyReferenceList
 					}
 					return
 				}
 				
 				dispatchGroup.enter()
-				CKFetchRecordsOperation(references: references){
+				
+				let operation = CKFetchRecordsOperation(references: references){
 					get_records in
 					
 					do {
 						let references = try get_records()
 							.map(Requested.Reference.init)
 						
-						process﹙get_requested﹚{
+						processGetRequested{
 							try Requested(
 								record: requestedRecord,
 								references: references
 							)
 						}
 					}
-					catch let error as NSError {
-						process﹙get_requested﹚{throw error}
+					catch {
+						processGetRequested{throw error}
 					}
 					
 					dispatchGroup.leave()
-				}…self.add
+				}
+				self.add(operation)
 			}
 			
 			operation.queryCompletionBlock = {
 				cursor, error in
 				
 				if let error = error {
-					process﹙verifyCompletion﹚{throw error}
+					processVerifyCompletion{throw error}
 				}
 				else if let cursor = cursor {
-					self.add(
-						CKQueryOperation(cursor: cursor)…initialize
-					)
+					let operation = CKQueryOperation(cursor: cursor)
+					initialize(operation)
+					self.add(operation)
 				}
 				else {
 					dispatchGroup.notify(
 						queue: DispatchQueue(label: "")
 					){
-						process﹙verifyCompletion﹚{}
+						processVerifyCompletion{}
 					}
 				}
 			}
 		}
 		
-		add(
-			CKQueryOperation(
-				query: CKQuery(
-					recordType: String(describing: Requested.self),
-					predicate: predicate
-				)
-			)…initialize
+		let operation = CKQueryOperation(
+			query: CKQuery(
+				recordType: String(describing: Requested.self),
+				predicate: predicate
+			)
 		)
+		initialize(operation)
+		add(operation)
 	}
 }

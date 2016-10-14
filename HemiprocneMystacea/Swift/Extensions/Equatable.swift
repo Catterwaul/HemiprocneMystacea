@@ -9,16 +9,16 @@ public func == <
 	Property: Equatable
 >(
 	operand0: Operand,
-	operand1🔗property: (
+	operand1🔗get_property: (
 		Operand,
 		(Operand) -> Property
 	)
 ) -> Bool {
 	let
-	operand1 = operand1🔗property.0,
-	property = operand1🔗property.1
+	operand1 = operand1🔗get_property.0,
+	get_property = operand1🔗get_property.1
 	
-	return operand0…property == operand1…property
+	return get_property(operand0) == get_property(operand1)
 }
 
 /// Used to implement Equatable using 2 properties

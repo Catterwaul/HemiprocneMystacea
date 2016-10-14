@@ -13,7 +13,9 @@ public extension Bool {
 	}
 	
 	/// Makes true be false and vice versa.
-	mutating func toggle() {self = !self}
+	mutating func toggle() {
+		self = !self
+	}
 }
 
 public extension Sequence where Iterator.Element == () -> Bool {

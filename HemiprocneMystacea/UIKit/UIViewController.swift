@@ -38,19 +38,19 @@ public extension UIViewController {
 		actions: [UIAlertAction] = [UIAlertAction.`default`],
 		sourceView: UIView
 	) {
-		present(
-			viewController: UIAlertController(
-				title: title,
-				message: message,
-				style: .actionSheet,
-				actions: actions
-			)…{
-				_ = $0.popoverPresentationController.map{
-					$0.sourceView = sourceView
-					$0.sourceRect = sourceView.bounds
-				}
-			}
+		let viewController = UIAlertController(
+			title: title,
+			message: message,
+			style: .actionSheet,
+			actions: actions
 		)
+		
+		if let popoverPresentationController = viewController.popoverPresentationController {
+			popoverPresentationController.sourceView = sourceView
+			popoverPresentationController.sourceRect = sourceView.bounds
+		}
+	
+		present(viewController: viewController)
 	}
 	
 	final func presentAlert(

@@ -5,29 +5,29 @@ public extension Sequence {
 	
 	func grouped<Key: Hashable>(
 		get_key: (Iterator.Element) -> Key
-	) -> [(
-		key: Key,
-		group: [Iterator.Element]
-	)] {
-		let
-		keyValuePairs = self.map{(
-			key: get_key($0), value: $0
-		)},
-		uniqueKeys = keyValuePairs.map{$0.key}.uniqueElements
+	) -> [ Key: [Iterator.Element] ] {
+		var groups: [ Key: [Iterator.Element] ] = [:]
 		
-		return uniqueKeys.map{
-			uniqueKey in (
-				key: uniqueKey,
-				group: keyValuePairs.filter{uniqueKey == $0.key}
-					.map{$0.value}
-			)
+		forEach{
+			let key = get_key($0)
+			
+			if groups[key] == nil {
+				groups[key] = [$0]
+			}
+			else {
+				groups[key]!.append($0)
+			}
 		}
+		
+		return groups
 	}
 	
 	func sorted<Comparable: Swift.Comparable>(
-		by comparable: (Iterator.Element) -> Comparable
+		get_comparable: (Iterator.Element) -> Comparable
 	) -> [Iterator.Element] {
-		return self.sorted{$0…comparable < $1…comparable}
+		return self.sorted{
+			get_comparable($0) < get_comparable($1)
+		}
 	}
 }
 

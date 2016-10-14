@@ -34,7 +34,9 @@ public extension String {
 		guard self.hasPrefix(prefix)
 		else {return nil}
 		
-		return characters.dropFirst(prefix.characters.count)…String.init
+		return String(
+			characters.dropFirst(prefix.characters.count)
+		)
 	}
 	
 	///- Returns: nil if not suffixed with `suffix`
@@ -42,7 +44,9 @@ public extension String {
 		guard self.hasSuffix(suffix)
 		else {return nil}
 		
-		return characters.dropLast(suffix.characters.count)…String.init
+		return String(
+			characters.dropLast(suffix.characters.count)
+		)
 	}
 }
 

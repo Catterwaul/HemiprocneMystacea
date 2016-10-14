@@ -14,27 +14,29 @@ public protocol ConvertibleToJSON {
 
 public extension ConvertibleToJSON where JSONKey.RawValue == String {
 	var jSONDictionary: JSON.Dictionary {
-		return Mirror(reflecting: self).children.flatMap{
-			label, value in
-			
-			guard
-				let label = label,
-				JSONKey(rawValue: label) != nil
-			else {return nil}
-			
-			let value: AnyObject = {
-				switch value {
-					case let value as ConvertibleToJSON:
-						return value.jSONDictionary as AnyObject
-					default: return value as AnyObject
-				}
-			}()
-			
-			return (
-				key: label,
-				value: value
-			)
-		}…Dictionary.init
+		return Dictionary(
+			Mirror(reflecting: self).children.flatMap{
+				label, value in
+				
+				guard
+					let label = label,
+					JSONKey(rawValue: label) != nil
+				else {return nil}
+				
+				let value: AnyObject = {
+					switch value {
+						case let value as ConvertibleToJSON:
+							return value.jSONDictionary as AnyObject
+						default: return value as AnyObject
+					}
+				}()
+				
+				return (
+					key: label,
+					value: value
+				)
+			}
+		)
 	}
 }
 

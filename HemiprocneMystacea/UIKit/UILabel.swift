@@ -8,10 +8,12 @@ public extension UILabel {
 		attributedText = NSMutableAttributedString(
 			string: text,
 			attributes: [
-				NSParagraphStyleAttributeName: NSMutableParagraphStyle()…{
-					$0.hyphenationFactor = 1
-					$0.alignment = .center
-				}
+				NSParagraphStyleAttributeName: {
+					let style = NSMutableParagraphStyle()
+					style.hyphenationFactor = 1
+					style.alignment = .center
+					return style
+				}()
 			]
 		)
 		lineBreakMode = .byTruncatingTail

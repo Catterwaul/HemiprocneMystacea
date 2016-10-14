@@ -3,7 +3,7 @@ import CloudKit
 public extension CKFetchRecordsOperation {
 	convenience init(
 		references: [CKReference],
-		process﹙get_records﹚: @escaping Process<() throws -> [CKRecord]>
+		process: @escaping Process<() throws -> [CKRecord]>
 	) {
 		let iDs = references.map{$0.recordID}
 		
@@ -12,11 +12,11 @@ public extension CKFetchRecordsOperation {
 			records, error in
 			
 			if let error = error {
-				process﹙get_records﹚{throw error}
+				process{throw error}
 				return
 			}
 			
-			process﹙get_records﹚{
+			process{
 				iDs.map{records![$0]!}
 			}
 		}

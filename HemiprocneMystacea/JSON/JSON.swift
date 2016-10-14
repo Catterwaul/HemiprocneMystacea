@@ -13,14 +13,14 @@ public struct JSON {
 
 //MARK: public
 public extension JSON {
-    init(data: Data) throws {
-        self.init(
-            object: try JSONSerialization.jsonObject(
-					with: data,
-					options: .allowFragments
-            ) as! Object
-        )
-    }
+	init(data: Data) throws {
+		self.init(
+			object: try JSONSerialization.jsonObject(
+				with: data,
+				options: .allowFragments
+			) as! Object
+		)
+	}
 
 //MARK:
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
