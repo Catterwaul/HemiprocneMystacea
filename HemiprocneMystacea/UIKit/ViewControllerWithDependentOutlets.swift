@@ -3,7 +3,7 @@ import UIKit
 public protocol ViewControllerWithDependentOutlets: class {
 	associatedtype OutletDependencies
 	
-	var respondToViewDidLoad: UIViewController.RespondToViewDidLoad? {get set}
+	var respondToViewDidLoad: (() -> Void)? {get set}
 	
 	var respondToOutletDependencies: (OutletDependencies) -> Void {get set}
 	

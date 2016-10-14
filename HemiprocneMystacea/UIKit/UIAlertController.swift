@@ -12,19 +12,11 @@ public extension UIAlertController {
 			message: message,
 			preferredStyle: style
 		)
-		self += actions
+		
+		add(actions)
 	}
-}
 
-//MARK: +=
-public func += (
-	controller: UIAlertController,
-	action: UIAlertAction
-) {controller.addAction(action)}
-
-public func += (
-	controller: UIAlertController,
-	actions: [UIAlertAction]
-) {
-	actions.forEach{controller += $0}
+	func add(_ actions: [UIAlertAction]) {
+		actions.forEach(addAction)
+	}
 }
