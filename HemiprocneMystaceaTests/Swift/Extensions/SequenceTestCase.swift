@@ -32,6 +32,46 @@ final class SequenceTestCase: XCTestCase {
 		)
 	}
 	
+	func testGrouped() {
+		let objects = [
+			("🔫", "💚"),
+			
+			("🎎", "💕"),
+			("🎎", "💕"),
+			
+			("👩‍❤️‍💋‍👩", "💤"),
+			("👩‍❤️‍💋‍👩", "💤"),
+			("👩‍❤️‍💋‍👩", "💤")
+		]
+		
+		let groups = objects.grouped{$0.0}
+			.sorted{(key, objects) in objects.count}
+			.map{
+				(key, objects) in (
+					key: key,
+					objects.map{$0.1}
+				)
+			}
+		
+		XCTAssertEqual(groups[0].key, "🔫")
+		XCTAssertEqual(
+			groups[0].1,
+			["💚"]
+		)
+		
+		XCTAssertEqual(groups[1].key, "🎎")
+		XCTAssertEqual(
+			groups[1].1,
+			["💕", "💕"]
+		)
+		
+		XCTAssertEqual(groups[2].key, "👩‍❤️‍💋‍👩")
+		XCTAssertEqual(
+			groups[2].1,
+			["💤", "💤", "💤"]
+		)
+	}
+	
 	func testSortedBy() {
 		let sortedArray = [
 			TypeWith1EquatableProperty(int: 3),
