@@ -5,9 +5,9 @@ public extension ExpressibleByIntegerLiteral where Self: IntegerArithmetic {
 	}
 }
 
-extension Sequence
+public extension Sequence
 where Iterator.Element: ExpressibleByIntegerLiteral & IntegerArithmetic {
-	public var sum: Iterator.Element {
+	var sum: Iterator.Element {
 		return self.reduce(0, +)
 	}
 }

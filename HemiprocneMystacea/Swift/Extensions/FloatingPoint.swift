@@ -1,5 +1,5 @@
-extension Sequence where Iterator.Element: FloatingPoint {
-	public var sum: Iterator.Element {
+public extension Sequence where Iterator.Element: FloatingPoint {
+	var sum: Iterator.Element {
 		return self.reduce(0, +)
 	}
 }
