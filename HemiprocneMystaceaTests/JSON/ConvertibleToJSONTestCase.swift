@@ -59,9 +59,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 		catch JSON.Error.typeCastFailure(let key) {
 			XCTFail(key)
 		}
-		catch {
-			XCTFail()
-		}
+		catch {XCTFail()}
 	}
 
 }

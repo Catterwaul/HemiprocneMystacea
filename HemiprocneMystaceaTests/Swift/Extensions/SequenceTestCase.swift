@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class SequenceTestCase: XCTestCase {
-	func testContainsOnly() {
+	func test_containsOnly() {
 		let
 		ones = [
 			1,
@@ -22,7 +22,7 @@ final class SequenceTestCase: XCTestCase {
 		XCTAssertFalse(oneTwoThree.containsOnly{$0 == 3})
 	}
 
-	func testFirst() {
+	func test_first() {
 		XCTAssertEqual(
 			[	1,
 				5,
@@ -32,7 +32,7 @@ final class SequenceTestCase: XCTestCase {
 		)
 	}
 	
-	func testGrouped() {
+	func test_grouped() {
 		let groups = [
 			("🔫", "💚"),
 			
@@ -60,33 +60,33 @@ final class SequenceTestCase: XCTestCase {
 		)
 	}
 	
-	func testSortedBy() {
+	func test_sortedBy() {
 		let sortedArray = [
 			TypeWith1EquatableProperty(int: 3),
 			TypeWith1EquatableProperty(int: 1),
 			TypeWith1EquatableProperty(int: 2)
-		]	.sorted{$0.int}
+		].sorted{$0.int}
 		
 		XCTAssertEqual(
 			sortedArray,
 			[ TypeWith1EquatableProperty(int: 1),
-				TypeWith1EquatableProperty(int: 2),
-				TypeWith1EquatableProperty(int: 3)
+			  TypeWith1EquatableProperty(int: 2),
+			  TypeWith1EquatableProperty(int: 3)
 			]
 		)
 	}
 	
-	func testSum() {
+	func test_sum() {
 		let sum = [
 			1,
 			1,
 			1
-		]	.sum
+		].sum
 		XCTAssertEqual(sum, 3)
 	}
 	
-//MARK: Unique Elements
-	func testUniqueElements_Hashable() {
+//MARK: uniqueElements
+	func test_uniqueElements_Hashable() {
 		XCTAssertEqual(
 			[	1,
 				1,
@@ -96,11 +96,11 @@ final class SequenceTestCase: XCTestCase {
 		)
 	}
 	
-	func testUniqueElements_Equatable() {
+	func test_uniqueElements_Equatable() {
 		let uniqueArray = [
 			TypeWith1EquatableProperty(int: 1),
 			TypeWith1EquatableProperty(int: 1)
-		]	.uniqueElements
+		].uniqueElements
 		XCTAssertEqual(
 			uniqueArray,
 			[TypeWith1EquatableProperty(int: 1)]
@@ -108,16 +108,18 @@ final class SequenceTestCase: XCTestCase {
 	}
 }
 
-//MARK:- testUniqueElements_Equatable
-private struct TypeWith1EquatableProperty: Equatable {
+//MARK:- test_uniqueElements_Equatable
+private struct TypeWith1EquatableProperty {
 	let int: Int
 }
-private func == (
-	operand0: TypeWith1EquatableProperty,
-	operand1: TypeWith1EquatableProperty
-)
--> Bool {
-	return operand0 == (operand1,
-		{$0.int}
-	)
+
+extension TypeWith1EquatableProperty: Equatable {
+	static func == (
+		operand0: TypeWith1EquatableProperty,
+		operand1: TypeWith1EquatableProperty
+	) -> Bool {
+		return operand0 == (operand1,
+			{$0.int}
+		)
+	}
 }

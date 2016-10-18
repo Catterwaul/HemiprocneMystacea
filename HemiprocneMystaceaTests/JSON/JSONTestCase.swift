@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class JSONTestCase: XCTestCase {
-	func testJSON() {
+	func test_JSON() {
 		let
 		oldKey = "🗝",
 		jSON = JSON(object: [oldKey: "🔑"])
@@ -38,7 +38,7 @@ final class JSONTestCase: XCTestCase {
 		}
 	}
 	
-	func testInitializableWithJSONArray_init() {
+	func test_InitializableWithJSONArray_init() {
 		struct Instrument: InitializableWithJSON {
 			init(jSON: JSON) {
 				visualization = try! jSON.get_value(key: "visualization")

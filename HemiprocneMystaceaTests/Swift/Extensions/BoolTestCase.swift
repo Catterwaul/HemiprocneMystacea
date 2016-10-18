@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class BoolTestCase: XCTestCase {
-	func testInitWithBinaryString() {		
+	func test_initWithBinaryString() {
 		XCTAssertFalse(
 			Bool(binaryString: "0")!
 		)
@@ -18,24 +18,28 @@ final class BoolTestCase: XCTestCase {
 		)
 	}
 	
-	func testToggle() {
+	func test_toggle() {
 		var bool = false
+		
 		bool.toggle()
+		
 		XCTAssertTrue(bool)
 	}
 	
-	//MARK:- Sequences of Bools
-	func testContainsOnly() {
+//MARK:- Sequences of Bools
+	func test_containsOnly() {
 		let trueConditions = [
 			{true},
 			{1 < 2},
 			{"🦁" == "🦁"}
 		]
+		
 		XCTAssertTrue(
 			trueConditions.containsOnly(true)
 		)
 		XCTAssertFalse(
-			(trueConditions + [{false}]).containsOnly(true)
+			(trueConditions + [{false}])
+				.containsOnly(true)
 		)
 	}
 }

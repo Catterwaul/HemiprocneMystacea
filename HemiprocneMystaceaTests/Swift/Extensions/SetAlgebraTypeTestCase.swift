@@ -2,26 +2,30 @@ import HM
 import XCTest
 
 final class SetAlgebraTypeTestCase: XCTestCase {
-	func testInsert() {
+	func test_insert() {
 		var options: Options = [.A1, .B2]
+		
 		options += .C3
+		
 		XCTAssertEqual(
 			options,
 			[	.A1,
-				.B2,
+			 	.B2,
 				.C3
 			]
 		)
 	}
 	
-	func testRemove() {
+	func test_remove() {
 		var options: Options = [.A1, .B2]
+		
 		options -= .C3
 		options -= .A1
+		
 		XCTAssertEqual(options, [.B2])
 	}
 	
-	func testIntersect() {
+	func test_intersect() {
 		var options: Options = [
 			.A1,
 			.B2,
@@ -33,13 +37,14 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 			.D4,
 			.F6
 		]
+		
 		XCTAssertEqual(
 			options,
-      [.C3, .A1]
+			[.C3, .A1]
 		)
 	}
 	
-	func testIntersectEquals() {
+	func test_intersectEquals() {
 		var options: Options = [
 			.A1,
 			.B2,
@@ -51,13 +56,14 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 			.D4,
 			.F6
 		]
+		
 		XCTAssertEqual(
 			options,
 			[.C3, .A1]
 		)
 	}
 	
-	func testUnion() {
+	func test_union() {
 		var options: Options = [
 			.A1,
 			.B2,
@@ -71,6 +77,7 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 			.E5,
 			.F6
 		]
+		
 		XCTAssertEqual(
 			options,
 			[	.A1,
@@ -83,7 +90,7 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 		)
 	}
 	
-	func testUnionEquals() {
+	func test_unionEquals() {
 		var options: Options = [
 			.A1,
 			.B2,
@@ -97,14 +104,15 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 			.E5,
 			.F6
 		]
+		
 		XCTAssertEqual(
 			options,
 			[ .A1,
-				.B2,
-				.C3,
-				.D4,
-				.E5,
-				.F6
+			  .B2,
+			  .C3,
+			  .D4,
+			  .E5,
+			  .F6
 			]
 		)
 	}

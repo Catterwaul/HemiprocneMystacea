@@ -53,7 +53,7 @@ final class DictionaryTestCase: XCTestCase {
 	}
 		
 //MARK: Subscripts
-	func testOptionalKeySubscript() {
+	func test_optionalKeySubscript() {
 		let
 		dictionary = ["key": "value"],
 		key: String? = "key",
@@ -63,7 +63,7 @@ final class DictionaryTestCase: XCTestCase {
 		XCTAssertEqual(dictionary[`nil`], nil)
 	}
 	
-	func testValueAddedIfNilSubscript() {
+	func test_valueAddedIfNilSubscript() {
 		var dictionary = ["key": "value"]
 		let valyoo = "valyoo"
 		XCTAssertEqual(
@@ -82,7 +82,7 @@ final class DictionaryTestCase: XCTestCase {
 	}
 
 //MARK: Operators
-	func testPlus() {
+	func test_plus() {
 		let dictionary: [Int: Int] = [
 			1: 10,
 			2: 20
@@ -100,7 +100,7 @@ final class DictionaryTestCase: XCTestCase {
 		)
 	}
 	
-	func testPlusEquals() {
+	func test_plusEquals() {
 		var dictionary = [
 			1: 10,
 			2: 20
@@ -119,7 +119,7 @@ final class DictionaryTestCase: XCTestCase {
 		)
 	}
 	
-	func testMinus() {
+	func test_minus() {
 		let dictionary = [
 			1: 10,
 			2: 20,
@@ -131,7 +131,7 @@ final class DictionaryTestCase: XCTestCase {
 		)
 	}
 	
-	func testMinusEquals() {
+	func test_minusEquals() {
 		var dictionary = [
 			1: 10,
 			2: 20,

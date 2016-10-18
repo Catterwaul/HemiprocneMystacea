@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class RawRepresentableTestCase: XCTestCase {
-	func testContains() {
+	func test_contains() {
 		enum Alien: String {
 			case 👽, 👾
 		}
@@ -19,8 +19,8 @@ final class RawRepresentableTestCase: XCTestCase {
 		
 		enum NumberOfCats: Int {
 			case
-			Bad = 0,
-			Good = 7_000_000_000_000
+			bad = 0,
+			good = 7_000_000_000_000
 		}
 		
 		XCTAssertTrue(
