@@ -63,6 +63,8 @@
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
+		497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */; };
+		497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */; };
 		497EFE8D1DB6472700DEC825 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */; };
 		497EFE8E1DB6472700DEC825 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */; };
 		497EFE901DB6476E00DEC825 /* RawRepresentableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */; };
@@ -173,6 +175,7 @@
 		492634A11D87A5AC00AD131D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTestCase.swift; sourceTree = "<group>"; };
+		497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToCloudKitRecord.swift; sourceTree = "<group>"; };
 		497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTestCase.swift; sourceTree = "<group>"; };
 		49817E5D1D2C9BD20025A6CA /* get_method_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = get_method_TestCase.swift; path = QuartzCore/get_method_TestCase.swift; sourceTree = "<group>"; };
@@ -326,6 +329,7 @@
 				49A36BD91D407C6200A4BFEB /* CKDatabase.swift */,
 				499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */,
 				49A36BDE1D407CD200A4BFEB /* CKRecord.swift */,
+				497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
 			);
 			path = CloudKit;
@@ -793,6 +797,7 @@
 				0A72FC411D40819D0041845B /* CGSize.swift in Sources */,
 				0A72FC521D40819D0041845B /* operators.swift in Sources */,
 				0A72FC401D40819D0041845B /* CGRect.swift in Sources */,
+				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
 				498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */,
 				0A72FC4C1D40819D0041845B /* Equatable.swift in Sources */,
@@ -812,6 +817,7 @@
 				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
+				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
 				49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
