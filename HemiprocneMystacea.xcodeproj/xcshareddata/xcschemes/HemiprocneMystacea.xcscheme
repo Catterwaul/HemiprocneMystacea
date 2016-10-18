@@ -40,6 +40,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "CKDatabaseTestCase/test_request()">
+               </Test>
+               <Test
                   Identifier = "NilClosuresTestCase/testNilledUponCall()">
                </Test>
             </SkippedTests>

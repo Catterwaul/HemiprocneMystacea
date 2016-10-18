@@ -1,9 +1,10 @@
 import CloudKit
 
 public extension CKDatabase {
-	func request<Requested: InitializableWithCloudKitRecord>(
+	func request<Requested>(
+		recordType: Requested.Type,
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping Process<() throws -> [Requested]>
+		process: @escaping Process<() throws -> [CKRecord]>
 	){
 		perform(
 			CKQuery(
@@ -18,7 +19,22 @@ public extension CKDatabase {
 				return
 			}
 			
-			process{try records!.map(Requested.init)}
+			process{records!}
+		}
+	}
+	
+	func request<Requested: InitializableWithCloudKitRecord>(
+		predicate: NSPredicate = NSPredicate(value: true),
+		process: @escaping Process<() throws -> [Requested]>
+	){
+		request(
+			recordType: Requested.self,
+			predicate: predicate
+		){	get_records in process{
+				try get_records().map(
+					Requested.init
+				)
+			}
 		}
 	}
 	
