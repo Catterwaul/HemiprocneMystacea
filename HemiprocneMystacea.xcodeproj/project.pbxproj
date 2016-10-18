@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5F8A711DB6527D00285094 /* CKRecordTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F8A701DB6527D00285094 /* CKRecordTestCase.swift */; };
 		0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */; };
 		0A72FC311D4081580041845B /* HemiprocneMystaceaTV.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A72FC381D40819D0041845B /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; };
@@ -167,6 +168,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A5F8A701DB6527D00285094 /* CKRecordTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKRecordTestCase.swift; path = CloudKit/CKRecordTestCase.swift; sourceTree = "<group>"; };
 		0A6793341D8315720098D1E7 /* MeasurementTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasurementTestCase.swift; path = Foundation/MeasurementTestCase.swift; sourceTree = "<group>"; };
 		0A72FC211D4081580041845B /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystaceaTV.h; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				49FD14F51CD91D1F0067F27E /* QuartzCore */,
 				49B182CF1C337D6800529B08 /* Swift */,
 				49E4AD131C45ABDC007BCBA5 /* UIKit */,
+				0A5F8A701DB6527D00285094 /* CKRecordTestCase.swift */,
 			);
 			path = HemiprocneMystaceaTests;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5F8A711DB6527D00285094 /* CKRecordTestCase.swift in Sources */,
 				49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */,
 				49817E621D2CAE0B0025A6CA /* errors_TestCase.swift in Sources */,
 				49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */,
