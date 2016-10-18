@@ -26,8 +26,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 			skoool: 💀(skool: "👠L")
 		),
 		reconstructed👻 = 👻(
-			jSON: try! JSON(
-				👻instance)
+			jSON: try! JSON(👻instance)
 		)
 
 		XCTAssertTrue(reconstructed👻.boool)

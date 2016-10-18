@@ -9,6 +9,8 @@ public protocol ConvertibleToJSON {
     ///  `enum JSONKey: String`
 	associatedtype JSONKey: RawRepresentable
 	
+	// Should only be defined in the protocol extension,
+	// but we can't yet express that `JSONKey.RawValue == String` is always true.
 	var jSONDictionary: JSON.Dictionary {get}
 }
 
@@ -20,7 +22,7 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
 				
 				guard
 					let label = label,
-					JSONKey(rawValue: label) != nil
+					JSONKey.contains(label)
 				else {return nil}
 				
 				let value: AnyObject = {
@@ -41,8 +43,7 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
 }
 
 public extension JSON {
-	init<ConvertibleToJSON: HM.ConvertibleToJSON>
-	(_ convertibleToJSON: ConvertibleToJSON) throws {
+	init<ConvertibleToJSON: HM.ConvertibleToJSON>(_ convertibleToJSON: ConvertibleToJSON) throws {
 		try self.init(
 			data: try Data(convertibleToJSON: convertibleToJSON)
 		)
@@ -50,11 +51,12 @@ public extension JSON {
 }
 
 public extension Data {
-	init<ConvertibleToJSON: HM.ConvertibleToJSON>
-	(convertibleToJSON: ConvertibleToJSON) throws {
+	/// - returns: `convertibleToJSON`'s `jSONDictionary` serialized JSON with the "prettyPrinted" option
+	init<ConvertibleToJSON: HM.ConvertibleToJSON>(convertibleToJSON: ConvertibleToJSON) throws {
 		try self.init(jSONObject: convertibleToJSON.jSONDictionary as AnyObject)
 	}
 	
+	/// - returns: `value` serialized as JSON with the "prettyPrinted" option
 	init<ConvertibleToJSON: HM.ConvertibleToJSON>(
 		key: String,
 		value: ConvertibleToJSON
@@ -64,6 +66,10 @@ public extension Data {
 		)
 	}
 	
+	
+	/// - parameter jSONObject: a JSON dictionary
+	///
+	/// - returns: serialized JSON with the "prettyPrinted" option
 	init(jSONObject: AnyObject) throws {
 		try self = JSONSerialization.data(
 			withJSONObject: jSONObject,
