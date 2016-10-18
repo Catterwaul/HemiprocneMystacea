@@ -21,28 +21,8 @@ public extension JSON {
 			) as! Object
 		)
 	}
-
-//MARK:
-	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	func get_value<Value>(key: String) throws -> Value {
-		guard let object: AnyObject = object[key]
-		else {throw Error.noValue(key: key)}
-		
-		guard let value = object as? Value
-		else {throw Error.typeCastFailure(key: key)}
-		
-		return value
-	}
-	
-	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	func get_value<
-		Key: RawRepresentable,
-		Value
-	>(key: Key) throws -> Value
-	where Key.RawValue == String {
-		return try self.get_value(key: key.rawValue)
-	}
 }
+
 
 //MARK:- Error
 public extension JSON {
@@ -69,5 +49,19 @@ public extension Array where Element: InitializableWithJSON {
 				jSON: JSON(object: $0)
 			)
 		}
+	}
+}
+
+//MARK:- SubscriptableByStringKey_throws
+extension JSON: StringKeyDictionary_throws {
+	/// Should just be a generic, throwing subscript, but those don't exist yet.
+	public func get_value<Value>(key: String) throws -> Value {
+		guard let object: AnyObject = object[key]
+			else {throw Error.noValue(key: key)}
+		
+		guard let value = object as? Value
+			else {throw Error.typeCastFailure(key: key)}
+		
+		return value
 	}
 }

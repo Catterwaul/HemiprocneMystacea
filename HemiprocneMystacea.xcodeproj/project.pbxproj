@@ -61,6 +61,8 @@
 		492634A21D87A5AC00AD131D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492634A11D87A5AC00AD131D /* UICollectionView.swift */; };
 		492634A31D87A5AC00AD131D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492634A11D87A5AC00AD131D /* UICollectionView.swift */; };
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
+		496563B81DB65C31002B7623 /* StringKeyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* StringKeyDictionary.swift */; };
+		496563B91DB65C31002B7623 /* StringKeyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* StringKeyDictionary.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
 		497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */; };
@@ -173,6 +175,7 @@
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		492634A11D87A5AC00AD131D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		496563B71DB65C31002B7623 /* StringKeyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringKeyDictionary.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTestCase.swift; sourceTree = "<group>"; };
 		497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToCloudKitRecord.swift; sourceTree = "<group>"; };
@@ -503,6 +506,7 @@
 				49BF898F1C38C8FD0050A49B /* InitializableWithParameters.swift */,
 				49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */,
 				49CBE0941C332ADE00E8EFCC /* Referencers.swift */,
+				496563B71DB65C31002B7623 /* StringKeyDictionary.swift */,
 				49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */,
 			);
 			path = Swift;
@@ -773,6 +777,7 @@
 				49F6DE3C1D9743C5004B91B6 /* UIViewWithInitialize.swift in Sources */,
 				0A72FC4A1D40819D0041845B /* Bool.swift in Sources */,
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
+				496563B91DB65C31002B7623 /* StringKeyDictionary.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
 				0A72FC441D40819D0041845B /* JSON.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */,
@@ -865,6 +870,7 @@
 				49FD14F41CD91C070067F27E /* CABasicAnimation.Values.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
 				498F6CC61D3EBA20006534BF /* ConvertibleToJSON.swift in Sources */,
+				496563B81DB65C31002B7623 /* StringKeyDictionary.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
 				E348A4351D08C146003D8024 /* Optional.swift in Sources */,
 			);
