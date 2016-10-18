@@ -1,10 +1,11 @@
 import CloudKit
 
 public extension CKFetchRecordsOperation {
-	convenience init(
-		references: [CKReference],
+	convenience init<References: Sequence>(
+		references: References,
 		process: @escaping Process<() throws -> [CKRecord]>
-	) {
+	)
+	where References.Iterator.Element == CKReference {
 		let iDs = references.map{$0.recordID}
 		
 		self.init(recordIDs: iDs)

@@ -113,6 +113,9 @@
 		49C4343C1C35E10900B6C530 /* PropertiesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */; };
 		49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */; };
 		49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */; };
+		49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */; };
+		49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */; };
+		49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C526E61DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HM.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -222,6 +225,8 @@
 		49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesTestCase.swift; path = Swift/Properties/PropertiesTestCase.swift; sourceTree = "<group>"; };
 		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
 		49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NilClosuresTestCase.swift; path = Swift/NilClosuresTestCase.swift; sourceTree = "<group>"; };
+		49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKModifyRecordsOperation.swift; sourceTree = "<group>"; };
+		49C526E61DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKModifyRecordsOperationTestCase.swift; path = CloudKit/CKModifyRecordsOperationTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -330,10 +335,7 @@
 		49A36BDB1D407C6A00A4BFEB /* CloudKit */ = {
 			isa = PBXGroup;
 			children = (
-				498880841D58BFB400AE24FC /* CKAsset.swift */,
-				49A36BD91D407C6200A4BFEB /* CKDatabase.swift */,
-				499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */,
-				49A36BDE1D407CD200A4BFEB /* CKRecord.swift */,
+				49C526E41DB6D5830036B020 /* Extensions */,
 				497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
 			);
@@ -422,6 +424,27 @@
 			name = Foundation;
 			sourceTree = "<group>";
 		};
+		49C526E41DB6D5830036B020 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				498880841D58BFB400AE24FC /* CKAsset.swift */,
+				49A36BD91D407C6200A4BFEB /* CKDatabase.swift */,
+				499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */,
+				49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */,
+				49A36BDE1D407CD200A4BFEB /* CKRecord.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		49C526E51DB6DA1D0036B020 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				0A5F8A701DB6527D00285094 /* CKRecordTestCase.swift */,
+				49C526E61DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift */,
+			);
+			name = CloudKit;
+			sourceTree = "<group>";
+		};
 		49CBDFE71C3329EF00E8EFCC = {
 			isa = PBXGroup;
 			children = (
@@ -463,13 +486,13 @@
 			isa = PBXGroup;
 			children = (
 				49CBE0021C3329EF00E8EFCC /* Info.plist */,
+				49C526E51DB6DA1D0036B020 /* CloudKit */,
 				499C71901D0F761B009797BC /* Core Graphics */,
 				49C4346C1C375BB400B6C530 /* Foundation */,
 				498F6CC81D3EBBFE006534BF /* JSON */,
 				49FD14F51CD91D1F0067F27E /* QuartzCore */,
 				49B182CF1C337D6800529B08 /* Swift */,
 				49E4AD131C45ABDC007BCBA5 /* UIKit */,
-				0A5F8A701DB6527D00285094 /* CKRecordTestCase.swift */,
 			);
 			path = HemiprocneMystaceaTests;
 			sourceTree = "<group>";
@@ -784,6 +807,7 @@
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
 				0A72FC441D40819D0041845B /* JSON.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */,
+				49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */,
 				492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
 				0A72FC5A1D40819D0041845B /* get_method.swift in Sources */,
@@ -828,6 +852,7 @@
 				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
+				49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
@@ -889,6 +914,7 @@
 				49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */,
 				49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */,
 				49C4343C1C35E10900B6C530 /* PropertiesTestCase.swift in Sources */,
+				49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */,
 				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
