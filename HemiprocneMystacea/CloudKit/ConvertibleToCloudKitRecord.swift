@@ -21,17 +21,16 @@ public extension CKRecord {
 			
 			guard
 				let label = label,
-				ConvertibleToCloudKitRecord.CloudKitRecordKey.contains(label),
-				let value = value as? CKRecordValue
+				ConvertibleToCloudKitRecord.CloudKitRecordKey.contains(label)
 			else {return nil}
 			
 			return (
 				key: label,
-				value: value
+				value: value as? CKRecordValue
 			)
 		}.forEach{
 			(	key: String,
-				value: CKRecordValue
+				value: CKRecordValue?
 			) in self[key] = value
 		}
 	}
