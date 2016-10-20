@@ -5,8 +5,10 @@ import XCTest
 final class CKRecordTestCase: XCTestCase {
 	func test_initialize_CKRecord() {
 		let
+		spookyOldHalloween = Date.distantPast,
 		mrPumpkin = Pumpkin(
 			eyesCount: 2,
+			halloween: spookyOldHalloween,
 			vine: "🐛"
 		),
 		unSmashingPumpkin = Pumpkin(
@@ -14,28 +16,34 @@ final class CKRecordTestCase: XCTestCase {
 		)
 
 		XCTAssertEqual(unSmashingPumpkin.eyesCount, 2)
+		XCTAssertEqual(unSmashingPumpkin.halloween, spookyOldHalloween)
 		XCTAssertEqual(unSmashingPumpkin.vine, "🐛")
 	}
 
 	struct Pumpkin {
 		let
-		eyesCount: Int,
-		vine: String,
+		eyesCount: Int?,
+		halloween: Date?,
+		vine: String?,
 		nonCloudKitProperty = "⛈"
 	}
 }
 
 extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 	enum CloudKitRecordKey: String {
-		case eyesCount, vine
+		case
+		eyesCount,
+		halloween,
+		vine
 	}
 }
 
 extension CKRecordTestCase.Pumpkin {
 	init(record: CKRecord) {
 		self.init(
-			eyesCount: record.get_value(key: CloudKitRecordKey.eyesCount)!,
-			vine: record.get_value(key: CloudKitRecordKey.vine)!
+			eyesCount: record.get_value(key: CloudKitRecordKey.eyesCount),
+			halloween: record.get_value(key: CloudKitRecordKey.halloween),
+			vine: record.get_value(key: CloudKitRecordKey.vine)
 		)
 	}
 }

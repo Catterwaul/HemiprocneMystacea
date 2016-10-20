@@ -26,7 +26,14 @@ public extension CKRecord {
 			
 			return (
 				key: label,
-				value: value as? CKRecordValue
+				value: {
+					switch value {
+						case let date as NSDate: return date
+						case let number as NSNumber: return number
+						case let string as NSString: return string
+						default: return value as? CKRecordValue
+					}
+				}()
 			)
 		}.forEach{
 			(	key: String,
