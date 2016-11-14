@@ -1,46 +1,53 @@
 import UIKit
 
-public protocol UIPageViewControllerDataSourceWithConnections: UIPageViewControllerDataSource {
-  var connectedViewControllers: [UIViewController] {get}
+public protocol UIPageViewControllerDataSourceWithConnectedViewControllers: UIPageViewControllerDataSource {
+	var _connectedViewControllers: [UIViewController] {get}
 }
 
-public extension UIPageViewControllerDataSourceWithConnections {
-	final func 😾pageViewController(
-		_ pageViewController: UIPageViewController,
-		viewControllerBeforeViewController viewController: UIViewController
-	) -> UIViewController? {
-		return connectedViewController(
-			current: viewController,
+public extension UIPageViewControllerDataSourceWithConnectedViewControllers {
+	var connectedViewControllers: UIPageViewController.ConnectedViewControllers {
+		return UIPageViewController.ConnectedViewControllers(
+			connectedViewControllers: _connectedViewControllers
+		)
+	}
+}
+
+public extension UIPageViewController {
+	struct ConnectedViewControllers {
+		fileprivate let connectedViewControllers: [UIViewController]
+	}
+}
+
+//MARK: public
+public extension UIPageViewController.ConnectedViewControllers {
+	subscript(successor viewController: UIViewController) -> UIViewController? {
+		return getConnectedViewController(
+			viewController: viewController,
 			adjustIndex: -
 		)
 	}
 	
-	final func 😾pageViewController(
-		_ pageViewController: UIPageViewController,
-		viewControllerAfterViewController viewController: UIViewController
-	) -> UIViewController? {
-		return connectedViewController(
-			current: viewController,
+	subscript(predecessor viewController: UIViewController) -> UIViewController? {
+		return getConnectedViewController(
+			viewController: viewController,
 			adjustIndex: +
 		)
 	}
-	
-	private func connectedViewController(
-		current viewController: UIViewController,
+}
+
+//MARK: private
+private extension UIPageViewController.ConnectedViewControllers {
+	func getConnectedViewController(
+		viewController: UIViewController,
 		adjustIndex: (Int, Int) -> Int
 	) -> UIViewController? {
-		let requestedIndex = adjustIndex(
-			connectedViewControllers.index(of: viewController)!,
-			1
-		)
-		return connectedViewControllers.indices.contains(requestedIndex)
-			? connectedViewControllers[requestedIndex]
-			: nil
-	}
-	
-	final func presentationCountForPageViewController(
-		_ pageViewController: UIPageViewController
-	) -> Int {
-		return connectedViewControllers.count
+		guard
+			let requestedIndex =
+				connectedViewControllers.index(of: viewController)
+				.map( {adjustIndex($0, 1)} ),
+			connectedViewControllers.indices.contains(requestedIndex)
+		else {return nil}
+		
+		return connectedViewControllers[requestedIndex]
 	}
 }

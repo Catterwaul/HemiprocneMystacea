@@ -65,6 +65,7 @@
 		496563B81DB65C31002B7623 /* StringKeyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* StringKeyDictionary.swift */; };
 		496563B91DB65C31002B7623 /* StringKeyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* StringKeyDictionary.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
+		497190C91DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
 		497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */; };
 		497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */; };
@@ -185,6 +186,7 @@
 		492634A11D87A5AC00AD131D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		496563B71DB65C31002B7623 /* StringKeyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringKeyDictionary.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
+		497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift; path = UIKit/UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift; sourceTree = "<group>"; };
 		4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTestCase.swift; sourceTree = "<group>"; };
 		497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToCloudKitRecord.swift; sourceTree = "<group>"; };
 		497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 			isa = PBXGroup;
 			children = (
 				49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */,
+				497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				49817E621D2CAE0B0025A6CA /* errorsTestCase.swift in Sources */,
 				49C4342F1C34D73400B6C530 /* SetAlgebraTypeTestCase.swift in Sources */,
 				49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */,
+				497190C91DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift in Sources */,
 				49C4343C1C35E10900B6C530 /* PropertiesTestCase.swift in Sources */,
 				49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */,
 				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
