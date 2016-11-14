@@ -1,10 +1,10 @@
 import HM
 import XCTest
 
-final class get_method_TestCase: XCTestCase {
+final class getMethodTestCase: XCTestCase {
 	func test_2() {
 		XCTAssertEqual(
-			get_method(
+			getMethod(
 				instance: 👼(),
 				potentialMatches: (👼.🎄, 🎅.🎄)
 			)?(),
@@ -12,7 +12,7 @@ final class get_method_TestCase: XCTestCase {
 		)
 		
 		XCTAssertEqual(
-			get_method(
+			getMethod(
 				instance: 🎅(),
 				potentialMatches: (👼.🎄, 🎅.🎄)
 			)?(),
@@ -22,7 +22,7 @@ final class get_method_TestCase: XCTestCase {
 	
 	func test_7() {
 		XCTAssertEqual(
-			get_method(
+			getMethod(
 				instance: 👼(),
 				potentialMatches: (
 					🎅.🎄,

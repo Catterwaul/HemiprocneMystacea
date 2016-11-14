@@ -5,11 +5,11 @@ final class WeakClosureTestCase: XCTestCase {
 	func testWeakClosure() {
 		var reference: Reference? = Reference()
 		
-		let assign1234_get = weakClosure(reference){reference in
-			{reference.property = 1234}
+		let getAssign1234 = weakClosure(reference){
+			reference in {reference.property = 1234}
 		}
 		
-		assign1234_get()!()
+		getAssign1234()!()
 		XCTAssertEqual(
 			reference!.property,
 			1234
@@ -17,18 +17,18 @@ final class WeakClosureTestCase: XCTestCase {
 		
 		reference = nil
 		XCTAssertNil(
-			assign1234_get()
+			getAssign1234()
 		)
 	}
 	
 	func testWeakClosureWithParameter() {
 		var reference: Reference? = Reference()
 		
-		let property_set_get = weakClosure(reference){reference, int in
-			reference.property = int
+		let getSetProperty = weakClosure(reference){
+			reference, int in reference.property = int
 		}
 		
-		property_set_get()!(1234)
+		getSetProperty()!(1234)
 		XCTAssertEqual(
 			reference!.property,
 			1234
@@ -36,7 +36,7 @@ final class WeakClosureTestCase: XCTestCase {
 		
 		reference = nil
 		XCTAssertNil(
-			property_set_get()
+			getSetProperty()
 		)
 	}
 	

@@ -26,10 +26,8 @@ public extension CKFetchRecordsOperation {
 		let iDs = references.map{$0.recordID}
 		
 		self.init(recordIDs: iDs){
-			get_records in
-			
-			process{
-				try iDs.map{try get_records()[$0]!}
+			getRecords in process{
+				try iDs.map{try getRecords()[$0]!}
 			}
 		}
 	}

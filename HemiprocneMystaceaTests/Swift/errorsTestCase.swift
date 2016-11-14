@@ -1,7 +1,7 @@
 import HM
 import XCTest
 
-final class errors_TestCase: XCTestCase {
+final class errorsTestCase: XCTestCase {
 	func test_noErrors() {
 		do {
 			try validate(

@@ -44,7 +44,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 				)
 			),
 			jSON = try! JSON(data: data),
-			👻object: AnyObject = try jSON.get_value(key: "👻"),
+			👻object: AnyObject = try jSON.getValue(key: "👻"),
 			reconstruction = 👻(
 				jSON: JSON(object: 👻object)
 				
@@ -85,10 +85,10 @@ extension 👻: ConvertibleToJSON {
 extension 👻: InitializableWithJSON {
 	init(jSON: JSON) {
 		self.init(
-			boool: try! jSON.get_value(key: JSONKey.boool),
+			boool: try! jSON.getValue(key: JSONKey.boool),
 			skoool: 💀(
 				jSON: try! JSON(
-					object: jSON.get_value(key: JSONKey.skoool)
+					object: jSON.getValue(key: JSONKey.skoool)
 				)
 			)
 		)
@@ -109,7 +109,7 @@ extension 💀: ConvertibleToJSON {
 extension 💀: InitializableWithJSON {
 	init(jSON: JSON) {
 		self.init(
-			skool: try! jSON.get_value(key: JSONKey.skool)
+			skool: try! jSON.getValue(key: JSONKey.skool)
 		)
 	}
 }

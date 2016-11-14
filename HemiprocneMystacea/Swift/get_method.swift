@@ -2,7 +2,7 @@
 ///  These represent the options for all the concrete types that `instance` might be.
 ///
 ///- Returns: `instance`'s `Method`
-public func get_method<
+public func getMethod<
 	PotentialInstanceType0,
 	PotentialInstanceType1,
 	Method
@@ -24,7 +24,7 @@ public func get_method<
 ///  These represent the options for all the concrete types that `instance` might be.
 ///
 ///- Returns: `instance`'s `Method`
-public func get_method<
+public func getMethod<
 	PotentialInstanceType0,
 	PotentialInstanceType1,
 	PotentialInstanceType2,
@@ -37,7 +37,7 @@ public func get_method<
 		(PotentialInstanceType2) -> Method
 	)
 ) -> Method? {
-	return get_method(
+	return getMethod(
 		instance: instance,
 		potentialMatches: (
 			potentialMatches.0,
@@ -51,7 +51,7 @@ public func get_method<
 ///  These represent the options for all the concrete types that `instance` might be.
 ///
 ///- Returns: `instance`'s `Method`
-public func get_method<
+public func getMethod<
 	PotentialInstanceType0,
 	PotentialInstanceType1,
 	PotentialInstanceType2,
@@ -66,7 +66,7 @@ public func get_method<
 		(PotentialInstanceType3) -> Method
 	)
 ) -> Method? {
-	return get_method(
+	return getMethod(
 		instance: instance,
 		potentialMatches: (
 			potentialMatches.0,
@@ -81,7 +81,7 @@ public func get_method<
 ///  These represent the options for all the concrete types that `instance` might be.
 ///
 ///- Returns: `instance`'s `Method`
-public func get_method<
+public func getMethod<
 	PotentialInstanceType0,
 	PotentialInstanceType1,
 	PotentialInstanceType2,
@@ -98,7 +98,7 @@ public func get_method<
 		(PotentialInstanceType4) -> Method
 	)
 ) -> Method? {
-	return get_method(
+	return getMethod(
 		instance: instance,
 		potentialMatches: (
 			potentialMatches.0,
@@ -115,7 +115,7 @@ public func get_method<
 ///  These represent the options for all the concrete types that `instance` might be.
 ///
 ///- Returns: `instance`'s `Method`
-public func get_method<
+public func getMethod<
 	PotentialInstanceType0,
 	PotentialInstanceType1,
 	PotentialInstanceType2,
@@ -134,7 +134,7 @@ public func get_method<
 		(PotentialInstanceType5) -> Method
 	)
 ) -> Method? {
-	return get_method(
+	return getMethod(
 		instance: instance,
 		potentialMatches: (
 			potentialMatches.0,
@@ -152,7 +152,7 @@ public func get_method<
 ///  These represent the options for all the concrete types that `instance` might be.
 ///
 ///- Returns: `instance`'s `Method`
-public func get_method<
+public func getMethod<
 	PotentialInstanceType0,
 	PotentialInstanceType1,
 	PotentialInstanceType2,
@@ -173,7 +173,7 @@ public func get_method<
 		(PotentialInstanceType6) -> Method
 	)
 ) -> Method? {
-	return get_method(
+	return getMethod(
 		instance: instance,
 		potentialMatches: (
 			potentialMatches.0,

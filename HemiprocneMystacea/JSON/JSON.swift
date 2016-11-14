@@ -43,7 +43,7 @@ public extension Array where Element: InitializableWithJSON {
 		jSON: JSON,
 		key: String
 	) throws {
-		let objects: [AnyObject] = try jSON.get_value(key: key)
+		let objects: [AnyObject] = try jSON.getValue(key: key)
 		self = objects.map{
 			Element(
 				jSON: JSON(object: $0)
@@ -55,12 +55,12 @@ public extension Array where Element: InitializableWithJSON {
 //MARK:- SubscriptableByStringKey_throws
 extension JSON: StringKeyDictionary_throws {
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	public func get_value<Value>(key: String) throws -> Value {
+	public func getValue<Value>(key: String) throws -> Value {
 		guard let object: AnyObject = object[key]
-			else {throw Error.noValue(key: key)}
+		else {throw Error.noValue(key: key)}
 		
 		guard let value = object as? Value
-			else {throw Error.typeCastFailure(key: key)}
+		else {throw Error.typeCastFailure(key: key)}
 		
 		return value
 	}

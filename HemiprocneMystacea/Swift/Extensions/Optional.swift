@@ -2,10 +2,10 @@ public extension Optional {
 	/// If `self` is nil, `valueWhenNil` is assigned to `self`.
 	///- Returns: The non-nil value of `self`
 	mutating func assignedIfNil(
-		_ get_valueWhenNil: () -> Wrapped
+		_ getValueWhenNil: () -> Wrapped
 	) -> Wrapped {
 		return self ?? {
-			self = get_valueWhenNil()
+			self = getValueWhenNil()
 			return self!
 		}()
 	}

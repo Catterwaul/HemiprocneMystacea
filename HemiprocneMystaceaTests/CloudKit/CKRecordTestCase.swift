@@ -41,9 +41,9 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 extension CKRecordTestCase.Pumpkin {
 	init(record: CKRecord) {
 		self.init(
-			eyesCount: record.get_value(key: CloudKitRecordKey.eyesCount),
-			halloween: record.get_value(key: CloudKitRecordKey.halloween),
-			vine: record.get_value(key: CloudKitRecordKey.vine)
+			eyesCount: record.getValue(key: CloudKitRecordKey.eyesCount),
+			halloween: record.getValue(key: CloudKitRecordKey.halloween),
+			vine: record.getValue(key: CloudKitRecordKey.vine)
 		)
 	}
 }

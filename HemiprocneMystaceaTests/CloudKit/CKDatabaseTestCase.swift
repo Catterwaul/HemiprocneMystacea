@@ -8,6 +8,6 @@ final class CKDatabaseTestCase: XCTestCase {
 		
 		CKContainer.default().publicCloudDatabase.request(
 			recordType: Record.self
-		){get_records in}
+		){getRecords in}
 	}
 }

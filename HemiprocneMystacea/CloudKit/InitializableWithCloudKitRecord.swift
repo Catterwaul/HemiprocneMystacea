@@ -56,10 +56,10 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		request(
 			database: database,
 			predicate: predicate,
-			{	get_requested in
+			{	getRequested in
 		
 				do {
-					let requested = try get_requested()
+					let requested = try getRequested()
 					
 					operationQueue.addOperation{requesteds += [requested]}
 				}

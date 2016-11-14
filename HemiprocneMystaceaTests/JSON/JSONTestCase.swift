@@ -8,13 +8,13 @@ final class JSONTestCase: XCTestCase {
 		jSON = JSON(object: [oldKey: "🔑"])
 		
 		XCTAssertEqual(
-			try jSON.get_value(key: oldKey),
+			try jSON.getValue(key: oldKey),
 			"🔑"
 		)
 		
 		let turKey = "🦃"
 		XCTAssertThrowsError(
-			try jSON.get_value(key: turKey) as Any
+			try jSON.getValue(key: turKey) as Any
 		){	error in
             
 			switch error {
@@ -26,7 +26,7 @@ final class JSONTestCase: XCTestCase {
 		}
 		
 		XCTAssertThrowsError(
-			try jSON.get_value(key: oldKey) as Bool
+			try jSON.getValue(key: oldKey) as Bool
 		){  error in
             
 			switch error {
@@ -41,7 +41,7 @@ final class JSONTestCase: XCTestCase {
 	func test_InitializableWithJSONArray_init() {
 		struct Instrument: InitializableWithJSON {
 			init(jSON: JSON) {
-				visualization = try! jSON.get_value(key: "visualization")
+				visualization = try! jSON.getValue(key: "visualization")
 			}
 			
 			let visualization: String

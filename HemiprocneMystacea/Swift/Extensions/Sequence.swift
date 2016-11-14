@@ -4,12 +4,12 @@ public extension Sequence {
 	}
 	
 	func grouped<Key: Hashable>(
-		get_key: (Iterator.Element) -> Key
+		getKey: (Iterator.Element) -> Key
 	) -> [ Key: [Iterator.Element] ] {
 		var groups: [ Key: [Iterator.Element] ] = [:]
 		
 		forEach{
-			let key = get_key($0)
+			let key = getKey($0)
 			
 			if groups[key] == nil {
 				groups[key] = [$0]
@@ -23,10 +23,10 @@ public extension Sequence {
 	}
 	
 	func sorted<Comparable: Swift.Comparable>(
-		get_comparable: (Iterator.Element) -> Comparable
+		getComparable: (Iterator.Element) -> Comparable
 	) -> [Iterator.Element] {
 		return self.sorted{
-			get_comparable($0) < get_comparable($1)
+			getComparable($0) < getComparable($1)
 		}
 	}
 }

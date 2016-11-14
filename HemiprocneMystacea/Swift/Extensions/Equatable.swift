@@ -1,7 +1,7 @@
 /// Used to implement Equatable using a property
 ///
 ///- Parameter operand1: term for the right side of the ==
-///- Parameter property: property to equate using … operator
+///- Parameter getProperty: property to get from both terms and equate
 ///
 ///- Returns: whether all properties are equal
 public func == <
@@ -9,22 +9,21 @@ public func == <
 	Property: Equatable
 >(
 	operand0: Operand,
-	operand1🔗get_property: (
+	operand1🔗getProperty: (
 		Operand,
 		(Operand) -> Property
 	)
 ) -> Bool {
-	let
-	operand1 = operand1🔗get_property.0,
-	get_property = operand1🔗get_property.1
+	let operand1 = operand1🔗getProperty.0
+	let getProperty = operand1🔗getProperty.1
 	
-	return get_property(operand0) == get_property(operand1)
+	return getProperty(operand0) == getProperty(operand1)
 }
 
 /// Used to implement Equatable using 2 properties
 ///
 ///- Parameter operand1: term for the right side of the ==
-///- Parameter properties: properties to equate using … operator
+///- Parameter propertyGets: gets for properties to equate, from both terms
 ///
 ///- Returns: whether all properties are equal
 public func == <
@@ -33,26 +32,24 @@ public func == <
 	Property2: Equatable
 >(
 	operand0: Operand,
-	operand1🔗properties: (
+	operand1🔗propertyGets: (
 		Operand,
 		(Operand) -> Property1,
 		(Operand) -> Property2
 	)
 ) -> Bool {
-	let
-	operand1 = operand1🔗properties.0,
-	properties = operand1🔗properties
+	let operand1 = operand1🔗propertyGets.0
+	let propertyGets = operand1🔗propertyGets
 	
 	return operand0 == (operand1,
-		properties.1
-	)
-		&& operand0…properties.2 == operand1…properties.2
+		propertyGets.1
+	) && propertyGets.2(operand0) == propertyGets.2(operand1)
 }
 
 /// Used to implement Equatable using 3 properties
 ///
 ///- Parameter operand1: term for the right side of the ==
-///- Parameter properties: properties to equate using … operator
+///- Parameter propertyGets: gets for properties to equate, from both terms
 ///
 ///- Returns: whether all properties are equal
 public func == <
@@ -62,28 +59,26 @@ public func == <
 	Property3: Equatable
 >(
 	operand0: Operand,
-	operand1🔗properties: (
+	operand1🔗propertyGets: (
 		Operand,
 		(Operand) -> Property1,
 		(Operand) -> Property2,
 		(Operand) -> Property3
 	)
 ) -> Bool {
-	let
-	operand1 = operand1🔗properties.0,
-	properties = operand1🔗properties
+	let operand1 = operand1🔗propertyGets.0
+	let propertyGets = operand1🔗propertyGets
 	
 	return operand0 == (operand1,
-		properties.1,
-		properties.2
-	)
-		&& operand0…properties.3 == operand1…properties.3
+		propertyGets.1,
+		propertyGets.2
+	) && propertyGets.3(operand0) == propertyGets.3(operand1)
 }
 
 /// Used to implement Equatable using 4 properties
 ///
 ///- Parameter operand1: term for the right side of the ==
-///- Parameter properties: properties to equate using … operator
+///- Parameter propertyGets: gets for properties to equate, from both terms
 ///
 ///- Returns: whether all properties are equal
 public func == <
@@ -94,7 +89,7 @@ public func == <
 	Property4: Equatable
 >(
 	operand0: Operand,
-	operand1🔗properties: (
+	operand1🔗propertyGets: (
 		Operand,
 		(Operand) -> Property1,
 		(Operand) -> Property2,
@@ -102,22 +97,20 @@ public func == <
 		(Operand) -> Property4
 	)
 ) -> Bool {
-	let
-	operand1 = operand1🔗properties.0,
-	properties = operand1🔗properties
+	let operand1 = operand1🔗propertyGets.0
+	let propertyGets = operand1🔗propertyGets
 	
 	return operand0 == (operand1,
-		properties.1,
-		properties.2,
-		properties.3
-	)
-		&& operand0…properties.4 == operand1…properties.4
+		propertyGets.1,
+		propertyGets.2,
+		propertyGets.3
+	) && propertyGets.4(operand0) == propertyGets.4(operand1)
 }
 
 /// Used to implement Equatable using 5 properties
 ///
 ///- Parameter operand1: term for the right side of the ==
-///- Parameter properties: properties to equate using … operator
+///- Parameter propertyGets: gets for properties to equate, from both terms
 ///
 ///- Returns: whether all properties are equal
 public func == <
@@ -129,7 +122,7 @@ public func == <
 	Property5: Equatable
 >(
 	operand0: Operand,
-	operand1🔗properties: (
+	operand1🔗propertyGets: (
 		Operand,
 		(Operand) -> Property1,
 		(Operand) -> Property2,
@@ -138,15 +131,13 @@ public func == <
 		(Operand) -> Property5
 	)
 ) -> Bool {
-	let
-	operand1 = operand1🔗properties.0,
-	properties = operand1🔗properties
+	let operand1 = operand1🔗propertyGets.0
+	let propertyGets = operand1🔗propertyGets
 	
 	return operand0 == (operand1,
-		properties.1,
-		properties.2,
-		properties.3,
-		properties.4
-	)
-		&& operand0…properties.5 == operand1…properties.5
+		propertyGets.1,
+		propertyGets.2,
+		propertyGets.3,
+		propertyGets.4
+	) && propertyGets.5(operand0) == propertyGets.5(operand1)
 }

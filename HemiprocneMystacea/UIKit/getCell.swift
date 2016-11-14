@@ -1,6 +1,6 @@
 import UIKit
 
-//MARK: get_cell
+//MARK: getCell
 // This should be one function in one extension
 // but it doesn't seem possible to express.
 public extension dequeueReusableCell where Self: UICollectionView {
@@ -10,7 +10,7 @@ public extension dequeueReusableCell where Self: UICollectionView {
 	///
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Collection View uses
-	final func get_cell<Cell: UICollectionViewCell>(
+	final func getCell<Cell: UICollectionViewCell>(
 		indexPath: IndexPath
 	) -> Cell {
 		return dequeueReusableCell(indexPath: indexPath)
@@ -24,7 +24,7 @@ public extension dequeueReusableCell where Self: UITableView {
 	///
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Table View uses
-	final func get_cell<Cell: UITableViewCell>() -> Cell {
+	final func getCell<Cell: UITableViewCell>() -> Cell {
 		return dequeueReusableCell(
 			withIdentifier: String(describing: Cell.self)
 		) as! Cell
@@ -36,7 +36,7 @@ public extension dequeueReusableCell where Self: UITableView {
 	///
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Table View uses
-	final func get_cell<Cell: UITableViewCell>(
+	final func getCell<Cell: UITableViewCell>(
 		indexPath: IndexPath
 	) -> Cell {
 		return dequeueReusableCell(indexPath: indexPath)

@@ -30,10 +30,9 @@ public extension CKDatabase {
 		request(
 			recordType: Requested.self,
 			predicate: predicate
-		){	get_records in process{
-				try get_records().map(
-					Requested.init
-				)
+		){	getRecords in process{
+				try getRecords()
+					.map(Requested.init)
 			}
 		}
 	}
@@ -60,10 +59,10 @@ public extension CKDatabase {
 				dispatchGroup.enter()
 				
 				let operation = CKFetchRecordsOperation(references: references){
-					get_records in
+					getRecords in
 					
 					do {
-						let references = try get_records()
+						let references = try getRecords()
 							.map(Requested.Reference.init)
 						
 						processGetRequested{
