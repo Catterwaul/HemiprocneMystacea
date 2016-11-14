@@ -7,13 +7,13 @@ public protocol ViewControllerWithDependentOutlets: class {
 	
 	var respondToOutletDependencies: (OutletDependencies) -> Void {get set}
 	
-	func set_outletDependencies(_: OutletDependencies)
+	func setOutletDependencies(_: OutletDependencies)
 }
 
 public extension ViewControllerWithDependentOutlets where Self: UIViewController {
 	func intialize_respondToViewDidLoad(outletDependencies: OutletDependencies) {
 		respondToViewDidLoad = {
-			[unowned self] in self.set_outletDependencies(outletDependencies)
+			[unowned self] in self.setOutletDependencies(outletDependencies)
 		}
 	}
 	
@@ -23,6 +23,6 @@ public extension ViewControllerWithDependentOutlets where Self: UIViewController
 			self.respondToViewDidLoad = nil
 		}
 		
-		respondToOutletDependencies = set_outletDependencies
+		respondToOutletDependencies = setOutletDependencies
 	}
 }
