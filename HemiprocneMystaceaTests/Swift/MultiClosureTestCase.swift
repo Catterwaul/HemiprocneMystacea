@@ -2,7 +2,7 @@
 import XCTest
 
 final class MultiClosureTestCase: XCTestCase {
-   func testMultiClosure() {
+   func test_multiClosure() {
       var x = 0
       let closures = [
          EquatableClosure{x += 1},
@@ -16,7 +16,7 @@ final class MultiClosureTestCase: XCTestCase {
       XCTAssertEqual(x, 5)
    }
    
-   func testSetRemoval() {
+   func test_setRemoval() {
       let
          closure: EquatableClosure<()>! = EquatableClosure{},
          multiClosure = MultiClosure(closure)
@@ -28,7 +28,7 @@ final class MultiClosureTestCase: XCTestCase {
       XCTAssertEqual(closure.multiClosures, [])
    }
 
-	func testDeallocation() {
+	func test_deallocation() {
 		var
 			closure: EquatableClosure<()>! = EquatableClosure{},
 			multiClosure: MultiClosure<()>! = MultiClosure(closure)

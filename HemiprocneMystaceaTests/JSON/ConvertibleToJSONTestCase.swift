@@ -2,14 +2,14 @@ import HM
 import XCTest
 
 final class ConvertibleToJSONTestCase: XCTestCase {
-	func test_jSONDictionary() {
+	func test_jsonDictionary() {
 		XCTAssertEqual(
 			💀(skool: "🏫").jSONDictionary as! [String: String],
 			["skool": "🏫"]
 		)
 	}
 	
-	func test_initialize_JSON() {
+	func test_initializeJSON() {
 		let
 		crossBonez = 💀(skool: "☠️"),
 		reconstructedCrossBonez = 💀(
@@ -19,7 +19,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 		XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
 	}
 	
-	func test_initialize_nestedJSON() {
+	func test_initializeNestedJSON() {
 		let
 		👻instance = 👻(
 			boool: true,
@@ -33,7 +33,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 		XCTAssertEqual(reconstructed👻.skoool.skool, "👠L")
 	}
 	
-	func test_initialize_JSON_usingKey() {
+	func test_initializeJSONUsingKey() {
 		do {
 			let
 			data = try! Data(

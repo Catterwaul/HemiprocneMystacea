@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class UIButtonTestCase: XCTestCase {
-   func testDisabledAndDim() {
+   func test_disabledAndDim() {
 		let button = UIButton()
 		
 		button.disabledAndDim = true

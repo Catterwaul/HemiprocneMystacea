@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class PropertiesTestCase: XCTestCase {
-	func testComputedProperty() {
+	func test_computedProperty() {
 		var _property = 0
 
 		let property1 = ComputedProperty(
@@ -27,7 +27,7 @@ final class PropertiesTestCase: XCTestCase {
 		XCTAssertNotEqual(100, property3.value)
 	}
 	
-	func testObservedProperty() {
+	func test_observedProperty() {
 		let property1 = ObservedProperty(
       value: 1,
       didSet: {_, _ in}
@@ -49,9 +49,8 @@ final class PropertiesTestCase: XCTestCase {
 		XCTAssertEqual(property2.value, 0)
   }
 
-	func testCaptureProperty() {
-		func setValue
-		<Property: HM.Property>(
+	func test_captureProperty() {
+		func setValue<Property: HM.Property>(
 			property: Property,
 			value: Property.Value
 		) {

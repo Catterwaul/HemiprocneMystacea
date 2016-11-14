@@ -2,12 +2,12 @@ import HM
 import XCTest
 
 final class OptionSetTypeTestCase: XCTestCase {
-	func test2Flags() {
+	func test_2Flags() {
 		let options: Options = [.Option1, .Option2]
 		XCTAssertEqual(options.rawValue, 0b11)
 	}
 	
-	func test3Flags() {
+	func test_3Flags() {
 		let options: Options = [
 			.Option3,
 			.Option4,
@@ -16,7 +16,7 @@ final class OptionSetTypeTestCase: XCTestCase {
 		XCTAssertEqual(options.rawValue, 0b1_1100)
 	}
 	
-	func test4Flags() {
+	func test_4Flags() {
 		let options: Options = [
 			.Option6,
 			.Option7,
@@ -26,7 +26,7 @@ final class OptionSetTypeTestCase: XCTestCase {
 		XCTAssertEqual(options.rawValue, 0b1_1110_0000)
 	}
 	
-	func test5Flags() {
+	func test_5Flags() {
 		let options: Options = [
 			.Option10,
 			.Option11,
@@ -37,7 +37,7 @@ final class OptionSetTypeTestCase: XCTestCase {
 		XCTAssertEqual(options.rawValue, 0b11_1110_0000_0000)
 	}
 	
-	func test6Flags() {
+	func test_6Flags() {
 		let options: Options = [
 			.Option15,
 			.Option16,
@@ -58,27 +58,27 @@ private struct Options: OptionSet {
 	let rawValue: UInt
 	
 	static let
-  (Option1, Option2) = Options.selfs()
+	(Option1, Option2) = Options.selfs()
 	static let (
-    Option3,
+		Option3,
 		Option4,
 		Option5
 	) = Options.selfs(startingFlagIndex: 3)
 	static let (
-  	Option6,
+		Option6,
 		Option7,
 		Option8,
 		Option9
 	) = Options.selfs(startingFlagIndex: 6)
-  static let (
-    Option10,
+	static let (
+		Option10,
 		Option11,
 		Option12,
 		Option13,
 		Option14
 	) = Options.selfs(startingFlagIndex: 10)
 	static let (
-    Option15,
+		Option15,
 		Option16,
 		Option17,
 		Option18,

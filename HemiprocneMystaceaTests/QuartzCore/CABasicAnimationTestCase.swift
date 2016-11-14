@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class CABasicAnimationTestCase: XCTestCase {
-	func testInit() {
+	func test_init() {
 		_ = CABasicAnimation(
 			keyPath: "",
 			values: CABasicAnimation.Values(

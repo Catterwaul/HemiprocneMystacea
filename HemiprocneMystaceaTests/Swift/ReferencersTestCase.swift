@@ -3,7 +3,7 @@ import XCTest
 
 final class ReferencersTestCase: XCTestCase {
 //MARK:- UnownedReferencer
-   func testUnownedReferencer() {
+   func test_unownedReferencer() {
       var `class`: Class! = Class()
       let referencers = [
          UnownedReferencer(`class`),
@@ -15,7 +15,7 @@ final class ReferencersTestCase: XCTestCase {
       XCTAssertNil(reference)
    }
    
-   func testUnownedReferencerSetRemoval() {
+   func test_unownedReferencerSetRemoval() {
       let `class` = Class()
       var referencers: Set = [UnownedReferencer(`class`)]
       referencers -= `class`
@@ -24,7 +24,7 @@ final class ReferencersTestCase: XCTestCase {
    }
    
 //MARK:- WeakReferencer
-   func testWeakReferencer() {
+   func test_weakReferencer() {
       var `class`: Class! = Class()
       let referencers = [
          WeakReferencer(`class`),
@@ -34,7 +34,7 @@ final class ReferencersTestCase: XCTestCase {
       XCTAssertNil(referencers.last!.reference)
    }
    
-   func testWeakReferencerSetRemoval() {
+   func test_weakReferencerSetRemoval() {
       let `class` = Class()
       var referencers: Set = [WeakReferencer(`class`)]
       referencers -= `class`

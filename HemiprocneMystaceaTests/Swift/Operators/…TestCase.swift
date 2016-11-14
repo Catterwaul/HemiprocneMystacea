@@ -10,7 +10,7 @@ final class EllipsisTestCase: XCTestCase {
 		XCTAssertTrue(`class`.bool)
 	}
 	
-	func testWithOutput() {
+	func test_output() {
 		XCTAssertEqual(
 			"🐢"…{$0 + "🔋"},
 			"🐢🔋"

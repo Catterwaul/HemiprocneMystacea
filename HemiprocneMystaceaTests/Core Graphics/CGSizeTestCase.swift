@@ -2,22 +2,22 @@ import HM
 import XCTest
 
 final class CGSizeTestCase: XCTestCase {
-  func testInitWithPoint() {
-    XCTAssertEqual(
-      CGSize(
+	func test_initWithPoint() {
+		XCTAssertEqual(
+			CGSize(
 				CGPoint(
 					x: 5,
 					y: 55
 				)
-      ),
-      CGSize(
+			),
+			CGSize(
 				width: 5,
 				height: 55
 			)
-    )
-  }
+		)
+	}
 	
-	func testSubtraction() {
+	func test_subtraction() {
 		XCTAssertEqual(
 			CGSize(
 				width: 60,

@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class EquatableTestCase: XCTestCase {
-	func testTypeWith1EquatableProperty() {
+	func test_typeWith1EquatableProperty() {
 		let instances = (
 			TypeWith1EquatableProperty(bool: true),
 			TypeWith1EquatableProperty(bool: true)
@@ -13,7 +13,7 @@ final class EquatableTestCase: XCTestCase {
 		)
 	}
 	
-	func testTypeWith2EquatableProperties() {
+	func test_typeWith2EquatableProperties() {
 		let instances = (
 			TypeWith2EquatableProperties(
 				bool: true,
@@ -30,7 +30,7 @@ final class EquatableTestCase: XCTestCase {
 		)
 	}
 	
-	func testTypeWith5EquatableProperties() {
+	func test_typeWith5EquatableProperties() {
 		let instance = TypeWith5EquatableProperties(
 			bool: true,
 			double: 2,

@@ -3,12 +3,11 @@ import XCTest
 
 final class NilClosuresTestCase: XCTestCase {
 //MARK:- Nils
-	func test2Nils() {
+	func test_2Nils() {
 		let ƒ: (
 			(Int) -> ()?,
 			() -> Bool?
-		)
-			= Nils()
+		) = Nils()
 		
 		XCTAssertNil(
 			ƒ.0(Int.min)
@@ -18,13 +17,12 @@ final class NilClosuresTestCase: XCTestCase {
 		)
 	}
 	
-	func test3Nils() {
+	func test_3Nils() {
 		let ƒ: (
 			(Int) -> ()?,
 			() -> Bool?,
 			(String) -> String?
-		)
-			= Nils()
+		) = Nils()
 		
 		XCTAssertNil(
 			ƒ.0(Int.min)
@@ -37,14 +35,13 @@ final class NilClosuresTestCase: XCTestCase {
 		)
 	}
 	
-	func test4Nils() {
+	func test_4Nils() {
 		let ƒ: (
 			(Int) -> ()?,
 			() -> Bool?,
 			(String) -> String?,
 			() -> ()?
-		)
-			= Nils()
+		) = Nils()
 		
 		XCTAssertNil(
 			ƒ.0(Int.min)

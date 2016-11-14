@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class WeakClosureTestCase: XCTestCase {
-	func testWeakClosure() {
+	func test_weakClosure() {
 		var reference: Reference? = Reference()
 		
 		let getAssign1234 = weakClosure(reference){
@@ -21,7 +21,7 @@ final class WeakClosureTestCase: XCTestCase {
 		)
 	}
 	
-	func testWeakClosureWithParameter() {
+	func test_weakClosureWithParameter() {
 		var reference: Reference? = Reference()
 		
 		let getSetProperty = weakClosure(reference){

@@ -106,8 +106,7 @@ public func getMethod<
 			potentialMatches.2,
 			potentialMatches.3
 		)
-	)
-	?? (instance as? PotentialInstanceType4)
+	) ?? (instance as? PotentialInstanceType4)
 		.map(potentialMatches.4)
 }
 
@@ -143,8 +142,7 @@ public func getMethod<
 			potentialMatches.3,
 			potentialMatches.4
 		)
-	)
-	?? (instance as? PotentialInstanceType5)
+	) ?? (instance as? PotentialInstanceType5)
 		.map(potentialMatches.5)
 }
 
@@ -183,7 +181,6 @@ public func getMethod<
 			potentialMatches.4,
 			potentialMatches.5
 		)
-	)
-	?? (instance as? PotentialInstanceType6)
+	) ?? (instance as? PotentialInstanceType6)
 		.map(potentialMatches.6)
 }
