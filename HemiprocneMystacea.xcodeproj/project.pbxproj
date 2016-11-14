@@ -85,7 +85,7 @@
 		4993AD341DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
 		499C71921D0F7636009797BC /* JSONTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71911D0F7636009797BC /* JSONTestCase.swift */; };
 		499C71941D0F7E94009797BC /* CGSizeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71931D0F7E94009797BC /* CGSizeTestCase.swift */; };
-		499C71961D0F8079009797BC /* WeakClosureTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71951D0F8079009797BC /* WeakClosureTestCase.swift */; };
+		499C71961D0F8079009797BC /* MakeGetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71951D0F8079009797BC /* MakeGetTestCase.swift */; };
 		499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
 		499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
 		49A1982E1D62B358005C251A /* typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A1982D1D62B358005C251A /* typealiases.swift */; };
@@ -202,7 +202,7 @@
 		4993AD321DD99155007C7525 /* named subscripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "named subscripts.swift"; sourceTree = "<group>"; };
 		499C71911D0F7636009797BC /* JSONTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTestCase.swift; path = JSON/JSONTestCase.swift; sourceTree = "<group>"; };
 		499C71931D0F7E94009797BC /* CGSizeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGSizeTestCase.swift; path = "Core Graphics/CGSizeTestCase.swift"; sourceTree = "<group>"; };
-		499C71951D0F8079009797BC /* WeakClosureTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeakClosureTestCase.swift; path = Swift/WeakClosureTestCase.swift; sourceTree = "<group>"; };
+		499C71951D0F8079009797BC /* MakeGetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MakeGetTestCase.swift; path = Swift/MakeGetTestCase.swift; sourceTree = "<group>"; };
 		499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKFetchRecordsOperation.swift; sourceTree = "<group>"; };
 		49A1982D1D62B358005C251A /* typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typealiases.swift; sourceTree = "<group>"; };
 		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDatabase.swift; sourceTree = "<group>"; };
@@ -364,11 +364,11 @@
 				49AE42691D10CC0E0013301A /* Operators */,
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
-				49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */,
-				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
+				499C71951D0F8079009797BC /* MakeGetTestCase.swift */,
 				49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */,
 				49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */,
-				499C71951D0F8079009797BC /* WeakClosureTestCase.swift */,
+				49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */,
+				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -943,7 +943,7 @@
 				0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */,
 				49FD14F71CD91D470067F27E /* CABasicAnimationTestCase.swift in Sources */,
 				498F6CCA1D3EBC20006534BF /* ConvertibleToJSONTestCase.swift in Sources */,
-				499C71961D0F8079009797BC /* WeakClosureTestCase.swift in Sources */,
+				499C71961D0F8079009797BC /* MakeGetTestCase.swift in Sources */,
 				499C71921D0F7636009797BC /* JSONTestCase.swift in Sources */,
 				499C71941D0F7E94009797BC /* CGSizeTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
