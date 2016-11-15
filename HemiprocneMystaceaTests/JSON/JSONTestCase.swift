@@ -5,16 +5,16 @@ final class JSONTestCase: XCTestCase {
 	func test_JSON() {
 		let
 		oldKey = "🗝",
-		jSON = JSON(object: [oldKey: "🔑"])
+		json = JSON(object: [oldKey: "🔑"])
 		
 		XCTAssertEqual(
-			try jSON.getValue(key: oldKey),
+			try json.getValue(key: oldKey),
 			"🔑"
 		)
 		
 		let turKey = "🦃"
 		XCTAssertThrowsError(
-			try jSON.getValue(key: turKey) as Any
+			try json.getValue(key: turKey) as Any
 		){	error in
             
 			switch error {
@@ -26,7 +26,7 @@ final class JSONTestCase: XCTestCase {
 		}
 		
 		XCTAssertThrowsError(
-			try jSON.getValue(key: oldKey) as Bool
+			try json.getValue(key: oldKey) as Bool
 		){  error in
             
 			switch error {
@@ -40,8 +40,8 @@ final class JSONTestCase: XCTestCase {
 	
 	func test_InitializableWithJSONArray_init() {
 		struct Instrument: InitializableWithJSON {
-			init(jSON: JSON) {
-				visualization = try! jSON.getValue(key: "visualization")
+			init(json: JSON) {
+				visualization = try! json.getValue(key: "visualization")
 			}
 			
 			let visualization: String
@@ -56,7 +56,7 @@ final class JSONTestCase: XCTestCase {
 		]
 		
 		let instruments = try! [Instrument](
-			jSON: JSON(object: jSObject),
+			json: JSON(object: jSObject),
 			key: "instruments"
 		)
 		
@@ -72,7 +72,7 @@ final class JSONTestCase: XCTestCase {
 		let turKeyboard = "🦃⌨️"
 		XCTAssertThrowsError(
 			try [Instrument](
-				jSON: JSON(object: jSObject),
+				json: JSON(object: jSObject),
 				key: turKeyboard
 			)
 		){ error in

@@ -35,18 +35,18 @@ public extension JSON {
 
 //MARK:- InitializableWithJSON
 public protocol InitializableWithJSON {
-    init(jSON: JSON)
+    init(json: JSON)
 }
 
 public extension Array where Element: InitializableWithJSON {
 	init(
-		jSON: JSON,
+		json: JSON,
 		key: String
 	) throws {
-		let objects: [AnyObject] = try jSON.getValue(key: key)
+		let objects: [AnyObject] = try json.getValue(key: key)
 		self = objects.map{
 			Element(
-				jSON: JSON(object: $0)
+				json: JSON(object: $0)
 			)
 		}
 	}

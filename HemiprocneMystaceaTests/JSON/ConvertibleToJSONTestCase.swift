@@ -4,7 +4,7 @@ import XCTest
 final class ConvertibleToJSONTestCase: XCTestCase {
 	func test_jsonDictionary() {
 		XCTAssertEqual(
-			💀(skool: "🏫").jSONDictionary as! [String: String],
+			💀(skool: "🏫").jsonDictionary as! [String: String],
 			["skool": "🏫"]
 		)
 	}
@@ -12,9 +12,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 	func test_initializeJSON() {
 		let
 		crossBonez = 💀(skool: "☠️"),
-		reconstructedCrossBonez = 💀(
-			jSON: try! JSON(crossBonez)
-		)
+		reconstructedCrossBonez = 💀( json: try! JSON(crossBonez) )
 		
 		XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
 	}
@@ -25,9 +23,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 			boool: true,
 			skoool: 💀(skool: "👠L")
 		),
-		reconstructed👻 = 👻(
-			jSON: try! JSON(👻instance)
-		)
+		reconstructed👻 = 👻( json: try! JSON(👻instance) )
 
 		XCTAssertTrue(reconstructed👻.boool)
 		XCTAssertEqual(reconstructed👻.skoool.skool, "👠L")
@@ -43,12 +39,9 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 					skoool: 💀(skool: "🏫")
 				)
 			),
-			jSON = try! JSON(data: data),
-			👻object: AnyObject = try jSON.getValue(key: "👻"),
-			reconstruction = 👻(
-				jSON: JSON(object: 👻object)
-				
-			)
+			json = try! JSON(data: data),
+			👻object: AnyObject = try json.getValue(key: "👻"),
+			reconstruction = 👻( json: JSON(object: 👻object) )
 
 			XCTAssertFalse(reconstruction.boool)
 			XCTAssertEqual(reconstruction.skoool.skool, "🏫")
@@ -83,12 +76,12 @@ extension 👻: ConvertibleToJSON {
 	}
 }
 extension 👻: InitializableWithJSON {
-	init(jSON: JSON) {
+	init(json: JSON) {
 		self.init(
-			boool: try! jSON.getValue(key: JSONKey.boool),
+			boool: try! json.getValue(key: JSONKey.boool),
 			skoool: 💀(
-				jSON: try! JSON(
-					object: jSON.getValue(key: JSONKey.skoool)
+				json: try! JSON(
+					object: json.getValue(key: JSONKey.skoool)
 				)
 			)
 		)
@@ -107,9 +100,9 @@ extension 💀: ConvertibleToJSON {
 	}
 }
 extension 💀: InitializableWithJSON {
-	init(jSON: JSON) {
+	init(json: JSON) {
 		self.init(
-			skool: try! jSON.getValue(key: JSONKey.skool)
+			skool: try! json.getValue(key: JSONKey.skool)
 		)
 	}
 }

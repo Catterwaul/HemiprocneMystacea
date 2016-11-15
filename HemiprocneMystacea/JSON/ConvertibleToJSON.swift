@@ -11,11 +11,11 @@ public protocol ConvertibleToJSON {
 	
 	// Should only be defined in the protocol extension,
 	// but we can't yet express that `JSONKey.RawValue == String` is always true.
-	var jSONDictionary: JSON.Dictionary {get}
+	var jsonDictionary: JSON.Dictionary {get}
 }
 
 public extension ConvertibleToJSON where JSONKey.RawValue == String {
-	var jSONDictionary: JSON.Dictionary {
+	var jsonDictionary: JSON.Dictionary {
 		return Dictionary(
 			Mirror(reflecting: self).children.flatMap{
 				label, value in
@@ -28,7 +28,7 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
 				let value: AnyObject = {
 					switch value {
 						case let value as ConvertibleToJSON:
-							return value.jSONDictionary as AnyObject
+							return value.jsonDictionary as AnyObject
 						default: return value as AnyObject
 					}
 				}()
@@ -51,9 +51,9 @@ public extension JSON {
 }
 
 public extension Data {
-	/// - returns: `convertibleToJSON`'s `jSONDictionary` serialized JSON with the "prettyPrinted" option
+	/// - returns: `convertibleToJSON`'s `jsonDictionary` serialized JSON with the "prettyPrinted" option
 	init<ConvertibleToJSON: HM.ConvertibleToJSON>(convertibleToJSON: ConvertibleToJSON) throws {
-		try self.init(jSONObject: convertibleToJSON.jSONDictionary as AnyObject)
+		try self.init(jsonObject: convertibleToJSON.jsonDictionary as AnyObject)
 	}
 	
 	/// - returns: `value` serialized as JSON with the "prettyPrinted" option
@@ -62,17 +62,17 @@ public extension Data {
 		value: ConvertibleToJSON
 	) throws {
 		try self.init(
-			jSONObject: [key: value.jSONDictionary] as AnyObject
+			jsonObject: [key: value.jsonDictionary] as AnyObject
 		)
 	}
 	
 	
-	/// - parameter jSONObject: a JSON dictionary
+	/// - parameter jsonObject: a JSON dictionary
 	///
 	/// - returns: serialized JSON with the "prettyPrinted" option
-	init(jSONObject: AnyObject) throws {
+	init(jsonObject: AnyObject) throws {
 		try self = JSONSerialization.data(
-			withJSONObject: jSONObject,
+			withJSONObject: jsonObject,
 			options: .prettyPrinted
 		)
 	}
