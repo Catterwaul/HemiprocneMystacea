@@ -22,6 +22,14 @@ public extension Sequence {
 		return groups
 	}
 	
+	func max<Comparable: Swift.Comparable>(
+		getComparable: (Iterator.Element) throws -> Comparable
+	) rethrows -> Iterator.Element? {
+		return try self.max{
+			try getComparable($0) < getComparable($1)
+		}
+	}
+	
 	func sorted<Comparable: Swift.Comparable>(
 		getComparable: (Iterator.Element) -> Comparable
 	) -> [Iterator.Element] {

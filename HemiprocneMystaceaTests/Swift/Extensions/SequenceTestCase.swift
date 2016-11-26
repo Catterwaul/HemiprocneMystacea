@@ -60,6 +60,17 @@ final class SequenceTestCase: XCTestCase {
 		)
 	}
 	
+	func test_max() {
+		XCTAssertEqual(
+			[	"1️⃣": 1,
+				"🔟": 10,
+			 	"💯": 100
+			].max{$0.value}!
+			 .key,
+			"💯"
+		)
+	}
+	
 	func test_sortedBy() {
 		let sortedArray = [
 			TypeWith1EquatableProperty(int: 3),
