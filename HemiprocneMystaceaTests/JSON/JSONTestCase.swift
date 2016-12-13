@@ -20,7 +20,6 @@ final class JSONTestCase: XCTestCase {
 			switch error {
 			case JSON.Error.noValue(let key):
 				XCTAssertEqual(key, turKey)
-                
 			default: XCTFail()
 			}
 		}
@@ -32,7 +31,6 @@ final class JSONTestCase: XCTestCase {
 			switch error {
 			case JSON.Error.typeCastFailure(let key):
 				XCTAssertEqual(key, oldKey)
-                
 			default: XCTFail()
 			}
 		}
@@ -80,7 +78,6 @@ final class JSONTestCase: XCTestCase {
 			switch error {
 			case JSON.Error.noValue(let key):
 				XCTAssertEqual(key, turKeyboard)
-                
 			default: XCTFail()
 			}
 		}

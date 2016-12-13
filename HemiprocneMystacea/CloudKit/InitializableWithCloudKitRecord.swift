@@ -63,9 +63,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 					
 					operationQueue.addOperation{requesteds += [requested]}
 				}
-				catch {
-					processSingleRecordError(error)
-				}
+				catch {processSingleRecordError(error)}
 			}
 		){	verifyCompletion in
 			
@@ -76,9 +74,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 					process{requesteds}
 				}
 			}
-			catch {
-				process{throw error}
-			}
+			catch { process{throw error} }
 		}
 	}
 }

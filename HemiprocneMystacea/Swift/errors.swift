@@ -41,9 +41,7 @@ where Validates.Iterator.Element == Validate<Parameters> {
 		catch let errors as Errors<Error> {
 			return errors.set
 		}
-		catch {
-			fatalError()
-		}
+		catch {fatalError()}
 	}
 	
 	guard errors.isEmpty

@@ -16,24 +16,28 @@ public final class MultiClosure<Input>: EquatableClass {
 	///
 	/// ***Rationale:***
 	/// We can't override () so maybe brackets are the next best thing?
-	public subscript(input: Input) -> () {
-		closures.forEach{$0.reference[input]}
+	public subscript(input: Input) -> Void {
+		for closure in closures {
+			closure.reference[input]
+		}
 	}
 	
-	var closures = Set<
+	var closures: Set<
 		UnownedReferencer< EquatableClosure<Input> >
-	>()
+	> = []
 	
 //MARK: deallocation
 	// We can't find self in `closures` without this.
-	fileprivate lazy var unownedSelf: UnownedReferencer< MultiClosure<Input> >
-		= UnownedReferencer(self)
+	fileprivate lazy var unownedSelf: UnownedReferencer< MultiClosure<Input> > =
+		UnownedReferencer(self)
 	
 	// Even though this MultiClosure will be deallocated,
 	// its corresponding WeakReferencers won't be,
 	// unless we take this manual action or similar.
 	deinit {
-		closures.forEach{$0.reference.multiClosures -= unownedSelf}
+		for closure in closures {
+			closure.reference.multiClosures -= unownedSelf
+		}
 	}
 }
 
@@ -64,7 +68,9 @@ public final class EquatableClosure<Input>: EquatableClass {
 	> = UnownedReferencer(self)
 	
 	deinit {
-		multiClosures.forEach{$0.reference.closures -= unownedSelf}
+		for multiClosure in multiClosures {
+			multiClosure.reference.closures -= unownedSelf
+		}
 	}
 }
 
@@ -89,7 +95,9 @@ public func += <
 )
 where Closures.Iterator.Element == EquatableClosure<Input>
 {
-   closures.forEach{multiClosure += $0}
+   for closure in closures {
+		multiClosure += closure
+	}
 }
 
 /// Remove `closure` from the set of closures that runs

@@ -33,9 +33,7 @@ public extension Sequence {
 	func sorted<Comparable: Swift.Comparable>(
 		getComparable: (Iterator.Element) -> Comparable
 	) -> [Iterator.Element] {
-		return self.sorted{
-			getComparable($0) < getComparable($1)
-		}
+		return self.sorted{getComparable($0) < getComparable($1)}
 	}
 }
 

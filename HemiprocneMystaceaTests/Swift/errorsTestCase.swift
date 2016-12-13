@@ -10,9 +10,7 @@ final class errorsTestCase: XCTestCase {
 				errorType: Error.self
 			)
 		}
-		catch {
-			XCTFail()
-		}
+		catch {XCTFail()}
 	}
 	
 	func test_errors() {

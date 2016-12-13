@@ -90,7 +90,9 @@ public func - <
 	KeysToSetNil.Iterator.Element == Key
 {
 	var dictionary = dictionary
-	keysToSetNil.forEach{dictionary[$0] = nil}
+	for keyToSetNil in keysToSetNil {
+		dictionary[keyToSetNil] = nil
+	}
 	return dictionary
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`

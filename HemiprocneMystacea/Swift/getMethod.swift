@@ -14,9 +14,11 @@ public func getMethod<
 	)
 ) -> Method? {
 	switch instance {
-		case let instance as PotentialInstanceType0: return potentialMatches.0(instance)
-		case let instance as PotentialInstanceType1: return potentialMatches.1(instance)
-		default: return nil
+	case let instance as PotentialInstanceType0:
+		return potentialMatches.0(instance)
+	case let instance as PotentialInstanceType1:
+		return potentialMatches.1(instance)
+	default: return nil
 	}
 }
 

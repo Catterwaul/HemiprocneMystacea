@@ -72,9 +72,7 @@ public extension CKDatabase {
 							)
 						}
 					}
-					catch {
-						processGetRequested{throw error}
-					}
+					catch { processGetRequested{throw error} }
 					
 					dispatchGroup.leave()
 				}

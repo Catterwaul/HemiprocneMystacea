@@ -28,11 +28,15 @@ public extension CKRecord {
 				key: label,
 				value: {
 					switch value {
-						case let asset as CKAsset: return asset
-						case let date as NSDate: return date
-						case let number as NSNumber: return number
-						case let string as NSString: return string
-						default: return value as? CKRecordValue
+					case let asset as CKAsset:
+						return asset
+					case let date as NSDate:
+						return date
+					case let number as NSNumber:
+						return number
+					case let string as NSString:
+						return string
+					default: return value as? CKRecordValue
 					}
 				}()
 			)
