@@ -21,16 +21,13 @@ public final class MultiClosure<Input>: EquatableClass {
 	}
 	
 	var closures = Set<
-		UnownedReferencer<
-			EquatableClosure<Input>
-		>
+		UnownedReferencer< EquatableClosure<Input> >
 	>()
 	
 //MARK: deallocation
 	// We can't find self in `closures` without this.
-	fileprivate lazy var unownedSelf: UnownedReferencer<
-		MultiClosure<Input>
-	> = UnownedReferencer(self)
+	fileprivate lazy var unownedSelf: UnownedReferencer< MultiClosure<Input> >
+		= UnownedReferencer(self)
 	
 	// Even though this MultiClosure will be deallocated,
 	// its corresponding WeakReferencers won't be,
@@ -42,9 +39,9 @@ public final class MultiClosure<Input>: EquatableClass {
 
 /// A wrapper around a closure, for use with MultiClosures
 public final class EquatableClosure<Input>: EquatableClass {
-	public init(
-		_ closure: @escaping (Input) -> ()
-	) {self.closure = closure}
+	public init( _ closure: @escaping (Input) -> () ) {
+		self.closure = closure
+	}
 
 	/// Execute the closure
 	///
@@ -58,9 +55,7 @@ public final class EquatableClosure<Input>: EquatableClass {
 
 //MARK: deallocation
 	var multiClosures: Set<
-		UnownedReferencer<
-			MultiClosure<Input>
-		>
+		UnownedReferencer< MultiClosure<Input> >
 	> = []
 	
 	// We can't find self in `multiClosures` without this.
@@ -75,8 +70,7 @@ public final class EquatableClosure<Input>: EquatableClass {
 
 /// Add `closure` to the set of closures that runs
 /// when `multiClosure` does
-public func +=
-<Input>(
+public func += <Input>(
    multiClosure: MultiClosure<Input>,
    closure: EquatableClosure<Input>
 ) {

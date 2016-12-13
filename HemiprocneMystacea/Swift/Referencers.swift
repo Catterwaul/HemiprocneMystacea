@@ -23,11 +23,8 @@ public final class WeakReferencer
 }
 
 /// Remove the first `UnownedReferencer` with this `reference`
-public func -=
-<Reference: Equatable>(
-  set: inout Set<
-    UnownedReferencer<Reference>
-  >,
+public func -= <Reference: Equatable>(
+  set: inout Set< UnownedReferencer<Reference> >,
   reference: Reference
 ) {
   guard let referencer = (set.first{$0.reference == reference})
@@ -37,11 +34,8 @@ public func -=
 }
 
 /// Remove the first `WeakReferencer` with this `reference`
-public func -=
-<Reference: Equatable>(
-  set: inout Set<
-    WeakReferencer<Reference>
-  >,
+public func -= <Reference: Equatable>(
+  set: inout Set< WeakReferencer<Reference> >,
   reference: Reference
 ) {
   guard let referencer = (set.first{$0.reference == reference})

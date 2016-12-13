@@ -23,6 +23,20 @@ public extension JSON {
 	}
 }
 
+//MARK: StringKeyDictionary_throws
+extension JSON: StringKeyDictionary_throws {
+	/// Should just be a generic, throwing subscript, but those don't exist yet.
+	public func getValue<Value>(key: String) throws -> Value {
+		guard let object: AnyObject = object[key]
+		else {throw Error.noValue(key: key)}
+		
+		guard let value = object as? Value
+		else {throw Error.typeCastFailure(key: key)}
+		
+		return value
+	}
+}
+
 
 //MARK:- Error
 public extension JSON {
@@ -49,19 +63,5 @@ public extension Array where Element: InitializableWithJSON {
 				json: JSON(object: $0)
 			)
 		}
-	}
-}
-
-//MARK:- SubscriptableByStringKey_throws
-extension JSON: StringKeyDictionary_throws {
-	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	public func getValue<Value>(key: String) throws -> Value {
-		guard let object: AnyObject = object[key]
-		else {throw Error.noValue(key: key)}
-		
-		guard let value = object as? Value
-		else {throw Error.typeCastFailure(key: key)}
-		
-		return value
 	}
 }
