@@ -1,19 +1,15 @@
 import UIKit
 
 public extension UICollectionView {
-	func makeGetCellWithDependenciesInjected<Cell: UICollectionViewCell>(
+	func makeCellsWithDependenciesInjected<Cell: UICollectionViewCell>(
 		getCellDependencies: @escaping (IndexPath) -> Cell.Dependencies
-	) -> (IndexPath) -> Cell
+	) -> NamedGetOnlySubscript<IndexPath, Cell>
 	where Cell: injectDependencies {
-		return {
+		return NamedGetOnlySubscript{
 			[unowned self] indexPath in
 			
 			let cell: Cell = self.getCell(indexPath: indexPath)
-			
-			cell.inject(
-				dependencies: getCellDependencies(indexPath)
-			)
-			
+			cell.inject( dependencies: getCellDependencies(indexPath) )
 			return cell
 		}
 	}
