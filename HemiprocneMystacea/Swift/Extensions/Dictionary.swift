@@ -42,7 +42,9 @@ public extension Dictionary {
 	}
 }
 
-//MARK: Operators
+//MARK:- Operators
+
+//MARK: +
 ///- Returns: the combination of `dictionary` with a key-value pair sequence
 public func + <
 	Key, Value,
@@ -51,16 +53,12 @@ public func + <
 	dictionary: Dictionary<Key, Value>,
 	sequence: Sequence
 ) -> Dictionary<Key, Value>
-	where
-	Sequence.Iterator.Element == (
-		key: Key,
-		value: Value
-	)
-{
+where Sequence.Iterator.Element == (key: Key, value: Value) {
 	var dictionary = dictionary
 	sequence.forEach{dictionary[$0.key] = $0.value}
 	return dictionary
 }
+
 /// Combine `dictionary` with a key-value pair sequence
 public func += <
 	Key, Value,
@@ -69,15 +67,11 @@ public func += <
 	dictionary: inout Dictionary<Key, Value>,
 	sequence: Sequence
 )
-	where
-	Sequence.Iterator.Element == (
-		key: Key,
-		value: Value
-	)
-{
+where Sequence.Iterator.Element == (key: Key, value: Value) {
 	dictionary = dictionary + sequence
 }
 
+//MARK: –
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
 public func - <
 	Key: Hashable, Value,
@@ -86,9 +80,7 @@ public func - <
 	dictionary: Dictionary<Key, Value>,
 	keysToSetNil: KeysToSetNil
 ) -> Dictionary<Key, Value>
-	where
-	KeysToSetNil.Iterator.Element == Key
-{
+where KeysToSetNil.Iterator.Element == Key {
 	var dictionary = dictionary
 	for keyToSetNil in keysToSetNil {
 		dictionary[keyToSetNil] = nil
@@ -103,7 +95,6 @@ public func -= <
 	dictionary: inout Dictionary<Key, Value>,
 	keysToSetNil: KeysToSetNil
 )
-	where	KeysToSetNil.Iterator.Element == Key
-{
+where	KeysToSetNil.Iterator.Element == Key {
 	dictionary = dictionary - keysToSetNil
 }

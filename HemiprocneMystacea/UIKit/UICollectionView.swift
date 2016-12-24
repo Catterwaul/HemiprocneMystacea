@@ -1,7 +1,7 @@
 import UIKit
 
 public extension UICollectionView {
-	func initializeGetCellWithDependenciesInjected<Cell: UICollectionViewCell>(
+	func makeGetCellWithDependenciesInjected<Cell: UICollectionViewCell>(
 		getCellDependencies: @escaping (IndexPath) -> Cell.Dependencies
 	) -> (IndexPath) -> Cell
 	where Cell: injectDependencies {

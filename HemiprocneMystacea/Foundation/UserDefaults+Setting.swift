@@ -17,7 +17,7 @@ public struct Setting<Value: AnyObject>{
 public extension Setting where Value: ExpressibleByBooleanLiteral {
 	var value: Bool {
 		get {
-			return value(getter: UserDefaults.bool(forKey:))
+			return value( getter: UserDefaults.bool(forKey:) )
 		}
 		set {
 			value_set(

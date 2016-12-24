@@ -17,7 +17,7 @@ final class CGRectTestCase: XCTestCase {
 		)
 	}
 	
-	//MARK: initializers
+//MARK: initializers
 	func test_initWithSize() {
 		XCTAssertEqual(
 			CGRect(

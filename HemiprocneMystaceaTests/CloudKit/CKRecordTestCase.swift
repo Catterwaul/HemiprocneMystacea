@@ -3,7 +3,7 @@ import HM
 import XCTest
 
 final class CKRecordTestCase: XCTestCase {
-	func test_initialize_CKRecord() {
+	func test_initializeCKRecord() {
 		let
 		spookyOldHalloween = Date.distantPast,
 		mrPumpkin = Pumpkin(
@@ -11,9 +11,7 @@ final class CKRecordTestCase: XCTestCase {
 			halloween: spookyOldHalloween,
 			vine: "🐛"
 		),
-		unSmashingPumpkin = Pumpkin(
-			record: CKRecord(mrPumpkin)
-		)
+		unSmashingPumpkin = Pumpkin( record: CKRecord(mrPumpkin) )
 
 		XCTAssertEqual(unSmashingPumpkin.eyesCount, 2)
 		XCTAssertEqual(unSmashingPumpkin.halloween, spookyOldHalloween)
@@ -21,11 +19,10 @@ final class CKRecordTestCase: XCTestCase {
 	}
 
 	struct Pumpkin {
-		let
-		eyesCount: Int?,
-		halloween: Date?,
-		vine: String?,
-		nonCloudKitProperty = "⛈"
+		let eyesCount: Int?
+		let halloween: Date?
+		let vine: String?
+		let nonCloudKitProperty = "⛈"
 	}
 }
 

@@ -60,10 +60,9 @@ final class JSONTestCase: XCTestCase {
 		
 		XCTAssertEqual(
 			instruments.map{$0.visualization},
-			[
-				"🎹",
-				"🎸",
-				"🎷"
+			[	"🎹",
+			 	"🎸",
+			 	"🎷"
 			]
 		)
 		

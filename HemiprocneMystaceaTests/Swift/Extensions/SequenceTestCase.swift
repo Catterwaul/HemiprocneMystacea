@@ -15,8 +15,8 @@ final class SequenceTestCase: XCTestCase {
 			3
 		]
 		
-		XCTAssertTrue(ones.containsOnly(1))
-		XCTAssertFalse(oneTwoThree.containsOnly(2))
+		XCTAssertTrue( ones.containsOnly(1) )
+		XCTAssertFalse( oneTwoThree.containsOnly(2) )
 		
 		XCTAssertTrue(ones.containsOnly{$0 == 1})
 		XCTAssertFalse(oneTwoThree.containsOnly{$0 == 3})
