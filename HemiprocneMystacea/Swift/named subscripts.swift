@@ -1,11 +1,11 @@
 public struct NamedGetOnlySubscript<Index, Value> {
-	typealias GetValue = (Index) -> Value
+	public typealias GetValue = (Index) -> Value
 	
-	init(_ getValue: @escaping GetValue) {
+	public init(_ getValue: @escaping GetValue) {
 		self.getValue = getValue
 	}
 	
-	subscript(index: Index) -> Value {
+	public subscript(index: Index) -> Value {
 		return getValue(index)
 	}
 	

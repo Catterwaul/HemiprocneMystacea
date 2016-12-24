@@ -67,6 +67,7 @@
 		4969F44B1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */; };
+		4969F4501E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */; };
 		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		497190C91DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */; };
 		4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */; };
@@ -188,6 +189,7 @@
 		496563B71DB65C31002B7623 /* StringKeyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringKeyDictionary.swift; sourceTree = "<group>"; };
 		4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
 		4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathTestCase.swift; path = Foundation/IndexPathTestCase.swift; sourceTree = "<group>"; };
+		4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NamedSubscriptTestCase.swift; path = Swift/NamedSubscriptTestCase.swift; sourceTree = "<group>"; };
 		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift; path = UIKit/UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift; sourceTree = "<group>"; };
 		4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryTestCase.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
 				499C71951D0F8079009797BC /* MakeGetTestCase.swift */,
+				4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */,
 				49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */,
 				49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */,
 				49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */,
@@ -940,6 +943,7 @@
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */,
 				498B54CA1D828D1C00C07620 /* FloatingPointTestCase.swift in Sources */,
+				4969F4501E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift in Sources */,
 				49AE426B1D10CE010013301A /* …TestCase.swift in Sources */,
 				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
 				49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */,
