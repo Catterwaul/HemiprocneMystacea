@@ -19,4 +19,32 @@ final class NamedSubscriptTestCase: XCTestCase {
 		XCTAssertEqual(bodies["🐔"], "🐓")
 		XCTAssertEqual(bodies["🐰"], "🐇")
 	}
+  
+	func test_multipleIndices() {
+		enum Fruit: String {
+			case
+			apple = "🍏",
+			banana = "🍌",
+			strawberry = "🍓"
+		}
+		
+		let rawFruits = NamedGetOnlySubscript{
+			(fruit: Fruit) in fruit.rawValue
+		}
+		
+		XCTAssertEqual(
+			rawFruits[.banana, .apple],
+			["🍌", "🍏"]
+		)
+		
+		let strawberryAppleAndBanana: [Fruit] = [
+			.strawberry,
+			.apple,
+			.banana
+		]
+		XCTAssertEqual(
+			rawFruits[strawberryAppleAndBanana],
+			["🍓", "🍏", "🍌"]
+		)
+	}
 }
