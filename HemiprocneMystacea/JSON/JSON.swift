@@ -42,8 +42,8 @@ extension JSON: StringKeyDictionary_throws {
 public extension JSON {
 	enum Error: Swift.Error {
 		case
-		noValue(key: String),
-		typeCastFailure(key: String)
+			noValue(key: String),
+			typeCastFailure(key: String)
 	}
 }
 

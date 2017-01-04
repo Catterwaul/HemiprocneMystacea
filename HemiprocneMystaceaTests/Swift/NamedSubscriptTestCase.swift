@@ -23,9 +23,9 @@ final class NamedSubscriptTestCase: XCTestCase {
 	func test_multipleIndices() {
 		enum Fruit: String {
 			case
-			apple = "🍏",
-			banana = "🍌",
-			strawberry = "🍓"
+				apple = "🍏",
+				banana = "🍌",
+				strawberry = "🍓"
 		}
 		
 		let rawFruits = NamedGetOnlySubscript{

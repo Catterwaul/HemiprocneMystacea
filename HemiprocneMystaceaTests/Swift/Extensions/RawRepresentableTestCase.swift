@@ -19,8 +19,8 @@ final class RawRepresentableTestCase: XCTestCase {
 		
 		enum NumberOfCats: Int {
 			case
-			bad = 0,
-			good = 7_000_000
+				bad = 0,
+				good = 7_000_000
 		}
 		
 		XCTAssertTrue(

@@ -29,9 +29,9 @@ final class CKRecordTestCase: XCTestCase {
 extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 	enum CloudKitRecordKey: String {
 		case
-		eyesCount,
-		halloween,
-		vine
+			eyesCount,
+			halloween,
+			vine
 	}
 }
 
