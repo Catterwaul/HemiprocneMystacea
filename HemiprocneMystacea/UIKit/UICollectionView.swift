@@ -6,7 +6,8 @@ public extension UICollectionView {
 	) -> NamedGetOnlySubscript<IndexPath, Cell>
 	where Cell: injectDependencies {
 		return NamedGetOnlySubscript{
-			[unowned self] indexPath in
+			[unowned self]
+			indexPath in
 			
 			let cell: Cell = self.getCell(indexPath: indexPath)
 			cell.inject( dependencies: getCellDependencies(indexPath) )

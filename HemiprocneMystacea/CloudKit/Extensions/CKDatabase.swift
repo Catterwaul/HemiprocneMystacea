@@ -32,7 +32,7 @@ public extension CKDatabase {
 			predicate: predicate
 		){	getRecords in process{
 				try getRecords()
-					.map(Requested.init)
+				.map(Requested.init)
 			}
 		}
 	}
@@ -62,7 +62,8 @@ public extension CKDatabase {
 					getRecords in
 					
 					do {
-						let references = try getRecords()
+						let references =
+							try getRecords()
 							.map(Requested.Reference.init)
 						
 						processGetRequested{
@@ -93,9 +94,7 @@ public extension CKDatabase {
 				else {
 					dispatchGroup.notify(
 						queue: DispatchQueue(label: "")
-					){
-						processVerifyCompletion{}
-					}
+					){ processVerifyCompletion{} }
 				}
 			}
 		}

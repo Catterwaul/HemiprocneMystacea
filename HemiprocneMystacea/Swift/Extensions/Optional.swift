@@ -4,9 +4,11 @@ public extension Optional {
 	mutating func assignedIfNil(
 		_ getValueWhenNil: () -> Wrapped
 	) -> Wrapped {
-		return self ?? {
-			self = getValueWhenNil()
-			return self!
-		}()
+		return
+			self
+			?? {
+				self = getValueWhenNil()
+				return self!
+			}()
 	}
 }

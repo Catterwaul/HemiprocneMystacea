@@ -34,10 +34,12 @@ public extension Dictionary {
 		valueAddedIfNil value_get: @autoclosure() -> Dictionary.Value
 	) -> Dictionary.Value {
 		mutating get {
-			return self[key] ?? {
-				self[key] = value_get()
-				return self[key]!
-			}()
+			return
+				self[key]
+				?? {
+					self[key] = value_get()
+					return self[key]!
+				}()
 		}
 	}
 }
