@@ -16,7 +16,7 @@ public extension UIAlertController {
 		add(actions)
 	}
 
-	func add(_ actions: [UIAlertAction]) {
+	final func add(_ actions: [UIAlertAction]) {
 		actions.forEach(addAction)
 	}
 }

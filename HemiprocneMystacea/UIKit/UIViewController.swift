@@ -1,39 +1,11 @@
 import UIKit
 
-public extension UIViewController {	
-	final func dismiss(
-		animated: Bool = true,
-		respondToViewDidDisappear: ( () -> () )? = nil
-	) {
-		dismiss(
-			animated: animated,
-			completion: respondToViewDidDisappear
-		)
-	}
-	
-	final func performSegue(identifier: String) {
-		performSegue(
-			withIdentifier: identifier,
-			sender: self
-		)
-	}
-	
-	final func present(
-		viewController: UIViewController,
-		animated: Bool = true,
-		respondToViewDidAppear: ( () -> () )? = nil
-	) {
-		present(
-			viewController,
-			animated: animated,
-			completion: respondToViewDidAppear
-		)
-	}
-
+public extension UIViewController {		
 	final func presentActionSheet(
 		title: String? = nil,
 		message: String? = nil,
 		actions: [UIAlertAction] = [UIAlertAction.`default`],
+		animated: Bool = true,
 		sourceView: UIView
 	) {
 		let viewController = UIAlertController(
@@ -48,21 +20,26 @@ public extension UIViewController {
 			popoverPresentationController.sourceRect = sourceView.bounds
 		}
 	
-		present(viewController: viewController)
+		present(
+			viewController,
+			animated: animated
+		)
 	}
 	
 	final func presentAlert(
 		title: String? = nil,
 		message: String? = nil,
-		actions: [UIAlertAction] = [UIAlertAction.`default`]
+		actions: [UIAlertAction] = [UIAlertAction.`default`],
+		animated: Bool = true
 	) {
 		present(
-			viewController: UIAlertController(
+			UIAlertController(
 				title: title,
 				message: message,
 				style: .alert,
 				actions: actions
-			)
+			),
+			animated: false
 		)
 	}
 }

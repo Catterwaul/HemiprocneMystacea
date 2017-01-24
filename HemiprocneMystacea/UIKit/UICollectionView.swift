@@ -1,7 +1,7 @@
 import UIKit
 
 public extension UICollectionView {
-	func makeCellsWithDependenciesInjected<Cell: UICollectionViewCell>(
+	final func makeCellsWithDependenciesInjected<Cell: UICollectionViewCell>(
 		getCellDependencies: @escaping (IndexPath) -> Cell.Dependencies
 	) -> NamedGetOnlySubscript<IndexPath, Cell>
 	where Cell: injectDependencies {

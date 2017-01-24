@@ -1,7 +1,9 @@
 public typealias HashableError = Hashable & Error
 
 public struct Errors<Error: HashableError>: Swift.Error {
-//MARK:
+	public let set: Set<Error>
+	
+//MARK: init
 	public init<Errors: Sequence>(_ errors: Errors)
 	where Errors.Iterator.Element == Error {
 		set = Set(errors)
@@ -10,9 +12,6 @@ public struct Errors<Error: HashableError>: Swift.Error {
 	public init(_ errors: Error...) {
 		self.init(errors)
 	}
-//MARK:
-	
-	public let set: Set<Error>
 }
 
 
