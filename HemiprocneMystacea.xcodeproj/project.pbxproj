@@ -153,6 +153,8 @@
 		49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
 		49FA036D1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
+		49FCA3A71E3758650018B5EF /* UICollectionViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */; };
+		49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
 		49FCF0741C34D06E005338F6 /* SetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0731C34D06E005338F6 /* SetTestCase.swift */; };
 		49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F01CD91A940067F27E /* CABasicAnimation.swift */; };
@@ -269,6 +271,8 @@
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
 		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
 		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
+		49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewTestCase.swift; path = UIKit/UICollectionViewTestCase.swift; sourceTree = "<group>"; };
+		49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewTestCase.swift; path = UIKit/UITableViewTestCase.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
 		49FCF0731C34D06E005338F6 /* SetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTestCase.swift; sourceTree = "<group>"; };
 		49FD14F01CD91A940067F27E /* CABasicAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CABasicAnimation.swift; path = QuartzCore/CABasicAnimation.swift; sourceTree = "<group>"; };
@@ -589,7 +593,9 @@
 			isa = PBXGroup;
 			children = (
 				49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */,
+				49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */,
 				497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */,
+				49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -941,6 +947,7 @@
 				49C4343C1C35E10900B6C530 /* PropertiesTestCase.swift in Sources */,
 				49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */,
 				4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */,
+				49FCA3A71E3758650018B5EF /* UICollectionViewTestCase.swift in Sources */,
 				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
@@ -964,6 +971,7 @@
 				49C526E91DB6E8C50036B020 /* CKDatabaseTestCase.swift in Sources */,
 				49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */,
 				4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */,
+				49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */,
 				497EFE901DB6476E00DEC825 /* RawRepresentableTestCase.swift in Sources */,
 			);
