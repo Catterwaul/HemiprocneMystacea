@@ -35,7 +35,7 @@ extension reusableCells {
 	}
 	
 	final func reusableCells_makeCellsWithDependenciesInjected<Cell: UIView>(
-		getCellDependencies: @escaping (IndexPath) -> Cell.Dependencies
+		cellDependencies: NamedGetOnlySubscript<IndexPath, Cell.Dependencies>
 	) -> NamedGetOnlySubscript<IndexPath, Cell>
 	where Cell: injectDependencies {
 		return NamedGetOnlySubscript{
@@ -43,7 +43,7 @@ extension reusableCells {
 			indexPath in
 			
 			let cell: Cell = self.dequeueReusableCell(indexPath: indexPath)
-			cell.inject( dependencies: getCellDependencies(indexPath) )
+			cell.inject(dependencies: cellDependencies[indexPath])
 			return cell
 		}
 	}

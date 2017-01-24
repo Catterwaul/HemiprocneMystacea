@@ -6,7 +6,7 @@ final class UITableViewTestCase: XCTestCase {
 		let tableView = UITableView()
 		
 		_ = tableView.makeCellsWithDependenciesInjected(
-			getCellDependencies: {_ in}
+			cellDependencies: NamedGetOnlySubscript{_ in}
 		) as NamedGetOnlySubscript<IndexPath, Cell>
 	}
 	private final class Cell: UITableViewCell, injectDependencies {

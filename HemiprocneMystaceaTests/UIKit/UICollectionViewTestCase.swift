@@ -8,7 +8,7 @@ final class UICollectionViewTestCase: XCTestCase {
 			collectionViewLayout: .init()
 		)
 		_ = collectionView.makeCellsWithDependenciesInjected(
-			getCellDependencies: {_ in}
+			cellDependencies: NamedGetOnlySubscript{_ in}
 		) as NamedGetOnlySubscript<IndexPath, Cell>
 	}
 	private final class Cell: UICollectionViewCell, injectDependencies {

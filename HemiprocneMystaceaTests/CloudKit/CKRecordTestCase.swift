@@ -5,13 +5,13 @@ import XCTest
 final class CKRecordTestCase: XCTestCase {
 	func test_initializeCKRecord() {
 		let
-		spookyOldHalloween = Date.distantPast,
-		mrPumpkin = Pumpkin(
-			eyesCount: 2,
-			halloween: spookyOldHalloween,
-			vine: "🐛"
-		),
-		unSmashingPumpkin = Pumpkin( record: CKRecord(mrPumpkin) )
+			spookyOldHalloween = Date.distantPast,
+			mrPumpkin = Pumpkin(
+				eyesCount: 2,
+				halloween: spookyOldHalloween,
+				vine: "🐛"
+			),
+			unSmashingPumpkin = Pumpkin( record: CKRecord(mrPumpkin) )
 
 		XCTAssertEqual(unSmashingPumpkin.eyesCount, 2)
 		XCTAssertEqual(unSmashingPumpkin.halloween, spookyOldHalloween)
@@ -28,10 +28,9 @@ final class CKRecordTestCase: XCTestCase {
 
 extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 	enum CloudKitRecordKey: String {
-		case
-			eyesCount,
-			halloween,
-			vine
+		case eyesCount
+		case halloween
+		case vine
 	}
 }
 

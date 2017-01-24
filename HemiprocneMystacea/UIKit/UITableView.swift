@@ -28,11 +28,11 @@ public extension UITableView {
 	/// Designed to make `cellForRowAt indexPath` a simple one-liner.
 	///- Returns: cellsWithDependenciesInjected
 	final func makeCellsWithDependenciesInjected<Cell: UITableViewCell>(
-		getCellDependencies: @escaping (IndexPath) -> Cell.Dependencies
+		cellDependencies: NamedGetOnlySubscript<IndexPath, Cell.Dependencies>
 	) -> NamedGetOnlySubscript<IndexPath, Cell>
 	where Cell: injectDependencies {
 		return reusableCells_makeCellsWithDependenciesInjected(
-			getCellDependencies: getCellDependencies
+			cellDependencies: cellDependencies
 		)
 	}
 }
