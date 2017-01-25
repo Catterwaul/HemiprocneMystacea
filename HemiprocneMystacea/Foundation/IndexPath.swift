@@ -1,10 +1,10 @@
 import Foundation
 
 public extension IndexPath {
-	///- Parameters:
-	///- processables: usable like `processables[indexPath]`
-	///- process: `process(_ processable: Processable)`
-	
+	/// - Parameters:
+	///   - processables: usable like: `processables[indexPath]`
+	///   - process: `process(_ processable: Processable)`
+	///
 	///- Returns: `process(_ indexPath: IndexPath)`
 	static func makeProcess<Processable>(
 		processables: NamedGetOnlySubscript<IndexPath, Processable>,

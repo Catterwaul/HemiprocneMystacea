@@ -1,6 +1,12 @@
 import CloudKit
 
 public extension CKDatabase {
+	/// Request `CKRecord`s that correspond to a Swift type.
+	///
+	/// - Parameters:
+	///   - recordType: Its name has to be the same in your code, and in CloudKit.
+	///   - predicate: for the `CKQuery`
+	///   - process: processes a *throwing get [CKRecord]*
 	func request<Requested>(
 		recordType: Requested.Type,
 		predicate: NSPredicate = NSPredicate(value: true),
@@ -23,6 +29,13 @@ public extension CKDatabase {
 		}
 	}
 	
+	/// Request `CKRecord`s that correspond to a Swift type,
+	/// and return the result of initializing those types
+	/// with the records.
+	///
+	/// - Parameters:
+	///   - predicate: for the `CKQuery`
+	///   - process: processes a *throwing get [Requested]*
 	func request<Requested: InitializableWithCloudKitRecord>(
 		predicate: NSPredicate = NSPredicate(value: true),
 		process: @escaping Process<() throws -> [Requested]>
@@ -37,6 +50,18 @@ public extension CKDatabase {
 		}
 	}
 	
+	/// Request `CKRecord`s that correspond to a Swift type,
+	/// and implement `InitializableWithCloudKitRecordAndReferences`
+	/// because they use forward references.
+	///
+	/// Processing the result of initializing instances of those types
+	/// happens individually. 
+	/// Then processing verification of completion of the operation happens.
+	///
+	/// - Parameters:
+	///   - predicate: for the `CKQuery`
+	///   - processGetRequested: processes a *throwing get Requested*
+	///   - processVerifyCompletion: processes a `Verify` upon completion of the request
 	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
 		predicate: NSPredicate = NSPredicate(value: true),
 		_ processGetRequested: @escaping ProcessThrowingGet<Requested>,

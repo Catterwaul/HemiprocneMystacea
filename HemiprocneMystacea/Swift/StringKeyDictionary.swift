@@ -1,36 +1,48 @@
-public protocol StringKeyDictionary {
+/// Acts as a dictionary
+public protocol keyValueSubscript {
+	associatedtype Key
 	associatedtype Value
 	
-	subscript(key: String) -> Value? {get}
+	subscript(key: Key) -> Value? {get}
 }
 
-public extension StringKeyDictionary {
+public extension keyValueSubscript {
 	/// Should just be a generic subscript, but those don't exist yet.
-	func getValue<Value>(key: String) -> Value? {
+	func getValue<Value>(key: Key) -> Value? {
 		return self[key] as? Value
 	}
 	
+	/// Allows lookup by enumeration cases backed by `Key`s,
+	/// instead of having to manually use their raw values.
+	///
+	/// Should just be a generic subscript, but those don't exist yet.
 	func getValue<
 		Key: RawRepresentable,
 		Value
 	>(key: Key) -> Value?
-	where Key.RawValue == String {
+	where Key.RawValue == Self.Key {
 		return self.getValue(key: key.rawValue)
 	}
 }
 
-public protocol StringKeyDictionary_throws {
+/// Acts as a dictionary that `throw`s instead of returning optionals.
+public protocol keyValueThrowingSubscript {
+	associatedtype Key
+	
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	func getValue<Value>(key: String) throws -> Value
+	func getValue<Value>(key: Key) throws -> Value
 }
 
-public extension StringKeyDictionary_throws {
+public extension keyValueThrowingSubscript {
+	/// Allows lookup by enumeration cases backed by `Key`s,
+	/// instead of having to manually use their raw values.
+	///
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
 	func getValue<
 		Key: RawRepresentable,
 		Value
 	>(key: Key) throws -> Value
-	where Key.RawValue == String {
+	where Key.RawValue == Self.Key {
 		return try self.getValue(key: key.rawValue)
 	}
 }

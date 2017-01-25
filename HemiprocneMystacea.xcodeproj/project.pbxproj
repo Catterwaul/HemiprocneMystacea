@@ -204,7 +204,7 @@
 		49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = getMethodTestCase.swift; path = QuartzCore/getMethodTestCase.swift; sourceTree = "<group>"; };
 		49817E5F1D2CA99A0025A6CA /* errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = errors.swift; sourceTree = "<group>"; };
 		49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = errorsTestCase.swift; path = Swift/errorsTestCase.swift; sourceTree = "<group>"; };
-		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAsset.swift; sourceTree = "<group>"; };
+		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKAsset.swift; path = ../extension/CKAsset.swift; sourceTree = "<group>"; };
 		498B54C61D828CF300C07620 /* FloatingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
 		498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTestCase.swift; sourceTree = "<group>"; };
 		498F6CC51D3EBA20006534BF /* ConvertibleToJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleToJSON.swift; path = JSON/ConvertibleToJSON.swift; sourceTree = "<group>"; };
@@ -213,11 +213,11 @@
 		499C71911D0F7636009797BC /* JSONTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTestCase.swift; path = JSON/JSONTestCase.swift; sourceTree = "<group>"; };
 		499C71931D0F7E94009797BC /* CGSizeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGSizeTestCase.swift; path = "Core Graphics/CGSizeTestCase.swift"; sourceTree = "<group>"; };
 		499C71951D0F8079009797BC /* MakeGetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MakeGetTestCase.swift; path = Swift/MakeGetTestCase.swift; sourceTree = "<group>"; };
-		499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKFetchRecordsOperation.swift; sourceTree = "<group>"; };
+		499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKFetchRecordsOperation.swift; path = ../extension/CKFetchRecordsOperation.swift; sourceTree = "<group>"; };
 		49A1982D1D62B358005C251A /* typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typealiases.swift; sourceTree = "<group>"; };
-		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDatabase.swift; sourceTree = "<group>"; };
+		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKDatabase.swift; path = ../extension/CKDatabase.swift; sourceTree = "<group>"; };
 		49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecord.swift; sourceTree = "<group>"; };
-		49A36BDE1D407CD200A4BFEB /* CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecord.swift; sourceTree = "<group>"; };
+		49A36BDE1D407CD200A4BFEB /* CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKRecord.swift; path = ../extension/CKRecord.swift; sourceTree = "<group>"; };
 		49A4861B1D09132500A55CCD /* CGRectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectTestCase.swift; path = "Core Graphics/CGRectTestCase.swift"; sourceTree = "<group>"; };
 		49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTestCase.swift; sourceTree = "<group>"; };
 		49AE426A1D10CE010013301A /* …TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "…TestCase.swift"; path = "Swift/Operators/…TestCase.swift"; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesTestCase.swift; path = Swift/Properties/PropertiesTestCase.swift; sourceTree = "<group>"; };
 		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
 		49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NilClosuresTestCase.swift; path = Swift/NilClosuresTestCase.swift; sourceTree = "<group>"; };
-		49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKModifyRecordsOperation.swift; sourceTree = "<group>"; };
+		49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKModifyRecordsOperation.swift; path = ../extension/CKModifyRecordsOperation.swift; sourceTree = "<group>"; };
 		49C526E61DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKModifyRecordsOperationTestCase.swift; path = CloudKit/CKModifyRecordsOperationTestCase.swift; sourceTree = "<group>"; };
 		49C526E81DB6E8C50036B020 /* CKDatabaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKDatabaseTestCase.swift; path = CloudKit/CKDatabaseTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,7 +353,7 @@
 		49A36BDB1D407C6A00A4BFEB /* CloudKit */ = {
 			isa = PBXGroup;
 			children = (
-				49C526E41DB6D5830036B020 /* Extensions */,
+				49C526E41DB6D5830036B020 /* extension */,
 				497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
 			);
@@ -444,7 +444,7 @@
 			name = Foundation;
 			sourceTree = "<group>";
 		};
-		49C526E41DB6D5830036B020 /* Extensions */ = {
+		49C526E41DB6D5830036B020 /* extension */ = {
 			isa = PBXGroup;
 			children = (
 				498880841D58BFB400AE24FC /* CKAsset.swift */,
@@ -453,6 +453,7 @@
 				49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */,
 				49A36BDE1D407CD200A4BFEB /* CKRecord.swift */,
 			);
+			name = extension;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
