@@ -1,6 +1,8 @@
 import CloudKit
 
 public extension CKFetchRecordsOperation {
+	/// - Parameters:
+	///   - process: ID to record dictionary
 	convenience init(
 		recordIDs: [CKRecordID],
 		process: @escaping Process<() throws -> [CKRecordID: CKRecord]>
@@ -18,6 +20,8 @@ public extension CKFetchRecordsOperation {
 		}
 	}
 	
+	/// - Parameters:
+	///   - process: records
 	convenience init<References: Sequence>(
 		references: References,
 		process: @escaping Process<() throws -> [CKRecord]>
@@ -26,8 +30,11 @@ public extension CKFetchRecordsOperation {
 		let iDs = references.map{$0.recordID}
 		
 		self.init(recordIDs: iDs){
-			getRecords in process{
-				try iDs.map{try getRecords()[$0]!}
+			getRecords in
+			
+			process{
+				let records = try getRecords()
+				return iDs.map{id in records[id]!}
 			}
 		}
 	}

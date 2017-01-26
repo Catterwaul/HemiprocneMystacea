@@ -57,6 +57,8 @@
 		0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
+		492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
+		492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
 		4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
@@ -188,6 +190,7 @@
 		0A72FC241D4081580041845B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
+		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
 		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		494A99371E37253400F6A51D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -204,7 +207,7 @@
 		49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = getMethodTestCase.swift; path = QuartzCore/getMethodTestCase.swift; sourceTree = "<group>"; };
 		49817E5F1D2CA99A0025A6CA /* errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = errors.swift; sourceTree = "<group>"; };
 		49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = errorsTestCase.swift; path = Swift/errorsTestCase.swift; sourceTree = "<group>"; };
-		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKAsset.swift; path = ../extension/CKAsset.swift; sourceTree = "<group>"; };
+		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAsset.swift; sourceTree = "<group>"; };
 		498B54C61D828CF300C07620 /* FloatingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
 		498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTestCase.swift; sourceTree = "<group>"; };
 		498F6CC51D3EBA20006534BF /* ConvertibleToJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleToJSON.swift; path = JSON/ConvertibleToJSON.swift; sourceTree = "<group>"; };
@@ -213,11 +216,11 @@
 		499C71911D0F7636009797BC /* JSONTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTestCase.swift; path = JSON/JSONTestCase.swift; sourceTree = "<group>"; };
 		499C71931D0F7E94009797BC /* CGSizeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGSizeTestCase.swift; path = "Core Graphics/CGSizeTestCase.swift"; sourceTree = "<group>"; };
 		499C71951D0F8079009797BC /* MakeGetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MakeGetTestCase.swift; path = Swift/MakeGetTestCase.swift; sourceTree = "<group>"; };
-		499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKFetchRecordsOperation.swift; path = ../extension/CKFetchRecordsOperation.swift; sourceTree = "<group>"; };
+		499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKFetchRecordsOperation.swift; sourceTree = "<group>"; };
 		49A1982D1D62B358005C251A /* typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typealiases.swift; sourceTree = "<group>"; };
-		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKDatabase.swift; path = ../extension/CKDatabase.swift; sourceTree = "<group>"; };
+		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDatabase.swift; sourceTree = "<group>"; };
 		49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecord.swift; sourceTree = "<group>"; };
-		49A36BDE1D407CD200A4BFEB /* CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKRecord.swift; path = ../extension/CKRecord.swift; sourceTree = "<group>"; };
+		49A36BDE1D407CD200A4BFEB /* CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecord.swift; sourceTree = "<group>"; };
 		49A4861B1D09132500A55CCD /* CGRectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectTestCase.swift; path = "Core Graphics/CGRectTestCase.swift"; sourceTree = "<group>"; };
 		49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTestCase.swift; sourceTree = "<group>"; };
 		49AE426A1D10CE010013301A /* …TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "…TestCase.swift"; path = "Swift/Operators/…TestCase.swift"; sourceTree = "<group>"; };
@@ -241,7 +244,7 @@
 		49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertiesTestCase.swift; path = Swift/Properties/PropertiesTestCase.swift; sourceTree = "<group>"; };
 		49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReferencersTestCase.swift; path = Swift/ReferencersTestCase.swift; sourceTree = "<group>"; };
 		49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NilClosuresTestCase.swift; path = Swift/NilClosuresTestCase.swift; sourceTree = "<group>"; };
-		49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKModifyRecordsOperation.swift; path = ../extension/CKModifyRecordsOperation.swift; sourceTree = "<group>"; };
+		49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKModifyRecordsOperation.swift; sourceTree = "<group>"; };
 		49C526E61DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKModifyRecordsOperationTestCase.swift; path = CloudKit/CKModifyRecordsOperationTestCase.swift; sourceTree = "<group>"; };
 		49C526E81DB6E8C50036B020 /* CKDatabaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKDatabaseTestCase.swift; path = CloudKit/CKDatabaseTestCase.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				49C526E41DB6D5830036B020 /* extension */,
+				492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */,
 				497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
 			);
@@ -453,8 +457,7 @@
 				49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */,
 				49A36BDE1D407CD200A4BFEB /* CKRecord.swift */,
 			);
-			name = extension;
-			path = Extensions;
+			path = extension;
 			sourceTree = "<group>";
 		};
 		49C526E51DB6DA1D0036B020 /* CloudKit */ = {
@@ -857,6 +860,7 @@
 				0A72FC411D40819D0041845B /* CGSize.swift in Sources */,
 				0A72FC521D40819D0041845B /* operators.swift in Sources */,
 				0A72FC401D40819D0041845B /* CGRect.swift in Sources */,
+				492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
 				498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */,
@@ -895,6 +899,7 @@
 				498880851D58BFB400AE24FC /* CKAsset.swift in Sources */,
 				49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */,
 				49BF89901C38C8FD0050A49B /* InitializableWithParameters.swift in Sources */,
+				492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */,
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
