@@ -12,7 +12,7 @@ public protocol CloudKitBackReferencer: InitializableWithCloudKitRecord {
 	) -> RequestResult?
 }
 
-extension CloudKitBackReferencer {
+public extension CloudKitBackReferencer {
 	static func request(
 		database: CKDatabase,
 		_ process: @escaping Process<
