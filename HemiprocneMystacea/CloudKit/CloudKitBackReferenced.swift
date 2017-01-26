@@ -1,5 +1,6 @@
 import CloudKit
 
+/// Back-referenced by one `CloudKitBackReferencer` type
 public protocol CloudKitBackReferenced {
 	associatedtype BackReferencer: CloudKitBackReferencer
 	
@@ -10,6 +11,12 @@ public protocol CloudKitBackReferenced {
 }
 
 public extension CloudKitBackReferenced {
+	/// Fetches the `BackReferencer`s and uses them to initialize
+	/// the `Self`s that they reference.
+	///
+	/// - Parameters:
+	///   - process: all the selfs that can be created successfully,
+	///		or an error if their records can't be gotten.
 	static func request(
 		database: CKDatabase,
 		_ process: @escaping Process<() throws -> [Self]>
