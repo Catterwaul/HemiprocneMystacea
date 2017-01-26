@@ -59,6 +59,8 @@
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
 		492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
+		492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */; };
+		492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */; };
 		4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
@@ -191,6 +193,7 @@
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
+		492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferenced.swift; sourceTree = "<group>"; };
 		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		494A99371E37253400F6A51D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -357,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				49C526E41DB6D5830036B020 /* extension */,
+				492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */,
 				492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */,
 				497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
@@ -863,6 +867,7 @@
 				492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
+				492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */,
 				0A72FC4C1D40819D0041845B /* Equatable.swift in Sources */,
 				0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */,
@@ -878,6 +883,7 @@
 				497EFE8D1DB6472700DEC825 /* RawRepresentable.swift in Sources */,
 				49A36BDA1D407C6200A4BFEB /* CKDatabase.swift in Sources */,
 				49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */,
+				492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
 				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
