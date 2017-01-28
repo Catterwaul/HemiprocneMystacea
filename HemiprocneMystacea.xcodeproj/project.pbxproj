@@ -82,6 +82,13 @@
 		497EFE8D1DB6472700DEC825 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */; };
 		497EFE8E1DB6472700DEC825 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */; };
 		497EFE901DB6476E00DEC825 /* RawRepresentableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */; };
+		497F568A1E3C494F0066CD1E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56891E3C494F0066CD1E /* UIColor.swift */; };
+		497F568B1E3C494F0066CD1E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56891E3C494F0066CD1E /* UIColor.swift */; };
+		497F568D1E3C4BC40066CD1E /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568C1E3C4BC40066CD1E /* CALayer.swift */; };
+		497F568E1E3C4BC40066CD1E /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568C1E3C4BC40066CD1E /* CALayer.swift */; };
+		497F56901E3C4C5D0066CD1E /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */; };
+		497F56911E3C4C5D0066CD1E /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */; };
+		497F569A1E3C52690066CD1E /* UIColorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56991E3C52690066CD1E /* UIColorTestCase.swift */; };
 		49817E5E1D2C9BD20025A6CA /* getMethodTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */; };
 		49817E601D2CA99A0025A6CA /* errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E5F1D2CA99A0025A6CA /* errors.swift */; };
 		49817E621D2CAE0B0025A6CA /* errorsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */; };
@@ -209,6 +216,10 @@
 		497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToCloudKitRecord.swift; sourceTree = "<group>"; };
 		497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTestCase.swift; sourceTree = "<group>"; };
+		497F56891E3C494F0066CD1E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		497F568C1E3C4BC40066CD1E /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = QuartzCore/CALayer.swift; sourceTree = "<group>"; };
+		497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CATransform3D.swift; path = QuartzCore/CATransform3D.swift; sourceTree = "<group>"; };
+		497F56991E3C52690066CD1E /* UIColorTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorTestCase.swift; path = UIKit/UIColorTestCase.swift; sourceTree = "<group>"; };
 		49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = getMethodTestCase.swift; path = QuartzCore/getMethodTestCase.swift; sourceTree = "<group>"; };
 		49817E5F1D2CA99A0025A6CA /* errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = errors.swift; sourceTree = "<group>"; };
 		49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = errorsTestCase.swift; path = Swift/errorsTestCase.swift; sourceTree = "<group>"; };
@@ -593,6 +604,7 @@
 				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
 				494A99371E37253400F6A51D /* UICollectionView.swift */,
+				497F56891E3C494F0066CD1E /* UIColor.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
 				494A993A1E37261800F6A51D /* UITableView.swift */,
@@ -606,6 +618,7 @@
 			children = (
 				49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */,
 				49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */,
+				497F56991E3C52690066CD1E /* UIColorTestCase.swift */,
 				497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */,
 				49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */,
 			);
@@ -616,6 +629,8 @@
 			isa = PBXGroup;
 			children = (
 				49FD14F21CD91BE00067F27E /* CABasicAnimation */,
+				497F568C1E3C4BC40066CD1E /* CALayer.swift */,
+				497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */,
 			);
 			name = QuartzCore;
 			sourceTree = "<group>";
@@ -820,9 +835,11 @@
 				49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */,
 				0A72FC5F1D40819D0041845B /* EquatableClass.swift in Sources */,
 				0A72FC5B1D40819D0041845B /* nil closures.swift in Sources */,
+				497F568B1E3C494F0066CD1E /* UIColor.swift in Sources */,
 				0A72FC6A1D40819D0041845B /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */,
 				0A72FC531D40819D0041845B /* ….swift in Sources */,
+				497F568E1E3C4BC40066CD1E /* CALayer.swift in Sources */,
 				4993AD341DD99155007C7525 /* named subscripts.swift in Sources */,
 				0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */,
 				0A72FC451D40819D0041845B /* ConvertibleToJSON.swift in Sources */,
@@ -868,6 +885,7 @@
 				0A72FC391D40819D0041845B /* CKDatabase.swift in Sources */,
 				0A72FC411D40819D0041845B /* CGSize.swift in Sources */,
 				0A72FC521D40819D0041845B /* operators.swift in Sources */,
+				497F56911E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
 				0A72FC401D40819D0041845B /* CGRect.swift in Sources */,
 				492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
@@ -894,6 +912,7 @@
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
 				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
+				497F568A1E3C494F0066CD1E /* UIColor.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
 				49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
@@ -920,6 +939,7 @@
 				494A99381E37253400F6A51D /* UICollectionView.swift in Sources */,
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
 				49A36BDF1D407CD200A4BFEB /* CKRecord.swift in Sources */,
+				497F56901E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
 				494A993B1E37261800F6A51D /* UITableView.swift in Sources */,
 				E348A4301D08C085003D8024 /* CGRect.swift in Sources */,
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
@@ -947,6 +967,7 @@
 				4993AD331DD99155007C7525 /* named subscripts.swift in Sources */,
 				496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49B159541E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */,
+				497F568D1E3C4BC40066CD1E /* CALayer.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
 				E348A4351D08C146003D8024 /* Optional.swift in Sources */,
 			);
@@ -978,6 +999,7 @@
 				49AE426B1D10CE010013301A /* …TestCase.swift in Sources */,
 				49C434741C379F0000B6C530 /* NilClosuresTestCase.swift in Sources */,
 				49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */,
+				497F569A1E3C52690066CD1E /* UIColorTestCase.swift in Sources */,
 				49817E5E1D2C9BD20025A6CA /* getMethodTestCase.swift in Sources */,
 				0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */,
 				49FD14F71CD91D470067F27E /* CABasicAnimationTestCase.swift in Sources */,

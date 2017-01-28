@@ -1,6 +1,8 @@
 import QuartzCore
 
 public extension CABasicAnimation {
+	/// Should be `Values<Interpolable>`.
+	/// Change that for Swift 3.1!
 	public struct Values {
 		public init<Interpolable>(
 			from: Interpolable,
@@ -10,8 +12,7 @@ public extension CABasicAnimation {
 			self.to = to as AnyObject
 		}
 		
-		let
-		from: AnyObject,
-		to: AnyObject
+		let from: AnyObject
+		let to: AnyObject
 	}
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-struct FileInfo {
+public struct FileInfo {
 	init(path: String) throws {
 		try attributes = FileManager.default.attributesOfItem(atPath: path)
 	}
@@ -9,8 +9,8 @@ struct FileInfo {
 }
 
 //MARK: public
-extension FileInfo {
+public extension FileInfo {
 	var size: UInt {
-		return attributes[FileAttributeKey.size] as! UInt
+		return attributes[.size] as! UInt
 	}
 }
