@@ -6,8 +6,8 @@ final class CABasicAnimationTestCase: XCTestCase {
 		_ = CABasicAnimation(
 			keyPath: "",
 			values: CABasicAnimation.Values(
-				from: CGFloat(0),
-				to: CGFloat(2 * M_PI)
+				from: 0,
+				to: 2 * CGFloat.pi
 			),
 			duration: 0
 		)
