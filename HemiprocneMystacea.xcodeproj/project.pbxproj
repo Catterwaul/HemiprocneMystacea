@@ -71,6 +71,7 @@
 		496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
 		496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
 		4966E4CF1E3C5AA300199496 /* CGPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E4CE1E3C5AA300199496 /* CGPointTestCase.swift */; };
+		4966E4D11E3C5C0700199496 /* CALayerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E4D01E3C5C0700199496 /* CALayerTestCase.swift */; };
 		4969F44B1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */; };
@@ -211,6 +212,7 @@
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		496563B71DB65C31002B7623 /* keyValueSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyValueSubscript.swift; sourceTree = "<group>"; };
 		4966E4CE1E3C5AA300199496 /* CGPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGPointTestCase.swift; path = "Core Graphics/CGPointTestCase.swift"; sourceTree = "<group>"; };
+		4966E4D01E3C5C0700199496 /* CALayerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayerTestCase.swift; path = QuartzCore/CALayerTestCase.swift; sourceTree = "<group>"; };
 		4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
 		4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathTestCase.swift; path = Foundation/IndexPathTestCase.swift; sourceTree = "<group>"; };
 		4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NamedSubscriptTestCase.swift; path = Swift/NamedSubscriptTestCase.swift; sourceTree = "<group>"; };
@@ -654,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				49FD14F61CD91D470067F27E /* CABasicAnimationTestCase.swift */,
+				4966E4D01E3C5C0700199496 /* CALayerTestCase.swift */,
 			);
 			name = QuartzCore;
 			sourceTree = "<group>";
@@ -1023,6 +1026,7 @@
 				4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */,
 				49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */,
+				4966E4D11E3C5C0700199496 /* CALayerTestCase.swift in Sources */,
 				497EFE901DB6476E00DEC825 /* RawRepresentableTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
