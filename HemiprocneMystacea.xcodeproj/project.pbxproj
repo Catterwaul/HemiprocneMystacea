@@ -70,6 +70,7 @@
 		494A993C1E37261800F6A51D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A993A1E37261800F6A51D /* UITableView.swift */; };
 		496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
 		496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
+		4966E4CF1E3C5AA300199496 /* CGPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E4CE1E3C5AA300199496 /* CGPointTestCase.swift */; };
 		4969F44B1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */; };
@@ -89,6 +90,8 @@
 		497F56901E3C4C5D0066CD1E /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */; };
 		497F56911E3C4C5D0066CD1E /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */; };
 		497F569A1E3C52690066CD1E /* UIColorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56991E3C52690066CD1E /* UIColorTestCase.swift */; };
+		497F569C1E3C55B50066CD1E /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F569B1E3C55B50066CD1E /* CGPoint.swift */; };
+		497F569D1E3C55B50066CD1E /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F569B1E3C55B50066CD1E /* CGPoint.swift */; };
 		49817E5E1D2C9BD20025A6CA /* getMethodTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */; };
 		49817E601D2CA99A0025A6CA /* errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E5F1D2CA99A0025A6CA /* errors.swift */; };
 		49817E621D2CAE0B0025A6CA /* errorsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */; };
@@ -207,6 +210,7 @@
 		494A99371E37253400F6A51D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		496563B71DB65C31002B7623 /* keyValueSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyValueSubscript.swift; sourceTree = "<group>"; };
+		4966E4CE1E3C5AA300199496 /* CGPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGPointTestCase.swift; path = "Core Graphics/CGPointTestCase.swift"; sourceTree = "<group>"; };
 		4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
 		4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathTestCase.swift; path = Foundation/IndexPathTestCase.swift; sourceTree = "<group>"; };
 		4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NamedSubscriptTestCase.swift; path = Swift/NamedSubscriptTestCase.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 		497F568C1E3C4BC40066CD1E /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = QuartzCore/CALayer.swift; sourceTree = "<group>"; };
 		497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CATransform3D.swift; path = QuartzCore/CATransform3D.swift; sourceTree = "<group>"; };
 		497F56991E3C52690066CD1E /* UIColorTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorTestCase.swift; path = UIKit/UIColorTestCase.swift; sourceTree = "<group>"; };
+		497F569B1E3C55B50066CD1E /* CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGPoint.swift; path = "HemiprocneMystacea/Core Graphics/CGPoint.swift"; sourceTree = SOURCE_ROOT; };
 		49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = getMethodTestCase.swift; path = QuartzCore/getMethodTestCase.swift; sourceTree = "<group>"; };
 		49817E5F1D2CA99A0025A6CA /* errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = errors.swift; sourceTree = "<group>"; };
 		49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = errorsTestCase.swift; path = Swift/errorsTestCase.swift; sourceTree = "<group>"; };
@@ -364,6 +369,7 @@
 		499C71901D0F761B009797BC /* Core Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				4966E4CE1E3C5AA300199496 /* CGPointTestCase.swift */,
 				49A4861B1D09132500A55CCD /* CGRectTestCase.swift */,
 				499C71931D0F7E94009797BC /* CGSizeTestCase.swift */,
 			);
@@ -655,6 +661,7 @@
 		E348A4311D08C08B003D8024 /* Core Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				497F569B1E3C55B50066CD1E /* CGPoint.swift */,
 				E348A42F1D08C085003D8024 /* CGRect.swift */,
 				E348A4321D08C0DE003D8024 /* CGSize.swift */,
 			);
@@ -889,6 +896,7 @@
 				0A72FC401D40819D0041845B /* CGRect.swift in Sources */,
 				492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
+				497F569D1E3C55B50066CD1E /* CGPoint.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
 				492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */,
@@ -967,6 +975,7 @@
 				4993AD331DD99155007C7525 /* named subscripts.swift in Sources */,
 				496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49B159541E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */,
+				497F569C1E3C55B50066CD1E /* CGPoint.swift in Sources */,
 				497F568D1E3C4BC40066CD1E /* CALayer.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
 				E348A4351D08C146003D8024 /* Optional.swift in Sources */,
@@ -989,6 +998,7 @@
 				49FCA3A71E3758650018B5EF /* UICollectionViewTestCase.swift in Sources */,
 				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
+				4966E4CF1E3C5AA300199496 /* CGPointTestCase.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
