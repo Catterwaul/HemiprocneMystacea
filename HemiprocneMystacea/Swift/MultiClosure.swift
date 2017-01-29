@@ -43,7 +43,7 @@ public final class MultiClosure<Input>: EquatableClass {
 
 /// A wrapper around a closure, for use with MultiClosures
 public final class EquatableClosure<Input>: EquatableClass {
-	public init( _ closure: @escaping (Input) -> () ) {
+	public init( _ closure: @escaping ( Input) -> () ) {
 		self.closure = closure
 	}
 
