@@ -13,7 +13,7 @@ public protocol ConvertibleToCloudKitRecord {
 //MARK: public
 public extension ConvertibleToCloudKitRecord
 where CloudKitRecordKey.RawValue == String {
-	var recordDictionary: [String: CKRecordValue?] {
+	var recordDictionaryOverrides: [String: CKRecordValue?] {
 		return [:]
 	}
 	
