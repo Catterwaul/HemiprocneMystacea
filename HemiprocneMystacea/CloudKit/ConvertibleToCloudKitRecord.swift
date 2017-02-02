@@ -6,22 +6,26 @@ public protocol ConvertibleToCloudKitRecord {
 	associatedtype CloudKitRecordKey: RawRepresentable
 }
 
-public extension CKRecord {
-	/// - Important: Type name of ConvertibleToCloudKitRecord is the name of its CKRecord
-	convenience init<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(
-		_ convertibleToCloudKitRecord: ConvertibleToCloudKitRecord
-	)
-	where ConvertibleToCloudKitRecord.CloudKitRecordKey.RawValue == String {
-		self.init(
-			recordType: String(describing: ConvertibleToCloudKitRecord.self)
-		)
+//MARK: public
+public extension ConvertibleToCloudKitRecord
+where CloudKitRecordKey.RawValue == String {
+	func synchronize(record: CKRecord) {
+		for (key, value) in recordDictionaryPairs {
+			record[key] = value
+		}
+	}
+}
 
-		Mirror(reflecting: convertibleToCloudKitRecord).children.flatMap{
+//MARK: fileprivate
+private extension ConvertibleToCloudKitRecord
+where CloudKitRecordKey.RawValue == String {
+	var recordDictionaryPairs: [(key: String, value: CKRecordValue?)] {
+		return Mirror(reflecting: self).children.flatMap{
 			label, value in
 			
 			guard
 				let label = label,
-				ConvertibleToCloudKitRecord.CloudKitRecordKey.contains(label)
+				CloudKitRecordKey.contains(label)
 			else {return nil}
 			
 			return (
@@ -44,10 +48,20 @@ public extension CKRecord {
 					}
 				}()
 			)
-		}.forEach{
-			(	key: String,
-				value: CKRecordValue?
-			) in self[key] = value
 		}
+	}
+}
+
+//MARK:
+public extension CKRecord {
+	/// - Important: Type name of ConvertibleToCloudKitRecord is the name of its CKRecord
+	convenience init<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(
+		_ convertibleToCloudKitRecord: ConvertibleToCloudKitRecord
+	)
+	where ConvertibleToCloudKitRecord.CloudKitRecordKey.RawValue == String {
+		self.init(
+			recordType: String(describing: ConvertibleToCloudKitRecord.self)
+		)
+		convertibleToCloudKitRecord.synchronize(record: self)
 	}
 }
