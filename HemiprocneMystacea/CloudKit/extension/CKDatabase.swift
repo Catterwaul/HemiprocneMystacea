@@ -133,4 +133,22 @@ public extension CKDatabase {
 		initialize(operation)
 		add(operation)
 	}
+	
+	/// - Parameters:
+	///   - processVerify: that the save succeeded
+	func save(
+		_ record: CKRecord,
+		processVerify: @escaping Process<Verify>
+	){
+		save(record){
+			record, error in
+			
+			if let error = error {
+				processVerify{throw error}
+				return
+			}
+			
+			processVerify{}
+		}
+	}
 }
