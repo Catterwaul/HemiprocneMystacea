@@ -5,13 +5,19 @@ final class JSONTestCase: XCTestCase {
 	func test_JSON() {
 		let
 			oldKey = "🗝",
-			json = try! JSON(dictionary: [oldKey: "🔑"])
+         dictionary = [oldKey: "🔑"],
+			json = try! JSON(dictionary: dictionary),
+         pList = try! PropertyList(dictionary: dictionary)
 		
 		XCTAssertEqual(
 			try json.getValue(key: oldKey),
 			"🔑"
 		)
-		
+      XCTAssertEqual(
+         try pList.getValue(key: oldKey),
+         "🔑"
+      )
+      
 		let turKey = "🦃"
 		XCTAssertThrowsError(
 			try json.getValue(key: turKey) as Any
@@ -22,6 +28,16 @@ final class JSONTestCase: XCTestCase {
 			default: XCTFail()
 			}
 		}
+      
+      XCTAssertThrowsError(
+         try pList.getValue(key: turKey) as Any
+      ){	error in switch error {
+         case SerializableDictionaryError.noValue(let key):
+            XCTAssertEqual(key, turKey)
+            
+         default: XCTFail()
+         }
+      }
 		
 		XCTAssertThrowsError(
 			try json.getValue(key: oldKey) as Bool
@@ -32,6 +48,16 @@ final class JSONTestCase: XCTestCase {
 			default: XCTFail()
 			}
 		}
+      
+      XCTAssertThrowsError(
+         try pList.getValue(key: oldKey) as Bool
+      ){ error in switch error {
+         case SerializableDictionaryError.typeCastFailure(let key):
+            XCTAssertEqual(key, oldKey)
+            
+         default: XCTFail()
+         }
+      }
 	}
 	
 	func test_InitializableWithJSONArray_init() {
@@ -53,7 +79,7 @@ final class JSONTestCase: XCTestCase {
 			]
 		]
 		
-		let instruments = try! [Instrument](
+		var instruments = try! [Instrument](
 			dictionary: JSON(dictionary: dictionary),
 			key: "instruments"
 		)
@@ -65,6 +91,19 @@ final class JSONTestCase: XCTestCase {
 			 	"🎷"
 			]
 		)
+      
+      instruments = try! [Instrument](
+         dictionary: PropertyList(dictionary: dictionary),
+         key: "instruments"
+      )
+      
+      XCTAssertEqual(
+         instruments.map{$0.visualization},
+         [	"🎹",
+          	"🎸",
+          	"🎷"
+         ]
+      )
 		
 		let turKeyboard = "🦃⌨️"
 		XCTAssertThrowsError(
@@ -79,5 +118,17 @@ final class JSONTestCase: XCTestCase {
 			default: XCTFail()
 			}
 		}
+      XCTAssertThrowsError(
+         try [Instrument](
+            dictionary: PropertyList(dictionary: dictionary),
+            key: turKeyboard
+         )
+      ){ error in switch error {
+         case SerializableDictionaryError.noValue(let key):
+            XCTAssertEqual(key, turKeyboard)
+            
+         default: XCTFail()
+         }
+      }
 	}
 }
