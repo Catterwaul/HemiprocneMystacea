@@ -1,7 +1,7 @@
 import Foundation
 
 public extension JSON {
-	typealias Dictionary = [String: AnyObject]
+	typealias Dictionary = [String: Any]
 }
 
 public protocol ConvertibleToJSON {
@@ -25,11 +25,12 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
 					JSONKey.contains(label)
 				else {return nil}
 				
-				let value: AnyObject = {
+				let value: Any = {
 					switch value {
 					case let value as ConvertibleToJSON:
-						return value.jsonDictionary as AnyObject
-					default: return value as AnyObject
+						return value.jsonDictionary
+            
+					default: return value
 					}
 				}()
 				
@@ -53,7 +54,7 @@ public extension JSON {
 public extension Data {
 	/// - returns: `convertibleToJSON`'s `jsonDictionary` serialized JSON with the "prettyPrinted" option
 	init<ConvertibleToJSON: HM.ConvertibleToJSON>(convertibleToJSON: ConvertibleToJSON) throws {
-		try self.init(jsonObject: convertibleToJSON.jsonDictionary as AnyObject)
+		try self.init(jsonObject: convertibleToJSON.jsonDictionary)
 	}
 	
 	/// - returns: `value` serialized as JSON with the "prettyPrinted" option
@@ -62,15 +63,12 @@ public extension Data {
 		value: ConvertibleToJSON
 	) throws {
 		try self.init(
-			jsonObject: [key: value.jsonDictionary] as AnyObject
+			jsonObject: [key: value.jsonDictionary]
 		)
 	}
 	
-	
-	/// - parameter jsonObject: a JSON dictionary
-	///
-	/// - returns: serialized JSON with the "prettyPrinted" option
-	init(jsonObject: AnyObject) throws {
+	/// - Returns: serialized JSON with the "prettyPrinted" option
+	init(jsonObject: Any) throws {
 		try self = JSONSerialization.data(
 			withJSONObject: jsonObject,
 			options: .prettyPrinted

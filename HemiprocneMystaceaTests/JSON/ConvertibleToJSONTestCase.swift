@@ -11,19 +11,19 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 	
 	func test_initializeJSON() {
 		let
-		crossBonez = 💀(skool: "☠️"),
-		reconstructedCrossBonez = 💀( json: try! JSON(crossBonez) )
+			crossBonez = 💀(skool: "☠️"),
+			reconstructedCrossBonez = 💀( json: try! JSON(crossBonez) )
 		
 		XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
 	}
 	
 	func test_initializeNestedJSON() {
 		let
-		👻instance = 👻(
-			boool: true,
-			skoool: 💀(skool: "👠L")
-		),
-		reconstructed👻 = 👻( json: try! JSON(👻instance) )
+			👻instance = 👻(
+				boool: true,
+				skoool: 💀(skool: "👠L")
+			),
+			reconstructed👻 = 👻( json: try! JSON(👻instance) )
 
 		XCTAssertTrue(reconstructed👻.boool)
 		XCTAssertEqual(reconstructed👻.skoool.skool, "👠L")
@@ -32,16 +32,16 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 	func test_initializeJSONUsingKey() {
 		do {
 			let
-			data = try! Data(
-				key: "👻",
-				value: 👻(
-					boool: false,
-					skoool: 💀(skool: "🏫")
-				)
-			),
-			json = try! JSON(data: data),
-			👻object: AnyObject = try json.getValue(key: "👻"),
-			reconstruction = 👻( json: JSON(object: 👻object) )
+				data = try! Data(
+					key: "👻",
+					value: 👻(
+						boool: false,
+						skoool: 💀(skool: "🏫")
+					)
+				),
+				json = try! JSON(data: data),
+				👻object: Any = try json.getValue(key: "👻"),
+				reconstruction = 👻( json: try! JSON(object: 👻object) )
 
 			XCTAssertFalse(reconstruction.boool)
 			XCTAssertEqual(reconstruction.skoool.skool, "🏫")
@@ -66,13 +66,13 @@ private struct 👻 {
 		self.skoool = skoool
 	}
 	
-	let
-	boool: Bool,
-	skoool: 💀
+	let boool: Bool
+	let skoool: 💀
 }
 extension 👻: ConvertibleToJSON {
 	enum JSONKey: String {
-		case boool, skoool
+		case boool
+		case skoool
 	}
 }
 extension 👻: InitializableWithJSON {

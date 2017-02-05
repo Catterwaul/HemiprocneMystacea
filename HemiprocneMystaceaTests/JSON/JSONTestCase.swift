@@ -4,8 +4,8 @@ import XCTest
 final class JSONTestCase: XCTestCase {
 	func test_JSON() {
 		let
-		oldKey = "🗝",
-		json = JSON(object: [oldKey: "🔑"])
+			oldKey = "🗝",
+			json = try! JSON(object: [oldKey: "🔑"])
 		
 		XCTAssertEqual(
 			try json.getValue(key: oldKey),
@@ -15,22 +15,20 @@ final class JSONTestCase: XCTestCase {
 		let turKey = "🦃"
 		XCTAssertThrowsError(
 			try json.getValue(key: turKey) as Any
-		){	error in
-            
-			switch error {
-			case JSON.Error.noValue(let key):
-				XCTAssertEqual(key, turKey)
+		){	error in switch error {
+         case JSON.Error.noValue(let key):
+            XCTAssertEqual(key, turKey)
+				
 			default: XCTFail()
 			}
 		}
 		
 		XCTAssertThrowsError(
 			try json.getValue(key: oldKey) as Bool
-		){  error in
-            
-			switch error {
-			case JSON.Error.typeCastFailure(let key):
+		){ error in switch error {
+         case JSON.Error.typeCastFailure(let key):
 				XCTAssertEqual(key, oldKey)
+				
 			default: XCTFail()
 			}
 		}
@@ -72,11 +70,10 @@ final class JSONTestCase: XCTestCase {
 				json: JSON(object: jSObject),
 				key: turKeyboard
 			)
-		){ error in
-            
-			switch error {
+		){ error in switch error {
 			case JSON.Error.noValue(let key):
 				XCTAssertEqual(key, turKeyboard)
+				
 			default: XCTFail()
 			}
 		}
