@@ -4,7 +4,7 @@ import XCTest
 final class ConvertibleToJSONTestCase: XCTestCase {
 	func test_jsonDictionary() {
 		XCTAssertEqual(
-			💀(skool: "🏫").jsonDictionary as! [String: String],
+			💀(skool: "🏫").serializableDictionary as! [String: String],
 			["skool": "🏫"]
 		)
 	}
@@ -38,7 +38,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 			let
 				data = try! Data(
 					key: "👻",
-					value: 👻(
+					convertibleToJSON: 👻(
 						boool: false,
 						skoool: 💀(skool: "🏫")
 					)
@@ -77,8 +77,8 @@ private struct 👻 {
 	let skoool: 💀
 }
 
-extension 👻: ConvertibleToJSON {
-	enum JSONKey: String {
+extension 👻: ConvertibleToSerializableDictionary {
+	enum SerializableDictionaryKey: String {
 		case boool
 		case skoool
 	}
@@ -89,10 +89,10 @@ extension 👻: InitializableWithSerializableDictionary {
       dictionary: Dictionary
    ) {
 		self.init(
-			boool: try! dictionary.getValue(key: JSONKey.boool),
+			boool: try! dictionary.getValue(key: SerializableDictionaryKey.boool),
 			skoool: 💀(
 				dictionary: try! JSON(
-					dictionary: dictionary.getValue(key: JSONKey.skoool)
+					dictionary: dictionary.getValue(key: SerializableDictionaryKey.skoool)
 				)
 			)
 		)
@@ -107,8 +107,8 @@ private struct 💀 {
 	let nonJSONProperty = "🏑"
 }
 
-extension 💀: ConvertibleToJSON {
-	enum JSONKey: String {
+extension 💀: ConvertibleToSerializableDictionary {
+	enum SerializableDictionaryKey: String {
 		case skool
 	}
 }
@@ -118,7 +118,7 @@ extension 💀: InitializableWithSerializableDictionary {
       dictionary: Dictionary
    ) {
 		self.init(
-			skool: try! dictionary.getValue(key: JSONKey.skool)
+			skool: try! dictionary.getValue(key: SerializableDictionaryKey.skool)
 		)
 	}
 }

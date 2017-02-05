@@ -19,7 +19,7 @@
 		0A72FC421D40819D0041845B /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		0A72FC431D40819D0041845B /* UserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */; };
 		0A72FC441D40819D0041845B /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BE34031D0B2688008D532C /* JSON.swift */; };
-		0A72FC451D40819D0041845B /* ConvertibleToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToJSON.swift */; };
+		0A72FC451D40819D0041845B /* ConvertibleToSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */; };
 		0A72FC461D40819D0041845B /* CABasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F01CD91A940067F27E /* CABasicAnimation.swift */; };
 		0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F31CD91C070067F27E /* CABasicAnimation.Values.swift */; };
 		0A72FC481D40819D0041845B /* integers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D51C33807000529B08 /* integers.swift */; };
@@ -100,7 +100,7 @@
 		498B54C71D828CF300C07620 /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C61D828CF300C07620 /* FloatingPoint.swift */; };
 		498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C61D828CF300C07620 /* FloatingPoint.swift */; };
 		498B54CA1D828D1C00C07620 /* FloatingPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */; };
-		498F6CC61D3EBA20006534BF /* ConvertibleToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToJSON.swift */; };
+		498F6CC61D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */; };
 		498F6CCA1D3EBC20006534BF /* ConvertibleToJSONTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC91D3EBC20006534BF /* ConvertibleToJSONTestCase.swift */; };
 		4993AD331DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
 		4993AD341DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
@@ -120,6 +120,10 @@
 		49A6C9591E476D6700CF5FFB /* SerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */; };
 		49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
 		49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
+		49AC701E1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */; };
+		49AC701F1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */; };
+		49AC70211E476AEC00342DB3 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC70201E476AEC00342DB3 /* PropertyList.swift */; };
+		49AC70221E476AEC00342DB3 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC70201E476AEC00342DB3 /* PropertyList.swift */; };
 		49AE426B1D10CE010013301A /* …TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE426A1D10CE010013301A /* …TestCase.swift */; };
 		49B159541E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
 		49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
@@ -237,7 +241,7 @@
 		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAsset.swift; sourceTree = "<group>"; };
 		498B54C61D828CF300C07620 /* FloatingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
 		498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTestCase.swift; sourceTree = "<group>"; };
-		498F6CC51D3EBA20006534BF /* ConvertibleToJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleToJSON.swift; path = JSON/ConvertibleToJSON.swift; sourceTree = "<group>"; };
+		498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToSerializableDictionary.swift; sourceTree = "<group>"; };
 		498F6CC91D3EBC20006534BF /* ConvertibleToJSONTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvertibleToJSONTestCase.swift; path = JSON/ConvertibleToJSONTestCase.swift; sourceTree = "<group>"; };
 		4993AD321DD99155007C7525 /* named subscripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "named subscripts.swift"; sourceTree = "<group>"; };
 		499C71911D0F7636009797BC /* JSONTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONTestCase.swift; path = JSON/JSONTestCase.swift; sourceTree = "<group>"; };
@@ -252,6 +256,8 @@
 		49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTestCase.swift; sourceTree = "<group>"; };
 		49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableDictionary.swift; sourceTree = "<group>"; };
 		49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithSerializableDictionary.swift; sourceTree = "<group>"; };
+		49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListSerialization.swift; sourceTree = "<group>"; };
+		49AC70201E476AEC00342DB3 /* PropertyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyList.swift; sourceTree = "<group>"; };
 		49AE426A1D10CE010013301A /* …TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "…TestCase.swift"; path = "Swift/Operators/…TestCase.swift"; sourceTree = "<group>"; };
 		49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecordAndReferences.swift; sourceTree = "<group>"; };
 		49B182D11C33807000529B08 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -317,7 +323,7 @@
 		E348A4361D08C1B0003D8024 /* getMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getMethod.swift; sourceTree = "<group>"; };
 		E348A4381D08CB03003D8024 /* ObservedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservedProperty.swift; sourceTree = "<group>"; };
 		E3A83B3A1D099C7B000D7B08 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
-		E3BE34031D0B2688008D532C /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = JSON/JSON.swift; sourceTree = "<group>"; };
+		E3BE34031D0B2688008D532C /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		E3BE340A1D0EF2A0008D532C /* weakClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weakClosure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -354,15 +360,6 @@
 				0A72FC241D4081580041845B /* Info.plist */,
 			);
 			path = HemiprocneMystaceaTV;
-			sourceTree = "<group>";
-		};
-		498F6CC71D3EBA28006534BF /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				E3BE34031D0B2688008D532C /* JSON.swift */,
-				498F6CC51D3EBA20006534BF /* ConvertibleToJSON.swift */,
-			);
-			name = JSON;
 			sourceTree = "<group>";
 		};
 		498F6CC81D3EBBFE006534BF /* JSON */ = {
@@ -402,8 +399,11 @@
 			children = (
 				49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */,
 				49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */,
+				498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */,
+				E3BE34031D0B2688008D532C /* JSON.swift */,
+				49AC70201E476AEC00342DB3 /* PropertyList.swift */,
 			);
-			name = SerializableDictionary;
+			path = SerializableDictionary;
 			sourceTree = "<group>";
 		};
 		49AE42691D10CC0E0013301A /* Operators */ = {
@@ -541,7 +541,6 @@
 				49CBE0701C332ADE00E8EFCC /* Contacts */,
 				E348A4311D08C08B003D8024 /* Core Graphics */,
 				49CBE0791C332ADE00E8EFCC /* Foundation */,
-				498F6CC71D3EBA28006534BF /* JSON */,
 				49FD14EF1CD91A240067F27E /* QuartzCore */,
 				49CBE07F1C332ADE00E8EFCC /* Swift */,
 				49CBE09A1C332ADE00E8EFCC /* UIKit */,
@@ -577,6 +576,7 @@
 			children = (
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
 				4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */,
+				49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */,
 				49A6C95D1E47756A00CF5FFB /* SerializableDictionary */,
 				49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */,
 			);
@@ -868,7 +868,7 @@
 				497F568E1E3C4BC40066CD1E /* CALayer.swift in Sources */,
 				4993AD341DD99155007C7525 /* named subscripts.swift in Sources */,
 				0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */,
-				0A72FC451D40819D0041845B /* ConvertibleToJSON.swift in Sources */,
+				0A72FC451D40819D0041845B /* ConvertibleToSerializableDictionary.swift in Sources */,
 				49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				0A72FC6B1D40819D0041845B /* UIViewController.swift in Sources */,
 				0A72FC4F1D40819D0041845B /* Sequence.swift in Sources */,
@@ -910,8 +910,10 @@
 				0A72FC511D40819D0041845B /* String.swift in Sources */,
 				0A72FC481D40819D0041845B /* integers.swift in Sources */,
 				0A72FC391D40819D0041845B /* CKDatabase.swift in Sources */,
+				49AC701F1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */,
 				0A72FC411D40819D0041845B /* CGSize.swift in Sources */,
 				0A72FC521D40819D0041845B /* operators.swift in Sources */,
+				49AC70221E476AEC00342DB3 /* PropertyList.swift in Sources */,
 				497F56911E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
 				0A72FC401D40819D0041845B /* CGRect.swift in Sources */,
 				492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
@@ -932,6 +934,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AC701E1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */,
 				497EFE8D1DB6472700DEC825 /* RawRepresentable.swift in Sources */,
 				49A36BDA1D407C6200A4BFEB /* CKDatabase.swift in Sources */,
 				49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */,
@@ -970,6 +973,7 @@
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
 				49A36BDF1D407CD200A4BFEB /* CKRecord.swift in Sources */,
 				497F56901E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
+				49AC70211E476AEC00342DB3 /* PropertyList.swift in Sources */,
 				494A993B1E37261800F6A51D /* UITableView.swift in Sources */,
 				E348A4301D08C085003D8024 /* CGRect.swift in Sources */,
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
@@ -994,7 +998,7 @@
 				49CBE0CD1C332ADE00E8EFCC /* reusableCells.swift in Sources */,
 				49FD14F41CD91C070067F27E /* CABasicAnimation.Values.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
-				498F6CC61D3EBA20006534BF /* ConvertibleToJSON.swift in Sources */,
+				498F6CC61D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift in Sources */,
 				4993AD331DD99155007C7525 /* named subscripts.swift in Sources */,
 				496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49B159541E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */,
