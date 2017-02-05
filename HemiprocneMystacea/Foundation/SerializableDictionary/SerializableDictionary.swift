@@ -1,10 +1,16 @@
 import Foundation
 
 public protocol SerializableDictionary: keyValueThrowingSubscript {
+   var dictionary: [String: Any] {get}
+   
+//MARK: init
    init(dictionary: Any) throws
    init(data: Data) throws
    
-   var dictionary: [String: Any] {get}
+   init<ConvertibleToSerializableDictionary: HM.ConvertibleToSerializableDictionary>(
+      _: ConvertibleToSerializableDictionary
+   ) throws
+   
    
 //MARK: keyValueThrowingSubscript
    typealias Key = String

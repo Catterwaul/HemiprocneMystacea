@@ -101,7 +101,7 @@
 		498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C61D828CF300C07620 /* FloatingPoint.swift */; };
 		498B54CA1D828D1C00C07620 /* FloatingPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */; };
 		498F6CC61D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */; };
-		498F6CCA1D3EBC20006534BF /* ConvertibleToJSONTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC91D3EBC20006534BF /* ConvertibleToJSONTestCase.swift */; };
+		498F6CCA1D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */; };
 		4993AD331DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
 		4993AD341DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
 		499C71921D0F7636009797BC /* SerializableDictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71911D0F7636009797BC /* SerializableDictionaryTestCase.swift */; };
@@ -242,7 +242,7 @@
 		498B54C61D828CF300C07620 /* FloatingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
 		498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTestCase.swift; sourceTree = "<group>"; };
 		498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToSerializableDictionary.swift; sourceTree = "<group>"; };
-		498F6CC91D3EBC20006534BF /* ConvertibleToJSONTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToJSONTestCase.swift; sourceTree = "<group>"; };
+		498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToSerializableDictionaryTestCase.swift; sourceTree = "<group>"; };
 		4993AD321DD99155007C7525 /* named subscripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "named subscripts.swift"; sourceTree = "<group>"; };
 		499C71911D0F7636009797BC /* SerializableDictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableDictionaryTestCase.swift; sourceTree = "<group>"; };
 		499C71931D0F7E94009797BC /* CGSizeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGSizeTestCase.swift; path = "Core Graphics/CGSizeTestCase.swift"; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				499C71911D0F7636009797BC /* SerializableDictionaryTestCase.swift */,
-				498F6CC91D3EBC20006534BF /* ConvertibleToJSONTestCase.swift */,
+				498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */,
 			);
 			name = SerializableDictionary;
 			path = Foundation/SerializableDictionary;
@@ -1041,7 +1041,7 @@
 				49817E5E1D2C9BD20025A6CA /* getMethodTestCase.swift in Sources */,
 				0A6793351D8315720098D1E7 /* MeasurementTestCase.swift in Sources */,
 				49FD14F71CD91D470067F27E /* CABasicAnimationTestCase.swift in Sources */,
-				498F6CCA1D3EBC20006534BF /* ConvertibleToJSONTestCase.swift in Sources */,
+				498F6CCA1D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift in Sources */,
 				499C71961D0F8079009797BC /* MakeGetTestCase.swift in Sources */,
 				499C71921D0F7636009797BC /* SerializableDictionaryTestCase.swift in Sources */,
 				499C71941D0F7E94009797BC /* CGSizeTestCase.swift in Sources */,

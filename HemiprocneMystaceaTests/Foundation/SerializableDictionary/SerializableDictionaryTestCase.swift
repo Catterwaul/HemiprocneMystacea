@@ -1,7 +1,7 @@
 import HM
 import XCTest
 
-final class JSONTestCase: XCTestCase {
+final class SerializableDictionaryTestCase: XCTestCase {
 	func test_JSON() {
 		let
 			oldKey = "🗝",

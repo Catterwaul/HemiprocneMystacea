@@ -14,9 +14,18 @@ public struct PropertyList: SerializableDictionary {
       )
    }
    
+   public init<ConvertibleToPropertyList: ConvertibleToSerializableDictionary>(
+      _ convertibleToPropertyList: ConvertibleToPropertyList
+   ) throws {
+      try self.init(
+         data: try Data(convertibleToPropertyList: convertibleToPropertyList)
+      )
+   }
+
    public let dictionary: [String: Any]
 }
 
+//MARK:
 public extension Data {
    /// - returns: `convertibleToPropertyList`'s `serializableDictionary`, serialized
    init<ConvertibleToPropertyList: ConvertibleToSerializableDictionary>(

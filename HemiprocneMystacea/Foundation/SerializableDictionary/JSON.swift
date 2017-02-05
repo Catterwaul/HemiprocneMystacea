@@ -15,9 +15,18 @@ public struct JSON: SerializableDictionary {
       )
    }
    
+   public init<ConvertibleToJSON: ConvertibleToSerializableDictionary>(
+      _ convertibleToJSON: ConvertibleToJSON
+   ) throws {
+      try self.init(
+         data: try Data(convertibleToJSON: convertibleToJSON)
+      )
+   }
+
    public let dictionary: [String: Any]
 }
 
+//MARK:
 public extension Data {
    /// - returns: `convertibleToJSON`'s `serializableDictionary` serialized with the "prettyPrinted" option
    init<ConvertibleToJSON: ConvertibleToSerializableDictionary>(
