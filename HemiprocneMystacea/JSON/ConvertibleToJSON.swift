@@ -1,9 +1,5 @@
 import Foundation
 
-public extension JSON {
-	typealias Dictionary = [String: Any]
-}
-
 public protocol ConvertibleToJSON {
     ///- Important: This is a nested type with this signature:
     ///  `enum JSONKey: String`
@@ -11,11 +7,11 @@ public protocol ConvertibleToJSON {
 	
 	// Should only be defined in the protocol extension,
 	// but we can't yet express that `JSONKey.RawValue == String` is always true.
-	var jsonDictionary: JSON.Dictionary {get}
+   var jsonDictionary: [String: Any] {get}
 }
 
 public extension ConvertibleToJSON where JSONKey.RawValue == String {
-	var jsonDictionary: JSON.Dictionary {
+	var jsonDictionary: [String: Any] {
 		return Dictionary(
 			Mirror(reflecting: self).children.flatMap{
 				label, value in
@@ -44,7 +40,9 @@ public extension ConvertibleToJSON where JSONKey.RawValue == String {
 }
 
 public extension JSON {
-	init<ConvertibleToJSON: HM.ConvertibleToJSON>(_ convertibleToJSON: ConvertibleToJSON) throws {
+	init<ConvertibleToJSON: HM.ConvertibleToJSON>(
+      _ convertibleToJSON: ConvertibleToJSON
+   ) throws {
 		try self.init(
 			data: try Data(convertibleToJSON: convertibleToJSON)
 		)
@@ -53,8 +51,10 @@ public extension JSON {
 
 public extension Data {
 	/// - returns: `convertibleToJSON`'s `jsonDictionary` serialized JSON with the "prettyPrinted" option
-	init<ConvertibleToJSON: HM.ConvertibleToJSON>(convertibleToJSON: ConvertibleToJSON) throws {
-		try self.init(jsonObject: convertibleToJSON.jsonDictionary)
+	init<ConvertibleToJSON: HM.ConvertibleToJSON>(
+      convertibleToJSON: ConvertibleToJSON
+   ) throws {
+		try self.init(jsonDictionary: convertibleToJSON.jsonDictionary)
 	}
 	
 	/// - returns: `value` serialized as JSON with the "prettyPrinted" option
@@ -63,14 +63,14 @@ public extension Data {
 		value: ConvertibleToJSON
 	) throws {
 		try self.init(
-			jsonObject: [key: value.jsonDictionary]
+			jsonDictionary: [key: value.jsonDictionary]
 		)
 	}
 	
 	/// - Returns: serialized JSON with the "prettyPrinted" option
-	init(jsonObject: Any) throws {
+	init(jsonDictionary: Any) throws {
 		try self = JSONSerialization.data(
-			withJSONObject: jsonObject,
+			withJSONObject: jsonDictionary,
 			options: .prettyPrinted
 		)
 	}

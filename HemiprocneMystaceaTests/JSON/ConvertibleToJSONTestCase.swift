@@ -12,7 +12,9 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 	func test_initializeJSON() {
 		let
 			crossBonez = 💀(skool: "☠️"),
-			reconstructedCrossBonez = 💀( json: try! JSON(crossBonez) )
+			reconstructedCrossBonez = 💀(
+            dictionary: try! JSON(crossBonez)
+         )
 		
 		XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
 	}
@@ -23,7 +25,9 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 				boool: true,
 				skoool: 💀(skool: "👠L")
 			),
-			reconstructed👻 = 👻( json: try! JSON(👻instance) )
+			reconstructed👻 = 👻(
+            dictionary: try! JSON(👻instance)
+         )
 
 		XCTAssertTrue(reconstructed👻.boool)
 		XCTAssertEqual(reconstructed👻.skoool.skool, "👠L")
@@ -41,15 +45,17 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 				),
 				json = try! JSON(data: data),
 				👻object: Any = try json.getValue(key: "👻"),
-				reconstruction = 👻( json: try! JSON(object: 👻object) )
+				reconstruction = 👻(
+               dictionary: try! JSON(dictionary: 👻object)
+            )
 
 			XCTAssertFalse(reconstruction.boool)
 			XCTAssertEqual(reconstruction.skoool.skool, "🏫")
 		}
-		catch JSON.Error.noValue(let key) {
+		catch SerializableDictionaryError.noValue(let key) {
 			XCTFail(key)
 		}
-		catch JSON.Error.typeCastFailure(let key) {
+		catch SerializableDictionaryError.typeCastFailure(let key) {
 			XCTFail(key)
 		}
 		catch {XCTFail()}
@@ -57,6 +63,7 @@ final class ConvertibleToJSONTestCase: XCTestCase {
 
 }
 
+//MARK:
 private struct 👻 {
 	init(
 		boool: Bool,
@@ -69,40 +76,49 @@ private struct 👻 {
 	let boool: Bool
 	let skoool: 💀
 }
+
 extension 👻: ConvertibleToJSON {
 	enum JSONKey: String {
 		case boool
 		case skoool
 	}
 }
-extension 👻: InitializableWithJSON {
-	init(json: JSON) {
+
+extension 👻: InitializableWithSerializableDictionary {
+   init<Dictionary: SerializableDictionary>(
+      dictionary: Dictionary
+   ) {
 		self.init(
-			boool: try! json.getValue(key: JSONKey.boool),
+			boool: try! dictionary.getValue(key: JSONKey.boool),
 			skoool: 💀(
-				json: try! JSON(
-					object: json.getValue(key: JSONKey.skoool)
+				dictionary: try! JSON(
+					dictionary: dictionary.getValue(key: JSONKey.skoool)
 				)
 			)
 		)
 	}
 }
 
+//MARK:
 private struct 💀 {
 	let skool: String
 	
 	// Json wears a regular hockey mask, not a field hockey one.
 	let nonJSONProperty = "🏑"
 }
+
 extension 💀: ConvertibleToJSON {
 	enum JSONKey: String {
 		case skool
 	}
 }
-extension 💀: InitializableWithJSON {
-	init(json: JSON) {
+
+extension 💀: InitializableWithSerializableDictionary {
+   init<Dictionary: SerializableDictionary>(
+      dictionary: Dictionary
+   ) {
 		self.init(
-			skool: try! json.getValue(key: JSONKey.skool)
+			skool: try! dictionary.getValue(key: JSONKey.skool)
 		)
 	}
 }

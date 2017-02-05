@@ -116,6 +116,10 @@
 		49A36BDF1D407CD200A4BFEB /* CKRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BDE1D407CD200A4BFEB /* CKRecord.swift */; };
 		49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4861B1D09132500A55CCD /* CGRectTestCase.swift */; };
 		49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */; };
+		49A6C9581E476D6700CF5FFB /* SerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */; };
+		49A6C9591E476D6700CF5FFB /* SerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */; };
+		49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
+		49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
 		49AE426B1D10CE010013301A /* …TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE426A1D10CE010013301A /* …TestCase.swift */; };
 		49B159541E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
 		49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
@@ -246,6 +250,8 @@
 		49A36BDE1D407CD200A4BFEB /* CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecord.swift; sourceTree = "<group>"; };
 		49A4861B1D09132500A55CCD /* CGRectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectTestCase.swift; path = "Core Graphics/CGRectTestCase.swift"; sourceTree = "<group>"; };
 		49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTestCase.swift; sourceTree = "<group>"; };
+		49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableDictionary.swift; sourceTree = "<group>"; };
+		49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithSerializableDictionary.swift; sourceTree = "<group>"; };
 		49AE426A1D10CE010013301A /* …TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "…TestCase.swift"; path = "Swift/Operators/…TestCase.swift"; sourceTree = "<group>"; };
 		49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecordAndReferences.swift; sourceTree = "<group>"; };
 		49B182D11C33807000529B08 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -389,6 +395,15 @@
 				49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */,
 			);
 			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		49A6C95D1E47756A00CF5FFB /* SerializableDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */,
+				49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */,
+			);
+			name = SerializableDictionary;
 			sourceTree = "<group>";
 		};
 		49AE42691D10CC0E0013301A /* Operators */ = {
@@ -562,6 +577,7 @@
 			children = (
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
 				4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */,
+				49A6C95D1E47756A00CF5FFB /* SerializableDictionary */,
 				49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */,
 			);
 			path = Foundation;
@@ -876,6 +892,7 @@
 				49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */,
 				492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
+				49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
 				0A72FC5A1D40819D0041845B /* getMethod.swift in Sources */,
 				0A72FC591D40819D0041845B /* errors.swift in Sources */,
 				0A72FC571D40819D0041845B /* ComputedProperty.swift in Sources */,
@@ -898,6 +915,7 @@
 				497F56911E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
 				0A72FC401D40819D0041845B /* CGRect.swift in Sources */,
 				492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
+				49A6C9591E476D6700CF5FFB /* SerializableDictionary.swift in Sources */,
 				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				497F569D1E3C55B50066CD1E /* CGPoint.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
@@ -946,6 +964,7 @@
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
 				49B182E11C33807000529B08 /* Sequence.swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
+				49A6C9581E476D6700CF5FFB /* SerializableDictionary.swift in Sources */,
 				49817E601D2CA99A0025A6CA /* errors.swift in Sources */,
 				494A99381E37253400F6A51D /* UICollectionView.swift in Sources */,
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
@@ -961,6 +980,7 @@
 				491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */,
 				49CBE0BE1C332ADE00E8EFCC /* nil closures.swift in Sources */,
 				49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */,
+				49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
 				499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */,
 				49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */,
 				E348A4371D08C1B0003D8024 /* getMethod.swift in Sources */,

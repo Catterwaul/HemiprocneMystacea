@@ -5,7 +5,7 @@ final class JSONTestCase: XCTestCase {
 	func test_JSON() {
 		let
 			oldKey = "🗝",
-			json = try! JSON(object: [oldKey: "🔑"])
+			json = try! JSON(dictionary: [oldKey: "🔑"])
 		
 		XCTAssertEqual(
 			try json.getValue(key: oldKey),
@@ -16,7 +16,7 @@ final class JSONTestCase: XCTestCase {
 		XCTAssertThrowsError(
 			try json.getValue(key: turKey) as Any
 		){	error in switch error {
-         case JSON.Error.noValue(let key):
+         case SerializableDictionaryError.noValue(let key):
             XCTAssertEqual(key, turKey)
 				
 			default: XCTFail()
@@ -26,7 +26,7 @@ final class JSONTestCase: XCTestCase {
 		XCTAssertThrowsError(
 			try json.getValue(key: oldKey) as Bool
 		){ error in switch error {
-         case JSON.Error.typeCastFailure(let key):
+         case SerializableDictionaryError.typeCastFailure(let key):
 				XCTAssertEqual(key, oldKey)
 				
 			default: XCTFail()
@@ -35,15 +35,17 @@ final class JSONTestCase: XCTestCase {
 	}
 	
 	func test_InitializableWithJSONArray_init() {
-		struct Instrument: InitializableWithJSON {
-			init(json: JSON) {
-				visualization = try! json.getValue(key: "visualization")
+		struct Instrument: InitializableWithSerializableDictionary {
+         init<Dictionary: SerializableDictionary>(
+            dictionary: Dictionary
+         ) {
+				visualization = try! dictionary.getValue(key: "visualization")
 			}
 			
 			let visualization: String
 		}
 		
-		let jSObject = [
+		let dictionary = [
 			"instruments": [
 				["visualization": "🎹"],
 				["visualization": "🎸"],
@@ -52,7 +54,7 @@ final class JSONTestCase: XCTestCase {
 		]
 		
 		let instruments = try! [Instrument](
-			json: JSON(object: jSObject),
+			dictionary: JSON(dictionary: dictionary),
 			key: "instruments"
 		)
 		
@@ -67,11 +69,11 @@ final class JSONTestCase: XCTestCase {
 		let turKeyboard = "🦃⌨️"
 		XCTAssertThrowsError(
 			try [Instrument](
-				json: JSON(object: jSObject),
+				dictionary: JSON(dictionary: dictionary),
 				key: turKeyboard
 			)
 		){ error in switch error {
-			case JSON.Error.noValue(let key):
+			case SerializableDictionaryError.noValue(let key):
 				XCTAssertEqual(key, turKeyboard)
 				
 			default: XCTFail()
