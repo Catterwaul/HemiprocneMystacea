@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class SerializableDictionaryTestCase: XCTestCase {
-	func test_JSON() {
+	func test_getValue() {
 		let
 			oldKey = "🗝",
          dictionary = [oldKey: "🔑"],
@@ -64,8 +64,8 @@ final class SerializableDictionaryTestCase: XCTestCase {
 		struct Instrument: InitializableWithSerializableDictionary {
          init<Dictionary: SerializableDictionary>(
             dictionary: Dictionary
-         ) {
-				visualization = try! dictionary.getValue(key: "visualization")
+         ) throws {
+				visualization = try dictionary.getValue(key: "visualization")
 			}
 			
 			let visualization: String
