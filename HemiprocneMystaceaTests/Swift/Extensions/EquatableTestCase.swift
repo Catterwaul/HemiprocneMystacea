@@ -45,50 +45,63 @@ final class EquatableTestCase: XCTestCase {
 	}
 }
 
-private struct TypeWith1EquatableProperty: Equatable {
+//MARK:
+private struct TypeWith1EquatableProperty {
 	let bool: Bool
 }
-private func == (
-	instance0: TypeWith1EquatableProperty,
-	instance1: TypeWith1EquatableProperty
-) -> Bool {
-	return instance0 == (instance1,
-		{$0.bool}
-	)
+
+//MARK: Equatable
+extension TypeWith1EquatableProperty: Equatable {
+	static func == (
+		instance0: TypeWith1EquatableProperty,
+		instance1: TypeWith1EquatableProperty
+	) -> Bool {
+		return instance0 == (instance1,
+			{$0.bool}
+		)
+	}
 }
 
-private struct TypeWith2EquatableProperties: Equatable {
-	let
-		bool: Bool,
-		double: Double
-}
-private func == (
-	instance0: TypeWith2EquatableProperties,
-	instance1: TypeWith2EquatableProperties
-) -> Bool {
-	return instance0 == (instance1,
-		{$0.bool},
-		{$0.double}
-	)
+//MARK:
+private struct TypeWith2EquatableProperties {
+	let bool: Bool
+	let double: Double
 }
 
-private struct TypeWith5EquatableProperties: Equatable {
-	let
-		bool: Bool,
-		double: Double,
-		float: Float,
-		int: Int,
-		string: String
+//MARK: Equatable
+extension TypeWith2EquatableProperties: Equatable {
+	static func == (
+		instance0: TypeWith2EquatableProperties,
+		instance1: TypeWith2EquatableProperties
+	) -> Bool {
+		return instance0 == (instance1,
+			{$0.bool},
+			{$0.double}
+		)
+	}
 }
-private func == (
-	instance0: TypeWith5EquatableProperties,
-	instance1: TypeWith5EquatableProperties
-) -> Bool {
-	return instance0 == (instance1,
-		{$0.bool},
-		{$0.double},
-		{$0.float},
-		{$0.int},
-		{$0.string}
-	)
+
+//MARK:
+private struct TypeWith5EquatableProperties {
+	let bool: Bool
+	let double: Double
+	let float: Float
+	let int: Int
+	let string: String
+}
+
+//MARK: Equatable
+extension TypeWith5EquatableProperties: Equatable {
+	static func == (
+		instance0: TypeWith5EquatableProperties,
+		instance1: TypeWith5EquatableProperties
+	) -> Bool {
+		return instance0 == (instance1,
+			{$0.bool},
+			{$0.double},
+			{$0.float},
+			{$0.int},
+			{$0.string}
+		)
+	}
 }
