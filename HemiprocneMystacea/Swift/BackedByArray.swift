@@ -69,7 +69,7 @@ public extension BackedByArray where Element: Equatable {
 		elements: Elements
 	) -> Bool
 	where Elements.Iterator.Element == Element {
-		return backedByArray.backingArray == (elements)
+		return backedByArray.backingArray == Array(elements)
 	}
 
 	static func - (
