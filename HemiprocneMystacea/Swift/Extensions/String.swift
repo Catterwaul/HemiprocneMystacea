@@ -10,7 +10,9 @@ public extension String {
 	}
 
 	func split(by separator: Character) -> [String] {
-		return characters.split(separator: separator)
+		return
+			characters
+			.split(separator: separator)
 			.map(String.init)
 	}
 
@@ -23,7 +25,8 @@ public extension String {
 		else {return nil}
 
 		return self.substring(
-			to: characterIsIncluded
+			to:
+				characterIsIncluded
 				? characters.index(after: index)
 				: index
 		)
@@ -65,8 +68,10 @@ public func - (string0: String, string1: String) -> String {
 }
 
 /// `string`, with all occurrences of each of the `strings` removed
-public func - <Strings: Sequence>
-(string: String, strings: Strings) -> String
+public func - <Strings: Sequence>(
+	string: String,
+	strings: Strings
+) -> String
 where Strings.Iterator.Element == String {
 	return strings.reduce(string, -)
 }
