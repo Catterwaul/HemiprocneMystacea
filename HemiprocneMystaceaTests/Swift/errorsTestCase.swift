@@ -6,33 +6,28 @@ final class errorsTestCase: XCTestCase {
 		do {
 			try validate(
 				[{_ in}],
-				parameters: "whatever",
-				errorType: Error.self
+				parameters: "whatever"
 			)
 		}
 		catch {XCTFail()}
 	}
 	
 	func test_errors() {
-		XCTAssertThrowsError(
+		do {
 			try validate(
 				[throwBad, throwsStrongBads],
-				parameters: false,
-				errorType: Error.self
-			)
-		){	error in
-			
-			guard case let errors as Errors<Error> = error
-			else {
-				XCTFail()
-				return
-			}
-			
-			XCTAssertEqual(
-				errors.set,
-				[Error.bad, Error.strongBad]
+				parameters: false
 			)
 		}
+		catch let errors as Errors {
+			XCTAssertEqual(
+				errors.array as! [Error],
+				[	.bad,
+				 	.strongBad, .strongBad
+				]
+			)
+		}
+		catch {XCTFail()}
 	}
 }
 
