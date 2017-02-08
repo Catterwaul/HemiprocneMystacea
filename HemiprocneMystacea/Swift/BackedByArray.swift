@@ -6,17 +6,13 @@ public protocol BackedByArray:
 {
 	associatedtype Element = Iterator.Element
 	
-	init(_: [Element])
+	init<Elements: Sequence>(_: Elements)
+	where Elements.Iterator.Element == Element
 	
 	/// Don't actually use this directly.
 	/// It's only public because protocols
 	/// don't have good enough access control yet.
 	var backingArray: [Element] {get}
-	
-	/// Don't actually use this.
-	/// It's only public because protocols
-	/// don't have good enough access control yet.
-	init(backingArray: [Element])
 }
 
 //MARK: Collection
@@ -77,7 +73,7 @@ public extension BackedByArray where Element: Equatable {
 		element: Element
 	) -> Self {
 		return Self(
-			backingArray: backedByArray.backingArray.filter{$0 != element}
+			backedByArray.backingArray.filter{$0 != element}
 		)
 	}
 	
