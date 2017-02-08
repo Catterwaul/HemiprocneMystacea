@@ -47,11 +47,12 @@ public extension BackedByArray {
 
 //MARK: public
 public extension BackedByArray {
-	static func + (
+	static func + <Elements: Sequence>(
 		backedByArray: Self,
-		array: [Element]
-	) -> Self {
-		return Self(backedByArray.backingArray + array)
+		elements: Elements
+	) -> Self
+	where Elements.Iterator.Element == Element {
+		return Self(backedByArray.backingArray + elements)
 	}
 	
 	static func += (
@@ -63,11 +64,12 @@ public extension BackedByArray {
 }
 
 public extension BackedByArray where Element: Equatable {
-	static func == (
+	static func == <Elements: Sequence>(
 		backedByArray: Self,
-		array: [Element]
-	) -> Bool {
-		return backedByArray.backingArray == array
+		elements: Elements
+	) -> Bool
+	where Elements.Iterator.Element == Element {
+		return backedByArray.backingArray == (elements)
 	}
 
 	static func - (
