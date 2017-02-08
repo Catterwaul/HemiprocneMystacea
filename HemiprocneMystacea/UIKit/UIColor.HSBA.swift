@@ -7,6 +7,15 @@ public extension UIColor {
 		public var brightness: CGFloat
 		public var alpha: CGFloat
 	}
+	
+	convenience init(_ hsba: HSBA) {
+		self.init(
+			hue: hsba.hue,
+			saturation: hsba.saturation,
+			brightness: hsba.brightness,
+			alpha: hsba.alpha
+		)
+	}
 }
 
 public extension UIColor.HSBA {
