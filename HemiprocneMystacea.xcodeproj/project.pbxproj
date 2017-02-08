@@ -86,8 +86,8 @@
 		497EFE8D1DB6472700DEC825 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */; };
 		497EFE8E1DB6472700DEC825 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */; };
 		497EFE901DB6476E00DEC825 /* RawRepresentableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */; };
-		497F568A1E3C494F0066CD1E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56891E3C494F0066CD1E /* UIColor.swift */; };
-		497F568B1E3C494F0066CD1E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56891E3C494F0066CD1E /* UIColor.swift */; };
+		497F568A1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56891E3C494F0066CD1E /* UIColor.HSBA.swift */; };
+		497F568B1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F56891E3C494F0066CD1E /* UIColor.HSBA.swift */; };
 		497F568D1E3C4BC40066CD1E /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568C1E3C4BC40066CD1E /* CALayer.swift */; };
 		497F568E1E3C4BC40066CD1E /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568C1E3C4BC40066CD1E /* CALayer.swift */; };
 		497F56901E3C4C5D0066CD1E /* CATransform3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */; };
@@ -237,7 +237,7 @@
 		497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToCloudKitRecord.swift; sourceTree = "<group>"; };
 		497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTestCase.swift; sourceTree = "<group>"; };
-		497F56891E3C494F0066CD1E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		497F56891E3C494F0066CD1E /* UIColor.HSBA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.HSBA.swift; sourceTree = "<group>"; };
 		497F568C1E3C4BC40066CD1E /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayer.swift; path = QuartzCore/CALayer.swift; sourceTree = "<group>"; };
 		497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CATransform3D.swift; path = QuartzCore/CATransform3D.swift; sourceTree = "<group>"; };
 		497F56991E3C52690066CD1E /* UIColorTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorTestCase.swift; path = UIKit/UIColorTestCase.swift; sourceTree = "<group>"; };
@@ -643,7 +643,7 @@
 				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
 				494A99371E37253400F6A51D /* UICollectionView.swift */,
-				497F56891E3C494F0066CD1E /* UIColor.swift */,
+				497F56891E3C494F0066CD1E /* UIColor.HSBA.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
 				494A993A1E37261800F6A51D /* UITableView.swift */,
@@ -877,7 +877,7 @@
 				0A72FC5F1D40819D0041845B /* EquatableClass.swift in Sources */,
 				493AD8841E4AB3D200A30593 /* SortedArray.swift in Sources */,
 				0A72FC5B1D40819D0041845B /* nil closures.swift in Sources */,
-				497F568B1E3C494F0066CD1E /* UIColor.swift in Sources */,
+				497F568B1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */,
 				0A72FC6A1D40819D0041845B /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */,
 				0A72FC531D40819D0041845B /* ….swift in Sources */,
@@ -962,7 +962,7 @@
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
 				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
-				497F568A1E3C494F0066CD1E /* UIColor.swift in Sources */,
+				497F568A1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */,
 				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49B182DF1C33807000529B08 /* integers.swift in Sources */,
 				49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
