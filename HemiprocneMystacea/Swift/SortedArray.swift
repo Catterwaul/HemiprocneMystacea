@@ -1,13 +1,24 @@
-public struct SortedArray<Element: Comparable> {
-	/// Don't actually use this.
-	/// It's only public because protocols
-	/// don't have good enough access control yet.
-	public var backingArray: [Element]
+public struct SortedArray<Element: Comparable>: BackedByArray {
+	
+//MARK: BackedByArray
+	public init(_ unsortedArray: [Element]) {
+		backingArray = unsortedArray.sorted()
+	}
+	
+	public init(backingArray: [Element]) {
+		self.backingArray = backingArray
+	}
+
+	public fileprivate(set) var backingArray: [Element]
 }
 
-//MARK: ExpressibleByArrayLiteral
-extension SortedArray: ExpressibleByArrayLiteral {
-	public init(arrayLiteral: Element...) {
-		backingArray = arrayLiteral.sorted()
+//MARK: Sequence
+public extension SortedArray {
+	func min() -> Element? {
+		return backingArray.first
+	}
+	
+	func max() -> Element? {
+		return backingArray.last
 	}
 }

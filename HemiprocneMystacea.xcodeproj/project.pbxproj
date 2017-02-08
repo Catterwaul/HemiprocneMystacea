@@ -173,6 +173,8 @@
 		49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */; };
 		49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */; };
 		49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBA1E21CD940BF0058181A /* UIAlertAction.swift */; };
+		49DDB4A41E4ACFD300D21AD8 /* BackedByArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */; };
+		49DDB4A51E4ACFD300D21AD8 /* BackedByArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */; };
 		49E0DC131E4AC08F0093E75F /* SortedArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */; };
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
 		49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
@@ -310,6 +312,7 @@
 		49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPageViewControllerDataSourceWithConnections.swift; sourceTree = "<group>"; };
 		49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		49DBA1E21CD940BF0058181A /* UIAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
+		49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackedByArray.swift; sourceTree = "<group>"; };
 		49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortedArrayTestCase.swift; path = Swift/SortedArrayTestCase.swift; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
@@ -604,6 +607,7 @@
 				49CBE08D1C332ADE00E8EFCC /* nil closures.swift */,
 				49A1982D1D62B358005C251A /* typealiases.swift */,
 				E3BE340A1D0EF2A0008D532C /* weakClosure.swift */,
+				49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */,
 				49CBE0811C332ADE00E8EFCC /* BitShiftable.swift */,
 				49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */,
 				49CBE0881C332ADE00E8EFCC /* HashableClass.swift */,
@@ -931,6 +935,7 @@
 				497F569D1E3C55B50066CD1E /* CGPoint.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
 				492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
+				49DDB4A51E4ACFD300D21AD8 /* BackedByArray.swift in Sources */,
 				498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */,
 				0A72FC4C1D40819D0041845B /* Equatable.swift in Sources */,
 				0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */,
@@ -989,6 +994,7 @@
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */,
 				E3BE34041D0B2688008D532C /* JSON.swift in Sources */,
+				49DDB4A41E4ACFD300D21AD8 /* BackedByArray.swift in Sources */,
 				E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */,
 				491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */,
