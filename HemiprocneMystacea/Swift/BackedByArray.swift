@@ -1,3 +1,5 @@
+/// When you want `Array` to act more like a superclass,
+/// use this!
 public protocol BackedByArray:
 	Collection,
 	ExpressibleByArrayLiteral

@@ -175,6 +175,7 @@
 		49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBA1E21CD940BF0058181A /* UIAlertAction.swift */; };
 		49DDB4A41E4ACFD300D21AD8 /* BackedByArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */; };
 		49DDB4A51E4ACFD300D21AD8 /* BackedByArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */; };
+		49DDB4A71E4ADE1000D21AD8 /* BackedByArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */; };
 		49E0DC131E4AC08F0093E75F /* SortedArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */; };
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
 		49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
@@ -313,6 +314,7 @@
 		49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		49DBA1E21CD940BF0058181A /* UIAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackedByArray.swift; sourceTree = "<group>"; };
+		49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackedByArrayTestCase.swift; path = Swift/BackedByArrayTestCase.swift; sourceTree = "<group>"; };
 		49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortedArrayTestCase.swift; path = Swift/SortedArrayTestCase.swift; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				49AE42691D10CC0E0013301A /* Operators */,
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
+				49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */,
 				499C71951D0F8079009797BC /* MakeGetTestCase.swift */,
 				4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */,
 				49C434731C379F0000B6C530 /* NilClosuresTestCase.swift */,
@@ -1060,6 +1063,7 @@
 				498F6CCA1D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift in Sources */,
 				499C71961D0F8079009797BC /* MakeGetTestCase.swift in Sources */,
 				499C71921D0F7636009797BC /* SerializableDictionaryTestCase.swift in Sources */,
+				49DDB4A71E4ADE1000D21AD8 /* BackedByArrayTestCase.swift in Sources */,
 				499C71941D0F7E94009797BC /* CGSizeTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49C526E91DB6E8C50036B020 /* CKDatabaseTestCase.swift in Sources */,
