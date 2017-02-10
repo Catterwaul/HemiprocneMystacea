@@ -71,6 +71,6 @@ public extension Sequence where Iterator.Element: Equatable {
 			uniqueElements.contains(element)
 			? uniqueElements
 			: uniqueElements + [element]
-	}
+		}
 	}
 }

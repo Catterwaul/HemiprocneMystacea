@@ -1,22 +1,24 @@
 import Foundation
 
-extension PropertyListSerialization{
-	static func makePropertyList(
-		data: Data,
-		format: PropertyListFormat = .xml
-	) throws -> [String: Any] {
-		var format = format
-		let propertyList = try self.propertyList(
-			from: data,
-			format: &format
+extension PropertyListSerialization {
+	/// - Returns: 
+	///   - propertyList: deserialized
+	///   - format: in which it had been stored.
+	static func deserialize(_ data: Data) throws -> (
+		propertyList: Any,
+		format: PropertyListFormat
+	) {
+		// This value doesn't matter;
+		// it's just an inout needed for `format`
+		// in the return tuple.
+		var format: PropertyListFormat = .binary
+		
+		return (
+			propertyList: try propertyList(
+				from: data,
+				format: &format
+			),
+			format: format
 		)
-		
-		guard let dictionary = propertyList as? [String: Any]
-		else {
-			struct Error: Swift.Error {}
-			throw Error()
-		}
-		
-		return dictionary
 	}
 }

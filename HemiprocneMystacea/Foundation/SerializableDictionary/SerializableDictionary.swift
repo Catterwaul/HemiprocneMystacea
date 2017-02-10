@@ -1,49 +1,31 @@
 import Foundation
 
-public protocol SerializableDictionary: keyValueThrowingSubscript {
-   var dictionary: [String: Any] {get}
-   
-//MARK: init
-   init(dictionary: Any) throws
-   init(data: Data) throws
-   
-   init<ConvertibleToSerializableDictionary: HM.ConvertibleToSerializableDictionary>(
-      _: ConvertibleToSerializableDictionary
-   ) throws
-   
-   
-//MARK: keyValueThrowingSubscript
-   typealias Key = String
+public struct SerializableDictionary {
+	fileprivate let dictionary: [String: Any]
 }
 
-//MARK: internal
-extension SerializableDictionary {
-   static func makeDictionary(_ dictionary: Any) throws -> [String: Any] {
-      guard let dictionary = dictionary as? [String: Any]
-      else {throw SerializableDictionaryInitializationError()}
-      
-      return dictionary
-   }
-}
-
-//MARK: keyValueThrowingSubscript
+//MARK: public
 public extension SerializableDictionary {
-   func getValue<Value>(key: String) throws -> Value {
+	init(_ dictionary: [String: Any]) {
+		self.dictionary = dictionary
+	}
+}
+
+//MARK: keyValueThrowingSubscript
+extension SerializableDictionary: keyValueThrowingSubscript {}
+public extension SerializableDictionary {
+	enum GetValueError: Error {
+		case noValue(key: String)
+		case typeCastFailure(key: String)
+	}
+	
+	func getValue<Value>(key: String) throws -> Value {
       guard let anyValue = dictionary[key]
-      else {throw Error.noValue(key: key)}
+      else {throw GetValueError.noValue(key: key)}
       
       guard let value = anyValue as? Value
-      else {throw Error.typeCastFailure(key: key)}
+      else {throw GetValueError.typeCastFailure(key: key)}
       
       return value
    }
-}
-
-//MARK:
-public struct SerializableDictionaryInitializationError: Swift.Error {}
-
-private typealias Error = SerializableDictionaryError
-public enum SerializableDictionaryError: Swift.Error {
-   case noValue(key: String)
-   case typeCastFailure(key: String)
 }

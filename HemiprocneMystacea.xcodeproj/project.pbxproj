@@ -18,7 +18,6 @@
 		0A72FC411D40819D0041845B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4321D08C0DE003D8024 /* CGSize.swift */; };
 		0A72FC421D40819D0041845B /* FileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */; };
 		0A72FC431D40819D0041845B /* UserDefaults+Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE07E1C332ADE00E8EFCC /* UserDefaults+Setting.swift */; };
-		0A72FC441D40819D0041845B /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BE34031D0B2688008D532C /* JSON.swift */; };
 		0A72FC451D40819D0041845B /* ConvertibleToSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */; };
 		0A72FC461D40819D0041845B /* CABasicAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F01CD91A940067F27E /* CABasicAnimation.swift */; };
 		0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F31CD91C070067F27E /* CABasicAnimation.Values.swift */; };
@@ -70,6 +69,8 @@
 		494A99391E37253400F6A51D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A99371E37253400F6A51D /* UICollectionView.swift */; };
 		494A993B1E37261800F6A51D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A993A1E37261800F6A51D /* UITableView.swift */; };
 		494A993C1E37261800F6A51D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A993A1E37261800F6A51D /* UITableView.swift */; };
+		495606CB1E4DB4C8004C7FA0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495606CA1E4DB4C8004C7FA0 /* Data.swift */; };
+		495606CC1E4DB4C8004C7FA0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495606CA1E4DB4C8004C7FA0 /* Data.swift */; };
 		496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
 		496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
 		4966E4CF1E3C5AA300199496 /* CGPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E4CE1E3C5AA300199496 /* CGPointTestCase.swift */; };
@@ -124,8 +125,6 @@
 		49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
 		49AC701E1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */; };
 		49AC701F1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */; };
-		49AC70211E476AEC00342DB3 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC70201E476AEC00342DB3 /* PropertyList.swift */; };
-		49AC70221E476AEC00342DB3 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC70201E476AEC00342DB3 /* PropertyList.swift */; };
 		49AE426B1D10CE010013301A /* …TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AE426A1D10CE010013301A /* …TestCase.swift */; };
 		49B159541E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
 		49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
@@ -197,7 +196,6 @@
 		E348A4371D08C1B0003D8024 /* getMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4361D08C1B0003D8024 /* getMethod.swift */; };
 		E348A4391D08CB03003D8024 /* ObservedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4381D08CB03003D8024 /* ObservedProperty.swift */; };
 		E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A83B3A1D099C7B000D7B08 /* Property.swift */; };
-		E3BE34041D0B2688008D532C /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BE34031D0B2688008D532C /* JSON.swift */; };
 		E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BE340A1D0EF2A0008D532C /* weakClosure.swift */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +223,7 @@
 		493AD8821E4AB3D200A30593 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
 		494A99371E37253400F6A51D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		495606CA1E4DB4C8004C7FA0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		496563B71DB65C31002B7623 /* keyValueSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyValueSubscript.swift; sourceTree = "<group>"; };
 		4966E4CE1E3C5AA300199496 /* CGPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGPointTestCase.swift; path = "Core Graphics/CGPointTestCase.swift"; sourceTree = "<group>"; };
 		4966E4D01E3C5C0700199496 /* CALayerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayerTestCase.swift; path = QuartzCore/CALayerTestCase.swift; sourceTree = "<group>"; };
@@ -264,7 +263,6 @@
 		49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableDictionary.swift; sourceTree = "<group>"; };
 		49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithSerializableDictionary.swift; sourceTree = "<group>"; };
 		49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListSerialization.swift; sourceTree = "<group>"; };
-		49AC70201E476AEC00342DB3 /* PropertyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyList.swift; sourceTree = "<group>"; };
 		49AE426A1D10CE010013301A /* …TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "…TestCase.swift"; path = "Swift/Operators/…TestCase.swift"; sourceTree = "<group>"; };
 		49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecordAndReferences.swift; sourceTree = "<group>"; };
 		49B182D11C33807000529B08 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -333,7 +331,6 @@
 		E348A4361D08C1B0003D8024 /* getMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getMethod.swift; sourceTree = "<group>"; };
 		E348A4381D08CB03003D8024 /* ObservedProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservedProperty.swift; sourceTree = "<group>"; };
 		E3A83B3A1D099C7B000D7B08 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
-		E3BE34031D0B2688008D532C /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		E3BE340A1D0EF2A0008D532C /* weakClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weakClosure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -411,8 +408,6 @@
 				49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */,
 				49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */,
 				498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */,
-				E3BE34031D0B2688008D532C /* JSON.swift */,
-				49AC70201E476AEC00342DB3 /* PropertyList.swift */,
 			);
 			path = SerializableDictionary;
 			sourceTree = "<group>";
@@ -587,6 +582,7 @@
 		49CBE0791C332ADE00E8EFCC /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				495606CA1E4DB4C8004C7FA0 /* Data.swift */,
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
 				4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */,
 				49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */,
@@ -903,7 +899,6 @@
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
 				496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
-				0A72FC441D40819D0041845B /* JSON.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */,
 				49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */,
@@ -929,9 +924,9 @@
 				49AC701F1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */,
 				0A72FC411D40819D0041845B /* CGSize.swift in Sources */,
 				0A72FC521D40819D0041845B /* operators.swift in Sources */,
-				49AC70221E476AEC00342DB3 /* PropertyList.swift in Sources */,
 				497F56911E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
 				0A72FC401D40819D0041845B /* CGRect.swift in Sources */,
+				495606CC1E4DB4C8004C7FA0 /* Data.swift in Sources */,
 				492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				49A6C9591E476D6700CF5FFB /* SerializableDictionary.swift in Sources */,
 				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
@@ -982,6 +977,7 @@
 				492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */,
+				495606CB1E4DB4C8004C7FA0 /* Data.swift in Sources */,
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
 				49B182E11C33807000529B08 /* Sequence.swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
@@ -991,12 +987,10 @@
 				49CBE0BD1C332ADE00E8EFCC /* MultiClosure.swift in Sources */,
 				49A36BDF1D407CD200A4BFEB /* CKRecord.swift in Sources */,
 				497F56901E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
-				49AC70211E476AEC00342DB3 /* PropertyList.swift in Sources */,
 				494A993B1E37261800F6A51D /* UITableView.swift in Sources */,
 				E348A4301D08C085003D8024 /* CGRect.swift in Sources */,
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */,
-				E3BE34041D0B2688008D532C /* JSON.swift in Sources */,
 				49DDB4A41E4ACFD300D21AD8 /* BackedByArray.swift in Sources */,
 				E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */,

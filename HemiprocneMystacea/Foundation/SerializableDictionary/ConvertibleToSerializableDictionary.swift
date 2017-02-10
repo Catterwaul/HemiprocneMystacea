@@ -38,14 +38,35 @@ where SerializableDictionaryKey.RawValue == String {
 			}
 		)
 	}
-}
-
-public extension SerializableDictionary {
-	init<ConvertibleToSerializableDictionary: HM.ConvertibleToSerializableDictionary>(
-      _ convertibleToJSON: ConvertibleToSerializableDictionary
-   ) throws {
-		try self.init(
-			data: try Data(convertibleToJSON: convertibleToJSON)
+	
+	func getJSONData(
+		options: JSONSerialization.WritingOptions = [],
+		key: String? = nil
+	) throws -> Data {
+		return try JSONSerialization.data(
+			withJSONObject: serializableDictionaries[key],
+			options: options
 		)
+	}
+	
+	func getPropertyListData(
+		format: PropertyListSerialization.PropertyListFormat,
+		key: String? = nil
+	) throws -> Data {
+		return try Data(
+			propertyList: serializableDictionaries[key],
+			format: format
+		)
+	}
+	
+	private var serializableDictionaries: NamedGetOnlySubscript<
+		String?, [String: Any]
+	> {
+		return NamedGetOnlySubscript{
+			[serializableDictionary]
+			key in
+				key.map{key in [key: serializableDictionary]}
+				?? serializableDictionary
+		}
 	}
 }
