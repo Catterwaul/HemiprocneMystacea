@@ -40,9 +40,9 @@ final class SerializableDictionaryTestCase: XCTestCase {
 	func test_InitializableWithSerializableDictionaryArray_init() {
 		let dictionary = [
 			"instruments": [
-				[Instrument.visualizationKey: "🎹"],
-				[Instrument.visualizationKey: "🎸"],
-				[Instrument.visualizationKey: "🎷"]
+				[visualizationKey: "🎹"],
+				[visualizationKey: "🎸"],
+				[visualizationKey: "🎷"]
 			]
 		]
 		
@@ -50,7 +50,6 @@ final class SerializableDictionaryTestCase: XCTestCase {
 			dictionary: dictionary,
 			key: "instruments"
 		)
-		
 		XCTAssertEqual(
 			instruments.map{$0.visualization},
 			[	"🎹",
@@ -76,12 +75,10 @@ final class SerializableDictionaryTestCase: XCTestCase {
 	
 	func test_convertInitializableWithSerializableDictionaryArray() {
 		let instruments = [
-			[Instrument.visualizationKey: "🎹"],
-			[Instrument.visualizationKey: "🎸"],
-			[Instrument.visualizationKey: "🎷"]
+			[visualizationKey: "🎹"],
+			[visualizationKey: "🎸"],
+			[visualizationKey: "🎷"]
 		]
-		
-
 		XCTAssertEqual(
 			try [Instrument](instruments),
 			[	Instrument(visualization: "🎹"),
@@ -104,17 +101,24 @@ final class SerializableDictionaryTestCase: XCTestCase {
 			try [Instrument](["👿"])
 		)
 	}
+	
+	private let visualizationKey =
+		Instrument.SerializableDictionaryKey.visualization.rawValue
 }
 
-private 	struct Instrument: InitializableWithSerializableDictionary {
+private struct Instrument {
+	enum SerializableDictionaryKey: String {
+		case visualization
+	}
+
 	let visualization: String
 }
 
-extension Instrument {
-	static let visualizationKey = "visualization"
-	
+extension Instrument: InitializableWithSerializableDictionary {
 	init(serializableDictionary dictionary: SerializableDictionary) throws {
-		visualization = try dictionary.getValue(key: "visualization")
+		visualization = try dictionary.getValue(
+			key: SerializableDictionaryKey.visualization
+		)
 	}
 }
 
