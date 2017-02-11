@@ -3,7 +3,7 @@ import Foundation
 extension PropertyListSerialization {
 	/// - Returns: 
 	///   - propertyList: deserialized
-	///   - format: in which it had been stored.
+	///   - format: in which it had been stored
 	static func deserialize(_ data: Data) throws -> (
 		propertyList: Any,
 		format: PropertyListFormat

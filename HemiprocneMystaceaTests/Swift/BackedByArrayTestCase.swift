@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class BackedByArrayTestCase: XCTestCase {
-	let sortedArray: SortedArray = [500, 100]
+	let sortedArray = SortedArray(500, 100)
 	
 //MARK: Collection
 	func test_subscript() {
