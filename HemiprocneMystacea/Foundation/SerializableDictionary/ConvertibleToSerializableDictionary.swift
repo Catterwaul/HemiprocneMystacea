@@ -39,7 +39,7 @@ where SerializableDictionaryKey.RawValue == String {
 		)
 	}
 	
-	func getJSONData(
+	func makeJSONData(
 		options: JSONSerialization.WritingOptions = [],
 		key: String? = nil
 	) throws -> Data {
@@ -49,7 +49,7 @@ where SerializableDictionaryKey.RawValue == String {
 		)
 	}
 	
-	func getPropertyListData(
+	func makePropertyListData(
 		format: PropertyListSerialization.PropertyListFormat,
 		key: String? = nil
 	) throws -> Data {
@@ -59,9 +59,9 @@ where SerializableDictionaryKey.RawValue == String {
 		)
 	}
 	
-	private var serializableDictionaries: NamedGetOnlySubscript<
-		String?, [String: Any]
-	> {
+	private var serializableDictionaries:
+		NamedGetOnlySubscript<String?, [String: Any]>
+	{
 		return NamedGetOnlySubscript{
 			[serializableDictionary]
 			key in

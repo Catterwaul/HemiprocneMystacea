@@ -60,8 +60,10 @@ public extension InitializableWithSerializableDictionary {
 public struct InitializableWithSerializableDictionaryInitializationError: Error {}
 
 public extension Array where Element: InitializableWithSerializableDictionary {
+	private typealias DictionaryArray = [ [String: Any] ]
+	
 	init(_ array: [Any]) throws {
-		guard let dictionaries = array as? [ [String: Any] ]
+		guard let dictionaries = array as? DictionaryArray
 		else {throw InitializableWithSerializableDictionaryInitializationError()}
 		
 		try self.init(dictionaries: dictionaries)
@@ -72,11 +74,14 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 		key: String
 	) throws {
 		try self.init(
-			dictionaries: try SerializableDictionary(dictionary).getValue(key: key)
+			dictionaries:
+				try SerializableDictionary(dictionary).getValue(key: key)
+				as DictionaryArray
 		)
 	}
 	
-	private init(dictionaries: [ [String: Any] ]) throws {
+	private init<Dictionaries: Sequence>(dictionaries: Dictionaries) throws
+	where Dictionaries.Iterator.Element == [String: Any] {
 		self = try dictionaries.map{
 			dictionary in try Element(dictionary)
 		}

@@ -13,7 +13,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		let crossBonez = 💀(skool: "☠️")
 		
 		do {
-			let jsonData = try crossBonez.getJSONData()
+			let jsonData = try crossBonez.makeJSONData()
 			let reconstructedCrossBonez = try 💀(jsonData: jsonData)
 			XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
 		}
@@ -22,7 +22,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		}
 		
       do {
-			let propertyListData = try crossBonez.getPropertyListData(format: .binary)
+			let propertyListData = try crossBonez.makePropertyListData(format: .binary)
 			let reconstructedCrossBonez = try 💀(propertyListData: propertyListData)
 			XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
       }
@@ -41,7 +41,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		
 		do {
 			let reconstructed👻 = try 👻(
-				jsonData: try 👻instance.getJSONData()
+				jsonData: try 👻instance.makeJSONData()
 			)
 			XCTAssertTrue(reconstructed👻.boool)
 			XCTAssertEqual(reconstructed👻.skoool.skool, "👠L")
@@ -56,7 +56,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		
 		do {
 			let reconstructed👻 = try 👻(
-				propertyListData: try 👻instance.getPropertyListData(format: .binary)
+				propertyListData: try 👻instance.makePropertyListData(format: .binary)
 			)
 			XCTAssertTrue(reconstructed👻.boool)
 			XCTAssertEqual(reconstructed👻.skoool.skool, "👠L")
@@ -80,7 +80,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		
 		do {
 			let
-				data = try 👻instance.getJSONData(key: "👻"),
+				data = try 👻instance.makeJSONData(key: "👻"),
 				reconstruction = try 👻(
 					jsonData: data,
 					key: "👻"
@@ -98,7 +98,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 
 		do {
 			let
-				data = try 👻instance.getPropertyListData(
+				data = try 👻instance.makePropertyListData(
 					format: .binary,
 					key: "👻"
 				),
