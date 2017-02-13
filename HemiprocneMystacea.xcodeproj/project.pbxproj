@@ -65,6 +65,8 @@
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
 		493AD8831E4AB3D200A30593 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493AD8821E4AB3D200A30593 /* SortedArray.swift */; };
 		493AD8841E4AB3D200A30593 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493AD8821E4AB3D200A30593 /* SortedArray.swift */; };
+		493DB0D11E520FF000E16694 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493DB0D01E520FF000E16694 /* Mirror.swift */; };
+		493DB0D21E520FF000E16694 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493DB0D01E520FF000E16694 /* Mirror.swift */; };
 		494A99381E37253400F6A51D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A99371E37253400F6A51D /* UICollectionView.swift */; };
 		494A99391E37253400F6A51D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A99371E37253400F6A51D /* UICollectionView.swift */; };
 		494A993B1E37261800F6A51D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A993A1E37261800F6A51D /* UITableView.swift */; };
@@ -221,6 +223,7 @@
 		492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferenced.swift; sourceTree = "<group>"; };
 		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		493AD8821E4AB3D200A30593 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
+		493DB0D01E520FF000E16694 /* Mirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mirror.swift; sourceTree = "<group>"; };
 		494A99371E37253400F6A51D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		495606CA1E4DB4C8004C7FA0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -448,6 +451,7 @@
 				49B182D31C33807000529B08 /* Dictionary.swift */,
 				49B182D41C33807000529B08 /* Equatable.swift */,
 				498B54C61D828CF300C07620 /* FloatingPoint.swift */,
+				493DB0D01E520FF000E16694 /* Mirror.swift */,
 				49B182D61C33807000529B08 /* OptionSetType.swift */,
 				E348A4341D08C146003D8024 /* Optional.swift */,
 				497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */,
@@ -897,6 +901,7 @@
 				0A72FC631D40819D0041845B /* Referencers.swift in Sources */,
 				0A72FC4A1D40819D0041845B /* Bool.swift in Sources */,
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
+				493DB0D21E520FF000E16694 /* Mirror.swift in Sources */,
 				496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */,
@@ -950,6 +955,7 @@
 				497EFE8D1DB6472700DEC825 /* RawRepresentable.swift in Sources */,
 				49A36BDA1D407C6200A4BFEB /* CKDatabase.swift in Sources */,
 				49CBE0C11C332ADE00E8EFCC /* ….swift in Sources */,
+				493DB0D11E520FF000E16694 /* Mirror.swift in Sources */,
 				493AD8831E4AB3D200A30593 /* SortedArray.swift in Sources */,
 				492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,

@@ -31,6 +31,34 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		}
 	}
 	
+	func test_reconstructUsingOptional() {
+		let crossBonez = 💀(skool: nil)
+		
+		do {
+			let jsonData = try crossBonez.makeJSONData()
+			let reconstructedCrossBonez = try 💀(jsonData: jsonData)
+			XCTAssertNil(reconstructedCrossBonez.skool)
+		}
+		catch let error as NSError {
+			XCTFail(error.description)
+		}
+		
+		do {
+			let propertyListData = try crossBonez.makePropertyListData(format: .binary)
+			let reconstructedCrossBonez = try 💀(propertyListData: propertyListData)
+			XCTAssertNil(reconstructedCrossBonez.skool)
+		}
+		catch SerializableDictionary.GetValueError.noValue(let key) {
+			XCTFail(key)
+		}
+		catch SerializableDictionary.GetValueError.typeCastFailure(let key) {
+			XCTFail(key)
+		}
+		catch let error as NSError {
+			XCTFail(error.description)
+		}
+	}
+	
 	func test_nestedReconstruct() {
 		let 👻instance = 👻(
          boool: true,
@@ -154,7 +182,7 @@ extension 👻: InitializableWithSerializableDictionary {
 
 //MARK:
 private struct 💀 {
-	let skool: String
+	let skool: String?
 	
 	// Json wears a regular hockey mask, not a field hockey one.
 	let nonJSONProperty = "🏑"
@@ -169,7 +197,7 @@ extension 💀: ConvertibleToSerializableDictionary {
 extension 💀: InitializableWithSerializableDictionary {
    init(serializableDictionary dictionary: SerializableDictionary) throws {
 		self.init(
-			skool: try dictionary.getValue(key: SerializableDictionaryKey.skool)
+			skool: try? dictionary.getValue(key: SerializableDictionaryKey.skool)
 		)
 	}
 }

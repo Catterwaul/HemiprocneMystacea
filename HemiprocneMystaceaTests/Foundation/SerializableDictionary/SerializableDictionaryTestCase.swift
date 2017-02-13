@@ -42,7 +42,8 @@ final class SerializableDictionaryTestCase: XCTestCase {
 			"instruments": [
 				[visualizationKey: "🎹"],
 				[visualizationKey: "🎸"],
-				[visualizationKey: "🎷"]
+				[visualizationKey: "🎷"],
+				[visualizationKey: nil]
 			]
 		]
 		
@@ -51,7 +52,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
 			key: "instruments"
 		)
 		XCTAssertEqual(
-			instruments.map{$0.visualization},
+			instruments.flatMap{$0.visualization},
 			[	"🎹",
 			 	"🎸",
 			 	"🎷"
@@ -77,13 +78,15 @@ final class SerializableDictionaryTestCase: XCTestCase {
 		let instruments = [
 			[visualizationKey: "🎹"],
 			[visualizationKey: "🎸"],
-			[visualizationKey: "🎷"]
+			[visualizationKey: "🎷"],
+			[visualizationKey: nil]
 		]
 		XCTAssertEqual(
 			try [Instrument](instruments),
 			[	Instrument(visualization: "🎹"),
 				Instrument(visualization: "🎸"),
-				Instrument(visualization: "🎷")
+				Instrument(visualization: "🎷"),
+				Instrument(visualization: nil)
 			]
 		)
 	}
@@ -111,7 +114,7 @@ private struct Instrument {
 		case visualization
 	}
 
-	let visualization: String
+	let visualization: String?
 }
 
 extension Instrument: InitializableWithSerializableDictionary {
@@ -127,8 +130,6 @@ extension Instrument: Equatable {
 		instrument0: Instrument,
 		instrument1: Instrument
 	) -> Bool {
-		return instrument0 == (instrument1,
-			{$0.visualization}
-		)
+		return instrument0.visualization == instrument1.visualization
 	}
 }

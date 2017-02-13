@@ -19,7 +19,9 @@ where SerializableDictionaryKey.RawValue == String {
 				
 				guard
 					let label = label,
-					SerializableDictionaryKey.contains(label)
+					SerializableDictionaryKey.contains(label),
+				
+					!Mirror(reflecting: value).reflectsOptionalNone
 				else {return nil}
 				
 				let value: Any = {
