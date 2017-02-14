@@ -28,7 +28,10 @@ where SerializableDictionaryKey.RawValue == String {
 					switch value {
 					case let value as ConvertibleToSerializableDictionary:
 						return value.serializableDictionary
-            
+						
+					case let value as [ConvertibleToSerializableDictionary]:
+						return value.map{$0.serializableDictionary}
+						
 					default: return value
 					}
 				}()
@@ -71,4 +74,26 @@ where SerializableDictionaryKey.RawValue == String {
 				?? serializableDictionary
 		}
 	}
+}
+
+//MARK:
+public extension Sequence where Iterator.Element: ConvertibleToSerializableDictionary {
+  func makeJSONData(
+    options: JSONSerialization.WritingOptions = []
+  ) throws -> Data {
+    return try JSONSerialization.data(
+      withJSONObject: self.map{$0.serializableDictionary},
+      options: options
+    )
+  }
+  
+  func makePropertyListData(
+    format: PropertyListSerialization.PropertyListFormat
+  ) throws -> Data {
+    return try PropertyListSerialization.data(
+      fromPropertyList: self.map{$0.serializableDictionary},
+      format: format,
+      options: .init()
+    )
+  }
 }

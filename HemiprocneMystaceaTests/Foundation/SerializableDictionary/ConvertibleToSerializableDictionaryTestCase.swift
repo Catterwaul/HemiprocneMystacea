@@ -97,6 +97,52 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		}
 		catch {XCTFail()}
 	}
+  
+	func test_reconstructArray() {
+		let array = Array(
+			repeating: 👻(
+				boool: true,
+				skoool: 💀(skool: "👠L")
+			),
+			count: 3
+		)
+		
+		do {
+			let jsonData = try array.makeJSONData()
+			let reconstructedArray = try [💀](jsonData: jsonData)
+			XCTAssertEqual(reconstructedArray.count, 3)
+		}
+		catch {
+			XCTFail()
+		}
+		
+		do {
+			let propertyListData = try array.makePropertyListData(format: .binary)
+			let reconstructedArray = try [💀](propertyListData: propertyListData)
+			XCTAssertEqual(reconstructedArray.count, 3)
+		}
+		catch {
+			XCTFail()
+		}
+		
+		let 👻sInstance = 👻s(
+			array: array
+		)
+		
+		do {
+			_ = try 👻sInstance.makeJSONData()
+		}
+		catch {
+			XCTFail()
+		}
+		
+		do {
+			_ = try 👻sInstance.makePropertyListData(format: .binary)
+		}
+		catch {
+			XCTFail()
+		}
+	}
 	
 	func test_initializeUsingKey() {
 		typealias Error = SerializableDictionary.GetValueError
@@ -178,6 +224,15 @@ extension 👻: InitializableWithSerializableDictionary {
 			)
 		)
 	}
+}
+
+//MARK: 
+private struct 👻s: ConvertibleToSerializableDictionary {
+	enum SerializableDictionaryKey: String {
+		case array
+	}
+	
+	let array: [👻]
 }
 
 //MARK:
