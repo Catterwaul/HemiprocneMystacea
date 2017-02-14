@@ -38,6 +38,7 @@ public extension InitializableWithSerializableDictionary {
 		)
 	}
 	
+//MARK: private
 	private init(
 		dictionary: Any,
 		key: String? = nil
@@ -50,21 +51,27 @@ public extension InitializableWithSerializableDictionary {
 			}
 			return dictionary as? [String: Any]
 		}()
-		else {throw InitializableWithSerializableDictionaryInitializationError()}
+		else {throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionary}
 		
 		try self.init(dictionary)
 	}
 }
 
-//MARK: fileprivate
-public struct InitializableWithSerializableDictionaryInitializationError: Error {}
+//MARK:
+public enum InitializableWithSerializableDictionaryError: Error {
+	case dataNotConvertibleToDictionary
+	case dataNotConvertibleToDictionaries
+}
 
+//MARK:
 public extension Array where Element: InitializableWithSerializableDictionary {
 	private typealias DictionaryArray = [ [String: Any] ]
 	
 	init(_ array: [Any]) throws {
 		guard let dictionaries = array as? DictionaryArray
-		else {throw InitializableWithSerializableDictionaryInitializationError()}
+		else {
+			throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries
+		}
 		
 		try self.init(dictionaries: dictionaries)
 	}
@@ -80,10 +87,33 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 		)
 	}
 	
+	init(jsonData: Data) throws {
+		try self.init(
+			deserialized: try JSONSerialization.jsonObject(with: jsonData)
+		)
+	}
+	
+	init(propertyListData: Data) throws {
+		try self.init(
+			deserialized:
+				try PropertyListSerialization.deserialize(propertyListData)
+				.propertyList
+		)
+	}
+	
+//MARK: private
+	private init(deserialized: Any) throws {
+		guard let dictionaries = deserialized as? DictionaryArray
+		else {throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries}
+		
+		try self.init(dictionaries: dictionaries)
+	}
+	
 	private init<Dictionaries: Sequence>(dictionaries: Dictionaries) throws
 	where Dictionaries.Iterator.Element == [String: Any] {
-		self = try dictionaries.map{
-			dictionary in try Element(dictionary)
-		}
-	}
+		self = try
+			dictionaries
+			.enumerated()
+			.map(Element.init)
+  }
 }
