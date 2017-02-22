@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 public protocol ConvertibleToSerializableDictionary {
     ///- Important: This is a nested type with this signature:
@@ -7,13 +7,23 @@ public protocol ConvertibleToSerializableDictionary {
 	
 	// Should only be defined in the protocol extension,
 	// but we can't yet express that `JSONKey.RawValue == String` is always true.
-   var serializableDictionary: [String: Any] {get}
+	func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any]
 }
 
 public extension ConvertibleToSerializableDictionary
 where SerializableDictionaryKey.RawValue == String {
-	var serializableDictionary: [String: Any] {
-		return Dictionary(
+	func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any] {
+		return makeSerializableDictionary(
+			jsonCompatible: jsonCompatible,
+			key: nil
+		)
+	}
+	
+	func makeSerializableDictionary(
+		jsonCompatible: Bool,
+		key: String? = nil
+	) -> [String: Any] {
+		let serializableDictionary: [String: Any] = Dictionary(
 			Mirror(reflecting: self).children.flatMap{
 				label, value in
 				
@@ -21,27 +31,61 @@ where SerializableDictionaryKey.RawValue == String {
 					let label = label,
 					SerializableDictionaryKey.contains(label),
 				
+               // Don't include keys with nil values.
 					!Mirror(reflecting: value).reflectsOptionalNone
 				else {return nil}
+            
+            switch value {
+            case let image as UIImage:
+               // possibly nil
+               return UIImagePNGRepresentation(image).map{
+                  pngData in (
+                     key: label,
+                     value:
+                        jsonCompatible
+                        ? pngData.base64EncodedString()
+                        : pngData
+                  )
+               }
 				
-				let value: Any = {
-					switch value {
-					case let value as ConvertibleToSerializableDictionary:
-						return value.serializableDictionary
-						
-					case let value as [ConvertibleToSerializableDictionary]:
-						return value.map{$0.serializableDictionary}
-						
-					default: return value
-					}
-				}()
-				
-				return (
-					key: label,
-					value: value
-				)
-			}
+            default:
+               // never nil
+               return (
+                  key: label,
+                  value: {
+                     switch value {
+                     case let value as ConvertibleToSerializableDictionary:
+                        return value.makeSerializableDictionary(
+                           jsonCompatible: jsonCompatible
+                        )
+                        
+                     case let value as [ConvertibleToSerializableDictionary]:
+                        return value.map{
+                           $0.makeSerializableDictionary(
+										jsonCompatible: jsonCompatible
+									)
+                        }
+                        
+                     default: return
+                        (value as? CGPoint)?.dictionaryRepresentation
+                        ??
+								(value as? Date).flatMap{
+                           date in
+										jsonCompatible
+										? date.timeIntervalSinceReferenceDate
+										: date
+                        }
+                        ?? value
+                     }
+                  }()
+					)
+            }
+         }
 		)
+		
+		return
+			key.map{key in [key: serializableDictionary]}
+			?? serializableDictionary
 	}
 	
 	func makeJSONData(
@@ -49,7 +93,10 @@ where SerializableDictionaryKey.RawValue == String {
 		key: String? = nil
 	) throws -> Data {
 		return try JSONSerialization.data(
-			withJSONObject: serializableDictionaries[key],
+			withJSONObject: makeSerializableDictionary(
+				jsonCompatible: true,
+				key: key
+			),
 			options: options
 		)
 	}
@@ -59,39 +106,47 @@ where SerializableDictionaryKey.RawValue == String {
 		key: String? = nil
 	) throws -> Data {
 		return try Data(
-			propertyList: serializableDictionaries[key],
+			propertyList: makeSerializableDictionary(
+				jsonCompatible: false,
+				key: key
+			),
 			format: format
 		)
-	}
-	
-	private var serializableDictionaries:
-		NamedGetOnlySubscript<String?, [String: Any]>
-	{
-		return NamedGetOnlySubscript{
-			[serializableDictionary]
-			key in
-				key.map{key in [key: serializableDictionary]}
-				?? serializableDictionary
-		}
 	}
 }
 
 //MARK:
-public extension Sequence where Iterator.Element: ConvertibleToSerializableDictionary {
+public extension Sequence
+where
+	Iterator.Element: ConvertibleToSerializableDictionary,
+	Iterator.Element.SerializableDictionaryKey.RawValue == String
+{
   func makeJSONData(
-    options: JSONSerialization.WritingOptions = []
+    options: JSONSerialization.WritingOptions = [],
+    key: String? = nil
   ) throws -> Data {
     return try JSONSerialization.data(
-      withJSONObject: self.map{$0.serializableDictionary},
+      withJSONObject: self.map{
+			$0.makeSerializableDictionary(
+				jsonCompatible: true,
+				key: key
+			)
+		},
       options: options
     )
   }
   
   func makePropertyListData(
-    format: PropertyListSerialization.PropertyListFormat
+    format: PropertyListSerialization.PropertyListFormat,
+    key: String? = nil
   ) throws -> Data {
     return try PropertyListSerialization.data(
-      fromPropertyList: self.map{$0.serializableDictionary},
+      fromPropertyList: self.map{
+			$0.makeSerializableDictionary(
+				jsonCompatible: false,
+				key: key
+			)
+		},
       format: format,
       options: .init()
     )

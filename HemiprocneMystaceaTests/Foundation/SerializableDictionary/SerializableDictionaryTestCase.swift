@@ -105,6 +105,23 @@ final class SerializableDictionaryTestCase: XCTestCase {
 		)
 	}
 	
+	func test_jsonDataNotConvertibleToDictionaries() {
+		let jsonData = try! JSONSerialization.data(
+			withJSONObject: ["🐈": "🐈"],
+			options: []
+		)
+		
+		XCTAssertThrowsError(
+			try [Instrument](jsonData: jsonData)
+		){	error in switch error {
+			case let error as InitializableWithSerializableDictionaryError:
+				XCTAssertEqual(error, .dataNotConvertibleToDictionaries)
+				
+			default: XCTFail()
+			}
+		}
+	}
+	
 	private let visualizationKey =
 		Instrument.SerializableDictionaryKey.visualization.rawValue
 }

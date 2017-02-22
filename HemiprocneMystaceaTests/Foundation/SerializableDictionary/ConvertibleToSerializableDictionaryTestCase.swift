@@ -4,8 +4,59 @@ import XCTest
 final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 	func test_serializableDictionary() {
 		XCTAssertEqual(
-			💀(skool: "🏫").serializableDictionary as! [String: String],
+			💀(skool: "🏫").makeSerializableDictionary(
+				jsonCompatible: true
+			) as! [String: String],
 			["skool": "🏫"]
+		)
+	}
+	
+	func test_Date() {
+		let instance = 🐭()
+	
+		XCTAssertEqual(
+			instance.date,
+			instance
+				.makeSerializableDictionary(jsonCompatible: false)[
+					🐭.SerializableDictionaryKey.date.rawValue
+				] as? Date
+		)
+		
+		XCTAssertEqual(
+			instance.date,
+			Date(
+				timeIntervalSinceReferenceDate:
+					instance
+					.makeSerializableDictionary(jsonCompatible: true)[
+						🐭.SerializableDictionaryKey.date.rawValue
+					] as! Double
+			)
+		)
+	}
+	
+	func test_UIImage() {
+		let instance = 🐭()
+		
+		XCTAssertTrue(
+			UIImage(
+				data:
+					instance
+					.makeSerializableDictionary(jsonCompatible: false)[
+						🐭.SerializableDictionaryKey.image.rawValue
+					] as! Data
+			)!.hasEqualPixels(to: instance.image)
+		)
+		
+		XCTAssertTrue(
+			UIImage(
+				data: Data(
+					base64Encoded:
+						instance
+						.makeSerializableDictionary(jsonCompatible: true)[
+							🐭.SerializableDictionaryKey.image.rawValue
+						] as! String
+				)!
+			)!.hasEqualPixels(to: instance.image)
 		)
 	}
 	
@@ -251,9 +302,32 @@ extension 💀: ConvertibleToSerializableDictionary {
 
 extension 💀: InitializableWithSerializableDictionary {
    init(serializableDictionary dictionary: SerializableDictionary) throws {
-		self.init(
-			skool: try? dictionary.getValue(key: SerializableDictionaryKey.skool)
-		)
+		typealias Error = SerializableDictionary.GetValueError
+		do {
+			self.init(
+				skool: try dictionary.getValue(key: SerializableDictionaryKey.skool)
+			)
+		}
+		catch Error.typeCastFailure(let key)  {
+			throw Error.typeCastFailure(key: key)
+		}
+		catch {self.init(skool: nil)}
 	}
 }
 
+
+//MARK:
+private struct 🐭: ConvertibleToSerializableDictionary {
+	enum SerializableDictionaryKey: String {
+		case date
+		case image
+	}
+	
+	let date = Date()
+	
+	let image = UIImage(
+		named: "Mousse with Mouse.png",
+		in: Bundle(for: ConvertibleToSerializableDictionaryTestCase.self),
+		compatibleWith: nil
+	)!
+}

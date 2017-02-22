@@ -1,6 +1,5 @@
 import UIKit
 
-
 public protocol ViewControllerWithDependentOutlets: class {
 	associatedtype OutletDependencies
 	

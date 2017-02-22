@@ -108,6 +108,9 @@
 		498B54C71D828CF300C07620 /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C61D828CF300C07620 /* FloatingPoint.swift */; };
 		498B54C81D828CF300C07620 /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C61D828CF300C07620 /* FloatingPoint.swift */; };
 		498B54CA1D828D1C00C07620 /* FloatingPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */; };
+		498C8A081E5E152D00887F04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C8A071E5E152D00887F04 /* UIImage.swift */; };
+		498C8A091E5E152D00887F04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C8A071E5E152D00887F04 /* UIImage.swift */; };
+		498C8A0B1E5E2E8300887F04 /* Mousse with Mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C8A0A1E5E2E8300887F04 /* Mousse with Mouse.png */; };
 		498F6CC61D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */; };
 		498F6CCA1D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */; };
 		4993AD331DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
@@ -255,6 +258,8 @@
 		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAsset.swift; sourceTree = "<group>"; };
 		498B54C61D828CF300C07620 /* FloatingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
 		498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTestCase.swift; sourceTree = "<group>"; };
+		498C8A071E5E152D00887F04 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		498C8A0A1E5E2E8300887F04 /* Mousse with Mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mousse with Mouse.png"; sourceTree = "<group>"; };
 		498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToSerializableDictionary.swift; sourceTree = "<group>"; };
 		498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToSerializableDictionaryTestCase.swift; sourceTree = "<group>"; };
 		4993AD321DD99155007C7525 /* named subscripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "named subscripts.swift"; sourceTree = "<group>"; };
@@ -572,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				49CBE0021C3329EF00E8EFCC /* Info.plist */,
+				498C8A0A1E5E2E8300887F04 /* Mousse with Mouse.png */,
 				49C526E51DB6DA1D0036B020 /* CloudKit */,
 				499C71901D0F761B009797BC /* Core Graphics */,
 				49C4346C1C375BB400B6C530 /* Foundation */,
@@ -651,6 +657,7 @@
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
 				494A99371E37253400F6A51D /* UICollectionView.swift */,
 				497F56891E3C494F0066CD1E /* UIColor.HSBA.swift */,
+				498C8A071E5E152D00887F04 /* UIImage.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
 				494A993A1E37261800F6A51D /* UITableView.swift */,
@@ -852,6 +859,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498C8A0B1E5E2E8300887F04 /* Mousse with Mouse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,6 +937,7 @@
 				4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */,
 				0A72FC661D40819D0041845B /* UIAlertController.swift in Sources */,
 				0A72FC601D40819D0041845B /* HashableClass.swift in Sources */,
+				498C8A091E5E152D00887F04 /* UIImage.swift in Sources */,
 				0A72FC651D40819D0041845B /* UIAlertAction.swift in Sources */,
 				0A72FC3A1D40819D0041845B /* CKRecord.swift in Sources */,
 				0A72FC511D40819D0041845B /* String.swift in Sources */,
@@ -1032,6 +1041,7 @@
 				49B159541E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */,
 				497F569C1E3C55B50066CD1E /* CGPoint.swift in Sources */,
 				497F568D1E3C4BC40066CD1E /* CALayer.swift in Sources */,
+				498C8A081E5E152D00887F04 /* UIImage.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
 				E348A4351D08C146003D8024 /* Optional.swift in Sources */,
 			);
