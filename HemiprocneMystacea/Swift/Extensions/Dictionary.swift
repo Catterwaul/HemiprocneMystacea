@@ -31,13 +31,13 @@ public extension Dictionary {
 
 	subscript(
 		key: Key,
-		valueAddedIfNil value_get: @autoclosure() -> Dictionary.Value
+		valueAddedIfNil getValue: @autoclosure() -> Dictionary.Value
 	) -> Dictionary.Value {
 		mutating get {
 			return
 				self[key]
 				?? {
-					self[key] = value_get()
+					self[key] = getValue()
 					return self[key]!
 				}()
 		}
