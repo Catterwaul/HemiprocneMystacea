@@ -1,6 +1,20 @@
 import UIKit
 
-public extension UIViewController {		
+public extension UIViewController {
+  static func instantiate() -> Self? {
+    return UIViewController.instantiate()
+  }
+  
+  static func instantiate<ViewController: UIViewController>(
+    storyboard: UIStoryboard = UIStoryboard(
+      name: String(describing: ViewController.self),
+      bundle: nil
+    )
+  ) -> ViewController? {
+    return storyboard.instantiateInitialViewController() as? ViewController
+  }
+
+  
 	final func presentActionSheet(
 		title: String? = nil,
 		message: String? = nil,

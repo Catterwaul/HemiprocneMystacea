@@ -121,6 +121,7 @@
 		499C71961D0F8079009797BC /* MakeGetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71951D0F8079009797BC /* MakeGetTestCase.swift */; };
 		499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
 		499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
+		499D69851E6902C0004F30F2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D69841E6902C0004F30F2 /* UIViewController.swift */; };
 		49A1982E1D62B358005C251A /* typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A1982D1D62B358005C251A /* typealiases.swift */; };
 		49A1982F1D62B358005C251A /* typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A1982D1D62B358005C251A /* typealiases.swift */; };
 		49A36BDA1D407C6200A4BFEB /* CKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BD91D407C6200A4BFEB /* CKDatabase.swift */; };
@@ -271,6 +272,7 @@
 		499C71931D0F7E94009797BC /* CGSizeTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGSizeTestCase.swift; path = "Core Graphics/CGSizeTestCase.swift"; sourceTree = "<group>"; };
 		499C71951D0F8079009797BC /* MakeGetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MakeGetTestCase.swift; path = Swift/MakeGetTestCase.swift; sourceTree = "<group>"; };
 		499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKFetchRecordsOperation.swift; sourceTree = "<group>"; };
+		499D69841E6902C0004F30F2 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = UIKit/UIViewController.swift; sourceTree = "<group>"; };
 		49A1982D1D62B358005C251A /* typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typealiases.swift; sourceTree = "<group>"; };
 		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDatabase.swift; sourceTree = "<group>"; };
 		49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecord.swift; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 				497F56991E3C52690066CD1E /* UIColorTestCase.swift */,
 				497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */,
 				49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */,
+				499D69841E6902C0004F30F2 /* UIViewController.swift */,
 			);
 			name = UIKit;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				4966E4CF1E3C5AA300199496 /* CGPointTestCase.swift in Sources */,
+				499D69851E6902C0004F30F2 /* UIViewController.swift in Sources */,
 				49B182E71C33839900529B08 /* ArrayTestCase.swift in Sources */,
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
