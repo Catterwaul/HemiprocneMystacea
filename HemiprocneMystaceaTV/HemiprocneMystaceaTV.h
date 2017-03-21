@@ -1,11 +1,3 @@
-//
-//  HemiprocneMystaceaTV.h
-//  HemiprocneMystaceaTV
-//
-//  Created by Catie Catterwaul on 7/21/16.
-//  Copyright © 2016 Catterwaul. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 //! Project version number for HemiprocneMystaceaTV.

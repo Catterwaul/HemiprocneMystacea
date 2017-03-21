@@ -1,13 +1,13 @@
 import UIKit
 
 public protocol ConvertibleToSerializableDictionary {
-    ///- Important: This is a nested type with this signature:
-    ///  `enum SerializableDictionaryKey: String`
-	associatedtype SerializableDictionaryKey: RawRepresentable
-	
-	// Should only be defined in the protocol extension,
-	// but we can't yet express that `JSONKey.RawValue == String` is always true.
-	func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any]
+  ///- Important: This is a nested type with this signature:
+  ///  `enum SerializableDictionaryKey: String`
+  associatedtype SerializableDictionaryKey: RawRepresentable
+  
+  // Should only be defined in the protocol extension,
+  // but we can't yet express that `JSONKey.RawValue == String` is always true.
+  func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any]
 }
 
 public extension ConvertibleToSerializableDictionary
@@ -31,57 +31,57 @@ where SerializableDictionaryKey.RawValue == String {
 					let label = label,
 					SerializableDictionaryKey.contains(label),
 				
-               // Don't include keys with nil values.
+          // Don't include keys with nil values.
 					!Mirror(reflecting: value).reflectsOptionalNone
 				else {return nil}
             
-            switch value {
-            case let image as UIImage:
-               // possibly nil
-               return UIImagePNGRepresentation(image).map{
-                  pngData in (
-                     key: label,
-                     value:
-                        jsonCompatible
-                        ? pngData.base64EncodedString()
-                        : pngData
+        switch value {
+        case let image as UIImage:
+          // possibly nil
+          return UIImagePNGRepresentation(image).map{
+            pngData in (
+              key: label,
+              value:
+              jsonCompatible
+                ? pngData.base64EncodedString()
+                : pngData
+            )
+          }
+          
+        default:
+          // never nil
+          return (
+            key: label,
+            value: {
+              switch value {
+              case let value as ConvertibleToSerializableDictionary:
+                return value.makeSerializableDictionary(
+                  jsonCompatible: jsonCompatible
+                )
+                
+              case let value as [ConvertibleToSerializableDictionary]:
+                return value.map{
+                  $0.makeSerializableDictionary(
+                    jsonCompatible: jsonCompatible
                   )
-               }
-				
-            default:
-               // never nil
-               return (
-                  key: label,
-                  value: {
-                     switch value {
-                     case let value as ConvertibleToSerializableDictionary:
-                        return value.makeSerializableDictionary(
-                           jsonCompatible: jsonCompatible
-                        )
-                        
-                     case let value as [ConvertibleToSerializableDictionary]:
-                        return value.map{
-                           $0.makeSerializableDictionary(
-										jsonCompatible: jsonCompatible
-									)
-                        }
-                        
-                     default: return
-                        (value as? CGPoint)?.dictionaryRepresentation
-                        ??
-								(value as? Date).flatMap{
-                           date in
-										jsonCompatible
-										? date.timeIntervalSinceReferenceDate
-										: date
-                        }
-                        ?? value
-                     }
-                  }()
-					)
-            }
-         }
-		)
+                }
+                
+              default: return
+                (value as? CGPoint)?.dictionaryRepresentation
+                  ??
+                  (value as? Date).flatMap{
+                    date in
+                    jsonCompatible
+                      ? date.timeIntervalSinceReferenceDate
+                      : date
+                  }
+                  ?? value
+              }
+          }()
+          )
+        }
+      }
+    )
 		
 		return
 			key.map{key in [key: serializableDictionary]}
