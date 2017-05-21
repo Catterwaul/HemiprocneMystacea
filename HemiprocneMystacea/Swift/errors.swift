@@ -1,6 +1,6 @@
 //public typealias HashableError = Hashable & Error
 
-public struct Errors: Swift.Error {
+public struct Errors: Error {
 	public let array: [Error]
 	
 //MARK: init

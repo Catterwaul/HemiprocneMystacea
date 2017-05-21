@@ -3,17 +3,8 @@ import XCTest
 
 final class SequenceTestCase: XCTestCase {
 	func test_containsOnly() {
-		let
-		ones = [
-			1,
-			1,
-			1
-		],
-		oneTwoThree = [
-			1,
-			2,
-			3
-		]
+		let ones = [1, 1, 1]
+		let oneTwoThree = [1, 2, 3]
 		
 		XCTAssertTrue( ones.containsOnly(1) )
 		XCTAssertFalse( oneTwoThree.containsOnly(2) )
