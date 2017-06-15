@@ -54,17 +54,17 @@ where SerializableDictionaryKey.RawValue == String {
             key: label,
             value: {
               switch child.value {
-              case let value as ConvertibleToSerializableDictionary:
-                return value.makeSerializableDictionary(
-                  jsonCompatible: jsonCompatible
-                )
-                
-              case let value as [ConvertibleToSerializableDictionary]:
-                return value.map{
-                  $0.makeSerializableDictionary(
-                    jsonCompatible: jsonCompatible
-                  )
-                }
+//              case let value as ConvertibleToSerializableDictionary:
+//                return value.makeSerializableDictionary(
+//                  jsonCompatible: jsonCompatible
+//                )
+//                
+//              case let value as [ConvertibleToSerializableDictionary]:
+//                return value.map{
+//                  $0.makeSerializableDictionary(
+//                    jsonCompatible: jsonCompatible
+//                  )
+//                }
                 
               default:
                 return
