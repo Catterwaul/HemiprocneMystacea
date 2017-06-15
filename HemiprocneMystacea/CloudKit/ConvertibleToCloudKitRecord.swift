@@ -24,7 +24,7 @@ where CloudKitRecordKey.RawValue == String {
 	}
 }
 
-//MARK: fileprivate
+//MARK: private
 private extension ConvertibleToCloudKitRecord
 where CloudKitRecordKey.RawValue == String {
   var recordDictionaryPairs: [(key: String, value: CKRecordValue?)] {

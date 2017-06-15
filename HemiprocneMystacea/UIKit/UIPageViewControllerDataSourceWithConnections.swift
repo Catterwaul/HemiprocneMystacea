@@ -35,7 +35,7 @@ public extension UIPageViewController.ConnectedViewControllers {
 	}
 }
 
-//MARK: fileprivate
+//MARK: private
 private extension UIPageViewController.ConnectedViewControllers {
 	func getConnectedViewController(
 		viewController: UIViewController,

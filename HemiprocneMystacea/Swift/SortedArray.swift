@@ -12,8 +12,8 @@ public struct SortedArray<Element: Equatable>: BackedByArray {
 		self.getAreInIncreasingOrder = getAreInIncreasingOrder
 	}
 	
-//MARK: fileprivate
-	fileprivate let getAreInIncreasingOrder: GetAreInIncreasingOrder
+//MARK: private
+	private let getAreInIncreasingOrder: GetAreInIncreasingOrder
 
 //MARK: BackedByArray
 	public static func + <Elements: Sequence>(
@@ -37,7 +37,7 @@ public struct SortedArray<Element: Equatable>: BackedByArray {
 		)
 	}
 	
-	public fileprivate(set) var backingArray: [Element]
+	public private(set) var backingArray: [Element]
 }
 
 //MARK: public
