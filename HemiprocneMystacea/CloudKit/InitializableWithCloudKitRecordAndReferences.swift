@@ -29,7 +29,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
 		processSingleRecordError: @escaping Process<Error>,
-		_ process: @escaping [Self]>
+		_ process: @escaping ProcessThrowingGet<[Self]>
 	) {
 		let operationQueue = OperationQueue()
 		operationQueue.maxConcurrentOperationCount = 1

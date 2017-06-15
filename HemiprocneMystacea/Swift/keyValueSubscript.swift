@@ -7,21 +7,15 @@ public protocol keyValueSubscript {
 }
 
 public extension keyValueSubscript {
-	/// Should just be a generic subscript, but those don't exist yet.
-	func getValue<Value>(key: Key) -> Value? {
+	subscript<Value>(key: Key) -> Value? {
 		return self[key] as? Value
 	}
 	
 	/// Allows lookup by enumeration cases backed by `Key`s,
 	/// instead of having to manually use their raw values.
-	///
-	/// Should just be a generic subscript, but those don't exist yet.
-	func getValue<
-		Key: RawRepresentable,
-		Value
-	>(key: Key) -> Value?
+	subscript<Key: RawRepresentable, Value>(key: Key) -> Value?
 	where Key.RawValue == Self.Key {
-		return self.getValue(key: key.rawValue)
+		return self[key.rawValue]
 	}
 }
 

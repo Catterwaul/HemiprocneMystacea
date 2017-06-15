@@ -1,26 +1,25 @@
 public struct NamedGetOnlySubscript<Index, Value> {
-	public typealias GetValue = (Index) -> Value
-	
-	public init(_ getValue: @escaping GetValue) {
-		self.getValue = getValue
-	}
-	
-	public subscript(index: Index) -> Value {
-		return getValue(index)
-	}
-	
+  public typealias GetValue = (Index) -> Value
+  
 //MARK: private
-	private let getValue: GetValue
+  private let getValue: GetValue
 }
 
 public extension NamedGetOnlySubscript {
-	/// This should take a sequence, not an array,
-	/// but generic subscripts don't exist yet.
-	subscript(indices: [Index]) -> [Value] {
-		return indices.map{index in self[index]}
-	}
-	
-	subscript(indices: Index...) -> [Value] {
-		return self[indices]
-	}
+  init(_ getValue: @escaping GetValue) {
+    self.getValue = getValue
+  }
+  
+  subscript(index: Index) -> Value {
+    return getValue(index)
+  }
+  
+  subscript<Indices: Sequence>(indices: Indices) -> [Value]
+  where Indices.Element == Index {
+    return indices.map{self[$0]}
+  }
+  
+  subscript(indices: Index...) -> [Value] {
+    return self[indices]
+  }
 }
