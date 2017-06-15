@@ -15,9 +15,7 @@ public protocol CloudKitBackReferencer: InitializableWithCloudKitRecord {
 public extension CloudKitBackReferencer {
 	static func request(
 		database: CKDatabase,
-		_ process: @escaping Process<
-			() throws -> [ CKRecordID: [RequestResult] ]
-		>
+		_ process: @escaping ProcessThrowingGet<[ CKRecordID: [RequestResult] ]>
 	) {
 		database.request(recordType: self){
 			getRecords in process{

@@ -15,7 +15,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 	static func request(
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
-		_ process: @escaping Process<() throws -> Self>,
+		_ process: @escaping ProcessThrowingGet<Self>,
 		_ processVerifyCompletion: @escaping Process<Verify>
 	) {
 		database.request(
@@ -29,7 +29,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
 		processSingleRecordError: @escaping Process<Error>,
-		_ process: @escaping Process<() throws -> [Self]>
+		_ process: @escaping [Self]>
 	) {
 		let operationQueue = OperationQueue()
 		operationQueue.maxConcurrentOperationCount = 1
