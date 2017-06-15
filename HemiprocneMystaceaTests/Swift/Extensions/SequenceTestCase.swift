@@ -12,16 +12,6 @@ final class SequenceTestCase: XCTestCase {
 		XCTAssertTrue(ones.containsOnly{$0 == 1})
 		XCTAssertFalse(oneTwoThree.containsOnly{$0 == 3})
 	}
-
-	func test_first() {
-		XCTAssertEqual(
-			[	1,
-				5,
-				3
-			].first{$0 == 5},
-			5
-		)
-	}
 	
 	func test_max() {
 		XCTAssertEqual(
