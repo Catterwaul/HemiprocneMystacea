@@ -27,37 +27,37 @@ where CloudKitRecordKey.RawValue == String {
 //MARK: fileprivate
 private extension ConvertibleToCloudKitRecord
 where CloudKitRecordKey.RawValue == String {
-	var recordDictionaryPairs: [(key: String, value: CKRecordValue?)] {
-		return Mirror(reflecting: self).children.flatMap{
-			label, value in
-			
-			guard
-				let label = label,
-				let key = CloudKitRecordKey(rawValue: label)
-			else {return nil}
-			
-			return (
-				key: label,
-				value:
-					recordDictionaryOverrides.keys.contains(key)
-					? recordDictionaryOverrides[key]
-					: {
-						switch value {
-						case let asset as CKAsset:
-							return asset
-							
-						case let date as NSDate:
-							return date
-							
-						case let number as NSNumber:
-							return number
-							
-						case let string as NSString:
-							return string
-							
-						default: return value as? CKRecordValue
-						}
-					}()
+  var recordDictionaryPairs: [(key: String, value: CKRecordValue?)] {
+    return Mirror(reflecting: self).children.flatMap{
+      child in
+      
+      guard
+        let label = child.label,
+        let key = CloudKitRecordKey(rawValue: label)
+      else {return nil}
+      
+      return (
+        key: label,
+        value:
+          recordDictionaryOverrides.keys.contains(key)
+          ? recordDictionaryOverrides[key]
+          : {
+            switch child.value {
+            case let asset as CKAsset:
+              return asset
+              
+            case let date as NSDate:
+              return date
+              
+            case let number as NSNumber:
+              return number
+              
+            case let string as NSString:
+              return string
+              
+            default: return child.value as? CKRecordValue
+            }
+          }()
 			)
 		}
 	}

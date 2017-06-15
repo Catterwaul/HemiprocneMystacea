@@ -12,37 +12,37 @@ public protocol ConvertibleToSerializableDictionary {
 
 public extension ConvertibleToSerializableDictionary
 where SerializableDictionaryKey.RawValue == String {
-	func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any] {
-		return makeSerializableDictionary(
-			jsonCompatible: jsonCompatible,
-			key: nil
-		)
-	}
+  func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any] {
+    return makeSerializableDictionary(
+      jsonCompatible: jsonCompatible,
+      key: nil
+    )
+  }
 	
-	func makeSerializableDictionary(
-		jsonCompatible: Bool,
-		key: String? = nil
-	) -> [String: Any] {
-		let serializableDictionary: [String: Any] = Dictionary(
-			Mirror(reflecting: self).children.flatMap{
-				label, value in
-				
-				guard
-					let label = label,
-					SerializableDictionaryKey.contains(label),
-				
+  func makeSerializableDictionary(
+    jsonCompatible: Bool,
+    key: String? = nil
+  ) -> [String: Any] {
+    let serializableDictionary: [String: Any] = Dictionary(
+      uniqueKeysWithValues: Mirror(reflecting: self).children.flatMap{
+        child in
+        
+        guard
+          let label = child.label,
+          SerializableDictionaryKey.contains(label),
+          
           // Don't include keys with nil values.
-					!Mirror(reflecting: value).reflectsOptionalNone
-				else {return nil}
-            
-        switch value {
+          !Mirror(reflecting: child.value).reflectsOptionalNone
+        else {return nil}
+        
+        switch child.value {
         case let image as UIImage:
           // possibly nil
           return UIImagePNGRepresentation(image).map{
             pngData in (
               key: label,
               value:
-              jsonCompatible
+                jsonCompatible
                 ? pngData.base64EncodedString()
                 : pngData
             )
@@ -53,7 +53,7 @@ where SerializableDictionaryKey.RawValue == String {
           return (
             key: label,
             value: {
-              switch value {
+              switch child.value {
               case let value as ConvertibleToSerializableDictionary:
                 return value.makeSerializableDictionary(
                   jsonCompatible: jsonCompatible
@@ -66,18 +66,19 @@ where SerializableDictionaryKey.RawValue == String {
                   )
                 }
                 
-              default: return
-                (value as? CGPoint)?.dictionaryRepresentation
+              default:
+                return
+                  (child.value as? CGPoint)?.dictionaryRepresentation
                   ??
-                  (value as? Date).flatMap{
+                  (child.value as? Date).flatMap{
                     date in
                     jsonCompatible
                       ? date.timeIntervalSinceReferenceDate
                       : date
                   }
-                  ?? value
+                  ?? child.value
               }
-          }()
+            }()
           )
         }
       }

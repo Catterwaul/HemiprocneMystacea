@@ -10,7 +10,7 @@ public extension CKDatabase {
 	func request<Requested>(
 		recordType: Requested.Type,
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping Process<() throws -> [CKRecord]>
+		process: @escaping ProcessThrowingGet<[CKRecord]>
 	){
 		perform(
 			CKQuery(
@@ -38,7 +38,7 @@ public extension CKDatabase {
 	///   - process: processes a *throwing get [Requested]*
 	func request<Requested: InitializableWithCloudKitRecord>(
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping Process<() throws -> [Requested]>
+		process: @escaping ProcessThrowingGet<[Requested]>
 	){
 		request(
 			recordType: Requested.self,

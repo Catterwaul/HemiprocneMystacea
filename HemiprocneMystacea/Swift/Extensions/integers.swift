@@ -1,13 +1,11 @@
-public extension ExpressibleByIntegerLiteral
-where Self: IntegerArithmetic {
+public extension BinaryInteger {
 	/// *Divisbility*: when division by `divisor` results in a whole number.
 	func divisible(by divisor: Self) -> Bool {
 		return self % divisor == 0
 	}
 }
 
-public extension Sequence
-where Iterator.Element: ExpressibleByIntegerLiteral & IntegerArithmetic {
+public extension Sequence where Element: Numeric {
 	var sum: Iterator.Element {
 		return self.reduce(0, +)
 	}

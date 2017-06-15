@@ -41,9 +41,16 @@ public final class MultiClosure<Input>: EquatableClass {
 	}
 }
 
+public extension MultiClosure
+where Input == () {
+  subscript() -> Void {
+    self[()]
+  }
+}
+
 /// A wrapper around a closure, for use with MultiClosures
 public final class EquatableClosure<Input>: EquatableClass {
-	public init( _ closure: @escaping ( Input) -> () ) {
+	public init(_ closure: @escaping (Input) -> Void) {
 		self.closure = closure
 	}
 
@@ -55,7 +62,7 @@ public final class EquatableClosure<Input>: EquatableClass {
 		closure(input)
 	}
 	
-	private let closure: (Input) -> ()
+	private let closure: (Input) -> Void
 
 //MARK: deallocation
 	var multiClosures: Set<

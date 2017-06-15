@@ -1,12 +1,12 @@
 //MARK:- nils
 
 ///- Returns: Two generic closures which return nil
-public func Nils<
-   Arguments1, Return1,
-   Arguments2, Return2
+public func makeReturnNils<
+   Parameters1, Return1,
+   Parameters2, Return2
 >() -> (
-   (Arguments1) -> Return1?,
-   (Arguments2) -> Return2?
+   (Parameters1) -> Return1?,
+   (Parameters2) -> Return2?
 ) {
    return (
 		{_ in nil},

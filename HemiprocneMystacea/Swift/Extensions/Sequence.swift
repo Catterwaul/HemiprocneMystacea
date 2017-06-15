@@ -1,40 +1,21 @@
 public extension Sequence {
-	var first: Iterator.Element? {
-		return self.first{_ in true}
-	}
-	
-	func grouped<Key: Hashable>(
-		getKey: (Iterator.Element) -> Key
-	) -> [ Key: [Iterator.Element] ] {
-		var groups: [ Key: [Iterator.Element] ] = [:]
-		
-		forEach{
-			let key = getKey($0)
-			
-			if groups[key] == nil {
-				groups[key] = [$0]
-			}
-			else {
-				groups[key]!.append($0)
-			}
-		}
-		
-		return groups
-	}
-	
-	func max<Comparable: Swift.Comparable>(
-		getComparable: (Iterator.Element) throws -> Comparable
-	) rethrows -> Iterator.Element? {
-		return try self.max{
-			try getComparable($0) < getComparable($1)
-		}
-	}
-	
-	func sorted<Comparable: Swift.Comparable>(
-		getComparable: (Iterator.Element) -> Comparable
-	) -> [Iterator.Element] {
-		return self.sorted{getComparable($0) < getComparable($1)}
-	}
+  var first: Iterator.Element? {
+    return self.first{_ in true}
+  }
+  
+  func max<Comparable: Swift.Comparable>(
+    getComparable: (Iterator.Element) throws -> Comparable
+  ) rethrows -> Iterator.Element? {
+    return try self.max{
+      try getComparable($0) < getComparable($1)
+    }
+  }
+  
+  func sorted<Comparable: Swift.Comparable>(
+    getComparable: (Iterator.Element) -> Comparable
+  ) -> [Iterator.Element] {
+    return self.sorted{getComparable($0) < getComparable($1)}
+  }
 }
 
 //MARK: containsOnly

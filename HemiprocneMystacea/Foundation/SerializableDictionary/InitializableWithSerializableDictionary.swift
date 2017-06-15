@@ -110,10 +110,10 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 	}
 	
 	private init<Dictionaries: Sequence>(dictionaries: Dictionaries) throws
-	where Dictionaries.Iterator.Element == [String: Any] {
+	where Dictionaries.Element == [String: Any] {
 		self = try
 			dictionaries
 			.enumerated()
-			.map(Element.init)
+			.mapElements(Element.init)
   }
 }

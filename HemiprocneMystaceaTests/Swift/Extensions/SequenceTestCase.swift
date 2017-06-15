@@ -23,34 +23,6 @@ final class SequenceTestCase: XCTestCase {
 		)
 	}
 	
-	func test_grouped() {
-		let groups = [
-			("🔫", "💚"),
-			
-			("🎎", "💕"),
-			("🎎", "💕"),
-			
-			("👩‍❤️‍💋‍👩", "💤"),
-			("👩‍❤️‍💋‍👩", "💤"),
-			("👩‍❤️‍💋‍👩", "💤")
-		].grouped{$0.0}
-		
-		XCTAssertEqual(
-			groups["🔫"]!.map{$0.1},
-			["💚"]
-		)
-		
-		XCTAssertEqual(
-			groups["🎎"]!.map{$0.1},
-			["💕", "💕"]
-		)
-		
-		XCTAssertEqual(
-			groups["👩‍❤️‍💋‍👩"]!.map{$0.1},
-			["💤", "💤", "💤"]
-		)
-	}
-	
 	func test_max() {
 		XCTAssertEqual(
 			[	"1️⃣": 1,

@@ -42,17 +42,10 @@ public extension CloudKitBackReferencer {
 						result: result
 					)
 				}
-				
-				return Dictionary(
-					idsAndResults
-					.grouped{$0.backReferenceID}
-					.map{
-						id, idsAndResults in (
-							id,
-							idsAndResults.map{$0.result}
-						)
-					}
-				)
+        
+        return
+          Dictionary(grouping: idsAndResults){$0.backReferenceID}
+					.mapValues{ idsAndResults in idsAndResults.map{$0.result} }
 			}
 		}
 	}

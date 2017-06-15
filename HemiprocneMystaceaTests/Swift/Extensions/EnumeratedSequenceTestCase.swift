@@ -2,12 +2,12 @@ import HM
 import XCTest
 
 final class EnumeratedSequenceTestCase: XCTestCase {
-	func test_map() {
+	func test_mapElements() {
 		do {
 			_ = try
 				["🚽", "🛁"]
 				.enumerated()
-				.map{
+				.mapElements{
 					guard $0 == "🚽"
 					else {
 						struct Error: Swift.Error {}

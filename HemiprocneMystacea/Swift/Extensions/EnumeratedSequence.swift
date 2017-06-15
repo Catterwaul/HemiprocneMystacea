@@ -1,23 +1,21 @@
 public extension EnumeratedSequence {
-	/// - Throws: EnumeratedSequenceError
-	func map<Transformed>(
-		_ transform: (Base.Iterator.Element) throws -> Transformed
-	) throws -> [Transformed] {
-		return try self.map{
-			(index, element) in do {
-				return try transform(element)
-			}
-			catch {
-				throw EnumeratedSequenceError(
-					index: index,
-					error: error
-				)
-			}
-		}
-	}
+  /// - Throws: EnumeratedSequenceError
+  func mapElements<Transformed>(
+    _ transform: (Base.Element) throws -> Transformed
+  ) throws -> [Transformed] {
+    return try self.map{
+      do {return try transform($0.element)}
+      catch {
+        throw EnumeratedSequenceError(
+          index: $0.offset,
+          error: error
+        )
+      }
+    }
+  }
 }
 
 public struct EnumeratedSequenceError: Error {
-	public let index: Int
-	public let error: Error
+  public let index: Int
+  public let error: Error
 }

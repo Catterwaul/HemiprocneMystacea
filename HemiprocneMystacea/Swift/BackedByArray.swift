@@ -1,8 +1,8 @@
 /// When you want `Array` to act more like a superclass,
 /// use this!
 public protocol BackedByArray: Collection {
-	associatedtype Element: Equatable = Iterator.Element
-	
+  associatedtype Element: Equatable
+  
 	static func + <Elements: Sequence>(_: Self, _: Elements) -> Self
 	where Elements.Iterator.Element == Element
 	
@@ -13,7 +13,6 @@ public protocol BackedByArray: Collection {
 	/// don't have good enough access control yet.
 	var backingArray: [Element] {get}
 }
-
 
 //MARK: public
 public extension BackedByArray {
@@ -30,9 +29,7 @@ public extension BackedByArray {
 	) {
 		backedByArray = backedByArray - element
 	}
-}
 
-public extension BackedByArray where Element: Equatable {
 	static func == <Elements: Sequence>(
 		backedByArray: Self,
 		elements: Elements

@@ -1,24 +1,14 @@
 public extension Dictionary {
 //MARK: Initializers
-   /// Splats init(dictionaryLiteral elements: (Key, Value)...)
-	init<Sequence: Swift.Sequence>(_ sequence: Sequence)
-	where Sequence.Iterator.Element == Element {
-		self.init()
-		
-		sequence.forEach{self[$0.key] = $0.value}
-	}
-	
 	init<Sequence: Swift.Sequence>(
 		_ sequence: Sequence,
 		_ transform: (Sequence.Iterator.Element) -> Element
 	) {
-		self.init(
-			sequence.map(transform)
-		)
+    self.init( uniqueKeysWithValues: sequence.map(transform) )
 	}
 	init<Element>(
 		_ elements: Element...,
-		_ transform: (Element) -> Dictionary.Element
+		transform: (Element) -> Dictionary.Element
 	) {
 		self.init(elements, transform)
 	}
