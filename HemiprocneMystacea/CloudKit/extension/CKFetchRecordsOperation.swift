@@ -26,7 +26,7 @@ public extension CKFetchRecordsOperation {
 		references: References,
 		process: @escaping Process<() throws -> [CKRecord]>
 	)
-	where References.Iterator.Element == CKReference {
+	where References.Element == CKReference {
 		let iDs = references.map{$0.recordID}
 		
 		self.init(recordIDs: iDs){

@@ -2,7 +2,7 @@ public extension Dictionary {
 //MARK: Initializers
 	init<Sequence: Swift.Sequence>(
 		_ sequence: Sequence,
-		_ transform: (Sequence.Iterator.Element) -> Element
+		_ transform: (Sequence.Element) -> Element
 	) {
     self.init( uniqueKeysWithValues: sequence.map(transform) )
 	}
@@ -42,10 +42,10 @@ public func + <
 	Key, Value,
 	Sequence: Swift.Sequence
 >(
-	dictionary: Dictionary<Key, Value>,
+	dictionary: [Key: Value],
 	sequence: Sequence
-) -> Dictionary<Key, Value>
-where Sequence.Iterator.Element == (key: Key, value: Value) {
+) -> [Key: Value]
+where Sequence.Element == (key: Key, value: Value) {
 	var dictionary = dictionary
 	sequence.forEach{dictionary[$0.key] = $0.value}
 	return dictionary
@@ -56,23 +56,23 @@ public func += <
 	Key, Value,
 	Sequence: Swift.Sequence
 >(
-	dictionary: inout Dictionary<Key, Value>,
+	dictionary: inout [Key: Value],
 	sequence: Sequence
 )
-where Sequence.Iterator.Element == (key: Key, value: Value) {
+where Sequence.Element == (key: Key, value: Value) {
 	dictionary = dictionary + sequence
 }
 
 //MARK: –
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
 public func - <
-	Key: Hashable, Value,
+	Key, Value,
 	KeysToSetNil: Sequence
 >(
-	dictionary: Dictionary<Key, Value>,
+	dictionary: [Key: Value],
 	keysToSetNil: KeysToSetNil
-) -> Dictionary<Key, Value>
-where KeysToSetNil.Iterator.Element == Key {
+) -> [Key: Value]
+where KeysToSetNil.Element == Key {
 	var dictionary = dictionary
 	for keyToSetNil in keysToSetNil {
 		dictionary[keyToSetNil] = nil
@@ -81,12 +81,12 @@ where KeysToSetNil.Iterator.Element == Key {
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`
 public func -= <
-	Key: Hashable, Value,
+	Key, Value,
 	KeysToSetNil: Sequence
 >(
-	dictionary: inout Dictionary<Key, Value>,
+  dictionary: inout [Key: Value],
 	keysToSetNil: KeysToSetNil
 )
-where	KeysToSetNil.Iterator.Element == Key {
+where KeysToSetNil.Element == Key {
 	dictionary = dictionary - keysToSetNil
 }

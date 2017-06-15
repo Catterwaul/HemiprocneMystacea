@@ -53,7 +53,7 @@ public extension String {
 	}
 }
 
-public extension Sequence where Iterator.Element == String {
+public extension Sequence where Element == String {
 	var concatenated: String {
 		return self.reduce("", +)
 	}	
@@ -72,6 +72,6 @@ public func - <Strings: Sequence>(
 	string: String,
 	strings: Strings
 ) -> String
-where Strings.Iterator.Element == String {
+where Strings.Element == String {
 	return strings.reduce(string, -)
 }

@@ -1,49 +1,47 @@
 public extension Sequence {
-  var first: Iterator.Element? {
+  var first: Element? {
     return self.first{_ in true}
   }
   
   func max<Comparable: Swift.Comparable>(
-    getComparable: (Iterator.Element) throws -> Comparable
-  ) rethrows -> Iterator.Element? {
+    getComparable: (Element) throws -> Comparable
+  ) rethrows -> Element? {
     return try self.max{
       try getComparable($0) < getComparable($1)
     }
   }
   
   func sorted<Comparable: Swift.Comparable>(
-    getComparable: (Iterator.Element) -> Comparable
-  ) -> [Iterator.Element] {
-    return self.sorted{getComparable($0) < getComparable($1)}
+    getComparable: (Element) throws -> Comparable
+  ) rethrows -> [Element] {
+    return try self.sorted{try getComparable($0) < getComparable($1)}
   }
 }
 
 //MARK: containsOnly
 public extension Sequence {
   ///- Returns: whether all elements of the sequence satisfy `predicate`
-  func containsOnly(_ predicate: (Iterator.Element) throws -> Bool) rethrows -> Bool {
+  func containsOnly(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
     return try !self.contains{try !predicate($0)}
   }
 }
 
-public extension Sequence where Iterator.Element: Equatable {
+public extension Sequence where Element: Equatable {
   ///- Returns: whether all elements of the sequence are equal to `element`
-  func containsOnly(_ element: Iterator.Element) -> Bool {
+  func containsOnly(_ element: Element) -> Bool {
     return self.containsOnly{$0 == element}
   }
 }
 
 //MARK: uniqueElements
-public extension Sequence where Iterator.Element: Hashable {
-	var uniqueElements: [Iterator.Element] {
-		return Array(
-			Set(self)
-		)
+public extension Sequence where Element: Hashable {
+	var uniqueElements: [Element] {
+		return Array( Set(self) )
 	}
 }
 
 public extension Sequence where Iterator.Element: Equatable {
-	var uniqueElements: [Iterator.Element] {
+	var uniqueElements: [Element] {
 		return self.reduce([]){
 			uniqueElements, element in
 			

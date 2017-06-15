@@ -41,10 +41,9 @@ final class DictionaryTestCase: XCTestCase {
 		
 //MARK: Subscripts
 	func test_optionalKeySubscript() {
-		let
-		dictionary = ["key": "value"],
-		key: String? = "key",
-		`nil`: String? = nil
+		let dictionary = ["key": "value"]
+		let key: String? = "key"
+		let `nil`: String? = nil
 		
 		XCTAssertEqual(dictionary[key], "value")
 		XCTAssertEqual(dictionary[`nil`], nil)

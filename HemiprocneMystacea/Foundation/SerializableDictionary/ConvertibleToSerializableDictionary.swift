@@ -119,8 +119,8 @@ where SerializableDictionaryKey.RawValue == String {
 //MARK:
 public extension Sequence
 where
-	Iterator.Element: ConvertibleToSerializableDictionary,
-	Iterator.Element.SerializableDictionaryKey.RawValue == String
+	Element: ConvertibleToSerializableDictionary,
+	Element.SerializableDictionaryKey.RawValue == String
 {
   func makeJSONData(
     options: JSONSerialization.WritingOptions = [],

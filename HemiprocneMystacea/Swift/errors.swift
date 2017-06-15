@@ -5,7 +5,7 @@ public struct Errors: Error {
 	
 //MARK: init
 	public init<Errors: Sequence>(_ errors: Errors)
-	where Errors.Iterator.Element == Error {
+	where Errors.Element == Error {
 		array = Array(errors)
 	}
 	
@@ -21,7 +21,7 @@ public func validate<
 	_ validates: Validates,
 	parameters: Parameters
 ) throws
-where Validates.Iterator.Element == Validate<Parameters> {
+where Validates.Element == Validate<Parameters> {
 	let errors = validates.flatMap{
 		validate -> [Error] in
 		

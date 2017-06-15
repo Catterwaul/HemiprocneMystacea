@@ -4,7 +4,7 @@ public protocol BackedByArray: Collection {
   associatedtype Element: Equatable
   
 	static func + <Elements: Sequence>(_: Self, _: Elements) -> Self
-	where Elements.Iterator.Element == Element
+	where Elements.Element == Element
 	
 	static func - (_: Self, _: Element) -> Self
 	
@@ -34,7 +34,7 @@ public extension BackedByArray {
 		backedByArray: Self,
 		elements: Elements
 	) -> Bool
-	where Elements.Iterator.Element == Element {
+	where Elements.Element == Element {
 		return backedByArray.backingArray == Array(elements)
 	}
 }

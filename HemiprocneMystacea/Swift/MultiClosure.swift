@@ -8,7 +8,7 @@ public final class MultiClosure<Input>: EquatableClass {
 	}
 	
 	public init<Closures: Sequence>(_ closures: Closures)
-	where Closures.Iterator.Element == EquatableClosure<Input> {
+	where Closures.Element == EquatableClosure<Input> {
 		self += closures
 	}
 	
@@ -100,7 +100,7 @@ public func += <
 	multiClosure: MultiClosure<Input>,
 	closures: Closures
 )
-where Closures.Iterator.Element == EquatableClosure<Input> {
+where Closures.Element == EquatableClosure<Input> {
    for closure in closures {
 		multiClosure += closure
 	}

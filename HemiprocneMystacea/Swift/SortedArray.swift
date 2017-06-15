@@ -7,7 +7,7 @@ public struct SortedArray<Element: Equatable>: BackedByArray {
 		_ elements: Elements,
 		getAreInIncreasingOrder: @escaping GetAreInIncreasingOrder
 	)
-	where Elements.Iterator.Element == Element {
+	where Elements.Element == Element {
 		backingArray = elements.sorted(by: getAreInIncreasingOrder)
 		self.getAreInIncreasingOrder = getAreInIncreasingOrder
 	}
@@ -20,7 +20,7 @@ public struct SortedArray<Element: Equatable>: BackedByArray {
 		sortedArray: SortedArray,
 		elements: Elements
 	) -> SortedArray
-	where Elements.Iterator.Element == Element {
+	where Elements.Element == Element {
 		return SortedArray(
 			sortedArray.backingArray + elements,
 			getAreInIncreasingOrder: sortedArray.getAreInIncreasingOrder
@@ -43,7 +43,7 @@ public struct SortedArray<Element: Equatable>: BackedByArray {
 //MARK: public
 public extension SortedArray where Element: Comparable {
 	init<Elements: Sequence>(_ elements: Elements)
-	where Elements.Iterator.Element == Element {
+	where Elements.Element == Element {
 		self.init(
 			elements,
 			getAreInIncreasingOrder: <
