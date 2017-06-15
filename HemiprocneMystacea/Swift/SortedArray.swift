@@ -2,20 +2,42 @@ public struct SortedArray<Element: Equatable>: BackedByArray {
 //MARK: public
 	public typealias GetAreInIncreasingOrder =
 		(Element, Element) -> Bool
-	
-	public init<Elements: Sequence>(
-		_ elements: Elements,
-		getAreInIncreasingOrder: @escaping GetAreInIncreasingOrder
-	)
-	where Elements.Element == Element {
-		backingArray = elements.sorted(by: getAreInIncreasingOrder)
-		self.getAreInIncreasingOrder = getAreInIncreasingOrder
-	}
-	
+  
 //MARK: private
-	private let getAreInIncreasingOrder: GetAreInIncreasingOrder
+  private let getAreInIncreasingOrder: GetAreInIncreasingOrder
+  
+//MARK: BackedByArray
+  public private(set) var backingArray: [Element]
+}
+
+//MARK: public
+public extension SortedArray {
+  init<Elements: Sequence>(
+    _ elements: Elements,
+    getAreInIncreasingOrder: @escaping GetAreInIncreasingOrder
+  )
+  where Elements.Element == Element {
+    backingArray = elements.sorted(by: getAreInIncreasingOrder)
+    self.getAreInIncreasingOrder = getAreInIncreasingOrder
+  }
+}
+
+public extension SortedArray where Element: Comparable {
+  init<Elements: Sequence>(_ elements: Elements)
+  where Elements.Element == Element {
+    self.init(
+      elements,
+      getAreInIncreasingOrder: <
+    )
+  }
+  
+  init(_ arrayLiteral: Element...) {
+    self.init(arrayLiteral)
+  }
+}
 
 //MARK: BackedByArray
+public extension SortedArray {
 	public static func + <Elements: Sequence>(
 		sortedArray: SortedArray,
 		elements: Elements
@@ -35,23 +57,6 @@ public struct SortedArray<Element: Equatable>: BackedByArray {
 			sortedArray.backingArray.filter{$0 != element},
 			getAreInIncreasingOrder: sortedArray.getAreInIncreasingOrder
 		)
-	}
-	
-	public private(set) var backingArray: [Element]
-}
-
-//MARK: public
-public extension SortedArray where Element: Comparable {
-	init<Elements: Sequence>(_ elements: Elements)
-	where Elements.Element == Element {
-		self.init(
-			elements,
-			getAreInIncreasingOrder: <
-		)
-	}
-	
-	init(_ arrayLiteral: Element...) {
-		self.init(arrayLiteral)
 	}
 }
 
