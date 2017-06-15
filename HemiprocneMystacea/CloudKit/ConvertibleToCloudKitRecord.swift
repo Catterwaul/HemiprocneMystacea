@@ -4,6 +4,7 @@ public protocol ConvertibleToCloudKitRecord {
 	/// - Important: This is a nested type with this signature:
 	///  `enum CloudKitRecordKey: String`
 	associatedtype CloudKitRecordKey: Hashable, RawRepresentable
+  where CloudKitRecordKey.RawValue == String
 	
 	/// Overrides for record values,
 	/// probably because they don't implement `CKRecordValue`.
@@ -11,8 +12,7 @@ public protocol ConvertibleToCloudKitRecord {
 }
 
 //MARK: public
-public extension ConvertibleToCloudKitRecord
-where CloudKitRecordKey.RawValue == String {
+public extension ConvertibleToCloudKitRecord {
 	var recordDictionaryOverrides: [CloudKitRecordKey: CKRecordValue] {
 		return [:]
 	}
@@ -25,8 +25,7 @@ where CloudKitRecordKey.RawValue == String {
 }
 
 //MARK: private
-private extension ConvertibleToCloudKitRecord
-where CloudKitRecordKey.RawValue == String {
+private extension ConvertibleToCloudKitRecord {
   var recordDictionaryPairs: [(key: String, value: CKRecordValue?)] {
     return Mirror(reflecting: self).children.flatMap{
       child in
@@ -68,8 +67,7 @@ public extension CKRecord {
 	/// - Important: Type name of ConvertibleToCloudKitRecord is the name of its CKRecord
 	convenience init<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(
 		_ convertibleToCloudKitRecord: ConvertibleToCloudKitRecord
-	)
-	where ConvertibleToCloudKitRecord.CloudKitRecordKey.RawValue == String {
+	) {
 		self.init(
 			recordType: String(describing: ConvertibleToCloudKitRecord.self)
 		)

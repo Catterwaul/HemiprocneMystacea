@@ -41,8 +41,7 @@ public final class MultiClosure<Input>: EquatableClass {
 	}
 }
 
-public extension MultiClosure
-where Input == () {
+public extension MultiClosure where Input == () {
   subscript() -> Void {
     self[()]
   }

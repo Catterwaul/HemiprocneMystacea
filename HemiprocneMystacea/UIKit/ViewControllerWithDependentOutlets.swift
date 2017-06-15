@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol ViewControllerWithDependentOutlets: class {
+public protocol ViewControllerWithDependentOutlets: class where Self: UIViewController {
 	associatedtype OutletDependencies
 	
 	/// Stores dependencies for use in `ViewControllerWithDependentOutlets_viewDidLoad`.
@@ -17,7 +17,7 @@ public protocol ViewControllerWithDependentOutlets: class {
 	func inject(outletDependencies: OutletDependencies)
 }
 
-public extension ViewControllerWithDependentOutlets where Self: UIViewController {
+public extension ViewControllerWithDependentOutlets {
 	/// - Parameter outletDependencies: Passed in before `viewDidLoad`,
 	/// probably using a storyboard segue.
 	///

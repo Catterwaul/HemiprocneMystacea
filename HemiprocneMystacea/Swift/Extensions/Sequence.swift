@@ -40,7 +40,7 @@ public extension Sequence where Element: Hashable {
 	}
 }
 
-public extension Sequence where Iterator.Element: Equatable {
+public extension Sequence where Element: Equatable {
 	var uniqueElements: [Element] {
 		return self.reduce([]){
 			uniqueElements, element in
