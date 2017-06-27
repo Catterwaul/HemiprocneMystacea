@@ -16,4 +16,14 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertNil( "boogalawncare".prefix(upTo: "z") )
     XCTAssertNil( "boogalawncare".prefix(through: "z") )
   }
+  
+  func test_suffix() {
+    XCTAssertEqual(
+      "chunky skunky".suffix(from: "s"),
+      "kunky"
+    )
+    XCTAssertNil(
+      "aaabbbccc".suffix(from: "z")
+    )
+  }
 }

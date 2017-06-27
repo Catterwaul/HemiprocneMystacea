@@ -12,4 +12,11 @@ public extension Collection where Element: Equatable {
       index(of: element)
       .map( prefix(through:) )
   }
+  
+  ///- Returns: nil if `element` isn't present
+  func suffix(from element: Element) -> SubSequence? {
+    return
+      index(of: element)
+      .map{suffix( from: index(after: $0) )}
+  }
 }

@@ -2,16 +2,6 @@ import HM
 import XCTest
 
 final class StringTestCase: XCTestCase {
-	func test_after() {
-		XCTAssertEqual(
-			"chunky skunky".after("s"),
-			"kunky"
-		)
-		XCTAssertNil(
-			"aaabbbccc".after("z")
-		)
-	}
-	
 	func test_without() {
 		let rabbitsAndEars = "👯🐇🐰👂🌽"
 		
