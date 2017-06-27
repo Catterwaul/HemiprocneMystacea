@@ -3,24 +3,9 @@ public extension String {
 	func after(_ character: Character) -> String? {
 		guard let characterIndex = characters.index(of: character)
 		else {return nil}
-		
+    
 		return self.substring(
 			from: characters.index(after: characterIndex)
-		)
-	}
-	///- Returns: nil if `character` isn't present
-	func upTo(
-		_ character: Character,
-		characterIsIncluded: Bool = false
-	) -> String? {
-		guard let index = characters.index(of: character)
-		else {return nil}
-
-		return self.substring(
-			to:
-				characterIsIncluded
-				? characters.index(after: index)
-				: index
 		)
 	}
 	

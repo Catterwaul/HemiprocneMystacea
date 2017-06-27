@@ -12,25 +12,6 @@ final class StringTestCase: XCTestCase {
 		)
 	}
 	
-	func test_upTo() {
-		XCTAssertEqual(
-			"glorb14prawn".upTo("1"),
-			"glorb"
-		)
-		
-		XCTAssertEqual(
-			"glorb14prawn".upTo(
-				"1",
-				characterIsIncluded: true
-			),
-			"glorb1"
-		)
-		
-		XCTAssertNil(
-			"boogalawncare".upTo("z")
-		)
-	}
-	
 	func test_without() {
 		let rabbitsAndEars = "👯🐇🐰👂🌽"
 		
