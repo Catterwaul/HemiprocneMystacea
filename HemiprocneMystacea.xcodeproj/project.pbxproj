@@ -501,7 +501,7 @@
 			name = Swift;
 			sourceTree = "<group>";
 		};
-		49B182D01C33807000529B08 /* Extensions */ = {
+		49B182D01C33807000529B08 /* extension */ = {
 			isa = PBXGroup;
 			children = (
 				49B182D11C33807000529B08 /* Array.swift */,
@@ -520,7 +520,7 @@
 				49B182D91C33807000529B08 /* SetAlgebra.swift */,
 				49B182DA1C33807000529B08 /* String.swift */,
 			);
-			path = Extensions;
+			path = extension;
 			sourceTree = "<group>";
 		};
 		49B182E51C33807C00529B08 /* Extensions */ = {
@@ -667,7 +667,7 @@
 		49CBE07F1C332ADE00E8EFCC /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				49B182D01C33807000529B08 /* Extensions */,
+				49B182D01C33807000529B08 /* extension */,
 				49CBE08E1C332ADE00E8EFCC /* Operators */,
 				49C434361C35DCCF00B6C530 /* Properties */,
 				49817E5F1D2CA99A0025A6CA /* errors.swift */,

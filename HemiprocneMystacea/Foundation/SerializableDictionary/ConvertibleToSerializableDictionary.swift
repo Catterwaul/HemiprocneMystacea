@@ -4,14 +4,14 @@ public protocol ConvertibleToSerializableDictionary {
   ///- Important: This is a nested type with this signature:
   ///  `enum SerializableDictionaryKey: String`
   associatedtype SerializableDictionaryKey: RawRepresentable
+  where SerializableDictionaryKey.RawValue == String
   
   // Should only be defined in the protocol extension,
   // but we can't yet express that `JSONKey.RawValue == String` is always true.
   func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any]
 }
 
-public extension ConvertibleToSerializableDictionary
-where SerializableDictionaryKey.RawValue == String {
+public extension ConvertibleToSerializableDictionary {
   func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any] {
     return makeSerializableDictionary(
       jsonCompatible: jsonCompatible,
@@ -117,22 +117,18 @@ where SerializableDictionaryKey.RawValue == String {
 }
 
 //MARK:
-public extension Sequence
-where
-	Element: ConvertibleToSerializableDictionary,
-	Element.SerializableDictionaryKey.RawValue == String
-{
+public extension Sequence where Element: ConvertibleToSerializableDictionary {
   func makeJSONData(
     options: JSONSerialization.WritingOptions = [],
     key: String? = nil
   ) throws -> Data {
     return try JSONSerialization.data(
       withJSONObject: self.map{
-			$0.makeSerializableDictionary(
-				jsonCompatible: true,
-				key: key
-			)
-		},
+        $0.makeSerializableDictionary(
+          jsonCompatible: true,
+          key: key
+        )
+      },
       options: options
     )
   }
@@ -143,11 +139,11 @@ where
   ) throws -> Data {
     return try PropertyListSerialization.data(
       fromPropertyList: self.map{
-			$0.makeSerializableDictionary(
-				jsonCompatible: false,
-				key: key
-			)
-		},
+        $0.makeSerializableDictionary(
+          jsonCompatible: false,
+          key: key
+        )
+      },
       format: format,
       options: .init()
     )

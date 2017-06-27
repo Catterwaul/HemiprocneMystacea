@@ -1,5 +1,4 @@
-public extension OptionSet
-where RawValue: FixedWidthInteger {
+public extension OptionSet where RawValue: FixedWidthInteger {
 	/// Provides two options.
 	///
 	///- Parameter startingFlagIndex: shifts 0b11 if > 1
@@ -86,8 +85,8 @@ where RawValue: FixedWidthInteger {
 	}
 }
 
-private extension OptionSet
-where RawValue: FixedWidthInteger {
+//MARK: private
+private extension OptionSet where RawValue: FixedWidthInteger {
 	init(flagIndex: RawValue) {
 		self.init(
 			rawValue:
