@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
@@ -43,7 +44,13 @@
                   Identifier = "CKDatabaseTestCase/test_request()">
                </Test>
                <Test
-                  Identifier = "NilClosuresTestCase/testNilledUponCall()">
+                  Identifier = "ConvertibleToSerializableDictionaryTestCase/test_initializeUsingKey()">
+               </Test>
+               <Test
+                  Identifier = "ConvertibleToSerializableDictionaryTestCase/test_nestedReconstruct()">
+               </Test>
+               <Test
+                  Identifier = "ConvertibleToSerializableDictionaryTestCase/test_reconstructArray()">
                </Test>
             </SkippedTests>
          </TestableReference>
@@ -64,6 +71,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
