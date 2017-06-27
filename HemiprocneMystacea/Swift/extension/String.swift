@@ -8,14 +8,6 @@ public extension String {
 			from: characters.index(after: characterIndex)
 		)
 	}
-
-	func split(by separator: Character) -> [String] {
-		return
-			characters
-			.split(separator: separator)
-			.map(String.init)
-	}
-
 	///- Returns: nil if `character` isn't present
 	func upTo(
 		_ character: Character,
@@ -37,9 +29,7 @@ public extension String {
 		guard self.hasPrefix(prefix)
 		else {return nil}
 		
-		return String(
-			characters.dropFirst(prefix.characters.count)
-		)
+		return String( characters.dropFirst(prefix.characters.count) )
 	}
 	
 	///- Returns: nil if not suffixed with `suffix`
@@ -47,16 +37,8 @@ public extension String {
 		guard self.hasSuffix(suffix)
 		else {return nil}
 		
-		return String(
-			characters.dropLast(suffix.characters.count)
-		)
+		return String( characters.dropLast(suffix.characters.count) )
 	}
-}
-
-public extension Sequence where Element == String {
-	var concatenated: String {
-		return self.reduce("", +)
-	}	
 }
 
 /// `string0`, with all occurrences of `string1` removed

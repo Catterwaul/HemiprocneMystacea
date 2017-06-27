@@ -12,17 +12,6 @@ final class StringTestCase: XCTestCase {
 		)
 	}
 	
-	func test_split() {
-		let string = "boo, gee,rye"
-		XCTAssertEqual(
-			string.split(by: ","),
-			[	"boo",
-				" gee",
-				"rye"
-			]
-		)
-	}
-	
 	func test_upTo() {
 		XCTAssertEqual(
 			"glorb14prawn".upTo("1"),
@@ -76,17 +65,6 @@ final class StringTestCase: XCTestCase {
 		XCTAssertEqual(
 			" 123🐉Boodee Bop! 123🐉" - [" 123🐉", "Bo"],
 			"odee p!"
-		)
-	}
-	
-//MARK: Sequences of Strings
-	func test_concatenated() {
-		XCTAssertEqual(
-			[   "a",
-			    "bc",
-			    "d"
-			].concatenated,
-			"abcd"
 		)
 	}
 }
