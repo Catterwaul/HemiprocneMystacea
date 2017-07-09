@@ -1,15 +1,15 @@
-//public typealias HashableError = Hashable & Error
-
 public struct Errors: Error {
 	public let array: [Error]
-	
+}
+
+public extension Errors {
 //MARK: init
-	public init<Errors: Sequence>(_ errors: Errors)
+  init<Errors: Sequence>(_ errors: Errors)
 	where Errors.Element == Error {
 		array = Array(errors)
 	}
 	
-	public init(_ errors: Error...) {
+	init(_ errors: Error...) {
 		self.init(errors)
 	}
 }

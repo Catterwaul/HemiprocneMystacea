@@ -1,6 +1,6 @@
 public extension Collection where Element: Equatable {
   ///- Returns: nil if `element` isn't present
- func prefix(upTo element: Element) -> SubSequence? {
+  func prefix(upTo element: Element) -> SubSequence? {
     return
       index(of: element)
       .map( prefix(upTo:) )

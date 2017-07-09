@@ -22,8 +22,6 @@ final class CollectionTestCase: XCTestCase {
       "chunky skunky".suffix(from: "s"),
       "kunky"
     )
-    XCTAssertNil(
-      "aaabbbccc".suffix(from: "z")
-    )
+    XCTAssertNil( "aaabbbccc".suffix(from: "z") )
   }
 }

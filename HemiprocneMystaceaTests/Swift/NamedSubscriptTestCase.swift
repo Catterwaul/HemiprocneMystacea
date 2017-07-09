@@ -10,7 +10,7 @@ final class NamedSubscriptTestCase: XCTestCase {
         "🐮": "🐄",
         "🐔": "🐓",
         "🐰": "🐇"
-      ][head]
+      ][head]!
     }
     
     XCTAssertEqual(bodies["🐯"], "🐅")

@@ -3,21 +3,21 @@ import UserNotifications
 public extension UNUserNotificationCenter {
   func add(
     _ request: UNNotificationRequest,
-    _ processverifyAddition: Process<Verify>? = nil
+    _ processVerifyAddition: Process<Verify>? = nil
   ) {
     add(
       request,
       withCompletionHandler:
-        processverifyAddition.map{
-          processverifyAddition in {
+        processVerifyAddition.map{
+          processVerifyAddition in {
             error in
             
             if let error = error {
-              processverifyAddition{throw error}
+              processVerifyAddition{throw error}
               return
             }
             
-            processverifyAddition{}
+            processVerifyAddition{}
           }
         }
     )
