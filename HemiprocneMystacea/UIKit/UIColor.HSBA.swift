@@ -20,26 +20,23 @@ public extension UIColor {
 
 public extension UIColor.HSBA {
   init(_ color: UIColor) throws {
-    var hue = CGFloat()
-    var saturation = CGFloat()
-    var brightness = CGFloat()
-    var alpha = CGFloat()
+    var hsba = UIColor.HSBA(
+      hue: .init(),
+      saturation: .init(),
+      brightness: .init(),
+      alpha: .init()
+    )
     
     guard color.getHue(
-      &hue,
-      saturation: &saturation,
-      brightness: &brightness,
-      alpha: &alpha
+      &hsba.hue,
+      saturation: &hsba.saturation,
+      brightness: &hsba.brightness,
+      alpha: &hsba.alpha
     ) else {
       struct Error: Swift.Error {}
       throw Error()
     }
     
-    self.init(
-      hue: hue,
-      saturation: saturation,
-      brightness: brightness,
-      alpha: alpha
-    )
+    self = hsba
   }
 }
