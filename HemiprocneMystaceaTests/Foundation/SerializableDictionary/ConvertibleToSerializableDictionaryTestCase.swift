@@ -44,7 +44,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 					.makeSerializableDictionary(jsonCompatible: false)[
 						🐭.SerializableDictionaryKey.image.rawValue
 					] as! Data
-			)!.hasEqualPixels(to: instance.image)
+			)!.hasEqualPixels(instance.image)
 		)
 		
 		XCTAssertTrue(
@@ -56,7 +56,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 							🐭.SerializableDictionaryKey.image.rawValue
 						] as! String
 				)!
-			)!.hasEqualPixels(to: instance.image)
+			)!.hasEqualPixels(instance.image)
 		)
 	}
 	

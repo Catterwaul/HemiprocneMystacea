@@ -10,7 +10,7 @@ public extension CALayer.KeyPath {
 	static let translation = transform[.translation]
 	
 	private static var transform: NamedGetOnlySubscript<CATransform3D.KeyPath, String> {
-		return NamedGetOnlySubscript{
+		return NamedGetOnlySubscript {
 			keyPath in "transform.\(keyPath.rawValue)"
 		}
 	}

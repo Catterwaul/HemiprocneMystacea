@@ -22,6 +22,7 @@ public extension Setting where Value: ExpressibleByBooleanLiteral {
     get {
       return userDefaults.bool(forKey: key)
     }
+    
     set {
       userDefaults.set(newValue, forKey: key)
     }
@@ -34,6 +35,7 @@ public extension Setting where Value: ExpressibleByIntegerLiteral {
     get {
       return userDefaults.integer(forKey: key)
     }
+    
     set {
       userDefaults.set(newValue, forKey: key)
     }
