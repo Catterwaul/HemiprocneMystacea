@@ -23,7 +23,6 @@
 		0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F31CD91C070067F27E /* CABasicAnimation.Values.swift */; };
 		0A72FC4A1D40819D0041845B /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D21C33807000529B08 /* Bool.swift */; };
 		0A72FC4B1D40819D0041845B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D31C33807000529B08 /* Dictionary.swift */; };
-		0A72FC4C1D40819D0041845B /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D41C33807000529B08 /* Equatable.swift */; };
 		0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSetType.swift */; };
 		0A72FC4E1D40819D0041845B /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4341D08C146003D8024 /* Optional.swift */; };
 		0A72FC4F1D40819D0041845B /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* Sequence.swift */; };
@@ -86,7 +85,6 @@
 		4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */; };
 		4969F4501E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */; };
-		496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */; };
 		497190C91DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */; };
 		4975C1101F02554D00C89E52 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975C10F1F02554D00C89E52 /* Collection.swift */; };
 		4975C1111F02554D00C89E52 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975C10F1F02554D00C89E52 /* Collection.swift */; };
@@ -148,7 +146,6 @@
 		49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
 		49B182DC1C33807000529B08 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D21C33807000529B08 /* Bool.swift */; };
 		49B182DD1C33807000529B08 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D31C33807000529B08 /* Dictionary.swift */; };
-		49B182DE1C33807000529B08 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D41C33807000529B08 /* Equatable.swift */; };
 		49B182E01C33807000529B08 /* OptionSetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSetType.swift */; };
 		49B182E11C33807000529B08 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* Sequence.swift */; };
 		49B182E31C33807000529B08 /* SetAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D91C33807000529B08 /* SetAlgebra.swift */; };
@@ -245,7 +242,6 @@
 		4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
 		4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathTestCase.swift; path = Foundation/IndexPathTestCase.swift; sourceTree = "<group>"; };
 		4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NamedSubscriptTestCase.swift; path = Swift/NamedSubscriptTestCase.swift; sourceTree = "<group>"; };
-		496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquatableTestCase.swift; sourceTree = "<group>"; };
 		497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift; path = UIKit/UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift; sourceTree = "<group>"; };
 		4975C10F1F02554D00C89E52 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		4975C1121F0256C800C89E52 /* CollectionTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTestCase.swift; sourceTree = "<group>"; };
@@ -289,7 +285,6 @@
 		49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecordAndReferences.swift; sourceTree = "<group>"; };
 		49B182D21C33807000529B08 /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		49B182D31C33807000529B08 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		49B182D41C33807000529B08 /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		49B182D61C33807000529B08 /* OptionSetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetType.swift; sourceTree = "<group>"; };
 		49B182D71C33807000529B08 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		49B182D91C33807000529B08 /* SetAlgebra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebra.swift; sourceTree = "<group>"; };
@@ -509,7 +504,6 @@
 				4975C10F1F02554D00C89E52 /* Collection.swift */,
 				49B182D31C33807000529B08 /* Dictionary.swift */,
 				49397DF11E534ED50052B783 /* EnumeratedSequence.swift */,
-				49B182D41C33807000529B08 /* Equatable.swift */,
 				49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */,
 				493DB0D01E520FF000E16694 /* Mirror.swift */,
 				49AB16EB1EF23A92009868AB /* Numeric.swift */,
@@ -531,7 +525,6 @@
 				4975C1121F0256C800C89E52 /* CollectionTestCase.swift */,
 				4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */,
 				49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */,
-				496BFBBD1C3A37A6006E6CC4 /* EquatableTestCase.swift */,
 				498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */,
 				49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */,
 				49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */,
@@ -1061,7 +1054,6 @@
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
 				492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				49DDB4A51E4ACFD300D21AD8 /* BackedByArray.swift in Sources */,
-				0A72FC4C1D40819D0041845B /* Equatable.swift in Sources */,
 				0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */,
 				494A99391E37253400F6A51D /* UICollectionView.swift in Sources */,
 				497EFE8E1DB6472700DEC825 /* RawRepresentable.swift in Sources */,
@@ -1094,7 +1086,6 @@
 				4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
 				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				497F568A1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */,
-				49B182DE1C33807000529B08 /* Equatable.swift in Sources */,
 				49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
@@ -1175,7 +1166,6 @@
 				49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */,
 				4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */,
 				49FCA3A71E3758650018B5EF /* UICollectionViewTestCase.swift in Sources */,
-				496BFBBE1C3A37A6006E6CC4 /* EquatableTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				4966E4CF1E3C5AA300199496 /* CGPointTestCase.swift in Sources */,
 				499D69851E6902C0004F30F2 /* UIViewController.swift in Sources */,
