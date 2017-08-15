@@ -18,7 +18,7 @@ final class SequenceTestCase: XCTestCase {
 			[	"1️⃣": 1,
 				"🔟": 10,
 			 	"💯": 100
-			].max{$0.value}!
+			].max {$0.value}!
 			 .key,
 			"💯"
 		)
@@ -82,8 +82,6 @@ extension TypeWith1EquatableProperty: Equatable {
 		operand0: TypeWith1EquatableProperty,
 		operand1: TypeWith1EquatableProperty
 	) -> Bool {
-		return operand0 == (operand1,
-			{$0.int}
-		)
+		return operand0.int == operand1.int
 	}
 }
