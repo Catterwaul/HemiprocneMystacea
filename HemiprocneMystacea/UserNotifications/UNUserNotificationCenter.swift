@@ -3,21 +3,21 @@ import UserNotifications
 public extension UNUserNotificationCenter {
   func add(
     _ request: UNNotificationRequest,
-    _ processverifyAddition: Process<Verify>? = nil
+    _ processVerifyAddition: Process<Verify>? = nil
   ) {
     add(
       request,
       withCompletionHandler:
-        processverifyAddition.map{
-          processverifyAddition in {
+        processVerifyAddition.map {
+          processVerifyAddition in {
             error in
             
             if let error = error {
-              processverifyAddition{throw error}
+              processVerifyAddition {throw error}
               return
             }
             
-            processverifyAddition{}
+            processVerifyAddition {}
           }
         }
     )
@@ -25,7 +25,7 @@ public extension UNUserNotificationCenter {
   
 	func requestAuthorization(
 		options: UNAuthorizationOptions,
-		processGetGranted: @escaping Process<() throws -> Bool>
+		processGetGranted: @escaping ProcessThrowingGet<Bool>
 	) {
 		requestAuthorization(
 			options: options,
@@ -33,11 +33,11 @@ public extension UNUserNotificationCenter {
 				granted, error in
 				
 				if let error = error {
-					processGetGranted{throw error}
+					processGetGranted {throw error}
 					return
 				}
 				
-				processGetGranted{granted}
+				processGetGranted {granted}
 			}
 		)
 	}

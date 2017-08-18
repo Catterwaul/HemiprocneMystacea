@@ -15,7 +15,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 	static func request(
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
-		_ process: @escaping Process<() throws -> Self>,
+		_ process: @escaping ProcessThrowingGet<Self>,
 		_ processVerifyCompletion: @escaping Process<Verify>
 	) {
 		database.request(
@@ -25,41 +25,41 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		)
 	}
 	
-	static func request(
-		database: CKDatabase,
-		predicate: NSPredicate = NSPredicate(value: true),
-		processSingleRecordError: @escaping Process<Error>,
-		_ process: @escaping Process<() throws -> [Self]>
-	) {
-		let operationQueue = OperationQueue()
-		operationQueue.maxConcurrentOperationCount = 1
-		
-		var requesteds: [Self] = []
-		
-		request(
-			database: database,
-			predicate: predicate,
-			{	getRequested in
-				
-				do {
-					let requested = try getRequested()
-					
-					operationQueue.addOperation{requesteds += [requested]}
-				}
-				catch {processSingleRecordError(error)}
-			}
-		){	verifyCompletion in
-			
-			do {
-				try verifyCompletion()
-				
-				operationQueue.addOperation{
-					process{requesteds}
-				}
-			}
-			catch { process{throw error} }
-		}
-	}
+  static func request(
+    database: CKDatabase,
+    predicate: NSPredicate = NSPredicate(value: true),
+    processSingleRecordError: @escaping Process<Error>,
+    _ process: @escaping ProcessThrowingGet<[Self]>
+  ) {
+    let operationQueue = OperationQueue()
+    operationQueue.maxConcurrentOperationCount = 1
+    
+    var requesteds: [Self] = []
+    
+    request(
+      database: database,
+      predicate: predicate,
+      {  getRequested in
+        
+        do {
+          let requested = try getRequested()
+          
+          operationQueue.addOperation{requesteds += [requested]}
+        }
+        catch {processSingleRecordError(error)}
+      }
+    ){verifyCompletion in
+      
+      do {
+        try verifyCompletion()
+        
+        operationQueue.addOperation{
+          process{requesteds}
+        }
+      }
+      catch { process{throw error} }
+    }
+  }
 }
 
 enum InitializableWithCloudKitRecordAndReferences_Error: Error {

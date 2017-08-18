@@ -10,9 +10,8 @@ public final class ComputedProperty<Value> {
 		self.set = set
 	}
 
-	fileprivate let
-	get: Get,
-	set: Set
+	private let get: Get
+	private let set: Set
 }
 
 //MARK: public

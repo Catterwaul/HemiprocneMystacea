@@ -7,27 +7,27 @@ public extension CKDatabase {
 	///   - recordType: Its name has to be the same in your code, and in CloudKit.
 	///   - predicate: for the `CKQuery`
 	///   - process: processes a *throwing get [CKRecord]*
-	func request<Requested>(
-		recordType: Requested.Type,
-		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping Process<() throws -> [CKRecord]>
-	){
-		perform(
-			CKQuery(
-				recordType: String(describing: Requested.self),
-				predicate: predicate
-			),
-			inZoneWith: nil
-		){	records, error in
-			
-			if let error = error {
-				process{throw error}
-				return
-			}
-			
-			process{records!}
-		}
-	}
+  func request<Requested>(
+    recordType: Requested.Type,
+    predicate: NSPredicate = NSPredicate(value: true),
+    process: @escaping ProcessThrowingGet<[CKRecord]>
+  ){
+    perform(
+      CKQuery(
+        recordType: String(describing: Requested.self),
+        predicate: predicate
+      ),
+      inZoneWith: nil
+    ){records, error in
+      
+      if let error = error {
+        process{throw error}
+        return
+      }
+      
+      process{records!}
+    }
+  }
 	
 	/// Request `CKRecord`s that correspond to a Swift type,
 	/// and return the result of initializing those types
@@ -38,7 +38,7 @@ public extension CKDatabase {
 	///   - process: processes a *throwing get [Requested]*
 	func request<Requested: InitializableWithCloudKitRecord>(
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping Process<() throws -> [Requested]>
+		process: @escaping ProcessThrowingGet<[Requested]>
 	){
 		request(
 			recordType: Requested.self,

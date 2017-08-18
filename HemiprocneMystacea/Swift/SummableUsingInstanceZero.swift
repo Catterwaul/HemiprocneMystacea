@@ -1,7 +1,7 @@
 import Foundation
 
-public extension Sequence where Iterator.Element: SummableUsingInstanceZero {
-	var sum: Iterator.Element? {
+public extension Sequence where Element: SummableUsingInstanceZero {
+	var sum: Element? {
 		guard let zero = first?.zero
 		else {return nil}
 		

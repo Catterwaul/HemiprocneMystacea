@@ -50,10 +50,10 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 extension CKRecordTestCase.Pumpkin {
 	init(record: CKRecord) {
 		self.init(
-			eyesCount: record.getValue(key: CloudKitRecordKey.eyesCount),
-			halloween: record.getValue(key: CloudKitRecordKey.halloween),
-			vine: record.getValue(key: CloudKitRecordKey.vine),
-			weight: record.getValue(key: CloudKitRecordKey.weight).map{
+			eyesCount: record[CloudKitRecordKey.eyesCount],
+			halloween: record[CloudKitRecordKey.halloween],
+			vine: record[CloudKitRecordKey.vine],
+			weight: record[CloudKitRecordKey.weight].map{
 				weight in Measurement(
 					value: weight,
 					unit: .kilograms

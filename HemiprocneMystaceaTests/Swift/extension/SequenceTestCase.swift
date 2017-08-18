@@ -12,51 +12,13 @@ final class SequenceTestCase: XCTestCase {
 		XCTAssertTrue(ones.containsOnly{$0 == 1})
 		XCTAssertFalse(oneTwoThree.containsOnly{$0 == 3})
 	}
-
-	func test_first() {
-		XCTAssertEqual(
-			[	1,
-				5,
-				3
-			].first{$0 == 5},
-			5
-		)
-	}
-	
-	func test_grouped() {
-		let groups = [
-			("🔫", "💚"),
-			
-			("🎎", "💕"),
-			("🎎", "💕"),
-			
-			("👩‍❤️‍💋‍👩", "💤"),
-			("👩‍❤️‍💋‍👩", "💤"),
-			("👩‍❤️‍💋‍👩", "💤")
-		].grouped{$0.0}
-		
-		XCTAssertEqual(
-			groups["🔫"]!.map{$0.1},
-			["💚"]
-		)
-		
-		XCTAssertEqual(
-			groups["🎎"]!.map{$0.1},
-			["💕", "💕"]
-		)
-		
-		XCTAssertEqual(
-			groups["👩‍❤️‍💋‍👩"]!.map{$0.1},
-			["💤", "💤", "💤"]
-		)
-	}
 	
 	func test_max() {
 		XCTAssertEqual(
 			[	"1️⃣": 1,
 				"🔟": 10,
 			 	"💯": 100
-			].max{$0.value}!
+			].max {$0.value}!
 			 .key,
 			"💯"
 		)
@@ -120,8 +82,6 @@ extension TypeWith1EquatableProperty: Equatable {
 		operand0: TypeWith1EquatableProperty,
 		operand1: TypeWith1EquatableProperty
 	) -> Bool {
-		return operand0 == (operand1,
-			{$0.int}
-		)
+		return operand0.int == operand1.int
 	}
 }

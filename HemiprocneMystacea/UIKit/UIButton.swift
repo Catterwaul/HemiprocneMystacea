@@ -6,7 +6,6 @@ public extension UIButton {
 		get {
 			return !isEnabled
 		}
-		
 		set {
 			isEnabled = !newValue
 			alpha = newValue

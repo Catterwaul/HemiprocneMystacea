@@ -1,15 +1,15 @@
-//public typealias HashableError = Hashable & Error
-
 public struct Errors: Error {
 	public let array: [Error]
-	
+}
+
+public extension Errors {
 //MARK: init
-	public init<Errors: Sequence>(_ errors: Errors)
-	where Errors.Iterator.Element == Error {
+  init<Errors: Sequence>(_ errors: Errors)
+	where Errors.Element == Error {
 		array = Array(errors)
 	}
 	
-	public init(_ errors: Error...) {
+	init(_ errors: Error...) {
 		self.init(errors)
 	}
 }
@@ -21,7 +21,7 @@ public func validate<
 	_ validates: Validates,
 	parameters: Parameters
 ) throws
-where Validates.Iterator.Element == Validate<Parameters> {
+where Validates.Element == Validate<Parameters> {
 	let errors = validates.flatMap{
 		validate -> [Error] in
 		

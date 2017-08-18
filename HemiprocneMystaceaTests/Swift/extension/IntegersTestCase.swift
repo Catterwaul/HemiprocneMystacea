@@ -3,12 +3,8 @@ import XCTest
 
 final class IntegersTestCase: XCTestCase {
 	func test_divisible() {
-		XCTAssertTrue(
-			4.divisible(by: 2)
-		)
-		XCTAssertFalse(
-			33.divisible(by: 8)
-		)
+		XCTAssertTrue( 4.divisible(divisor: 2) )
+		XCTAssertFalse( 33.divisible(divisor: 8) )
 	}
   
   func test_joined() {

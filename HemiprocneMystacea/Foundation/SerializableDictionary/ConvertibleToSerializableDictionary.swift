@@ -4,45 +4,45 @@ public protocol ConvertibleToSerializableDictionary {
   ///- Important: This is a nested type with this signature:
   ///  `enum SerializableDictionaryKey: String`
   associatedtype SerializableDictionaryKey: RawRepresentable
+  where SerializableDictionaryKey.RawValue == String
   
   // Should only be defined in the protocol extension,
   // but we can't yet express that `JSONKey.RawValue == String` is always true.
   func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any]
 }
 
-public extension ConvertibleToSerializableDictionary
-where SerializableDictionaryKey.RawValue == String {
-	func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any] {
-		return makeSerializableDictionary(
-			jsonCompatible: jsonCompatible,
-			key: nil
-		)
-	}
+public extension ConvertibleToSerializableDictionary {
+  func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any] {
+    return makeSerializableDictionary(
+      jsonCompatible: jsonCompatible,
+      key: nil
+    )
+  }
 	
-	func makeSerializableDictionary(
-		jsonCompatible: Bool,
-		key: String? = nil
-	) -> [String: Any] {
-		let serializableDictionary: [String: Any] = Dictionary(
-			Mirror(reflecting: self).children.flatMap{
-				label, value in
-				
-				guard
-					let label = label,
-					SerializableDictionaryKey.contains(label),
-				
+  func makeSerializableDictionary(
+    jsonCompatible: Bool,
+    key: String? = nil
+  ) -> [String: Any] {
+    let serializableDictionary: [String: Any] = Dictionary(
+      uniqueKeysWithValues: Mirror(reflecting: self).children.flatMap{
+        child in
+        
+        guard
+          let label = child.label,
+          SerializableDictionaryKey.contains(label),
+          
           // Don't include keys with nil values.
-					!Mirror(reflecting: value).reflectsOptionalNone
-				else {return nil}
-            
-        switch value {
+          !Mirror(reflecting: child.value).reflectsOptionalNone
+        else {return nil}
+        
+        switch child.value {
         case let image as UIImage:
           // possibly nil
           return UIImagePNGRepresentation(image).map{
             pngData in (
               key: label,
               value:
-              jsonCompatible
+                jsonCompatible
                 ? pngData.base64EncodedString()
                 : pngData
             )
@@ -53,31 +53,32 @@ where SerializableDictionaryKey.RawValue == String {
           return (
             key: label,
             value: {
-              switch value {
-              case let value as ConvertibleToSerializableDictionary:
-                return value.makeSerializableDictionary(
-                  jsonCompatible: jsonCompatible
-                )
+              switch child.value {
+//              case let value as ConvertibleToSerializableDictionary:
+//                return value.makeSerializableDictionary(
+//                  jsonCompatible: jsonCompatible
+//                )
+//                
+//              case let value as [ConvertibleToSerializableDictionary]:
+//                return value.map{
+//                  $0.makeSerializableDictionary(
+//                    jsonCompatible: jsonCompatible
+//                  )
+//                }
                 
-              case let value as [ConvertibleToSerializableDictionary]:
-                return value.map{
-                  $0.makeSerializableDictionary(
-                    jsonCompatible: jsonCompatible
-                  )
-                }
-                
-              default: return
-                (value as? CGPoint)?.dictionaryRepresentation
+              default:
+                return
+                  (child.value as? CGPoint)?.dictionaryRepresentation
                   ??
-                  (value as? Date).flatMap{
+                  (child.value as? Date).flatMap{
                     date in
                     jsonCompatible
                       ? date.timeIntervalSinceReferenceDate
                       : date
                   }
-                  ?? value
+                  ?? child.value
               }
-          }()
+            }()
           )
         }
       }
@@ -116,22 +117,18 @@ where SerializableDictionaryKey.RawValue == String {
 }
 
 //MARK:
-public extension Sequence
-where
-	Iterator.Element: ConvertibleToSerializableDictionary,
-	Iterator.Element.SerializableDictionaryKey.RawValue == String
-{
+public extension Sequence where Element: ConvertibleToSerializableDictionary {
   func makeJSONData(
     options: JSONSerialization.WritingOptions = [],
     key: String? = nil
   ) throws -> Data {
     return try JSONSerialization.data(
       withJSONObject: self.map{
-			$0.makeSerializableDictionary(
-				jsonCompatible: true,
-				key: key
-			)
-		},
+        $0.makeSerializableDictionary(
+          jsonCompatible: true,
+          key: key
+        )
+      },
       options: options
     )
   }
@@ -142,11 +139,11 @@ where
   ) throws -> Data {
     return try PropertyListSerialization.data(
       fromPropertyList: self.map{
-			$0.makeSerializableDictionary(
-				jsonCompatible: false,
-				key: key
-			)
-		},
+        $0.makeSerializableDictionary(
+          jsonCompatible: false,
+          key: key
+        )
+      },
       format: format,
       options: .init()
     )

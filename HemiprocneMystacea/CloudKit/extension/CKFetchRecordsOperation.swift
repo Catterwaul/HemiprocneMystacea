@@ -5,7 +5,7 @@ public extension CKFetchRecordsOperation {
 	///   - process: ID to record dictionary
 	convenience init(
 		recordIDs: [CKRecordID],
-		process: @escaping Process<() throws -> [CKRecordID: CKRecord]>
+		process: @escaping ProcessThrowingGet<[CKRecordID: CKRecord]>
 	) {
 		self.init(recordIDs: recordIDs)
 		fetchRecordsCompletionBlock = {
@@ -24,9 +24,9 @@ public extension CKFetchRecordsOperation {
 	///   - process: records
 	convenience init<References: Sequence>(
 		references: References,
-		process: @escaping Process<() throws -> [CKRecord]>
+		process: @escaping ProcessThrowingGet<[CKRecord]>
 	)
-	where References.Iterator.Element == CKReference {
+	where References.Element == CKReference {
 		let iDs = references.map{$0.recordID}
 		
 		self.init(recordIDs: iDs){

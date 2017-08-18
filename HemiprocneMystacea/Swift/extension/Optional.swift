@@ -6,8 +6,8 @@ public extension Optional {
 	) -> Wrapped {
 		return
 			self
-			??
-      { self = getValueWhenNil()
+			?? {
+        self = getValueWhenNil()
 				return self!
 			}()
 	}

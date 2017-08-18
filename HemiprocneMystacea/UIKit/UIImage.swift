@@ -1,11 +1,11 @@
 import UIKit
 
 public extension UIImage {
-	func hasEqualPixels(to image: UIImage) -> Bool {
-		func getData(from: UIImage) -> Data? {
+	func hasEqualPixels(_ image: UIImage) -> Bool {
+		func getData(_ image: UIImage) -> Data? {
 			return image.cgImage?.dataProvider?.data as Data?
 		}
 		
-		return getData(from: self) == getData(from: image)
+		return getData(self) == getData(image)
 	}
 }

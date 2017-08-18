@@ -1,7 +1,7 @@
 import Foundation
 
 public struct SerializableDictionary {
-	fileprivate let dictionary: [String: Any]
+	private let dictionary: [String: Any]
 }
 
 //MARK: public

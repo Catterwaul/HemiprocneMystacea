@@ -9,10 +9,7 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 		
 		XCTAssertEqual(
 			options,
-			[	.A1,
-			 	.B2,
-				.C3
-			]
+			[.A1, .B2, .C3]
 		)
 	}
 	
@@ -27,15 +24,12 @@ final class SetAlgebraTypeTestCase: XCTestCase {
 	
 	func test_intersect() {
 		var options: Options = [
-			.A1,
-			.B2,
-			.C3
-		]
+      .A1, .C3,
+      .B2
+    ]
 		options = options ∩ [
-			.A1,
-			.C3,
-			.D4,
-			.F6
+      .A1, .C3,
+			.D4, .F6
 		]
 		
 		XCTAssertEqual(
@@ -132,5 +126,5 @@ private struct Options: OptionSet {
 		D4,
 		E5,
 		F6
-	) = Options.selfs()
+	) = Options.makeOptions()
 }
