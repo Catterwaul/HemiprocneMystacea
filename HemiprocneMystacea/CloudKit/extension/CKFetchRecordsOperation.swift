@@ -12,11 +12,11 @@ public extension CKFetchRecordsOperation {
 			records, error in
 			
 			if let error = error {
-				process{throw error}
+				process {throw error}
 				return
 			}
 			
-			process{records!}
+			process {records!}
 		}
 	}
 	
@@ -27,14 +27,14 @@ public extension CKFetchRecordsOperation {
 		process: @escaping ProcessThrowingGet<[CKRecord]>
 	)
 	where References.Element == CKReference {
-		let iDs = references.map{$0.recordID}
+		let iDs = references.map {$0.recordID}
 		
-		self.init(recordIDs: iDs){
+		self.init(recordIDs: iDs) {
 			getRecords in
 			
 			process{
 				let records = try getRecords()
-				return iDs.map{id in records[id]!}
+				return iDs.map {id in records[id]!}
 			}
 		}
 	}

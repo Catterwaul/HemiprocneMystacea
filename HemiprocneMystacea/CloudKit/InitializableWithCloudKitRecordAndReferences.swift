@@ -39,25 +39,24 @@ public extension InitializableWithCloudKitRecordAndReferences {
     request(
       database: database,
       predicate: predicate,
-      {  getRequested in
+      { getRequested in
         
         do {
           let requested = try getRequested()
           
-          operationQueue.addOperation{requesteds += [requested]}
+          operationQueue.addOperation {requesteds += [requested]}
         }
         catch {processSingleRecordError(error)}
       }
-    ){verifyCompletion in
+    ) {
+      verifyCompletion in
       
       do {
         try verifyCompletion()
         
-        operationQueue.addOperation{
-          process{requesteds}
-        }
+        operationQueue.addOperation { process {requesteds} }
       }
-      catch { process{throw error} }
+      catch { process {throw error} }
     }
   }
 }
