@@ -4,9 +4,9 @@ import UIKit
 public extension UIImage {
 	convenience init?(asset: CKAsset) {
 		do {
-			self.init(
-				data: try Data(contentsOf: asset.fileURL)
-			)
+      let data = try Data(contentsOf: asset.fileURL)
+      
+			self.init(data: data)
 		}
 		catch {return nil}
 	}

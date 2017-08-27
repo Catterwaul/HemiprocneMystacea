@@ -8,7 +8,8 @@ public extension UIButton {
 		}
 		set {
 			isEnabled = !newValue
-			alpha = newValue
+			alpha =
+        newValue
 				? 0.5
 				: 1
 		}

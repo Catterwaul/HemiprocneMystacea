@@ -29,9 +29,10 @@ public extension CloudKitBackReferenced {
         
         let operation = CKFetchRecordsOperation(
           recordIDs: Array(results.keys)
-        ){
-          getRecords in process{
-            try getRecords().flatMap{
+        ) {
+          getRecords in process {
+            let records = try getRecords()
+            return records.flatMap {
               record in try? Self(
                 record: record.value,
                 backReferencerRequestResults: results[record.key]!
@@ -41,9 +42,7 @@ public extension CloudKitBackReferenced {
         }
         database.add(operation)
       }
-      catch {
-        process{throw error}
-      }
+      catch { process{throw error} }
     }
   }
 }

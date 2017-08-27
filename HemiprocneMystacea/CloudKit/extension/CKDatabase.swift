@@ -46,8 +46,8 @@ public extension CKDatabase {
 			predicate: predicate
 		) {
       getRecords in process {
-				try getRecords()
-				.map(Requested.init)
+				let records = try getRecords()
+				return try records.map(Requested.init)
 			}
 		}
 	}
@@ -89,9 +89,8 @@ public extension CKDatabase {
 					getRecords in
 					
 					do {
-						let references =
-							try getRecords()
-							.map(Requested.Reference.init)
+            let records = try getRecords()
+						let references = try records.map(Requested.Reference.init)
 						
 						processGetRequested {
 							try Requested(
@@ -142,15 +141,15 @@ public extension CKDatabase {
 		_ record: CKRecord,
 		processVerify: @escaping Process<Verify>
 	){
-		save(record){
-			record, error in
+		save(record) {
+      record, error in
 			
 			if let error = error {
-				processVerify{throw error}
+				processVerify {throw error}
 				return
 			}
 			
-			processVerify{}
+			processVerify {}
 		}
 	}
 }

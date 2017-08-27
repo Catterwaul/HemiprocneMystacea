@@ -17,11 +17,11 @@ public extension CKModifyRecordsOperation {
 			in
 		
 			if let error = operationError {
-				processVerifyCompletion{throw error}
+				processVerifyCompletion {throw error}
 				return
 			}
 			
-			processVerifyCompletion{}
+			processVerifyCompletion {}
 		}
 	}
 }
