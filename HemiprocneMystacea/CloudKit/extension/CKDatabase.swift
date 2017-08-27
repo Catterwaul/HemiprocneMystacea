@@ -18,14 +18,15 @@ public extension CKDatabase {
         predicate: predicate
       ),
       inZoneWith: nil
-    ){records, error in
+    ) {
+      records, error in
       
       if let error = error {
-        process{throw error}
+        process {throw error}
         return
       }
       
-      process{records!}
+      process {records!}
     }
   }
 	
@@ -43,7 +44,8 @@ public extension CKDatabase {
 		request(
 			recordType: Requested.self,
 			predicate: predicate
-		){	getRecords in process{
+		) {
+      getRecords in process {
 				try getRecords()
 				.map(Requested.init)
 			}
@@ -75,7 +77,7 @@ public extension CKDatabase {
 				
 				guard let references = requestedRecord[Requested.referenceKey] as? [CKReference]
 				else {
-					processGetRequested{
+					processGetRequested {
 						throw InitializableWithCloudKitRecordAndReferences_Error.emptyReferenceList
 					}
 					return
@@ -83,7 +85,7 @@ public extension CKDatabase {
 				
 				dispatchGroup.enter()
 				
-				let operation = CKFetchRecordsOperation(references: references){
+				let operation = CKFetchRecordsOperation(references: references) {
 					getRecords in
 					
 					do {
@@ -91,14 +93,14 @@ public extension CKDatabase {
 							try getRecords()
 							.map(Requested.Reference.init)
 						
-						processGetRequested{
+						processGetRequested {
 							try Requested(
 								record: requestedRecord,
 								references: references
 							)
 						}
 					}
-					catch { processGetRequested{throw error} }
+					catch { processGetRequested {throw error} }
 					
 					dispatchGroup.leave()
 				}
@@ -109,7 +111,7 @@ public extension CKDatabase {
 				cursor, error in
 				
 				if let error = error {
-					processVerifyCompletion{throw error}
+					processVerifyCompletion {throw error}
 				}
 				else if let cursor = cursor {
 					let operation = CKQueryOperation(cursor: cursor)
@@ -117,9 +119,9 @@ public extension CKDatabase {
 					self.add(operation)
 				}
 				else {
-					dispatchGroup.notify(
-						queue: DispatchQueue(label: "")
-					){ processVerifyCompletion{} }
+					dispatchGroup.notify( queue: DispatchQueue(label: "") ) {
+            processVerifyCompletion {}
+          }
 				}
 			}
 		}

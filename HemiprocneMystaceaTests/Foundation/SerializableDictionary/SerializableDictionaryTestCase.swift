@@ -5,15 +5,15 @@ final class SerializableDictionaryTestCase: XCTestCase {
 	func test_getValue() {
 		let
 			oldKey = "🗝",
-         dictionary = [oldKey: "🔑"],
-			serializableDictionary = SerializableDictionary(dictionary)
+      dictionary = [oldKey: "🔑"],
+      serializableDictionary = SerializableDictionary(dictionary)
 		
 		XCTAssertEqual(
 			try serializableDictionary.getValue(key: oldKey),
 			"🔑"
 		)
 		
-		typealias Error = SerializableDictionary.GetValueError
+    typealias Error = SerializableDictionary.GetValueError
       
 		let turKey = "🦃"
 		XCTAssertThrowsError(
