@@ -23,7 +23,7 @@
 		0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD14F31CD91C070067F27E /* CABasicAnimation.Values.swift */; };
 		0A72FC4A1D40819D0041845B /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D21C33807000529B08 /* Bool.swift */; };
 		0A72FC4B1D40819D0041845B /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D31C33807000529B08 /* Dictionary.swift */; };
-		0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSetType.swift */; };
+		0A72FC4D1D40819D0041845B /* OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSet.swift */; };
 		0A72FC4E1D40819D0041845B /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E348A4341D08C146003D8024 /* Optional.swift */; };
 		0A72FC4F1D40819D0041845B /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* Sequence.swift */; };
 		0A72FC501D40819D0041845B /* SetAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D91C33807000529B08 /* SetAlgebra.swift */; };
@@ -146,7 +146,7 @@
 		49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */; };
 		49B182DC1C33807000529B08 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D21C33807000529B08 /* Bool.swift */; };
 		49B182DD1C33807000529B08 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D31C33807000529B08 /* Dictionary.swift */; };
-		49B182E01C33807000529B08 /* OptionSetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSetType.swift */; };
+		49B182E01C33807000529B08 /* OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D61C33807000529B08 /* OptionSet.swift */; };
 		49B182E11C33807000529B08 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* Sequence.swift */; };
 		49B182E31C33807000529B08 /* SetAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D91C33807000529B08 /* SetAlgebra.swift */; };
 		49B182E41C33807000529B08 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182DA1C33807000529B08 /* String.swift */; };
@@ -192,6 +192,7 @@
 		49E5253C1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */; };
 		49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
 		49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
+		49F63FFA1F4AC1070016DD25 /* CloudKitEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F63FF91F4AC1070016DD25 /* CloudKitEncoder.swift */; };
 		49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
@@ -285,7 +286,7 @@
 		49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecordAndReferences.swift; sourceTree = "<group>"; };
 		49B182D21C33807000529B08 /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		49B182D31C33807000529B08 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		49B182D61C33807000529B08 /* OptionSetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetType.swift; sourceTree = "<group>"; };
+		49B182D61C33807000529B08 /* OptionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSet.swift; sourceTree = "<group>"; };
 		49B182D71C33807000529B08 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		49B182D91C33807000529B08 /* SetAlgebra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAlgebra.swift; sourceTree = "<group>"; };
 		49B182DA1C33807000529B08 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -330,6 +331,7 @@
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenter.swift; path = HemiprocneMystacea/UserNotifications/UNUserNotificationCenter.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
+		49F63FF91F4AC1070016DD25 /* CloudKitEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitEncoder.swift; sourceTree = "<group>"; };
 		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
 		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
 		49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewTestCase.swift; path = UIKit/UICollectionViewTestCase.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				49C526E41DB6D5830036B020 /* extension */,
 				492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */,
 				492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */,
+				49F63FF91F4AC1070016DD25 /* CloudKitEncoder.swift */,
 				497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
 				49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */,
@@ -507,7 +510,7 @@
 				49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */,
 				493DB0D01E520FF000E16694 /* Mirror.swift */,
 				49AB16EB1EF23A92009868AB /* Numeric.swift */,
-				49B182D61C33807000529B08 /* OptionSetType.swift */,
+				49B182D61C33807000529B08 /* OptionSet.swift */,
 				E348A4341D08C146003D8024 /* Optional.swift */,
 				497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */,
 				49B182D71C33807000529B08 /* Sequence.swift */,
@@ -1014,7 +1017,7 @@
 				493DB0D21E520FF000E16694 /* Mirror.swift in Sources */,
 				496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
-				0A72FC4D1D40819D0041845B /* OptionSetType.swift in Sources */,
+				0A72FC4D1D40819D0041845B /* OptionSet.swift in Sources */,
 				49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */,
 				492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
@@ -1081,6 +1084,7 @@
 				492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				49AB16EF1EF243CF009868AB /* BinaryInteger.swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
+				49F63FFA1F4AC1070016DD25 /* CloudKitEncoder.swift in Sources */,
 				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
@@ -1088,7 +1092,7 @@
 				497F568A1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */,
 				49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
-				49B182E01C33807000529B08 /* OptionSetType.swift in Sources */,
+				49B182E01C33807000529B08 /* OptionSet.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
 				49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */,
 				49A1982E1D62B358005C251A /* typealiases.swift in Sources */,

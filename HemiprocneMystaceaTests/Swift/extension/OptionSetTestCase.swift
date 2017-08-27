@@ -3,48 +3,48 @@ import XCTest
 
 final class OptionSetTypeTestCase: XCTestCase {
 	func test_2Flags() {
-		let options: Options = [.Option1, .Option2]
+		let options: Options = [.option1, .option2]
 		XCTAssertEqual(options.rawValue, 0b11)
 	}
 	
 	func test_3Flags() {
 		let options: Options = [
-			.Option3,
-			.Option4,
-			.Option5
+			.option3,
+			.option4,
+			.option5
 		]
 		XCTAssertEqual(options.rawValue, 0b1_1100)
 	}
 	
 	func test_4Flags() {
 		let options: Options = [
-			.Option6,
-			.Option7,
-			.Option8,
-			.Option9
+			.option6,
+			.option7,
+			.option8,
+			.option9
 		]
 		XCTAssertEqual(options.rawValue, 0b1_1110_0000)
 	}
 	
 	func test_5Flags() {
 		let options: Options = [
-			.Option10,
-			.Option11,
-			.Option12,
-			.Option13,
-			.Option14
+			.option10,
+			.option11,
+			.option12,
+			.option13,
+			.option14
 		]
 		XCTAssertEqual(options.rawValue, 0b11_1110_0000_0000)
 	}
 	
 	func test_6Flags() {
 		let options: Options = [
-			.Option15,
-			.Option16,
-			.Option17,
-			.Option18,
-			.Option19,
-			.Option20
+			.option15,
+			.option16,
+			.option17,
+			.option18,
+			.option19,
+			.option20
 		]
 		XCTAssertEqual(options.rawValue, 0b1111_1100_0000_0000_0000)
 	}
@@ -57,31 +57,31 @@ private struct Options: OptionSet {
 	
 	let rawValue: UInt
 	
-	static let (Option1, Option2) = Options.makeOptions()
+	static let (option1, option2) = Options.makeOptions()
 	static let (
-		Option3,
-		Option4,
-		Option5
+		option3,
+		option4,
+		option5
 	) = Options.makeOptions(startingFlagIndex: 3)
 	static let (
-		Option6,
-		Option7,
-		Option8,
-		Option9
+		option6,
+		option7,
+		option8,
+		option9
 	) = Options.makeOptions(startingFlagIndex: 6)
 	static let (
-		Option10,
-		Option11,
-		Option12,
-		Option13,
-		Option14
+		option10,
+		option11,
+		option12,
+		option13,
+		option14
 	) = Options.makeOptions(startingFlagIndex: 10)
 	static let (
-		Option15,
-		Option16,
-		Option17,
-		Option18,
-		Option19,
-		Option20
+		option15,
+		option16,
+		option17,
+		option18,
+		option19,
+		option20
 	) = Options.makeOptions(startingFlagIndex: 15)
 }
