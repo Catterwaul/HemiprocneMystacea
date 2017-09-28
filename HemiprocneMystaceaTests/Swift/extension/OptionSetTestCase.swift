@@ -2,6 +2,21 @@ import HM
 import XCTest
 
 final class OptionSetTypeTestCase: XCTestCase {
+  func testInitWithCompatibleOptionSet() {
+    let view = UIView()
+    view.autoresizingMask = [.flexibleBottomMargin, .flexibleTopMargin, .flexibleWidth]
+    XCTAssertEqual(
+      view.autoresizingFlexibilities,
+      [.bottomMargin, .topMargin, .width]
+    )
+    
+    view.autoresizingFlexibilities = [.height, .leftMargin, .rightMargin]
+    XCTAssertEqual(
+      view.autoresizingMask,
+      [.flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin]
+    )
+  }
+  
 	func test_2Flags() {
 		let options: Options = [.option1, .option2]
 		XCTAssertEqual(options.rawValue, 0b11)
@@ -84,4 +99,45 @@ private struct Options: OptionSet {
 		option19,
 		option20
 	) = Options.makeOptions(startingFlagIndex: 15)
+}
+
+extension UIView {
+  struct AutoresizingFlexibilities: OptionSet {
+    let rawValue: UInt
+  }
+  
+  var autoresizingFlexibilities: AutoresizingFlexibilities {
+    get {
+      return AutoresizingFlexibilities(autoresizingMask)
+    }
+    set {
+      autoresizingMask = UIViewAutoresizing(newValue)
+    }
+  }
+}
+
+extension UIView.AutoresizingFlexibilities {
+  static var leftMargin: UIView.AutoresizingFlexibilities {
+    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleLeftMargin)
+  }
+  
+  static var width: UIView.AutoresizingFlexibilities {
+    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleWidth)
+  }
+  
+  static var rightMargin: UIView.AutoresizingFlexibilities {
+    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleRightMargin)
+  }
+  
+  static var topMargin: UIView.AutoresizingFlexibilities {
+    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleTopMargin)
+  }
+  
+  static var height: UIView.AutoresizingFlexibilities {
+    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleHeight)
+  }
+  
+  static var bottomMargin: UIView.AutoresizingFlexibilities {
+    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleBottomMargin)
+  }
 }

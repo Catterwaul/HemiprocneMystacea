@@ -1,3 +1,10 @@
+public extension OptionSet {
+  init<CompatibleOptionSet: OptionSet>(_ compatibleOptionSet: CompatibleOptionSet)
+  where CompatibleOptionSet.RawValue == RawValue {
+    self.init(rawValue: compatibleOptionSet.rawValue)
+  }
+}
+
 public extension OptionSet where RawValue: FixedWidthInteger {
 	/// Provides two options.
 	///
