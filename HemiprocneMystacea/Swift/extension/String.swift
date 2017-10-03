@@ -1,18 +1,18 @@
 public extension String {
 	///- Returns: nil if not prefixed with `prefix`
-	func without(prefix: String) -> String? {
+	func without(prefix: String) -> Substring? {
 		guard self.hasPrefix(prefix)
 		else {return nil}
 		
-		return String( characters.dropFirst(prefix.characters.count) )
+		return self.dropFirst(prefix.count)
 	}
 	
 	///- Returns: nil if not suffixed with `suffix`
-	func without(suffix: String) -> String? {
+	func without(suffix: String) -> Substring? {
 		guard self.hasSuffix(suffix)
 		else {return nil}
 		
-		return String( characters.dropLast(suffix.characters.count) )
+		return self.dropLast(suffix.count)
 	}
 }
 

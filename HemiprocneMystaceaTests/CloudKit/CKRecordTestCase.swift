@@ -3,6 +3,14 @@ import HM
 import XCTest
 
 final class CKRecordTestCase: XCTestCase {
+  struct Pumpkin {
+    let eyesCount: Int?
+    let halloween: Date?
+    let vine: String?
+    let weight: Measurement<UnitMass>?
+    let nonCloudKitProperty = "⛈"
+  }
+  
 	func test_initializeCKRecord() {
 		let
 			spookyOldHalloween = Date.distantPast,
@@ -22,14 +30,6 @@ final class CKRecordTestCase: XCTestCase {
 		XCTAssertEqual(unSmashingPumpkin.vine, "🐛")
 		XCTAssertEqual(unSmashingPumpkin.weight, mrPumpkin.weight)
 	}
-
-	struct Pumpkin {
-		let eyesCount: Int?
-		let halloween: Date?
-		let vine: String?
-		let weight: Measurement<UnitMass>?
-		let nonCloudKitProperty = "⛈"
-	}
 }
 
 extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
@@ -42,7 +42,7 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 	
 	var recordDictionaryOverrides: [CloudKitRecordKey: CKRecordValue] {
 		var dictionary: [CloudKitRecordKey: CKRecordValue] = [:]
-		dictionary[.weight] = weight.map{$0.value as NSNumber}
+		dictionary[.weight] = weight.map {$0.value as NSNumber}
 		return dictionary
 	}
 }
@@ -53,7 +53,7 @@ extension CKRecordTestCase.Pumpkin {
 			eyesCount: record[CloudKitRecordKey.eyesCount],
 			halloween: record[CloudKitRecordKey.halloween],
 			vine: record[CloudKitRecordKey.vine],
-			weight: record[CloudKitRecordKey.weight].map{
+			weight: record[CloudKitRecordKey.weight].map {
 				weight in Measurement(
 					value: weight,
 					unit: .kilograms

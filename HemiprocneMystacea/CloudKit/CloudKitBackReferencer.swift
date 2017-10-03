@@ -17,9 +17,9 @@ public extension CloudKitBackReferencer {
 		database: CKDatabase,
 		_ process: @escaping ProcessThrowingGet<[ CKRecordID: [RequestResult] ]>
 	) {
-		database.request(recordType: self){
+		database.request(recordType: self) {
 			getRecords in process{
-				let idsAndResults = try getRecords().flatMap{
+				let idsAndResults = try getRecords().flatMap {
 					record -> (
 						backReferenceID: CKRecordID,
 						result: RequestResult
@@ -42,8 +42,8 @@ public extension CloudKitBackReferencer {
 				}
         
         return
-          Dictionary(grouping: idsAndResults){$0.backReferenceID}
-					.mapValues{ idsAndResults in idsAndResults.map{$0.result} }
+          Dictionary(grouping: idsAndResults) {$0.backReferenceID}
+					.mapValues{ idsAndResults in idsAndResults.map {$0.result} }
 			}
 		}
 	}

@@ -16,12 +16,6 @@ public extension ConvertibleToCloudKitRecord {
 	var recordDictionaryOverrides: [CloudKitRecordKey: CKRecordValue] {
 		return [:]
 	}
-	
-	func synchronize(record: CKRecord) {
-		for (key, value) in recordDictionaryPairs {
-			record[key] = value
-		}
-	}
 }
 
 //MARK: private
@@ -71,6 +65,14 @@ public extension CKRecord {
 		self.init(
 			recordType: String(describing: ConvertibleToCloudKitRecord.self)
 		)
-		convertibleToCloudKitRecord.synchronize(record: self)
+		synchronize(convertibleToCloudKitRecord)
 	}
+  
+  func synchronize<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(
+    _ convertibleToCloudKitRecord: ConvertibleToCloudKitRecord
+  ) {
+    for (key, value) in convertibleToCloudKitRecord.recordDictionaryPairs {
+      self[key] = value
+    }
+  }
 }

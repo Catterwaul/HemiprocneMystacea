@@ -4,6 +4,7 @@ import XCTest
 final class OptionSetTypeTestCase: XCTestCase {
   func testInitWithCompatibleOptionSet() {
     let view = UIView()
+    
     view.autoresizingMask = [.flexibleBottomMargin, .flexibleTopMargin, .flexibleWidth]
     XCTAssertEqual(
       view.autoresizingFlexibilities,
