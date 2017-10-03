@@ -108,6 +108,7 @@
 		49817E601D2CA99A0025A6CA /* errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E5F1D2CA99A0025A6CA /* errors.swift */; };
 		49817E621D2CAE0B0025A6CA /* errorsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */; };
 		498880851D58BFB400AE24FC /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
+		49892BFA1F8420C6007593E6 /* ConvertibleToCKRecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49892BF91F8420C6007593E6 /* ConvertibleToCKRecordValue.swift */; };
 		498B54CA1D828D1C00C07620 /* FloatingPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */; };
 		498C8A081E5E152D00887F04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C8A071E5E152D00887F04 /* UIImage.swift */; };
 		498C8A091E5E152D00887F04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C8A071E5E152D00887F04 /* UIImage.swift */; };
@@ -164,6 +165,7 @@
 		49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */; };
 		49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C526E61DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift */; };
 		49C526E91DB6E8C50036B020 /* CKDatabaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C526E81DB6E8C50036B020 /* CKDatabaseTestCase.swift */; };
+		49C571171F84410600064423 /* CloudKitEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C571161F84410600064423 /* CloudKitEnumeration.swift */; };
 		49CBDFF51C3329EF00E8EFCC /* HemiprocneMystacea.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CBDFFC1C3329EF00E8EFCC /* HM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CBDFF11C3329EF00E8EFCC /* HM.framework */; };
 		49CBE0A61C332ADE00E8EFCC /* CNContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0711C332ADE00E8EFCC /* CNContainer.swift */; };
@@ -258,6 +260,7 @@
 		49817E5F1D2CA99A0025A6CA /* errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = errors.swift; sourceTree = "<group>"; };
 		49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = errorsTestCase.swift; path = Swift/errorsTestCase.swift; sourceTree = "<group>"; };
 		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAsset.swift; sourceTree = "<group>"; };
+		49892BF91F8420C6007593E6 /* ConvertibleToCKRecordValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertibleToCKRecordValue.swift; sourceTree = "<group>"; };
 		498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTestCase.swift; sourceTree = "<group>"; };
 		498C8A071E5E152D00887F04 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		498C8A0A1E5E2E8300887F04 /* Mousse with Mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mousse with Mouse.png"; sourceTree = "<group>"; };
@@ -302,6 +305,7 @@
 		49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKModifyRecordsOperation.swift; sourceTree = "<group>"; };
 		49C526E61DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKModifyRecordsOperationTestCase.swift; path = CloudKit/CKModifyRecordsOperationTestCase.swift; sourceTree = "<group>"; };
 		49C526E81DB6E8C50036B020 /* CKDatabaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CKDatabaseTestCase.swift; path = CloudKit/CKDatabaseTestCase.swift; sourceTree = "<group>"; };
+		49C571161F84410600064423 /* CloudKitEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitEnumeration.swift; sourceTree = "<group>"; };
 		49CBDFF11C3329EF00E8EFCC /* HM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49CBDFF41C3329EF00E8EFCC /* HemiprocneMystacea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystacea.h; sourceTree = "<group>"; };
 		49CBDFF61C3329EF00E8EFCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -452,7 +456,9 @@
 				49C526E41DB6D5830036B020 /* extension */,
 				492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */,
 				492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */,
+				49C571161F84410600064423 /* CloudKitEnumeration.swift */,
 				497EFE891DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift */,
+				49892BF91F8420C6007593E6 /* ConvertibleToCKRecordValue.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
 				49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */,
 			);
@@ -1100,6 +1106,7 @@
 				49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */,
 				49BF89901C38C8FD0050A49B /* InitializableWithParameters.swift in Sources */,
 				492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
+				49C571171F84410600064423 /* CloudKitEnumeration.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */,
 				495606CB1E4DB4C8004C7FA0 /* Data.swift in Sources */,
@@ -1147,6 +1154,7 @@
 				497F568D1E3C4BC40066CD1E /* CALayer.swift in Sources */,
 				498C8A081E5E152D00887F04 /* UIImage.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
+				49892BFA1F8420C6007593E6 /* ConvertibleToCKRecordValue.swift in Sources */,
 				E348A4351D08C146003D8024 /* Optional.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
