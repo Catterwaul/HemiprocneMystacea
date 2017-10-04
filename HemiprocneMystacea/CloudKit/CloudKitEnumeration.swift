@@ -1,7 +1,7 @@
 import CloudKit
 
 public protocol CloudKitEnumeration:
-  RawRepresentable,
+  RawRepresentable, Hashable,
   ConvertibleToCloudKitRecord, InitializableWithCloudKitRecord
 where
   Self.RawValue: ConvertibleToCKRecordValue,
