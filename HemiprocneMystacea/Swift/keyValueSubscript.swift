@@ -34,9 +34,9 @@ public extension keyValueThrowingSubscript {
 	func getValue<
 		Key: RawRepresentable,
 		Value
-	>(nonRawKey: Key) throws -> Value
+	>(key: Key) throws -> Value
 	where Key.RawValue == Self.Key {
-		return try self.getValue(key: nonRawKey.rawValue)
+		return try self.getValue(key: key.rawValue)
 	}
 }
 

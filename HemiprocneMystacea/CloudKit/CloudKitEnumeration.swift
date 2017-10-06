@@ -18,7 +18,7 @@ public struct CloudKitEnumerationInitializationError<RawValue>: Error {
 
 public extension CloudKitEnumeration {
   init(record: CKRecord) throws {
-    let rawValue: RawValue = try record.getValue(nonRawKey: CloudKitRecordKey.rawValue)
+    let rawValue: RawValue = try record.getValue(key: CloudKitRecordKey.rawValue)
       
     guard let initializableWithCloudKitRecord = Self(rawValue: rawValue)
     else {throw CloudKitEnumerationInitializationError(rawValue: rawValue)}

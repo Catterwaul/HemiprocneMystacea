@@ -137,7 +137,7 @@ private struct Instrument {
 extension Instrument: InitializableWithSerializableDictionary {
 	init(serializableDictionary dictionary: SerializableDictionary) throws {
 		visualization = try dictionary.getValue(
-			nonRawKey: SerializableDictionaryKey.visualization
+			key: SerializableDictionaryKey.visualization
 		)
 	}
 }
