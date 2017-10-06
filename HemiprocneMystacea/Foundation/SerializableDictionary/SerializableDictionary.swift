@@ -13,19 +13,14 @@ public extension SerializableDictionary {
 
 //MARK: keyValueThrowingSubscript
 extension SerializableDictionary: keyValueThrowingSubscript {}
-public extension SerializableDictionary {
-	enum GetValueError: Error {
-		case noValue(key: String)
-		case typeCastFailure(key: String)
-	}
-	
-	func getValue<Value>(key: String) throws -> Value {
-      guard let anyValue = dictionary[key]
-      else {throw GetValueError.noValue(key: key)}
-      
-      guard let value = anyValue as? Value
-      else {throw GetValueError.typeCastFailure(key: key)}
-      
-      return value
-   }
+public extension SerializableDictionary {  
+  func getValue<Value>(key: String) throws -> Value {
+    guard let anyValue = dictionary[key]
+    else {throw GetValueForKeyError.noValue(key: key)}
+    
+    guard let value = anyValue as? Value
+    else {throw GetValueForKeyError.typeCastFailure(key: key)}
+    
+    return value
+  }
 }

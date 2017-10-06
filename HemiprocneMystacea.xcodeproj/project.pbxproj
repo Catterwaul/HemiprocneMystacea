@@ -115,6 +115,8 @@
 		498C8A0B1E5E2E8300887F04 /* Mousse with Mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C8A0A1E5E2E8300887F04 /* Mousse with Mouse.png */; };
 		498F6CC61D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */; };
 		498F6CCA1D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */; };
+		499088051F849C7F00F9E569 /* CloudKitEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C571161F84410600064423 /* CloudKitEnumeration.swift */; };
+		499088061F849C8400F9E569 /* ConvertibleToCKRecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49892BF91F8420C6007593E6 /* ConvertibleToCKRecordValue.swift */; };
 		4993AD331DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
 		4993AD341DD99155007C7525 /* named subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4993AD321DD99155007C7525 /* named subscripts.swift */; };
 		499C71921D0F7636009797BC /* SerializableDictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C71911D0F7636009797BC /* SerializableDictionaryTestCase.swift */; };
@@ -1002,11 +1004,13 @@
 				4993AD341DD99155007C7525 /* named subscripts.swift in Sources */,
 				0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */,
 				0A72FC451D40819D0041845B /* ConvertibleToSerializableDictionary.swift in Sources */,
+				499088051F849C7F00F9E569 /* CloudKitEnumeration.swift in Sources */,
 				49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				0A72FC6B1D40819D0041845B /* UIViewController.swift in Sources */,
 				49397DF31E534ED50052B783 /* EnumeratedSequence.swift in Sources */,
 				0A72FC4F1D40819D0041845B /* Sequence.swift in Sources */,
 				0A72FC4E1D40819D0041845B /* Optional.swift in Sources */,
+				499088061F849C8400F9E569 /* ConvertibleToCKRecordValue.swift in Sources */,
 				0A72FC641D40819D0041845B /* reusableCells.swift in Sources */,
 				0A72FC461D40819D0041845B /* CABasicAnimation.swift in Sources */,
 				0A72FC5D1D40819D0041845B /* weakClosure.swift in Sources */,

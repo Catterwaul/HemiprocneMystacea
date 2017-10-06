@@ -13,13 +13,12 @@ public enum CloudKitEnumerationRecordKey: String {
 }
 
 public struct CloudKitEnumerationInitializationError<RawValue>: Error {
-  public let rawValue: RawValue?
+  public let rawValue: RawValue
 }
 
 public extension CloudKitEnumeration {
   init(record: CKRecord) throws {
-    guard let rawValue: RawValue = record[CloudKitRecordKey.rawValue]
-    else {throw CloudKitEnumerationInitializationError(rawValue: RawValue?.none)}
+    let rawValue: RawValue = try record.getValue(nonRawKey: CloudKitRecordKey.rawValue)
       
     guard let initializableWithCloudKitRecord = Self(rawValue: rawValue)
     else {throw CloudKitEnumerationInitializationError(rawValue: rawValue)}

@@ -18,7 +18,7 @@ public extension CloudKitBackReferencer {
 		_ process: @escaping ProcessThrowingGet<[ CKRecordID: [RequestResult] ]>
 	) {
 		database.request(recordType: self) {
-			getRecords in process{
+			getRecords in process {
 				let idsAndResults = try getRecords().flatMap {
 					record -> (
 						backReferenceID: CKRecordID,
@@ -26,7 +26,7 @@ public extension CloudKitBackReferencer {
 					)? in
 					
 					guard
-						let backReference: CKReference = record[backReferenceKey],
+            let backReference: CKReference = try? record.getValue(key: backReferenceKey),
 						
 						case let backReferencer = try Self(record: record),
 						let result = makeRequestResult(

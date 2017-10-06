@@ -1,3 +1,5 @@
 import CloudKit
 
-extension CKRecord: keyValueSubscript {}
+extension CKRecord: keyValueSubscript {
+  public typealias Key = String
+}

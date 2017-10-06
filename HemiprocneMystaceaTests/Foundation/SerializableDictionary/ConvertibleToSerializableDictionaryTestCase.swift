@@ -94,15 +94,17 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 			XCTFail(error.description)
 		}
 		
+    typealias Error = GetValueForKeyError<String>
+
 		do {
 			let propertyListData = try crossBonez.makePropertyListData(format: .binary)
 			let reconstructedCrossBonez = try 💀(propertyListData: propertyListData)
 			XCTAssertNil(reconstructedCrossBonez.skool)
 		}
-		catch SerializableDictionary.GetValueError.noValue(let key) {
+		catch Error.noValue(let key) {
 			XCTFail(key)
 		}
-		catch SerializableDictionary.GetValueError.typeCastFailure(let key) {
+		catch Error.typeCastFailure(let key) {
 			XCTFail(key)
 		}
 		catch let error as NSError {
@@ -116,7 +118,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
          skoool: 💀(skool: "👠L")
       )
 		
-		typealias Error = SerializableDictionary.GetValueError
+		typealias Error = GetValueForKeyError<String>
 		
 		do {
 			let reconstructed👻 = try 👻(
@@ -196,7 +198,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 	}
 	
 	func test_initializeUsingKey() {
-		typealias Error = SerializableDictionary.GetValueError
+		typealias Error = GetValueForKeyError<String>
 		
 		let 👻instance = 👻(
 			boool: false,
@@ -269,9 +271,9 @@ extension 👻: ConvertibleToSerializableDictionary {
 extension 👻: InitializableWithSerializableDictionary {
    init(serializableDictionary dictionary: SerializableDictionary) throws {
 		self.init(
-			boool: try dictionary.getValue(key: SerializableDictionaryKey.boool),
+			boool: try dictionary.getValue(nonRawKey: SerializableDictionaryKey.boool),
 			skoool: try 💀(
-				try dictionary.getValue(key: SerializableDictionaryKey.skoool)
+				try dictionary.getValue(nonRawKey: SerializableDictionaryKey.skoool)
 			)
 		)
 	}
@@ -302,10 +304,10 @@ extension 💀: ConvertibleToSerializableDictionary {
 
 extension 💀: InitializableWithSerializableDictionary {
    init(serializableDictionary dictionary: SerializableDictionary) throws {
-		typealias Error = SerializableDictionary.GetValueError
+		typealias Error = GetValueForKeyError<String>
 		do {
 			self.init(
-				skool: try dictionary.getValue(key: SerializableDictionaryKey.skool)
+				skool: try dictionary.getValue(nonRawKey: SerializableDictionaryKey.skool)
 			)
 		}
 		catch Error.typeCastFailure(let key)  {

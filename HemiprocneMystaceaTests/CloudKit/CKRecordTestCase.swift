@@ -23,7 +23,7 @@ final class CKRecordTestCase: XCTestCase {
           unit: .kilograms
         )
       ),
-      unSmashingPumpkin = Pumpkin( record: CKRecord(mrPumpkin) )
+      unSmashingPumpkin = try! Pumpkin( record: CKRecord(mrPumpkin) )
 
     XCTAssertEqual(unSmashingPumpkin.eyesCount, 2)
     XCTAssertEqual(unSmashingPumpkin.halloween, spookyOldHalloween)
@@ -37,7 +37,7 @@ final class CKRecordTestCase: XCTestCase {
   }
   func testIntEnum() {
     let record = CKRecord(IntEnum.one)
-    XCTAssertEqual(record["rawValue"], 1)
+    XCTAssertEqual(try record.getValue(key: "rawValue"), 1)
     XCTAssertEqual(try IntEnum(record: record), .one)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = 0.ckRecordValue
@@ -60,7 +60,7 @@ final class CKRecordTestCase: XCTestCase {
   }
   func testStringEnum() {    
     let record = CKRecord(StringEnum.eh)
-    XCTAssertEqual(record["rawValue"], "🇨🇦")
+    XCTAssertEqual(try record.getValue(key: "rawValue"), "🇨🇦")
     XCTAssertEqual(try StringEnum(record: record), .eh)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "a".ckRecordValue
@@ -77,11 +77,9 @@ final class CKRecordTestCase: XCTestCase {
     }
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
-    XCTAssertThrowsError(try StringEnum(record: record)) {
+    XCTAssertThrowsError( try StringEnum(record: record) ) {
       switch $0 {
-      case let error as CloudKitEnumerationInitializationError<String>:
-        XCTAssertEqual(error.rawValue, nil)
-        
+      case GetValueForKeyError<String>.noValue: return
       default: XCTFail()
       }
     }
@@ -104,17 +102,16 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 }
 
 extension CKRecordTestCase.Pumpkin {
-	init(record: CKRecord) {
-		self.init(
-			eyesCount: record[CloudKitRecordKey.eyesCount],
-			halloween: record[CloudKitRecordKey.halloween],
-			vine: record[CloudKitRecordKey.vine],
-			weight: record[CloudKitRecordKey.weight].map {
-				weight in Measurement(
-					value: weight,
-					unit: .kilograms
-				)
-			}
-		)
-	}
+  init(record: CKRecord) throws {
+    let weightValue: Double = try record.getValue(nonRawKey: CloudKitRecordKey.weight)
+    self.init(
+      eyesCount: try record.getValue(nonRawKey: CloudKitRecordKey.eyesCount),
+      halloween: try record.getValue(nonRawKey: CloudKitRecordKey.halloween),
+      vine: try record.getValue(nonRawKey: CloudKitRecordKey.vine),
+      weight: Measurement(
+        value: weightValue,
+        unit: .kilograms
+      )
+    )
+  }
 }

@@ -1,22 +1,21 @@
 /// Acts as a dictionary
-public protocol keyValueSubscript {
-	associatedtype Key
+public protocol keyValueSubscript: keyValueThrowingSubscript {
 	associatedtype Value
 	
 	subscript(key: Key) -> Value? {get}
 }
 
+//MARK: keyValueThrowingSubscript
 public extension keyValueSubscript {
-	subscript<Value>(key: Key) -> Value? {
-		return self[key] as? Value
-	}
-	
-	/// Allows lookup by enumeration cases backed by `Key`s,
-	/// instead of having to manually use their raw values.
-	subscript<Key: RawRepresentable, Value>(key: Key) -> Value?
-	where Key.RawValue == Self.Key {
-		return self[key.rawValue]
-	}
+  func getValue<Value>(key: Key) throws -> Value {
+    guard let uncastValue: Self.Value = self[key]
+    else {throw GetValueForKeyError.noValue(key: key)}
+    
+    guard let value = uncastValue as? Value
+    else {throw GetValueForKeyError.typeCastFailure(key: key)}
+    
+    return value
+  }
 }
 
 /// Acts as a dictionary that `throw`s instead of returning optionals.
@@ -35,8 +34,13 @@ public extension keyValueThrowingSubscript {
 	func getValue<
 		Key: RawRepresentable,
 		Value
-	>(key: Key) throws -> Value
+	>(nonRawKey: Key) throws -> Value
 	where Key.RawValue == Self.Key {
-		return try self.getValue(key: key.rawValue)
+		return try self.getValue(key: nonRawKey.rawValue)
 	}
+}
+
+public enum GetValueForKeyError<Key>: Error {
+  case noValue(key: Key)
+  case typeCastFailure(key: Key)
 }

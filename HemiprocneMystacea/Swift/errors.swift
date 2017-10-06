@@ -22,7 +22,7 @@ public func validate<
 	parameters: Parameters
 ) throws
 where Validates.Element == Validate<Parameters> {
-	let errors = validates.flatMap{
+	let errors = validates.flatMap {
 		validate -> [Error] in
 		
 		do {

@@ -13,7 +13,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
 			"🔑"
 		)
 		
-    typealias Error = SerializableDictionary.GetValueError
+    typealias Error = GetValueForKeyError<String>
       
 		let turKey = "🦃"
 		XCTAssertThrowsError(
@@ -66,7 +66,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
 				key: turKeyboard
 			)
 		){ error in switch error {
-			case SerializableDictionary.GetValueError.noValue(let key):
+			case GetValueForKeyError<String>.noValue(let key):
 				XCTAssertEqual(key, turKeyboard)
 				
 			default: XCTFail()
@@ -137,7 +137,7 @@ private struct Instrument {
 extension Instrument: InitializableWithSerializableDictionary {
 	init(serializableDictionary dictionary: SerializableDictionary) throws {
 		visualization = try dictionary.getValue(
-			key: SerializableDictionaryKey.visualization
+			nonRawKey: SerializableDictionaryKey.visualization
 		)
 	}
 }
