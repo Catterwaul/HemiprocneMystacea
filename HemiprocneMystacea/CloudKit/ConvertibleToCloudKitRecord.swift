@@ -31,16 +31,16 @@ public extension ConvertibleToCloudKitRecord {
       guard
         let label = child.label,
         let key = CloudKitRecordKey(rawValue: label),
-        let value =
-          recordDictionaryOverrides.keys.contains(key)
-          ? recordDictionaryOverrides[key]
-          : makeCKRecordValue(child.value)
+        let value = makeCKRecordValue(child.value)
       else {return nil}
 
       return (key, value)
     }
     var dictionary: RecordDictionary = [:]
     for (key, value) in keyValuePairs {
+      dictionary[key] = value
+    }
+    for (key, value) in recordDictionaryOverrides {
       dictionary[key] = value
     }
     return dictionary
