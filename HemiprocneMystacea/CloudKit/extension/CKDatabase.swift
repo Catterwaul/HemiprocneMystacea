@@ -10,24 +10,51 @@ public extension CKDatabase {
   func request<Requested>(
     recordType: Requested.Type,
     predicate: NSPredicate = NSPredicate(value: true),
+    resultsLimit: Int? = nil,
     process: @escaping ProcessThrowingGet<[CKRecord]>
   ){
-    perform(
-      CKQuery(
-        recordType: String(describing: Requested.self),
-        predicate: predicate
-      ),
-      inZoneWith: nil
-    ) {
-      records, error in
-      
-      if let error = error {
-        process {throw error}
-        return
+    var records: [CKRecord] = []
+    
+    let operationQueue = OperationQueue()
+    operationQueue.maxConcurrentOperationCount = 1
+    
+    func initPhase2(_ operation: CKQueryOperation) {
+      if let resultsLimit = resultsLimit {
+        operation.resultsLimit = resultsLimit
+      }
+      operation.recordFetchedBlock = {
+        record in
+        
+        operationQueue.addOperation {records.append(record)}
       }
       
-      process {records!}
+      operation.queryCompletionBlock = {
+        cursor, error in
+        
+        if let error = error {
+          process {throw error}
+        }
+        else if let cursor = cursor {
+          let operation = CKQueryOperation(cursor: cursor)
+          initPhase2(operation)
+          self.add(operation)
+        }
+        else {
+          operationQueue.addOperation {
+            process {records}
+          }
+        }
+      }
     }
+    
+    let operation = CKQueryOperation(
+      query: CKQuery(
+        recordType: String(describing: Requested.self),
+        predicate: predicate
+      )
+    )
+    initPhase2(operation)
+    add(operation)
   }
 	
 	/// Request `CKRecord`s that correspond to a Swift type,
