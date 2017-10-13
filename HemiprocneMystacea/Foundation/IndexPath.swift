@@ -13,3 +13,13 @@ public extension IndexPath {
 		return {indexPath in process(processables[indexPath])}
 	}
 }
+
+/// Should just be an extension on `() throws -> Element`
+/// but you can't extend closures.
+public func getElement<Element>(
+  indexPath: IndexPath,
+  getArray: Get<[Element]>
+) throws -> Element {
+  let array = try getArray()
+  return try array.getElement(index: indexPath.item)
+}
