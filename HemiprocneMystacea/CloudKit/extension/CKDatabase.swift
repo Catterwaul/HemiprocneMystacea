@@ -11,8 +11,8 @@ public extension CKDatabase {
     recordType: Requested.Type,
     predicate: NSPredicate = NSPredicate(value: true),
     resultsLimit: Int? = nil,
-    process: @escaping ProcessThrowingGet<[CKRecord]>
-  ){
+    process: @escaping ProcessGet<[CKRecord]>
+  ) {
     var records: [CKRecord] = []
     
     let operationQueue = OperationQueue()
@@ -66,7 +66,7 @@ public extension CKDatabase {
 	///   - process: processes a *throwing get [Requested]*
 	func request<Requested: InitializableWithCloudKitRecord>(
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping ProcessThrowingGet<[Requested]>
+		process: @escaping ProcessGet<[Requested]>
 	){
 		request(
 			recordType: Requested.self,
@@ -93,7 +93,7 @@ public extension CKDatabase {
 	///   - processVerifyCompletion: processes a `Verify` upon completion of the request
 	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
 		predicate: NSPredicate = NSPredicate(value: true),
-		_ processGetRequested: @escaping ProcessThrowingGet<Requested>,
+		_ processGetRequested: @escaping ProcessGet<Requested>,
 		_ processVerifyCompletion: @escaping Process<Verify>
 	) {
 		let dispatchGroup = DispatchGroup()

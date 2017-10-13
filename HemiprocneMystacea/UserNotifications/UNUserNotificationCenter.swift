@@ -25,7 +25,7 @@ public extension UNUserNotificationCenter {
   
 	func requestAuthorization(
 		options: UNAuthorizationOptions,
-		processGetGranted: @escaping ProcessThrowingGet<Bool>
+		processGetGranted: @escaping ProcessGet<Bool>
 	) {
 		requestAuthorization(
 			options: options,

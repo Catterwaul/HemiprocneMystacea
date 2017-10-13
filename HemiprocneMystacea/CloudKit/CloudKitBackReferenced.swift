@@ -19,7 +19,7 @@ public extension CloudKitBackReferenced {
   ///    or an error if their records can't be gotten.
   static func request(
     database: CKDatabase,
-    _ process: @escaping ProcessThrowingGet<[Self]>
+    _ process: @escaping ProcessGet<[Self]>
   ) {
     BackReferencer.request(database: database){
       (getResults: () throws -> [ CKRecordID: [BackReferencer.RequestResult] ]) in

@@ -8,7 +8,7 @@ public extension InitializableWithCloudKitRecord {
 	static func request(
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping ProcessThrowingGet<[Self]>
+		process: @escaping ProcessGet<[Self]>
 	) {
 		database.request(
 			predicate: predicate,
