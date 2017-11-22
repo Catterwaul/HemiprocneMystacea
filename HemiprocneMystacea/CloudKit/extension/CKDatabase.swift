@@ -1,6 +1,60 @@
 import CloudKit
 
 public extension CKDatabase {
+  func addModifyRecordsOperationsAsNeeded(
+    recordsToSave: [CKRecord],
+    recordIDsToDelete: [CKRecordID],
+    dispatchGroup: DispatchGroup,
+    addToErrors: @escaping (Error) -> Void
+  ) {
+    dispatchGroup.enter()
+    add(
+      CKModifyRecordsOperation(
+        recordsToSave: recordsToSave,
+        recordIDsToDelete: recordIDsToDelete
+      ) {
+        [unowned self] verifyCompletion in
+        
+        defer {dispatchGroup.leave()}
+        
+        do {try verifyCompletion()}
+        catch let error as CKError
+        where CKError.Code(rawValue: error.errorCode) == .unknownItem {
+          dispatchGroup.enter()
+          self.save(recordsToSave.first!) {
+            verify in
+            
+            defer {dispatchGroup.leave()}
+            
+            do {
+              try verify()
+              self.addModifyRecordsOperationsAsNeeded(
+                recordsToSave: Array( recordsToSave.dropFirst() ),
+                recordIDsToDelete: recordIDsToDelete,
+                dispatchGroup: dispatchGroup,
+                addToErrors: addToErrors
+              )
+            }
+            catch let error {addToErrors(error)}
+          }
+        }
+        catch let error as CKError
+        where CKError.Code(rawValue: error.errorCode) == .limitExceeded {
+          for (recordsToSave, recordIDsToDelete)
+          in zip(recordsToSave.splitInHalf, recordIDsToDelete.splitInHalf) {
+            self.addModifyRecordsOperationsAsNeeded(
+              recordsToSave: recordsToSave,
+              recordIDsToDelete: recordIDsToDelete,
+              dispatchGroup: dispatchGroup,
+              addToErrors: addToErrors
+            )
+          }
+        }
+        catch let error {addToErrors(error)}
+      }
+    )
+  }
+  
 	/// Request `CKRecord`s that correspond to a Swift type.
 	///
 	/// - Parameters:

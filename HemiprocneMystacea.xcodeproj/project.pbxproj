@@ -52,6 +52,8 @@
 		0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */; };
 		490BFFB11E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
+		4914E0F81FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
+		4914E0F91FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
 		492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
 		492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
 		492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */; };
@@ -228,6 +230,7 @@
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenterTestCase.swift; path = UserNotifications/UNUserNotificationCenterTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
+		4914E0F71FC5C66600434173 /* CKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKContainer.swift; sourceTree = "<group>"; };
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
 		492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferenced.swift; sourceTree = "<group>"; };
 		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
@@ -577,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				498880841D58BFB400AE24FC /* CKAsset.swift */,
+				4914E0F71FC5C66600434173 /* CKContainer.swift */,
 				49A36BD91D407C6200A4BFEB /* CKDatabase.swift */,
 				499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */,
 				49C526E11DB6D54A0036B020 /* CKModifyRecordsOperation.swift */,
@@ -1025,6 +1029,7 @@
 				0A72FC621D40819D0041845B /* MultiClosure.swift in Sources */,
 				0A72FC671D40819D0041845B /* UIButton.swift in Sources */,
 				0A72FC631D40819D0041845B /* Referencers.swift in Sources */,
+				4914E0F91FC5C66600434173 /* CKContainer.swift in Sources */,
 				0A72FC4A1D40819D0041845B /* Bool.swift in Sources */,
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
 				493DB0D21E520FF000E16694 /* Mirror.swift in Sources */,
@@ -1135,6 +1140,7 @@
 				49A36BDF1D407CD200A4BFEB /* CKRecord.swift in Sources */,
 				497F56901E3C4C5D0066CD1E /* CATransform3D.swift in Sources */,
 				494A993B1E37261800F6A51D /* UITableView.swift in Sources */,
+				4914E0F81FC5C66600434173 /* CKContainer.swift in Sources */,
 				E348A4301D08C085003D8024 /* CGRect.swift in Sources */,
 				4975C1101F02554D00C89E52 /* Collection.swift in Sources */,
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
