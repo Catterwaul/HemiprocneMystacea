@@ -37,42 +37,43 @@ final class SerializableDictionaryTestCase: XCTestCase {
 		}
 	}
 	
-	func test_InitializableWithSerializableDictionaryArray_init() {
-		let dictionary = [
-			"instruments": [
-				[visualizationKey: "🎹"],
-				[visualizationKey: "🎸"],
-				[visualizationKey: "🎷"],
-				[visualizationKey: nil]
-			]
-		]
-		
-		let instruments = try! [Instrument](
-			dictionary: dictionary,
-			key: "instruments"
-		)
-		XCTAssertEqual(
-			instruments.flatMap{$0.visualization},
-			[	"🎹",
-			 	"🎸",
-			 	"🎷"
-			]
-		)
-		
-		let turKeyboard = "🦃⌨️"
-		XCTAssertThrowsError(
-			try [Instrument](
-				dictionary: dictionary,
-				key: turKeyboard
-			)
-		){ error in switch error {
-			case GetValueForKeyError<String>.noValue(let key):
-				XCTAssertEqual(key, turKeyboard)
-				
-			default: XCTFail()
-			}
-		}
-	}
+  func test_InitializableWithSerializableDictionaryArray_init() {
+    let dictionary = [
+      "instruments": [
+        [visualizationKey: "🎹"],
+        [visualizationKey: "🎸"],
+        [visualizationKey: "🎷"],
+        [visualizationKey: nil]
+      ]
+    ]
+    
+    let instruments = try! [Instrument](
+      dictionary: dictionary,
+      key: "instruments"
+    )
+    XCTAssertEqual(
+      instruments.compactMap {$0.visualization},
+      [ "🎹",
+        "🎸",
+        "🎷"
+      ]
+    )
+    
+    let turKeyboard = "🦃⌨️"
+    XCTAssertThrowsError(
+      try [Instrument](
+        dictionary: dictionary,
+        key: turKeyboard
+      )
+    ) {error in
+      switch error {
+      case GetValueForKeyError<String>.noValue(let key):
+        XCTAssertEqual(key, turKeyboard)
+        
+      default: XCTFail()
+      }
+    }
+  }
 	
 	func test_convertInitializableWithSerializableDictionaryArray() {
 		let instruments = [
