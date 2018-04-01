@@ -32,7 +32,7 @@ public extension CloudKitBackReferenced {
         ) {
           getRecords in process {
             let records = try getRecords()
-            return records.flatMap {
+            return records.compactMap {
               record in try? Self(
                 record: record.value,
                 backReferencerRequestResults: results[record.key]!

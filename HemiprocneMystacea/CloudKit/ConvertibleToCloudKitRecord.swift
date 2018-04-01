@@ -25,7 +25,7 @@ public extension ConvertibleToCloudKitRecord {
 //MARK: private
 public extension ConvertibleToCloudKitRecord {
   var recordDictionary: RecordDictionary {
-    let keyValuePairs = Mirror(reflecting: self).children.flatMap {
+    let keyValuePairs = Mirror(reflecting: self).children.compactMap {
       child -> (key: CloudKitRecordKey, value: CKRecordValue)? in
 
       guard

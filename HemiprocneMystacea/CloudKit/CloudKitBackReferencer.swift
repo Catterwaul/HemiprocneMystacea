@@ -19,7 +19,7 @@ public extension CloudKitBackReferencer {
 	) {
 		database.request(recordType: self) {
 			getRecords in process {
-				let idsAndResults = try getRecords().flatMap {
+				let idsAndResults = try getRecords().compactMap {
 					record -> (
 						backReferenceID: CKRecordID,
 						result: RequestResult

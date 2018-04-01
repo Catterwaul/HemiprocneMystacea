@@ -1,6 +1,6 @@
 public extension Array {
   struct OutOfBoundsError: Error {
-    let index: Index
+    public let index: Index
   }
   
   /// The first array will be shorter by one element,

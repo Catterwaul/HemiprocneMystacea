@@ -24,7 +24,7 @@ public extension ConvertibleToSerializableDictionary {
     key: String? = nil
   ) -> [String: Any] {
     let serializableDictionary: [String: Any] = Dictionary(
-      uniqueKeysWithValues: Mirror(reflecting: self).children.flatMap{
+      uniqueKeysWithValues: Mirror(reflecting: self).children.compactMap {
         child in
         
         guard

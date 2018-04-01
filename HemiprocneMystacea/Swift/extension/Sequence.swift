@@ -42,7 +42,7 @@ public extension Sequence where Element: Hashable {
 
 public extension Sequence where Element: Equatable {
 	var uniqueElements: [Element] {
-		return self.reduce([]){
+		return self.reduce([]) {
 			uniqueElements, element in
 			
 			uniqueElements.contains(element)

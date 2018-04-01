@@ -11,5 +11,23 @@ final class ArrayTestCase: XCTestCase {
   
   func test_getElement() {
     XCTAssertThrowsError( try ["🐾", "🥝"].getElement(index: 2) )
+    
+    let optionals = [1, 2, nil]
+    
+    do {
+      let optional1 = try optionals.getElement(index: 0)
+      XCTAssertEqual(optional1, 1)
+    }
+    catch {XCTFail()}
+    
+    let outOfBoundsIndex = optionals.count
+    do {
+      _ = try optionals.getElement(index: outOfBoundsIndex)
+      XCTFail()
+    }
+    catch let error as Array<Int?>.OutOfBoundsError {
+      XCTAssertEqual(error.index, outOfBoundsIndex)
+    }
+    catch {XCTFail()}
   }
 }
