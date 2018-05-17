@@ -13,11 +13,11 @@ public extension CGPoint {
 	
 	static func / (
 		point: CGPoint,
-		divisor: CGFloat
+		float: CGFloat
 	) -> CGPoint {
 		return CGPoint(
-			x: point.x / divisor,
-			y: point.y / divisor
+			x: point.x / float,
+			y: point.y / float
 		)
 	}
 }

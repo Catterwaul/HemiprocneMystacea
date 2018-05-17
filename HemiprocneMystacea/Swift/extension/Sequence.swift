@@ -41,13 +41,13 @@ public extension Sequence where Element: Hashable {
 }
 
 public extension Sequence where Element: Equatable {
-	var uniqueElements: [Element] {
-		return self.reduce([]) {
-			uniqueElements, element in
-			
-			uniqueElements.contains(element)
-			? uniqueElements
-			: uniqueElements + [element]
-		}
-	}
+  var uniqueElements: [Element] {
+    return self.reduce(into: []) {
+      uniqueElements, element in
+      
+      if !uniqueElements.contains(element) {
+        uniqueElements.append(element)
+      }
+    }
+  }
 }

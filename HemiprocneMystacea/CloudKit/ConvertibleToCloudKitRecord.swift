@@ -36,14 +36,9 @@ public extension ConvertibleToCloudKitRecord {
 
       return (key, value)
     }
-    var dictionary: RecordDictionary = [:]
-    for (key, value) in keyValuePairs {
-      dictionary[key] = value
-    }
-    for (key, value) in recordDictionaryOverrides {
-      dictionary[key] = value
-    }
-    return dictionary
+    return
+      Dictionary(uniqueKeysWithValues: keyValuePairs)
+      .merging(recordDictionaryOverrides) {$1}
 	}
 }
 
