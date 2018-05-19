@@ -1,9 +1,18 @@
-//
-//  MTLDeviceError.swift
-//  HemiprocneMystacea
-//
-//  Created by Jessy Catterwaul on 5/19/18.
-//  Copyright © 2018 Catterwaul. All rights reserved.
-//
+import Metal
 
-import Foundation
+public enum MTLDeviceError: Error {
+  case noSystemDefaultDevice
+  case couldNotMakeCommandQueue
+}
+
+extension MTLDeviceError: CustomStringConvertible {
+  public var description: String {
+    switch self {
+    case .noSystemDefaultDevice:
+      return "Error: Could not create reference to preferred system default Metal device."
+      
+    case .couldNotMakeCommandQueue:
+      return "Error: Could not create serial command submission queue."
+    }
+  }
+}
