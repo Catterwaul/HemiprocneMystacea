@@ -61,6 +61,8 @@
 		4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
+		492CE34920B095C800BEE6AD /* MTLDeviceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CE34820B095C800BEE6AD /* MTLDeviceError.swift */; };
+		492CE34A20B095C800BEE6AD /* MTLDeviceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CE34820B095C800BEE6AD /* MTLDeviceError.swift */; };
 		49397DF21E534ED50052B783 /* EnumeratedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49397DF11E534ED50052B783 /* EnumeratedSequence.swift */; };
 		49397DF31E534ED50052B783 /* EnumeratedSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49397DF11E534ED50052B783 /* EnumeratedSequence.swift */; };
 		49397DF51E537EEC0052B783 /* EnumeratedSequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */; };
@@ -234,6 +236,7 @@
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
 		492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferenced.swift; sourceTree = "<group>"; };
 		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
+		492CE34820B095C800BEE6AD /* MTLDeviceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTLDeviceError.swift; sourceTree = "<group>"; };
 		49397DF11E534ED50052B783 /* EnumeratedSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumeratedSequence.swift; sourceTree = "<group>"; };
 		49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumeratedSequenceTestCase.swift; sourceTree = "<group>"; };
 		493AD8821E4AB3D200A30593 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
@@ -411,6 +414,14 @@
 				490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */,
 			);
 			name = UserNotifications;
+			sourceTree = "<group>";
+		};
+		492CE34B20B095CD00BEE6AD /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				492CE34820B095C800BEE6AD /* MTLDeviceError.swift */,
+			);
+			path = Metal;
 			sourceTree = "<group>";
 		};
 		4942EA531E81A2B00085595C /* HemiprocneMystaceaTest */ = {
@@ -630,6 +641,7 @@
 				49CBE0701C332ADE00E8EFCC /* Contacts */,
 				E348A4311D08C08B003D8024 /* Core Graphics */,
 				49CBE0791C332ADE00E8EFCC /* Foundation */,
+				492CE34B20B095CD00BEE6AD /* Metal */,
 				49FD14EF1CD91A240067F27E /* QuartzCore */,
 				49CBE07F1C332ADE00E8EFCC /* Swift */,
 				49CBE09A1C332ADE00E8EFCC /* UIKit */,
@@ -1055,6 +1067,7 @@
 				49FA036D1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */,
 				0A72FC501D40819D0041845B /* SetAlgebra.swift in Sources */,
 				49AB16ED1EF23A92009868AB /* Numeric.swift in Sources */,
+				492CE34A20B095C800BEE6AD /* MTLDeviceError.swift in Sources */,
 				0A72FC3B1D40819D0041845B /* InitializableWithCloudKitRecord.swift in Sources */,
 				4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */,
 				0A72FC661D40819D0041845B /* UIAlertController.swift in Sources */,
@@ -1131,6 +1144,7 @@
 				498D20CA1F91548500AB6829 /* ModelNotAssignedError.swift in Sources */,
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
 				49B182E11C33807000529B08 /* Sequence.swift in Sources */,
+				492CE34920B095C800BEE6AD /* MTLDeviceError.swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
 				49A6C9581E476D6700CF5FFB /* SerializableDictionary.swift in Sources */,
 				49817E601D2CA99A0025A6CA /* errors.swift in Sources */,
