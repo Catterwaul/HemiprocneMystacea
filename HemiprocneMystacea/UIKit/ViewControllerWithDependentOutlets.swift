@@ -1,6 +1,8 @@
 import UIKit
 
-public protocol ViewControllerWithDependentOutlets: AnyObject where Self: UIViewController {
+// Should be constrainer to UIViewController but doesn't compile.
+// `where Self: UIViewController` generates a warning.
+public protocol ViewControllerWithDependentOutlets: AnyObject {
   associatedtype OutletDependencies
   
   /// Stores dependencies for use in `ViewControllerWithDependentOutlets_viewDidLoad`.
@@ -17,7 +19,7 @@ public protocol ViewControllerWithDependentOutlets: AnyObject where Self: UIView
   func inject(outletDependencies: OutletDependencies)
 }
 
-public extension ViewControllerWithDependentOutlets {
+public extension ViewControllerWithDependentOutlets where Self: UIViewController {
   /// - Parameter outletDependencies: Passed in before `viewDidLoad`,
   /// probably using a storyboard segue.
   ///
