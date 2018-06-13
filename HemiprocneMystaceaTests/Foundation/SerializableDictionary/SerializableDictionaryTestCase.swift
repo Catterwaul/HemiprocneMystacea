@@ -127,7 +127,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
 		Instrument.SerializableDictionaryKey.visualization.rawValue
 }
 
-private struct Instrument {
+private struct Instrument: Equatable {
 	enum SerializableDictionaryKey: String {
 		case visualization
 	}
@@ -140,14 +140,5 @@ extension Instrument: InitializableWithSerializableDictionary {
 		visualization = try dictionary.getValue(
 			key: SerializableDictionaryKey.visualization
 		)
-	}
-}
-
-extension Instrument: Equatable {
-	static func == (
-		instrument0: Instrument,
-		instrument1: Instrument
-	) -> Bool {
-		return instrument0.visualization == instrument1.visualization
 	}
 }

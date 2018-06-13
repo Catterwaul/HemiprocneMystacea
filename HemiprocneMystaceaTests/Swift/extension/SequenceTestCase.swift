@@ -9,8 +9,8 @@ final class SequenceTestCase: XCTestCase {
 		XCTAssertTrue( ones.containsOnly(1) )
 		XCTAssertFalse( oneTwoThree.containsOnly(2) )
 		
-		XCTAssertTrue(ones.containsOnly{$0 == 1})
-		XCTAssertFalse(oneTwoThree.containsOnly{$0 == 3})
+		XCTAssertTrue(ones.containsOnly {$0 == 1})
+		XCTAssertFalse(oneTwoThree.containsOnly {$0 == 3})
 	}
 	
 	func test_max() {
@@ -29,7 +29,7 @@ final class SequenceTestCase: XCTestCase {
 			TypeWith1EquatableProperty(int: 3),
 			TypeWith1EquatableProperty(int: 1),
 			TypeWith1EquatableProperty(int: 2)
-		].sorted{$0.int}
+		].sorted {$0.int}
 		
 		XCTAssertEqual(
 			sortedArray,
@@ -41,21 +41,16 @@ final class SequenceTestCase: XCTestCase {
 	}
 	
 	func test_sum() {
-		let sum = [
-			1,
-			1,
-			1
-		].sum
-		XCTAssertEqual(sum, 3)
+		XCTAssertEqual(
+      [1, 1, 1].sum,
+      3
+    )
 	}
 	
 //MARK: uniqueElements
 	func test_uniqueElements_Hashable() {
 		XCTAssertEqual(
-			[	1,
-				1,
-				1
-			].uniqueElements,
+			[1, 1, 1].uniqueElements,
 			[1]
 		)
 	}
@@ -72,16 +67,6 @@ final class SequenceTestCase: XCTestCase {
 	}
 }
 
-//MARK:- test_uniqueElements_Equatable
-private struct TypeWith1EquatableProperty {
+private struct TypeWith1EquatableProperty: Equatable {
 	let int: Int
-}
-
-extension TypeWith1EquatableProperty: Equatable {
-	static func == (
-		operand0: TypeWith1EquatableProperty,
-		operand1: TypeWith1EquatableProperty
-	) -> Bool {
-		return operand0.int == operand1.int
-	}
 }
