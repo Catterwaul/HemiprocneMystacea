@@ -1,8 +1,6 @@
 import UIKit
 
-// Should be constrainer to UIViewController but doesn't compile.
-// `where Self: UIViewController` generates a warning.
-public protocol ViewControllerWithDependentOutlets: AnyObject {
+public protocol ViewControllerWithDependentOutlets where Self: UIViewController {
   associatedtype OutletDependencies
   
   /// Stores dependencies for use in `ViewControllerWithDependentOutlets_viewDidLoad`.
@@ -19,14 +17,14 @@ public protocol ViewControllerWithDependentOutlets: AnyObject {
   func inject(outletDependencies: OutletDependencies)
 }
 
-public extension ViewControllerWithDependentOutlets where Self: UIViewController {
+public extension ViewControllerWithDependentOutlets  {
   /// - Parameter outletDependencies: Passed in before `viewDidLoad`,
   /// probably using a storyboard segue.
   ///
   /// - Returns: The initial value for `respondToOutletDependencies`,
   /// which assigns `inject(outletDependencies:)` to `respondToViewDidLoad`,
   /// using the `outletDependencies` argument.
-  func assignInjectToRespondToViewDidLoad(outletDependencies: OutletDependencies) {
+  mutating func assignInjectToRespondToViewDidLoad(outletDependencies: OutletDependencies) {
     respondToViewDidLoad = {[unowned self] in
       self.inject(outletDependencies: outletDependencies)
     }
@@ -37,7 +35,7 @@ public extension ViewControllerWithDependentOutlets where Self: UIViewController
   ///	1. Calls `respondToViewDidLoad`.
   ///	2. Sets `respondToViewDidLoad` to `nil`.
   /// * Sets `respondToOutletDependencies` to `inject(outletDependencies:)`
-  func ViewControllerWithDependentOutlets_viewDidLoad() {
+  mutating func ViewControllerWithDependentOutlets_viewDidLoad() {
     if let respondToViewDidLoad = respondToViewDidLoad {
       respondToViewDidLoad()
       self.respondToViewDidLoad = nil
