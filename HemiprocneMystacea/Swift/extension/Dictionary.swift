@@ -1,22 +1,9 @@
 public extension Dictionary {
-//MARK: Initializers
-	init<Sequence: Swift.Sequence>(
-		_ sequence: Sequence,
-		_ transform: (Sequence.Element) -> Element
-	) {
-    self.init( uniqueKeysWithValues: sequence.map(transform) )
-	}
-	init<Element>(
-		_ elements: Element...,
-		transform: (Element) -> Dictionary.Element
-	) {
-		self.init(elements, transform)
-	}
-   
+  
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
 	subscript(key: Key?) -> Value? {
-		return key.flatMap{self[$0]}
+		return key.flatMap {self[$0]}
 	}
 
 	subscript(
@@ -73,11 +60,7 @@ public func - <
 	keysToSetNil: KeysToSetNil
 ) -> [Key: Value]
 where KeysToSetNil.Element == Key {
-	var dictionary = dictionary
-	for keyToSetNil in keysToSetNil {
-		dictionary[keyToSetNil] = nil
-	}
-	return dictionary
+  return dictionary.filter {!keysToSetNil.contains($0.key)}
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`
 public func -= <

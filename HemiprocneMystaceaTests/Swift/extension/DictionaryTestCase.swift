@@ -2,43 +2,6 @@ import HM
 import XCTest
 
 final class DictionaryTestCase: XCTestCase {
-//MARK: initializers
-	func test_initWithSequenceAndTransform() {
-		XCTAssertEqual(
-			Dictionary(
-				[ 1,
-				  2,
-				  3
-				]
-			){
-				( key: $0,
-				  value: String($0)
-				)
-			},
-			[	1: "1",
-			 	2: "2",
-			 	3: "3"
-			]
-		)
-	}
-	func test_initWithVariadicAndTransform() {
-		XCTAssertEqual(
-			Dictionary(
-				1,
-				2,
-				3
-			){
-				(	key: $0,
-					value: String($0)
-				)
-			},
-			[	1: "1",
-			 	2: "2",
-			 	3: "3"
-			]
-		)
-	}
-		
 //MARK: Subscripts
 	func test_optionalKeySubscript() {
 		let dictionary = ["key": "value"]

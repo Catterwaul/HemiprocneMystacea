@@ -13,7 +13,7 @@ public extension UILabel {
           style.hyphenationFactor = 1
           style.alignment = .center
           return style
-        }()
+        } ()
       ]
     )
     lineBreakMode = .byTruncatingTail
