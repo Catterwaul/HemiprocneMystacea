@@ -27,18 +27,18 @@ public final class MultiClosure<Input>: EquatableClass {
 	> = []
 	
 //MARK: deallocation
-	// We can't find self in `closures` without this.
-	fileprivate lazy var unownedSelf: UnownedReferencer< MultiClosure<Input> > =
-		UnownedReferencer(self)
-	
-	// Even though this MultiClosure will be deallocated,
-	// its corresponding WeakReferencers won't be,
-	// unless we take this manual action or similar.
-	deinit {
-		for closure in closures {
-			closure.reference.multiClosures -= unownedSelf
-		}
-	}
+  // We can't find self in `closures` without this.
+  fileprivate lazy var unownedSelf: UnownedReferencer< MultiClosure<Input> > =
+    UnownedReferencer(self)
+  
+  // Even though this MultiClosure will be deallocated,
+  // its corresponding WeakReferencers won't be,
+  // unless we take this manual action or similar.
+  deinit {
+    for closure in closures {
+      closure.reference.multiClosures.remove(unownedSelf)
+    }
+  }
 }
 
 public extension MultiClosure where Input == () {
@@ -75,7 +75,7 @@ public final class EquatableClosure<Input>: EquatableClass {
 	
 	deinit {
 		for multiClosure in multiClosures {
-			multiClosure.reference.closures -= unownedSelf
+			multiClosure.reference.closures.remove(unownedSelf)
 		}
 	}
 }
@@ -83,34 +83,34 @@ public final class EquatableClosure<Input>: EquatableClass {
 /// Add `closure` to the set of closures that runs
 /// when `multiClosure` does
 public func += <Input>(
-   multiClosure: MultiClosure<Input>,
-   closure: EquatableClosure<Input>
+  multiClosure: MultiClosure<Input>,
+  closure: EquatableClosure<Input>
 ) {
-   multiClosure.closures += closure.unownedSelf
-   closure.multiClosures += multiClosure.unownedSelf
+  multiClosure.closures.formUnion([closure.unownedSelf])
+  closure.multiClosures.formUnion([multiClosure.unownedSelf])
 }
 
 /// Add `closures` to the set of closures that runs
 /// when `multiClosure` does
 public func += <
-   Input,
-   Closures: Sequence
+  Input,
+  Closures: Sequence
 >(
-	multiClosure: MultiClosure<Input>,
-	closures: Closures
+  multiClosure: MultiClosure<Input>,
+  closures: Closures
 )
 where Closures.Element == EquatableClosure<Input> {
-   for closure in closures {
-		multiClosure += closure
-	}
+  for closure in closures {
+    multiClosure += closure
+  }
 }
 
 /// Remove `closure` from the set of closures that runs
 /// when `multiClosure` does
 public func -= <Input>(
-   multiClosure: MultiClosure<Input>,
-   closure: EquatableClosure<Input>
+  multiClosure: MultiClosure<Input>,
+  closure: EquatableClosure<Input>
 ) {
-	multiClosure.closures -= closure.unownedSelf
-	closure.multiClosures -= multiClosure.unownedSelf
+  multiClosure.closures.remove(closure.unownedSelf)
+  closure.multiClosures.remove(multiClosure.unownedSelf)
 }

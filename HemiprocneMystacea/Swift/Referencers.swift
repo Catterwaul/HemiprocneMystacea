@@ -24,7 +24,7 @@ public func -= <Reference: Equatable>(
   guard let referencer = (set.first {$0.reference == reference})
   else {return}
   
-  set -= referencer
+  set.remove(referencer)
 }
 
 /// Remove the first `WeakReferencer` with this `reference`
@@ -35,5 +35,5 @@ public func -= <Reference: Equatable>(
   guard let referencer = (set.first {$0.reference == reference})
   else {return}
   
-  set -= referencer
+  set.remove(referencer)
 }
