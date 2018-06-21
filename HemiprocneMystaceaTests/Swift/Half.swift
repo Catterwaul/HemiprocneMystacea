@@ -16,25 +16,13 @@ final class HalfTestCase: XCTestCase {
   }
   
   func test_Comparable() {
-    XCTAssertLessThan(-20, 30)
     XCTAssertLessThan(-20 as Half, 30 as Half)
-    
-    XCTAssertGreaterThan(1000, 8)
     XCTAssertGreaterThan(1000 as Half, 8 as Half)
   }
   
   func test_Conversion() {
-    XCTAssertEqual(
-      Float( 8 as Half ),
-      8.0
-    )
-    XCTAssertEqual(
-      Double( 777 as Half ),
-      777
-    )
-    XCTAssertEqual(
-      Float( -555.0 as Half ),
-      -555
-    )
+    XCTAssertEqual(Float(8 as Half), 8)
+    XCTAssertEqual(Double(777 as Half), 777)
+    XCTAssertEqual(Float(-555.0 as Half), -555)
   }
 }

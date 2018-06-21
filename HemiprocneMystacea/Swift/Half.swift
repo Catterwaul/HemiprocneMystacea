@@ -30,6 +30,13 @@ public extension Half {
     )
   }
   
+  init<Integer: BinaryInteger>(_ integer: Integer) {
+    // This works in Swift 4.2:
+    // self.init( Float(integer) )
+    
+    self.init( Float( Int(integer) ) )
+  }
+  
   var exponent: Int {
     return exponentBitPattern - 0xF
   }
@@ -69,7 +76,7 @@ extension Half: ExpressibleByFloatLiteral {
 // MARK: ExpressibleByIntegerLiteral
 extension Half: ExpressibleByIntegerLiteral {
   public init(integerLiteral int32: Int32) {
-    self.init( Float(int32) )
+    self.init(int32)
   }
 }
 
