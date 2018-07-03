@@ -15,18 +15,18 @@ public protocol CloudKitBackReferencer: InitializableWithCloudKitRecord {
 public extension CloudKitBackReferencer {
 	static func request(
 		database: CKDatabase,
-		_ process: @escaping ProcessGet<[ CKRecordID: [RequestResult] ]>
+		_ process: @escaping ProcessGet<[ CKRecord.ID: [RequestResult] ]>
 	) {
 		database.request(recordType: self) {
 			getRecords in process {
 				let idsAndResults = try getRecords().compactMap {
 					record -> (
-						backReferenceID: CKRecordID,
+						backReferenceID: CKRecord.ID,
 						result: RequestResult
 					)? in
 					
 					guard
-            let backReference: CKReference = try? record.getValue(key: backReferenceKey),
+            let backReference: CKRecord.Reference = try? record.getValue(key: backReferenceKey),
 						
 						case let backReferencer = try Self(record: record),
 						let result = makeRequestResult(

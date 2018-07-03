@@ -28,7 +28,7 @@ public extension KeyedDecodingContainer {
 
 public extension KeyedEncodingContainer {
   mutating func encode(_ image: UIImage, forKey key: Key) throws {
-    guard let data = UIImagePNGRepresentation(image)
+    guard let data = image.pngData()
     else {
       throw EncodingError.invalidValue(
         image,

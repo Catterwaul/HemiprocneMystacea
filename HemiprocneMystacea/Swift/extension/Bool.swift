@@ -11,16 +11,11 @@ public extension Bool {
 		
 		self = int == 1
 	}
-	
-	/// Makes true be false and vice versa.
-	mutating func toggle() {
-		self = !self
-	}
 }
 
 public extension Sequence where Element == () -> Bool {
   ///- Returns: whether all elements of the sequence evaluate to `bool`
   func containsOnly(_ bool: Bool) -> Bool {
-    return self.containsOnly {getBool in bool == getBool()}
+    return allSatisfy {getBool in bool == getBool()}
   }
 }

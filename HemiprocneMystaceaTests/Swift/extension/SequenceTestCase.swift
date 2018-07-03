@@ -2,17 +2,6 @@ import HM
 import XCTest
 
 final class SequenceTestCase: XCTestCase {
-	func test_containsOnly() {
-		let ones = [1, 1, 1]
-		let oneTwoThree = [1, 2, 3]
-		
-		XCTAssertTrue( ones.containsOnly(1) )
-		XCTAssertFalse( oneTwoThree.containsOnly(2) )
-		
-		XCTAssertTrue(ones.containsOnly {$0 == 1})
-		XCTAssertFalse(oneTwoThree.containsOnly {$0 == 3})
-	}
-	
 	func test_max() {
 		XCTAssertEqual(
 			[	"1️⃣": 1,

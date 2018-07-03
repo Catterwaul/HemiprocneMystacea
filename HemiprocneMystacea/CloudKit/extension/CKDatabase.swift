@@ -3,7 +3,7 @@ import CloudKit
 public extension CKDatabase {
   func addModifyRecordsOperationsAsNeeded(
     recordsToSave: [CKRecord],
-    recordIDsToDelete: [CKRecordID],
+    recordIDsToDelete: [CKRecord.ID],
     dispatchGroup: DispatchGroup,
     addToErrors: @escaping (Error) -> Void
   ) {
@@ -145,92 +145,90 @@ public extension CKDatabase {
 	///   - predicate: for the `CKQuery`
 	///   - processGetRequested: processes a *throwing get Requested*
 	///   - processVerifyCompletion: processes a `Verify` upon completion of the request
-	func request<Requested: InitializableWithCloudKitRecordAndReferences>(
-		predicate: NSPredicate = NSPredicate(value: true),
-		_ processGetRequested: @escaping ProcessGet<Requested>,
-		_ processVerifyCompletion: @escaping Process<Verify>
-	) {
-		let dispatchGroup = DispatchGroup()
-		
-		func initialize(_ operation: CKQueryOperation) {
-			operation.recordFetchedBlock = {
-				requestedRecord in
-				
-				guard let references = requestedRecord[Requested.referenceKey] as? [CKReference]
-				else {
-					processGetRequested {
-						throw InitializableWithCloudKitRecordAndReferences_Error.emptyReferenceList
-					}
-					return
-				}
-				
-				dispatchGroup.enter()
-				
-				let operation = CKFetchRecordsOperation(references: references) {
-					getRecords in
-					
-					do {
+  func request<Requested: InitializableWithCloudKitRecordAndReferences>(
+    predicate: NSPredicate = NSPredicate(value: true),
+    _ processGetRequested: @escaping ProcessGet<Requested>,
+    _ processVerifyCompletion: @escaping Process<Verify>
+  ) {
+    let dispatchGroup = DispatchGroup()
+    
+    func initialize(_ operation: CKQueryOperation) {
+      operation.recordFetchedBlock = {
+        requestedRecord in
+        
+        guard let references = requestedRecord[Requested.referenceKey] as? [CKRecord.Reference]
+        else {
+          processGetRequested {
+            throw InitializableWithCloudKitRecordAndReferences_Error.emptyReferenceList
+          }
+          return
+        }
+        
+        dispatchGroup.enter()
+        
+        let operation = CKFetchRecordsOperation(references: references) {
+          getRecords in
+          
+          do {
             let records = try getRecords()
-						let references = try records.map(Requested.Reference.init)
-						
-						processGetRequested {
-							try Requested(
-								record: requestedRecord,
-								references: references
-							)
-						}
-					}
-					catch { processGetRequested {throw error} }
-					
-					dispatchGroup.leave()
-				}
-				self.add(operation)
-			}
+            let references = try records.map(Requested.Reference.init)
+            
+            processGetRequested {
+              try Requested(
+                record: requestedRecord,
+                references: references
+              )
+            }
+          }
+          catch { processGetRequested {throw error} }
+          
+          dispatchGroup.leave()
+        }
+        self.add(operation)
+      }
 			
-			operation.queryCompletionBlock = {
-				cursor, error in
-				
-				if let error = error {
-					processVerifyCompletion {throw error}
-				}
-				else if let cursor = cursor {
-					let operation = CKQueryOperation(cursor: cursor)
-					initialize(operation)
-					self.add(operation)
-				}
-				else {
-					dispatchGroup.notify( queue: DispatchQueue(label: "") ) {
+      operation.queryCompletionBlock = {
+        cursor, error in
+        
+        if let error = error {
+          processVerifyCompletion {throw error}
+        }
+        else if let cursor = cursor {
+          let operation = CKQueryOperation(cursor: cursor)
+          initialize(operation)
+          self.add(operation)
+        }
+        else {
+          dispatchGroup.notify( queue: DispatchQueue(label: "") ) {
             processVerifyCompletion {}
           }
-				}
-			}
-		}
+        }
+      }
+    }
 		
-		let operation = CKQueryOperation(
-			query: CKQuery(
-				recordType: String(describing: Requested.self),
-				predicate: predicate
-			)
-		)
-		initialize(operation)
-		add(operation)
-	}
-	
-	/// - Parameters:
-	///   - processVerify: that the save succeeded
-	func save(
-		_ record: CKRecord,
-		processVerify: @escaping Process<Verify>
-	){
-		save(record) {
-      record, error in
-			
-			if let error = error {
-				processVerify {throw error}
-				return
-			}
-			
-			processVerify {}
-		}
-	}
+    let operation = CKQueryOperation(
+      query: CKQuery(
+        recordType: String(describing: Requested.self),
+        predicate: predicate
+      )
+    )
+    initialize(operation)
+    add(operation)
+  }
+  
+  /// - Parameters:
+  ///   - processVerify: that the save succeeded
+  func save(
+    _ record: CKRecord,
+    processVerify: @escaping Process<Verify>
+  ){
+    save(record) {record, error in
+      if let error = error {
+        processVerify {throw error}
+        return
+      }
+      
+      processVerify {}
+    }
+  }
 }

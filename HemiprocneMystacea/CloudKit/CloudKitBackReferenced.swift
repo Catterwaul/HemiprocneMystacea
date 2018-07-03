@@ -22,7 +22,7 @@ public extension CloudKitBackReferenced {
     _ process: @escaping ProcessGet<[Self]>
   ) {
     BackReferencer.request(database: database){
-      (getResults: () throws -> [ CKRecordID: [BackReferencer.RequestResult] ]) in
+      (getResults: () throws -> [ CKRecord.ID: [BackReferencer.RequestResult] ]) in
       
       do {
         let results = try getResults()

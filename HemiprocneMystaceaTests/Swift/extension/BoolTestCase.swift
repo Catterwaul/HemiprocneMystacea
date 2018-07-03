@@ -18,14 +18,6 @@ final class BoolTestCase: XCTestCase {
     )
   }
   
-  func test_toggle() {
-    var bool = false
-    
-    bool.toggle()
-    
-    XCTAssertTrue(bool)
-  }
-  
 //MARK:- Sequences of Bools
   func test_containsOnly() {
     let trueConditions = [

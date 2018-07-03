@@ -8,7 +8,7 @@ public extension UILabel {
     attributedText = NSMutableAttributedString(
       string: text,
       attributes: [
-        NSAttributedStringKey.paragraphStyle: {
+        NSAttributedString.Key.paragraphStyle: {
           let style = NSMutableParagraphStyle()
           style.hyphenationFactor = 1
           style.alignment = .center

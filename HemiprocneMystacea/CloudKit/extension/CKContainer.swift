@@ -4,7 +4,7 @@ public extension CKContainer {
 /// `userDiscoverability` is the only `CKApplicationPermissions`
   /// so we don't bother with any as an argument
   func requestApplicationPermissionStatus(
-    process: @escaping ProcessGet<CKApplicationPermissionStatus>
+    process: @escaping ProcessGet<CKContainer.Application.PermissionStatus>
   ) {
     requestApplicationPermission(.userDiscoverability) {
       permissionStatus, error in

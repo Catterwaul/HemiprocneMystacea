@@ -19,17 +19,10 @@ public extension Sequence {
 }
 
 //MARK: containsOnly
-public extension Sequence {
-  ///- Returns: whether all elements of the sequence satisfy `predicate`
-  func containsOnly(_ predicate: (Element) throws -> Bool) rethrows -> Bool {
-    return try !self.contains {try !predicate($0)}
-  }
-}
-
 public extension Sequence where Element: Equatable {
   ///- Returns: whether all elements of the sequence are equal to `element`
   func containsOnly(_ element: Element) -> Bool {
-    return self.containsOnly {$0 == element}
+    return allSatisfy {$0 == element}
   }
 }
 

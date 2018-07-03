@@ -108,37 +108,33 @@ extension UIView {
   }
   
   var autoresizingFlexibilities: AutoresizingFlexibilities {
-    get {
-      return AutoresizingFlexibilities(autoresizingMask)
-    }
-    set {
-      autoresizingMask = UIViewAutoresizing(newValue)
-    }
+    get {return AutoresizingFlexibilities(autoresizingMask)}
+    set {autoresizingMask = UIView.AutoresizingMask(newValue)}
   }
 }
 
 extension UIView.AutoresizingFlexibilities {
   static var leftMargin: UIView.AutoresizingFlexibilities {
-    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleLeftMargin)
+    return UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleLeftMargin)
   }
   
   static var width: UIView.AutoresizingFlexibilities {
-    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleWidth)
+    return UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleWidth)
   }
   
   static var rightMargin: UIView.AutoresizingFlexibilities {
-    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleRightMargin)
+    return UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleRightMargin)
   }
   
   static var topMargin: UIView.AutoresizingFlexibilities {
-    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleTopMargin)
+    return UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleTopMargin)
   }
   
   static var height: UIView.AutoresizingFlexibilities {
-    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleHeight)
+    return UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleHeight)
   }
   
   static var bottomMargin: UIView.AutoresizingFlexibilities {
-    return UIView.AutoresizingFlexibilities(UIViewAutoresizing.flexibleBottomMargin)
+    return UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleBottomMargin)
   }
 }

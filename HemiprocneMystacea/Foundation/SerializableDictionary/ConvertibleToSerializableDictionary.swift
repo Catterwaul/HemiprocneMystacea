@@ -38,7 +38,7 @@ public extension ConvertibleToSerializableDictionary {
         switch child.value {
         case let image as UIImage:
           // possibly nil
-          return UIImagePNGRepresentation(image).map{
+          return image.pngData().map {
             pngData in (
               key: label,
               value:

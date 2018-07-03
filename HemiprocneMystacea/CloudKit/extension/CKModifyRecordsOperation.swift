@@ -3,7 +3,7 @@ import CloudKit
 public extension CKModifyRecordsOperation {
 	convenience init(
 		recordsToSave: [CKRecord]? = nil,
-		recordIDsToDelete: [CKRecordID]? = nil,
+		recordIDsToDelete: [CKRecord.ID]? = nil,
 		_ processVerifyCompletion: @escaping Process<Verify>
 	) {
 		self.init(

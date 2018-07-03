@@ -4,8 +4,8 @@ public extension CKFetchRecordsOperation {
 	/// - Parameters:
 	///   - process: ID to record dictionary
 	convenience init(
-		recordIDs: [CKRecordID],
-		process: @escaping ProcessGet<[CKRecordID: CKRecord]>
+		recordIDs: [CKRecord.ID],
+		process: @escaping ProcessGet<[CKRecord.ID: CKRecord]>
 	) {
 		self.init(recordIDs: recordIDs)
 		fetchRecordsCompletionBlock = {
@@ -26,7 +26,7 @@ public extension CKFetchRecordsOperation {
 		references: References,
 		process: @escaping ProcessGet<[CKRecord]>
 	)
-	where References.Element == CKReference {
+    where References.Element == CKRecord.Reference {
 		let ids = references.map {$0.recordID}
 		
 		self.init(recordIDs: ids) {
