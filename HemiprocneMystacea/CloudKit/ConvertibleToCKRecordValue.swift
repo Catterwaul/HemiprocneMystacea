@@ -1,7 +1,7 @@
 import CloudKit
 
 public protocol ConvertibleToCKRecordValue {
-  var ckRecordValue: CKRecordValue {get}
+  var ckRecordValue: CKRecordValue { get }
 }
 
 extension String: ConvertibleToCKRecordValue {

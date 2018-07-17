@@ -7,12 +7,12 @@ public protocol ViewControllerWithDependentOutlets where Self: UIViewController 
   /// 
   /// Don't manually give it a value; 
   /// instead, let `respondToOutletDependencies` do that.
-  var respondToViewDidLoad: ( () -> Void )? {get set}
+  var respondToViewDidLoad: ( () -> Void )? { get set }
   
   /// - Important: 
   /// 1. Make this a `lazy var`.
   /// 2. Assign `assignInjectToRespondToViewDidLoad` to it.
-  var respondToOutletDependencies: (OutletDependencies) -> Void {get set}
+  var respondToOutletDependencies: (OutletDependencies) -> Void { get set }
   
   func inject(outletDependencies: OutletDependencies)
 }
@@ -25,7 +25,7 @@ public extension ViewControllerWithDependentOutlets  {
   /// which assigns `inject(outletDependencies:)` to `respondToViewDidLoad`,
   /// using the `outletDependencies` argument.
   mutating func assignInjectToRespondToViewDidLoad(outletDependencies: OutletDependencies) {
-    respondToViewDidLoad = {[unowned self] in
+    respondToViewDidLoad = { [unowned self] in
       self.inject(outletDependencies: outletDependencies)
     }
   }

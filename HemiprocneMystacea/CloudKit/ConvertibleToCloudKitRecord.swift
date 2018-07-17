@@ -10,9 +10,9 @@ public protocol ConvertibleToCloudKitRecord {
 	
 	/// Overrides for record values,
 	/// probably because they don't implement `CKRecordValue`.
-	var recordDictionaryOverrides: RecordDictionary {get}
+	var recordDictionaryOverrides: RecordDictionary { get }
   
-  var recordDictionary: RecordDictionary {get}
+  var recordDictionary: RecordDictionary { get }
 }
 
 //MARK: public
@@ -32,13 +32,13 @@ public extension ConvertibleToCloudKitRecord {
         let label = child.label,
         let key = CloudKitRecordKey(rawValue: label),
         let value = makeCKRecordValue(child.value)
-      else {return nil}
+      else { return nil }
 
       return (key, value)
     }
     return
       Dictionary(uniqueKeysWithValues: keyValuePairs)
-      .merging(recordDictionaryOverrides) {$1}
+      .merging(recordDictionaryOverrides) { $1 }
 	}
 }
 

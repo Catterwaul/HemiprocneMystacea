@@ -5,7 +5,7 @@ final class MakeGetTestCase: XCTestCase {
 	func test_noParameters() {
 		var reference: Reference? = Reference()
 		
-		let getAssign1234 = makeGet(weakReference: reference){
+		let getAssign1234 = makeGet(weakReference: reference) {
 			$0.property = 1234
 		}
 		
@@ -19,7 +19,7 @@ final class MakeGetTestCase: XCTestCase {
 	func test_1Parameter() {
 		var reference: Reference? = Reference()
 		
-		let getSetProperty = makeGet(weakReference: reference){
+		let getSetProperty = makeGet(weakReference: reference) {
 			reference, int in reference.property = int
 		}
 		

@@ -9,6 +9,6 @@ public extension Optional {
 			?? {
         self = getValueWhenNil()
 				return self!
-			}()
+			} ()
 	}
 }

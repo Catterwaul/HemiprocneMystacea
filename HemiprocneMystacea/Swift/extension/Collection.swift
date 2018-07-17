@@ -17,6 +17,6 @@ public extension Collection where Element: Equatable {
   func suffix(from element: Element) -> SubSequence? {
     return
       index(of: element)
-      .map{suffix( from: index(after: $0) )}
+      .map { suffix( from: index(after: $0) ) }
   }
 }

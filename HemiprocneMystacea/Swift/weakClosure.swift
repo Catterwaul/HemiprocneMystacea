@@ -13,7 +13,7 @@ public func makeGet<
 ) -> () -> ( () -> Transformed )? {
 	return {
 		[weak reference] in reference.map {
-			reference in {transform(reference)}
+			reference in { transform(reference) }
 		}
 	}
 }
@@ -36,7 +36,7 @@ public func makeGet<
 ) -> () -> ( (Parameter) -> Transformed )? {
 	return {
 		[weak reference] in reference.map {
-			reference in {transform(reference, $0)}
+			reference in { transform(reference, $0) }
 		}
 	}
 }

@@ -4,10 +4,10 @@ import XCTest
 
 final class CKDatabaseTestCase: XCTestCase {
 	func test_request() {
-		struct Record {}
+		struct Record { }
 		
 		CKContainer.default().publicCloudDatabase.request(
 			recordType: Record.self
-		) {getRecords in}
+		) { getRecords in }
 	}
 }

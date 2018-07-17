@@ -22,9 +22,7 @@ public func validate<
 	parameters: Parameters
 ) throws
 where Validates.Element == Validate<Parameters> {
-	let errors = validates.flatMap {
-		validate -> [Error] in
-		
+	let errors = validates.flatMap { validate -> [Error] in
 		do {
 			try validate(parameters)
 			return []
@@ -32,9 +30,9 @@ where Validates.Element == Validate<Parameters> {
 		catch let errors as Errors {
 			return errors.array
 		}
-		catch {return [error]}
+		catch { return [error] }
 	}
 	
 	guard errors.isEmpty
-	else {throw Errors(errors)}
+	else { throw Errors(errors) }
 }

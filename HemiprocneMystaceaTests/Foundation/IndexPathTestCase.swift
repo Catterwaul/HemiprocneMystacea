@@ -13,11 +13,11 @@ final class IndexPathTestCase: XCTestCase {
 		var double: Int = 0
 		
 		let process = IndexPath.makeProcess(
-			processables: NamedGetOnlySubscript{
+			processables: NamedGetOnlySubscript {
 				[doubles = Doubles()]
 				indexPath in doubles[indexPath]
 			},
-			process: {double = $0}
+			process: { double = $0 }
 		)
 		
 		process( IndexPath(item: 1, section: 0) )

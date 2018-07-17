@@ -6,8 +6,8 @@ final class PropertiesTestCase: XCTestCase {
 		var _property = 0
 
 		let property1 = ComputedProperty(
-			get: {_property},
-			set: {_property = $0}
+			get: { _property },
+			set: { _property = $0 }
 		)
 		
 		property1.value = 5
@@ -15,13 +15,13 @@ final class PropertiesTestCase: XCTestCase {
 
 		let property2 = ComputedProperty(
 			property1,
-			get: {3}
+			get: { 3 }
 		)
 		XCTAssertEqual(property2.value, 3)
 
 		let property3 = ComputedProperty(
 			property2,
-			set: {_ in}
+			set: { _ in }
 		)
 		property3.value = 100
 		XCTAssertNotEqual(100, property3.value)
@@ -30,7 +30,7 @@ final class PropertiesTestCase: XCTestCase {
 	func test_observedProperty() {
 		let property1 = ObservedProperty(
       value: 1,
-      didSet: {_, _ in}
+      didSet: { _, _ in }
     )
 		XCTAssertEqual(property1.value, 1)
 
@@ -59,8 +59,8 @@ final class PropertiesTestCase: XCTestCase {
 
 		var _property = 0
 		let property = ComputedProperty(
-			get: {_property},
-			set: {_property = $0}
+			get: { _property },
+			set: { _property = $0 }
 		)
 		setValue(
 			property: property,

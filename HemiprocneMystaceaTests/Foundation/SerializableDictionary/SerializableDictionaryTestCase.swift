@@ -2,40 +2,42 @@ import HM
 import XCTest
 
 final class SerializableDictionaryTestCase: XCTestCase {
-	func test_getValue() {
-		let
-			oldKey = "🗝",
+  func test_getValue() {
+    let
+      oldKey = "🗝",
       dictionary = [oldKey: "🔑"],
       serializableDictionary = SerializableDictionary(dictionary)
-		
-		XCTAssertEqual(
-			try serializableDictionary.getValue(key: oldKey),
-			"🔑"
-		)
+    
+    XCTAssertEqual(
+      try serializableDictionary.getValue(key: oldKey),
+      "🔑"
+    )
 		
     typealias Error = GetValueForKeyError<String>
-      
-		let turKey = "🦃"
-		XCTAssertThrowsError(
-			try serializableDictionary.getValue(key: turKey) as Any
-		){	error in switch error {
-         case Error.noValue(let key):
-            XCTAssertEqual(key, turKey)
-				
-			default: XCTFail()
-			}
-		}
+    
+    let turKey = "🦃"
+    XCTAssertThrowsError(
+      try serializableDictionary.getValue(key: turKey) as Any
+    ) { error in
+      switch error {
+      case Error.noValue(let key):
+        XCTAssertEqual(key, turKey)
+        
+      default: XCTFail()
+      }
+    }
 		
-		XCTAssertThrowsError(
-			try serializableDictionary.getValue(key: oldKey) as Bool
-		){ error in switch error {
-         case Error.typeCastFailure(let key):
-				XCTAssertEqual(key, oldKey)
-				
-			default: XCTFail()
-			}
-		}
-	}
+    XCTAssertThrowsError(
+      try serializableDictionary.getValue(key: oldKey) as Bool
+    ) { error in
+      switch error {
+      case Error.typeCastFailure(let key):
+        XCTAssertEqual(key, oldKey)
+        
+      default: XCTFail()
+      }
+    }
+  }
 	
   func test_InitializableWithSerializableDictionaryArray_init() {
     let dictionary = [
@@ -52,7 +54,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
       key: "instruments"
     )
     XCTAssertEqual(
-      instruments.compactMap {$0.visualization},
+      instruments.compactMap { $0.visualization },
       [ "🎹",
         "🎸",
         "🎷"
@@ -65,7 +67,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
         dictionary: dictionary,
         key: turKeyboard
       )
-    ) {error in
+    ) { error in
       switch error {
       case GetValueForKeyError<String>.noValue(let key):
         XCTAssertEqual(key, turKeyboard)
@@ -92,53 +94,54 @@ final class SerializableDictionaryTestCase: XCTestCase {
 		)
 	}
 	
-	func test_InitializationError() {
-		XCTAssertThrowsError(
-			try Instrument(
-				jsonData: try JSONSerialization.data(
-					withJSONObject: ["👿"]
-				)
-			)
-		)
-		
-		XCTAssertThrowsError(
-			try [Instrument](["👿"])
-		)
-	}
+  func test_InitializationError() {
+    XCTAssertThrowsError(
+      try Instrument(
+        jsonData: try JSONSerialization.data(
+          withJSONObject: ["👿"]
+        )
+      )
+    )
+    
+    XCTAssertThrowsError(
+      try [Instrument](["👿"])
+    )
+  }
 	
-	func test_jsonDataNotConvertibleToDictionaries() {
-		let jsonData = try! JSONSerialization.data(
-			withJSONObject: ["🐈": "🐈"],
-			options: []
-		)
-		
-		XCTAssertThrowsError(
-			try [Instrument](jsonData: jsonData)
-		){	error in switch error {
-			case let error as InitializableWithSerializableDictionaryError:
-				XCTAssertEqual(error, .dataNotConvertibleToDictionaries)
-				
-			default: XCTFail()
-			}
-		}
-	}
+  func test_jsonDataNotConvertibleToDictionaries() {
+    let jsonData = try! JSONSerialization.data(
+      withJSONObject: ["🐈": "🐈"],
+      options: []
+    )
+    
+    XCTAssertThrowsError(
+      try [Instrument](jsonData: jsonData)
+    ) {	error in
+      switch error {
+      case let error as InitializableWithSerializableDictionaryError:
+        XCTAssertEqual(error, .dataNotConvertibleToDictionaries)
+        
+      default: XCTFail()
+      }
+    }
+  }
 	
 	private let visualizationKey =
 		Instrument.SerializableDictionaryKey.visualization.rawValue
 }
 
 private struct Instrument: Equatable {
-	enum SerializableDictionaryKey: String {
-		case visualization
-	}
-
-	let visualization: String?
+  enum SerializableDictionaryKey: String {
+    case visualization
+  }
+  
+  let visualization: String?
 }
 
 extension Instrument: InitializableWithSerializableDictionary {
-	init(serializableDictionary dictionary: SerializableDictionary) throws {
-		visualization = try dictionary.getValue(
-			key: SerializableDictionaryKey.visualization
-		)
-	}
+  init(serializableDictionary dictionary: SerializableDictionary) throws {
+    visualization = try dictionary.getValue(
+      key: SerializableDictionaryKey.visualization
+    )
+  }
 }

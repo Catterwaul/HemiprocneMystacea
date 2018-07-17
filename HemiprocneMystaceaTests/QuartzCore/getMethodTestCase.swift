@@ -52,12 +52,12 @@ extension 🎄 {
 	}
 }
 
-private struct 🎅: 🎄 {}
-private struct 🎅🏻: 🎄 {}
-private struct 🎅🏼: 🎄 {}
-private struct 🎅🏽: 🎄 {}
-private struct 🎅🏾: 🎄 {}
-private struct 🎅🏿: 🎄 {}
+private struct 🎅: 🎄 { }
+private struct 🎅🏻: 🎄 { }
+private struct 🎅🏼: 🎄 { }
+private struct 🎅🏽: 🎄 { }
+private struct 🎅🏾: 🎄 { }
+private struct 🎅🏿: 🎄 { }
 
 private struct 👼: 🎄 {
 	func 🎄() -> String {

@@ -10,24 +10,24 @@ public extension CKContainer {
       permissionStatus, error in
       
       if let error = error {
-        process {throw error}
+        process { throw error }
         return
       }
       
-      process {permissionStatus}
+      process { permissionStatus }
     }
   }
 
   func requestUserIdentity(process: @escaping ProcessGet<CKUserIdentity>) {
-    requestApplicationPermissionStatus {[unowned self] getStatus in
+    requestApplicationPermissionStatus { [unowned self] getStatus in
       do {
         let status = try getStatus()
         
         switch status {
         case .granted:
-          self.fetchUserRecordID {[unowned self] recordID, error in
+          self.fetchUserRecordID { [unowned self] recordID, error in
             if let error = error {
-              process {throw error}
+              process { throw error }
               return
             }
             
@@ -35,16 +35,16 @@ public extension CKContainer {
               userIdentity, error in
               
               if let error = error {
-                process {throw error}
+                process { throw error }
               }
-              else { process {userIdentity!} }
+              else { process { userIdentity! } }
             }
           }
           
         default: break
         }
       }
-      catch { process {throw error} }
+      catch { process { throw error } }
     }
   }
 }

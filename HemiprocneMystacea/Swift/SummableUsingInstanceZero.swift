@@ -3,7 +3,7 @@ import Foundation
 public extension Sequence where Element: SummableUsingInstanceZero {
 	var sum: Element? {
 		guard let zero = first?.zero
-		else {return nil}
+		else { return nil }
 		
 		return self.reduce(zero, +)
 	}
@@ -12,7 +12,7 @@ public extension Sequence where Element: SummableUsingInstanceZero {
 public protocol SummableUsingInstanceZero {
 	static func + (_: Self, _: Self) -> Self
 
-	var zero: Self {get}
+	var zero: Self { get }
 }
 
 extension Measurement: SummableUsingInstanceZero {

@@ -7,7 +7,7 @@ final class SequenceTestCase: XCTestCase {
 			[	"1️⃣": 1,
 				"🔟": 10,
 			 	"💯": 100
-			].max {$0.value}!
+			].max { $0.value }!
 			 .key,
 			"💯"
 		)
@@ -18,7 +18,7 @@ final class SequenceTestCase: XCTestCase {
 			TypeWith1EquatableProperty(int: 3),
 			TypeWith1EquatableProperty(int: 1),
 			TypeWith1EquatableProperty(int: 2)
-		].sorted {$0.int}
+		].sorted { $0.int }
 		
 		XCTAssertEqual(
 			sortedArray,

@@ -3,9 +3,8 @@ import XCTest
 
 final class NamedSubscriptTestCase: XCTestCase {
   func test_NamedGetOnlySubscript() {
-    let bodies = NamedGetOnlySubscript{
-      (head: String) in [
-        "🐯": "🐅",
+    let bodies = NamedGetOnlySubscript { (head: String) in
+      [ "🐯": "🐅",
         "🐷": "🐖",
         "🐮": "🐄",
         "🐔": "🐓",
@@ -27,8 +26,8 @@ final class NamedSubscriptTestCase: XCTestCase {
       case strawberry = "🍓"
     }
     
-    let rawFruits = NamedGetOnlySubscript{
-      (fruit: Fruit) in fruit.rawValue
+    let rawFruits = NamedGetOnlySubscript { (fruit: Fruit) in
+      fruit.rawValue
     }
     
     XCTAssertEqual(

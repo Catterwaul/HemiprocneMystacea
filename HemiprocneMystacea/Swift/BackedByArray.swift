@@ -13,7 +13,7 @@ public protocol BackedByArray: Collection {
   /// Don't actually use this directly.
   /// It's only public because protocols
   /// don't have good enough access control yet.
-  var backingArray: [Element] {get}
+  var backingArray: [Element] { get }
 }
 
 //MARK: public

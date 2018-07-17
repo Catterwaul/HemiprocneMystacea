@@ -1,4 +1,4 @@
-public protocol EquatableClass: class, Equatable {}
+public protocol EquatableClass: class, Equatable { }
 
 public extension EquatableClass {
 	static func == (

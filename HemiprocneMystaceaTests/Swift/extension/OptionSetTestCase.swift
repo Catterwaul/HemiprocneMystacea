@@ -108,8 +108,8 @@ extension UIView {
   }
   
   var autoresizingFlexibilities: AutoresizingFlexibilities {
-    get {return AutoresizingFlexibilities(autoresizingMask)}
-    set {autoresizingMask = UIView.AutoresizingMask(newValue)}
+    get { return AutoresizingFlexibilities(autoresizingMask) }
+    set { autoresizingMask = UIView.AutoresizingMask(newValue) }
   }
 }
 

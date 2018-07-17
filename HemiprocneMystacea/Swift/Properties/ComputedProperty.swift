@@ -40,7 +40,7 @@ public extension ComputedProperty {
 //MARK: Property
 extension ComputedProperty: Property {
 	public var value: Value {
-		get {return get()}
-		set {set(newValue)}
+		get { return get() }
+		set { set(newValue) }
 	}
 }

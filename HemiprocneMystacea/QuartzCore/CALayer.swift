@@ -1,7 +1,7 @@
 import QuartzCore
 
 public extension CALayer {	
-	enum KeyPath {}	
+	enum KeyPath { }	
 }
 
 public extension CALayer.KeyPath {

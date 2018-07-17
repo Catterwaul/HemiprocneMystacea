@@ -9,15 +9,13 @@ public extension UNUserNotificationCenter {
       request,
       withCompletionHandler:
         processVerifyAddition.map {
-          processVerifyAddition in {
-            error in
-            
+          processVerifyAddition in { error in
             if let error = error {
-              processVerifyAddition {throw error}
+              processVerifyAddition { throw error }
               return
             }
             
-            processVerifyAddition {}
+            processVerifyAddition { }
           }
         }
     )
@@ -29,15 +27,13 @@ public extension UNUserNotificationCenter {
 	) {
 		requestAuthorization(
 			options: options,
-			completionHandler: {
-				granted, error in
-				
+			completionHandler: { granted, error in
 				if let error = error {
-					processGetGranted {throw error}
+					processGetGranted { throw error }
 					return
 				}
 				
-				processGetGranted {granted}
+				processGetGranted { granted }
 			}
 		)
 	}

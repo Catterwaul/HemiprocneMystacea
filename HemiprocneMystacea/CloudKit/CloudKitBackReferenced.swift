@@ -21,7 +21,7 @@ public extension CloudKitBackReferenced {
     database: CKDatabase,
     _ process: @escaping ProcessGet<[Self]>
   ) {
-    BackReferencer.request(database: database){
+    BackReferencer.request(database: database) {
       (getResults: () throws -> [ CKRecord.ID: [BackReferencer.RequestResult] ]) in
       
       do {
@@ -42,7 +42,7 @@ public extension CloudKitBackReferenced {
         }
         database.add(operation)
       }
-      catch { process{throw error} }
+      catch { process{ throw error } }
     }
   }
 }

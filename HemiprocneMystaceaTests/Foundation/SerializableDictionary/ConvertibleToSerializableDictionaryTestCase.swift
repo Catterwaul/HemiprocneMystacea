@@ -60,27 +60,21 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		)
 	}
 	
-	func test_reconstruct() {
-		let crossBonez = 💀(skool: "☠️")
-		
-		do {
-			let jsonData = try crossBonez.makeJSONData()
-			let reconstructedCrossBonez = try 💀(jsonData: jsonData)
-			XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
-		}
-		catch {
-			XCTFail()
-		}
-		
-      do {
-			let propertyListData = try crossBonez.makePropertyListData(format: .binary)
-			let reconstructedCrossBonez = try 💀(propertyListData: propertyListData)
-			XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
-      }
-		catch {
-			XCTFail()
-		}
-	}
+  func test_reconstruct() throws {
+    let crossBonez = 💀(skool: "☠️")
+    
+    do {
+      let jsonData = try crossBonez.makeJSONData()
+      let reconstructedCrossBonez = try 💀(jsonData: jsonData)
+      XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
+    }
+    
+    do {
+      let propertyListData = try crossBonez.makePropertyListData(format: .binary)
+      let reconstructedCrossBonez = try 💀(propertyListData: propertyListData)
+      XCTAssertEqual(reconstructedCrossBonez.skool, "☠️")
+    }
+  }
 	
 	func test_reconstructUsingOptional() {
 		let crossBonez = 💀(skool: nil)
@@ -112,7 +106,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		}
 	}
 	
-	func test_nestedReconstruct() {
+	func test_nestedReconstruct() throws {
 		let 👻instance = 👻(
          boool: true,
          skoool: 💀(skool: "👠L")
@@ -133,7 +127,6 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		catch Error.typeCastFailure(let key) {
 			XCTFail(key)
 		}
-		catch {XCTFail()}
 		
 		do {
 			let reconstructed👻 = try 👻(
@@ -148,56 +141,35 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		catch Error.typeCastFailure(let key) {
 			XCTFail(key)
 		}
-		catch {XCTFail()}
 	}
   
-	func test_reconstructArray() {
-		let array = Array(
-			repeating: 👻(
-				boool: true,
-				skoool: 💀(skool: "👠L")
-			),
-			count: 3
-		)
-		
-		do {
-			let jsonData = try array.makeJSONData()
-			let reconstructedArray = try [💀](jsonData: jsonData)
-			XCTAssertEqual(reconstructedArray.count, 3)
-		}
-		catch {
-			XCTFail()
-		}
-		
-		do {
-			let propertyListData = try array.makePropertyListData(format: .binary)
-			let reconstructedArray = try [💀](propertyListData: propertyListData)
-			XCTAssertEqual(reconstructedArray.count, 3)
-		}
-		catch {
-			XCTFail()
-		}
-		
-		let 👻sInstance = 👻s(
-			array: array
-		)
-		
-		do {
-			_ = try 👻sInstance.makeJSONData()
-		}
-		catch {
-			XCTFail()
-		}
-		
-		do {
-			_ = try 👻sInstance.makePropertyListData(format: .binary)
-		}
-		catch {
-			XCTFail()
-		}
-	}
+  func test_reconstructArray() throws {
+    let array = Array(
+      repeating: 👻(
+        boool: true,
+        skoool: 💀(skool: "👠L")
+      ),
+      count: 3
+    )
+    
+    do {
+      let jsonData = try array.makeJSONData()
+      let reconstructedArray = try [💀](jsonData: jsonData)
+      XCTAssertEqual(reconstructedArray.count, 3)
+    }
+    
+    do {
+      let propertyListData = try array.makePropertyListData(format: .binary)
+      let reconstructedArray = try [💀](propertyListData: propertyListData)
+      XCTAssertEqual(reconstructedArray.count, 3)
+    }
+    
+    let 👻sInstance = 👻s(array: array)
+    _ = try 👻sInstance.makeJSONData()
+    _ = try 👻sInstance.makePropertyListData(format: .binary)
+  }
 	
-	func test_initializeUsingKey() {
+	func test_initializeUsingKey() throws {
 		typealias Error = GetValueForKeyError<String>
 		
 		let 👻instance = 👻(
@@ -221,7 +193,6 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		catch Error.typeCastFailure(let key) {
 			XCTFail(key)
 		}
-		catch {XCTFail()}
 
 		do {
 			let
@@ -242,9 +213,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 		catch Error.typeCastFailure(let key) {
 			XCTFail(key)
 		}
-		catch {XCTFail()}
 	}
-
 }
 
 //MARK:
@@ -310,10 +279,10 @@ extension 💀: InitializableWithSerializableDictionary {
 				skool: try dictionary.getValue(key: SerializableDictionaryKey.skool)
 			)
 		}
-		catch Error.typeCastFailure(let key)  {
+		catch Error.typeCastFailure(let key) {
 			throw Error.typeCastFailure(key: key)
 		}
-		catch {self.init(skool: nil)}
+		catch { self.init(skool: nil) }
 	}
 }
 

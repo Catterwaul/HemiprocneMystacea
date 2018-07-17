@@ -5,7 +5,7 @@ extension BinaryFloatingPoint {
 }
 
 protocol BinaryFloatingPoint_exponentBias {
-  static var exponentBias: Int {get}
+  static var exponentBias: Int { get }
 }
 
 extension Half: BinaryFloatingPoint_exponentBias {
@@ -14,5 +14,5 @@ extension Half: BinaryFloatingPoint_exponentBias {
   }
 }
 
-extension Double: BinaryFloatingPoint_exponentBias {}
-extension Float: BinaryFloatingPoint_exponentBias {}
+extension Double: BinaryFloatingPoint_exponentBias { }
+extension Float: BinaryFloatingPoint_exponentBias { }

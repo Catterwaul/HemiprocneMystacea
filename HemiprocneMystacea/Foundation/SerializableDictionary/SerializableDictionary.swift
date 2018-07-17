@@ -12,14 +12,14 @@ public extension SerializableDictionary {
 }
 
 //MARK: keyValueThrowingSubscript
-extension SerializableDictionary: keyValueThrowingSubscript {}
+extension SerializableDictionary: keyValueThrowingSubscript { }
 public extension SerializableDictionary {  
   func getValue<Value>(key: String) throws -> Value {
     guard let anyValue = dictionary[key]
-    else {throw GetValueForKeyError.noValue(key: key)}
+    else { throw GetValueForKeyError.noValue(key: key) }
     
     guard let value = anyValue as? Value
-    else {throw GetValueForKeyError.typeCastFailure(key: key)}
+    else { throw GetValueForKeyError.typeCastFailure(key: key) }
     
     return value
   }

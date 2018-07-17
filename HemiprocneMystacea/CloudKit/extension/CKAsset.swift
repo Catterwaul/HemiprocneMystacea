@@ -8,6 +8,6 @@ public extension UIImage {
       
 			self.init(data: data)
 		}
-		catch {return nil}
+		catch { return nil }
 	}
 }

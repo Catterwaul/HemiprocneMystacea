@@ -6,10 +6,10 @@ final class UITableViewTestCase: XCTestCase {
 		let tableView = UITableView()
 		
 		_ = tableView.makeCellsWithDependenciesInjected(
-			cellDependencies: NamedGetOnlySubscript{_ in}
+			cellDependencies: NamedGetOnlySubscript { _ in }
 		) as NamedGetOnlySubscript<IndexPath, Cell>
 	}
 	private final class Cell: UITableViewCell, injectDependencies {
-		func inject(dependencies _: Void) {}
+		func inject(dependencies _: Void) { }
 	}
 }

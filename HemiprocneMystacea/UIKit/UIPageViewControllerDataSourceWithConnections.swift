@@ -1,7 +1,7 @@
 import UIKit
 
 public protocol UIPageViewControllerDataSourceWithConnectedViewControllers: UIPageViewControllerDataSource {
-	var _connectedViewControllers: [UIViewController] {get}
+	var _connectedViewControllers: [UIViewController] { get }
 }
 
 public extension UIPageViewControllerDataSourceWithConnectedViewControllers {
@@ -37,17 +37,18 @@ public extension UIPageViewController.ConnectedViewControllers {
 
 //MARK: private
 private extension UIPageViewController.ConnectedViewControllers {
-	func getConnectedViewController(
-		viewController: UIViewController,
-		adjustIndex: (Int, Int) -> Int
-	) -> UIViewController? {
-		guard
-			let requestedIndex =
-				connectedViewControllers.index(of: viewController)
-				.map( {adjustIndex($0, 1)} ),
-			connectedViewControllers.indices.contains(requestedIndex)
-		else {return nil}
-		
-		return connectedViewControllers[requestedIndex]
-	}
+  func getConnectedViewController(
+    viewController: UIViewController,
+    adjustIndex: (Int, Int) -> Int
+  ) -> UIViewController? {
+    guard
+      let requestedIndex = (
+        connectedViewControllers.index(of: viewController)
+        .map { adjustIndex($0, 1) }
+      ),
+      connectedViewControllers.indices.contains(requestedIndex)
+    else { return nil }
+    
+    return connectedViewControllers[requestedIndex]
+  }
 }

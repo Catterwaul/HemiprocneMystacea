@@ -33,7 +33,7 @@ public extension UIColor.HSBA {
       brightness: &hsba.brightness,
       alpha: &hsba.alpha
     ) else {
-      struct Error: Swift.Error {}
+      struct Error: Swift.Error { }
       throw Error()
     }
     

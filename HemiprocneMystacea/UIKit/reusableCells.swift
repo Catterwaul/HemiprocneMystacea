@@ -9,7 +9,7 @@ public protocol reusableCells: class {
 	) -> ReusableCell
 }
 
-extension UICollectionView: reusableCells {}
+extension UICollectionView: reusableCells { }
 extension UITableView: reusableCells {
   ///- Attention: Different signature than UICollectionView.dequeueReusableCell
   public func dequeueReusableCell(
@@ -38,10 +38,7 @@ extension reusableCells {
     cellDependencies: NamedGetOnlySubscript<IndexPath, Cell.Dependencies>
   ) -> NamedGetOnlySubscript<IndexPath, Cell>
   where Cell: injectDependencies {
-    return NamedGetOnlySubscript{
-      [unowned self]
-      indexPath in
-      
+    return NamedGetOnlySubscript { [unowned self] indexPath in
       let cell: Cell = self.dequeueReusableCell(indexPath: indexPath)
       cell.inject(dependencies: cellDependencies[indexPath])
       return cell

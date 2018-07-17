@@ -10,7 +10,7 @@ public extension IndexPath {
 		processables: NamedGetOnlySubscript<IndexPath, Processable>,
 		process: @escaping Process<Processable>
 	) -> Process<IndexPath> {
-		return {indexPath in process(processables[indexPath])}
+		return { indexPath in process(processables[indexPath]) }
 	}
 }
 

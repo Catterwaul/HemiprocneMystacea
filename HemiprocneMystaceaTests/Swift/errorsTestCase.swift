@@ -2,17 +2,14 @@ import HM
 import XCTest
 
 final class errorsTestCase: XCTestCase {
-	func test_noErrors() {
-		do {
-			try validate(
-				[{_ in}],
-				parameters: "whatever"
-			)
-		}
-		catch {XCTFail()}
-	}
+  func test_noErrors() throws {
+    try validate(
+      [ { _ in } ],
+      parameters: "whatever"
+    )
+  }
 	
-	func test_errors() {
+	func test_errors() throws {
 		do {
 			try validate(
 				[throwBad, throwsStrongBads],
@@ -27,7 +24,6 @@ final class errorsTestCase: XCTestCase {
 				]
 			)
 		}
-		catch {XCTFail()}
 	}
 }
 

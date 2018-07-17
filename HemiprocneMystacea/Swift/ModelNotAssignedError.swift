@@ -6,14 +6,14 @@ public enum ModelNotAssignedError: Error {
 //MARK: public
 public extension ModelNotAssignedError {
   static func makeGetAccessor<Property>() -> () throws -> Property {
-    return {throw getAccessor}
+    return { throw getAccessor }
   }
   
   static func makeMethod<Return>() -> () throws -> Return {
-    return {throw method}
+    return { throw method }
   }
   
   static func makeMethod<Parameters, Return>() -> (Parameters) throws -> Return {
-    return {_ in throw method}
+    return { _ in throw method }
   }
 }

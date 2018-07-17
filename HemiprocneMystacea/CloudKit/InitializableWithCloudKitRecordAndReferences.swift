@@ -3,7 +3,7 @@ import CloudKit
 public protocol InitializableWithCloudKitRecordAndReferences {
 	associatedtype Reference: InitializableWithCloudKitRecord
 	
-	static var referenceKey: String {get}
+	static var referenceKey: String { get }
 	
 	init(
 		record: CKRecord,
@@ -40,23 +40,20 @@ public extension InitializableWithCloudKitRecordAndReferences {
       database: database,
       predicate: predicate,
       { getRequested in
-        
         do {
           let requested = try getRequested()
           
-          operationQueue.addOperation {requesteds += [requested]}
+          operationQueue.addOperation { requesteds += [requested] }
         }
-        catch {processSingleRecordError(error)}
+        catch { processSingleRecordError(error) }
       }
-    ) {
-      verifyCompletion in
-      
+    ) { verifyCompletion in
       do {
         try verifyCompletion()
         
-        operationQueue.addOperation { process {requesteds} }
+        operationQueue.addOperation { process { requesteds } }
       }
-      catch { process {throw error} }
+      catch { process { throw error } }
     }
   }
 }

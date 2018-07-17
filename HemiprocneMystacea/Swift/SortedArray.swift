@@ -54,7 +54,7 @@ public extension SortedArray {
 		element: Element
 	) -> SortedArray {
 		return SortedArray(
-			sortedArray.backingArray.filter{$0 != element},
+			sortedArray.backingArray.filter { $0 != element },
 			getAreInIncreasingOrder: sortedArray.getAreInIncreasingOrder
 		)
 	}

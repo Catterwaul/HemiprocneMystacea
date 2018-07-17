@@ -2,17 +2,17 @@
 public protocol keyValueSubscript: keyValueThrowingSubscript {
 	associatedtype Value
 	
-	subscript(key: Key) -> Value? {get}
+	subscript(key: Key) -> Value? { get }
 }
 
 //MARK: keyValueThrowingSubscript
 public extension keyValueSubscript {
   func getValue<Value>(key: Key) throws -> Value {
     guard let uncastValue: Self.Value = self[key]
-    else {throw GetValueForKeyError.noValue(key: key)}
+    else { throw GetValueForKeyError.noValue(key: key) }
     
     guard let value = uncastValue as? Value
-    else {throw GetValueForKeyError.typeCastFailure(key: key)}
+    else { throw GetValueForKeyError.typeCastFailure(key: key) }
     
     return value
   }

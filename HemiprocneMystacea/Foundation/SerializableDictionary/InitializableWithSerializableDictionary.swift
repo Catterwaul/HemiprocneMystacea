@@ -50,8 +50,8 @@ public extension InitializableWithSerializableDictionary {
 					as? [String: Any]
 			}
 			return dictionary as? [String: Any]
-		}()
-		else {throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionary}
+		} ()
+		else { throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionary }
 		
 		try self.init(dictionary)
 	}
@@ -104,7 +104,7 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 //MARK: private
 	private init(deserialized: Any) throws {
 		guard let dictionaries = deserialized as? DictionaryArray
-		else {throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries}
+		else { throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries }
 		
 		try self.init(dictionaries: dictionaries)
 	}

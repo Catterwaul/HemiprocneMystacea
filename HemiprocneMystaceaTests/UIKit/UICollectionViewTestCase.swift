@@ -8,10 +8,10 @@ final class UICollectionViewTestCase: XCTestCase {
 			collectionViewLayout: .init()
 		)
 		_ = collectionView.makeCellsWithDependenciesInjected(
-			cellDependencies: NamedGetOnlySubscript{_ in}
+			cellDependencies: NamedGetOnlySubscript { _ in }
 		) as NamedGetOnlySubscript<IndexPath, Cell>
 	}
 	private final class Cell: UICollectionViewCell, injectDependencies {
-		func inject(dependencies _: Void) {}
+		func inject(dependencies _: Void) { }
 	}
 }

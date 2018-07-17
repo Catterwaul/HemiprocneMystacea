@@ -33,7 +33,7 @@ public extension ConvertibleToSerializableDictionary {
           
           // Don't include keys with nil values.
           !Mirror(reflecting: child.value).reflectsOptionalNone
-        else {return nil}
+        else { return nil }
         
         switch child.value {
         case let image as UIImage:
@@ -60,7 +60,7 @@ public extension ConvertibleToSerializableDictionary {
 //                )
 //                
 //              case let value as [ConvertibleToSerializableDictionary]:
-//                return value.map{
+//                return value.map {
 //                  $0.makeSerializableDictionary(
 //                    jsonCompatible: jsonCompatible
 //                  )
@@ -70,22 +70,21 @@ public extension ConvertibleToSerializableDictionary {
                 return
                   (child.value as? CGPoint)?.dictionaryRepresentation
                   ??
-                  (child.value as? Date).flatMap{
-                    date in
+                  (child.value as? Date).flatMap { date in
                     jsonCompatible
                       ? date.timeIntervalSinceReferenceDate
                       : date
                   }
                   ?? child.value
               }
-            }()
+            } ()
           )
         }
       }
     )
 		
 		return
-			key.map{key in [key: serializableDictionary]}
+			key.map{ key in [key: serializableDictionary] }
 			?? serializableDictionary
 	}
 	
@@ -123,7 +122,7 @@ public extension Sequence where Element: ConvertibleToSerializableDictionary {
     key: String? = nil
   ) throws -> Data {
     return try JSONSerialization.data(
-      withJSONObject: self.map{
+      withJSONObject: map {
         $0.makeSerializableDictionary(
           jsonCompatible: true,
           key: key
@@ -138,7 +137,7 @@ public extension Sequence where Element: ConvertibleToSerializableDictionary {
     key: String? = nil
   ) throws -> Data {
     return try PropertyListSerialization.data(
-      fromPropertyList: self.map{
+      fromPropertyList: map {
         $0.makeSerializableDictionary(
           jsonCompatible: false,
           key: key

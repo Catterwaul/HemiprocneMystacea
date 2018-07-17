@@ -17,7 +17,7 @@ public extension Array {
   /// - Throws: Array.OutOfBoundsError
   func getElement(index: Index) throws -> Element {
     guard indices.contains(index)
-    else {throw OutOfBoundsError(index: index)}
+    else { throw OutOfBoundsError(index: index) }
     
     return self[index]
   }

@@ -3,7 +3,7 @@ public extension Dictionary {
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
 	subscript(key: Key?) -> Value? {
-		return key.flatMap {self[$0]}
+		return key.flatMap { self[$0] }
 	}
 
 	subscript(
@@ -16,7 +16,7 @@ public extension Dictionary {
 				?? {
 					self[key] = getValue()
 					return self[key]!
-				}()
+				} ()
 		}
 	}
 }
@@ -34,7 +34,7 @@ public func + <
 ) -> [Key: Value]
 where Sequence.Element == (key: Key, value: Value) {
 	var dictionary = dictionary
-	sequence.forEach{dictionary[$0.key] = $0.value}
+	sequence.forEach { dictionary[$0.key] = $0.value }
 	return dictionary
 }
 
@@ -60,7 +60,7 @@ public func - <
 	keysToSetNil: KeysToSetNil
 ) -> [Key: Value]
 where KeysToSetNil.Element == Key {
-  return dictionary.filter {!keysToSetNil.contains($0.key)}
+  return dictionary.filter { !keysToSetNil.contains($0.key) }
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`
 public func -= <

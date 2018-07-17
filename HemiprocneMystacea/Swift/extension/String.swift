@@ -2,7 +2,7 @@ public extension String {
 	///- Returns: nil if not prefixed with `prefix`
 	func without(prefix: String) -> Substring? {
 		guard self.hasPrefix(prefix)
-		else {return nil}
+		else { return nil }
 		
 		return self.dropFirst(prefix.count)
 	}
@@ -10,7 +10,7 @@ public extension String {
 	///- Returns: nil if not suffixed with `suffix`
 	func without(suffix: String) -> Substring? {
 		guard self.hasSuffix(suffix)
-		else {return nil}
+		else { return nil }
 		
 		return self.dropLast(suffix.count)
 	}

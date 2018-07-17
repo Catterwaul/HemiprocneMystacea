@@ -21,14 +21,14 @@ final class BoolTestCase: XCTestCase {
 //MARK:- Sequences of Bools
   func test_containsOnly() {
     let trueConditions = [
-      {true},
-      {1 < 2},
-      {"🦁" == "🦁"}
+      { true },
+      { 1 < 2 },
+      { "🦁" == "🦁" }
     ]
     
     XCTAssertTrue( trueConditions.containsOnly(true) )
     XCTAssertFalse(
-      (trueConditions + [{false}])
+      (trueConditions + [ { false } ])
       .containsOnly(true)
     )
   }

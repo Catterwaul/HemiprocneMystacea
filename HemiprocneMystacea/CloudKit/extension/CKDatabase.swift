@@ -15,16 +15,16 @@ public extension CKDatabase {
       ) {
         [unowned self] verifyCompletion in
         
-        defer {dispatchGroup.leave()}
+        defer { dispatchGroup.leave() }
         
-        do {try verifyCompletion()}
+        do { try verifyCompletion() }
         catch let error as CKError
         where CKError.Code(rawValue: error.errorCode) == .unknownItem {
           dispatchGroup.enter()
           self.save(recordsToSave.first!) {
             verify in
             
-            defer {dispatchGroup.leave()}
+            defer { dispatchGroup.leave() }
             
             do {
               try verify()
@@ -35,7 +35,7 @@ public extension CKDatabase {
                 addToErrors: addToErrors
               )
             }
-            catch let error {addToErrors(error)}
+            catch let error { addToErrors(error) }
           }
         }
         catch let error as CKError
@@ -50,7 +50,7 @@ public extension CKDatabase {
             )
           }
         }
-        catch let error {addToErrors(error)}
+        catch let error { addToErrors(error) }
       }
     )
   }
@@ -76,17 +76,13 @@ public extension CKDatabase {
       if let resultsLimit = resultsLimit {
         operation.resultsLimit = resultsLimit
       }
-      operation.recordFetchedBlock = {
-        record in
-        
-        operationQueue.addOperation {records.append(record)}
+      operation.recordFetchedBlock = { record in
+        operationQueue.addOperation { records.append(record) }
       }
       
-      operation.queryCompletionBlock = {
-        cursor, error in
-        
+      operation.queryCompletionBlock = { cursor, error in
         if let error = error {
-          process {throw error}
+          process { throw error }
         }
         else if let cursor = cursor {
           let operation = CKQueryOperation(cursor: cursor)
@@ -94,9 +90,7 @@ public extension CKDatabase {
           self.add(operation)
         }
         else {
-          operationQueue.addOperation {
-            process {records}
-          }
+          operationQueue.addOperation { process { records } }
         }
       }
     }
@@ -121,7 +115,7 @@ public extension CKDatabase {
 	func request<Requested: InitializableWithCloudKitRecord>(
 		predicate: NSPredicate = NSPredicate(value: true),
 		process: @escaping ProcessGet<[Requested]>
-	){
+	) {
 		request(
 			recordType: Requested.self,
 			predicate: predicate
@@ -153,9 +147,7 @@ public extension CKDatabase {
     let dispatchGroup = DispatchGroup()
     
     func initialize(_ operation: CKQueryOperation) {
-      operation.recordFetchedBlock = {
-        requestedRecord in
-        
+      operation.recordFetchedBlock = { requestedRecord in
         guard let references = requestedRecord[Requested.referenceKey] as? [CKRecord.Reference]
         else {
           processGetRequested {
@@ -180,18 +172,16 @@ public extension CKDatabase {
               )
             }
           }
-          catch { processGetRequested {throw error} }
+          catch { processGetRequested { throw error } }
           
           dispatchGroup.leave()
         }
         self.add(operation)
       }
 			
-      operation.queryCompletionBlock = {
-        cursor, error in
-        
+      operation.queryCompletionBlock = { cursor, error in
         if let error = error {
-          processVerifyCompletion {throw error}
+          processVerifyCompletion { throw error }
         }
         else if let cursor = cursor {
           let operation = CKQueryOperation(cursor: cursor)
@@ -200,7 +190,7 @@ public extension CKDatabase {
         }
         else {
           dispatchGroup.notify( queue: DispatchQueue(label: "") ) {
-            processVerifyCompletion {}
+            processVerifyCompletion { }
           }
         }
       }
@@ -221,14 +211,14 @@ public extension CKDatabase {
   func save(
     _ record: CKRecord,
     processVerify: @escaping Process<Verify>
-  ){
-    save(record) {record, error in
+  ) {
+    save(record) { record, error in
       if let error = error {
-        processVerify {throw error}
+        processVerify { throw error }
         return
       }
       
-      processVerify {}
+      processVerify { }
     }
   }
 }

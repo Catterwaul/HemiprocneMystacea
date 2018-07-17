@@ -7,7 +7,7 @@ public extension Bool {
 		guard
 			let int = Int(binaryString),
 			[0, 1].contains(int)
-		else {return nil}
+		else { return nil }
 		
 		self = int == 1
 	}
@@ -16,6 +16,6 @@ public extension Bool {
 public extension Sequence where Element == () -> Bool {
   ///- Returns: whether all elements of the sequence evaluate to `bool`
   func containsOnly(_ bool: Bool) -> Bool {
-    return allSatisfy {getBool in bool == getBool()}
+    return allSatisfy { getBool in bool == getBool() }
   }
 }

@@ -21,8 +21,8 @@ public func -= <Reference: Equatable>(
   set: inout Set< UnownedReferencer<Reference> >,
   reference: Reference
 ) {
-  guard let referencer = (set.first {$0.reference == reference})
-  else {return}
+  guard let referencer = ( set.first { $0.reference == reference} )
+  else { return }
   
   set.remove(referencer)
 }
@@ -32,8 +32,8 @@ public func -= <Reference: Equatable>(
   set: inout Set< WeakReferencer<Reference> >,
   reference: Reference
 ) {
-  guard let referencer = (set.first {$0.reference == reference})
-  else {return}
+  guard let referencer = ( set.first { $0.reference == reference } )
+  else { return }
   
   set.remove(referencer)
 }

@@ -15,7 +15,7 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
       }
     }
     
-    viewModel.set(getInts: {[0, 1, 2, 3]})
+    viewModel.set( getInts: { [0, 1, 2, 3] } )
     
     XCTAssertThrowsError(
       try viewModel.handleSelection(indexPath: indexPath)

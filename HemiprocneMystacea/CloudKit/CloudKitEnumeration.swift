@@ -6,7 +6,7 @@ public protocol CloudKitEnumeration:
 where
   Self.RawValue: ConvertibleToCKRecordValue,
   Self.CloudKitRecordKey == CloudKitEnumerationRecordKey
-{}
+{ }
 
 public enum CloudKitEnumerationRecordKey: String {
   case rawValue
@@ -21,7 +21,7 @@ public extension CloudKitEnumeration {
     let rawValue: RawValue = try record.getValue(key: CloudKitRecordKey.rawValue)
       
     guard let initializableWithCloudKitRecord = Self(rawValue: rawValue)
-    else {throw CloudKitEnumerationInitializationError(rawValue: rawValue)}
+    else { throw CloudKitEnumerationInitializationError(rawValue: rawValue) }
     
     self = initializableWithCloudKitRecord
   }

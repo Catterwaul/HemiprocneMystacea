@@ -43,4 +43,4 @@ final class ReferencersTestCase: XCTestCase {
    }
 }
 
-private class Class: EquatableClass {}
+private class Class: EquatableClass { }

@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class EnumeratedSequenceTestCase: XCTestCase {
-	func test_mapElements() {
+	func test_mapElements() throws {
 		do {
 			_ = try
 				["🚽", "🛁"]
@@ -10,7 +10,7 @@ final class EnumeratedSequenceTestCase: XCTestCase {
 				.mapElements{
 					guard $0 == "🚽"
 					else {
-						struct Error: Swift.Error {}
+						struct Error: Swift.Error { }
 						throw Error()
 					}
 				}
@@ -18,6 +18,5 @@ final class EnumeratedSequenceTestCase: XCTestCase {
 		catch let error as EnumeratedSequenceError {
 			XCTAssertEqual(error.index, 1)
 		}
-		catch {XCTFail()}
 	}
 }
