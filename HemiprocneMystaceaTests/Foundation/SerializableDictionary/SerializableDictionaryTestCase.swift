@@ -22,8 +22,8 @@ final class SerializableDictionaryTestCase: XCTestCase {
       switch error {
       case Error.noValue(let key):
         XCTAssertEqual(key, turKey)
-        
-      default: XCTFail()
+      default:
+        XCTFail()
       }
     }
 		
@@ -33,8 +33,8 @@ final class SerializableDictionaryTestCase: XCTestCase {
       switch error {
       case Error.typeCastFailure(let key):
         XCTAssertEqual(key, oldKey)
-        
-      default: XCTFail()
+      default:
+        XCTFail()
       }
     }
   }
@@ -71,8 +71,8 @@ final class SerializableDictionaryTestCase: XCTestCase {
       switch error {
       case GetValueForKeyError<String>.noValue(let key):
         XCTAssertEqual(key, turKeyboard)
-        
-      default: XCTFail()
+      default:
+        XCTFail()
       }
     }
   }
@@ -120,8 +120,8 @@ final class SerializableDictionaryTestCase: XCTestCase {
       switch error {
       case let error as InitializableWithSerializableDictionaryError:
         XCTAssertEqual(error, .dataNotConvertibleToDictionaries)
-        
-      default: XCTFail()
+      default:
+        XCTFail()
       }
     }
   }

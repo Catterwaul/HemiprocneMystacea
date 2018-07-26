@@ -6,12 +6,12 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
     var viewModel = ViewModel()
     let indexPath = IndexPath(item: 2, section: 0)
     
-    XCTAssertThrowsError(
-      try viewModel.getRowCount()
-    ) {
-      switch $0 {
-      case ModelNotAssignedError.getAccessor: return
-      default: XCTFail()
+    XCTAssertThrowsError( try viewModel.getRowCount() ) { error in
+      switch error {
+      case ModelNotAssignedError.getAccessor:
+        return
+      default:
+        XCTFail()
       }
     }
     
@@ -19,19 +19,21 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
     
     XCTAssertThrowsError(
       try viewModel.handleSelection(indexPath: indexPath)
-    ) {
-      switch $0 {
-      case ModelNotAssignedError.method: return
-      default: XCTFail()
+    ) { error in
+      switch error {
+      case ModelNotAssignedError.method:
+        return
+      default:
+        XCTFail()
       }
     }
     
-    XCTAssertThrowsError(
-      try viewModel.doSomething()
-    ) {
-      switch $0 {
-      case ModelNotAssignedError.method: return
-      default: XCTFail()
+    XCTAssertThrowsError( try viewModel.doSomething() ) { error in
+      switch error {
+      case ModelNotAssignedError.method:
+        return
+      default:
+        XCTFail()
       }
     }
   }

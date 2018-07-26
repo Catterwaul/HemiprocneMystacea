@@ -10,7 +10,6 @@ extension MTLDeviceError: CustomStringConvertible {
     switch self {
     case .noSystemDefaultDevice:
       return "Error: Could not create reference to preferred system default Metal device."
-      
     case .couldNotMakeCommandQueue:
       return "Error: Could not create serial command submission queue."
     }

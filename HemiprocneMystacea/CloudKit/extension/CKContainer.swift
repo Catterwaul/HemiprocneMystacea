@@ -39,9 +39,9 @@ public extension CKContainer {
               }
               else { process { userIdentity! } }
             }
-          }
-          
-        default: break
+          }          
+        default:
+          break
         }
       }
       catch { process { throw error } }

@@ -47,7 +47,6 @@ public extension ConvertibleToSerializableDictionary {
                 : pngData
             )
           }
-          
         default:
           // never nil
           return (
@@ -65,7 +64,6 @@ public extension ConvertibleToSerializableDictionary {
 //                    jsonCompatible: jsonCompatible
 //                  )
 //                }
-                
               default:
                 return
                   (child.value as? CGPoint)?.dictionaryRepresentation
