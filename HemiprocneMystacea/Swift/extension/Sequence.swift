@@ -11,6 +11,14 @@ public extension Sequence {
     }
   }
   
+  func min<Comparable: Swift.Comparable>(
+    getComparable: (Element) throws -> Comparable
+  ) rethrows -> Element? {
+    return try self.min {
+      try getComparable($0) < getComparable($1)
+    }
+  }
+  
   func sorted<Comparable: Swift.Comparable>(
     getComparable: (Element) throws -> Comparable
   ) rethrows -> [Element] {
