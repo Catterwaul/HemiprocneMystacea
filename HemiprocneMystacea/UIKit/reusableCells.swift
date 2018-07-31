@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol reusableCells: class {
+public protocol reusableCells: AnyObject {
 	associatedtype ReusableCell: UIView
 	
 	func dequeueReusableCell(
