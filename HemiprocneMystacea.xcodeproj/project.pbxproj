@@ -122,6 +122,7 @@
 		498D20CF1F91576000AB6829 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D20CE1F91576000AB6829 /* Array.swift */; };
 		498D20D01F91576000AB6829 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D20CE1F91576000AB6829 /* Array.swift */; };
 		498D20D21F91588200AB6829 /* ArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D20D11F91588200AB6829 /* ArrayTestCase.swift */; };
+		498D3193211442DA00EDE890 /* NumericTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D3192211442DA00EDE890 /* NumericTestCase.swift */; };
 		498F6CC61D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */; };
 		498F6CCA1D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */; };
 		499088051F849C7F00F9E569 /* CloudKitEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C571161F84410600064423 /* CloudKitEnumeration.swift */; };
@@ -277,6 +278,7 @@
 		498D20CC1F9154CF00AB6829 /* ModelNotAssignedErrorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNotAssignedErrorTestCase.swift; sourceTree = "<group>"; };
 		498D20CE1F91576000AB6829 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		498D20D11F91588200AB6829 /* ArrayTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTestCase.swift; sourceTree = "<group>"; };
+		498D3192211442DA00EDE890 /* NumericTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericTestCase.swift; sourceTree = "<group>"; };
 		498F6CC51D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToSerializableDictionary.swift; sourceTree = "<group>"; };
 		498F6CC91D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertibleToSerializableDictionaryTestCase.swift; sourceTree = "<group>"; };
 		4993AD321DD99155007C7525 /* named subscripts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "named subscripts.swift"; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 				4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */,
 				49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */,
 				498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */,
+				498D3192211442DA00EDE890 /* NumericTestCase.swift */,
 				49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */,
 				49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */,
 				497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */,
@@ -1199,6 +1202,7 @@
 				498F6CCA1D3EBC20006534BF /* ConvertibleToSerializableDictionaryTestCase.swift in Sources */,
 				499C71961D0F8079009797BC /* MakeGetTestCase.swift in Sources */,
 				499C71921D0F7636009797BC /* SerializableDictionaryTestCase.swift in Sources */,
+				498D3193211442DA00EDE890 /* NumericTestCase.swift in Sources */,
 				49DDB4A71E4ADE1000D21AD8 /* BackedByArrayTestCase.swift in Sources */,
 				499C71941D0F7E94009797BC /* CGSizeTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
