@@ -1,8 +1,4 @@
 public extension Array {
-  struct OutOfBoundsError: Error {
-    public let index: Index
-  }
-  
   /// The first array will be shorter by one element,
   /// if `count` is odd.
   var splitInHalf: [Array] {
@@ -11,6 +7,12 @@ public extension Array {
       prefix(upTo: halfCount),
       dropFirst(halfCount)
     ].map(Array.init)
+  }
+}
+
+public extension Array {
+  struct OutOfBoundsError: Error {
+    public let index: Index
   }
   
   /// - Returns: same as subscript, if index is in bounds

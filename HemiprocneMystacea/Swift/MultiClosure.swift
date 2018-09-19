@@ -28,8 +28,7 @@ public final class MultiClosure<Input>: EquatableClass {
 	
 //MARK: deallocation
   // We can't find self in `closures` without this.
-  fileprivate lazy var unownedSelf: UnownedReferencer< MultiClosure<Input> > =
-    UnownedReferencer(self)
+  fileprivate lazy var unownedSelf = UnownedReferencer(self)
   
   // Even though this MultiClosure will be deallocated,
   // its corresponding WeakReferencers won't be,
@@ -69,9 +68,7 @@ public final class EquatableClosure<Input>: EquatableClass {
 	> = []
 	
 	// We can't find self in `multiClosures` without this.
-	fileprivate lazy var unownedSelf: UnownedReferencer<
-		EquatableClosure<Input>
-	> = UnownedReferencer(self)
+	fileprivate lazy var unownedSelf = UnownedReferencer(self)
 	
 	deinit {
 		for multiClosure in multiClosures {

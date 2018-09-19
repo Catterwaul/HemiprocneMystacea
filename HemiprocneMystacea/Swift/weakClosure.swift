@@ -5,17 +5,17 @@
 ///- Returns: get for a closure which `transform`s `reference`.
 ///  This closure will be nil when `reference` is nil
 public func makeGet<
-	Reference: AnyObject,
-	Transformed
+  Reference: AnyObject,
+  Transformed
 >(
-	weakReference reference: Reference?,
-	transform: @escaping (Reference) -> Transformed
+  weakReference reference: Reference?,
+  transform: @escaping (Reference) -> Transformed
 ) -> () -> ( () -> Transformed )? {
-	return {
-		[weak reference] in reference.map {
-			reference in { transform(reference) }
-		}
-	}
+  return {
+    [weak reference] in reference.map { reference in
+      { transform(reference) }
+    }
+  }
 }
 
 ///- Parameter reference: An object that is expected to be nil sometimes, when `transform` runs.
@@ -27,16 +27,16 @@ public func makeGet<
 ///- Returns: get for a closure that takes a `Parameter` and returns a `Transformed`.
 ///  This closure will be nil when `reference` is nil
 public func makeGet<
-	Reference: AnyObject,
-	Parameter,
-	Transformed
+  Reference: AnyObject,
+  Parameter,
+  Transformed
 >(
-	weakReference reference: Reference?,
-	transform: @escaping (Reference, Parameter) -> Transformed
+  weakReference reference: Reference?,
+  transform: @escaping (Reference, Parameter) -> Transformed
 ) -> () -> ( (Parameter) -> Transformed )? {
-	return {
-		[weak reference] in reference.map {
-			reference in { transform(reference, $0) }
-		}
-	}
+  return {
+    [weak reference] in reference.map { reference in
+      { transform(reference, $0) }
+    }
+  }
 }
