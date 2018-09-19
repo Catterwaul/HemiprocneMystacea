@@ -1,22 +1,20 @@
 import HM
-import MetalKit
 import XCTest
 
-import simd
-
-final class MDLVertexDescriptorTestCase: XCTestCase {
+final class MemoryLayoutTestCase: XCTestCase {
   func test() {
+    let packedFloat3Attributes = (size: 12, alignment: 4)
     XCTAssertEqual(
-      MDLVertexDescriptor.makePackedOffsets(
-        (size: 12, alignment: 4),
-        (size: 12, alignment: 4),
+      getMemoryLayoutOffsets(
+        packedFloat3Attributes,
+        packedFloat3Attributes,
         (size: 8, alignment: 8)
       ),
       [12, 24, 32]
     )
     
     XCTAssertEqual(
-      MDLVertexDescriptor.makePackedOffsets(
+      getMemoryLayoutOffsets(
         (size: 4, alignment: 2),
         (size: 8, alignment: 8)
       ),

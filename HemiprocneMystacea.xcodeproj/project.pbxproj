@@ -140,9 +140,9 @@
 		49A36BDA1D407C6200A4BFEB /* CKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BD91D407C6200A4BFEB /* CKDatabase.swift */; };
 		49A36BDD1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */; };
 		49A36BDF1D407CD200A4BFEB /* CKRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BDE1D407CD200A4BFEB /* CKRecord.swift */; };
-		49A3AEDE2151D2E700C01F22 /* MDLVertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3AEDD2151D2E700C01F22 /* MDLVertexDescriptor.swift */; };
-		49A3AEDF2151D2E700C01F22 /* MDLVertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3AEDD2151D2E700C01F22 /* MDLVertexDescriptor.swift */; };
-		49A3AEE42151E5FA00C01F22 /* MDLVertexDescriptorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3AEE32151E5FA00C01F22 /* MDLVertexDescriptorTestCase.swift */; };
+		49A3AEDE2151D2E700C01F22 /* MemoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3AEDD2151D2E700C01F22 /* MemoryLayout.swift */; };
+		49A3AEDF2151D2E700C01F22 /* MemoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3AEDD2151D2E700C01F22 /* MemoryLayout.swift */; };
+		49A3AEE42151E5FA00C01F22 /* MemoryLayoutTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3AEE32151E5FA00C01F22 /* MemoryLayoutTestCase.swift */; };
 		49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4861B1D09132500A55CCD /* CGRectTestCase.swift */; };
 		49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */; };
 		49A6C9581E476D6700CF5FFB /* SerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */; };
@@ -294,8 +294,8 @@
 		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDatabase.swift; sourceTree = "<group>"; };
 		49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecord.swift; sourceTree = "<group>"; };
 		49A36BDE1D407CD200A4BFEB /* CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecord.swift; sourceTree = "<group>"; };
-		49A3AEDD2151D2E700C01F22 /* MDLVertexDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDLVertexDescriptor.swift; sourceTree = "<group>"; };
-		49A3AEE32151E5FA00C01F22 /* MDLVertexDescriptorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDLVertexDescriptorTestCase.swift; sourceTree = "<group>"; };
+		49A3AEDD2151D2E700C01F22 /* MemoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLayout.swift; sourceTree = "<group>"; };
+		49A3AEE32151E5FA00C01F22 /* MemoryLayoutTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLayoutTestCase.swift; sourceTree = "<group>"; };
 		49A4861B1D09132500A55CCD /* CGRectTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGRectTestCase.swift; path = "Core Graphics/CGRectTestCase.swift"; sourceTree = "<group>"; };
 		49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTestCase.swift; sourceTree = "<group>"; };
 		49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableDictionary.swift; sourceTree = "<group>"; };
@@ -420,7 +420,6 @@
 			isa = PBXGroup;
 			children = (
 				492CE34820B095C800BEE6AD /* MTLDeviceError.swift */,
-				49A3AEDD2151D2E700C01F22 /* MDLVertexDescriptor.swift */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -487,14 +486,6 @@
 			path = CloudKit;
 			sourceTree = "<group>";
 		};
-		49A3AEE22151D32600C01F22 /* Metal */ = {
-			isa = PBXGroup;
-			children = (
-				49A3AEE32151E5FA00C01F22 /* MDLVertexDescriptorTestCase.swift */,
-			);
-			name = Metal;
-			sourceTree = "<group>";
-		};
 		49A6C95D1E47756A00CF5FFB /* SerializableDictionary */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,7 +502,6 @@
 				49B182E51C33807C00529B08 /* extension */,
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
-				498D20D11F91588200AB6829 /* ArrayTestCase.swift */,
 				49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */,
 				499C71951D0F8079009797BC /* MakeGetTestCase.swift */,
 				498D20CC1F9154CF00AB6829 /* ModelNotAssignedErrorTestCase.swift */,
@@ -536,6 +526,7 @@
 				49B182D31C33807000529B08 /* Dictionary.swift */,
 				49397DF11E534ED50052B783 /* EnumeratedSequence.swift */,
 				49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */,
+				49A3AEDD2151D2E700C01F22 /* MemoryLayout.swift */,
 				493DB0D01E520FF000E16694 /* Mirror.swift */,
 				49AB16EB1EF23A92009868AB /* Numeric.swift */,
 				49B182D61C33807000529B08 /* OptionSet.swift */,
@@ -550,12 +541,14 @@
 		49B182E51C33807C00529B08 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				498D20D11F91588200AB6829 /* ArrayTestCase.swift */,
 				49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */,
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
 				4975C1121F0256C800C89E52 /* CollectionTestCase.swift */,
 				4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */,
 				49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */,
 				498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */,
+				49A3AEE32151E5FA00C01F22 /* MemoryLayoutTestCase.swift */,
 				498D3192211442DA00EDE890 /* NumericTestCase.swift */,
 				49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */,
 				49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */,
@@ -658,7 +651,6 @@
 				49C526E51DB6DA1D0036B020 /* CloudKit */,
 				499C71901D0F761B009797BC /* Core Graphics */,
 				49C4346C1C375BB400B6C530 /* Foundation */,
-				49A3AEE22151D32600C01F22 /* Metal */,
 				49FD14F51CD91D1F0067F27E /* QuartzCore */,
 				49B182CF1C337D6800529B08 /* Swift */,
 				49E4AD131C45ABDC007BCBA5 /* UIKit */,
@@ -1052,7 +1044,7 @@
 				49AB16F01EF243CF009868AB /* BinaryInteger.swift in Sources */,
 				499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */,
 				49E5253C1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */,
-				49A3AEDF2151D2E700C01F22 /* MDLVertexDescriptor.swift in Sources */,
+				49A3AEDF2151D2E700C01F22 /* MemoryLayout.swift in Sources */,
 				49AB16F31EF2440A009868AB /* FixedWidthInteger.swift in Sources */,
 				0A72FC431D40819D0041845B /* UserDefaults+Setting.swift in Sources */,
 				0A72FC611D40819D0041845B /* InitializableWithParameters.swift in Sources */,
@@ -1133,7 +1125,7 @@
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */,
 				495606CB1E4DB4C8004C7FA0 /* Data.swift in Sources */,
-				49A3AEDE2151D2E700C01F22 /* MDLVertexDescriptor.swift in Sources */,
+				49A3AEDE2151D2E700C01F22 /* MemoryLayout.swift in Sources */,
 				498D20CA1F91548500AB6829 /* ModelNotAssignedError.swift in Sources */,
 				E348A4331D08C0DE003D8024 /* CGSize.swift in Sources */,
 				49B182E11C33807000529B08 /* Sequence.swift in Sources */,
@@ -1224,7 +1216,7 @@
 				499C71941D0F7E94009797BC /* CGSizeTestCase.swift in Sources */,
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49C526E91DB6E8C50036B020 /* CKDatabaseTestCase.swift in Sources */,
-				49A3AEE42151E5FA00C01F22 /* MDLVertexDescriptorTestCase.swift in Sources */,
+				49A3AEE42151E5FA00C01F22 /* MemoryLayoutTestCase.swift in Sources */,
 				49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */,
 				4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */,
 				49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */,
