@@ -1,3 +1,9 @@
+public extension Numeric {
+  var squared: Self {
+    return self * self
+  }
+}
+
 public extension Sequence where Element: Numeric {
   var sum: Element {
     return self.reduce(0, +)
