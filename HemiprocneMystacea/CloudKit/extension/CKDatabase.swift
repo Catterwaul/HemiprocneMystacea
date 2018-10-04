@@ -97,7 +97,7 @@ public extension CKDatabase {
     
     let operation = CKQueryOperation(
       query: CKQuery(
-        recordType: String(describing: Requested.self),
+        recordType: "\(Requested.self)",
         predicate: predicate
       )
     )
@@ -198,7 +198,7 @@ public extension CKDatabase {
 		
     let operation = CKQueryOperation(
       query: CKQuery(
-        recordType: String(describing: Requested.self),
+        recordType: "\(Requested.self)",
         predicate: predicate
       )
     )

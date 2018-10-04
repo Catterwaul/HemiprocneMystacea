@@ -55,8 +55,6 @@
 		492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
 		492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */; };
 		492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */; };
-		4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
-		492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */; };
 		49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
 		492CE34920B095C800BEE6AD /* MTLDeviceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CE34820B095C800BEE6AD /* MTLDeviceError.swift */; };
 		492CE34A20B095C800BEE6AD /* MTLDeviceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CE34820B095C800BEE6AD /* MTLDeviceError.swift */; };
@@ -235,7 +233,6 @@
 		4914E0F71FC5C66600434173 /* CKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKContainer.swift; sourceTree = "<group>"; };
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
 		492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferenced.swift; sourceTree = "<group>"; };
-		4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegate.swift; sourceTree = "<group>"; };
 		492CE34820B095C800BEE6AD /* MTLDeviceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTLDeviceError.swift; sourceTree = "<group>"; };
 		49397DF11E534ED50052B783 /* EnumeratedSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumeratedSequence.swift; sourceTree = "<group>"; };
 		49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumeratedSequenceTestCase.swift; sourceTree = "<group>"; };
@@ -714,7 +711,6 @@
 				49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */,
 				49DBA1E21CD940BF0058181A /* UIAlertAction.swift */,
 				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
-				4926349E1D877E2D00AD131D /* UIApplicationDelegate.swift */,
 				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
 				494A99371E37253400F6A51D /* UICollectionView.swift */,
@@ -1035,7 +1031,6 @@
 				0A72FC4D1D40819D0041845B /* OptionSet.swift in Sources */,
 				49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */,
-				492634A01D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
 				49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
 				0A72FC5A1D40819D0041845B /* getMethod.swift in Sources */,
 				0A72FC591D40819D0041845B /* errors.swift in Sources */,
@@ -1102,7 +1097,6 @@
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
 				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
-				4926349F1D877E2D00AD131D /* UIApplicationDelegate.swift in Sources */,
 				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				497F568A1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */,
 				49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,

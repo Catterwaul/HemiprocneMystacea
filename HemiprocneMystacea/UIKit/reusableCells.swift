@@ -29,7 +29,7 @@ extension reusableCells {
     indexPath: IndexPath
   ) -> Cell {
     return dequeueReusableCell(
-      withReuseIdentifier: String(describing: Cell.self),
+      withReuseIdentifier: "\(Cell.self)",
       for: indexPath
     ) as! Cell
   }

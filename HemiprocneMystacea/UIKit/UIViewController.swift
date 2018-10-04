@@ -7,7 +7,7 @@ public extension UIViewController {
   
   static func instantiate<ViewController: UIViewController>(
     storyboard: UIStoryboard = UIStoryboard(
-      name: String(describing: ViewController.self),
+      name: "\(ViewController.self)",
       bundle: nil
     )
   ) -> ViewController? {

@@ -8,9 +8,7 @@ public extension UITableView {
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this Table View uses
 	final func getCell<Cell: UITableViewCell>() -> Cell {
-		return dequeueReusableCell(
-			withIdentifier: String(describing: Cell.self)
-		) as! Cell
+		return dequeueReusableCell(withIdentifier: "\(Cell.self)") as! Cell
 	}
 	
 	///- Returns: A reusable cell

@@ -95,11 +95,6 @@ public extension OptionSet where RawValue: FixedWidthInteger {
 //MARK: private
 private extension OptionSet where RawValue: FixedWidthInteger {
 	init(flagIndex: RawValue) {
-		self.init(
-			rawValue:
-        flagIndex <= 1
-				? flagIndex
-				: 1 << (flagIndex - 1)
-		)
+		self.init( rawValue: 1 << (flagIndex - 1) )
 	}
 }

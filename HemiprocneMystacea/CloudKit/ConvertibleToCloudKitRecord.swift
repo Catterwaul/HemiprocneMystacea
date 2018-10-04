@@ -48,9 +48,7 @@ public extension CKRecord {
 	convenience init<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(
 		_ convertibleToCloudKitRecord: ConvertibleToCloudKitRecord
 	) {
-		self.init(
-			recordType: String(describing: ConvertibleToCloudKitRecord.self)
-		)
+		self.init(recordType: "\(ConvertibleToCloudKitRecord.self)")
 		synchronize(convertibleToCloudKitRecord)
 	}
   
