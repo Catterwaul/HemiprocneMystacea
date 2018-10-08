@@ -200,6 +200,9 @@
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
 		49E5253B1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */; };
 		49E5253C1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */; };
+		49ED974D216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */; };
+		49ED974E216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */; };
+		49ED9750216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */; };
 		49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
 		49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
 		49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
@@ -344,6 +347,8 @@
 		49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortedArrayTestCase.swift; path = Swift/SortedArrayTestCase.swift; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenter.swift; path = HemiprocneMystacea/UserNotifications/UNUserNotificationCenter.swift; sourceTree = "<group>"; };
+		49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBy2Tuple.swift; sourceTree = "<group>"; };
+		49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBy2TupleTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
 		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
 		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
@@ -500,6 +505,7 @@
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
 				49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */,
+				49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */,
 				499C71951D0F8079009797BC /* MakeGetTestCase.swift */,
 				498D20CC1F9154CF00AB6829 /* ModelNotAssignedErrorTestCase.swift */,
 				49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */,
@@ -692,6 +698,7 @@
 				E3BE340A1D0EF2A0008D532C /* weakClosure.swift */,
 				49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */,
 				49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */,
+				49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */,
 				496D9DE920D80DFC0021A48C /* Half.swift */,
 				49CBE0881C332ADE00E8EFCC /* HashableClass.swift */,
 				49BF898F1C38C8FD0050A49B /* InitializableWithParameters.swift */,
@@ -1026,6 +1033,7 @@
 				493DB0D21E520FF000E16694 /* Mirror.swift in Sources */,
 				496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
+				49ED974E216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */,
 				498D20D01F91576000AB6829 /* Array.swift in Sources */,
 				498D20CB1F91548500AB6829 /* ModelNotAssignedError.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSet.swift in Sources */,
@@ -1146,6 +1154,7 @@
 				49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */,
 				49AB16F21EF2440A009868AB /* FixedWidthInteger.swift in Sources */,
 				49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
+				49ED974D216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */,
 				499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */,
 				49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */,
 				E348A4371D08C1B0003D8024 /* getMethod.swift in Sources */,
@@ -1195,6 +1204,7 @@
 				49397DF51E537EEC0052B783 /* EnumeratedSequenceTestCase.swift in Sources */,
 				4969F4501E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift in Sources */,
 				4942EA5E1E81A3CA0085595C /* XCTestCase.swift in Sources */,
+				49ED9750216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift in Sources */,
 				49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */,
 				497F569A1E3C52690066CD1E /* UIColorTestCase.swift in Sources */,
 				4975C1131F0256C800C89E52 /* CollectionTestCase.swift in Sources */,
