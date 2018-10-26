@@ -1,7 +1,7 @@
 import HM
 import XCTest
 
-final class CGFloat2TestCAse: XCTestCase {
+final class CGFloat2TestCase: XCTestCase {
   func test_add() {
     var sum =
       CGSize(width: 1, height: 2)

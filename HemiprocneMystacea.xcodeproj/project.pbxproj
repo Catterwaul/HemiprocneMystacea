@@ -76,7 +76,7 @@
 		495606CC1E4DB4C8004C7FA0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495606CA1E4DB4C8004C7FA0 /* Data.swift */; };
 		496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
 		496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496563B71DB65C31002B7623 /* keyValueSubscript.swift */; };
-		4966E4CF1E3C5AA300199496 /* CGFloat2TestCAse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E4CE1E3C5AA300199496 /* CGFloat2TestCAse.swift */; };
+		4966E4CF1E3C5AA300199496 /* CGFloat2TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E4CE1E3C5AA300199496 /* CGFloat2TestCase.swift */; };
 		4966E4D11E3C5C0700199496 /* CALayerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4966E4D01E3C5C0700199496 /* CALayerTestCase.swift */; };
 		4969F44B1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
 		4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */; };
@@ -247,7 +247,7 @@
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		495606CA1E4DB4C8004C7FA0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		496563B71DB65C31002B7623 /* keyValueSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyValueSubscript.swift; sourceTree = "<group>"; };
-		4966E4CE1E3C5AA300199496 /* CGFloat2TestCAse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGFloat2TestCAse.swift; path = "Core Graphics/CGFloat2TestCAse.swift"; sourceTree = "<group>"; };
+		4966E4CE1E3C5AA300199496 /* CGFloat2TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGFloat2TestCase.swift; path = "Core Graphics/CGFloat2TestCase.swift"; sourceTree = "<group>"; };
 		4966E4D01E3C5C0700199496 /* CALayerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CALayerTestCase.swift; path = QuartzCore/CALayerTestCase.swift; sourceTree = "<group>"; };
 		4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
 		4969F44D1E0E40D40005A4FA /* IndexPathTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathTestCase.swift; path = Foundation/IndexPathTestCase.swift; sourceTree = "<group>"; };
@@ -421,6 +421,14 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
+		492026742182E1D1002551CC /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				49A4861B1D09132500A55CCD /* CGRectTestCase.swift */,
+			);
+			name = extension;
+			sourceTree = "<group>";
+		};
 		492CE34B20B095CD00BEE6AD /* Metal */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,8 +477,8 @@
 		499C71901D0F761B009797BC /* Core Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				4966E4CE1E3C5AA300199496 /* CGFloat2TestCAse.swift */,
-				49A4861B1D09132500A55CCD /* CGRectTestCase.swift */,
+				492026742182E1D1002551CC /* extension */,
+				4966E4CE1E3C5AA300199496 /* CGFloat2TestCase.swift */,
 			);
 			name = "Core Graphics";
 			sourceTree = "<group>";
@@ -1192,7 +1200,7 @@
 				4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */,
 				49FCA3A71E3758650018B5EF /* UICollectionViewTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
-				4966E4CF1E3C5AA300199496 /* CGFloat2TestCAse.swift in Sources */,
+				4966E4CF1E3C5AA300199496 /* CGFloat2TestCase.swift in Sources */,
 				499D69851E6902C0004F30F2 /* UIViewController.swift in Sources */,
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
