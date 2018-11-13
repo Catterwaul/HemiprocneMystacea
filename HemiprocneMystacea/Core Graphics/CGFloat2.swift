@@ -34,7 +34,7 @@ public extension CGFloat2 {
   }
 
   static func / (float2: Self, float: CGFloat) -> Self {
-    return Self( double2(float2) / Double(float) )
+    return Self(double2(float2) / float.native)
   }
 
   init<Float2: CGFloat2>(_ float2: Float2) {
