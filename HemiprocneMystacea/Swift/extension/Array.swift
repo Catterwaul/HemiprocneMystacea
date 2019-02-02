@@ -25,32 +25,25 @@ public extension Array {
   }
 }
 
-public extension Array where Element: Hashable {
-  var permutations: Permutations<Element> {
-    return Permutations(self)
-  }
-}
-
-public struct Permutations<Element>: Sequence, IteratorProtocol {
-  private let array: [Element]
-  private var permutation: [Element]!
+public struct Permutations<Collection: Swift.Collection>: Sequence, IteratorProtocol {
+  private let collection: Collection
   private var iteration = 0
 
-  init(_ array: [Element]) {
-    self.array = array
+  public init(_ collection: Collection) {
+    self.collection = collection
   }
 
-  public mutating func next() -> [Element]? {
-    guard iteration < array.count.factorial
+  public mutating func next() -> [Collection.Element]? {
+    guard iteration < collection.count.factorial
     else { return nil }
 
     defer { iteration += 1 }
 
-    var permutation = array
-    for index in array.indices {
+    var permutation = Array(collection)
+    for index in 0..<collection.count {
       let shift =
-        iteration / (array.count - 1 - index).factorial
-        % (array.count - index)
+        iteration / (collection.count - 1 - index).factorial
+        % (collection.count - index)
       permutation.replaceSubrange(
         index...,
         with: permutation.dropFirst(index).shifted(by: shift)

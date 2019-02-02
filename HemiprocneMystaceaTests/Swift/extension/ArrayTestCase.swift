@@ -4,7 +4,7 @@ import XCTest
 final class ArrayTestCase: XCTestCase {
   func test_permutations() {
     XCTAssertEqual(
-      Array([0, 1, 2, 3].permutations),
+      Array(Permutations([0, 1, 2, 3])),
       [ [0, 1, 2, 3],
         [0, 1, 3, 2],
         [0, 2, 3, 1],
@@ -36,7 +36,7 @@ final class ArrayTestCase: XCTestCase {
     )
 
     XCTAssertEqual(
-      Array(["A", "B", "C"].permutations),
+      Array( Permutations(["A", "B", "C"]) ),
       [ ["A", "B", "C"],
         ["A", "C", "B"],
 
@@ -49,9 +49,7 @@ final class ArrayTestCase: XCTestCase {
     )
 
     XCTAssertEqual(
-      Array("❤️💛💚💙💜").permutations.map {
-        String($0)
-      },
+      Permutations("❤️💛💚💙💜").map { String($0) },
       [ "❤️💛💚💙💜",
         "❤️💛💚💜💙",
         "❤️💛💙💜💚",
