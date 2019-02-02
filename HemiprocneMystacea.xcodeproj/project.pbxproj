@@ -950,9 +950,9 @@
 			projectRoot = "";
 			targets = (
 				49CBDFF01C3329EF00E8EFCC /* HemiprocneMystacea */,
-				49CBDFFA1C3329EF00E8EFCC /* HemiprocneMystaceaTests */,
 				0A72FC201D4081580041845B /* HemiprocneMystaceaTV */,
 				4942EA511E81A2B00085595C /* HemiprocneMystaceaTest */,
+				49CBDFFA1C3329EF00E8EFCC /* HemiprocneMystaceaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1504,7 +1504,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HemiprocneMystaceaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1519,7 +1519,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HemiprocneMystaceaTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
