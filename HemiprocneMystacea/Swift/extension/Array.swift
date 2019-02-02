@@ -24,3 +24,38 @@ public extension Array {
     return self[index]
   }
 }
+
+public extension Array where Element: Hashable {
+  var permutations: Permutations<Element> {
+    return Permutations(self)
+  }
+}
+
+public struct Permutations<Element>: Sequence, IteratorProtocol {
+  private let array: [Element]
+  private var permutation: [Element]!
+  private var iteration = 0
+
+  init(_ array: [Element]) {
+    self.array = array
+  }
+
+  public mutating func next() -> [Element]? {
+    guard iteration < array.count.factorial
+    else { return nil }
+
+    defer { iteration += 1 }
+
+    var permutation = array
+    for index in array.indices {
+      let shift =
+        iteration / (array.count - 1 - index).factorial
+        % (array.count - index)
+      permutation.replaceSubrange(
+        index...,
+        with: permutation.dropFirst(index).shifted(by: shift)
+      )
+    }
+    return permutation
+  }
+}
