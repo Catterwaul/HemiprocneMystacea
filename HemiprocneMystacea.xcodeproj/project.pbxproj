@@ -47,6 +47,8 @@
 		0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */; };
 		490BFFB11E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */; };
+		490CC592220550F100AD5771 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC591220550F100AD5771 /* Int.swift */; };
+		490CC593220550F100AD5771 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC591220550F100AD5771 /* Int.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		4914E0F81FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
 		4914E0F91FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
@@ -230,6 +232,7 @@
 		0A72FC241D4081580041845B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenterTestCase.swift; path = UserNotifications/UNUserNotificationCenterTestCase.swift; sourceTree = "<group>"; };
+		490CC591220550F100AD5771 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4914E0F71FC5C66600434173 /* CKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKContainer.swift; sourceTree = "<group>"; };
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
@@ -539,6 +542,7 @@
 				49B182D31C33807000529B08 /* Dictionary.swift */,
 				49397DF11E534ED50052B783 /* EnumeratedSequence.swift */,
 				49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */,
+				490CC591220550F100AD5771 /* Int.swift */,
 				49A3AEDD2151D2E700C01F22 /* MemoryLayout.swift */,
 				493DB0D01E520FF000E16694 /* Mirror.swift */,
 				49AB16EB1EF23A92009868AB /* Numeric.swift */,
@@ -1043,6 +1047,7 @@
 				493DB0D21E520FF000E16694 /* Mirror.swift in Sources */,
 				496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
+				490CC593220550F100AD5771 /* Int.swift in Sources */,
 				49ED974E216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */,
 				498D20D01F91576000AB6829 /* Array.swift in Sources */,
 				498D20CB1F91548500AB6829 /* ModelNotAssignedError.swift in Sources */,
@@ -1175,6 +1180,7 @@
 				49FD14F41CD91C070067F27E /* CABasicAnimation.Values.swift in Sources */,
 				49CBE0C41C332ADE00E8EFCC /* Referencers.swift in Sources */,
 				498F6CC61D3EBA20006534BF /* ConvertibleToSerializableDictionary.swift in Sources */,
+				490CC592220550F100AD5771 /* Int.swift in Sources */,
 				4993AD331DD99155007C7525 /* named subscripts.swift in Sources */,
 				49AE8BD320D89BF300EFE687 /* BinaryFloatingPoint.swift in Sources */,
 				496563B81DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
