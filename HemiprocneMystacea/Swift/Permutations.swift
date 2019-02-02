@@ -14,19 +14,14 @@ public struct Permutations<Sequence: Swift.Sequence>: Swift.Sequence, IteratorPr
 
     defer { iteration += 1 }
 
-    var permutation = array
-    for index in array.indices {
+    return array.indices.reduce(into: array) { permutation, index in
+      let shift =
+        iteration / (array.count - 1 - index).factorial
+        % (array.count - index)
       permutation.replaceSubrange(
         index...,
-        with:
-          permutation.dropFirst(index)
-          .shifted(
-            by:
-              iteration / (array.count - 1 - index).factorial
-              % (array.count - index)
-          )
+        with: permutation.dropFirst(index).shifted(by: shift)
       )
     }
-    return permutation
   }
 }
