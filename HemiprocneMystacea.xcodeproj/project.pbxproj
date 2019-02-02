@@ -51,6 +51,7 @@
 		490CC593220550F100AD5771 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC591220550F100AD5771 /* Int.swift */; };
 		490CC595220629D300AD5771 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC594220629D300AD5771 /* Permutations.swift */; };
 		490CC596220629D300AD5771 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC594220629D300AD5771 /* Permutations.swift */; };
+		490CC59822062A5900AD5771 /* PermutationsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC59722062A5900AD5771 /* PermutationsTestCase.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		4914E0F81FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
 		4914E0F91FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
@@ -236,6 +237,7 @@
 		490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenterTestCase.swift; path = UserNotifications/UNUserNotificationCenterTestCase.swift; sourceTree = "<group>"; };
 		490CC591220550F100AD5771 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		490CC594220629D300AD5771 /* Permutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Permutations.swift; path = HemiprocneMystacea/Swift/Permutations.swift; sourceTree = SOURCE_ROOT; };
+		490CC59722062A5900AD5771 /* PermutationsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PermutationsTestCase.swift; path = Swift/PermutationsTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4914E0F71FC5C66600434173 /* CKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKContainer.swift; sourceTree = "<group>"; };
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				498D20CC1F9154CF00AB6829 /* ModelNotAssignedErrorTestCase.swift */,
 				49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */,
 				4969F44F1E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift */,
+				490CC59722062A5900AD5771 /* PermutationsTestCase.swift */,
 				4966B0D6218837C700F6019D /* ProcessTestCase.swift */,
 				49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */,
 				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
@@ -1246,6 +1249,7 @@
 				49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */,
 				4966E4D11E3C5C0700199496 /* CALayerTestCase.swift in Sources */,
+				490CC59822062A5900AD5771 /* PermutationsTestCase.swift in Sources */,
 				497EFE901DB6476E00DEC825 /* RawRepresentableTestCase.swift in Sources */,
 				496D9DED20D827280021A48C /* Half.swift in Sources */,
 				498D20CD1F9154CF00AB6829 /* ModelNotAssignedErrorTestCase.swift in Sources */,
