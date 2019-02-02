@@ -24,31 +24,3 @@ public extension Array {
     return self[index]
   }
 }
-
-public struct Permutations<Collection: Swift.Collection>: Sequence, IteratorProtocol {
-  private let collection: Collection
-  private var iteration = 0
-
-  public init(_ collection: Collection) {
-    self.collection = collection
-  }
-
-  public mutating func next() -> [Collection.Element]? {
-    guard iteration < collection.count.factorial
-    else { return nil }
-
-    defer { iteration += 1 }
-
-    var permutation = Array(collection)
-    for index in 0..<collection.count {
-      let shift =
-        iteration / (collection.count - 1 - index).factorial
-        % (collection.count - index)
-      permutation.replaceSubrange(
-        index...,
-        with: permutation.dropFirst(index).shifted(by: shift)
-      )
-    }
-    return permutation
-  }
-}

@@ -49,6 +49,8 @@
 		490BFFB11E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */; };
 		490CC592220550F100AD5771 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC591220550F100AD5771 /* Int.swift */; };
 		490CC593220550F100AD5771 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC591220550F100AD5771 /* Int.swift */; };
+		490CC595220629D300AD5771 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC594220629D300AD5771 /* Permutations.swift */; };
+		490CC596220629D300AD5771 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC594220629D300AD5771 /* Permutations.swift */; };
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		4914E0F81FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
 		4914E0F91FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
@@ -233,6 +235,7 @@
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
 		490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenterTestCase.swift; path = UserNotifications/UNUserNotificationCenterTestCase.swift; sourceTree = "<group>"; };
 		490CC591220550F100AD5771 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		490CC594220629D300AD5771 /* Permutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Permutations.swift; path = HemiprocneMystacea/Swift/Permutations.swift; sourceTree = SOURCE_ROOT; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4914E0F71FC5C66600434173 /* CKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKContainer.swift; sourceTree = "<group>"; };
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
@@ -718,6 +721,7 @@
 				49BF898F1C38C8FD0050A49B /* InitializableWithParameters.swift */,
 				498D20C91F91548500AB6829 /* ModelNotAssignedError.swift */,
 				49CBE08C1C332ADE00E8EFCC /* MultiClosure.swift */,
+				490CC594220629D300AD5771 /* Permutations.swift */,
 				4966B0D3218836C600F6019D /* Process.swift */,
 				49CBE0941C332ADE00E8EFCC /* Referencers.swift */,
 				493AD8821E4AB3D200A30593 /* SortedArray.swift */,
@@ -1052,6 +1056,7 @@
 				498D20D01F91576000AB6829 /* Array.swift in Sources */,
 				498D20CB1F91548500AB6829 /* ModelNotAssignedError.swift in Sources */,
 				0A72FC4D1D40819D0041845B /* OptionSet.swift in Sources */,
+				490CC596220629D300AD5771 /* Permutations.swift in Sources */,
 				49C526E31DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				0A72FC581D40819D0041845B /* ObservedProperty.swift in Sources */,
 				49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
@@ -1160,6 +1165,7 @@
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */,
 				4966B0D4218836C600F6019D /* Process.swift in Sources */,
+				490CC595220629D300AD5771 /* Permutations.swift in Sources */,
 				49DDB4A41E4ACFD300D21AD8 /* BackedByArray.swift in Sources */,
 				49E5253B1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */,
 				E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */,
