@@ -1,7 +1,7 @@
 import UIKit
 
 public extension UIColor {
-	public struct HSBA {
+  struct HSBA {
  		public var hue: CGFloat
 		public var saturation: CGFloat
 		public var brightness: CGFloat

@@ -1,7 +1,7 @@
 import QuartzCore
 
 public extension CABasicAnimation {
-	public struct Values {
+  struct Values {
 		public init<Interpolable>(
 			from: Interpolable,
 			to: Interpolable

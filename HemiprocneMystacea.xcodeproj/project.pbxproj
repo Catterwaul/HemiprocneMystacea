@@ -197,8 +197,6 @@
 		49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */; };
 		49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */; };
 		49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBA1E21CD940BF0058181A /* UIAlertAction.swift */; };
-		49DDB4A41E4ACFD300D21AD8 /* BackedByArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */; };
-		49DDB4A51E4ACFD300D21AD8 /* BackedByArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */; };
 		49DDB4A71E4ADE1000D21AD8 /* BackedByArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */; };
 		49E0DC131E4AC08F0093E75F /* SortedArrayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */; };
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
@@ -347,7 +345,6 @@
 		49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPageViewControllerDataSourceWithConnections.swift; sourceTree = "<group>"; };
 		49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		49DBA1E21CD940BF0058181A /* UIAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
-		49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackedByArray.swift; sourceTree = "<group>"; };
 		49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackedByArrayTestCase.swift; path = Swift/BackedByArrayTestCase.swift; sourceTree = "<group>"; };
 		49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortedArrayTestCase.swift; path = Swift/SortedArrayTestCase.swift; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
@@ -716,7 +713,6 @@
 				4993AD321DD99155007C7525 /* named subscripts.swift */,
 				49A1982D1D62B358005C251A /* typealiases.swift */,
 				E3BE340A1D0EF2A0008D532C /* weakClosure.swift */,
-				49DDB4A31E4ACFD200D21AD8 /* BackedByArray.swift */,
 				49CBE0871C332ADE00E8EFCC /* EquatableClass.swift */,
 				49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */,
 				496D9DE920D80DFC0021A48C /* Half.swift */,
@@ -940,11 +936,11 @@
 					};
 					49CBDFF01C3329EF00E8EFCC = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 					};
 					49CBDFFA1C3329EF00E8EFCC = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -954,6 +950,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 49CBDFE71C3329EF00E8EFCC;
 			productRefGroup = 49CBDFF21C3329EF00E8EFCC /* Products */;
@@ -1099,7 +1096,6 @@
 				497F569D1E3C55B50066CD1E /* CGFloat2.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
 				492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
-				49DDB4A51E4ACFD300D21AD8 /* BackedByArray.swift in Sources */,
 				0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */,
 				494A99391E37253400F6A51D /* UICollectionView.swift in Sources */,
 				497EFE8E1DB6472700DEC825 /* RawRepresentable.swift in Sources */,
@@ -1169,7 +1165,6 @@
 				49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */,
 				4966B0D4218836C600F6019D /* Process.swift in Sources */,
 				490CC595220629D300AD5771 /* Permutations.swift in Sources */,
-				49DDB4A41E4ACFD300D21AD8 /* BackedByArray.swift in Sources */,
 				49E5253B1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */,
 				E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */,
@@ -1489,8 +1484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystacea;
 				PRODUCT_NAME = HM;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1510,8 +1504,7 @@
 				PRODUCT_NAME = HM;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1525,8 +1518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1540,8 +1532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.catterwaul.HemiprocneMystaceaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

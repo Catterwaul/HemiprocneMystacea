@@ -24,7 +24,7 @@ public extension ViewControllerWithDependentOutlets  {
   /// - Returns: The initial value for `respondToOutletDependencies`,
   /// which assigns `inject(outletDependencies:)` to `respondToViewDidLoad`,
   /// using the `outletDependencies` argument.
-  mutating func assignInjectToRespondToViewDidLoad(outletDependencies: OutletDependencies) {
+  func assignInjectToRespondToViewDidLoad(outletDependencies: OutletDependencies) {
     respondToViewDidLoad = { [unowned self] in
       self.inject(outletDependencies: outletDependencies)
     }
@@ -35,7 +35,7 @@ public extension ViewControllerWithDependentOutlets  {
   ///	1. Calls `respondToViewDidLoad`.
   ///	2. Sets `respondToViewDidLoad` to `nil`.
   /// * Sets `respondToOutletDependencies` to `inject(outletDependencies:)`
-  mutating func ViewControllerWithDependentOutlets_viewDidLoad() {
+  func ViewControllerWithDependentOutlets_viewDidLoad() {
     if let respondToViewDidLoad = respondToViewDidLoad {
       respondToViewDidLoad()
       self.respondToViewDidLoad = nil

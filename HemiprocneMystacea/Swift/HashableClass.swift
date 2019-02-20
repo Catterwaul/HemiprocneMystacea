@@ -1,7 +1,7 @@
 public protocol HashableClass: EquatableClass, Hashable { }
 
 public extension HashableClass {
-  var hashValue: Int {
-    return ObjectIdentifier(self).hashValue
+  func hash(into hasher: inout Hasher) {
+    hasher.combine( ObjectIdentifier(self) )
   }
 }
