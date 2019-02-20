@@ -43,7 +43,7 @@ private extension UIPageViewController.ConnectedViewControllers {
   ) -> UIViewController? {
     guard
       let requestedIndex = (
-        connectedViewControllers.index(of: viewController)
+        connectedViewControllers.firstIndex(of: viewController)
         .map { adjustIndex($0, 1) }
       ),
       connectedViewControllers.indices.contains(requestedIndex)
