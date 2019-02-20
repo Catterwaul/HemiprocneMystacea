@@ -9,14 +9,14 @@ public struct Permutations<Sequence: Swift.Sequence>: Swift.Sequence, IteratorPr
   }
 
   public mutating func next() -> Array? {
-    guard iteration < array.count.factorial
+    guard iteration < array.count.factorial!
     else { return nil }
 
     defer { iteration += 1 }
 
     return array.indices.reduce(into: array) { permutation, index in
       let shift =
-        iteration / (array.count - 1 - index).factorial
+        iteration / (array.count - 1 - index).factorial!
         % (array.count - index)
       permutation.replaceSubrange(
         index...,
