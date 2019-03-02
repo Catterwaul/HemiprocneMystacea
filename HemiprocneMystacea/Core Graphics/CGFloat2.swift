@@ -86,7 +86,7 @@ extension CGSize: CGFloat2 {
   }
 }
 
-extension double2 {
+public extension double2 {
   init<Float2: CGFloat2>(_ float2: Float2) {
     self.init(x: float2.x, y: float2.y)
   }
