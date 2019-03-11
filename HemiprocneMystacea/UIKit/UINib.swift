@@ -27,13 +27,13 @@ public extension UINib {
 ///          subview = addSubview()
 ///        }
 ///      }
-protocol NibSuperview where Self: UIView {
+public protocol NibSuperview where Self: UIView {
   associatedtype Subview: UIView
 
   var subview: Subview! { get }
 }
 
-extension NibSuperview {
+public extension NibSuperview {
   func addSubview() -> Subview {
     let subview: Subview = UINib.instantiate()!
     subview.translatesAutoresizingMaskIntoConstraints = false
