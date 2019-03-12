@@ -137,6 +137,9 @@
 		499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
 		499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */; };
 		499D69851E6902C0004F30F2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499D69841E6902C0004F30F2 /* UIViewController.swift */; };
+		499F744922382F07006AA0A4 /* CaseIterableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499F744822382F07006AA0A4 /* CaseIterableTestCase.swift */; };
+		499F744B2238423B006AA0A4 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499F744A2238423B006AA0A4 /* CaseIterable.swift */; };
+		499F744C2238423B006AA0A4 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499F744A2238423B006AA0A4 /* CaseIterable.swift */; };
 		49A1982E1D62B358005C251A /* typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A1982D1D62B358005C251A /* typealiases.swift */; };
 		49A1982F1D62B358005C251A /* typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A1982D1D62B358005C251A /* typealiases.swift */; };
 		49A36BDA1D407C6200A4BFEB /* CKDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A36BD91D407C6200A4BFEB /* CKDatabase.swift */; };
@@ -293,6 +296,8 @@
 		499C71951D0F8079009797BC /* MakeGetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MakeGetTestCase.swift; path = Swift/MakeGetTestCase.swift; sourceTree = "<group>"; };
 		499CA3371D4BE4660049F0AB /* CKFetchRecordsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKFetchRecordsOperation.swift; sourceTree = "<group>"; };
 		499D69841E6902C0004F30F2 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = UIKit/UIViewController.swift; sourceTree = "<group>"; };
+		499F744822382F07006AA0A4 /* CaseIterableTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterableTestCase.swift; sourceTree = "<group>"; };
+		499F744A2238423B006AA0A4 /* CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterable.swift; sourceTree = "<group>"; };
 		49A1982D1D62B358005C251A /* typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typealiases.swift; sourceTree = "<group>"; };
 		49A36BD91D407C6200A4BFEB /* CKDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKDatabase.swift; sourceTree = "<group>"; };
 		49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithCloudKitRecord.swift; sourceTree = "<group>"; };
@@ -553,6 +558,7 @@
 				497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */,
 				49B182D71C33807000529B08 /* Sequence.swift */,
 				49B182DA1C33807000529B08 /* String.swift */,
+				499F744A2238423B006AA0A4 /* CaseIterable.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				498D20D11F91588200AB6829 /* ArrayTestCase.swift */,
 				49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */,
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
+				499F744822382F07006AA0A4 /* CaseIterableTestCase.swift */,
 				4975C1121F0256C800C89E52 /* CollectionTestCase.swift */,
 				4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */,
 				49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */,
@@ -1084,6 +1091,7 @@
 				49AE8BD420D89BF300EFE687 /* BinaryFloatingPoint.swift in Sources */,
 				0A72FC3A1D40819D0041845B /* CKRecord.swift in Sources */,
 				0A72FC511D40819D0041845B /* String.swift in Sources */,
+				499F744C2238423B006AA0A4 /* CaseIterable.swift in Sources */,
 				0A72FC391D40819D0041845B /* CKDatabase.swift in Sources */,
 				496D9DEB20D80DFC0021A48C /* Half.swift in Sources */,
 				49AC701F1E4761E500342DB3 /* PropertyListSerialization.swift in Sources */,
@@ -1131,6 +1139,7 @@
 				49B182E01C33807000529B08 /* OptionSet.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
 				49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */,
+				499F744B2238423B006AA0A4 /* CaseIterable.swift in Sources */,
 				49A1982E1D62B358005C251A /* typealiases.swift in Sources */,
 				E348A4391D08CB03003D8024 /* ObservedProperty.swift in Sources */,
 				498D20CF1F91576000AB6829 /* Array.swift in Sources */,
@@ -1211,6 +1220,7 @@
 				49C4343C1C35E10900B6C530 /* PropertiesTestCase.swift in Sources */,
 				49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */,
 				4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */,
+				499F744922382F07006AA0A4 /* CaseIterableTestCase.swift in Sources */,
 				49FCA3A71E3758650018B5EF /* UICollectionViewTestCase.swift in Sources */,
 				49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */,
 				4966E4CF1E3C5AA300199496 /* CGFloat2TestCase.swift in Sources */,
