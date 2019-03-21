@@ -16,4 +16,14 @@ final class CALayerTestCase: XCTestCase {
 			"transform.translation"
 		)
 	}
+
+  func test_getSublayers() {
+    let layer = CALayer()
+    XCTAssertNil(layer.getSublayers())
+
+    final class Sublayer: CALayer { }
+
+    layer.addSublayer( Sublayer() )
+    XCTAssertNotNil(layer.getSublayer() as? Sublayer)
+  }
 }
