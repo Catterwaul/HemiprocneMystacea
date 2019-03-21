@@ -4,13 +4,15 @@ public extension CALayer {
   enum KeyPath { }
 
   /// - Returns: all sublayers of type `Layer`
-  func getSublayers<Layer: CALayer>() -> [Layer]? {
-    return sublayers?.compactMap { $0 as? Layer }
+  func getSublayers<Layer: CALayer>() -> [Layer] {
+    return
+      sublayers?.compactMap { $0 as? Layer }
+      ?? []
   }
 
   /// - Returns: the first sublayer of type `Layer`
   func getSublayer<Layer: CALayer>() -> Layer? {
-    return getSublayers()?.first
+    return getSublayers().first
   }
 }
 

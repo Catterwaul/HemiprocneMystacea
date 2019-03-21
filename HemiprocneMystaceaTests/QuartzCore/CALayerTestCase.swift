@@ -19,7 +19,7 @@ final class CALayerTestCase: XCTestCase {
 
   func test_getSublayers() {
     let layer = CALayer()
-    XCTAssertNil(layer.getSublayers())
+    XCTAssertEqual(layer.getSublayers(), [])
 
     final class Sublayer: CALayer { }
 

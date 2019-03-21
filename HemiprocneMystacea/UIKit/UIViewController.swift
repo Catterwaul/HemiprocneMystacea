@@ -14,6 +14,17 @@ public extension UIViewController {
     return storyboard.instantiateInitialViewController() as? ViewController
   }
 
+
+  /// - Returns: all children of type `ViewController`
+  func getChildren<ViewController: UIViewController>() -> [ViewController] {
+    return children.compactMap { $0 as? ViewController }
+  }
+
+  /// - Returns: the first child of type `ViewController`
+  func getChild<ViewController: UIViewController>() -> ViewController? {
+    return getChildren().first
+  }
+
   
 	final func presentActionSheet(
 		title: String? = nil,

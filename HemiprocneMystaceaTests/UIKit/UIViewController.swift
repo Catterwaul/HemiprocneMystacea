@@ -9,4 +9,14 @@ final class UIViewControllerTestCase: XCTestCase {
 //    _ = ViewController.instantiate()
 //    let viewController: ViewController? = .instantiate()
   }
+
+  func test_getChildren() {
+    let parent = UIViewController()
+    XCTAssertEqual(parent.getChildren(), [])
+
+    final class Child: UIViewController { }
+
+    parent.addChild( Child() )
+    XCTAssertNotNil(parent.getChild() as? Child)
+  }
 }
