@@ -2,11 +2,6 @@ import HM
 import XCTest
 
 final class IntegersTestCase: XCTestCase {
-	func test_divisible() {
-		XCTAssertTrue( 4.divisible(divisor: 2) )
-		XCTAssertFalse( 33.divisible(divisor: 8) )
-	}
-
   func test_factorial() {
     XCTAssertEqual(0.factorial, 1)
     XCTAssertEqual(4.factorial, 24)

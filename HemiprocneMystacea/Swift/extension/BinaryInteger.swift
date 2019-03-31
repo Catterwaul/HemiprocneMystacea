@@ -1,10 +1,3 @@
-public extension BinaryInteger {
-  /// *Divisbility*: when division by `divisor` results in a whole number.
-  func divisible(divisor: Self) -> Bool {
-    return self % divisor == 0
-  }
-}
-
 public extension BinaryInteger where Stride: SignedInteger  {
   /// - Note: `nil` for negative numbers
   var factorial: Self? {
