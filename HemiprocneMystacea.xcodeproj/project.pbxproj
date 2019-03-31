@@ -53,6 +53,9 @@
 		491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		4914E0F81FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
 		4914E0F91FC5C66600434173 /* CKContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4914E0F71FC5C66600434173 /* CKContainer.swift */; };
+		4923BF0722504D0200FA8916 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4923BF0622504D0200FA8916 /* UIView.swift */; };
+		4923BF0922504D7400FA8916 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4923BF0822504D7400FA8916 /* UIView.swift */; };
+		4923BF0A22504D7400FA8916 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4923BF0822504D7400FA8916 /* UIView.swift */; };
 		492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
 		492404E61E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */; };
 		492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */; };
@@ -240,6 +243,8 @@
 		490CC59722062A5900AD5771 /* PermutationsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PermutationsTestCase.swift; path = Swift/PermutationsTestCase.swift; sourceTree = "<group>"; };
 		491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		4914E0F71FC5C66600434173 /* CKContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKContainer.swift; sourceTree = "<group>"; };
+		4923BF0622504D0200FA8916 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		4923BF0822504D7400FA8916 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		492404E41E39D438005BD973 /* CloudKitBackReferencer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferencer.swift; sourceTree = "<group>"; };
 		492404E71E39F0E9005BD973 /* CloudKitBackReferenced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitBackReferenced.swift; sourceTree = "<group>"; };
 		492CE34820B095C800BEE6AD /* MTLDeviceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTLDeviceError.swift; sourceTree = "<group>"; };
@@ -751,6 +756,7 @@
 				49589BE422359FD800BE990D /* UINib.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
 				494A993A1E37261800F6A51D /* UITableView.swift */,
+				4923BF0822504D7400FA8916 /* UIView.swift */,
 				49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */,
 			);
 			path = UIKit;
@@ -764,6 +770,7 @@
 				497F56991E3C52690066CD1E /* UIColorTestCase.swift */,
 				497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */,
 				49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */,
+				4923BF0622504D0200FA8916 /* UIView.swift */,
 				499D69841E6902C0004F30F2 /* UIViewController.swift */,
 			);
 			name = UIKit;
@@ -1026,6 +1033,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4923BF0A22504D7400FA8916 /* UIView.swift in Sources */,
 				49A1982F1D62B358005C251A /* typealiases.swift in Sources */,
 				0A72FC561D40819D0041845B /* Property.swift in Sources */,
 				49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */,
@@ -1174,6 +1182,7 @@
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */,
 				4966B0D4218836C600F6019D /* Process.swift in Sources */,
+				4923BF0922504D7400FA8916 /* UIView.swift in Sources */,
 				490CC595220629D300AD5771 /* Permutations.swift in Sources */,
 				49E5253B1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */,
 				E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */,
@@ -1228,6 +1237,7 @@
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
 				4966B0D7218837C700F6019D /* ProcessTestCase.swift in Sources */,
+				4923BF0722504D0200FA8916 /* UIView.swift in Sources */,
 				49E0DC131E4AC08F0093E75F /* SortedArrayTestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */,
