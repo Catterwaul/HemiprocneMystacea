@@ -16,7 +16,7 @@ public extension NamedGetOnlySubscript {
   
   subscript<Indices: Sequence>(indices: Indices) -> [Value]
   where Indices.Element == Index {
-    return indices.map{ self[$0] }
+    return indices.map { self[$0] }
   }
   
   subscript(indices: Index...) -> [Value] {
