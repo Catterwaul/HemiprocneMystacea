@@ -208,6 +208,9 @@
 		49E4AD121C45ABD4007BCBA5 /* UIButtonTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */; };
 		49E5253B1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */; };
 		49E5253C1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */; };
+		49E9A2922253BB87002340EE /* GCControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E9A2912253BB87002340EE /* GCControllerTestCase.swift */; };
+		49E9A2952253BDA0002340EE /* GCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E9A2942253BDA0002340EE /* GCController.swift */; };
+		49E9A2962253BDA0002340EE /* GCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E9A2942253BDA0002340EE /* GCController.swift */; };
 		49ED974D216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */; };
 		49ED974E216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */; };
 		49ED9750216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */; };
@@ -359,6 +362,8 @@
 		49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortedArrayTestCase.swift; path = Swift/SortedArrayTestCase.swift; sourceTree = "<group>"; };
 		49E4AD111C45ABD4007BCBA5 /* UIButtonTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIButtonTestCase.swift; path = UIKit/UIButtonTestCase.swift; sourceTree = "<group>"; };
 		49E5253A1E5E94480080E2CC /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenter.swift; path = HemiprocneMystacea/UserNotifications/UNUserNotificationCenter.swift; sourceTree = "<group>"; };
+		49E9A2912253BB87002340EE /* GCControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCControllerTestCase.swift; sourceTree = "<group>"; };
+		49E9A2942253BDA0002340EE /* GCController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCController.swift; sourceTree = "<group>"; };
 		49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBy2Tuple.swift; sourceTree = "<group>"; };
 		49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBy2TupleTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
@@ -665,6 +670,7 @@
 				49CBE0701C332ADE00E8EFCC /* Contacts */,
 				E348A4311D08C08B003D8024 /* Core Graphics */,
 				49CBE0791C332ADE00E8EFCC /* Foundation */,
+				49E9A2972253BDA6002340EE /* GameController */,
 				492CE34B20B095CD00BEE6AD /* Metal */,
 				49FD14EF1CD91A240067F27E /* QuartzCore */,
 				49CBE07F1C332ADE00E8EFCC /* Swift */,
@@ -682,6 +688,7 @@
 				49C526E51DB6DA1D0036B020 /* CloudKit */,
 				499C71901D0F761B009797BC /* Core Graphics */,
 				49C4346C1C375BB400B6C530 /* Foundation */,
+				49E9A2932253BB8D002340EE /* GameController */,
 				49FD14F51CD91D1F0067F27E /* QuartzCore */,
 				49B182CF1C337D6800529B08 /* Swift */,
 				49E4AD131C45ABDC007BCBA5 /* UIKit */,
@@ -783,6 +790,22 @@
 			);
 			name = UserNotifications;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		49E9A2932253BB8D002340EE /* GameController */ = {
+			isa = PBXGroup;
+			children = (
+				49E9A2912253BB87002340EE /* GCControllerTestCase.swift */,
+			);
+			path = GameController;
+			sourceTree = "<group>";
+		};
+		49E9A2972253BDA6002340EE /* GameController */ = {
+			isa = PBXGroup;
+			children = (
+				49E9A2942253BDA0002340EE /* GCController.swift */,
+			);
+			path = GameController;
 			sourceTree = "<group>";
 		};
 		49FD14EF1CD91A240067F27E /* QuartzCore */ = {
@@ -1064,6 +1087,7 @@
 				4914E0F91FC5C66600434173 /* CKContainer.swift in Sources */,
 				0A72FC4A1D40819D0041845B /* Bool.swift in Sources */,
 				0A72FC681D40819D0041845B /* UILabel.swift in Sources */,
+				49E9A2962253BDA0002340EE /* GCController.swift in Sources */,
 				493DB0D21E520FF000E16694 /* Mirror.swift in Sources */,
 				496563B91DB65C31002B7623 /* keyValueSubscript.swift in Sources */,
 				49269BCC1D58EE41007C52AE /* CKAsset.swift in Sources */,
@@ -1142,6 +1166,7 @@
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				497F568A1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */,
+				49E9A2952253BDA0002340EE /* GCController.swift in Sources */,
 				49C526E21DB6D54A0036B020 /* CKModifyRecordsOperation.swift in Sources */,
 				49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				49B182E01C33807000529B08 /* OptionSet.swift in Sources */,
@@ -1245,6 +1270,7 @@
 				49397DF51E537EEC0052B783 /* EnumeratedSequenceTestCase.swift in Sources */,
 				4969F4501E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift in Sources */,
 				49ED9750216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift in Sources */,
+				49E9A2922253BB87002340EE /* GCControllerTestCase.swift in Sources */,
 				49A4861E1D09184B00A55CCD /* OptionalTestCase.swift in Sources */,
 				497F569A1E3C52690066CD1E /* UIColorTestCase.swift in Sources */,
 				4975C1131F0256C800C89E52 /* CollectionTestCase.swift in Sources */,
