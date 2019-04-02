@@ -12,6 +12,11 @@ public extension IndexPath {
 	) -> Process<IndexPath> {
 		return { indexPath in process(processables[indexPath]) }
 	}
+
+  /// A shortcut for `IndexPath(item: item, section: 0)`
+  init(_ item: Int) {
+    self.init(item: item, section: 0)
+  }
 }
 
 /// Should just be an extension on `() throws -> Element`
