@@ -1,14 +1,15 @@
 import UIKit
 
 public protocol UIScrollViewWithCells: UIScrollView {
-	associatedtype Cell: UIView
-	
-	func dequeueReusableCell(
-		withReuseIdentifier: String,
-		for: IndexPath
-	) -> Cell
+  /// The type which all cells are, or inherit from.
+  associatedtype BaseCell: UIView
 
-  func cellForItem(at: IndexPath) -> Cell?
+  func dequeueReusableCell(
+    withReuseIdentifier: String,
+    for: IndexPath
+  ) -> BaseCell
+
+  func cellForItem(at: IndexPath) -> BaseCell?
 }
 
 extension UICollectionView: UIScrollViewWithCells { }
@@ -49,10 +50,10 @@ public extension UIScrollViewWithCells {
   ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
   ///  for a cell that this View uses
   func getVisibleCell<Cell: UIView>(indexPath: IndexPath) throws -> Cell {
-    guard let superInstance = cellForItem(at: indexPath)
+    guard let baseCell = cellForItem(at: indexPath)
     else { throw UIScrollViewWithCells_GetVisibleCellError.noVisisbleCell }
 
-    guard let cell = superInstance as? Cell
+    guard let cell = baseCell as? Cell
     else { throw UIScrollViewWithCells_GetVisibleCellError.incorrectType }
 
     return cell
