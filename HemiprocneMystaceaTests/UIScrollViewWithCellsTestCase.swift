@@ -7,8 +7,16 @@ final class UIScrollViewWithCellsTestCase: XCTestCase {
     let collectionView = UICollectionView(
       frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()
     )
-    XCTAssertNil(
-      collectionView.getVisibleCell( indexPath: IndexPath( item: 0, section: 0) )
-    )
+    
+    XCTAssertThrowsError(
+      try collectionView.getVisibleCell( indexPath: IndexPath( item: 0, section: 0) )
+    ) { error in
+      switch error {
+      case UIScrollViewWithCells_GetVisibleCellError.noVisisbleCell:
+        break
+      default:
+        XCTFail()
+      }
+    }
   }
 }

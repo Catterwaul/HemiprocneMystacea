@@ -752,7 +752,6 @@
 		49CBE09A1C332ADE00E8EFCC /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				49CBE09E1C332ADE00E8EFCC /* UIScrollViewWithCells.swift */,
 				49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */,
 				49DBA1E21CD940BF0058181A /* UIAlertAction.swift */,
 				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
@@ -764,6 +763,7 @@
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
 				49589BE422359FD800BE990D /* UINib.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
+				49CBE09E1C332ADE00E8EFCC /* UIScrollViewWithCells.swift */,
 				494A993A1E37261800F6A51D /* UITableView.swift */,
 				4923BF0822504D7400FA8916 /* UIView.swift */,
 				49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */,
