@@ -76,6 +76,9 @@
 		494A99391E37253400F6A51D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A99371E37253400F6A51D /* UICollectionView.swift */; };
 		494A993B1E37261800F6A51D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A993A1E37261800F6A51D /* UITableView.swift */; };
 		494A993C1E37261800F6A51D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A993A1E37261800F6A51D /* UITableView.swift */; };
+		49551E302255DC10001C9318 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49551E2F2255DC10001C9318 /* UIResponder.swift */; };
+		49551E312255DC10001C9318 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49551E2F2255DC10001C9318 /* UIResponder.swift */; };
+		49551E332255DC50001C9318 /* UIResponderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49551E322255DC50001C9318 /* UIResponderTestCase.swift */; };
 		495606CB1E4DB4C8004C7FA0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495606CA1E4DB4C8004C7FA0 /* Data.swift */; };
 		495606CC1E4DB4C8004C7FA0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495606CA1E4DB4C8004C7FA0 /* Data.swift */; };
 		49589BE522359FD800BE990D /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49589BE422359FD800BE990D /* UINib.swift */; };
@@ -261,6 +264,8 @@
 		4942EA551E81A2B00085595C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494A99371E37253400F6A51D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		49551E2F2255DC10001C9318 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
+		49551E322255DC50001C9318 /* UIResponderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIResponderTestCase.swift; path = UIKit/UIResponderTestCase.swift; sourceTree = "<group>"; };
 		495606CA1E4DB4C8004C7FA0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		49589BE422359FD800BE990D /* UINib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
 		496563B71DB65C31002B7623 /* keyValueSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyValueSubscript.swift; sourceTree = "<group>"; };
@@ -762,6 +767,7 @@
 				498C8A071E5E152D00887F04 /* UIImage.swift */,
 				49CBE0A01C332ADE00E8EFCC /* UILabel.swift */,
 				49589BE422359FD800BE990D /* UINib.swift */,
+				49551E2F2255DC10001C9318 /* UIResponder.swift */,
 				49CBE0A21C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift */,
 				49CBE09E1C332ADE00E8EFCC /* UIScrollViewWithCells.swift */,
 				494A993A1E37261800F6A51D /* UITableView.swift */,
@@ -778,6 +784,7 @@
 				49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */,
 				497F56991E3C52690066CD1E /* UIColorTestCase.swift */,
 				497190C81DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift */,
+				49551E322255DC50001C9318 /* UIResponderTestCase.swift */,
 				49E9A2982253D207002340EE /* UIScrollViewWithCellsTestCase.swift */,
 				49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */,
 				4923BF0622504D0200FA8916 /* UIView.swift */,
@@ -1107,6 +1114,7 @@
 				0A72FC591D40819D0041845B /* errors.swift in Sources */,
 				4975C1111F02554D00C89E52 /* Collection.swift in Sources */,
 				0A72FC571D40819D0041845B /* ComputedProperty.swift in Sources */,
+				49551E312255DC10001C9318 /* UIResponder.swift in Sources */,
 				49AB16F01EF243CF009868AB /* BinaryInteger.swift in Sources */,
 				499CA3391D4BF44C0049F0AB /* CKFetchRecordsOperation.swift in Sources */,
 				49E5253C1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */,
@@ -1165,6 +1173,7 @@
 				492404E81E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				49AB16EF1EF243CF009868AB /* BinaryInteger.swift in Sources */,
 				49B182DD1C33807000529B08 /* Dictionary.swift in Sources */,
+				49551E302255DC10001C9318 /* UIResponder.swift in Sources */,
 				E3A83B3B1D099C7B000D7B08 /* Property.swift in Sources */,
 				49B182DC1C33807000529B08 /* Bool.swift in Sources */,
 				497EFE8A1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
@@ -1265,6 +1274,7 @@
 				49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */,
 				49C434331C34F02700B6C530 /* StringTestCase.swift in Sources */,
 				4966B0D7218837C700F6019D /* ProcessTestCase.swift in Sources */,
+				49551E332255DC50001C9318 /* UIResponderTestCase.swift in Sources */,
 				4923BF0722504D0200FA8916 /* UIView.swift in Sources */,
 				49E0DC131E4AC08F0093E75F /* SortedArrayTestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
