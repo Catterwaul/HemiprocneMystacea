@@ -10,6 +10,16 @@ public extension Sequence {
       try getComparable($0) < getComparable($1)
     }
   }
+
+  /// - Returns: max() for the elements with comparables
+  func max<Comparable: Swift.Comparable>(
+    getComparable: (Element) throws -> Comparable?
+  ) rethrows -> Element? {
+    return try getElement(
+      getComparable: getComparable,
+      getElement: { $0.max { $0.0 }? .1 }
+    )
+  }
   
   func min<Comparable: Swift.Comparable>(
     getComparable: (Element) throws -> Comparable
@@ -17,6 +27,27 @@ public extension Sequence {
     return try self.min {
       try getComparable($0) < getComparable($1)
     }
+  }
+
+  /// - Returns: min() for the elements with comparables
+  func min<Comparable: Swift.Comparable>(
+    getComparable: (Element) throws -> Comparable?
+  ) rethrows -> Element? {
+    return try getElement(
+      getComparable: getComparable,
+      getElement: { $0.min { $0.0 }? .1 }
+    )
+  }
+
+  private func getElement<Comparable: Swift.Comparable>(
+    getComparable: (Element) throws -> Comparable?,
+    getElement: ([(Comparable, Element)]) throws -> Element?
+  ) rethrows -> Element? {
+    let comparablesAndElements = try compactMap { element in
+      try getComparable(element).map { comparable in (comparable, element) }
+    }
+
+    return try getElement(comparablesAndElements)
   }
   
   func sorted<Comparable: Swift.Comparable>(

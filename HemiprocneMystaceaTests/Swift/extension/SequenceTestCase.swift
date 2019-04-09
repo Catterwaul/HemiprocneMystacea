@@ -19,6 +19,17 @@ final class SequenceTestCase: XCTestCase {
       "1️⃣"
     )
   }
+
+  func test_max_and_min_withOptionals() {
+    let catNames = [
+      nil, "Frisky", nil, "Fluffy", nil,
+      nil, "Gobo", nil,
+      nil, "Mousse", nil, "Ozma", nil
+    ]
+
+    XCTAssertEqual(catNames.min { $0 }, "Fluffy")
+    XCTAssertEqual(catNames.max { $0 }, "Ozma")
+  }
 	
   func test_sortedBy() {
     let sortedArray = [
@@ -33,13 +44,6 @@ final class SequenceTestCase: XCTestCase {
         TypeWith1EquatableProperty(int: 2),
         TypeWith1EquatableProperty(int: 3)
       ]
-    )
-  }
-	
-  func test_sum() {
-    XCTAssertEqual(
-      [1, 1, 1].sum,
-      3
     )
   }
   
