@@ -546,6 +546,8 @@
 		49A978D3225DB29E00B3BA1F /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				49A978DC225DB6C200B3BA1F /* Floating */,
+				49A978DD225DB6D900B3BA1F /* Integers */,
 				49A978D4225DB2A600B3BA1F /* Vector */,
 			);
 			path = Math;
@@ -563,6 +565,8 @@
 		49A978D8225DB4B300B3BA1F /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				49A978E3225DB7D200B3BA1F /* Floating */,
+				49A978E0225DB77300B3BA1F /* Integers */,
 				49A978D9225DB4BD00B3BA1F /* Vector */,
 			);
 			path = Math;
@@ -576,15 +580,178 @@
 			path = Vector;
 			sourceTree = "<group>";
 		};
+		49A978DA225DB68A00B3BA1F /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				498D20CE1F91576000AB6829 /* Array.swift */,
+				4975C10F1F02554D00C89E52 /* Collection.swift */,
+				49B182D71C33807000529B08 /* Sequence.swift */,
+				49A978DE225DB73300B3BA1F /* HashedCollection */,
+				49A978E1225DB7A200B3BA1F /* Lazy Views */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		49A978DB225DB6A400B3BA1F /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				498D20D11F91588200AB6829 /* ArrayTestCase.swift */,
+				4975C1121F0256C800C89E52 /* CollectionTestCase.swift */,
+				0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */,
+				49A978DF225DB75B00B3BA1F /* HashedCollection */,
+				49A978E2225DB7B600B3BA1F /* Lazy Views */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		49A978DC225DB6C200B3BA1F /* Floating */ = {
+			isa = PBXGroup;
+			children = (
+				49AE8BD220D89BF300EFE687 /* BinaryFloatingPoint.swift */,
+			);
+			path = Floating;
+			sourceTree = "<group>";
+		};
+		49A978DD225DB6D900B3BA1F /* Integers */ = {
+			isa = PBXGroup;
+			children = (
+				49AB16EE1EF243CF009868AB /* BinaryInteger.swift */,
+				49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */,
+				49AB16EB1EF23A92009868AB /* Numeric.swift */,
+			);
+			path = Integers;
+			sourceTree = "<group>";
+		};
+		49A978DE225DB73300B3BA1F /* HashedCollection */ = {
+			isa = PBXGroup;
+			children = (
+				49B182D31C33807000529B08 /* Dictionary.swift */,
+			);
+			path = HashedCollection;
+			sourceTree = "<group>";
+		};
+		49A978DF225DB75B00B3BA1F /* HashedCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */,
+			);
+			path = HashedCollection;
+			sourceTree = "<group>";
+		};
+		49A978E0225DB77300B3BA1F /* Integers */ = {
+			isa = PBXGroup;
+			children = (
+				49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */,
+				498D3192211442DA00EDE890 /* NumericTestCase.swift */,
+			);
+			path = Integers;
+			sourceTree = "<group>";
+		};
+		49A978E1225DB7A200B3BA1F /* Lazy Views */ = {
+			isa = PBXGroup;
+			children = (
+				49397DF11E534ED50052B783 /* EnumeratedSequence.swift */,
+			);
+			path = "Lazy Views";
+			sourceTree = "<group>";
+		};
+		49A978E2225DB7B600B3BA1F /* Lazy Views */ = {
+			isa = PBXGroup;
+			children = (
+				49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */,
+			);
+			path = "Lazy Views";
+			sourceTree = "<group>";
+		};
+		49A978E3225DB7D200B3BA1F /* Floating */ = {
+			isa = PBXGroup;
+			children = (
+				498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */,
+			);
+			path = Floating;
+			sourceTree = "<group>";
+		};
+		49A978E4225DB80F00B3BA1F /* C */ = {
+			isa = PBXGroup;
+			children = (
+				49A3AEDD2151D2E700C01F22 /* MemoryLayout.swift */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		49A978E5225DB81A00B3BA1F /* C */ = {
+			isa = PBXGroup;
+			children = (
+				49A3AEE32151E5FA00C01F22 /* MemoryLayoutTestCase.swift */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		49A978E6225DB82C00B3BA1F /* Reflection */ = {
+			isa = PBXGroup;
+			children = (
+				493DB0D01E520FF000E16694 /* Mirror.swift */,
+			);
+			path = Reflection;
+			sourceTree = "<group>";
+		};
+		49A978E7225DB88100B3BA1F /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				49B182D61C33807000529B08 /* OptionSet.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		49A978E8225DB89100B3BA1F /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		49A978E9225DB8B700B3BA1F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				499F744A2238423B006AA0A4 /* CaseIterable.swift */,
+				497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		49A978EA225DB8C400B3BA1F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				499F744822382F07006AA0A4 /* CaseIterableTestCase.swift */,
+				497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		49A978EB225DB97900B3BA1F /* UIAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				49DBA1E21CD940BF0058181A /* UIAlertAction.swift */,
+				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
+			);
+			path = UIAlertController;
+			sourceTree = "<group>";
+		};
 		49B182CF1C337D6800529B08 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				49A978D8225DB4B300B3BA1F /* Math */,
 				49B182E51C33807C00529B08 /* extension */,
+				49A978E5225DB81A00B3BA1F /* C */,
+				49A978DB225DB6A400B3BA1F /* Collection */,
+				49A978D8225DB4B300B3BA1F /* Math */,
+				49A978E8225DB89100B3BA1F /* Misc */,
+				49A978EA225DB8C400B3BA1F /* Protocols */,
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
 				49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */,
 				49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */,
+				496D9DEC20D827280021A48C /* Half.swift */,
 				499C71951D0F8079009797BC /* MakeGetTestCase.swift */,
 				498D20CC1F9154CF00AB6829 /* ModelNotAssignedErrorTestCase.swift */,
 				49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */,
@@ -594,7 +761,6 @@
 				49C4343B1C35E10900B6C530 /* PropertiesTestCase.swift */,
 				49C4346F1C37613900B6C530 /* ReferencersTestCase.swift */,
 				49E0DC121E4AC08F0093E75F /* SortedArrayTestCase.swift */,
-				496D9DEC20D827280021A48C /* Half.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -602,22 +768,14 @@
 		49B182D01C33807000529B08 /* extension */ = {
 			isa = PBXGroup;
 			children = (
-				498D20CE1F91576000AB6829 /* Array.swift */,
-				49AE8BD220D89BF300EFE687 /* BinaryFloatingPoint.swift */,
-				49AB16EE1EF243CF009868AB /* BinaryInteger.swift */,
 				49B182D21C33807000529B08 /* Bool.swift */,
-				499F744A2238423B006AA0A4 /* CaseIterable.swift */,
-				4975C10F1F02554D00C89E52 /* Collection.swift */,
-				49B182D31C33807000529B08 /* Dictionary.swift */,
-				49397DF11E534ED50052B783 /* EnumeratedSequence.swift */,
-				49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */,
-				49A3AEDD2151D2E700C01F22 /* MemoryLayout.swift */,
-				493DB0D01E520FF000E16694 /* Mirror.swift */,
-				49AB16EB1EF23A92009868AB /* Numeric.swift */,
-				49B182D61C33807000529B08 /* OptionSet.swift */,
+				49A978E4225DB80F00B3BA1F /* C */,
+				49A978DA225DB68A00B3BA1F /* Collection */,
+				49A978D3225DB29E00B3BA1F /* Math */,
+				49A978E7225DB88100B3BA1F /* Misc */,
 				E348A4341D08C146003D8024 /* Optional.swift */,
-				497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */,
-				49B182D71C33807000529B08 /* Sequence.swift */,
+				49A978E9225DB8B700B3BA1F /* Protocols */,
+				49A978E6225DB82C00B3BA1F /* Reflection */,
 				49B182DA1C33807000529B08 /* String.swift */,
 				49A978CE225D8F3800B3BA1F /* tuple.swift */,
 			);
@@ -627,20 +785,8 @@
 		49B182E51C33807C00529B08 /* extension */ = {
 			isa = PBXGroup;
 			children = (
-				498D20D11F91588200AB6829 /* ArrayTestCase.swift */,
-				49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */,
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
-				499F744822382F07006AA0A4 /* CaseIterableTestCase.swift */,
-				4975C1121F0256C800C89E52 /* CollectionTestCase.swift */,
-				4976CB281C497F8E00F60E36 /* DictionaryTestCase.swift */,
-				49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */,
-				498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */,
-				49A3AEE32151E5FA00C01F22 /* MemoryLayoutTestCase.swift */,
-				498D3192211442DA00EDE890 /* NumericTestCase.swift */,
-				49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */,
 				49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */,
-				497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */,
-				0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */,
 				49C434321C34F02700B6C530 /* StringTestCase.swift */,
 				49A978D1225D902A00B3BA1F /* tupleTestCase.swift */,
 			);
@@ -774,7 +920,6 @@
 		49CBE07F1C332ADE00E8EFCC /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				49A978D3225DB29E00B3BA1F /* Math */,
 				49B182D01C33807000529B08 /* extension */,
 				49C434361C35DCCF00B6C530 /* Properties */,
 				49817E5F1D2CA99A0025A6CA /* errors.swift */,
@@ -803,9 +948,7 @@
 		49CBE09A1C332ADE00E8EFCC /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */,
-				49DBA1E21CD940BF0058181A /* UIAlertAction.swift */,
-				49CBE09C1C332ADE00E8EFCC /* UIAlertController.swift */,
+				49A978EB225DB97900B3BA1F /* UIAlertController */,
 				491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */,
 				49CBE09D1C332ADE00E8EFCC /* UIButton.swift */,
 				494A99371E37253400F6A51D /* UICollectionView.swift */,
@@ -819,6 +962,7 @@
 				494A993A1E37261800F6A51D /* UITableView.swift */,
 				4923BF0822504D7400FA8916 /* UIView.swift */,
 				49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */,
+				49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
