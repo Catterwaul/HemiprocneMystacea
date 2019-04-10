@@ -1,4 +1,8 @@
 public extension Sequence {
+  var consecutivePairs: Zip2Sequence< Self, DropFirstSequence<Self> > {
+    return zip( self, dropFirst() )
+  }
+
   var first: Element? {
     return self.first { _ in true }
   }

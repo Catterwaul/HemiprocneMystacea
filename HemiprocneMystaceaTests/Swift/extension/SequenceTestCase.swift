@@ -2,6 +2,14 @@ import HM
 import XCTest
 
 final class SequenceTestCase: XCTestCase {
+   func test_consecutivePairs() {
+    XCTAssertTrue(
+      Array([1, 3, 9, -44].consecutivePairs)
+      ==
+      [(1, 3), (3, 9), (9, -44)]
+    )
+  }
+
   func test_max_and_min() {
     let dictionary = [
       "1️⃣": 1,
