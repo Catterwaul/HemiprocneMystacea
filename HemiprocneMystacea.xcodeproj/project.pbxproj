@@ -159,9 +159,12 @@
 		49A6C9591E476D6700CF5FFB /* SerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */; };
 		49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
 		49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
+		49A978CD225D86A900B3BA1F /* SIMD2TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978CC225D86A900B3BA1F /* SIMD2TestCase.swift */; };
 		49A978CF225D8F3800B3BA1F /* tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978CE225D8F3800B3BA1F /* tuple.swift */; };
 		49A978D0225D8F3800B3BA1F /* tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978CE225D8F3800B3BA1F /* tuple.swift */; };
 		49A978D2225D902A00B3BA1F /* tupleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978D1225D902A00B3BA1F /* tupleTestCase.swift */; };
+		49A978D6225DB2BB00B3BA1F /* SIMD2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978D5225DB2BB00B3BA1F /* SIMD2.swift */; };
+		49A978D7225DB2BB00B3BA1F /* SIMD2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978D5225DB2BB00B3BA1F /* SIMD2.swift */; };
 		49AB16EC1EF23A92009868AB /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB16EB1EF23A92009868AB /* Numeric.swift */; };
 		49AB16ED1EF23A92009868AB /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB16EB1EF23A92009868AB /* Numeric.swift */; };
 		49AB16EF1EF243CF009868AB /* BinaryInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB16EE1EF243CF009868AB /* BinaryInteger.swift */; };
@@ -324,8 +327,10 @@
 		49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTestCase.swift; sourceTree = "<group>"; };
 		49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableDictionary.swift; sourceTree = "<group>"; };
 		49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithSerializableDictionary.swift; sourceTree = "<group>"; };
+		49A978CC225D86A900B3BA1F /* SIMD2TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD2TestCase.swift; sourceTree = "<group>"; };
 		49A978CE225D8F3800B3BA1F /* tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tuple.swift; sourceTree = "<group>"; };
 		49A978D1225D902A00B3BA1F /* tupleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tupleTestCase.swift; sourceTree = "<group>"; };
+		49A978D5225DB2BB00B3BA1F /* SIMD2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD2.swift; sourceTree = "<group>"; };
 		49AB16EB1EF23A92009868AB /* Numeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		49AB16EE1EF243CF009868AB /* BinaryInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryInteger.swift; sourceTree = "<group>"; };
 		49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedWidthInteger.swift; sourceTree = "<group>"; };
@@ -538,9 +543,43 @@
 			path = SerializableDictionary;
 			sourceTree = "<group>";
 		};
+		49A978D3225DB29E00B3BA1F /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				49A978D4225DB2A600B3BA1F /* Vector */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		49A978D4225DB2A600B3BA1F /* Vector */ = {
+			isa = PBXGroup;
+			children = (
+				49A978D5225DB2BB00B3BA1F /* SIMD2.swift */,
+			);
+			name = Vector;
+			path = "../New Group/Vector";
+			sourceTree = "<group>";
+		};
+		49A978D8225DB4B300B3BA1F /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				49A978D9225DB4BD00B3BA1F /* Vector */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		49A978D9225DB4BD00B3BA1F /* Vector */ = {
+			isa = PBXGroup;
+			children = (
+				49A978CC225D86A900B3BA1F /* SIMD2TestCase.swift */,
+			);
+			path = Vector;
+			sourceTree = "<group>";
+		};
 		49B182CF1C337D6800529B08 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				49A978D8225DB4B300B3BA1F /* Math */,
 				49B182E51C33807C00529B08 /* extension */,
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
@@ -735,6 +774,7 @@
 		49CBE07F1C332ADE00E8EFCC /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				49A978D3225DB29E00B3BA1F /* Math */,
 				49B182D01C33807000529B08 /* extension */,
 				49C434361C35DCCF00B6C530 /* Properties */,
 				49817E5F1D2CA99A0025A6CA /* errors.swift */,
@@ -1137,6 +1177,7 @@
 				498C8A091E5E152D00887F04 /* UIImage.swift in Sources */,
 				0A72FC651D40819D0041845B /* UIAlertAction.swift in Sources */,
 				49AE8BD420D89BF300EFE687 /* BinaryFloatingPoint.swift in Sources */,
+				49A978D7225DB2BB00B3BA1F /* SIMD2.swift in Sources */,
 				0A72FC3A1D40819D0041845B /* CKRecord.swift in Sources */,
 				0A72FC511D40819D0041845B /* String.swift in Sources */,
 				49A978D0225D8F3800B3BA1F /* tuple.swift in Sources */,
@@ -1256,6 +1297,7 @@
 				497F568D1E3C4BC40066CD1E /* CALayer.swift in Sources */,
 				498C8A081E5E152D00887F04 /* UIImage.swift in Sources */,
 				49B182E41C33807000529B08 /* String.swift in Sources */,
+				49A978D6225DB2BB00B3BA1F /* SIMD2.swift in Sources */,
 				49892BFA1F8420C6007593E6 /* ConvertibleToCKRecordValue.swift in Sources */,
 				E348A4351D08C146003D8024 /* Optional.swift in Sources */,
 			);
@@ -1307,6 +1349,7 @@
 				49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */,
 				49C526E91DB6E8C50036B020 /* CKDatabaseTestCase.swift in Sources */,
 				49A3AEE42151E5FA00C01F22 /* MemoryLayoutTestCase.swift in Sources */,
+				49A978CD225D86A900B3BA1F /* SIMD2TestCase.swift in Sources */,
 				49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */,
 				4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */,
 				49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */,
