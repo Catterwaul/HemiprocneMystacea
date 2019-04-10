@@ -159,6 +159,9 @@
 		49A6C9591E476D6700CF5FFB /* SerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */; };
 		49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
 		49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */; };
+		49A978CF225D8F3800B3BA1F /* tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978CE225D8F3800B3BA1F /* tuple.swift */; };
+		49A978D0225D8F3800B3BA1F /* tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978CE225D8F3800B3BA1F /* tuple.swift */; };
+		49A978D2225D902A00B3BA1F /* tupleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A978D1225D902A00B3BA1F /* tupleTestCase.swift */; };
 		49AB16EC1EF23A92009868AB /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB16EB1EF23A92009868AB /* Numeric.swift */; };
 		49AB16ED1EF23A92009868AB /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB16EB1EF23A92009868AB /* Numeric.swift */; };
 		49AB16EF1EF243CF009868AB /* BinaryInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB16EE1EF243CF009868AB /* BinaryInteger.swift */; };
@@ -321,6 +324,8 @@
 		49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTestCase.swift; sourceTree = "<group>"; };
 		49A6C9571E476D6700CF5FFB /* SerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableDictionary.swift; sourceTree = "<group>"; };
 		49A6C95A1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithSerializableDictionary.swift; sourceTree = "<group>"; };
+		49A978CE225D8F3800B3BA1F /* tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tuple.swift; sourceTree = "<group>"; };
+		49A978D1225D902A00B3BA1F /* tupleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tupleTestCase.swift; sourceTree = "<group>"; };
 		49AB16EB1EF23A92009868AB /* Numeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		49AB16EE1EF243CF009868AB /* BinaryInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryInteger.swift; sourceTree = "<group>"; };
 		49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedWidthInteger.swift; sourceTree = "<group>"; };
@@ -562,6 +567,7 @@
 				49AE8BD220D89BF300EFE687 /* BinaryFloatingPoint.swift */,
 				49AB16EE1EF243CF009868AB /* BinaryInteger.swift */,
 				49B182D21C33807000529B08 /* Bool.swift */,
+				499F744A2238423B006AA0A4 /* CaseIterable.swift */,
 				4975C10F1F02554D00C89E52 /* Collection.swift */,
 				49B182D31C33807000529B08 /* Dictionary.swift */,
 				49397DF11E534ED50052B783 /* EnumeratedSequence.swift */,
@@ -574,7 +580,7 @@
 				497EFE8C1DB6472700DEC825 /* RawRepresentable.swift */,
 				49B182D71C33807000529B08 /* Sequence.swift */,
 				49B182DA1C33807000529B08 /* String.swift */,
-				499F744A2238423B006AA0A4 /* CaseIterable.swift */,
+				49A978CE225D8F3800B3BA1F /* tuple.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -597,6 +603,7 @@
 				497EFE8F1DB6476E00DEC825 /* RawRepresentableTestCase.swift */,
 				0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */,
 				49C434321C34F02700B6C530 /* StringTestCase.swift */,
+				49A978D1225D902A00B3BA1F /* tupleTestCase.swift */,
 			);
 			name = extension;
 			path = Swift/extension;
@@ -1132,6 +1139,7 @@
 				49AE8BD420D89BF300EFE687 /* BinaryFloatingPoint.swift in Sources */,
 				0A72FC3A1D40819D0041845B /* CKRecord.swift in Sources */,
 				0A72FC511D40819D0041845B /* String.swift in Sources */,
+				49A978D0225D8F3800B3BA1F /* tuple.swift in Sources */,
 				499F744C2238423B006AA0A4 /* CaseIterable.swift in Sources */,
 				0A72FC391D40819D0041845B /* CKDatabase.swift in Sources */,
 				496D9DEB20D80DFC0021A48C /* Half.swift in Sources */,
@@ -1225,6 +1233,7 @@
 				491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */,
 				49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */,
 				49AB16F21EF2440A009868AB /* FixedWidthInteger.swift in Sources */,
+				49A978CF225D8F3800B3BA1F /* tuple.swift in Sources */,
 				49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
 				49ED974D216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */,
 				499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */,
@@ -1262,6 +1271,7 @@
 				49817E621D2CAE0B0025A6CA /* errorsTestCase.swift in Sources */,
 				497190C91DDA3EA1009FD361 /* UIPageViewControllerDataSourceWithConnectedViewControllersTestCase.swift in Sources */,
 				49C4343C1C35E10900B6C530 /* PropertiesTestCase.swift in Sources */,
+				49A978D2225D902A00B3BA1F /* tupleTestCase.swift in Sources */,
 				49C526E71DB6DA4A0036B020 /* CKModifyRecordsOperationTestCase.swift in Sources */,
 				4969F44E1E0E40D40005A4FA /* IndexPathTestCase.swift in Sources */,
 				499F744922382F07006AA0A4 /* CaseIterableTestCase.swift in Sources */,
