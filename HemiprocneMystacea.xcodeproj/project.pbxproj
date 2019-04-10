@@ -558,8 +558,7 @@
 			children = (
 				49A978D5225DB2BB00B3BA1F /* SIMD2.swift */,
 			);
-			name = Vector;
-			path = "../New Group/Vector";
+			path = Vector;
 			sourceTree = "<group>";
 		};
 		49A978D8225DB4B300B3BA1F /* Math */ = {
@@ -742,11 +741,6 @@
 			isa = PBXGroup;
 			children = (
 				49B182E51C33807C00529B08 /* extension */,
-				49A978E5225DB81A00B3BA1F /* C */,
-				49A978DB225DB6A400B3BA1F /* Collection */,
-				49A978D8225DB4B300B3BA1F /* Math */,
-				49A978E8225DB89100B3BA1F /* Misc */,
-				49A978EA225DB8C400B3BA1F /* Protocols */,
 				49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */,
 				49817E5D1D2C9BD20025A6CA /* getMethodTestCase.swift */,
 				49DDB4A61E4ADE1000D21AD8 /* BackedByArrayTestCase.swift */,
@@ -786,7 +780,12 @@
 			isa = PBXGroup;
 			children = (
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
+				49A978E5225DB81A00B3BA1F /* C */,
+				49A978DB225DB6A400B3BA1F /* Collection */,
+				49A978D8225DB4B300B3BA1F /* Math */,
+				49A978E8225DB89100B3BA1F /* Misc */,
 				49A4861D1D09184B00A55CCD /* OptionalTestCase.swift */,
+				49A978EA225DB8C400B3BA1F /* Protocols */,
 				49C434321C34F02700B6C530 /* StringTestCase.swift */,
 				49A978D1225D902A00B3BA1F /* tupleTestCase.swift */,
 			);
