@@ -9,7 +9,7 @@ extension MCSession {
     }
 
   //MARK: protected
-    unowned let session: MCSession
+    public unowned let session: MCSession
   }
 }
 
