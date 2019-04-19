@@ -46,6 +46,12 @@
 		0A72FC6B1D40819D0041845B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CBE0A51C332ADE00E8EFCC /* UIViewController.swift */; };
 		0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491278671CDD2EDC00AAFE7C /* UIBarButtonItem.swift */; };
 		0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */; };
+		4907555A226A7DBB00D6ED5D /* MCBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49075559226A7DBB00D6ED5D /* MCBrowserViewController.swift */; };
+		4907555B226A7DBB00D6ED5D /* MCBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49075559226A7DBB00D6ED5D /* MCBrowserViewController.swift */; };
+		4907555D226A7DD500D6ED5D /* MCAdvertiserAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907555C226A7DD500D6ED5D /* MCAdvertiserAssistant.swift */; };
+		4907555E226A7DD500D6ED5D /* MCAdvertiserAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907555C226A7DD500D6ED5D /* MCAdvertiserAssistant.swift */; };
+		49075560226A7DF800D6ED5D /* MCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907555F226A7DF800D6ED5D /* MCSession.swift */; };
+		49075561226A7DF800D6ED5D /* MCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4907555F226A7DF800D6ED5D /* MCSession.swift */; };
 		490BFFB11E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */; };
 		490CC595220629D300AD5771 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC594220629D300AD5771 /* Permutations.swift */; };
 		490CC596220629D300AD5771 /* Permutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CC594220629D300AD5771 /* Permutations.swift */; };
@@ -250,6 +256,9 @@
 		0A72FC231D4081580041845B /* HemiprocneMystaceaTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystaceaTV.h; sourceTree = "<group>"; };
 		0A72FC241D4081580041845B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTestCase.swift; sourceTree = "<group>"; };
+		49075559226A7DBB00D6ED5D /* MCBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCBrowserViewController.swift; sourceTree = "<group>"; };
+		4907555C226A7DD500D6ED5D /* MCAdvertiserAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCAdvertiserAssistant.swift; sourceTree = "<group>"; };
+		4907555F226A7DF800D6ED5D /* MCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCSession.swift; sourceTree = "<group>"; };
 		490BFFB01E5E9D7C0059F8D1 /* UNUserNotificationCenterTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UNUserNotificationCenterTestCase.swift; path = UserNotifications/UNUserNotificationCenterTestCase.swift; sourceTree = "<group>"; };
 		490CC594220629D300AD5771 /* Permutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Permutations.swift; path = HemiprocneMystacea/Swift/Permutations.swift; sourceTree = SOURCE_ROOT; };
 		490CC59722062A5900AD5771 /* PermutationsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PermutationsTestCase.swift; path = Swift/PermutationsTestCase.swift; sourceTree = "<group>"; };
@@ -440,6 +449,16 @@
 				0A72FC241D4081580041845B /* Info.plist */,
 			);
 			path = HemiprocneMystaceaTV;
+			sourceTree = "<group>";
+		};
+		49075558226A7D9100D6ED5D /* MultipeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				4907555C226A7DD500D6ED5D /* MCAdvertiserAssistant.swift */,
+				49075559226A7DBB00D6ED5D /* MCBrowserViewController.swift */,
+				4907555F226A7DF800D6ED5D /* MCSession.swift */,
+			);
+			path = MultipeerConnectivity;
 			sourceTree = "<group>";
 		};
 		490BFFB21E5E9D950059F8D1 /* UserNotifications */ = {
@@ -869,6 +888,7 @@
 				49CBE0791C332ADE00E8EFCC /* Foundation */,
 				49E9A2972253BDA6002340EE /* GameController */,
 				492CE34B20B095CD00BEE6AD /* Metal */,
+				49075558226A7D9100D6ED5D /* MultipeerConnectivity */,
 				49FD14EF1CD91A240067F27E /* QuartzCore */,
 				49CBE07F1C332ADE00E8EFCC /* Swift */,
 				49CBE09A1C332ADE00E8EFCC /* UIKit */,
@@ -1264,6 +1284,7 @@
 				497F568B1E3C494F0066CD1E /* UIColor.HSBA.swift in Sources */,
 				0A72FC6A1D40819D0041845B /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
 				49B159551E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift in Sources */,
+				4907555E226A7DD500D6ED5D /* MCAdvertiserAssistant.swift in Sources */,
 				497F568E1E3C4BC40066CD1E /* CALayer.swift in Sources */,
 				4993AD341DD99155007C7525 /* named subscripts.swift in Sources */,
 				0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */,
@@ -1308,10 +1329,12 @@
 				49E5253C1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */,
 				49A3AEDF2151D2E700C01F22 /* MemoryLayout.swift in Sources */,
 				49AB16F31EF2440A009868AB /* FixedWidthInteger.swift in Sources */,
+				4907555B226A7DBB00D6ED5D /* MCBrowserViewController.swift in Sources */,
 				0A72FC431D40819D0041845B /* UserDefaults+Setting.swift in Sources */,
 				0A72FC611D40819D0041845B /* InitializableWithParameters.swift in Sources */,
 				49FA036D1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */,
 				49AB16ED1EF23A92009868AB /* Numeric.swift in Sources */,
+				49075561226A7DF800D6ED5D /* MCSession.swift in Sources */,
 				492CE34A20B095C800BEE6AD /* MTLDeviceError.swift in Sources */,
 				0A72FC3B1D40819D0041845B /* InitializableWithCloudKitRecord.swift in Sources */,
 				4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */,
@@ -1381,11 +1404,13 @@
 				4969F44B1E0E3D1C0005A4FA /* IndexPath.swift in Sources */,
 				49AB16EC1EF23A92009868AB /* Numeric.swift in Sources */,
 				496D9DEA20D80DFC0021A48C /* Half.swift in Sources */,
+				49075560226A7DF800D6ED5D /* MCSession.swift in Sources */,
 				49CBE0AC1C332ADE00E8EFCC /* FileInfo.swift in Sources */,
 				498880851D58BFB400AE24FC /* CKAsset.swift in Sources */,
 				49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */,
 				49BF89901C38C8FD0050A49B /* InitializableWithParameters.swift in Sources */,
 				492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
+				4907555D226A7DD500D6ED5D /* MCAdvertiserAssistant.swift in Sources */,
 				49C571171F84410600064423 /* CloudKitEnumeration.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */,
@@ -1405,6 +1430,7 @@
 				494A993B1E37261800F6A51D /* UITableView.swift in Sources */,
 				4914E0F81FC5C66600434173 /* CKContainer.swift in Sources */,
 				E348A4301D08C085003D8024 /* CGRect.swift in Sources */,
+				4907555A226A7DBB00D6ED5D /* MCBrowserViewController.swift in Sources */,
 				4975C1101F02554D00C89E52 /* Collection.swift in Sources */,
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */,
