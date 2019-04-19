@@ -1,7 +1,7 @@
 import MultipeerConnectivity
 
-public extension MCSession {
-  class Delegate: NSObject {
+extension MCSession {
+  open class Delegate: NSObject {
     init(session: MCSession) {
       self.session = session
       super.init()
