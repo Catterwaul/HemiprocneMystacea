@@ -15,9 +15,9 @@ extension MCSession {
 
 //MARK: MCSessionDelegate
 extension MCSession.Delegate: MCSessionDelegate {
-  public func session(_: MCSession, didReceive data: Data, fromPeer _: MCPeerID) { }
-  public func session(_: MCSession, peer _: MCPeerID, didChange _: MCSessionState) { }
-  public func session(_: MCSession, didReceive _: InputStream, withName _: String, fromPeer _: MCPeerID) { }
-  public func session(_: MCSession, didStartReceivingResourceWithName _: String, fromPeer _: MCPeerID, with _: Progress) { }
-  public func session(_: MCSession, didFinishReceivingResourceWithName _: String, fromPeer _: MCPeerID, at _: URL?, withError _: Error?) { }
+  open func session(_: MCSession, didReceive data: Data, fromPeer _: MCPeerID) { }
+  open func session(_: MCSession, peer _: MCPeerID, didChange _: MCSessionState) { }
+  open func session(_: MCSession, didReceive _: InputStream, withName _: String, fromPeer _: MCPeerID) { }
+  open func session(_: MCSession, didStartReceivingResourceWithName _: String, fromPeer _: MCPeerID, with _: Progress) { }
+  open func session(_: MCSession, didFinishReceivingResourceWithName _: String, fromPeer _: MCPeerID, at _: URL?, withError _: Error?) { }
 }
