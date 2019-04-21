@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class IntegersTestCase: XCTestCase {
-  func test_makeMask() {
+  func test_masked() {
     XCTAssertEqual(
       0b11_10_1110.masked(upperBitIndex: 3),
       0b0_____1110
