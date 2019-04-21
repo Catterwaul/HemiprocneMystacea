@@ -10,7 +10,7 @@ final class IntegersTestCase: XCTestCase {
 
     XCTAssertEqual(
       UInt8(0b11_1011_10).masked(lowerBitIndex: 2, upperBitIndex: 5),
-      0b0__1011_00
+            0b0__1011 << 2
     )
 
     XCTAssertEqual(
