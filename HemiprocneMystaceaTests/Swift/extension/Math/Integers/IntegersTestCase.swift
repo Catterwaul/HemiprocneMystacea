@@ -2,7 +2,25 @@ import HM
 import XCTest
 
 final class IntegersTestCase: XCTestCase {
+  func test_makeMask() {
+    XCTAssertEqual(
+      0b11_10_1110.masked(upperBitIndex: 3),
+      0b0_____1110
+    )
+
+    XCTAssertEqual(
+      UInt8(0b11_1011_10).masked(lowerBitIndex: 2, upperBitIndex: 5),
+      0b0__1011_00
+    )
+
+    XCTAssertEqual(
+      1.masked(upperBitIndex: 0),
+      1
+    )
+  }
+
   func test_factorial() {
+    XCTAssertNil( (-4).factorial )
     XCTAssertEqual(0.factorial, 1)
     XCTAssertEqual(4.factorial, 24)
   }

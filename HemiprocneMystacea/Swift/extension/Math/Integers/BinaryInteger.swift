@@ -1,4 +1,23 @@
 public extension BinaryInteger where Stride: SignedInteger  {
+  static func makeMask(
+    lowerBitIndex: Self = 0,
+    upperBitIndex: Self
+  ) -> Self {
+    return (lowerBitIndex...upperBitIndex).reduce(0) { mask, shift in
+      1 << shift | mask
+    }
+  }
+
+  func masked(
+    lowerBitIndex: Self = 0,
+    upperBitIndex: Self
+  ) -> Self {
+    return self & .makeMask(
+      lowerBitIndex: lowerBitIndex,
+      upperBitIndex: upperBitIndex
+    )
+  }
+
   /// - Note: `nil` for negative numbers
   var factorial: Self? {
     switch self {
