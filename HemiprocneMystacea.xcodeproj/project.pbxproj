@@ -231,6 +231,8 @@
 		49ED9750216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */; };
 		49EF28041D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
 		49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
+		49F43F7522790A24007A7A57 /* CATransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F7422790A24007A7A57 /* CATransaction.swift */; };
+		49F43F7622790A24007A7A57 /* CATransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F7422790A24007A7A57 /* CATransaction.swift */; };
 		49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
@@ -392,6 +394,7 @@
 		49ED974C216BF0D800298F4A /* ExpressibleBy2Tuple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBy2Tuple.swift; sourceTree = "<group>"; };
 		49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBy2TupleTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
+		49F43F7422790A24007A7A57 /* CATransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransaction.swift; sourceTree = "<group>"; };
 		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
 		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
 		49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewTestCase.swift; path = UIKit/UICollectionViewTestCase.swift; sourceTree = "<group>"; };
@@ -1032,6 +1035,7 @@
 			children = (
 				49FD14F21CD91BE00067F27E /* CABasicAnimation */,
 				497F568C1E3C4BC40066CD1E /* CALayer.swift */,
+				49F43F7422790A24007A7A57 /* CATransaction.swift */,
 				497F568F1E3C4C5D0066CD1E /* CATransform3D.swift */,
 			);
 			name = QuartzCore;
@@ -1359,6 +1363,7 @@
 				4966B0D5218836C600F6019D /* Process.swift in Sources */,
 				497EFE8B1DB640DE00DEC825 /* ConvertibleToCloudKitRecord.swift in Sources */,
 				497F569D1E3C55B50066CD1E /* CGFloat2.swift in Sources */,
+				49F43F7622790A24007A7A57 /* CATransaction.swift in Sources */,
 				0A72FC421D40819D0041845B /* FileInfo.swift in Sources */,
 				492404E91E39F0E9005BD973 /* CloudKitBackReferenced.swift in Sources */,
 				0A72FC471D40819D0041845B /* CABasicAnimation.Values.swift in Sources */,
@@ -1434,6 +1439,7 @@
 				4975C1101F02554D00C89E52 /* Collection.swift in Sources */,
 				49FD14F11CD91A940067F27E /* CABasicAnimation.swift in Sources */,
 				49C4343A1C35DCF900B6C530 /* ComputedProperty.swift in Sources */,
+				49F43F7522790A24007A7A57 /* CATransaction.swift in Sources */,
 				4966B0D4218836C600F6019D /* Process.swift in Sources */,
 				4923BF0922504D7400FA8916 /* UIView.swift in Sources */,
 				490CC595220629D300AD5771 /* Permutations.swift in Sources */,
