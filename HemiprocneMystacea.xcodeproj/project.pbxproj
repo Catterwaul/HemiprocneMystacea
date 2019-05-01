@@ -233,6 +233,12 @@
 		49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */; };
 		49F43F7522790A24007A7A57 /* CATransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F7422790A24007A7A57 /* CATransaction.swift */; };
 		49F43F7622790A24007A7A57 /* CATransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F7422790A24007A7A57 /* CATransaction.swift */; };
+		49F43F79227A2476007A7A57 /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F78227A2476007A7A57 /* Comparable.swift */; };
+		49F43F7A227A2476007A7A57 /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F78227A2476007A7A57 /* Comparable.swift */; };
+		49F43F7C227A2722007A7A57 /* ComparableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F7B227A2722007A7A57 /* ComparableTestCase.swift */; };
+		49F43F7E227A2AFC007A7A57 /* Strideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F7D227A2AFC007A7A57 /* Strideable.swift */; };
+		49F43F7F227A2AFC007A7A57 /* Strideable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F7D227A2AFC007A7A57 /* Strideable.swift */; };
+		49F43F81227A2BA0007A7A57 /* StrideableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F80227A2BA0007A7A57 /* StrideableTestCase.swift */; };
 		49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
@@ -395,6 +401,10 @@
 		49ED974F216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleBy2TupleTestCase.swift; sourceTree = "<group>"; };
 		49EF28031D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithDependentOutlets.swift; sourceTree = "<group>"; };
 		49F43F7422790A24007A7A57 /* CATransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransaction.swift; sourceTree = "<group>"; };
+		49F43F78227A2476007A7A57 /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
+		49F43F7B227A2722007A7A57 /* ComparableTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableTestCase.swift; sourceTree = "<group>"; };
+		49F43F7D227A2AFC007A7A57 /* Strideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strideable.swift; sourceTree = "<group>"; };
+		49F43F80227A2BA0007A7A57 /* StrideableTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrideableTestCase.swift; sourceTree = "<group>"; };
 		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
 		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
 		49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewTestCase.swift; path = UIKit/UICollectionViewTestCase.swift; sourceTree = "<group>"; };
@@ -607,6 +617,7 @@
 				498D20CE1F91576000AB6829 /* Array.swift */,
 				4975C10F1F02554D00C89E52 /* Collection.swift */,
 				49B182D71C33807000529B08 /* Sequence.swift */,
+				49F43F7D227A2AFC007A7A57 /* Strideable.swift */,
 				49A978DE225DB73300B3BA1F /* HashedCollection */,
 				49A978E1225DB7A200B3BA1F /* Lazy Views */,
 			);
@@ -621,6 +632,7 @@
 				0A8DEF841C48993B00DF1CF7 /* SequenceTestCase.swift */,
 				49A978DF225DB75B00B3BA1F /* HashedCollection */,
 				49A978E2225DB7B600B3BA1F /* Lazy Views */,
+				49F43F80227A2BA0007A7A57 /* StrideableTestCase.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -785,6 +797,7 @@
 			isa = PBXGroup;
 			children = (
 				49B182D21C33807000529B08 /* Bool.swift */,
+				49F43F78227A2476007A7A57 /* Comparable.swift */,
 				49A978E4225DB80F00B3BA1F /* C */,
 				49A978DA225DB68A00B3BA1F /* Collection */,
 				49A978D3225DB29E00B3BA1F /* Math */,
@@ -802,6 +815,7 @@
 			isa = PBXGroup;
 			children = (
 				49B182E81C338D6900529B08 /* BoolTestCase.swift */,
+				49F43F7B227A2722007A7A57 /* ComparableTestCase.swift */,
 				49A978E5225DB81A00B3BA1F /* C */,
 				49A978DB225DB6A400B3BA1F /* Collection */,
 				49A978D8225DB4B300B3BA1F /* Math */,
@@ -1293,6 +1307,7 @@
 				4993AD341DD99155007C7525 /* named subscripts.swift in Sources */,
 				0A72FC6C1D40819D0041845B /* UIBarButtonItem.swift in Sources */,
 				0A72FC451D40819D0041845B /* ConvertibleToSerializableDictionary.swift in Sources */,
+				49F43F7F227A2AFC007A7A57 /* Strideable.swift in Sources */,
 				499088051F849C7F00F9E569 /* CloudKitEnumeration.swift in Sources */,
 				49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				0A72FC6B1D40819D0041845B /* UIViewController.swift in Sources */,
@@ -1344,6 +1359,7 @@
 				4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */,
 				0A72FC661D40819D0041845B /* UIAlertController.swift in Sources */,
 				0A72FC601D40819D0041845B /* HashableClass.swift in Sources */,
+				49F43F7A227A2476007A7A57 /* Comparable.swift in Sources */,
 				498C8A091E5E152D00887F04 /* UIImage.swift in Sources */,
 				0A72FC651D40819D0041845B /* UIAlertAction.swift in Sources */,
 				49AE8BD420D89BF300EFE687 /* BinaryFloatingPoint.swift in Sources */,
@@ -1423,6 +1439,7 @@
 				49A3AEDE2151D2E700C01F22 /* MemoryLayout.swift in Sources */,
 				498D20CA1F91548500AB6829 /* ModelNotAssignedError.swift in Sources */,
 				49B182E11C33807000529B08 /* Sequence.swift in Sources */,
+				49F43F7E227A2AFC007A7A57 /* Strideable.swift in Sources */,
 				492CE34920B095C800BEE6AD /* MTLDeviceError.swift in Sources */,
 				49CBE0CF1C332ADE00E8EFCC /* UILabel.swift in Sources */,
 				49A6C9581E476D6700CF5FFB /* SerializableDictionary.swift in Sources */,
@@ -1446,6 +1463,7 @@
 				49E5253B1E5E94480080E2CC /* UNUserNotificationCenter.swift in Sources */,
 				E3BE340B1D0EF2A0008D532C /* weakClosure.swift in Sources */,
 				49CBE0CB1C332ADE00E8EFCC /* UIAlertController.swift in Sources */,
+				49F43F79227A2476007A7A57 /* Comparable.swift in Sources */,
 				491278681CDD2EDC00AAFE7C /* UIBarButtonItem.swift in Sources */,
 				49DBA1E31CD940BF0058181A /* UIAlertAction.swift in Sources */,
 				49AB16F21EF2440A009868AB /* FixedWidthInteger.swift in Sources */,
@@ -1527,12 +1545,14 @@
 				49A978CD225D86A900B3BA1F /* SIMD2TestCase.swift in Sources */,
 				49A4861C1D09132500A55CCD /* CGRectTestCase.swift in Sources */,
 				4976CB291C497F8E00F60E36 /* DictionaryTestCase.swift in Sources */,
+				49F43F7C227A2722007A7A57 /* ComparableTestCase.swift in Sources */,
 				49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */,
 				49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */,
 				4966E4D11E3C5C0700199496 /* CALayerTestCase.swift in Sources */,
 				490CC59822062A5900AD5771 /* PermutationsTestCase.swift in Sources */,
 				497EFE901DB6476E00DEC825 /* RawRepresentableTestCase.swift in Sources */,
 				496D9DED20D827280021A48C /* Half.swift in Sources */,
+				49F43F81227A2BA0007A7A57 /* StrideableTestCase.swift in Sources */,
 				498D20CD1F9154CF00AB6829 /* ModelNotAssignedErrorTestCase.swift in Sources */,
 				49E9A2992253D207002340EE /* UIScrollViewWithCellsTestCase.swift in Sources */,
 			);
