@@ -3,29 +3,29 @@
 ///- Note: Designed for one-to-many events, hence no return value.
 ///  Returning a single value from multiple closures doesn't make sense.
 public final class MultiClosure<Input>: EquatableClass {
-	public init(_ closures: EquatableClosure<Input>...) {
-		self += closures
-	}
+  public init(_ closures: EquatableClosure<Input>...) {
+    self += closures
+  }
+
+  public init<Closures: Sequence>(_ closures: Closures)
+  where Closures.Element == EquatableClosure<Input> {
+    self += closures
+  }
 	
-	public init<Closures: Sequence>(_ closures: Closures)
-	where Closures.Element == EquatableClosure<Input> {
-		self += closures
-	}
-	
-	/// Execute every closure
-	///
-	/// ***Rationale:***
-	/// We can't override () so maybe brackets are the next best thing?
-	public subscript(input: Input) -> Void {
-		for closure in closures {
-			closure.reference[input]
-		}
-	}
-	
-	var closures: Set<
-		UnownedReferencer< EquatableClosure<Input> >
-	> = []
-	
+  /// Execute every closure
+  ///
+  /// ***Rationale:***
+  /// We can't override () so maybe brackets are the next best thing?
+  public subscript(input: Input) -> Void {
+    for closure in closures {
+      closure.reference[input]
+    }
+  }
+
+  var closures: Set<
+    UnownedReferencer< EquatableClosure<Input> >
+  > = []
+
 //MARK: deallocation
   // We can't find self in `closures` without this.
   fileprivate lazy var unownedSelf = UnownedReferencer(self)
@@ -48,33 +48,33 @@ public extension MultiClosure where Input == () {
 
 /// A wrapper around a closure, for use with MultiClosures
 public final class EquatableClosure<Input>: EquatableClass {
-	public init(_ closure: @escaping (Input) -> Void) {
-		self.closure = closure
-	}
+  public init(_ closure: @escaping (Input) -> Void) {
+    self.closure = closure
+  }
 
-	/// Execute the closure
-	///
-	/// ***Rationale:***
-	/// We can't override () so maybe brackets are the next best thing?
-	public subscript(input: Input) -> Void {
-		closure(input)
-	}
-	
-	private let closure: (Input) -> Void
+  /// Execute the closure
+  ///
+  /// ***Rationale:***
+  /// We can't override () so maybe brackets are the next best thing?
+  public subscript(input: Input) -> Void {
+    closure(input)
+  }
+
+  private let closure: (Input) -> Void
 
 //MARK: deallocation
-	var multiClosures: Set<
-		UnownedReferencer< MultiClosure<Input> >
-	> = []
-	
-	// We can't find self in `multiClosures` without this.
-	fileprivate lazy var unownedSelf = UnownedReferencer(self)
-	
-	deinit {
-		for multiClosure in multiClosures {
-			multiClosure.reference.closures.remove(unownedSelf)
-		}
-	}
+  var multiClosures: Set<
+    UnownedReferencer< MultiClosure<Input> >
+  > = []
+
+  // We can't find self in `multiClosures` without this.
+  fileprivate lazy var unownedSelf = UnownedReferencer(self)
+  
+  deinit {
+    for multiClosure in multiClosures {
+      multiClosure.reference.closures.remove(unownedSelf)
+    }
+  }
 }
 
 /// Add `closure` to the set of closures that runs
