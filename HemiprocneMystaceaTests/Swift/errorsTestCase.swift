@@ -18,7 +18,7 @@ final class errorsTestCase: XCTestCase {
 		}
 		catch let errors as Errors {
 			XCTAssertEqual(
-				errors.array as! [Error],
+				errors.flatArray as! [Error],
 				[	.bad,
 				 	.strongBad, .strongBad
 				]

@@ -36,6 +36,7 @@ public extension ConvertibleToCloudKitRecord {
 
       return (key, value)
     }
+
     return
       Dictionary(uniqueKeysWithValues: keyValuePairs)
       .merging(recordDictionaryOverrides) { $1 }
