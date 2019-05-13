@@ -2,6 +2,17 @@ import HM
 import XCTest
 
 final class DictionaryTestCase: XCTestCase {
+  func test_mapValues() {
+    XCTAssertEqual(
+      [ "🍍": "🥐",
+        "🥝": "🥯"
+      ].mapValues { tropicalFruit, _ in tropicalFruit },
+      [ "🍍": "🍍",
+        "🥝": "🥝"
+      ]
+    )
+  }
+
 //MARK: Subscripts
 	func test_optionalKeySubscript() {
 		let dictionary = ["key": "value"]
@@ -31,43 +42,6 @@ final class DictionaryTestCase: XCTestCase {
 	}
 
 //MARK: Operators
-	func test_plus() {
-		let dictionary: [Int: Int] = [
-			1: 10,
-			2: 20
-		] + [3: 30]
-		XCTAssertEqual(
-			dictionary + [
-				3: 30,
-				4: 40
-			],
-			[	1: 10,
-				2: 20,
-				3: 30,
-				4: 40
-			]
-		)
-	}
-	
-	func test_plusEquals() {
-		var dictionary = [
-			1: 10,
-			2: 20
-		]
-		dictionary += [
-			3: 30,
-			4: 40
-		]
-		XCTAssertEqual(
-			dictionary,
-			[	1: 10,
-				2: 20,
-				3: 30,
-				4: 40
-			]
-		)
-	}
-	
 	func test_minus() {
 		let dictionary = [
 			1: 10,

@@ -1,4 +1,11 @@
 public extension Dictionary {
+  func mapValues<Transformed>(
+    _ transform: (Element) throws -> Transformed
+  ) rethrows -> [Key: Transformed] {
+    return .init(
+      uniqueKeysWithValues: zip( keys, try map(transform) )
+    )
+  }
   
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
@@ -22,33 +29,6 @@ public extension Dictionary {
 }
 
 //MARK:- Operators
-
-//MARK: +
-///- Returns: the combination of `dictionary` with a key-value pair sequence
-public func + <
-	Key, Value,
-	Sequence: Swift.Sequence
->(
-	dictionary: [Key: Value],
-	sequence: Sequence
-) -> [Key: Value]
-where Sequence.Element == (key: Key, value: Value) {
-	var dictionary = dictionary
-	sequence.forEach { dictionary[$0.key] = $0.value }
-	return dictionary
-}
-
-/// Combine `dictionary` with a key-value pair sequence
-public func += <
-	Key, Value,
-	Sequence: Swift.Sequence
->(
-	dictionary: inout [Key: Value],
-	sequence: Sequence
-)
-where Sequence.Element == (key: Key, value: Value) {
-	dictionary = dictionary + sequence
-}
 
 //MARK: –
 ///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil

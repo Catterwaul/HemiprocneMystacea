@@ -1,5 +1,6 @@
 import CloudKit
 
+/// An enumeration whose cases each correspond with a `CKRecord`.
 public protocol CloudKitEnumeration:
   RawRepresentable, Hashable,
   ConvertibleToCloudKitRecord, InitializableWithCloudKitRecord
