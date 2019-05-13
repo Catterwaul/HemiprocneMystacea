@@ -10,6 +10,29 @@ final class CKRecordTestCase: XCTestCase {
     let weight: Measurement<UnitMass>?
     let nonCloudKitProperty = "⛈"
   }
+
+  func test_RawRepresentableWithCKRecordValue() {
+    struct CakeBox: ConvertibleToCloudKitRecord, Equatable {
+      enum Cake: String, RawRepresentableWithCKRecordValue {
+        case 🥮, 🧁, 🍰, 🍥, 🎂
+      }
+
+      enum CloudKitRecordKey: String {
+        case cake
+      }
+
+      let cake: Cake
+    }
+
+    let cakeBox = CakeBox(cake: .🥮)
+    XCTAssertEqual(
+      try CakeBox.Cake(
+        record: CKRecord(cakeBox),
+        key: CakeBox.CloudKitRecordKey.cake
+      ),
+      cakeBox.cake
+    )
+  }
   
   func test_initializeCKRecord() {
     let
@@ -31,11 +54,12 @@ final class CKRecordTestCase: XCTestCase {
     XCTAssertEqual(unSmashingPumpkin.weight, mrPumpkin.weight)
   }
   
-  enum IntEnum: Int, CloudKitEnumeration {
-    case zero
-    case one
-  }
-  func testIntEnum() {
+  func test_IntEnum() {
+    enum IntEnum: Int, CloudKitEnumeration {
+      case zero
+      case one
+    }
+
     let record = CKRecord(IntEnum.one)
     XCTAssertEqual(try record.getValue(key: "rawValue"), 1)
     XCTAssertEqual(try IntEnum(record: record), .one)
@@ -46,7 +70,7 @@ final class CKRecordTestCase: XCTestCase {
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
     XCTAssertThrowsError( try IntEnum(record: record) ) { error in
       switch error {
-      case let error as CloudKitEnumerationInitializationError<Int>:
+      case let error as CKRecord.RawRepresentableInitializationError<Int>:
         XCTAssertEqual(error.rawValue, -1)
       default:
         XCTFail()
@@ -54,11 +78,12 @@ final class CKRecordTestCase: XCTestCase {
     }
   }
   
-  enum StringEnum: String, CloudKitEnumeration {
-    case a
-    case eh = "🇨🇦"
-  }
-  func testStringEnum() {    
+  func test_StringEnum() {
+    enum StringEnum: String, CloudKitEnumeration {
+      case a
+      case eh = "🇨🇦"
+    }
+
     let record = CKRecord(StringEnum.eh)
     XCTAssertEqual(try record.getValue(key: "rawValue"), "🇨🇦")
     XCTAssertEqual(try StringEnum(record: record), .eh)
@@ -69,7 +94,7 @@ final class CKRecordTestCase: XCTestCase {
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
     XCTAssertThrowsError( try StringEnum(record: record) ) { error in
       switch error {
-      case let error as CloudKitEnumerationInitializationError<String>:
+      case let error as CKRecord.RawRepresentableInitializationError<String>:
         XCTAssertEqual(error.rawValue, "eh")
       default:
         XCTFail()

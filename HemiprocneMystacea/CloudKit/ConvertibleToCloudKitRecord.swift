@@ -6,7 +6,7 @@ public protocol ConvertibleToCloudKitRecord {
 	/// - Important: This is a nested type with this signature:
 	///  `enum CloudKitRecordKey: String`
 	associatedtype CloudKitRecordKey: Hashable, RawRepresentable
-  where CloudKitRecordKey.RawValue == String
+  where CloudKitRecordKey.RawValue == CKRecord.FieldKey
 	
 	/// Overrides for record values,
 	/// probably because they don't implement `CKRecordValue`.
@@ -31,7 +31,8 @@ public extension ConvertibleToCloudKitRecord {
       guard
         let label = child.label,
         let key = CloudKitRecordKey(rawValue: label),
-        let value = makeCKRecordValue(child.value)
+        !recordDictionaryOverrides.keys.contains(key),
+        let value = CKRecord.makeValue(child.value)
       else { return nil }
 
       return (key, value)

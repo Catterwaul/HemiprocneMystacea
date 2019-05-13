@@ -78,6 +78,8 @@
 		493DB0D21E520FF000E16694 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493DB0D01E520FF000E16694 /* Mirror.swift */; };
 		4942EA561E81A2B00085595C /* HemiprocneMystaceaTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4942EA541E81A2B00085595C /* HemiprocneMystaceaTest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4942EA601E81A5840085595C /* HMTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942EA521E81A2B00085595C /* HMTest.framework */; };
+		4949485C228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949485B228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift */; };
+		4949485D228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949485B228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift */; };
 		494A99381E37253400F6A51D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A99371E37253400F6A51D /* UICollectionView.swift */; };
 		494A99391E37253400F6A51D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A99371E37253400F6A51D /* UICollectionView.swift */; };
 		494A993B1E37261800F6A51D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494A993A1E37261800F6A51D /* UITableView.swift */; };
@@ -284,6 +286,7 @@
 		4942EA521E81A2B00085595C /* HMTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HMTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4942EA541E81A2B00085595C /* HemiprocneMystaceaTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HemiprocneMystaceaTest.h; sourceTree = "<group>"; };
 		4942EA551E81A2B00085595C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4949485B228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentableWithCKRecordValue.swift; sourceTree = "<group>"; };
 		494A99371E37253400F6A51D /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		494A993A1E37261800F6A51D /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		49551E2F2255DC10001C9318 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
@@ -561,6 +564,7 @@
 				49892BF91F8420C6007593E6 /* ConvertibleToCKRecordValue.swift */,
 				49A36BDC1D407CA200A4BFEB /* InitializableWithCloudKitRecord.swift */,
 				49B159531E39FD86003A0034 /* InitializableWithCloudKitRecordAndReferences.swift */,
+				4949485B228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift */,
 			);
 			path = CloudKit;
 			sourceTree = "<group>";
@@ -1355,6 +1359,7 @@
 				49AB16ED1EF23A92009868AB /* Numeric.swift in Sources */,
 				49075561226A7DF800D6ED5D /* MCSession.swift in Sources */,
 				492CE34A20B095C800BEE6AD /* MTLDeviceError.swift in Sources */,
+				4949485D228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift in Sources */,
 				0A72FC3B1D40819D0041845B /* InitializableWithCloudKitRecord.swift in Sources */,
 				4969F44C1E0E3D1C0005A4FA /* IndexPath.swift in Sources */,
 				0A72FC661D40819D0041845B /* UIAlertController.swift in Sources */,
@@ -1430,6 +1435,7 @@
 				498880851D58BFB400AE24FC /* CKAsset.swift in Sources */,
 				49CBE0B91C332ADE00E8EFCC /* HashableClass.swift in Sources */,
 				49BF89901C38C8FD0050A49B /* InitializableWithParameters.swift in Sources */,
+				4949485C228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift in Sources */,
 				492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				4907555D226A7DD500D6ED5D /* MCAdvertiserAssistant.swift in Sources */,
 				49C571171F84410600064423 /* CloudKitEnumeration.swift in Sources */,
