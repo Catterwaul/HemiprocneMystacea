@@ -2,7 +2,7 @@ import CloudKit
 
 /// For storing enumeration cases as their raw values, in a `CKRecord`.
 public protocol RawRepresentableWithCKRecordValue:
-  RawRepresentable, ConvertibleToCKRecordValue
+  RawRepresentable, Hashable, ConvertibleToCKRecordValue
 where RawValue: ConvertibleToCKRecordValue { }
 
 public extension RawRepresentableWithCKRecordValue {
