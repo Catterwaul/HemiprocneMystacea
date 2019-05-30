@@ -21,9 +21,7 @@ public extension CKDatabase {
         catch let error as CKError
         where CKError.Code(rawValue: error.errorCode) == .unknownItem {
           dispatchGroup.enter()
-          self.save(recordsToSave.first!) {
-            verify in
-            
+          self.save(recordsToSave.first!) { verify in
             defer { dispatchGroup.leave() }
             
             do {

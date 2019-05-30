@@ -6,9 +6,7 @@ public extension CKContainer {
   func requestApplicationPermissionStatus(
     process: @escaping ProcessGet<CKContainer.Application.PermissionStatus>
   ) {
-    requestApplicationPermission(.userDiscoverability) {
-      permissionStatus, error in
-      
+    requestApplicationPermission(.userDiscoverability) { permissionStatus, error in
       if let error = error {
         process { throw error }
         return
