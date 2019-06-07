@@ -5,19 +5,13 @@ public protocol ConvertibleToCKRecordValue {
 }
 
 extension String: ConvertibleToCKRecordValue {
-  public var ckRecordValue: CKRecordValue {
-    return self as NSString
-  }
+  public var ckRecordValue: CKRecordValue { self as NSString }
 }
 
 extension Int: ConvertibleToCKRecordValue {
-  public var ckRecordValue: CKRecordValue {
-    return self as NSNumber
-  }
+  public var ckRecordValue: CKRecordValue { self as NSNumber }
 }
 
 extension Double: ConvertibleToCKRecordValue {
-  public var ckRecordValue: CKRecordValue {
-    return self as NSNumber
-  }
+  public var ckRecordValue: CKRecordValue { self as NSNumber }
 }

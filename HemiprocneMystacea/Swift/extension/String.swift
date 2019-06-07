@@ -18,10 +18,7 @@ public extension String {
 
 /// `string0`, with all occurrences of `string1` removed
 public func - (string0: String, string1: String) -> String {
-	return string0.replacingOccurrences(
-		of: string1,
-		with: ""
-	)
+  string0.replacingOccurrences(of: string1, with: "")
 }
 
 /// `string`, with all occurrences of each of the `strings` removed
@@ -30,5 +27,5 @@ public func - <Strings: Sequence>(
 	strings: Strings
 ) -> String
 where Strings.Element == String {
-	return strings.reduce(string, -)
+  strings.reduce(string, -)
 }

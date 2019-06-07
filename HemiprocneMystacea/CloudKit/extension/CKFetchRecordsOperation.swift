@@ -24,13 +24,13 @@ public extension CKFetchRecordsOperation {
 		references: References,
 		process: @escaping ProcessGet<[CKRecord]>
 	)
-    where References.Element == CKRecord.Reference {
+  where References.Element == CKRecord.Reference {
 		let ids = references.map { $0.recordID }
 		
 		self.init(recordIDs: ids) {
 			getRecords in
 			
-			process{
+			process {
 				let records = try getRecords()
 				return ids.map { id in records[id]! }
 			}

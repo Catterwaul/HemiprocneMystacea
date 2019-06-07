@@ -16,6 +16,6 @@ public extension CloudKitEnumeration {
   }
 
   var recordDictionary: RecordDictionary {
-    return [CloudKitRecordKey.rawValue: rawValue.ckRecordValue]
+    [CloudKitRecordKey.rawValue: rawValue.ckRecordValue]
   }
 }

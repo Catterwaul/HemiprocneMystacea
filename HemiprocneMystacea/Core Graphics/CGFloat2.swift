@@ -12,7 +12,7 @@ public extension CGFloat2 {
   private typealias Double2 = SIMD2<Double>
 
   static func + (float2_0: Self, float2_1: Self) -> Self {
-    return Self( Double2(float2_0) + Double2(float2_1) )
+    Self( Double2(float2_0) + Double2(float2_1) )
   }
 
   static func += (float2_0: inout Self, float2_1: Self) {
@@ -28,15 +28,15 @@ public extension CGFloat2 {
   }
 
   static func * (float2: Self, float: CGFloat) -> Self {
-    return Self(Double2(float2) * float.native)
+    Self(Double2(float2) * float.native)
   }
 
   static func / (dividend: Self, divisor: Self) -> Self {
-    return Self( Double2(dividend) / Double2(divisor) )
+    Self( Double2(dividend) / Double2(divisor) )
   }
 
   static func / (float2: Self, float: CGFloat) -> Self {
-    return Self(Double2(float2) / float.native)
+    Self(Double2(float2) / float.native)
   }
 
   init<Float2: CGFloat2>(_ float2: Float2) {
@@ -48,7 +48,7 @@ public extension CGFloat2 {
   }
 
   func clamped(within bounds: CGRect) -> Self {
-    return Self(
+    Self(
       clamp(
         Double2(self),
         min: Double2(x: bounds.minX, y: bounds.minY),
@@ -65,13 +65,9 @@ extension CGVector: CGFloat2 {
     self.init(dx: x, dy: y)
   }
 
-  public var x: CGFloat {
-    return dx
-  }
+  public var x: CGFloat { dx }
 
-  public var y: CGFloat {
-    return dy
-  }
+  public var y: CGFloat { dy }
 }
 
 extension CGSize: CGFloat2 {
@@ -79,13 +75,9 @@ extension CGSize: CGFloat2 {
     self.init(width: x, height: y)
   }
 
-  public var x: CGFloat {
-    return width
-  }
+  public var x: CGFloat { width }
 
-  public var y: CGFloat {
-    return height
-  }
+  public var y: CGFloat { height }
 }
 
 public extension SIMD2 where Scalar == Double {

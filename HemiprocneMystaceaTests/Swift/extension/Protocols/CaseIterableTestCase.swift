@@ -8,7 +8,7 @@ final class CaseIterableTestCase: XCTestCase {
     }
 
     XCTAssertEqual(
-      Alphabet.getRange(from: .c, through: .f),
+      Alphabet.c...(.f),
       [.c, .d, .e, .f]
     )
   }

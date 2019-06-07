@@ -2,28 +2,25 @@ public extension Dictionary {
   func mapValues<Transformed>(
     _ transform: (Element) throws -> Transformed
   ) rethrows -> [Key: Transformed] {
-    return .init(
+    .init(
       uniqueKeysWithValues: zip( keys, try map(transform) )
     )
   }
   
 //MARK: Subscripts
 	///- Returns: nil if `key` is nil
-	subscript(key: Key?) -> Value? {
-		return key.flatMap { self[$0] }
-	}
+	subscript(key: Key?) -> Value? { key.flatMap { self[$0] } }
 
 	subscript(
 		key: Key,
 		valueAddedIfNil getValue: @autoclosure() -> Dictionary.Value
 	) -> Dictionary.Value {
 		mutating get {
-			return
-				self[key]
-				?? {
-					self[key] = getValue()
-					return self[key]!
-				} ()
+      self[key]
+      ?? {
+        self[key] = getValue()
+        return self[key]!
+      } ()
 		}
 	}
 }
@@ -40,7 +37,7 @@ public func - <
 	keysToSetNil: KeysToSetNil
 ) -> [Key: Value]
 where KeysToSetNil.Element == Key {
-  return dictionary.filter { !keysToSetNil.contains($0.key) }
+  dictionary.filter { !keysToSetNil.contains($0.key) }
 }
 /// For `dictionary`, assign nil for every key in `keysToSetNil`
 public func -= <

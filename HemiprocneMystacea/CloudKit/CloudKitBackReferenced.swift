@@ -42,7 +42,7 @@ public extension CloudKitBackReferenced {
         }
         database.add(operation)
       }
-      catch { process{ throw error } }
+      catch { process { throw error } }
     }
   }
 }

@@ -16,6 +16,6 @@ public extension Bool {
 public extension Sequence where Element == () -> Bool {
   ///- Returns: whether all elements of the sequence evaluate to `bool`
   func containsOnly(_ bool: Bool) -> Bool {
-    return allSatisfy { getBool in bool == getBool() }
+    allSatisfy { getBool in bool == getBool() }
   }
 }

@@ -10,7 +10,5 @@ public extension FileInfo {
     try attributes = FileManager.default.attributesOfItem(atPath: path)
   }
   
-	var size: UInt {
-		return attributes[.size] as! UInt
-	}
+	var size: UInt { attributes[.size] as! UInt }
 }

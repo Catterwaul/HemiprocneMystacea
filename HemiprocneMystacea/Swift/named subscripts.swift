@@ -10,16 +10,12 @@ public extension NamedGetOnlySubscript {
     self.getValue = getValue
   }
   
-  subscript(index: Index) -> Value {
-    return getValue(index)
-  }
+  subscript(index: Index) -> Value { getValue(index) }
   
   subscript<Indices: Sequence>(indices: Indices) -> [Value]
   where Indices.Element == Index {
-    return indices.map { self[$0] }
+    indices.map { self[$0] }
   }
   
-  subscript(indices: Index...) -> [Value] {
-    return self[indices]
-  }
+  subscript(indices: Index...) -> [Value] { self[indices] }
 }

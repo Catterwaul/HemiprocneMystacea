@@ -3,7 +3,7 @@ public extension EnumeratedSequence {
   func mapElements<Transformed>(
     _ transform: (Base.Element) throws -> Transformed
   ) throws -> [Transformed] {
-    return try self.map {
+    try self.map {
       do { return try transform($0.element) }
       catch {
         throw EnumeratedSequenceError(
