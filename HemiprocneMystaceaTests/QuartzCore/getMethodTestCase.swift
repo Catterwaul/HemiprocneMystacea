@@ -47,9 +47,7 @@ private protocol 🎄 {
 }
 
 extension 🎄 {
-	func 🎄() -> String {
-		return 🎤🙀
-	}
+	func 🎄() -> String { 🎤🙀 }
 }
 
 private struct 🎅: 🎄 { }
@@ -60,7 +58,5 @@ private struct 🎅🏾: 🎄 { }
 private struct 🎅🏿: 🎄 { }
 
 private struct 👼: 🎄 {
-	func 🎄() -> String {
-		return "☃️"
-	}
+	func 🎄() -> String { "☃️" }
 }

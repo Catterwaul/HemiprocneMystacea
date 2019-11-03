@@ -39,8 +39,8 @@ public extension ComputedProperty {
 
 //MARK: Property
 extension ComputedProperty: Property {
-	public var value: Value {
-		get { return get() }
-		set { set(newValue) }
-	}
+  public var value: Value {
+    get { get() }
+    set { set(newValue) }
+  }
 }

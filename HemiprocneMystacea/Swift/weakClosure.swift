@@ -11,8 +11,7 @@ public func makeGet<
   weakReference reference: Reference?,
   transform: @escaping (Reference) -> Transformed
 ) -> () -> ( () -> Transformed )? {
-  return {
-    [weak reference] in reference.map { reference in
+  { [weak reference] in reference.map { reference in
       { transform(reference) }
     }
   }
@@ -34,8 +33,7 @@ public func makeGet<
   weakReference reference: Reference?,
   transform: @escaping (Reference, Parameter) -> Transformed
 ) -> () -> ( (Parameter) -> Transformed )? {
-  return {
-    [weak reference] in reference.map { reference in
+  { [weak reference] in reference.map { reference in
       { transform(reference, $0) }
     }
   }

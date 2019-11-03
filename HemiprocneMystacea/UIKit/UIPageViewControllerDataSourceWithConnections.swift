@@ -6,7 +6,7 @@ public protocol UIPageViewControllerDataSourceWithConnectedViewControllers: UIPa
 
 public extension UIPageViewControllerDataSourceWithConnectedViewControllers {
 	var connectedViewControllers: UIPageViewController.ConnectedViewControllers {
-		return UIPageViewController.ConnectedViewControllers(
+    UIPageViewController.ConnectedViewControllers(
 			connectedViewControllers: _connectedViewControllers
 		)
 	}
@@ -21,14 +21,14 @@ public extension UIPageViewController {
 //MARK: public
 public extension UIPageViewController.ConnectedViewControllers {
 	subscript(successor viewController: UIViewController) -> UIViewController? {
-		return getConnectedViewController(
+    getConnectedViewController(
 			viewController: viewController,
 			adjustIndex: -
 		)
 	}
 	
 	subscript(predecessor viewController: UIViewController) -> UIViewController? {
-		return getConnectedViewController(
+    getConnectedViewController(
 			viewController: viewController,
 			adjustIndex: +
 		)

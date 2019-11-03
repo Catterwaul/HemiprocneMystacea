@@ -13,8 +13,8 @@ public extension SortedArray {
     backedByArray: SortedArray,
     elements: Elements
   ) -> Bool
-    where Elements.Element == Element {
-      return backedByArray.backingArray == Array(elements)
+  where Elements.Element == Element {
+    backedByArray.backingArray == Array(elements)
   }
 
   static func + <Elements: Sequence>(
@@ -22,7 +22,7 @@ public extension SortedArray {
     elements: Elements
   ) -> SortedArray
   where Elements.Element == Element {
-    return SortedArray(
+    SortedArray(
       sortedArray.backingArray + elements,
       getAreInIncreasingOrder: sortedArray.getAreInIncreasingOrder
     )
@@ -39,7 +39,7 @@ public extension SortedArray {
     sortedArray: SortedArray,
     element: Element
   ) -> SortedArray {
-    return SortedArray(
+    SortedArray(
       sortedArray.backingArray.filter { $0 != element },
       getAreInIncreasingOrder: sortedArray.getAreInIncreasingOrder
     )
@@ -79,16 +79,12 @@ public extension SortedArray where Element: Comparable {
 //MARK: Collection
 extension SortedArray: Collection {
   public subscript(index: Int) -> Element {
-    return backingArray[index]
+    backingArray[index]
   }
 
-  public var endIndex: Int {
-    return backingArray.endIndex
-  }
+  public var endIndex: Int { backingArray.endIndex }
 
-  public var startIndex: Int {
-    return backingArray.startIndex
-  }
+  public var startIndex: Int { backingArray.startIndex }
 
   public func index(after index: Int) -> Int {
     return backingArray.index(after: index)
@@ -97,11 +93,6 @@ extension SortedArray: Collection {
 
 //MARK: Sequence
 public extension SortedArray {
-	func min() -> Element? {
-		return backingArray.first
-	}
-	
-	func max() -> Element? {
-		return backingArray.last
-	}
+	func min() -> Element? { backingArray.first }
+	func max() -> Element? { backingArray.last }
 }

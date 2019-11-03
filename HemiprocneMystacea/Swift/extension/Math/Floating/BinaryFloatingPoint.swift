@@ -1,6 +1,6 @@
 extension BinaryFloatingPoint {
   static var exponentBias: Int {
-    return 1 << (exponentBitCount - 1)
+    1 << (exponentBitCount - 1)
   }
 }
 
@@ -10,7 +10,7 @@ protocol BinaryFloatingPoint_exponentBias {
 
 extension Half: BinaryFloatingPoint_exponentBias {
   static var exponentBias: Int {
-    return 1 << (exponentBitCount - 1)
+    1 << (exponentBitCount - 1)
   }
 }
 

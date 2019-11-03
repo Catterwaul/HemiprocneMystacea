@@ -34,32 +34,26 @@ public extension Half {
     self.init( Float(integer) )
   }
   
-  var exponent: Int {
-    return exponentBitPattern - 0xF
-  }
+  var exponent: Int { exponentBitPattern - 0xF }
   
   var exponentBitPattern: Int {
-    return
-      (Int(bitPattern) >> Half.significandBitCount)
-      & 0x1F
+    (Int(bitPattern) >> Half.significandBitCount)
+    & 0x1F
   }
   
   var sign: FloatingPointSign {
-    return
-      bitPattern.leadingZeroBitCount > 0
-      ? .plus
-      : .minus
+    bitPattern.leadingZeroBitCount > 0
+    ? .plus
+    : .minus
   }
   
-  var significandBitPattern: Int {
-    return Int(bitPattern) & 0x3FF
-  }
+  var significandBitPattern: Int { Int(bitPattern) & 0x3FF }
 }
 
 // MARK: Comparable
 extension Half: Comparable {
   public static func < (half0: Half, half1: Half) -> Bool {
-    return Float(half0) < Float(half1)
+    Float(half0) < Float(half1)
   }
 }
 

@@ -19,7 +19,7 @@ public struct Setting<Value: AnyObject> {
 //MARK: ExpressibleByBooleanLiteral
 public extension Setting where Value: ExpressibleByBooleanLiteral {
   var value: Bool {
-    get { return userDefaults.bool(forKey: key) }
+    get { userDefaults.bool(forKey: key) }
     set { userDefaults.set(newValue, forKey: key) }
   }
 }
@@ -27,7 +27,7 @@ public extension Setting where Value: ExpressibleByBooleanLiteral {
 //MARK: ExpressibleByIntegerLiteral
 public extension Setting where Value: ExpressibleByIntegerLiteral {
   var value: Int {
-    get { return userDefaults.integer(forKey: key) }
+    get { userDefaults.integer(forKey: key) }
     set { userDefaults.set(newValue, forKey: key) }
   }
 }

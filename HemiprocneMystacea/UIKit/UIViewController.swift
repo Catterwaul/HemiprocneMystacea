@@ -2,7 +2,7 @@ import UIKit
 
 public extension UIViewController {
   static func instantiate() -> Self? {
-    return UIViewController.instantiate()
+    UIViewController.instantiate()
   }
   
   static func instantiate<ViewController: UIViewController>(
@@ -11,18 +11,18 @@ public extension UIViewController {
       bundle: nil
     )
   ) -> ViewController? {
-    return storyboard.instantiateInitialViewController() as? ViewController
+    storyboard.instantiateInitialViewController() as? ViewController
   }
 
 
   /// - Returns: all children of type `ViewController`
   func getChildren<ViewController: UIViewController>() -> [ViewController] {
-    return children.compactMap { $0 as? ViewController }
+    children.compactMap { $0 as? ViewController }
   }
 
   /// - Returns: the first child of type `ViewController`
   func getChild<ViewController: UIViewController>() -> ViewController? {
-    return getChildren().first
+    getChildren().first
   }
 
   

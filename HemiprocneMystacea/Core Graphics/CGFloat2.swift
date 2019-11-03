@@ -20,7 +20,7 @@ public extension CGFloat2 {
   }
 
   static func - (float2_0: Self, float2_1: Self) -> Self  {
-    return Self( Double2(float2_0) - Double2(float2_1) )
+    Self( Double2(float2_0) - Double2(float2_1) )
   }
 
   static func -= (float2_0: inout Self, float2_1: Self) {

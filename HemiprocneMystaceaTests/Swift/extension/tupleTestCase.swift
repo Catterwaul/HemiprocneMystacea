@@ -20,8 +20,7 @@ final class tupleTestCase: XCTestCase {
 private typealias Illustration = (image: String, TuplePlaceholder)
 
 private func makeIllustrations() -> [Illustration] {
-  return [
-    ( image: "🐻", TuplePlaceholder() ),
+  [ ( image: "🐻", TuplePlaceholder() ),
     ( image: "🍯", TuplePlaceholder() ),
     ( image: "🐝", TuplePlaceholder() )
   ]

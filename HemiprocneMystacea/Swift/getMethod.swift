@@ -13,12 +13,11 @@ public func getMethod<
 		(PotentialInstanceType1) -> Method
 	)
 ) -> Method? {
-	return
-		(instance as? PotentialInstanceType0)
-		.map(potentialMatches.0)
-		??
-		(instance as? PotentialInstanceType1)
-		.map(potentialMatches.1)
+  (instance as? PotentialInstanceType0)
+    .map(potentialMatches.0)
+  ??
+  (instance as? PotentialInstanceType1)
+    .map(potentialMatches.1)
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -38,17 +37,16 @@ public func getMethod<
 		(PotentialInstanceType2) -> Method
 	)
 ) -> Method? {
-	return
-		getMethod(
-			instance: instance,
-			potentialMatches: (
-				potentialMatches.0,
-				potentialMatches.1
-			)
-		)
-		??
-		(instance as? PotentialInstanceType2)
-		.map(potentialMatches.2)
+  getMethod(
+    instance: instance,
+    potentialMatches: (
+      potentialMatches.0,
+      potentialMatches.1
+    )
+  )
+  ??
+  (instance as? PotentialInstanceType2)
+    .map(potentialMatches.2)
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -70,18 +68,17 @@ public func getMethod<
 		(PotentialInstanceType3) -> Method
 	)
 ) -> Method? {
-	return
-		getMethod(
-			instance: instance,
-			potentialMatches: (
-				potentialMatches.0,
-				potentialMatches.1,
-				potentialMatches.2
-			)
-		)
-		??
-		(instance as? PotentialInstanceType3)
-		.map(potentialMatches.3)
+  getMethod(
+    instance: instance,
+    potentialMatches: (
+      potentialMatches.0,
+      potentialMatches.1,
+      potentialMatches.2
+    )
+  )
+  ??
+  (instance as? PotentialInstanceType3)
+    .map(potentialMatches.3)
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -105,19 +102,18 @@ public func getMethod<
 		(PotentialInstanceType4) -> Method
 	)
 ) -> Method? {
-	return
-		getMethod(
-			instance: instance,
-			potentialMatches: (
-				potentialMatches.0,
-				potentialMatches.1,
-				potentialMatches.2,
-				potentialMatches.3
-			)
-		)
-		??
-		(instance as? PotentialInstanceType4)
-		.map(potentialMatches.4)
+  getMethod(
+    instance: instance,
+    potentialMatches: (
+      potentialMatches.0,
+      potentialMatches.1,
+      potentialMatches.2,
+      potentialMatches.3
+    )
+  )
+  ??
+  (instance as? PotentialInstanceType4)
+    .map(potentialMatches.4)
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -143,20 +139,19 @@ public func getMethod<
 		(PotentialInstanceType5) -> Method
 	)
 ) -> Method? {
-	return
-		getMethod(
-			instance: instance,
-			potentialMatches: (
-				potentialMatches.0,
-				potentialMatches.1,
-				potentialMatches.2,
-				potentialMatches.3,
-				potentialMatches.4
-			)
-		)
-		??
-		(instance as? PotentialInstanceType5)
-		.map(potentialMatches.5)
+  getMethod(
+    instance: instance,
+    potentialMatches: (
+      potentialMatches.0,
+      potentialMatches.1,
+      potentialMatches.2,
+      potentialMatches.3,
+      potentialMatches.4
+    )
+  )
+  ??
+  (instance as? PotentialInstanceType5)
+    .map(potentialMatches.5)
 }
 
 ///- Parameter potentialMatches: Static curried methods which take one instance argument, to become instance methods.
@@ -184,19 +179,18 @@ public func getMethod<
 		(PotentialInstanceType6) -> Method
 	)
 ) -> Method? {
-	return
-		getMethod(
-			instance: instance,
-			potentialMatches: (
-				potentialMatches.0,
-				potentialMatches.1,
-				potentialMatches.2,
-				potentialMatches.3,
-				potentialMatches.4,
-				potentialMatches.5
-			)
-		)
-		??
-		(instance as? PotentialInstanceType6)
-		.map(potentialMatches.6)
+  getMethod(
+    instance: instance,
+    potentialMatches: (
+      potentialMatches.0,
+      potentialMatches.1,
+      potentialMatches.2,
+      potentialMatches.3,
+      potentialMatches.4,
+      potentialMatches.5
+    )
+  )
+  ??
+  (instance as? PotentialInstanceType6)
+    .map(potentialMatches.6)
 }

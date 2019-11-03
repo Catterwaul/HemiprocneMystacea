@@ -13,7 +13,7 @@ public protocol ConvertibleToSerializableDictionary {
 
 public extension ConvertibleToSerializableDictionary {
   func makeSerializableDictionary(jsonCompatible: Bool) -> [String: Any] {
-    return makeSerializableDictionary(
+    makeSerializableDictionary(
       jsonCompatible: jsonCompatible,
       key: nil
     )
@@ -86,24 +86,24 @@ public extension ConvertibleToSerializableDictionary {
 			?? serializableDictionary
 	}
 	
-	func makeJSONData(
-		options: JSONSerialization.WritingOptions = [],
-		key: String? = nil
-	) throws -> Data {
-		return try JSONSerialization.data(
-			withJSONObject: makeSerializableDictionary(
-				jsonCompatible: true,
-				key: key
-			),
-			options: options
-		)
-	}
+  func makeJSONData(
+    options: JSONSerialization.WritingOptions = [],
+    key: String? = nil
+  ) throws -> Data {
+    try JSONSerialization.data(
+      withJSONObject: makeSerializableDictionary(
+        jsonCompatible: true,
+        key: key
+      ),
+      options: options
+    )
+  }
 	
 	func makePropertyListData(
 		format: PropertyListSerialization.PropertyListFormat,
 		key: String? = nil
 	) throws -> Data {
-		return try Data(
+    try Data(
 			propertyList: makeSerializableDictionary(
 				jsonCompatible: false,
 				key: key
@@ -119,7 +119,7 @@ public extension Sequence where Element: ConvertibleToSerializableDictionary {
     options: JSONSerialization.WritingOptions = [],
     key: String? = nil
   ) throws -> Data {
-    return try JSONSerialization.data(
+    try JSONSerialization.data(
       withJSONObject: map {
         $0.makeSerializableDictionary(
           jsonCompatible: true,
@@ -134,7 +134,7 @@ public extension Sequence where Element: ConvertibleToSerializableDictionary {
     format: PropertyListSerialization.PropertyListFormat,
     key: String? = nil
   ) throws -> Data {
-    return try PropertyListSerialization.data(
+    try PropertyListSerialization.data(
       fromPropertyList: map {
         $0.makeSerializableDictionary(
           jsonCompatible: false,

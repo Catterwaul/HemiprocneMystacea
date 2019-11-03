@@ -23,6 +23,6 @@ public extension Collection where Element == SIMD2<Double> {
 
 public extension Collection where Element == (Double, Double) {
   var definiteIntegral: Double? {
-    return map( SIMD2<Double>.init(_:) ).definiteIntegral
+    map( SIMD2<Double>.init(_:) ).definiteIntegral
   }
 }

@@ -6,9 +6,7 @@ public protocol RawRepresentableWithCKRecordValue:
 where RawValue: ConvertibleToCKRecordValue { }
 
 public extension RawRepresentableWithCKRecordValue {
-  var ckRecordValue: CKRecordValue {
-    return rawValue.ckRecordValue
-  }
+  var ckRecordValue: CKRecordValue { rawValue.ckRecordValue }
 }
 
 public extension CKRecord {

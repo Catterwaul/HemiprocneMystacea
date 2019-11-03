@@ -7,8 +7,7 @@ public extension MCBrowserViewController {
     peerCountRange: ClosedRange<Int>,
     handleFinish: @escaping (MCSession) -> Void
   ) -> () -> MCBrowserViewController {
-    return {
-      [delegate = PeerBrowserViewControllerDelegate(handleFinish: handleFinish)] in
+    { [delegate = PeerBrowserViewControllerDelegate(handleFinish: handleFinish)] in
       let browserViewController = MCBrowserViewController(serviceType: serviceType, session: session)
       browserViewController.minimumNumberOfPeers = peerCountRange.lowerBound
       browserViewController.maximumNumberOfPeers = peerCountRange.upperBound

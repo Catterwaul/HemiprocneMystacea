@@ -19,14 +19,14 @@ extension UITableView: UIScrollViewWithCells {
     withReuseIdentifier identifier: String,
     for indexPath: IndexPath
   ) -> UITableViewCell {
-    return dequeueReusableCell(
+    dequeueReusableCell(
       withIdentifier: identifier,
       for: indexPath
     )
   }
 
   public func cellForItem(at indexPath: IndexPath) -> UITableViewCell? {
-    return cellForRow(at: indexPath)
+    cellForRow(at: indexPath)
   }
 }
 
@@ -39,7 +39,7 @@ public extension UIScrollViewWithCells {
 	///- Precondition: The name of `Cell` has been assigned to the `Identifier`
 	///  for a cell that this View uses
   func dequeueReusableCell<Cell: UIView>(indexPath: IndexPath) -> Cell {
-    return dequeueReusableCell(
+    dequeueReusableCell(
       withReuseIdentifier: "\(Cell.self)",
       for: indexPath
     ) as! Cell
@@ -70,7 +70,7 @@ extension UIScrollViewWithCells {
     cellDependencies: NamedGetOnlySubscript<IndexPath, Cell.Dependencies>
   ) -> NamedGetOnlySubscript<IndexPath, Cell>
   where Cell: injectDependencies {
-    return NamedGetOnlySubscript { [unowned self] indexPath in
+    NamedGetOnlySubscript { [unowned self] indexPath in
       let cell: Cell = self.dequeueReusableCell(indexPath: indexPath)
       cell.inject(dependencies: cellDependencies[indexPath])
       return cell

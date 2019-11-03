@@ -31,13 +31,13 @@ public extension keyValueThrowingSubscript {
 	/// instead of having to manually use their raw values.
 	///
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	func getValue<
-		Key: RawRepresentable,
-		Value
-	>(key: Key) throws -> Value
-	where Key.RawValue == Self.Key {
-		return try self.getValue(key: key.rawValue)
-	}
+  func getValue<
+    Key: RawRepresentable,
+    Value
+  >(key: Key) throws -> Value
+  where Key.RawValue == Self.Key {
+    try self.getValue(key: key.rawValue)
+  }
 }
 
 public enum GetValueForKeyError<Key>: Error {
