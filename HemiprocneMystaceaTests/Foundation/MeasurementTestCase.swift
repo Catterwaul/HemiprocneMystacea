@@ -32,10 +32,11 @@ final class MeasurementTestCase: XCTestCase {
 	
   func test_UnitVolume_sum() {
     XCTAssertEqual(
-      [ Measurement(value: 1, unit: UnitVolume.milliliters),
-        Measurement(value: 222, unit: .milliliters)
-      ].sum,
-      Measurement(value: 0.223, unit: .liters)
+      [ Measurement(value: 1, unit: UnitVolume.centiliters),
+        Measurement(value: 2, unit: UnitVolume.deciliters)
+      ].sum!.value,
+      Measurement(value: 0.210, unit: UnitVolume.liters).value,
+      accuracy: .init(sign: .plus, exponent: -50, significand: 1)
     )
   }
 }
