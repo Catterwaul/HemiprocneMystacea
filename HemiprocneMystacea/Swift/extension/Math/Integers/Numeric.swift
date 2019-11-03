@@ -1,13 +1,5 @@
 public extension Numeric {
-  var squared: Self {
-    return self * self
-  }
-}
-
-public extension Sequence where Element: Numeric {
-  var sum: Element {
-    return self.reduce(0, +)
-  }
+  var squared: Self { self * self }
 }
 
 // Division isn't actually found in `Numeric`,

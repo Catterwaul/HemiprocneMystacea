@@ -1,7 +1,7 @@
 import HM
 import XCTest
 
-final class FloatingPointTestCase: XCTestCase {
+final class AdditiveArithmeticTestCase: XCTestCase {
 	func test_sum() {
 		let sum = [
 			1.0,

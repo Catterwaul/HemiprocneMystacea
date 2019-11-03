@@ -3,7 +3,7 @@ public extension BinaryInteger where Stride: SignedInteger  {
     lowerBitIndex: Self = 0,
     upperBitIndex: Self
   ) -> Self {
-    return (lowerBitIndex...upperBitIndex).reduce(0) { mask, shift in
+    (lowerBitIndex...upperBitIndex).reduce(0) { mask, shift in
       1 << shift | mask
     }
   }
@@ -12,7 +12,7 @@ public extension BinaryInteger where Stride: SignedInteger  {
     lowerBitIndex: Self = 0,
     upperBitIndex: Self
   ) -> Self {
-    return self & .makeMask(
+    self & .makeMask(
       lowerBitIndex: lowerBitIndex,
       upperBitIndex: upperBitIndex
     )

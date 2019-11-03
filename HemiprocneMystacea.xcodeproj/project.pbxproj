@@ -128,7 +128,7 @@
 		49817E621D2CAE0B0025A6CA /* errorsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */; };
 		498880851D58BFB400AE24FC /* CKAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498880841D58BFB400AE24FC /* CKAsset.swift */; };
 		49892BFA1F8420C6007593E6 /* ConvertibleToCKRecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49892BF91F8420C6007593E6 /* ConvertibleToCKRecordValue.swift */; };
-		498B54CA1D828D1C00C07620 /* FloatingPointTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */; };
+		498B54CA1D828D1C00C07620 /* AdditiveArithmeticTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B54C91D828D1C00C07620 /* AdditiveArithmeticTestCase.swift */; };
 		498C8A081E5E152D00887F04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C8A071E5E152D00887F04 /* UIImage.swift */; };
 		498C8A091E5E152D00887F04 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C8A071E5E152D00887F04 /* UIImage.swift */; };
 		498C8A0B1E5E2E8300887F04 /* Mousse with Mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 498C8A0A1E5E2E8300887F04 /* Mousse with Mouse.png */; };
@@ -194,6 +194,10 @@
 		49B182E11C33807000529B08 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182D71C33807000529B08 /* Sequence.swift */; };
 		49B182E41C33807000529B08 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182DA1C33807000529B08 /* String.swift */; };
 		49B182E91C338D6900529B08 /* BoolTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B182E81C338D6900529B08 /* BoolTestCase.swift */; };
+		49B835EF236F2F5F00060BC2 /* AdditiveArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B835EE236F2F5F00060BC2 /* AdditiveArithmetic.swift */; };
+		49B835F0236F2F5F00060BC2 /* AdditiveArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B835EE236F2F5F00060BC2 /* AdditiveArithmetic.swift */; };
+		49B835F2236F3C0600060BC2 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B835F1236F3C0600060BC2 /* Measurement.swift */; };
+		49B835F3236F3C0600060BC2 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B835F1236F3C0600060BC2 /* Measurement.swift */; };
 		49BF898E1C3878EB0050A49B /* MultiClosureTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */; };
 		49BF89901C38C8FD0050A49B /* InitializableWithParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF898F1C38C8FD0050A49B /* InitializableWithParameters.swift */; };
 		49C434311C34DCD400B6C530 /* OptionSetTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */; };
@@ -246,8 +250,6 @@
 		49F43F81227A2BA0007A7A57 /* StrideableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43F80227A2BA0007A7A57 /* StrideableTestCase.swift */; };
 		49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
 		49F6DE391D972D70004B91B6 /* injectDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F6DE371D972D70004B91B6 /* injectDependencies.swift */; };
-		49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
-		49FA036D1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */; };
 		49FCA3A71E3758650018B5EF /* UICollectionViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */; };
 		49FCA3A91E375D9A0018B5EF /* UITableViewTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */; };
 		49FCF0721C34CDB4005338F6 /* IntegersTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */; };
@@ -323,7 +325,7 @@
 		49817E611D2CAE0B0025A6CA /* errorsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = errorsTestCase.swift; path = Swift/errorsTestCase.swift; sourceTree = "<group>"; };
 		498880841D58BFB400AE24FC /* CKAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKAsset.swift; sourceTree = "<group>"; };
 		49892BF91F8420C6007593E6 /* ConvertibleToCKRecordValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertibleToCKRecordValue.swift; sourceTree = "<group>"; };
-		498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointTestCase.swift; sourceTree = "<group>"; };
+		498B54C91D828D1C00C07620 /* AdditiveArithmeticTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditiveArithmeticTestCase.swift; sourceTree = "<group>"; };
 		498C8A071E5E152D00887F04 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		498C8A0A1E5E2E8300887F04 /* Mousse with Mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mousse with Mouse.png"; sourceTree = "<group>"; };
 		498D20C91F91548500AB6829 /* ModelNotAssignedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNotAssignedError.swift; sourceTree = "<group>"; };
@@ -368,6 +370,8 @@
 		49B182D71C33807000529B08 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		49B182DA1C33807000529B08 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		49B182E81C338D6900529B08 /* BoolTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTestCase.swift; sourceTree = "<group>"; };
+		49B835EE236F2F5F00060BC2 /* AdditiveArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditiveArithmetic.swift; sourceTree = "<group>"; };
+		49B835F1236F3C0600060BC2 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		49BF898D1C3878EB0050A49B /* MultiClosureTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiClosureTestCase.swift; path = Swift/MultiClosureTestCase.swift; sourceTree = "<group>"; };
 		49BF898F1C38C8FD0050A49B /* InitializableWithParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableWithParameters.swift; sourceTree = "<group>"; };
 		49C434301C34DCD400B6C530 /* OptionSetTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTestCase.swift; sourceTree = "<group>"; };
@@ -414,7 +418,6 @@
 		49F43F7D227A2AFC007A7A57 /* Strideable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strideable.swift; sourceTree = "<group>"; };
 		49F43F80227A2BA0007A7A57 /* StrideableTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrideableTestCase.swift; sourceTree = "<group>"; };
 		49F6DE371D972D70004B91B6 /* injectDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = injectDependencies.swift; sourceTree = "<group>"; };
-		49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummableUsingInstanceZero.swift; sourceTree = "<group>"; };
 		49FCA3A61E3758650018B5EF /* UICollectionViewTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewTestCase.swift; path = UIKit/UICollectionViewTestCase.swift; sourceTree = "<group>"; };
 		49FCA3A81E375D9A0018B5EF /* UITableViewTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewTestCase.swift; path = UIKit/UITableViewTestCase.swift; sourceTree = "<group>"; };
 		49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegersTestCase.swift; sourceTree = "<group>"; };
@@ -621,7 +624,6 @@
 		49A978D8225DB4B300B3BA1F /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				49A978E3225DB7D200B3BA1F /* Floating */,
 				49A978E0225DB77300B3BA1F /* Integers */,
 				49A978D9225DB4BD00B3BA1F /* Vector */,
 			);
@@ -673,6 +675,7 @@
 		49A978DD225DB6D900B3BA1F /* Integers */ = {
 			isa = PBXGroup;
 			children = (
+				49B835EE236F2F5F00060BC2 /* AdditiveArithmetic.swift */,
 				49AB16EE1EF243CF009868AB /* BinaryInteger.swift */,
 				49AB16F11EF2440A009868AB /* FixedWidthInteger.swift */,
 				49AB16EB1EF23A92009868AB /* Numeric.swift */,
@@ -699,6 +702,7 @@
 		49A978E0225DB77300B3BA1F /* Integers */ = {
 			isa = PBXGroup;
 			children = (
+				498B54C91D828D1C00C07620 /* AdditiveArithmeticTestCase.swift */,
 				49FCF0711C34CDB4005338F6 /* IntegersTestCase.swift */,
 				498D3192211442DA00EDE890 /* NumericTestCase.swift */,
 			);
@@ -719,14 +723,6 @@
 				49397DF41E537EEC0052B783 /* EnumeratedSequenceTestCase.swift */,
 			);
 			path = "Lazy Views";
-			sourceTree = "<group>";
-		};
-		49A978E3225DB7D200B3BA1F /* Floating */ = {
-			isa = PBXGroup;
-			children = (
-				498B54C91D828D1C00C07620 /* FloatingPointTestCase.swift */,
-			);
-			path = Floating;
 			sourceTree = "<group>";
 		};
 		49A978E4225DB80F00B3BA1F /* C */ = {
@@ -972,6 +968,7 @@
 				495606CA1E4DB4C8004C7FA0 /* Data.swift */,
 				49CBE07A1C332ADE00E8EFCC /* FileInfo.swift */,
 				4969F44A1E0E3D1C0005A4FA /* IndexPath.swift */,
+				49B835F1236F3C0600060BC2 /* Measurement.swift */,
 				49AC701D1E4761E500342DB3 /* PropertyListSerialization.swift */,
 				49A6C95D1E47756A00CF5FFB /* SerializableDictionary */,
 				49A2491A229F2B3C0070EE7A /* URLSession */,
@@ -1003,7 +1000,6 @@
 				4966B0D3218836C600F6019D /* Process.swift */,
 				49CBE0941C332ADE00E8EFCC /* Referencers.swift */,
 				493AD8821E4AB3D200A30593 /* SortedArray.swift */,
-				49FA036B1D82A43B0092026E /* SummableUsingInstanceZero.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -1337,6 +1333,7 @@
 				0A72FC451D40819D0041845B /* ConvertibleToSerializableDictionary.swift in Sources */,
 				49F43F7F227A2AFC007A7A57 /* Strideable.swift in Sources */,
 				499088051F849C7F00F9E569 /* CloudKitEnumeration.swift in Sources */,
+				49B835F0236F2F5F00060BC2 /* AdditiveArithmetic.swift in Sources */,
 				49EF28051D7D0E0E00993226 /* ViewControllerWithDependentOutlets.swift in Sources */,
 				0A72FC6B1D40819D0041845B /* UIViewController.swift in Sources */,
 				49397DF31E534ED50052B783 /* EnumeratedSequence.swift in Sources */,
@@ -1369,6 +1366,7 @@
 				49A6C95C1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
 				0A72FC5A1D40819D0041845B /* getMethod.swift in Sources */,
 				0A72FC591D40819D0041845B /* errors.swift in Sources */,
+				49B835F3236F3C0600060BC2 /* Measurement.swift in Sources */,
 				4975C1111F02554D00C89E52 /* Collection.swift in Sources */,
 				0A72FC571D40819D0041845B /* ComputedProperty.swift in Sources */,
 				49AB16F01EF243CF009868AB /* BinaryInteger.swift in Sources */,
@@ -1379,7 +1377,6 @@
 				4907555B226A7DBB00D6ED5D /* MCBrowserViewController.swift in Sources */,
 				0A72FC431D40819D0041845B /* UserDefaults+Setting.swift in Sources */,
 				0A72FC611D40819D0041845B /* InitializableWithParameters.swift in Sources */,
-				49FA036D1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */,
 				49AB16ED1EF23A92009868AB /* Numeric.swift in Sources */,
 				49075561226A7DF800D6ED5D /* MCSession.swift in Sources */,
 				492CE34A20B095C800BEE6AD /* MTLDeviceError.swift in Sources */,
@@ -1448,6 +1445,7 @@
 				49B182E01C33807000529B08 /* OptionSet.swift in Sources */,
 				49CBE0CC1C332ADE00E8EFCC /* UIButton.swift in Sources */,
 				49CBE0B01C332ADE00E8EFCC /* UserDefaults+Setting.swift in Sources */,
+				49B835F2236F3C0600060BC2 /* Measurement.swift in Sources */,
 				499F744B2238423B006AA0A4 /* CaseIterable.swift in Sources */,
 				49A1982E1D62B358005C251A /* typealiases.swift in Sources */,
 				E348A4391D08CB03003D8024 /* ObservedProperty.swift in Sources */,
@@ -1463,6 +1461,7 @@
 				4949485C228A360A00DD5A08 /* RawRepresentableWithCKRecordValue.swift in Sources */,
 				492404E51E39D438005BD973 /* CloudKitBackReferencer.swift in Sources */,
 				4907555D226A7DD500D6ED5D /* MCAdvertiserAssistant.swift in Sources */,
+				49B835EF236F2F5F00060BC2 /* AdditiveArithmetic.swift in Sources */,
 				49C571171F84410600064423 /* CloudKitEnumeration.swift in Sources */,
 				49CBE0B81C332ADE00E8EFCC /* EquatableClass.swift in Sources */,
 				49F6DE381D972D70004B91B6 /* injectDependencies.swift in Sources */,
@@ -1502,7 +1501,6 @@
 				49A6C95B1E47756300CF5FFB /* InitializableWithSerializableDictionary.swift in Sources */,
 				49ED974D216BF0D800298F4A /* ExpressibleBy2Tuple.swift in Sources */,
 				499CA3381D4BE4660049F0AB /* CKFetchRecordsOperation.swift in Sources */,
-				49FA036C1D82A43B0092026E /* SummableUsingInstanceZero.swift in Sources */,
 				E348A4371D08C1B0003D8024 /* getMethod.swift in Sources */,
 				49CBE0D41C332ADE00E8EFCC /* UIViewController.swift in Sources */,
 				49CBE0D11C332ADE00E8EFCC /* UIPageViewControllerDataSourceWithConnections.swift in Sources */,
@@ -1553,7 +1551,7 @@
 				49E0DC131E4AC08F0093E75F /* SortedArrayTestCase.swift in Sources */,
 				49C434701C37613900B6C530 /* ReferencersTestCase.swift in Sources */,
 				0A8DEF851C48993B00DF1CF7 /* SequenceTestCase.swift in Sources */,
-				498B54CA1D828D1C00C07620 /* FloatingPointTestCase.swift in Sources */,
+				498B54CA1D828D1C00C07620 /* AdditiveArithmeticTestCase.swift in Sources */,
 				49397DF51E537EEC0052B783 /* EnumeratedSequenceTestCase.swift in Sources */,
 				4969F4501E0E4CCE0005A4FA /* NamedSubscriptTestCase.swift in Sources */,
 				49ED9750216BF51600298F4A /* ExpressibleBy2TupleTestCase.swift in Sources */,
