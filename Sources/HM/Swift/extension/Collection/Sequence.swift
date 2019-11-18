@@ -69,11 +69,14 @@ public extension Sequence where Element: Equatable {
 
 //MARK: uniqueElements
 public extension Sequence where Element: Hashable {
-	var uniqueElements: [Element] { Array( Set(self) ) }
+  var firstUniqueElements: [Element] {
+    var set: Set<Element> = []
+    return filter { set.insert($0).inserted }
+  }
 }
 
 public extension Sequence where Element: Equatable {
-  var uniqueElements: [Element] {
+  var firstUniqueElements: [Element] {
     reduce(into: []) { uniqueElements, element in
       if !uniqueElements.contains(element) {
         uniqueElements.append(element)
