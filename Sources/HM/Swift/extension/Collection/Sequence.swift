@@ -37,7 +37,7 @@ public extension Sequence {
   ) rethrows -> Element? {
     try getElement(
       getComparable: getComparable,
-      getElement: { $0.min { $0.0 }? .1 }
+      getElement: { $0.min { $0.0 }?.1 }
     )
   }
 

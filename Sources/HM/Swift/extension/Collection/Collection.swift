@@ -12,7 +12,7 @@ public extension Collection where Element: Equatable {
   ///- Returns: nil if `element` isn't present
   func suffix(from element: Element) -> SubSequence? {
     firstIndex(of: element)
-    .map { suffix( from: index(after: $0) ) }
+      .map { suffix( from: index(after: $0) ) }
   }
 }
 
