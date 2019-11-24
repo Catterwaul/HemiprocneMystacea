@@ -16,7 +16,7 @@ public extension Collection where Element: Equatable {
   }
 }
 
-public extension Collection where SubSequence == ArraySlice<Element>  {
+public extension Collection where SubSequence: RangeReplaceableCollection {
   func shifted(by shift: Int) -> SubSequence {
     let drops =
       shift > 0
