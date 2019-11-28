@@ -11,7 +11,7 @@ extension String {
 }
 
 let nestedLibraries: [Product] =
-  ["UIKit"]
+  ["SwiftUI", "UIKit"]
     .map { frameworkName in
       let targetName = "\(frameworkName).\(hm)"
       return .library(name: targetName, targets: [targetName])

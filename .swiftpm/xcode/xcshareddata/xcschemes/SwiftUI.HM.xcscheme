@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "HM"
-               BuildableName = "HM"
-               BlueprintName = "HM"
+               BlueprintIdentifier = "SwiftUI.HM"
+               BuildableName = "SwiftUI.HM"
+               BlueprintName = "SwiftUI.HM"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,16 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "HM.Tests"
-               BuildableName = "HM.Tests"
-               BlueprintName = "HM.Tests"
+               BlueprintIdentifier = "SwiftUI.HM.Tests"
+               BuildableName = "SwiftUI.HM.Tests"
+               BlueprintName = "SwiftUI.HM.Tests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -61,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "HM"
-            BuildableName = "HM"
-            BlueprintName = "HM"
+            BlueprintIdentifier = "SwiftUI.HM"
+            BuildableName = "SwiftUI.HM"
+            BlueprintName = "SwiftUI.HM"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
