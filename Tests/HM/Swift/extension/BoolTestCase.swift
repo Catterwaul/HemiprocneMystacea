@@ -16,6 +16,10 @@ final class BoolTestCase: XCTestCase {
     XCTAssertNil(
       Bool(binaryString: "2")
     )
+
+    XCTAssertNil(
+      Bool(binaryString: "🎱🧵")
+    )
   }
   
 //MARK:- Sequences of Bools
