@@ -1,26 +1,29 @@
 public extension Bool {
   ///- Returns:
-  /// false for "0",
-  /// true for "1",
-  /// nil otherwise
+  /// `false` for `0`,
+  /// `true` for `1`,
+  /// `nil` otherwise
+  init?(_ int: Int) {
+    switch int {
+    case 0:
+      self = false
+    case 1:
+      self = true
+    default:
+      return nil
+    }
+  }
+
+  ///- Returns:
+  /// `false` for `"0"`,
+  /// `true` for `"1"`,
+  /// `nil` otherwise
   init?(binaryString: String) {
     guard let int = Int(binaryString) else {
       return nil
     }
     
     self.init(int)
-  }
-  
-  ///- Returns:
-  /// false for 0,
-  /// true for 1,
-  /// nil otherwise
-  init?(_ int: Int) {
-    guard [0, 1].contains(int) else {
-      return nil
-    }
-    
-    self = int == 1
   }
 }
 
