@@ -5,6 +5,7 @@ public protocol SingleAxisAlignmentID: AlignmentID {
 }
 
 public extension View {
+  /// Sets the view's horizontal alignment.
   func alignmentGuide<ID: SingleAxisAlignmentID>(_ idType: ID.Type) -> some View
   where ID.Alignment == HorizontalAlignment {
     alignmentGuide(
@@ -13,6 +14,7 @@ public extension View {
     )
   }
 
+  /// Sets the view's vertical alignment.
   func alignmentGuide<ID: SingleAxisAlignmentID>(_ idType: ID.Type) -> some View
   where ID.Alignment == VerticalAlignment {
     alignmentGuide(
