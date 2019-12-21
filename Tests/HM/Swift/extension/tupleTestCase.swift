@@ -6,6 +6,17 @@ final class tupleTestCase: XCTestCase {
     XCTAssertEqual(makeIllustrations()[1].image, "🍯")
   }
 
+  func test_Sequence() {
+    let array = [0, 1, 2, 3]
+    XCTAssertTrue( array.tuple2! == (0, 1) )
+    XCTAssertTrue( array.tuple3! == (0, 1, 2) )
+    XCTAssertTrue( array.tuple4! == (0, 1, 2, 3) )
+
+    XCTAssertNil([].tuple2)
+    XCTAssertNil([].tuple3)
+    XCTAssertNil([].tuple4)
+  }
+
   func test_collectionEquality() {
     let twoTuples = makeIllustrations().map { ( $0.image, Bool() ) }
     XCTAssertTrue(twoTuples == twoTuples)
