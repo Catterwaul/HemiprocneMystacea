@@ -1,7 +1,7 @@
 import HM
 import XCTest
 
-final class tupleTestCase: XCTestCase {
+final class TupleTestCase: XCTestCase {
   func test_TuplePlaceholder() {
     XCTAssertEqual(makeIllustrations()[1].image, "🍯")
   }
