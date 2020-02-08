@@ -1,28 +1,26 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 
 import PackageDescription
 
 let hm = "HM"
+let extendedFrameworkNames = ["SwiftUI", "UIKit"]
 
 extension String {
   var dependency: Target.Dependency { .init(stringLiteral: self) }
   var testsPath: String { "Tests/\(self)" }
+  var withDotHM: String { "\(self).\(hm)" }
   var withTestsTargetSuffix: String { "\(self).Tests" }
 }
-
-let nestedLibraries: [Product] =
-  ["SwiftUI", "UIKit"]
-    .map { frameworkName in
-      let targetName = "\(frameworkName).\(hm)"
-      return .library(name: targetName, targets: [targetName])
-    }
 
 let package = Package(
   name: "HemiprocneMystacea",
   platforms: [.iOS(.v13), .tvOS(.v13), .macOS(.v10_15)],
   products:
     [.library(name: hm, targets: [hm])]
-    + nestedLibraries,
+    + extendedFrameworkNames.map {
+      let productName = $0.withDotHM
+      return .library(name: productName, targets: [productName])
+    },
   targets:
     [ .target(name: hm),
       .testTarget(
@@ -31,18 +29,19 @@ let package = Package(
         path: hm.testsPath
       )
     ]
-    + nestedLibraries.flatMap {
+    + extendedFrameworkNames.flatMap { name in
       [ .target(
-          name: $0.name,
-          dependencies: [hm.dependency]
+        name: name.withDotHM,
+          dependencies: [hm.dependency],
+          path: "Sources/\(name)"
         ),
         .testTarget(
-          name: $0.name.withTestsTargetSuffix,
+          name: name.withDotHM.withTestsTargetSuffix,
           dependencies: [
             hm.dependency,
-            $0.name.dependency
+            name.withDotHM.dependency
           ],
-          path: $0.name.testsPath
+          path: name.testsPath
         )
       ]
     }
