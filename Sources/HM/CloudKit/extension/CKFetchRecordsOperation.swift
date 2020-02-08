@@ -25,7 +25,7 @@ public extension CKFetchRecordsOperation {
 		process: @escaping ProcessGet<[CKRecord]>
 	)
   where References.Element == CKRecord.Reference {
-		let ids = references.map { $0.recordID }
+		let ids = references.map(\.recordID)
 		
 		self.init(recordIDs: ids) {
 			getRecords in

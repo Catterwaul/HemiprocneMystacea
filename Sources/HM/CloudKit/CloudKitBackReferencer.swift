@@ -43,8 +43,8 @@ public extension CloudKitBackReferencer {
         }
         
         return
-          Dictionary(grouping: idsAndResults) { $0.backReferenceID }
-          .mapValues { idsAndResults in idsAndResults.map { $0.result } }
+          Dictionary(grouping: idsAndResults, by: \.backReferenceID)
+          .mapValues { $0.map(\.result) }
       }
     }
   }

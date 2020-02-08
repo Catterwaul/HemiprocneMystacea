@@ -54,7 +54,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
       key: "instruments"
     )
     XCTAssertEqual(
-      instruments.compactMap { $0.visualization },
+      instruments.compactMap(\.visualization),
       [ "🎹",
         "🎸",
         "🎷"
