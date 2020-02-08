@@ -16,8 +16,8 @@ final class PatternMatchingTestCase: XCTestCase {
   }
 
   func test_KeyPath() {
-    switch "a" as Character {
-    case \.isNumber:
+    switch "g" as Character {
+    case \.isNumber, \.isHexDigit:
       XCTFail()
     default:
       break

@@ -42,7 +42,7 @@ final class URLSessionTestCase: XCTestCase {
 
         XCTAssertEqual(response.statusCode, 200)
         XCTAssertTrue(
-          json.tracks.map { $0.artistName } .contains("Mr Little Jeans")
+          json.tracks.map(\.artistName).contains("Mr Little Jeans")
         )
       }
       catch { XCTFail("\(error)") }

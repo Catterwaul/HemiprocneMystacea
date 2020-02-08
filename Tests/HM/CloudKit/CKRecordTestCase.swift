@@ -123,7 +123,7 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 
   var recordDictionaryOverrides: [CloudKitRecordKey: CKRecordValue] {
     var dictionary: [CloudKitRecordKey: CKRecordValue] = [:]
-    dictionary[.weight] = weight.flatMap { $0.value.ckRecordValue }
+    dictionary[.weight] = weight.map(\.value.ckRecordValue)
     return dictionary
   }
 }

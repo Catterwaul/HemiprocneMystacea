@@ -6,7 +6,7 @@ public extension Sequence {
   var first: Element? { first { _ in true } }
   
   func max<Comparable: Swift.Comparable>(
-    getComparable: (Element) throws -> Comparable
+    _ getComparable: (Element) throws -> Comparable
   ) rethrows -> Element? {
     try self.max {
       try getComparable($0) < getComparable($1)
@@ -15,16 +15,13 @@ public extension Sequence {
 
   /// - Returns: max() for the elements with comparables
   func max<Comparable: Swift.Comparable>(
-    getComparable: (Element) throws -> Comparable?
+    _ getComparable: (Element) throws -> Comparable?
   ) rethrows -> Element? {
-    try getElement(
-      getComparable: getComparable,
-      getElement: { $0.max { $0.0 }? .1 }
-    )
+    try getElement(getComparable) { $0.max { $0.0 }? .1 }
   }
   
   func min<Comparable: Swift.Comparable>(
-    getComparable: (Element) throws -> Comparable
+    _ getComparable: (Element) throws -> Comparable
   ) rethrows -> Element? {
     try self.min {
       try getComparable($0) < getComparable($1)
@@ -33,17 +30,14 @@ public extension Sequence {
 
   /// - Returns: min() for the elements with comparables
   func min<Comparable: Swift.Comparable>(
-    getComparable: (Element) throws -> Comparable?
+    _ getComparable: (Element) throws -> Comparable?
   ) rethrows -> Element? {
-    try getElement(
-      getComparable: getComparable,
-      getElement: { $0.min { $0.0 }?.1 }
-    )
+    try getElement(getComparable) { $0.min { $0.0 }?.1 }
   }
 
   private func getElement<Comparable: Swift.Comparable>(
-    getComparable: (Element) throws -> Comparable?,
-    getElement: ([(Comparable, Element)]) throws -> Element?
+    _ getComparable: (Element) throws -> Comparable?,
+    _ getElement: ([(Comparable, Element)]) throws -> Element?
   ) rethrows -> Element? {
     let comparablesAndElements = try compactMap { element in
       try getComparable(element).map { comparable in (comparable, element) }
@@ -53,7 +47,7 @@ public extension Sequence {
   }
   
   func sorted<Comparable: Swift.Comparable>(
-    getComparable: (Element) throws -> Comparable
+    _ getComparable: (Element) throws -> Comparable
   ) rethrows -> [Element] {
     try self.sorted { try getComparable($0) < getComparable($1) }
   }
