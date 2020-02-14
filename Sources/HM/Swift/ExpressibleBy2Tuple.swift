@@ -13,10 +13,7 @@ public protocol ExpressibleByKeyValuePair: ExpressibleBy2Tuple {
 }
 
 extension Array: ExpressibleByDictionaryLiteral where Element: ExpressibleByKeyValuePair {
-  public typealias Key = Element.Key
-  public typealias Value = Element.Value
-
-  public init(dictionaryLiteral elements: (Key, Value)...) {
+  public init(dictionaryLiteral elements: (Element.Key, Element.Value)...) {
     self = elements.map(Element.init)
   }
 }
