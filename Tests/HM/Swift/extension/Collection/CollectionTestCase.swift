@@ -2,6 +2,19 @@ import HM
 import XCTest
 
 final class CollectionTestCase: XCTestCase {
+  func test_tupleEquality() {
+    let intStringTuples = [(1, "a"), (2, "b")]
+    XCTAssertTrue(intStringTuples == intStringTuples)
+    XCTAssertFalse(intStringTuples == [ intStringTuples[0] ])
+
+    let boolDoubleTuples = [(true, 1.2), (false, 3.4)]
+    XCTAssert(boolDoubleTuples == boolDoubleTuples)
+
+    let threeTuples = intStringTuples.map { ($0.0, false, $0.1) }
+    XCTAssertTrue(threeTuples == threeTuples)
+    XCTAssertFalse(threeTuples == [])
+  }
+
   func test_shifted() {
     XCTAssertEqual(
       [0, 1, 2, 3].shifted(by: 1),

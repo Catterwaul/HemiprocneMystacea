@@ -5,7 +5,7 @@ extension CKRecord: keyValueSubscript {
 }
 
 public extension CKRecord {
-  static func makeValue(_ any:  Any) -> CKRecordValue? {
+  static func makeValue(_ any: Any) -> CKRecordValue? {
     switch any {
     case let convertibleToCKRecordValue as ConvertibleToCKRecordValue:
       return convertibleToCKRecordValue.ckRecordValue

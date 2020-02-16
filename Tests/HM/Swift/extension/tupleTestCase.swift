@@ -16,16 +16,6 @@ final class TupleTestCase: XCTestCase {
     XCTAssertNil([].tuple3)
     XCTAssertNil([].tuple4)
   }
-
-  func test_collectionEquality() {
-    let twoTuples = makeIllustrations().map { ( $0.image, Bool() ) }
-    XCTAssertTrue(twoTuples == twoTuples)
-    XCTAssertFalse(twoTuples == [])
-
-    let threeTuples = twoTuples.map { ($0.1, Int(), $0.0) }
-    XCTAssertTrue(threeTuples == threeTuples)
-    XCTAssertFalse(threeTuples == [(true, 100, "🧠")])
-  }
 }
 
 private typealias Illustration = (image: String, TuplePlaceholder)

@@ -4,10 +4,3 @@ public func ~= <Value>(
 ) -> Bool {
   matchPattern(value)
 }
-
-public func ~= <Value>(
-  keyPath: KeyPath<Value, Bool>,
-  value: Value
-) -> Bool {
-  value[keyPath: keyPath]
-}
