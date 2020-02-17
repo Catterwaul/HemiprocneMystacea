@@ -3,15 +3,15 @@ import XCTest
 
 final class PatternMatchingTestCase: XCTestCase {
   func test_closure() {
-    switch 4 {
+    switch 0.1 {
     case
+      \.isZero,
       [1, 2, 3].contains,
-      { $0 + 1 == 2 },
-      { $0.isMultiple(of: 2) }
+      { $0 > 1 }
     :
-      break
-    default:
       XCTFail()
+    default:
+      break
     }
   }
 

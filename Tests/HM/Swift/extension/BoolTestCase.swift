@@ -2,12 +2,12 @@ import HM
 import XCTest
 
 final class BoolTestCase: XCTestCase {
-  func test_initWithBinaryString() {
+  func test_init_binaryString() throws {
     XCTAssertFalse(
-      Bool(binaryString: "0")!
+      try XCTUnwrap( Bool(binaryString: "0") )
     )
     XCTAssertTrue(
-      Bool(binaryString: "1")!
+      try XCTUnwrap( Bool(binaryString: "1") )
     )
     
     XCTAssertNil(
@@ -20,6 +20,18 @@ final class BoolTestCase: XCTestCase {
     XCTAssertNil(
       Bool(binaryString: "🎱🧵")
     )
+  }
+
+  func test_init_lessCommonIntegerTypes() throws {
+    XCTAssertFalse(
+      try XCTUnwrap( Bool(bit: 0 as UInt8) )
+    )
+
+    XCTAssertTrue(
+      try XCTUnwrap( Bool(bit: 1 as UInt16) )
+    )
+
+    XCTAssertNil( Bool(bit: 2 as UInt16) )
   }
   
 //MARK:- Sequences of Bools

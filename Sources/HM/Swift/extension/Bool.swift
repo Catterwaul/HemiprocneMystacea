@@ -3,8 +3,8 @@ public extension Bool {
   /// `false` for `0`,
   /// `true` for `1`,
   /// `nil` otherwise
-  init?(_ int: Int) {
-    switch int {
+  init?<Integer: ExpressibleByIntegerLiteral & Equatable>(bit: Integer) {
+    switch bit {
     case 0:
       self = false
     case 1:
@@ -19,11 +19,11 @@ public extension Bool {
   /// `true` for `"1"`,
   /// `nil` otherwise
   init?(binaryString: String) {
-    guard let int = Int(binaryString) else {
+    guard let bit = Int(binaryString) else {
       return nil
     }
     
-    self.init(int)
+    self.init(bit: bit)
   }
 }
 
