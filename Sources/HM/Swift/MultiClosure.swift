@@ -11,16 +11,6 @@ public final class MultiClosure<Input>: EquatableClass {
   where Closures.Element == EquatableClosure<Input> {
     self += closures
   }
-	
-  /// Execute every closure
-  ///
-  /// ***Rationale:***
-  /// We can't override () so maybe brackets are the next best thing?
-  public subscript(input: Input) -> Void {
-    for closure in closures {
-      closure.reference[input]
-    }
-  }
 
   var closures: Set<
     UnownedReferencer< EquatableClosure<Input> >
@@ -40,9 +30,19 @@ public final class MultiClosure<Input>: EquatableClass {
   }
 }
 
+public extension MultiClosure {
+  /// Execute every closure
+  func callAsFunction(_ input: Input) {
+    for closure in closures {
+      closure.reference(input)
+    }
+  }
+}
+
 public extension MultiClosure where Input == () {
-  subscript() -> Void {
-    self[()]
+  /// Execute every closure
+  func callAsFunction() {
+    self( () )
   }
 }
 
@@ -53,10 +53,7 @@ public final class EquatableClosure<Input>: EquatableClass {
   }
 
   /// Execute the closure
-  ///
-  /// ***Rationale:***
-  /// We can't override () so maybe brackets are the next best thing?
-  public subscript(input: Input) -> Void {
+  func callAsFunction(_ input: Input) {
     closure(input)
   }
 

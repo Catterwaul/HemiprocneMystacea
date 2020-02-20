@@ -9,10 +9,10 @@ final class MultiClosureTestCase: XCTestCase {
       EquatableClosure { _ in x += 2 }
     ]
     let multiClosure = MultiClosure(closures)
-    multiClosure[]
+    multiClosure()
     XCTAssertEqual(x, 3)
     multiClosure -= closures.first!
-    multiClosure[]
+    multiClosure()
     XCTAssertEqual(x, 5)
   }
    

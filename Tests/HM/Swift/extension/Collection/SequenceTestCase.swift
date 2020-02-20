@@ -10,6 +10,13 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
+  func test_first() {
+    let odds = stride(from: 1, through: 9, by: 2)
+
+    XCTAssertEqual(odds.first, 1)
+    XCTAssertNil(odds.prefix(0).first)
+  }
+
   func test_max_and_min() {
     let dictionary = [
       "1️⃣": 1,

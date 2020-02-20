@@ -3,12 +3,8 @@ import XCTest
 
 final class AdditiveArithmeticTestCase: XCTestCase {
 	func test_sum() {
-		let sum = [
-			1.0,
-			2.0,
-			3.0
-		].sum
-		
-		XCTAssertEqual(sum, 6.0)
+    XCTAssertEqual([1, 2, 3].sum, 6)
+    XCTAssertEqual([0.5, 1, 1.5].sum, 3)
+    XCTAssertNil([CGFloat]().sum)
 	}
 }
