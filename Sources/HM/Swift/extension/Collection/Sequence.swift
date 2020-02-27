@@ -4,6 +4,10 @@ public extension Sequence {
   }
 
   var first: Element? { first { _ in true } }
+
+  func getFirst<T>() -> T? {
+    lazy.compactMap { $0 as? T } .first
+  }
   
   func max<Comparable: Swift.Comparable>(
     _ getComparable: (Element) throws -> Comparable
