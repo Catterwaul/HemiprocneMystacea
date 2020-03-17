@@ -12,7 +12,18 @@ public extension Collection {
   where Element == (Equatable0, Equatable1, Equatable2) {
     tuples0.elementsEqual(tuples1, by: ==)
   }
+
+  /// - Returns: same as subscript, if index is in bounds
+  /// - Throws: CollectionIndexingError
+  func getElement(index: Index) throws -> Element {
+    guard indices.contains(index)
+    else { throw CollectionIndexingError() }
+
+    return self[index]
+  }
 }
+
+public struct CollectionIndexingError: Error { }
 
 public extension Collection where Element: Equatable {
   ///- Returns: nil if `element` isn't present

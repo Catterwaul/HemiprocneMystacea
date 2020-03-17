@@ -18,18 +18,3 @@ public extension Array {
     ].map(Array.init)
   }
 }
-
-public extension Array {
-  struct OutOfBoundsError: Error {
-    public let index: Index
-  }
-  
-  /// - Returns: same as subscript, if index is in bounds
-  /// - Throws: Array.OutOfBoundsError
-  func getElement(index: Index) throws -> Element {
-    guard indices.contains(index)
-    else { throw OutOfBoundsError(index: index) }
-    
-    return self[index]
-  }
-}

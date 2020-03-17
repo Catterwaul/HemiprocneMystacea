@@ -31,12 +31,10 @@ final class ArrayTestCase: XCTestCase {
     }
     
     let outOfBoundsIndex = optionals.count
-    do {
-      _ = try optionals.getElement(index: outOfBoundsIndex)
-      XCTFail()
-    }
-    catch let error as Array<Int?>.OutOfBoundsError {
-      XCTAssertEqual(error.index, outOfBoundsIndex)
+    XCTAssertThrowsError(
+      try optionals.getElement(index: outOfBoundsIndex)
+    ) { error in
+      XCTAssert(error is CollectionIndexingError)
     }
   }
 }
