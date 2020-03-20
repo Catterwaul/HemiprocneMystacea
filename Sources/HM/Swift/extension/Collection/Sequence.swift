@@ -53,7 +53,16 @@ public extension Sequence {
   func sorted<Comparable: Swift.Comparable>(
     _ getComparable: (Element) throws -> Comparable
   ) rethrows -> [Element] {
-    try self.sorted { try getComparable($0) < getComparable($1) }
+    try self.sorted(getComparable, <)
+  }
+
+  func sorted<Comparable: Swift.Comparable>(
+    _ getComparable: (Element) throws -> Comparable,
+    _ getAreInIncreasingOrder: (Comparable, Comparable) throws -> Bool
+  ) rethrows -> [Element] {
+    try sorted {
+      try getAreInIncreasingOrder( getComparable($0), getComparable($1) )
+    }
   }
 }
 
