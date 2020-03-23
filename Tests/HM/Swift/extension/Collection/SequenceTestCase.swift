@@ -17,6 +17,13 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertNil(odds.prefix(0).first)
   }
 
+  func test_getCount() throws {
+    XCTAssertEqual(
+      [1, 2].getCount { $0 < 3 },
+      2
+    )
+  }
+
   func test_max_and_min() {
     let dictionary = [
       "1️⃣": 1,

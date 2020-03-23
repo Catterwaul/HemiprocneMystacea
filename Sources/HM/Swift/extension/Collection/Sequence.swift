@@ -5,6 +5,14 @@ public extension Sequence {
 
   var first: Element? { first { _ in true } }
 
+  func getCount<Wrapped>(
+    _ getIsIncluded: (Wrapped) throws -> Bool
+  ) rethrows -> Int?
+  where Element == Wrapped? {
+    try filter { try $0.map(getIsIncluded) == true }
+      .count
+  }
+
   func getFirst<T>() -> T? {
     lazy.compactMap { $0 as? T } .first
   }
