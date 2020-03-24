@@ -2,35 +2,39 @@ import HM
 import XCTest
 
 final class MakeGetTestCase: XCTestCase {
-	func test_noParameters() {
-		var reference: Reference? = Reference()
-		
-		let getAssign1234 = makeGet(weakReference: reference) {
-			$0.property = 1234
-		}
-		
-		getAssign1234()?()
-		XCTAssertEqual(reference?.property, 1234)
-		
-		reference = nil
-		XCTAssertNil( getAssign1234() )
-	}
-	
-	func test_1Parameter() {
-		var reference: Reference? = Reference()
-		
-		let getSetProperty = makeGet(weakReference: reference) {
-			reference, int in reference.property = int
-		}
-		
-		getSetProperty()?(1234)
-		XCTAssertEqual(reference?.property, 1234)
-		
-		reference = nil
-		XCTAssertNil( getSetProperty() )
-	}
+  func test_noParameters() throws {
+    var reference: Reference? = Reference()
+    
+    let assign1234 = WeakMethod(reference: reference) {
+      reference in { reference.property = 1234 }
+    }
+    
+    try assign1234()
+    XCTAssertEqual(reference?.property, 1234)
+    
+    reference = nil
+    XCTAssertThrowsError( try assign1234() ) {
+      XCTAssert($0 is WeakMethod<Reference, (), Void>.ReferenceDeallocatedError )
+    }
+  }
+  
+  func test_1Parameter() throws {
+    var reference: Reference? = Reference()
+    
+    let assign = WeakMethod(reference: reference) {
+      reference in { reference.property = $0 }
+    }
+    
+    try assign(1234)
+    XCTAssertEqual(reference?.property, 1234)
+    
+    reference = nil
+    XCTAssertThrowsError( try assign(1234) ) {
+      XCTAssert($0 is WeakMethod<Reference, Int, Void>.ReferenceDeallocatedError )
+    }
+  }
 }
 
 private final class Reference {
-	var property = 1
+  var property = 1
 }
