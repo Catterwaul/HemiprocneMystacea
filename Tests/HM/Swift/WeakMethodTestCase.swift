@@ -1,7 +1,7 @@
 import HM
 import XCTest
 
-final class MakeGetTestCase: XCTestCase {
+final class WeakMethodTestCase: XCTestCase {
   func test_noParameters() throws {
     var reference: Reference? = Reference()
     
