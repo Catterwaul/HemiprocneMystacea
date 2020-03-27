@@ -1,4 +1,4 @@
-public struct FibonacciSequence<Number: Numeric> {
+public struct FibonacciSequence<Number: AdditiveArithmetic & ExpressibleByIntegerLiteral> {
   public init() { }
 
   private var numbers: (Number, Number) = (0, 1)

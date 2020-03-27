@@ -5,8 +5,8 @@ final class MultiClosureTestCase: XCTestCase {
   func test_multiClosure() {
     var x = 0
     let closures: [EquatableClosure<()>] = [
-      EquatableClosure { _ in x += 1 },
-      EquatableClosure { _ in x += 2 }
+      .init { _ in x += 1 },
+      .init { _ in x += 2 }
     ]
     let multiClosure = MultiClosure(closures)
     multiClosure()
@@ -17,7 +17,7 @@ final class MultiClosureTestCase: XCTestCase {
   }
    
   func test_setRemoval() {
-    let closure: EquatableClosure<()>! = EquatableClosure { _ in }
+    let closure: EquatableClosure<()>! = .init { _ in }
     let multiClosure = MultiClosure(closure)
     
     XCTAssertNotEqual(multiClosure.closures, [])
@@ -28,8 +28,8 @@ final class MultiClosureTestCase: XCTestCase {
   }
 
   func test_deallocation() {
-    var closure: EquatableClosure<()>! = EquatableClosure { _ in }
-    var multiClosure: MultiClosure<()>! = MultiClosure(closure)
+    var closure: EquatableClosure<()>! = .init { _ in }
+    var multiClosure: MultiClosure! = .init(closure)
 
     XCTAssertNotEqual(multiClosure.closures, [])
     closure = nil
