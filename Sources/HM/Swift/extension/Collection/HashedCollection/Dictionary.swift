@@ -6,7 +6,7 @@ public extension Dictionary {
   {
     self =
       Dictionary<Key, [KeyValuePairs.Element]>(grouping: pairs, by: \.key)
-      .mapValues { $1.map(\.value) }
+      .mapValues { $0.map(\.value) }
   }
 
   init<Value, KeyValuePairs: Sequence>(grouping pairs: KeyValuePairs)
