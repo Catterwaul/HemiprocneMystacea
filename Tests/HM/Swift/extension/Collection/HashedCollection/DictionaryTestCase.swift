@@ -2,6 +2,48 @@ import HM
 import XCTest
 
 final class DictionaryTestCase: XCTestCase {
+func test_init_grouping_KeyValuePairs() {
+  let dictionary = [
+    "🔑": [
+      "🐅",
+      "🐆",
+      "🐈"
+    ],
+    "🗝": [
+      "🦖",
+      "🦕"
+    ]
+  ]
+
+  XCTAssertEqual(
+    Dictionary(
+      grouping: [
+        ("🔑", "🐅"),
+        ("🔑", "🐆"),
+        ("🔑", "🐈"),
+
+        ("🗝", "🦖"),
+        ("🗝", "🦕")
+      ]
+    ),
+    dictionary
+  )
+
+  XCTAssertEqual(
+    Dictionary(
+      grouping: [
+        "🔑": "🐅",
+        "🔑": "🐆",
+        "🔑": "🐈",
+
+        "🗝": "🦖",
+        "🗝": "🦕"
+      ] as KeyValuePairs
+    ),
+    dictionary
+  )
+}
+
   func test_mapValues() {
     XCTAssertEqual(
       [ "🍍": "🥐",

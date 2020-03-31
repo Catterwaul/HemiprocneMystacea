@@ -1,4 +1,23 @@
 public extension Dictionary {
+  init<Value, KeyValuePairs: Sequence>(grouping pairs: KeyValuePairs)
+  where
+    KeyValuePairs.Element == (Key, Value),
+    Self.Value == [Value]
+  {
+    self =
+      Dictionary<Key, [KeyValuePairs.Element]>(grouping: pairs, by: \.0)
+      .mapValues { $1.map(\.1) }
+  }
+
+
+  init<Value, KeyValuePairs: Sequence>(grouping pairs: KeyValuePairs)
+  where
+    KeyValuePairs.Element == (key: Key, value: Value),
+    Self.Value == [Value]
+  {
+    self.init( grouping: pairs.map { ($0, $1) } )
+  }
+
   func mapValues<Transformed>(
     _ transform: (Element) throws -> Transformed
   ) rethrows -> [Key: Transformed] {
