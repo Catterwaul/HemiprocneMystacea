@@ -1,4 +1,9 @@
 public extension Dictionary {
+  /// Group key-value pairs by their keys.
+  ///
+  /// - Parameter pairs: Either `Swift.KeyValuePairs<Key, Self.Value.Element>`
+  ///   or a `Sequence` with the same element type as that.
+  /// - Returns: [ KeyValuePairs.Key: [KeyValuePairs.Value] ]
   init<Value, KeyValuePairs: Sequence>(grouping pairs: KeyValuePairs)
   where
     KeyValuePairs.Element == (key: Key, value: Value),
@@ -9,6 +14,11 @@ public extension Dictionary {
       .mapValues { $0.map(\.value) }
   }
 
+  /// Group key-value pairs by their keys.
+  ///
+  /// - Parameter pairs: Like `Swift.KeyValuePairs<Key, Self.Value.Element>`,
+  ///   but with unlabeled elements.
+  /// - Returns: [ KeyValuePairs.Key: [KeyValuePairs.Value] ]
   init<Value, KeyValuePairs: Sequence>(grouping pairs: KeyValuePairs)
   where
     KeyValuePairs.Element == (Key, Value),
@@ -17,7 +27,11 @@ public extension Dictionary {
     self.init( grouping: pairs.map { (key: $0, value: $1) } )
   }
 
-  func mapValues<Transformed>(
+  /// Same keys, corresponding to `map`ped key-value pairs.
+  ///
+  /// - Parameter transform: Accepts each element of the dictionary as its parameter
+  ///   and returns a transformed value.
+  func mapToValues<Transformed>(
     _ transform: (Element) throws -> Transformed
   ) rethrows -> [Key: Transformed] {
     .init(

@@ -48,7 +48,7 @@ func test_init_grouping_KeyValuePairs() {
     XCTAssertEqual(
       [ "🍍": "🥐",
         "🥝": "🥯"
-      ].mapValues { tropicalFruit, _ in tropicalFruit },
+      ].mapToValues { tropicalFruit, _ in tropicalFruit },
       [ "🍍": "🍍",
         "🥝": "🥝"
       ]
