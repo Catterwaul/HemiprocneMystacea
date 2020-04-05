@@ -3,24 +3,34 @@ public extension Sequence {
     zip( self, dropFirst() )
   }
 
-  /// The first element of the sequence, or `nil` if the sequence is empty.
+  /// The first element of the sequence.
+  /// - Note: `nil` if the sequence is empty.
   var first: Element? {
     var iterator = makeIterator()
     return iterator.next()
   }
 
-  func getCount<Wrapped>(
-    _ getIsIncluded: (Wrapped) throws -> Bool
-  ) rethrows -> Int?
-  where Element == Wrapped? {
-    try filter { try $0.map(getIsIncluded) == true }
-      .count
+  /// The number of elements that match a predicate.
+  func getCount(
+    _ getIsIncluded: (Element) throws -> Bool
+  ) rethrows -> Int {
+    try filter(getIsIncluded).count
   }
 
+  /// The number of elements that match a predicate.
+  func getCount<Wrapped>(
+    _ getIsIncluded: (Wrapped) throws -> Bool
+  ) rethrows -> Int
+  where Element == Wrapped? {
+    try getCount { try $0.map(getIsIncluded) == true }
+  }
+
+
+  /// The first element of a given type.
   func getFirst<T>() -> T? {
     lazy.compactMap { $0 as? T } .first
   }
-  
+
   func max<Comparable: Swift.Comparable>(
     _ getComparable: (Element) throws -> Comparable
   ) rethrows -> Element? {
@@ -98,6 +108,7 @@ public extension Sequence where Element: Equatable {
 
 //MARK: uniqueElements
 public extension Sequence where Element: Hashable {
+  /// - Note: Has equivalent elements to a `Set`, made from this sequence.
   var firstUniqueElements: [Element] {
     var set: Set<Element> = []
     return filter { set.insert($0).inserted }
@@ -105,6 +116,7 @@ public extension Sequence where Element: Hashable {
 }
 
 public extension Sequence where Element: Equatable {
+  /// - Note: Has equivalent elements to a `Set`, made from this sequence.
   var firstUniqueElements: [Element] {
     reduce(into: []) { uniqueElements, element in
       if !uniqueElements.contains(element) {

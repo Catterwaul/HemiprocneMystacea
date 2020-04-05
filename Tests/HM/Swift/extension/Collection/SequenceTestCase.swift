@@ -19,7 +19,7 @@ final class SequenceTestCase: XCTestCase {
 
   func test_getCount() throws {
     XCTAssertEqual(
-      [1, 2].getCount { $0 < 3 },
+      [1, 2, nil].getCount { $0 < 3 },
       2
     )
   }
