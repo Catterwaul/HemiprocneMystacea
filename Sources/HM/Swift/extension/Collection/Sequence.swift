@@ -3,7 +3,11 @@ public extension Sequence {
     zip( self, dropFirst() )
   }
 
-  var first: Element? { first { _ in true } }
+  /// The first element of the sequence, or `nil` if the sequence is empty.
+  var first: Element? {
+    var iterator = makeIterator()
+    return iterator.next()
+  }
 
   func getCount<Wrapped>(
     _ getIsIncluded: (Wrapped) throws -> Bool
@@ -45,6 +49,16 @@ public extension Sequence {
     _ getComparable: (Element) throws -> Comparable?
   ) rethrows -> Element? {
     try getElement(getComparable) { $0.min { $0.0 }?.1 }
+  }
+
+  /// - Returns: `nil` If the sequence has no elements, instead of an "initial result".
+  func reduce(
+    _ getNextPartialResult: (Element, Element) throws -> Element
+  ) rethrows -> Element? {
+    guard let first = first
+    else { return nil }
+
+    return try dropFirst().reduce(first, getNextPartialResult)
   }
 
   private func getElement<Comparable: Swift.Comparable>(
