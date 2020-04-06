@@ -7,6 +7,8 @@ final class BinaryIntegerTestCase: XCTestCase {
       Int(bitPattern: [true, false, true, false]),
       0b1010
     )
+
+    XCTAssertNil( Int(bitPattern: []) )
   }
 
   func test_masked() {

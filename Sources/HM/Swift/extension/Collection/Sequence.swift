@@ -71,6 +71,15 @@ public extension Sequence {
     return try dropFirst().reduce(first, getNextPartialResult)
   }
 
+  /// Accumulates transformed elements.
+  /// - Returns: `nil`  if the sequence has no elements.
+  func reduce<Result>(
+    _ transform: (Element) throws -> Result,
+    _ getNextPartialResult: (Result, Result) throws -> Result
+  ) rethrows -> Result? {
+    try lazy.map(transform).reduce(getNextPartialResult)
+  }
+
   private func getElement<Comparable: Swift.Comparable>(
     _ getComparable: (Element) throws -> Comparable?,
     _ getElement: ([(Comparable, Element)]) throws -> Element?
