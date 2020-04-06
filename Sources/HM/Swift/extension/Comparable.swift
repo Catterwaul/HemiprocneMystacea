@@ -1,6 +1,7 @@
 public extension Comparable {
   /// The properties with the maximum value.
   /// - Parameter subject: An instance of any type.
+  /// - Returns: `nil` if no value matches the `Comparable` type.
   static func getMax<Subject>(
     _ subject: Subject
   ) -> (labels: [String], value: Self)? {
@@ -11,6 +12,7 @@ public extension Comparable {
   /// - Parameters:
   ///   - subject: An instance of any type.
   ///   - getAreInIncreasingOrder: Sorts two values.
+  /// - Returns: `nil` if no value matches the `Comparable` type.
   static func getMax<Subject>(
     _ subject: Subject,
     by getAreInIncreasingOrder: (Self, Self) throws -> Bool
@@ -23,9 +25,9 @@ public extension Comparable {
         }
       }
 
-    guard let maxValue =
-      try comparableChildren.map(\.value)
-        .max(by: getAreInIncreasingOrder)
+    guard let maxValue = try
+      comparableChildren.map(\.value)
+      .max(by: getAreInIncreasingOrder)
     else { return nil }
 
     return (
