@@ -13,6 +13,19 @@ public extension Collection {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+  /// Circularly wraps `index`, to always provide an element,
+  /// even when `index` is not valid .
+  subscript(modulo index: Index) -> Element {
+    self[
+      self.index(
+        startIndex,
+        offsetBy:
+          distance(from: startIndex, to: index)
+          .modulo(count)
+      )
+    ]
+  }
+
   /// - Returns: same as subscript, if index is in bounds
   /// - Throws: CollectionIndexingError
   func getElement(index: Index) throws -> Element {
@@ -28,15 +41,13 @@ public struct CollectionIndexingError: Error { }
 public extension Collection where Element: Equatable {
   /// Circularly wraps `index`, to always provide an element,
   /// even when `index` is not valid .
-  subscript(modulo index: Index) -> Element {
-    self[
-      self.index(
-        startIndex,
-        offsetBy:
-          distance(from: startIndex, to: index)
-          .modulo(count)
-      )
-    ]
+  subscript(
+    _ element: Element,
+    moduloOffset offset: Int
+  ) -> Element? {
+    firstIndex(of: element).map {
+      self[modulo: index($0, offsetBy: offset)]
+    }
   }
 
   ///- Returns: nil if `element` isn't present
