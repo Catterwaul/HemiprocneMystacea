@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 private final class CaseIterableTestCase: XCTestCase {
-  enum 🦇: CaseSequence {
+  enum 🦇: CircularCaseSequence {
     case 🧛🏻, 🦹🏿, 🏏
   }
 

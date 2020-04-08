@@ -12,17 +12,17 @@ public extension CaseIterable where Self: Equatable {
   /// Another case from `allCases`.
   ///
   /// Circularly wraps `offset` to always provide an element,
-  /// even when the resulting `index` is not valid .
+  /// even when the resulting `index` is not valid.
   func offset(by offset: Int) -> Self {
     Self.allCases[self, moduloOffset: offset]!
   }
 }
 
-public protocol CaseSequence:
+public protocol CircularCaseSequence:
   CaseIterable, Sequence, IteratorProtocol, Equatable
 { }
 
-public extension CaseSequence {
+public extension CircularCaseSequence {
   mutating func next() -> Self? {
     self = offset(by: 1)
     return self

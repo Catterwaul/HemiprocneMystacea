@@ -14,7 +14,7 @@ public extension Collection {
   }
 
   /// Circularly wraps `index`, to always provide an element,
-  /// even when `index` is not valid .
+  /// even when `index` is not valid.
   subscript(modulo index: Index) -> Element {
     self[
       self.index(
@@ -40,7 +40,7 @@ public struct CollectionIndexingError: Error { }
 
 public extension Collection where Element: Equatable {
   /// Circularly wraps `index`, to always provide an element,
-  /// even when `index` is not valid .
+  /// even when `index` is not valid.
   subscript(
     _ element: Element,
     moduloOffset offset: Int
