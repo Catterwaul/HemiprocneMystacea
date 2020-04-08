@@ -10,6 +10,14 @@ public extension BinaryInteger {
 
     self = integer
   }
+
+  func modulo(_ divisor: Self) -> Self {
+    let remainder = self % divisor
+    return
+      remainder >= 0
+      ? remainder
+      : remainder + divisor
+  }
 }
 
 public extension BinaryInteger where Stride: SignedInteger  {

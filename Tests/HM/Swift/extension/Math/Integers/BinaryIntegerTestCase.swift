@@ -28,6 +28,11 @@ final class BinaryIntegerTestCase: XCTestCase {
     )
   }
 
+  func test_modulo() {
+    XCTAssertEqual(1.modulo(2), 1 % 2)
+    XCTAssertEqual( (-1).modulo(2), 1 )
+  }
+
   func test_factorial() {
     XCTAssertNil( (-4).factorial )
     XCTAssertEqual(0.factorial, 1)
