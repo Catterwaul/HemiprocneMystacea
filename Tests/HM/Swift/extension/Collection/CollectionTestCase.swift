@@ -41,6 +41,24 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertNil( "boogalawncare".prefix(upTo: "z") )
     XCTAssertNil( "boogalawncare".prefix(through: "z") )
   }
+
+  func test_subscript_modulo() {
+    let ints = [1, 2]
+    for (index, int) in [
+      (0, 1), (1, 2),
+      (2, 1), (3, 2),
+      (-1, 2), (-2, 1),
+      (-3, 2), (-4, 1)
+    ] {
+      XCTAssertEqual(ints[modulo: index], int)
+    }
+
+    let string = "abc"
+    XCTAssertEqual(
+      "abc"[modulo: string.index( after: string.firstIndex(of: "c")! )],
+      "a"
+    )
+  }
   
   func test_suffix() {
     XCTAssertEqual(

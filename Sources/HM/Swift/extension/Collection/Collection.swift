@@ -26,6 +26,19 @@ public extension Collection {
 public struct CollectionIndexingError: Error { }
 
 public extension Collection where Element: Equatable {
+  /// Circularly wraps `index`, to always provide an element,
+  /// even when `index` is not valid .
+  subscript(modulo index: Index) -> Element {
+    self[
+      self.index(
+        startIndex,
+        offsetBy:
+          distance(from: startIndex, to: index)
+          .modulo(count)
+      )
+    ]
+  }
+
   ///- Returns: nil if `element` isn't present
   func prefix(upTo element: Element) -> SubSequence? {
     firstIndex(of: element).map( prefix(upTo:) )
@@ -39,7 +52,7 @@ public extension Collection where Element: Equatable {
   ///- Returns: nil if `element` isn't present
   func suffix(from element: Element) -> SubSequence? {
     firstIndex(of: element)
-      .map { suffix( from: index(after: $0) ) }
+    .map { suffix( from: index(after: $0) ) }
   }
 }
 
