@@ -25,10 +25,7 @@ public extension Collection {
         else { return nil }
 
         let endIndex =
-          self.index(
-            startIndex, offsetBy: maxCount,
-            limitedBy: self.endIndex
-          )
+          self.index(startIndex, offsetBy: maxCount, limitedBy: self.endIndex)
           ?? self.endIndex
         defer { startIndex = endIndex }
         return self[startIndex..<endIndex]
