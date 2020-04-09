@@ -11,8 +11,10 @@ final class SequenceTestCase: XCTestCase {
     )
 
     XCTAssertEqual(
-      Array( (1...5).chunked(maxCount: 2) ),
-      [ [1, 2], [3, 4], [5] ]
+      Array(
+        stride(from: 1, through: 3, by: 0.5).chunked(maxCount: 2)
+      ),
+      [ [1, 1.5], [2, 2.5], [3] ]
     )
 
     XCTAssertEqual(
