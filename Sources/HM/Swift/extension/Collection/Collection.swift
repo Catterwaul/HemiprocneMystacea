@@ -14,7 +14,7 @@ public extension Collection {
   }
 
   /// - Complexity: O(`position`)
-  subscript(startOffsetBy position: Int) -> Element {
+  subscript(startIndexOffsetBy position: Int) -> Element {
     self[index(startIndex, offsetBy: position)]
   }
 

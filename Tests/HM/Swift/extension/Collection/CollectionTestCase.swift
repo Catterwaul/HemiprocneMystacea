@@ -43,7 +43,7 @@ final class CollectionTestCase: XCTestCase {
   }
 
   func test_subscript_startOffsetBy() {
-    XCTAssertEqual("🎤🐈"[startOffsetBy: 1], "🐈")
+    XCTAssertEqual("🎤🐈"[startIndexOffsetBy: 1], "🐈")
   }
 
   func test_subscript_modulo() {
