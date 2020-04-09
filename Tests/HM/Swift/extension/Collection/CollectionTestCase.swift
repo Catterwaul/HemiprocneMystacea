@@ -42,6 +42,10 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertNil( "boogalawncare".prefix(through: "z") )
   }
 
+  func test_subscript_startOffsetBy() {
+    XCTAssertEqual("🎤🐈"[startOffsetBy: 1], "🐈")
+  }
+
   func test_subscript_modulo() {
     let ints = [1, 2]
     for (index, int) in [

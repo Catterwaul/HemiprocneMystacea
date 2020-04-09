@@ -13,6 +13,11 @@ public extension Collection {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+  /// - Complexity: O(`position`)
+  subscript(startOffsetBy position: Int) -> Element {
+    self[index(startIndex, offsetBy: position)]
+  }
+
   /// Circularly wraps `index`, to always provide an element,
   /// even when `index` is not valid.
   subscript(modulo index: Index) -> Element {
