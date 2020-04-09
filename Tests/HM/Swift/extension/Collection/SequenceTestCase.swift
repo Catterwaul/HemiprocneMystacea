@@ -23,6 +23,10 @@ final class SequenceTestCase: XCTestCase {
       ),
       [ [1, 2] ]
     )
+
+    XCTAssert(
+      Array( [Any]().chunked(maxCount: 1) ).isEmpty
+    )
   }
 
   func test_containsOnly() {

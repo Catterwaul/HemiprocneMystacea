@@ -13,7 +13,6 @@ public extension Sequence {
   /// Splits a sequence into "chunks".
   ///
   /// - Parameter maxCount: The maximum number of elements in a chunk.
-  ///   The value of `maxCount` must be greater than or equal to zero.
   /// - Returns: Arrays with `maxCount` `counts`,
   ///   until the last chunk, which may be smaller.
   func chunked(maxCount: Int) -> AnySequence<[Element]> {
