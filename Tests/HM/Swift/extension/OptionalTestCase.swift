@@ -24,4 +24,13 @@ final class OptionalTestCase: XCTestCase {
       [0, 1, 2]
     )
   }
+
+  func test_unwrap() {
+    func iterate(_ array: Any?...) throws {
+      try array.forEach { _ = try $0.unwrap() }
+    }
+
+    XCTAssertNoThrow( try iterate() )
+    XCTAssertThrowsError( try iterate(nil) )
+  }
 }

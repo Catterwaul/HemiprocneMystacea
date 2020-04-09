@@ -19,4 +19,13 @@ public extension Optional {
     try self.map { try makeResult(resultWhenNil, $0) }
     ?? resultWhenNil
   }
+
+  struct UnwrapError: Error { }
+
+  /// Throw an error if `nil`.
+  /// - Throws: `UnwrapError`
+  /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
+  func unwrap() throws -> Wrapped {
+    try self ?? { throw UnwrapError() } ()
+  }
 }
