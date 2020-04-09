@@ -10,12 +10,12 @@ public extension Sequence {
     return iterator.next()
   }
 
-  /// Splits a sequence into "chunks".
+  /// Splits a `Sequence` into equal "chunks".
   ///
-  /// - Parameter maxCount: The maximum number of elements in a chunk.
-  /// - Returns: Arrays with `maxCount` `counts`,
+  /// - Parameter maxArrayCount: The maximum number of elements in a chunk.
+  /// - Returns: `Array`s with `maxArrayCount` `counts`,
   ///   until the last chunk, which may be smaller.
-  func chunked(maxCount: Int) -> AnySequence<[Element]> {
+  subscript(maxArrayCount maxCount: Int) -> AnySequence<[Element]> {
     .init(
       sequence( state: makeIterator() ) { iterator in
         Optional(

@@ -5,27 +5,34 @@ final class SequenceTestCase: XCTestCase {
   func test_chunked() {
     XCTAssertEqual(
       Array(
-        (1...6).chunked(maxCount: 2)
+        "❤️🌹💄🦋👖🥶♻️"[maxSubSequenceCount: 3]
+      ),
+      ["❤️🌹💄", "🦋👖🥶", "♻️"]
+    )
+
+    XCTAssertEqual(
+      Array(
+        (1...6)[maxArrayCount: 2]
       ),
       [ [1, 2], [3, 4], [5, 6] ]
     )
 
     XCTAssertEqual(
       Array(
-        stride(from: 1, through: 3, by: 0.5).chunked(maxCount: 2)
+        stride(from: 1, through: 3, by: 0.5)[maxArrayCount: 2]
       ),
       [ [1, 1.5], [2, 2.5], [3] ]
     )
 
     XCTAssertEqual(
       Array(
-        (1...2).chunked(maxCount: 10)
+        (1...2)[maxArrayCount: 10]
       ),
       [ [1, 2] ]
     )
 
     XCTAssert(
-      Array( [Any]().chunked(maxCount: 1) ).isEmpty
+      Array([Any]()[maxSubSequenceCount: 10]).isEmpty
     )
   }
 

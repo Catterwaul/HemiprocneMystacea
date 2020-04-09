@@ -13,9 +13,27 @@ public extension Collection {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
-  /// - Complexity: O(`position`)
-  subscript(startIndexOffsetBy position: Int) -> Element {
-    self[index(startIndex, offsetBy: position)]
+  /// Splits a `Collection` into equal "chunks".
+  ///
+  /// - Parameter maxSubSequenceCount: The maximum number of elements in a chunk.
+  /// - Returns: `SubSequence`s with `maxSubSequenceLength` `counts`,
+  ///   until the last chunk, which may be smaller.
+  subscript(maxSubSequenceCount maxCount: Int) -> AnySequence<SubSequence> {
+    .init(
+      sequence(state: startIndex) { startIndex in
+        guard startIndex < self.endIndex
+        else { return nil }
+
+        let endIndex =
+          self.index(
+            startIndex, offsetBy: maxCount,
+            limitedBy: self.endIndex
+          )
+          ?? self.endIndex
+        defer { startIndex = endIndex }
+        return self[startIndex..<endIndex]
+      }
+    )
   }
 
   /// Circularly wraps `index`, to always provide an element,
@@ -29,6 +47,11 @@ public extension Collection {
           .modulo(count)
       )
     ]
+  }
+
+  /// - Complexity: O(`position`)
+  subscript(startIndexOffsetBy position: Int) -> Element {
+    self[index(startIndex, offsetBy: position)]
   }
 
   /// - Returns: same as subscript, if index is in bounds
