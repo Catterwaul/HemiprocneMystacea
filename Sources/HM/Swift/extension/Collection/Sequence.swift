@@ -3,6 +3,23 @@ public extension Sequence {
     zip( self, dropFirst() )
   }
 
+  /// Splits a sequence into "chunks".
+  ///
+  /// - Parameter maxCount: The maximum number of elements in a chunk.
+  ///   The value of `maxCount` must be greater than or equal to zero.
+  /// - Returns: Arrays with `maxCount` `counts`,
+  ///   until the last chunk, which may be smaller.
+  func chunked(maxCount: Int) -> AnySequence<[Element]> {
+    .init(
+      sequence( state: makeIterator() ) { iterator in
+        Optional(
+          (0..<maxCount).compactMap { _ in iterator.next() },
+          nilWhen: \.isEmpty
+        )
+      }
+    )
+  }
+
   /// The first element of the sequence.
   /// - Note: `nil` if the sequence is empty.
   var first: Element? {

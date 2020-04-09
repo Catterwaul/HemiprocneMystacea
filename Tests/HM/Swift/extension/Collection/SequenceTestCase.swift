@@ -2,6 +2,20 @@ import HM
 import XCTest
 
 final class SequenceTestCase: XCTestCase {
+  func test_chunked() {
+    XCTAssertEqual(
+      Array(
+        (1...6).chunked(maxCount: 2)
+      ),
+      [ [1, 2], [3, 4], [5, 6] ]
+    )
+
+    XCTAssertEqual(
+      Array( (1...5).chunked(maxCount: 2) ),
+      [ [1, 2], [3, 4], [5] ]
+    )
+  }
+
    func test_consecutivePairs() {
     XCTAssertTrue(
       Array([1, 3, 9, -44].consecutivePairs)
