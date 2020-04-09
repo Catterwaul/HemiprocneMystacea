@@ -14,9 +14,20 @@ final class SequenceTestCase: XCTestCase {
       Array( (1...5).chunked(maxCount: 2) ),
       [ [1, 2], [3, 4], [5] ]
     )
+
+    XCTAssertEqual(
+      Array(
+        (1...2).chunked(maxCount: 10)
+      ),
+      [ [1, 2] ]
+    )
   }
 
-   func test_consecutivePairs() {
+  func test_containsOnly() {
+    XCTAssert(["🐯", "🐯"].containsOnly("🐯"))
+  }
+
+  func test_consecutivePairs() {
     XCTAssertTrue(
       Array([1, 3, 9, -44].consecutivePairs)
       ==
@@ -36,6 +47,10 @@ final class SequenceTestCase: XCTestCase {
       [1, 2, nil].getCount { $0 < 3 },
       2
     )
+  }
+
+  func test_getFirst() {
+    XCTAssertEqual([1, "🥇"].getFirst(), "🥇")
   }
 
   func test_max_and_min() {

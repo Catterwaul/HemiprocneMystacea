@@ -3,6 +3,13 @@ public extension Sequence {
     zip( self, dropFirst() )
   }
 
+  /// The first element of the sequence.
+  /// - Note: `nil` if the sequence is empty.
+  var first: Element? {
+    var iterator = makeIterator()
+    return iterator.next()
+  }
+
   /// Splits a sequence into "chunks".
   ///
   /// - Parameter maxCount: The maximum number of elements in a chunk.
@@ -18,13 +25,6 @@ public extension Sequence {
         )
       }
     )
-  }
-
-  /// The first element of the sequence.
-  /// - Note: `nil` if the sequence is empty.
-  var first: Element? {
-    var iterator = makeIterator()
-    return iterator.next()
   }
 
   /// The number of elements that match a predicate.
@@ -126,7 +126,7 @@ public extension Sequence {
 
 //MARK: containsOnly
 public extension Sequence where Element: Equatable {
-  ///- Returns: whether all elements of the sequence are equal to `element`
+  /// Whether all elements of the sequence are equal to `element`.
   func containsOnly(_ element: Element) -> Bool {
     allSatisfy { $0 == element }
   }
