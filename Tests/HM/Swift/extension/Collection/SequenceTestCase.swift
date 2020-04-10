@@ -15,14 +15,7 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertFalse(threeTuples == [].lazy)
   }
   
-  func test_chunked() {
-    XCTAssertEqual(
-      Array(
-        "❤️🌹💄🦋👖🥶♻️"[maxSubSequenceCount: 3]
-      ),
-      ["❤️🌹💄", "🦋👖🥶", "♻️"]
-    )
-
+  func test_subscript_maxSubSequenceCount() {
     XCTAssertEqual(
       Array(
         (1...6)[maxArrayCount: 2]
@@ -42,10 +35,6 @@ final class SequenceTestCase: XCTestCase {
         (1...2)[maxArrayCount: 10]
       ),
       [ [1, 2] ]
-    )
-
-    XCTAssert(
-      Array([Any]()[maxSubSequenceCount: 10]).isEmpty
     )
   }
 

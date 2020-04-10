@@ -2,6 +2,17 @@ import HM
 import XCTest
 
 final class CollectionTestCase: XCTestCase {
+  func test_subscript_maxSubSequenceCount() {
+    XCTAssertEqual(
+      Array("❤️🌹💄🦋👖🥶♻️"[maxSubSequenceCount: 3]),
+      ["❤️🌹💄", "🦋👖🥶", "♻️"]
+    )
+
+    XCTAssert(
+      Array([Any]()[maxSubSequenceCount: 10]).isEmpty
+    )
+  }
+
   func test_shifted() {
     XCTAssertEqual(
       [0, 1, 2, 3].shifted(by: 1),
