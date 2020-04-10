@@ -1,4 +1,22 @@
 public extension Sequence {
+  /// Equates two `Sequence`s of 2-tuples.
+  static func == <
+    Equatable0: Equatable, Equatable1: Equatable,
+    Tuples1: Sequence
+  >(tuples0: Self, tuples1: Tuples1) -> Bool
+  where Element == (Equatable0, Equatable1), Tuples1.Element == Element {
+    tuples0.elementsEqual(tuples1, by: ==)
+  }
+
+  /// Equates two `Sequence`s of 3-tuples.
+  static func == <
+    Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable,
+    Tuples1: Sequence
+  >(tuples0: Self, tuples1: Tuples1) -> Bool
+  where Element == (Equatable0, Equatable1, Equatable2), Tuples1.Element == Element {
+    tuples0.elementsEqual(tuples1, by: ==)
+  }
+
   var consecutivePairs: Zip2Sequence< Self, DropFirstSequence<Self> > {
     zip( self, dropFirst() )
   }

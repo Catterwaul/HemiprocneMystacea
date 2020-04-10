@@ -1,18 +1,4 @@
 public extension Collection {
-  static func == <Equatable0: Equatable, Equatable1: Equatable>(
-    tuples0: Self, tuples1: Self
-  ) -> Bool
-  where Element == (Equatable0, Equatable1) {
-    tuples0.elementsEqual(tuples1, by: ==)
-  }
-
-  static func == <
-    Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable
-  >(tuples0: Self, tuples1: Self) -> Bool
-  where Element == (Equatable0, Equatable1, Equatable2) {
-    tuples0.elementsEqual(tuples1, by: ==)
-  }
-
   /// Splits a `Collection` into equal "chunks".
   ///
   /// - Parameter maxSubSequenceCount: The maximum number of elements in a chunk.
@@ -61,6 +47,7 @@ public extension Collection {
   }
 }
 
+/// Thrown when `getElement` is called with an invalid index.
 public struct CollectionIndexingError: Error { }
 
 public extension Collection where Element: Equatable {
