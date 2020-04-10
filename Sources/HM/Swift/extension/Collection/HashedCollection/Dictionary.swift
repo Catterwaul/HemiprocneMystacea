@@ -1,4 +1,40 @@
 public extension Dictionary {
+//MARK:- Operators
+  /// Remove key-value pairs for a `Sequence` of `Key`s.
+  static func - <KeysToSetNil: Sequence>(
+    dictionary: Self, keysToSetNil: KeysToSetNil
+  ) -> Self
+  where KeysToSetNil.Element == Key {
+    keysToSetNil.reduce(into: dictionary) { dictionary, key in
+      dictionary[key] = nil
+    }
+  }
+  /// Remove key-value pairs for a `Sequence` of `Key`s.
+  static func -= <KeysToSetNil: Sequence>(
+    dictionary: inout Self, keysToSetNil: KeysToSetNil
+  )
+  where KeysToSetNil.Element == Key {
+    dictionary = dictionary - keysToSetNil
+  }
+
+//MARK:- Subscripts
+  ///- Returns: nil if `key` is nil
+  subscript(key: Key?) -> Value? { key.flatMap { self[$0] } }
+
+  subscript(
+    key: Key,
+    valueAddedIfNil getValue: @autoclosure() -> Dictionary.Value
+  ) -> Dictionary.Value {
+    mutating get {
+      self[key]
+      ?? {
+        self[key] = getValue()
+        return self[key]!
+      } ()
+    }
+  }
+
+//MARK:- Initializers
   /// Group key-value pairs by their keys.
   ///
   /// - Parameter pairs: Either `Swift.KeyValuePairs<Key, Self.Value.Element>`
@@ -27,6 +63,7 @@ public extension Dictionary {
     self.init( grouping: pairs.map { (key: $0, value: $1) } )
   }
 
+//MARK:- Functions
   /// Same keys, corresponding to `map`ped key-value pairs.
   ///
   /// - Parameter transform: Accepts each element of the dictionary as its parameter
@@ -38,47 +75,4 @@ public extension Dictionary {
       uniqueKeysWithValues: zip( keys, try map(transform) )
     )
   }
-  
-//MARK: Subscripts
-	///- Returns: nil if `key` is nil
-	subscript(key: Key?) -> Value? { key.flatMap { self[$0] } }
-
-	subscript(
-		key: Key,
-		valueAddedIfNil getValue: @autoclosure() -> Dictionary.Value
-	) -> Dictionary.Value {
-		mutating get {
-      self[key]
-      ?? {
-        self[key] = getValue()
-        return self[key]!
-      } ()
-		}
-	}
-}
-
-//MARK:- Operators
-
-//MARK: –
-///- Returns: `dictionary`, if its keys that exist in `keysToSetNil` were all set to nil
-public func - <
-	Key, Value,
-	KeysToSetNil: Sequence
->(
-	dictionary: [Key: Value],
-	keysToSetNil: KeysToSetNil
-) -> [Key: Value]
-where KeysToSetNil.Element == Key {
-  dictionary.filter { !keysToSetNil.contains($0.key) }
-}
-/// For `dictionary`, assign nil for every key in `keysToSetNil`
-public func -= <
-	Key, Value,
-	KeysToSetNil: Sequence
->(
-  dictionary: inout [Key: Value],
-	keysToSetNil: KeysToSetNil
-)
-where KeysToSetNil.Element == Key {
-	dictionary = dictionary - keysToSetNil
 }
