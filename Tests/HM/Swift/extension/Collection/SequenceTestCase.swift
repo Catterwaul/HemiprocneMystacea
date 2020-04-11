@@ -2,6 +2,8 @@ import HM
 import XCTest
 
 final class SequenceTestCase: XCTestCase {
+// MARK:- Operators
+
   func test_tupleEquality() {
     let intStringTuples = [(1, "a"), (2, "b")]
     XCTAssertTrue(intStringTuples == intStringTuples.lazy)
@@ -14,8 +16,42 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertTrue(threeTuples == threeTuples.lazy)
     XCTAssertFalse(threeTuples == [].lazy)
   }
-  
-  func test_subscript_maxSubSequenceCount() {
+
+// MARK:- Properties
+
+  func test_consecutivePairs() {
+    XCTAssertTrue(
+      Array([1, 3, 9, -44].consecutivePairs)
+      ==
+      [(1, 3), (3, 9), (9, -44)]
+    )
+  }
+
+  func test_first() {
+    let odds = stride(from: 1, through: 9, by: 2)
+
+    XCTAssertEqual(odds.first, 1)
+    XCTAssertNil(odds.prefix(0).first)
+  }
+
+  func test_pauseable() {
+    let upperLimit = 5
+    let pauseableRange = (1...upperLimit).pauseable
+
+    for _ in pauseableRange.prefix(1) { }
+
+    func doNothin<NothinDoin>(_: NothinDoin) { }
+    pauseableRange.prefix(1).forEach(doNothin)
+    _ = pauseableRange.prefix(1).map(doNothin)
+
+    XCTAssertEqual(
+      Array(pauseableRange), Array(4...upperLimit)
+    )
+  }
+
+//MARK:- Subscripts
+
+  func test_subscript_maxArrayCount() {
     XCTAssertEqual(
       Array(
         (1...6)[maxArrayCount: 2]
@@ -38,44 +74,11 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
+// MARK:- Functions
+
   func test_containsOnly() {
     XCTAssert(["🐯", "🐯"].containsOnly("🐯"))
   }
-
-// MARK:- Properties
-
-  func test_consecutivePairs() {
-    XCTAssertTrue(
-      Array([1, 3, 9, -44].consecutivePairs)
-      ==
-      [(1, 3), (3, 9), (9, -44)]
-    )
-  }
-
-  func test_first() {
-    let odds = stride(from: 1, through: 9, by: 2)
-
-    XCTAssertEqual(odds.first, 1)
-    XCTAssertNil(odds.prefix(0).first)
-  }
-
-  func test_pauseable() {
-    let upperBound = 5
-    let pauseableRange = (1...upperBound).pauseable
-
-    for _ in pauseableRange.prefix(1) { }
-
-    func doNothin<NothinDoin>(_: NothinDoin) { }
-    pauseableRange.prefix(1).forEach(doNothin)
-    _ = pauseableRange.prefix(1).map(doNothin)
-
-    XCTAssertEqual(
-      Array(pauseableRange),
-      Array(4...upperBound)
-    )
-  }
-
-// MARK:- Functions
 
   func test_getCount() throws {
     XCTAssertEqual(
@@ -151,8 +154,8 @@ final class SequenceTestCase: XCTestCase {
     )
   }
   
-//MARK: uniqueElements
-  func test_uniqueElements_Hashable() {
+//MARK: firstUniqueElements
+  func test_firstUniqueElements_Hashable() {
     XCTAssertEqual(
       [1, 1, 1].firstUniqueElements,
       [1]
@@ -164,7 +167,7 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 	
-	func test_uniqueElements_Equatable() {
+	func test_firstUniqueElements_Equatable() {
     let uniqueArray =
       [1, 1, 2, 4, 2, 3, 4]
         .map(TypeWith1EquatableProperty.init)
