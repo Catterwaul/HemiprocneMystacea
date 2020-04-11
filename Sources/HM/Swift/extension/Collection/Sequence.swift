@@ -17,6 +17,7 @@ public extension Sequence {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+  /// Each elements of the sequence, paired with the element after.
   var consecutivePairs: Zip2Sequence< Self, DropFirstSequence<Self> > {
     zip( self, dropFirst() )
   }
