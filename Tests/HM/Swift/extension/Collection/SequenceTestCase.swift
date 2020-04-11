@@ -47,6 +47,16 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertEqual(
       Array(pauseableRange), Array(4...upperLimit)
     )
+
+    typealias Number = Int
+    let pauseableFibonacciSequence = FibonacciSequence<Number>().pauseable
+
+    func getNext(_ count: Int) -> [Number] {
+      .init( pauseableFibonacciSequence.prefix(count) )
+    }
+
+    XCTAssertEqual(getNext(10), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+    XCTAssertEqual(getNext(10), [55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181])
   }
 
 //MARK:- Subscripts
