@@ -42,6 +42,8 @@ final class SequenceTestCase: XCTestCase {
     XCTAssert(["🐯", "🐯"].containsOnly("🐯"))
   }
 
+// MARK:- Properties
+
   func test_consecutivePairs() {
     XCTAssertTrue(
       Array([1, 3, 9, -44].consecutivePairs)
@@ -55,6 +57,22 @@ final class SequenceTestCase: XCTestCase {
 
     XCTAssertEqual(odds.first, 1)
     XCTAssertNil(odds.prefix(0).first)
+  }
+
+  func test_pauseable() {
+    let upperBound = 5
+    let pauseableRange = (1...upperBound).pauseable
+
+    for _ in pauseableRange.prefix(1) { }
+
+    func doNothin<NothinDoin>(_: NothinDoin) { }
+    pauseableRange.prefix(1).forEach(doNothin)
+    _ = pauseableRange.prefix(1).map(doNothin)
+
+    XCTAssertEqual(
+      Array(pauseableRange),
+      Array(4...upperBound)
+    )
   }
 
 // MARK:- Functions
