@@ -75,20 +75,27 @@ public extension Sequence {
   }
 
   /// Alternates between the elements of two sequences.
-  /// - Note: If the sequences have different lengths,
+  /// - Parameter keepSuffix:
+  /// When `true`, and the sequences have different lengths,
   /// the suffix of `interleaved`  will be the suffix of the longer sequence.
-  func interleaved<Sequence: Swift.Sequence>(with sequence1: Sequence) -> AnySequence<Element>
+  func interleaved<Sequence: Swift.Sequence>(
+    with sequence: Sequence,
+    keepingLongerSuffix keepSuffix: Bool = false
+  ) -> AnySequence<Element>
   where Sequence.Element == Element {
-    .init(
-      sequence(
-        state: (
-          AnyIterator( makeIterator() ),
-          AnyIterator( sequence1.makeIterator() )
-        )
-      ) { iterators in
+    keepSuffix
+    ? .init { () -> AnyIterator<Element> in
+      var iterators = (
+        AnyIterator( self.makeIterator() ),
+        AnyIterator( sequence.makeIterator() )
+      )
+      return .init {
         defer { iterators = (iterators.1, iterators.0) }
         return iterators.0.next() ?? iterators.1.next()
       }
+    }
+    : .init(
+      zip(self, sequence).lazy.flatMap { [$0, $1] }
     )
   }
 

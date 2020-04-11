@@ -71,12 +71,20 @@ final class SequenceTestCase: XCTestCase {
   }
 
   func test_interleaved() {
+    let oddsTo7 = stride(from: 1, to: 7, by: 2)
+    let evensThrough10 = stride(from: 2, through: 10, by: 2)
+    let oneThrough6 = Array(1...6)
+
+    XCTAssertEqual(
+      Array( oddsTo7.interleaved(with: evensThrough10) ),
+      oneThrough6
+    )
+
     XCTAssertEqual(
       Array(
-        stride(from: 0, through: 10, by: 2)
-        .interleaved( with: stride(from: 1, through: 5, by: 2) )
+        oddsTo7.interleaved(with: evensThrough10, keepingLongerSuffix: true)
       ),
-      (0...6) + [8, 10]
+      oneThrough6 + [8, 10]
     )
   }
 
