@@ -74,9 +74,9 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertEqual(
       Array(
         stride(from: 0, through: 10, by: 2)
-        .interleaved( with: stride(from: 1, to: 10, by: 2) )
+        .interleaved( with: stride(from: 1, through: 5, by: 2) )
       ),
-      Array(0...10)
+      (0...6) + [8, 10]
     )
   }
 
