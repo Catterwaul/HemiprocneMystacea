@@ -57,6 +57,8 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertNil(odds.prefix(0).first)
   }
 
+// MARK:- Functions
+
   func test_getCount() throws {
     XCTAssertEqual(
       [1, 2, nil].getCount { $0 < 3 },
@@ -66,6 +68,16 @@ final class SequenceTestCase: XCTestCase {
 
   func test_getFirst() {
     XCTAssertEqual([1, "🥇"].getFirst(), "🥇")
+  }
+
+  func test_interleaved() {
+    XCTAssertEqual(
+      Array(
+        stride(from: 0, through: 10, by: 2)
+        .interleaved( with: stride(from: 1, to: 10, by: 2) )
+      ),
+      Array(0...10)
+    )
   }
 
   func test_max_and_min() {

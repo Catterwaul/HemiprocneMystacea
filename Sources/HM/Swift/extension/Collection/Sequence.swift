@@ -74,6 +74,24 @@ public extension Sequence {
     lazy.compactMap { $0 as? T } .first
   }
 
+  /// Alternates between the elements of two sequences.
+  /// - Note: If the sequences have different lengths,
+  /// the suffix of `interleaved`  will be the suffix of the longer sequence.
+  func interleaved<Sequence: Swift.Sequence>(with sequence1: Sequence) -> AnySequence<Element>
+  where Sequence.Element == Element {
+    .init(
+      sequence(
+        state: (
+          AnyIterator( makeIterator() ),
+          AnyIterator( sequence1.makeIterator() )
+        )
+      ) { iterators in
+        defer { iterators = (iterators.1, iterators.0) }
+        return iterators.0.next() ?? iterators.1.next()
+      }
+    )
+  }
+
   func max<Comparable: Swift.Comparable>(
     _ getComparable: (Element) throws -> Comparable
   ) rethrows -> Element? {
