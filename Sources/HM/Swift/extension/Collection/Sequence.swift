@@ -1,4 +1,6 @@
 public extension Sequence {
+// MARK:- Operators
+
   /// Equates two `Sequence`s of 2-tuples.
   static func == <
     Equatable0: Equatable, Equatable1: Equatable,
@@ -17,6 +19,8 @@ public extension Sequence {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+// MARK:- Properties
+
   /// Each elements of the sequence, paired with the element after.
   var consecutivePairs: Zip2Sequence< Self, DropFirstSequence<Self> > {
     zip( self, dropFirst() )
@@ -28,6 +32,8 @@ public extension Sequence {
     var iterator = makeIterator()
     return iterator.next()
   }
+
+// MARK:- Subscripts
 
   /// Splits a `Sequence` into equal "chunks".
   ///
@@ -44,6 +50,8 @@ public extension Sequence {
       }
     )
   }
+
+// MARK:- Functions
 
   /// The number of elements that match a predicate.
   func getCount(
@@ -142,30 +150,28 @@ public extension Sequence {
   }
 }
 
-//MARK: containsOnly
+//MARK: Element: Equatable
 public extension Sequence where Element: Equatable {
-  /// Whether all elements of the sequence are equal to `element`.
-  func containsOnly(_ element: Element) -> Bool {
-    allSatisfy { $0 == element }
-  }
-}
-
-//MARK: uniqueElements
-public extension Sequence where Element: Hashable {
-  /// - Note: Has equivalent elements to a `Set`, made from this sequence.
-  var firstUniqueElements: [Element] {
-    var set: Set<Element> = []
-    return filter { set.insert($0).inserted }
-  }
-}
-
-public extension Sequence where Element: Equatable {
-  /// - Note: Has equivalent elements to a `Set`, made from this sequence.
+    /// - Note: Has equivalent elements to a `Set`, made from this sequence.
   var firstUniqueElements: [Element] {
     reduce(into: []) { uniqueElements, element in
       if !uniqueElements.contains(element) {
         uniqueElements.append(element)
       }
     }
+  }
+
+  /// Whether all elements of the sequence are equal to `element`.
+  func containsOnly(_ element: Element) -> Bool {
+    allSatisfy { $0 == element }
+  }
+}
+
+//MARK: Element: Hashable
+public extension Sequence where Element: Hashable {
+  /// - Note: Has equivalent elements to a `Set`, made from this sequence.
+  var firstUniqueElements: [Element] {
+    var set: Set<Element> = []
+    return filter { set.insert($0).inserted }
   }
 }
