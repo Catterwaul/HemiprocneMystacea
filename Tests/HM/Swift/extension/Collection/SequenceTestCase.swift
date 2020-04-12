@@ -35,18 +35,21 @@ final class SequenceTestCase: XCTestCase {
   }
 
   func test_pauseable() {
-    let upperLimit = 5
-    let pauseableRange = (1...upperLimit).pauseable
+    range: do {
+      let upperLimit = 5
+      let pauseableRange = (1...upperLimit).pauseable
 
-    for _ in pauseableRange.prefix(1) { }
+      _ = pauseableRange.next()
+      for _ in pauseableRange.prefix(1) { }
 
-    func doNothin<NothinDoin>(_: NothinDoin) { }
-    pauseableRange.prefix(1).forEach(doNothin)
-    _ = pauseableRange.prefix(1).map(doNothin)
+      func doNothin<NothinDoin>(_: NothinDoin) { }
+      pauseableRange.prefix(1).forEach(doNothin)
+      _ = pauseableRange.prefix(1).map(doNothin)
 
-    XCTAssertEqual(
-      Array(pauseableRange), Array(4...upperLimit)
-    )
+      XCTAssertEqual(
+        Array(pauseableRange), Array(5...upperLimit)
+      )
+    }
 
     typealias Number = Int
     let pauseableFibonacciSequence = FibonacciSequence<Number>().pauseable
