@@ -25,3 +25,17 @@ public extension CGRect {
     ]
   }
 }
+
+import simd
+
+public extension SIMD2 where Scalar == CGFloat.NativeType {
+  func getSignedDistance(to rect: CGRect) -> Double {
+    let distances =
+      abs( self - Self(rect.center) )
+      - Self(rect.size) / 2
+    return
+      all(sign(distances) .> 0)
+      ? length(distances)
+      : distances.max()
+  }
+}
