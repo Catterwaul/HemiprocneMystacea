@@ -37,7 +37,7 @@ final class SequenceTestCase: XCTestCase {
   func test_pauseable() {
     range: do {
       let upperLimit = 5
-      let pauseableRange = (1...upperLimit).pauseable
+      let pauseableRange = AnyIterator(pauseable: 1...upperLimit)
 
       _ = pauseableRange.next()
       for _ in pauseableRange.prefix(1) { }
@@ -52,7 +52,8 @@ final class SequenceTestCase: XCTestCase {
     }
 
     typealias Number = Int
-    let pauseableFibonacciSequence = FibonacciSequence<Number>().pauseable
+    let pauseableFibonacciSequence =
+      AnyIterator( pauseable: FibonacciSequence<Number>() )
 
     func getNext(_ count: Int) -> [Number] {
       .init( pauseableFibonacciSequence.prefix(count) )

@@ -38,12 +38,6 @@ public extension Sequence {
     return iterator.next()
   }
 
-  /// A single-pass version of this sequence,
-  /// whose iteration can be "paused", if not fully-consumed in one operation.
-  var pauseable: AnyIterator<Element> {
-    .init( makeIterator() )
-  }
-
 // MARK:- Subscripts
 
   /// Splits a `Sequence` into equal "chunks".
