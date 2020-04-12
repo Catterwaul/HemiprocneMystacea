@@ -35,7 +35,7 @@ public extension Sequence {
 
   /// A single-pass version of this sequence,
   /// whose iteration can be "paused", if not fully-consumed in one operation.
-  var pauseable: AnySequence<Element> {
+  var pauseable: AnyIterator<Element> {
     var iterator = makeIterator()
     return .init { iterator.next() }
   }
@@ -74,7 +74,6 @@ public extension Sequence {
   where Element == Wrapped? {
     try getCount { try $0.map(getIsIncluded) == true }
   }
-
 
   /// The first element of a given type.
   func getFirst<T>() -> T? {
@@ -184,7 +183,7 @@ public extension Sequence {
 
 //MARK: Element: Equatable
 public extension Sequence where Element: Equatable {
-    /// - Note: Has equivalent elements to a `Set`, made from this sequence.
+  /// - Note: Has equivalent elements to a `Set`, made from this sequence.
   var firstUniqueElements: [Element] {
     reduce(into: []) { uniqueElements, element in
       if !uniqueElements.contains(element) {
