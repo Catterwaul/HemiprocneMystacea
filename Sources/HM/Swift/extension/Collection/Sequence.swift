@@ -41,8 +41,7 @@ public extension Sequence {
   /// A single-pass version of this sequence,
   /// whose iteration can be "paused", if not fully-consumed in one operation.
   var pauseable: AnyIterator<Element> {
-    var iterator = makeIterator()
-    return .init { iterator.next() }
+    .init( makeIterator() )
   }
 
 // MARK:- Subscripts
