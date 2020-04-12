@@ -13,8 +13,7 @@ public extension OptionSet where RawValue: FixedWidthInteger {
 		Self,
 		Self
 	) {
-    (
-			Self(flagIndex: startingFlagIndex),
+    ( Self(flagIndex: startingFlagIndex),
 			Self(flagIndex: startingFlagIndex + 1)
 		)
 	}
@@ -27,8 +26,7 @@ public extension OptionSet where RawValue: FixedWidthInteger {
 		Self,
 		Self
 	) {
-    (
-			Self(flagIndex: startingFlagIndex),
+    ( Self(flagIndex: startingFlagIndex),
 			Self(flagIndex: startingFlagIndex + 1),
 			Self(flagIndex: startingFlagIndex + 2)
 		)
@@ -43,8 +41,7 @@ public extension OptionSet where RawValue: FixedWidthInteger {
 		Self,
 		Self
 	) {
-    (
-			Self(flagIndex: startingFlagIndex),
+    ( Self(flagIndex: startingFlagIndex),
 			Self(flagIndex: startingFlagIndex + 1),
 			Self(flagIndex: startingFlagIndex + 2),
 			Self(flagIndex: startingFlagIndex + 3)
@@ -61,8 +58,7 @@ public extension OptionSet where RawValue: FixedWidthInteger {
 		Self,
 		Self
 	) {
-    (
-			Self(flagIndex: startingFlagIndex),
+    ( Self(flagIndex: startingFlagIndex),
 			Self(flagIndex: startingFlagIndex + 1),
 			Self(flagIndex: startingFlagIndex + 2),
 			Self(flagIndex: startingFlagIndex + 3),
@@ -81,8 +77,7 @@ public extension OptionSet where RawValue: FixedWidthInteger {
 		Self,
 		Self
 	) {
-    (
-			Self(flagIndex: startingFlagIndex),
+    ( Self(flagIndex: startingFlagIndex),
 			Self(flagIndex: startingFlagIndex + 1),
 			Self(flagIndex: startingFlagIndex + 2),
 			Self(flagIndex: startingFlagIndex + 3),
@@ -93,7 +88,7 @@ public extension OptionSet where RawValue: FixedWidthInteger {
 }
 
 //MARK: private
-private extension OptionSet where RawValue: FixedWidthInteger {
+private extension OptionSet where RawValue: BinaryInteger {
 	init(flagIndex: RawValue) {
 		self.init( rawValue: 1 << (flagIndex - 1) )
 	}

@@ -9,17 +9,11 @@ final class FibonacciSequenceTestCase: XCTestCase {
       6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811
     ]
 
-    XCTAssertEqual( FibonacciSequence()[25], CGFloat(75_025) )
-
     XCTAssertEqual(
       FibonacciSequence().prefix(29).map { $0 },
       first29
     )
 
-    zip(
-      first29.indices.map { FibonacciSequence()[$0] },
-      first29
-    )
-      .forEach { XCTAssertEqual($0, $1) }
+    XCTAssertEqual( FibonacciSequence()[25], CGFloat(75025) )
   }
 }

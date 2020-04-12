@@ -115,26 +115,26 @@ extension UIView {
 
 extension UIView.AutoresizingFlexibilities {
   static var leftMargin: UIView.AutoresizingFlexibilities {
-    UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleLeftMargin)
+    .init(UIView.AutoresizingMask.flexibleLeftMargin)
   }
   
   static var width: UIView.AutoresizingFlexibilities {
-    UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleWidth)
+    .init(UIView.AutoresizingMask.flexibleWidth)
   }
   
   static var rightMargin: UIView.AutoresizingFlexibilities {
-    UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleRightMargin)
+    .init(UIView.AutoresizingMask.flexibleRightMargin)
   }
   
   static var topMargin: UIView.AutoresizingFlexibilities {
-    UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleTopMargin)
+    .init(UIView.AutoresizingMask.flexibleTopMargin)
   }
   
   static var height: UIView.AutoresizingFlexibilities {
-    UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleHeight)
+    .init(UIView.AutoresizingMask.flexibleHeight)
   }
   
   static var bottomMargin: UIView.AutoresizingFlexibilities {
-    UIView.AutoresizingFlexibilities(UIView.AutoresizingMask.flexibleBottomMargin)
+    .init(UIView.AutoresizingMask.flexibleBottomMargin)
   }
 }
