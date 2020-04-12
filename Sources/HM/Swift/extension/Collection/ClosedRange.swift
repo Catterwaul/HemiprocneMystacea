@@ -4,7 +4,7 @@ public extension ClosedRange where Bound: AdditiveArithmetic {
     startingAt start: Bound
   ) -> AnySequence<Bound> {
     guard contains(start)
-    else { return .init( EmptyCollection() ) }
+    else { return .empty }
 
     var advancement = contiguousAdvancement
 

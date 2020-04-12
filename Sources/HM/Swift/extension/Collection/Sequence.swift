@@ -21,6 +21,11 @@ public extension Sequence {
 
 // MARK:- Properties
 
+  /// An empty sequence, whose `Element` "would" match this type's.
+  static var empty: AnySequence<Element> {
+    .init(EmptyCollection.Iterator.init)
+  }
+
   /// Each elements of the sequence, paired with the element after.
   var consecutivePairs: Zip2Sequence< Self, DropFirstSequence<Self> > {
     zip( self, dropFirst() )
