@@ -91,12 +91,13 @@ public extension Sequence {
   ) -> AnySequence<Element>
   where Sequence.Element == Element {
     keepSuffix
-    ? .init { () -> AnyIterator<Element> in
-      var iterators = (
-        AnyIterator( self.makeIterator() ),
-        AnyIterator( sequence.makeIterator() )
-      )
-      return .init {
+    ? .init {
+      AnyIterator(
+        state: (
+          AnyIterator( self.makeIterator() ),
+          AnyIterator( sequence.makeIterator() )
+        )
+      ) { iterators in 
         defer { iterators = (iterators.1, iterators.0) }
         return iterators.0.next() ?? iterators.1.next()
       }
