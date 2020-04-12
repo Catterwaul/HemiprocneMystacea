@@ -2,6 +2,8 @@ import HM
 import XCTest
 
 final class CollectionTestCase: XCTestCase {
+//MARK:- Subscripts
+
   func test_subscript_maxSubSequenceCount() {
     XCTAssertEqual(
       Array("❤️🌹💄🦋👖🥶♻️"[maxSubSequenceCount: 3]),
@@ -11,37 +13,6 @@ final class CollectionTestCase: XCTestCase {
     XCTAssert(
       Array([Any]()[maxSubSequenceCount: 10]).isEmpty
     )
-  }
-
-  func test_shifted() {
-    XCTAssertEqual(
-      [0, 1, 2, 3].shifted(by: 1),
-      [1, 2, 3, 0]
-    )
-
-    XCTAssertEqual(
-      [0, 1, 2, 3].shifted(by: -1),
-      [3, 0, 1, 2]
-    )
-  }
-
-  func test_prefix() {
-    XCTAssertEqual(
-      "glorb14prawn".prefix(upTo: "1"),
-      "glorb"
-    )
-    
-    XCTAssertEqual(
-      "glorb14prawn".prefix(through: "1"),
-      "glorb1"
-    )
-
-    XCTAssertNil( "boogalawncare".prefix(upTo: "z") )
-    XCTAssertNil( "boogalawncare".prefix(through: "z") )
-  }
-
-  func test_subscript_startOffsetBy() {
-    XCTAssertEqual("🎤🐈"[startIndexOffsetBy: 1], "🐈")
   }
 
   func test_subscript_modulo() {
@@ -59,6 +30,57 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertEqual(
       "abc"[modulo: string.index( after: string.firstIndex(of: "c")! )],
       "a"
+    )
+  }
+
+  func test_subscript_startOffsetBy() {
+    XCTAssertEqual("🎤🐈"[startIndexOffsetBy: 1], "🐈")
+  }
+
+//MARK:- Functions
+
+  func test_getElement() throws {
+    XCTAssertThrowsError( try ["🐾", "🥝"].getElement(index: 2) )
+
+    let optionals = [1, 2, nil]
+
+    do {
+      let optional1 = try optionals.getElement(index: 0)
+      XCTAssertEqual(optional1, 1)
+    }
+
+    let outOfBoundsIndex = optionals.count
+    XCTAssertThrowsError(
+      try optionals.getElement(index: outOfBoundsIndex)
+    ) { error in
+      XCTAssert(error is CollectionIndexingError)
+    }
+  }
+
+  func test_prefix() {
+    XCTAssertEqual(
+      "glorb14prawn".prefix(upTo: "1"),
+      "glorb"
+    )
+    
+    XCTAssertEqual(
+      "glorb14prawn".prefix(through: "1"),
+      "glorb1"
+    )
+
+    XCTAssertNil( "boogalawncare".prefix(upTo: "z") )
+    XCTAssertNil( "boogalawncare".prefix(through: "z") )
+  }
+
+  func test_shifted() {
+    XCTAssertEqual(
+      [0, 1, 2, 3].shifted(by: 1),
+      [1, 2, 3, 0]
+    )
+
+    XCTAssertEqual(
+      [0, 1, 2, 3].shifted(by: -1),
+      [3, 0, 1, 2]
     )
   }
   
