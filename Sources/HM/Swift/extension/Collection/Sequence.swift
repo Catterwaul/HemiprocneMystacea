@@ -50,13 +50,15 @@ public extension Sequence {
   /// - Parameter maxArrayCount: The maximum number of elements in a chunk.
   /// - Returns: `Array`s with `maxArrayCount` `counts`,
   ///   until the last chunk, which may be smaller.
-  subscript(maxArrayCount maxCount: Int) -> AnyIterator<[Element]> {
-    .init( state: makeIterator() ) { iterator in
-      Optional(
-        (0..<maxCount).compactMap { _ in iterator.next() },
-        nilWhen: \.isEmpty
-      )
-    }
+  subscript(maxArrayCount maxCount: Int) -> AnySequence<[Element]> {
+    .init(
+      sequence( state: makeIterator() ) { iterator in
+        Optional(
+          (0..<maxCount).compactMap { _ in iterator.next() },
+          nilWhen: \.isEmpty
+        )
+      }
+    )
   }
 
 // MARK:- Functions
