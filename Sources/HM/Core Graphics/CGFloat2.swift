@@ -14,51 +14,54 @@ public extension CGFloat2 {
 //MARK:- Operators
 
   static func + (float2_0: Self, float2_1: Self) -> Self {
+    Self(float2_0 + float2_1 as SIMD)
+  }
+
+  static func + <Float2_1: CGFloat2>(float2_0: Self, float2_1: Float2_1) -> SIMD {
     operate(float2_0, +, float2_1)
   }
 
   static func += (float2_0: inout Self, float2_1: Self) {
-    operate(&float2_0, +=, float2_1)
+    float2_0 = float2_0 + float2_1
   }
 
   static func - (float2_0: Self, float2_1: Self) -> Self  {
+    Self(float2_0 - float2_1 as SIMD)
+  }
+
+  static func - <Float2_1: CGFloat2>(float2_0: Self, float2_1: Float2_1) -> SIMD {
     operate(float2_0, -, float2_1)
   }
 
   static func -= (float2_0: inout Self, float2_1: Self) {
-    operate(&float2_0, -=, float2_1)
+    float2_0 = float2_0 - float2_1
   }
 
   static func * (float2: Self, float: CGFloat) -> Self {
     operate(float2, *, float)
   }
 
-  static func / (dividend: Self, divisor: Self) -> Self {
+  static func / (dividend: Self, divisor: Self) -> Self  {
+    Self(dividend / divisor as SIMD)
+  }
+
+  static func / <Divisor: CGFloat2>(dividend: Self, divisor: Divisor) -> SIMD {
     operate(dividend, /, divisor)
   }
 
-  static func / (float2: Self, float: CGFloat) -> Self {
-    operate(float2, /, float)
+  static func / (dividend: Self, divisor: CGFloat) -> Self {
+    operate(dividend, /, divisor)
   }
 
-  private static func operate(
-    _ operand0: Self,
+  private static func operate<Float2_1: CGFloat2>(
+    _ float2_0: Self,
     _ operate: (SIMD, SIMD) -> SIMD,
-    _ operand1: Self
-  ) -> Self {
-    Self(
-      operate( SIMD(operand0), SIMD(operand1) )
+    _ float2_1: Float2_1
+  ) -> SIMD {
+    HM.operate(
+      float2_0, operate, float2_1,
+      convertOperand0: SIMD.init, convertOperand1: SIMD.init
     )
-  }
-
-  private static func operate(
-    _ operand0: inout Self,
-    _ operate: (inout SIMD, SIMD) -> Void,
-    _ operand1: Self
-  ) {
-    var simd0 = SIMD(operand0)
-    operate(&simd0, SIMD(operand1))
-    operand0 = Self(simd0)
   }
 
   private static func operate(
@@ -123,7 +126,7 @@ public extension SIMD2 where Scalar == CGFloat.NativeType {
 extension CGPoint: CGFloat2 { }
 
 extension CGVector: CGFloat2 {
-  public init(x: Double, y: Double) {
+  public init(x: CGFloat.NativeType, y: CGFloat.NativeType) {
     self.init(dx: x, dy: y)
   }
 
@@ -133,10 +136,24 @@ extension CGVector: CGFloat2 {
 }
 
 extension CGSize: CGFloat2 {
-  public init(x: Double, y: Double) {
+  public init(x: CGFloat.NativeType, y: CGFloat.NativeType) {
     self.init(width: x, height: y)
   }
 
   public var x: CGFloat { width }
   public var y: CGFloat { height }
+}
+
+func operate<
+  Operand0, Operand1,
+  ConvertedOperand0, ConvertedOperand1,
+  Result
+>(
+  _ operand0: Operand0,
+  _ operate: (ConvertedOperand0, ConvertedOperand1) -> Result,
+  _ operand1: Operand1,
+  convertOperand0: (Operand0) -> ConvertedOperand0,
+  convertOperand1: (Operand1) -> ConvertedOperand1
+) -> Result {
+  operate( convertOperand0(operand0), convertOperand1(operand1) )
 }
