@@ -76,7 +76,6 @@ extension CGSize: CGFloat2 {
   }
 
   public var x: CGFloat { width }
-
   public var y: CGFloat { height }
 }
 
