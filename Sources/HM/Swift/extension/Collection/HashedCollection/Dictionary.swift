@@ -63,7 +63,7 @@ public extension Dictionary {
     self.init( grouping: pairs.map { (key: $0, value: $1) } )
   }
 
-//MARK:- Functions
+//MARK:- Methods
   /// Same keys, corresponding to `map`ped key-value pairs.
   ///
   /// - Parameter transform: Accepts each element of the dictionary as its parameter

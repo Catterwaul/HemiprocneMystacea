@@ -38,7 +38,7 @@ public extension Collection {
     self[index(startIndex, offsetBy: position)]
   }
 
-//MARK:- Functions
+//MARK:- Methods
 
   /// - Returns: same as subscript, if index is in bounds
   /// - Throws: CollectionIndexingError
@@ -67,7 +67,7 @@ public extension Collection where Element: Equatable {
     }
   }
 
-//MARK:- Functions
+//MARK:- Methods
 
   ///- Returns: nil if `element` isn't present
   func prefix(upTo element: Element) -> SubSequence? {

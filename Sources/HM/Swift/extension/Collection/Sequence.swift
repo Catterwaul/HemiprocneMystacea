@@ -55,7 +55,7 @@ public extension Sequence {
     )
   }
 
-// MARK:- Functions
+// MARK:- Methods
 
   /// The number of elements that match a predicate.
   func getCount(

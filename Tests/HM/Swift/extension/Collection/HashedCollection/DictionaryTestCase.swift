@@ -102,7 +102,7 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
 
-//MARK:- Functions
+//MARK:- Methods
   func test_mapValues() {
     XCTAssertEqual(
       [ "🍍": "🥐",

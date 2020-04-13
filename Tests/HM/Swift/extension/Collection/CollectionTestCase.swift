@@ -37,7 +37,7 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertEqual("🎤🐈"[startIndexOffsetBy: 1], "🐈")
   }
 
-//MARK:- Functions
+//MARK:- Methods
 
   func test_getElement() throws {
     XCTAssertThrowsError( try ["🐾", "🥝"].getElement(index: 2) )

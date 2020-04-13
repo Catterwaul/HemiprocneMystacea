@@ -88,7 +88,7 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
-// MARK:- Functions
+// MARK:- Methods
 
   func test_containsOnly() {
     XCTAssert(["🐯", "🐯"].containsOnly("🐯"))
