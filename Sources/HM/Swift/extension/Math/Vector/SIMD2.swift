@@ -1,6 +1,33 @@
+import CoreGraphics
+import simd
+
 public extension SIMD2 {
   init(_ scalars: (Scalar, Scalar) ) {
     self.init(scalars.0, scalars.1)
+  }
+}
+
+public extension SIMD2 where Scalar == CGFloat.NativeType {
+//MARK:- Methods
+
+  func clamped(within bounds: CGRect) -> Self {
+    simd.clamp(
+      self,
+      min: Self(x: bounds.minX, y: bounds.minY),
+      max: Self(x: bounds.maxX, y: bounds.maxY)
+    )
+  }
+
+  /// Distance to the closest point on the rectangle's boundary.
+  /// - Note: Negative if inside the rectangle.
+  func getSignedDistance(to rect: CGRect) -> Scalar {
+    let distances =
+      abs( self - Self(rect.center) )
+      - Self(rect.size) / 2
+    return
+      all(sign(distances) .> 0)
+      ? length(distances)
+      : distances.max()
   }
 }
 
@@ -23,6 +50,6 @@ public extension Collection where Element == SIMD2<Double> {
 
 public extension Collection where Element == (Double, Double) {
   var definiteIntegral: Double? {
-    map( SIMD2<Double>.init(_:) ).definiteIntegral
+    map( SIMD2.init(_:) ).definiteIntegral
   }
 }

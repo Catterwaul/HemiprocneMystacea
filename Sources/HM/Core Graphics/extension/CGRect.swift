@@ -16,7 +16,6 @@ public extension CGRect {
 //MARK:- Properties
 
   var center: CGPoint { .init(x: midX, y: midY) }
-
   var max: CGPoint { .init(x: maxX, y: maxY) }
 
   var points: Set<CGPoint> {
