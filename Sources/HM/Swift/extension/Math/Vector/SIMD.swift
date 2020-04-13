@@ -1,3 +1,5 @@
+import CoreGraphics
+
 public extension SIMD where Scalar: FloatingPoint {
   /// Convert integers to floating point vectors.
   init<Integer: BinaryInteger>(_ integers: Integer...) {
@@ -54,5 +56,13 @@ public extension CommonVectorOperable where Operand.Scalar: FloatingPoint {
 
   static func / (dividend: Self, divisor: Scalar) -> Self {
     operate(dividend, /, divisor)
+  }
+}
+
+public extension CommonVectorOperable where Operand == SIMD2<CGFloat.NativeType> {
+  func clamped(within bounds: CGRect) -> Self {
+    Self(
+      Operand(self).clamped(within: bounds)
+    )
   }
 }

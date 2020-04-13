@@ -7,6 +7,14 @@ public protocol CommonOperable {
   var convertedToOperand: Operand { get }
 }
 
+public extension CommonOperable {
+  init<Operable: CommonOperable>(_ operable: Operable)
+  where Operand == Operable.Operand {
+    self.init(operable.convertedToOperand)
+  }
+}
+
+//MARK: internal
 extension CommonOperable {
   /// Forwards  operators to converted operands.
   static func operate<Operable1: CommonOperable>(

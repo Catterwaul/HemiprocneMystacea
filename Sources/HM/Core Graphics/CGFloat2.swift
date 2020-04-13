@@ -1,73 +1,43 @@
 import CoreGraphics
 import simd
 
-public protocol CGFloat2: CommonVectorOperable {
-  typealias SIMD = SIMD2<CGFloat.NativeType>
-
-  init(x: CGFloat.NativeType, y: CGFloat.NativeType)
-
-  var x: CGFloat { get }
-  var y: CGFloat { get }
+public protocol CGFloat2: CommonVectorOperable
+where Operand == SIMD2<CGFloat.NativeType> {
+  init(_: CGFloat.NativeType, _: CGFloat.NativeType)
 }
 
 //MARK: CommonOperable
 public extension CGFloat2 {
-  var convertedToOperand: SIMD { .init(self) }
+  init(_ simd: Operand) {
+    self.init(simd.x, simd.y)
+  }
 }
 
 //MARK: CommonVectorOperable
 public extension CGFloat2 {
-  static var convertToOperandScalar: (CGFloat) -> SIMD.Scalar { \.native }
+  static var convertToOperandScalar: (CGFloat) -> Operand.Scalar { \.native }
 }
 
-public extension CGFloat2 {
-//MARK:- Initializers
-
-  init(_ simd: SIMD) {
-    self.init(x: simd.x, y: simd.y)
+extension CGPoint: CGFloat2 {
+  public init(_ x: CGFloat.NativeType, _ y: Operand.Scalar) {
+    self.init(x: x, y: y)
   }
 
-  init<Float2: CGFloat2>(_ float2: Float2) {
-    self.init(x: float2.x.native, y: float2.y.native)
-  }
-
-//MARK:- Methods
-
-  func clamped(within bounds: CGRect) -> Self {
-    Self(
-      SIMD(self).clamped(within: bounds)
-    )
-  }
+  public var convertedToOperand: SIMD2<CGFloat.NativeType> { .init(x, y) }
 }
-
-public extension SIMD2 where Scalar == CGFloat.NativeType {
-//MARK:- Initializers
-
-  init<Float2: CGFloat2>(_ float2: Float2) {
-    self.init(x: float2.x, y: float2.y)
-  }
-
-  init(x: CGFloat, y: CGFloat) {
-    self.init(x: x.native, y: y.native)
-  }
-}
-
-extension CGPoint: CGFloat2 { }
 
 extension CGVector: CGFloat2 {
-  public init(x: CGFloat.NativeType, y: CGFloat.NativeType) {
-    self.init(dx: x, dy: y)
+  public init(_ dx: CGFloat.NativeType, _ dy: CGFloat.NativeType) {
+    self.init(dx: dx, dy: dy)
   }
 
-  public var x: CGFloat { dx }
-  public var y: CGFloat { dy }
+  public var convertedToOperand: Operand { .init(dx, dy) }
 }
 
 extension CGSize: CGFloat2 {
-  public init(x: CGFloat.NativeType, y: CGFloat.NativeType) {
-    self.init(width: x, height: y)
+  public init(_ width: CGFloat.NativeType, _ height: CGFloat.NativeType) {
+    self.init(width: width, height: height)
   }
 
-  public var x: CGFloat { width }
-  public var y: CGFloat { height }
+  public var convertedToOperand: SIMD2<CGFloat.NativeType> { .init(width, height) }
 }

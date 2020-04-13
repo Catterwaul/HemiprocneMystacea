@@ -2,19 +2,29 @@ import CoreGraphics
 import simd
 
 public extension SIMD2 {
-  init(_ scalars: (Scalar, Scalar) ) {
+  init( _ scalars: (Scalar, Scalar) ) {
     self.init(scalars.0, scalars.1)
+  }
+
+  init<Float2: CommonVectorOperable>(_ float2: Float2)
+  where Float2.Operand == Self {
+    self = float2.convertedToOperand
   }
 }
 
 public extension SIMD2 where Scalar == CGFloat.NativeType {
+//MARK:- Initializers
+  init(_ x: CGFloat, _ y: CGFloat) {
+    self.init(x.native, y.native)
+  }
+
 //MARK:- Methods
 
   func clamped(within bounds: CGRect) -> Self {
     simd.clamp(
       self,
-      min: Self(x: bounds.minX, y: bounds.minY),
-      max: Self(x: bounds.maxX, y: bounds.maxY)
+      min: Self(bounds.minX, bounds.minY),
+      max: Self(bounds.maxX, bounds.maxY)
     )
   }
 
