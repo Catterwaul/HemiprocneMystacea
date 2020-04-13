@@ -59,10 +59,8 @@ public extension CommonVectorOperable where Operand.Scalar: FloatingPoint {
   }
 }
 
-public extension CommonVectorOperable where Operand == SIMD2<CGFloat.NativeType> {
+public extension CommonOperable where Operand == SIMD2<CGFloat.NativeType> {
   func clamped(within bounds: CGRect) -> Self {
-    Self(
-      Operand(self).clamped(within: bounds)
-    )
+    performMethod(Operand.clamped(within:), bounds)
   }
 }

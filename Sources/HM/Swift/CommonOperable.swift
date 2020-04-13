@@ -17,16 +17,32 @@ public extension CommonOperable {
 //MARK: internal
 extension CommonOperable {
   /// Forwards  operators to converted operands.
-  static func operate<Operable1: CommonOperable>(
+  static func operate<Operable1: CommonOperable, Result>(
     _ operable0: Self,
-    _ operate: (Operand, Operand) -> Operand,
+    _ operate: (Operand, Operand) -> Result,
     _ operable1: Operable1
-  ) -> Operand
+  ) -> Result
   where Operand == Operable1.Operand {
     operate(
       operable0.convertedToOperand,
       operable1.convertedToOperand
     )
+  }
+
+  /// Forwards  `Operand` methods to converted operands.
+  func performMethod<Parameter, Result>(
+    _ method: (Operand) -> (Parameter) -> Result,
+    _ parameter: Parameter
+  ) -> Result {
+    method(self.convertedToOperand)(parameter)
+  }
+
+    /// Forwards  `Operand` methods to converted operands.
+  func performMethod<Parameter>(
+    _ method: (Operand) -> (Parameter) -> Operand,
+    _ parameter: Parameter
+  ) -> Self {
+    Self( performMethod(method, parameter) as Operand )
   }
 }
 

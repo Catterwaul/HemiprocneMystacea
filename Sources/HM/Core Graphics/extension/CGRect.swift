@@ -3,10 +3,11 @@ import CoreGraphics
 public extension CGRect {
 //MARK:- Initializers
 
-  init<Size: CGFloat2>(
+  init<Size: CommonOperable>(
     x: CGFloat, y: CGFloat,
     size: Size
-  ) {
+  )
+  where Size.Operand == SIMD2<CGFloat.NativeType> {
     self.init(
       origin: CGPoint(x: x, y: y),
       size: CGSize(size)
