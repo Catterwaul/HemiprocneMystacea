@@ -62,6 +62,13 @@ where Operand: SIMD, Operand.Scalar: FloatingPoint {
   }
 }
 
+public extension CommonOperable where Operand == SIMD2<CGFloat.NativeType> {
+  func clamped<Result: CommonOperable>(within bounds: CGRect) -> Result
+  where Operand == Result.Operand {
+    performMethod(Operand.clamped(within:), bounds)
+  }
+}
+
 public extension CommonVectorOperable where Operand.Scalar: FloatingPoint {
   static func * (vector: Self, scalar: Scalar) -> Self {
     operate(vector, *, scalar)
@@ -72,8 +79,10 @@ public extension CommonVectorOperable where Operand.Scalar: FloatingPoint {
   }
 }
 
-public extension CommonOperable where Operand == SIMD2<CGFloat.NativeType> {
-  func clamped(within bounds: CGRect) -> Self {
-    performMethod(Operand.clamped(within:), bounds)
+public extension CommonVectorOperable where Operand == SIMD2<CGFloat.NativeType> {
+  /// Distance to the closest point on the rectangle's boundary.
+  /// - Note: Negative if inside the rectangle.
+  func getSignedDistance(to rect: CGRect) -> CGFloat.NativeType {
+    performMethod(Operand.getSignedDistance(to:), rect)
   }
 }

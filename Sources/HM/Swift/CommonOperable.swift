@@ -32,12 +32,21 @@ extension CommonOperable {
   }
 
   /// Forwards  `Operand` methods to converted operands.
+  func performMethod<Parameters, Result>(
+    _ method: (Operand) -> (Parameters) -> Result,
+    _ parameters: Parameters
+  ) -> Result {
+    method(self.convertedToOperand)(parameters)
+  }
+
+  /// Forwards  `Operand` methods to converted operands.
+  /// - Returns: A converted result.
   func performMethod<Parameters, Result: CommonOperable>(
     _ method: (Operand) -> (Parameters) -> Operand,
     _ parameters: Parameters
   ) -> Result
   where Operand == Result.Operand {
-    Result( method(self.convertedToOperand)(parameters) )
+    Result( performMethod(method, parameters) )
   }
 }
 

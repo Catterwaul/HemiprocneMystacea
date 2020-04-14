@@ -26,18 +26,18 @@ extension CGPoint: CGFloat2 {
   public var convertedToOperand: SIMD2<CGFloat.NativeType> { .init(x, y) }
 }
 
-extension CGVector: CGFloat2 {
-  public init(_ dx: CGFloat.NativeType, _ dy: CGFloat.NativeType) {
-    self.init(dx: dx, dy: dy)
-  }
-
-  public var convertedToOperand: Operand { .init(dx, dy) }
-}
-
 extension CGSize: CGFloat2 {
   public init(_ width: CGFloat.NativeType, _ height: CGFloat.NativeType) {
     self.init(width: width, height: height)
   }
 
   public var convertedToOperand: SIMD2<CGFloat.NativeType> { .init(width, height) }
+}
+
+extension CGVector: CGFloat2 {
+  public init(_ dx: CGFloat.NativeType, _ dy: CGFloat.NativeType) {
+    self.init(dx: dx, dy: dy)
+  }
+
+  public var convertedToOperand: Operand { .init(dx, dy) }
 }

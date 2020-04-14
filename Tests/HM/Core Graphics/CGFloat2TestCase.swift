@@ -2,6 +2,8 @@ import HM
 import XCTest
 
 final class CGFloat2TestCase: XCTestCase {
+//MARK:- Operators
+
   func test_add() {
     var sum =
       CGSize(width: 1, height: 2)
@@ -64,11 +66,26 @@ final class CGFloat2TestCase: XCTestCase {
     )
   }
 
+//MARK:- Methods
+
   func test_clamped() {
     let point = CGPoint(x: -4, y: 20)
     XCTAssertEqual(
       point.clamped( within: CGRect(x: 1, y: 1, width: 10, height: 10) ),
       CGPoint(x: 1, y: 11)
+    )
+  }
+
+  func test_getSignedDistance() {
+    let rect = CGRect(x: 0, y: 0, width: 4, height: 4)
+    XCTAssertEqual(
+      CGPoint(-1, -2).getSignedDistance(to: rect),
+      5.squareRoot()
+    )
+
+    XCTAssertEqual(
+      CGVector(3, 2).getSignedDistance(to: rect),
+      -1
     )
   }
 }
