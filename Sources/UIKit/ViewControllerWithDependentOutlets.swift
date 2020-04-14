@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol ViewControllerWithDependentOutlets where Self: UIViewController {
+public protocol ViewControllerWithDependentOutlets: UIViewController {
   associatedtype OutletDependencies
   
   /// Stores dependencies for use in `ViewControllerWithDependentOutlets_viewDidLoad`.
