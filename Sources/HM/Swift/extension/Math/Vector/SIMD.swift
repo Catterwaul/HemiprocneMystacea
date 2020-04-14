@@ -9,43 +9,56 @@ public extension SIMD where Scalar: FloatingPoint {
 
 public extension CommonOperable
 where Operand: SIMD, Operand.Scalar: FloatingPoint {
-//MARK:- Operators
-  static func + (operable0: Self, operable1: Self) -> Self {
-    Self(operable0 + operable1 as Operand)
-  }
-
-  static func + <Operable1: CommonOperable>
-  (operable0: Self, operable1: Operable1) -> Operand
-  where Operand == Operable1.Operand {
+  static func + <Operable1: CommonOperable, Result: CommonOperable>
+  (operable0: Self, operable1: Operable1) -> Result
+  where Operand == Operable1.Operand, Operand == Result.Operand {
     operate(operable0, +, operable1)
   }
 
-  static func += (operable0: inout Self, operable1: Self) {
+  static func + (operable0: Self, operable1: Self) -> Self {
+    operate(operable0, +, operable1)
+  }
+
+  static func += <Operable1: CommonOperable>
+  (operable0: inout Self, operable1: Operable1)
+  where Operand == Operable1.Operand {
     operable0 = operable0 + operable1
   }
 
-  static func - (operable0: Self, operable1: Self) -> Self {
-    Self(operable0 - operable1 as Operand)
-  }
+//MARK:-
 
-  static func - <Operable1: CommonOperable>
-  (operable0: Self, operable1: Operable1) -> Operand
-  where Operand == Operable1.Operand {
+  static func - <Operable1: CommonOperable, Result: CommonOperable>
+  (operable0: Self, operable1: Operable1) -> Result
+  where Operand == Operable1.Operand, Operand == Result.Operand {
     operate(operable0, -, operable1)
   }
 
-  static func -= (operable0: inout Self, operable1: Self) {
+  static func - (operable0: Self, operable1: Self) -> Self {
+    operate(operable0, -, operable1)
+  }
+
+  static func -= <Operable1: CommonOperable>
+  (operable0: inout Self, operable1: Operable1)
+  where Operand == Operable1.Operand {
     operable0 = operable0 - operable1
   }
 
-  static func / (dividend: Self, divisor: Self) -> Self {
-    Self(dividend / divisor as Operand)
+//MARK:-
+
+  static func / <Divisor: CommonOperable, Result: CommonOperable>
+  (dividend: Self, divisor: Divisor) -> Result
+  where Operand == Divisor.Operand, Operand == Result.Operand {
+    operate(dividend, /, divisor)
   }
 
-  static func / <Operable1: CommonOperable>
-  (dividend: Self, divisor: Operable1) -> Operand
-  where Operand == Operable1.Operand {
+  static func / (dividend: Self, divisor: Self) -> Self {
     operate(dividend, /, divisor)
+  }
+
+  static func /= <Divisor: CommonOperable>
+  (dividend: inout Self, divisor: Divisor)
+  where Operand == Divisor.Operand {
+    dividend = dividend / divisor
   }
 }
 

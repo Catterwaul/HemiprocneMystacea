@@ -19,7 +19,7 @@ public extension CGFloat2 {
 }
 
 extension CGPoint: CGFloat2 {
-  public init(_ x: CGFloat.NativeType, _ y: Operand.Scalar) {
+  public init(_ x: CGFloat.NativeType, _ y: CGFloat.NativeType) {
     self.init(x: x, y: y)
   }
 

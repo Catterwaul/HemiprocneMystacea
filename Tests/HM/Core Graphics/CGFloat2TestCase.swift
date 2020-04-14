@@ -39,13 +39,16 @@ final class CGFloat2TestCase: XCTestCase {
     )
   }
 
-	func test_divideByPoint() {
-		XCTAssertEqual(
-			CGPoint(x: 6, y: 10)
-				/ CGPoint(x: 3, y: 8),
-			CGPoint(x: 2, y: 1.25)
-		)
-	}
+  func test_divideByPoint() {
+    var dividend = CGPoint(x: 6, y: 10)
+    let divisor = CGPoint(x: 3, y: 8)
+    let quotient = CGPoint(x: 2, y: 1.25)
+    
+    XCTAssertEqual(dividend / divisor, quotient)
+    
+    dividend /= CGVector(divisor)
+    XCTAssertEqual(dividend, quotient)
+  }
 	
 	func test_divideByFloat() {
 		XCTAssertEqual(
