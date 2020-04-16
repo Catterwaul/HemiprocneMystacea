@@ -20,7 +20,7 @@ public struct Permutations<Sequence: Swift.Sequence>: Swift.Sequence, IteratorPr
         % (array.count - index)
       permutation.replaceSubrange(
         index...,
-        with: Array( permutation.dropFirst(index).shifted(by: shift) )
+        with: permutation.dropFirst(index).shifted(by: shift)
       )
     }
   }
