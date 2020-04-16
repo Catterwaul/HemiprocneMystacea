@@ -19,6 +19,15 @@ public extension Sequence {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+  /// Combines two `Sequence`s.
+  static func + <Sequence1: Swift.Sequence>(sequence0: Self, sequence1: Sequence1) -> AnySequence<Element>
+  where Sequence1.Element == Element {
+    .init { () -> AnyIterator<Element> in
+      var iterators = ( sequence0.makeIterator(), sequence1.makeIterator() )
+      return .init { iterators.0.next() ?? iterators.1.next() }
+    }
+  }
+
 // MARK:- Properties
 
   /// An empty sequence, whose `Element` "would" match this type's.
@@ -29,6 +38,10 @@ public extension Sequence {
   /// Each elements of the sequence, paired with the element after.
   var consecutivePairs: Zip2Sequence< Self, DropFirstSequence<Self> > {
     zip( self, dropFirst() )
+  }
+
+  var count: Int {
+    reduce(0) { count, _ in count + 1 }
   }
 
   /// The first element of the sequence.
@@ -161,6 +174,12 @@ public extension Sequence {
     }
 
     return try getElement(comparablesAndElements)
+  }
+
+  func shifted(by shift: Int) -> AnySequence<Element> {
+    shift >= 0
+    ? dropFirst(shift) + prefix(shift)
+    : suffix(-shift) + dropLast(-shift)
   }
   
   func sorted<Comparable: Swift.Comparable>(

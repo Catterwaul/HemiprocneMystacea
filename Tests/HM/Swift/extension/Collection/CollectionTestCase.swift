@@ -74,12 +74,12 @@ final class CollectionTestCase: XCTestCase {
 
   func test_shifted() {
     XCTAssertEqual(
-      [0, 1, 2, 3].shifted(by: 1),
+      Array( stride(from: 0, through: 3, by: 1).shifted(by: 1) ),
       [1, 2, 3, 0]
     )
 
     XCTAssertEqual(
-      [0, 1, 2, 3].shifted(by: -1),
+      Array( [0, 1, 2, 3].shifted(by: -1) ),
       [3, 0, 1, 2]
     )
   }

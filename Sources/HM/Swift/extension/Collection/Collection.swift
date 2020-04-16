@@ -85,13 +85,3 @@ public extension Collection where Element: Equatable {
     .map { suffix( from: index(after: $0) ) }
   }
 }
-
-public extension Collection where SubSequence: RangeReplaceableCollection {
-  func shifted(by shift: Int) -> SubSequence {
-    let drops =
-      shift > 0
-      ? (shift, count - shift)
-      : (count + shift, -shift)
-    return dropFirst(drops.0) + dropLast(drops.1)
-  }
-}

@@ -27,6 +27,12 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
+  func test_count() {
+    XCTAssertEqual(
+      stride(from: 0, to: 10, by: 2).count, 5
+    )
+  }
+
   func test_first() {
     let odds = stride(from: 1, through: 9, by: 2)
 
