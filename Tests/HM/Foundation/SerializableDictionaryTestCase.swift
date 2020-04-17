@@ -9,7 +9,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
       serializableDictionary = SerializableDictionary(dictionary)
     
     XCTAssertEqual(
-      try serializableDictionary.getValue(key: oldKey),
+      try serializableDictionary.value(for: oldKey),
       "🔑"
     )
 		
@@ -17,7 +17,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
     
     let turKey = "🦃"
     XCTAssertThrowsError(
-      try serializableDictionary.getValue(key: turKey) as Any
+      try serializableDictionary.value(for: turKey) as Any
     ) { error in
       switch error {
       case Error.noValue(let key):
@@ -28,7 +28,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
     }
 		
     XCTAssertThrowsError(
-      try serializableDictionary.getValue(key: oldKey) as Bool
+      try serializableDictionary.value(for: oldKey) as Bool
     ) { error in
       switch error {
       case Error.typeCastFailure(let key):
@@ -140,8 +140,8 @@ private struct Instrument: Equatable {
 
 extension Instrument: InitializableWithSerializableDictionary {
   init(serializableDictionary dictionary: SerializableDictionary) throws {
-    visualization = try dictionary.getValue(
-      key: SerializableDictionaryKey.visualization
+    visualization = try dictionary.value(
+      for: SerializableDictionaryKey.visualization
     )
   }
 }

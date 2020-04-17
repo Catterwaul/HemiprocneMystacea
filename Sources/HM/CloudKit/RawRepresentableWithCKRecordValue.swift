@@ -18,7 +18,7 @@ public extension CKRecord {
 public extension RawRepresentableWithCKRecordValue {
   init<RecordKey: RawRepresentable>(record: CKRecord, key: RecordKey) throws
   where RecordKey.RawValue == CKRecord.FieldKey {
-    let rawValue: RawValue = try record.getValue(key: key)
+    let rawValue: RawValue = try record.value(for: key)
 
     guard let initializableWithCloudKitRecord = Self(rawValue: rawValue)
     else { throw CKRecord.RawRepresentableInitializationError(rawValue: rawValue) }

@@ -71,18 +71,18 @@ public extension Sequence {
 // MARK:- Methods
 
   /// The number of elements that match a predicate.
-  func getCount(
-    _ getIsIncluded: (Element) throws -> Bool
+  func count(
+    where getIsIncluded: (Element) throws -> Bool
   ) rethrows -> Int {
     try filter(getIsIncluded).count
   }
 
   /// The number of elements that match a predicate.
-  func getCount<Wrapped>(
-    _ getIsIncluded: (Wrapped) throws -> Bool
+  func count<Wrapped>(
+    where getIsIncluded: (Wrapped) throws -> Bool
   ) rethrows -> Int
   where Element == Wrapped? {
-    try getCount { try $0.map(getIsIncluded) == true }
+    try count { try $0.map(getIsIncluded) == true }
   }
 
   /// The first element of a given type.

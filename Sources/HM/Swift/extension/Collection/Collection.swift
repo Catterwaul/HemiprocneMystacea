@@ -42,7 +42,7 @@ public extension Collection {
 
   /// - Returns: same as subscript, if index is in bounds
   /// - Throws: CollectionIndexingError
-  func getElement(index: Index) throws -> Element {
+  func element(at index: Index) throws -> Element {
     guard indices.contains(index)
     else { throw CollectionIndexingError() }
 

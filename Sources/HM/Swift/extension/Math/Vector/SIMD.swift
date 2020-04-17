@@ -82,7 +82,7 @@ public extension CommonVectorOperable where Operand.Scalar: FloatingPoint {
 public extension CommonVectorOperable where Operand == SIMD2<CGFloat.NativeType> {
   /// Distance to the closest point on the rectangle's boundary.
   /// - Note: Negative if inside the rectangle.
-  func getSignedDistance(to rect: CGRect) -> CGFloat.NativeType {
-    performMethod(Operand.getSignedDistance(to:), rect)
+  func signedDistance(to rect: CGRect) -> CGFloat.NativeType {
+    performMethod(Operand.signedDistance(to:), rect)
   }
 }

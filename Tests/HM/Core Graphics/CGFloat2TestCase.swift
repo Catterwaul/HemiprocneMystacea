@@ -79,12 +79,12 @@ final class CGFloat2TestCase: XCTestCase {
   func test_getSignedDistance() {
     let rect = CGRect(x: 0, y: 0, width: 4, height: 4)
     XCTAssertEqual(
-      CGPoint(-1, -2).getSignedDistance(to: rect),
+      CGPoint(-1, -2).signedDistance(to: rect),
       5.squareRoot()
     )
 
     XCTAssertEqual(
-      CGVector(3, 2).getSignedDistance(to: rect),
+      CGVector(3, 2).signedDistance(to: rect),
       -1
     )
   }

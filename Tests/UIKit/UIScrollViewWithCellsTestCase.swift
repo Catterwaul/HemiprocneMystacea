@@ -8,7 +8,7 @@ final class UIScrollViewWithCellsTestCase: XCTestCase {
     )
     
     XCTAssertThrowsError(
-      try collectionView.getVisibleCell( indexPath: IndexPath( item: 0, section: 0) )
+      try collectionView.visibleCell( at: IndexPath( item: 0, section: 0) )
     ) { error in
       switch error {
       case UIScrollViewWithCells_GetVisibleCellError.noVisisbleCell:

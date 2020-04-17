@@ -64,7 +64,7 @@ private struct ViewModel {
     return ints.count
   }
   
-  func getName(indexPath: IndexPath) throws -> String {
+  func name(at indexPath: IndexPath) throws -> String {
     let int = try getElement(indexPath: indexPath, getArray: getInts)
     return String(int)
   }

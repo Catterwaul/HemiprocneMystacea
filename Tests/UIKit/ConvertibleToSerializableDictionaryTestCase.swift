@@ -240,9 +240,9 @@ extension 👻: ConvertibleToSerializableDictionary {
 extension 👻: InitializableWithSerializableDictionary {
    init(serializableDictionary dictionary: SerializableDictionary) throws {
 		self.init(
-			boool: try dictionary.getValue(key: SerializableDictionaryKey.boool),
+			boool: try dictionary.value(for: SerializableDictionaryKey.boool),
 			skoool: try 💀(
-				try dictionary.getValue(key: SerializableDictionaryKey.skoool)
+				try dictionary.value(for: SerializableDictionaryKey.skoool)
 			)
 		)
 	}
@@ -276,7 +276,7 @@ extension 💀: InitializableWithSerializableDictionary {
 		typealias Error = GetValueForKeyError<String>
 		do {
 			self.init(
-				skool: try dictionary.getValue(key: SerializableDictionaryKey.skool)
+				skool: try dictionary.value(for: SerializableDictionaryKey.skool)
 			)
 		}
 		catch Error.typeCastFailure(let key) {

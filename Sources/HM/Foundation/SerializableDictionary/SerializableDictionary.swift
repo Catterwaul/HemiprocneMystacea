@@ -14,7 +14,7 @@ public extension SerializableDictionary {
 //MARK: keyValueThrowingSubscript
 extension SerializableDictionary: keyValueThrowingSubscript { }
 public extension SerializableDictionary {  
-  func getValue<Value>(key: String) throws -> Value {
+  func value<Value>(for key: String) throws -> Value {
     guard let anyValue = dictionary[key]
     else { throw GetValueForKeyError.noValue(key: key) }
     

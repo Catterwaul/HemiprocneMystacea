@@ -7,7 +7,7 @@ public protocol keyValueSubscript: keyValueThrowingSubscript {
 
 //MARK: keyValueThrowingSubscript
 public extension keyValueSubscript {
-  func getValue<Value>(key: Key) throws -> Value {
+  func value<Value>(for key: Key) throws -> Value {
     guard let uncastValue: Self.Value = self[key]
     else { throw GetValueForKeyError.noValue(key: key) }
     
@@ -23,7 +23,7 @@ public protocol keyValueThrowingSubscript {
 	associatedtype Key
 	
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
-	func getValue<Value>(key: Key) throws -> Value
+	func value<Value>(for: Key) throws -> Value
 }
 
 public extension keyValueThrowingSubscript {
@@ -31,12 +31,9 @@ public extension keyValueThrowingSubscript {
 	/// instead of having to manually use their raw values.
 	///
 	/// Should just be a generic, throwing subscript, but those don't exist yet.
-  func getValue<
-    Key: RawRepresentable,
-    Value
-  >(key: Key) throws -> Value
+  func value<Key: RawRepresentable, Value>(for key: Key) throws -> Value
   where Key.RawValue == Self.Key {
-    try self.getValue(key: key.rawValue)
+    try self.value(for: key.rawValue)
   }
 }
 

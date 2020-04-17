@@ -61,7 +61,7 @@ final class CKRecordTestCase: XCTestCase {
     }
 
     let record = CKRecord(IntEnum.one)
-    XCTAssertEqual(try record.getValue(key: "rawValue"), 1)
+    XCTAssertEqual(try record.value(for: "rawValue"), 1)
     XCTAssertEqual(try IntEnum(record: record), .one)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = 0.ckRecordValue
@@ -85,7 +85,7 @@ final class CKRecordTestCase: XCTestCase {
     }
 
     let record = CKRecord(StringEnum.eh)
-    XCTAssertEqual(try record.getValue(key: "rawValue"), "🇨🇦")
+    XCTAssertEqual(try record.value(for: "rawValue"), "🇨🇦")
     XCTAssertEqual(try StringEnum(record: record), .eh)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "a".ckRecordValue
@@ -130,11 +130,11 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 
 extension CKRecordTestCase.Pumpkin {
   init(record: CKRecord) throws {
-    let weightValue: Double = try record.getValue(key: CloudKitRecordKey.weight)
+    let weightValue: Double = try record.value(for: CloudKitRecordKey.weight)
     self.init(
-      eyesCount: try record.getValue(key: CloudKitRecordKey.eyesCount),
-      halloween: try record.getValue(key: CloudKitRecordKey.halloween),
-      vine: try record.getValue(key: CloudKitRecordKey.vine),
+      eyesCount: try record.value(for: CloudKitRecordKey.eyesCount),
+      halloween: try record.value(for: CloudKitRecordKey.halloween),
+      vine: try record.value(for: CloudKitRecordKey.vine),
       weight: Measurement(
         value: weightValue,
         unit: .kilograms

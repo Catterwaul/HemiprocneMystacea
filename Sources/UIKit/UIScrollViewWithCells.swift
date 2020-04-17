@@ -50,7 +50,7 @@ public extension UIScrollViewWithCells {
   ///
   ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
   ///  for a cell that this View uses
-  func getVisibleCell<Cell: UIView>(indexPath: IndexPath) throws -> Cell {
+  func visibleCell<Cell: UIView>(at indexPath: IndexPath) throws -> Cell {
     guard let baseCell = cellForItem(at: indexPath)
     else { throw UIScrollViewWithCells_GetVisibleCellError.noVisisbleCell }
 

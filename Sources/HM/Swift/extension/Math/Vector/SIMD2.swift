@@ -30,7 +30,7 @@ public extension SIMD2 where Scalar == CGFloat.NativeType {
 
   /// Distance to the closest point on the rectangle's boundary.
   /// - Note: Negative if inside the rectangle.
-  func getSignedDistance(to rect: CGRect) -> Scalar {
+  func signedDistance(to rect: CGRect) -> Scalar {
     let distances =
       abs( self - Self(rect.center) )
       - Self(rect.size) / 2

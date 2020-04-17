@@ -49,14 +49,14 @@ final class CGRectTestCase: XCTestCase {
 
   func test_getSignedDistance() {
     XCTAssertEqual(
-      SIMD2(1, 0).getSignedDistance(
+      SIMD2(1, 0).signedDistance(
         to: CGRect(x: -1, y: 0, width: 1, height: 1)
       ),
       1
     )
 
     XCTAssertEqual(
-      SIMD2(1, 1).getSignedDistance( to: .init() ),
+      SIMD2(1, 1).signedDistance( to: .init() ),
       2.squareRoot()
     )
   }

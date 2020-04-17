@@ -12,22 +12,22 @@ final class ComparableTestCase: XCTestCase {
     }
 
     let maxIntProperties = try XCTUnwrap(
-      Int.getMax( Subject() )
+      Int.max( ofPropertiesOf: Subject() )
     )
     XCTAssertEqual(maxIntProperties.labels, ["two", "too"])
     XCTAssertEqual(maxIntProperties.value, 2)
 
     XCTAssertNil(
-      Double.getMax( Subject() )
+      Double.max( ofPropertiesOf: Subject() )
     )
 
     XCTAssertEqual(
-      Int.getMax( (1, 1) )?.labels,
+      Int.max( ofPropertiesOf: (1, 1) )?.labels,
       [".0", ".1"]
     )
 
     XCTAssert(
-      Int.getMax([1])?.labels.isEmpty == true
+      Int.max(ofPropertiesOf: [1])?.labels.isEmpty == true
     )
   }
 

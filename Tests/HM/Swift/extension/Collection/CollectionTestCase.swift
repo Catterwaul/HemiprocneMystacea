@@ -40,18 +40,18 @@ final class CollectionTestCase: XCTestCase {
 //MARK:- Methods
 
   func test_getElement() throws {
-    XCTAssertThrowsError( try ["🐾", "🥝"].getElement(index: 2) )
+    XCTAssertThrowsError( try ["🐾", "🥝"].element(at: 2) )
 
     let optionals = [1, 2, nil]
 
     do {
-      let optional1 = try optionals.getElement(index: 0)
+      let optional1 = try optionals.element(at: 0)
       XCTAssertEqual(optional1, 1)
     }
 
     let outOfBoundsIndex = optionals.count
     XCTAssertThrowsError(
-      try optionals.getElement(index: outOfBoundsIndex)
+      try optionals.element(at: outOfBoundsIndex)
     ) { error in
       XCTAssert(error is CollectionIndexingError)
     }

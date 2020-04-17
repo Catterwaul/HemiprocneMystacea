@@ -2,10 +2,10 @@ public extension Comparable {
   /// The properties with the maximum value.
   /// - Parameter subject: An instance of any type.
   /// - Returns: `nil` if no value matches the `Comparable` type.
-  static func getMax<Subject>(
-    _ subject: Subject
+  static func max<Subject>(
+    ofPropertiesOf subject: Subject
   ) -> (labels: [String], value: Self)? {
-    getMax(subject, by: <)
+    max(ofPropertiesOf: subject, by: <)
   }
 
   /// The properties with the maximum value.
@@ -13,8 +13,8 @@ public extension Comparable {
   ///   - subject: An instance of any type.
   ///   - getAreInIncreasingOrder: Sorts two values.
   /// - Returns: `nil` if no value matches the `Comparable` type.
-  static func getMax<Subject>(
-    _ subject: Subject,
+  static func max<Subject>(
+    ofPropertiesOf subject: Subject,
     by getAreInIncreasingOrder: (Self, Self) throws -> Bool
   ) rethrows -> (labels: [String], value: Self)? {
     let comparableChildren =
@@ -39,6 +39,6 @@ public extension Comparable {
   }
 
   func clamped(to limits: ClosedRange<Self>) -> Self {
-    min( max(limits.lowerBound, self), limits.upperBound )
+    min( Swift.max(limits.lowerBound, self), limits.upperBound )
   }
 }
