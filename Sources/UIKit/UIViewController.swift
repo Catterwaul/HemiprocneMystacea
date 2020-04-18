@@ -1,19 +1,25 @@
 import UIKit
 
 public extension UIViewController {
-  static func instantiate() -> Self? {
-    UIViewController.instantiate()
-  }
-  
   static func instantiate<ViewController: UIViewController>(
-    storyboard: UIStoryboard = UIStoryboard(
-      name: "\(ViewController.self)",
-      bundle: nil
-    )
+    init: ( (NSCoder) -> ViewController )?
   ) -> ViewController? {
-    storyboard.instantiateInitialViewController() as? ViewController
+    UIStoryboard(name: "\(ViewController.self)", bundle: nil)
+    .instantiateInitialViewController(creator: `init`)
   }
 
+  /// Instantiate a view controller without relying on an identifier.
+  ///
+  ///     let viewController: ViewController = .instantiate(storyboard: storyboard) {
+  ///       .init(coder: $0, dependency: dependency)
+  ///     }
+  static func instantiate<ViewController: UIViewController>(
+    storyboard: UIStoryboard, init: ( (NSCoder) -> ViewController )?
+  ) -> ViewController {
+    storyboard.instantiateViewController(
+      identifier: "\(ViewController.self)", creator: `init`
+    )
+  }
 
   /// - Returns: all children of type `ViewController`
   func getChildren<ViewController: UIViewController>() -> [ViewController] {
