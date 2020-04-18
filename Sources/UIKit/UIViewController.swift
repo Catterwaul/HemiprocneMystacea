@@ -1,6 +1,15 @@
 import UIKit
 
 public extension UIViewController {
+  /// Instantiates a view controller without `identifier` arguments.
+  ///
+  ///     let view🎮: View🎮 = .instantiate {
+  ///       .init(coder: $0, dependency: dependency)
+  ///     }!
+  ///
+  /// - Precondition:
+  ///   1. There is a storyboard with the same name as `ViewController`.
+  ///   2.  `ViewController` is the initial view controller for that storyboard.
   static func instantiate<ViewController: UIViewController>(
     init: ( (NSCoder) -> ViewController )?
   ) -> ViewController? {
@@ -8,11 +17,14 @@ public extension UIViewController {
     .instantiateInitialViewController(creator: `init`)
   }
 
-  /// Instantiate a view controller without relying on an identifier.
+  /// Instantiate a view controller without relying on an `identifier` argument.
   ///
-  ///     let viewController: ViewController = .instantiate(storyboard: storyboard) {
+  ///     let view🎮: View🎮 = .instantiate(storyboard: storyboard) {
   ///       .init(coder: $0, dependency: dependency)
   ///     }
+  ///
+  /// - Precondition:
+  ///   `storyboard` contains a view controller whose identifier has the same name as `ViewController`.
   static func instantiate<ViewController: UIViewController>(
     storyboard: UIStoryboard, init: ( (NSCoder) -> ViewController )?
   ) -> ViewController {
