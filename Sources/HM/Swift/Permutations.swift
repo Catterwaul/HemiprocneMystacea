@@ -1,22 +1,19 @@
-public struct Permutations<Sequence: Swift.Sequence>: Swift.Sequence, IteratorProtocol {
-  public typealias Array = [Sequence.Element]
-
-  private let array: Array
-  private var iteration = 0
-
-  public init(_ sequence: Sequence) {
+public struct Permutations<Element> {
+  public init<Sequence: Swift.Sequence>(_ sequence: Sequence)
+  where Sequence.Element == Element {
     array = Array(sequence)
   }
 
-  public mutating func next() -> Array? {
-    guard iteration < array.count.factorial!
-    else { return nil }
+  private let array: [Element]
+}
 
-    defer { iteration += 1 }
-
-    return array.indices.reduce(into: array) { permutation, index in
+//MARK: RandomAccessCollection
+extension Permutations: RandomAccessCollection { }
+public extension Permutations {
+  subscript(position: Int) -> [Element] {
+    array.indices.reduce(into: array) { permutation, index in
       let shift =
-        iteration / (array.count - 1 - index).factorial!
+        position / (array.count - 1 - index).factorial!
         % (array.count - index)
       permutation.replaceSubrange(
         index...,
@@ -24,4 +21,7 @@ public struct Permutations<Sequence: Swift.Sequence>: Swift.Sequence, IteratorPr
       )
     }
   }
+
+  var startIndex: Int { 0 }
+  var endIndex: Int { array.count.factorial! }
 }

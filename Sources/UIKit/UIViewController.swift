@@ -11,9 +11,10 @@ public extension UIViewController {
   ///   1. There is a storyboard with the same name as `ViewController`.
   ///   2.  `ViewController` is the initial view controller for that storyboard.
   static func instantiate<ViewController: UIViewController>(
+    bundle: Bundle? = nil,
     init: ( (NSCoder) -> ViewController )?
   ) -> ViewController? {
-    UIStoryboard(name: "\(ViewController.self)", bundle: nil)
+    UIStoryboard(name: "\(ViewController.self)", bundle: bundle)
     .instantiateInitialViewController(creator: `init`)
   }
 
