@@ -14,4 +14,18 @@ public extension AnyIterator {
     var state = state
     self.init { getNext(&state) }
   }
+
+  /// Process iterations with a closure.
+  /// - Parameters:
+  ///   - processNext: Executes with every iteration.
+  init<Sequence: Swift.Sequence>(
+    _ sequence: Sequence,
+    processNext: @escaping (Element?) -> Void
+  ) where Sequence.Element == Element {
+    self.init( state: sequence.makeIterator() ) { iterator -> Element? in
+      let next = iterator.next()
+      processNext(next)
+      return next
+    }
+  }
 }

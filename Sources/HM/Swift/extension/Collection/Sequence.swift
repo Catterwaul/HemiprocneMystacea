@@ -199,25 +199,33 @@ public extension Sequence {
 
   func splitAndIncludeSeparators(_ getIsSeparator: @escaping (Element) -> Bool)
   -> AnySequence<[Element]> {
-    var separatorFromLastIteration: Element? = nil
+    var separatorFromPrefixIteration: Element?
 
-    let iterator = AnyIterator( state: makeIterator() ) { iterator -> Element? in
-      let next = iterator.next()
-      separatorFromLastIteration =
+    func process(next: Element?) -> Void {
+      separatorFromPrefixIteration =
         next.map(getIsSeparator) == true
         ? next
         : nil
-      return next
     }
 
+    process(next: first)
+    let prefixIterator = AnyIterator(
+      dropFirst(
+        separatorFromPrefixIteration == nil
+        ? 0
+        : 1
+      ),
+      processNext: process
+    )
+
     return .init {
-      if let separator = separatorFromLastIteration {
-        separatorFromLastIteration = nil
+      if let separator = separatorFromPrefixIteration {
+        separatorFromPrefixIteration = nil
         return [separator]
       }
 
       return Optional(
-        iterator.prefix { !getIsSeparator($0) },
+        prefixIterator.prefix { !getIsSeparator($0) },
         nilWhen: \.isEmpty
       )
     }
