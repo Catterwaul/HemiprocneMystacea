@@ -117,7 +117,7 @@ public extension Sequence {
   }
 
   func max<Comparable: Swift.Comparable>(
-    _ getComparable: (Element) throws -> Comparable
+    by getComparable: (Element) throws -> Comparable
   ) rethrows -> Element? {
     try self.max {
       try getComparable($0) < getComparable($1)
@@ -126,13 +126,13 @@ public extension Sequence {
 
   /// - Returns: max() for the elements with comparables
   func max<Comparable: Swift.Comparable>(
-    _ getComparable: (Element) throws -> Comparable?
+    by getComparable: (Element) throws -> Comparable?
   ) rethrows -> Element? {
     try getElement(getComparable) { $0.max { $0.0 }? .1 }
   }
   
   func min<Comparable: Swift.Comparable>(
-    _ getComparable: (Element) throws -> Comparable
+    by getComparable: (Element) throws -> Comparable
   ) rethrows -> Element? {
     try self.min {
       try getComparable($0) < getComparable($1)
@@ -141,7 +141,7 @@ public extension Sequence {
 
   /// - Returns: min() for the elements with comparables
   func min<Comparable: Swift.Comparable>(
-    _ getComparable: (Element) throws -> Comparable?
+    by getComparable: (Element) throws -> Comparable?
   ) rethrows -> Element? {
     try getElement(getComparable) { $0.min { $0.0 }?.1 }
   }
@@ -183,7 +183,7 @@ public extension Sequence {
   }
   
   func sorted<Comparable: Swift.Comparable>(
-    _ getComparable: (Element) throws -> Comparable
+    by getComparable: (Element) throws -> Comparable
   ) rethrows -> [Element] {
     try self.sorted(getComparable, <)
   }
