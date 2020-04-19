@@ -178,7 +178,8 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertEqual(
       "¿What is your name? My name is 🐱, and I am a cat!"
         .split(separator: " ")
-        .flatMap { $0.splitAndIncludeSeparators(\.isPunctuation) }
+        .flatMap { $0.split(includingSeparators: \.isPunctuation) }
+        .map(Array.init)
         .map { String($0) },
       [ "¿", "What", "is", "your", "name", "?",
         "My", "name", "is", "🐱", ",", "and", "I", "am", "a", "cat", "!"

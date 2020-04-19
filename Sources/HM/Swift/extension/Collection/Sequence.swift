@@ -197,8 +197,8 @@ public extension Sequence {
     }
   }
 
-  func splitAndIncludeSeparators(_ getIsSeparator: @escaping (Element) -> Bool)
-  -> AnySequence<[Element]> {
+  func split(includingSeparators getIsSeparator: @escaping (Element) -> Bool)
+  -> AnySequence< Spliteration<Element> > {
     var separatorFromPrefixIteration: Element?
 
     func process(next: Element?) -> Void {
@@ -221,13 +221,13 @@ public extension Sequence {
     return .init {
       if let separator = separatorFromPrefixIteration {
         separatorFromPrefixIteration = nil
-        return [separator]
+        return .separator(separator)
       }
 
       return Optional(
         prefixIterator.prefix { !getIsSeparator($0) },
         nilWhen: \.isEmpty
-      )
+      ).map(Spliteration.subSequence)
     }
   }
 }
@@ -255,5 +255,22 @@ public extension Sequence where Element: Hashable {
   var firstUniqueElements: [Element] {
     var set: Set<Element> = []
     return filter { set.insert($0).inserted }
+  }
+}
+
+//MARK:-
+public enum Spliteration<Element> {
+  case separator(Element)
+  case subSequence([Element])
+}
+
+public extension Array {
+  init(_ spliteration: Spliteration<Element>) {
+    switch spliteration {
+    case .separator(let separator):
+      self = [separator]
+    case .subSequence(let array):
+      self = array
+    }
   }
 }
