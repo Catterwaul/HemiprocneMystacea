@@ -196,6 +196,32 @@ public extension Sequence {
       try getAreInIncreasingOrder( getComparable($0), getComparable($1) )
     }
   }
+
+  func splitAndIncludeSeparators(_ getIsSeparator: @escaping (Element) -> Bool)
+  -> AnySequence<[Element]> {
+    var separatorFromLastIteration: Element? = nil
+
+    let iterator = AnyIterator( state: makeIterator() ) { iterator -> Element? in
+      let next = iterator.next()
+      separatorFromLastIteration =
+        next.map(getIsSeparator) == true
+        ? next
+        : nil
+      return next
+    }
+
+    return .init {
+      if let separator = separatorFromLastIteration {
+        separatorFromLastIteration = nil
+        return [separator]
+      }
+
+      return Optional(
+        iterator.prefix { !getIsSeparator($0) },
+        nilWhen: \.isEmpty
+      )
+    }
+  }
 }
 
 //MARK: Element: Equatable

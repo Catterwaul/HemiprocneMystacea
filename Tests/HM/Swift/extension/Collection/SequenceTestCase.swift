@@ -173,6 +173,18 @@ final class SequenceTestCase: XCTestCase {
       ]
     )
   }
+
+  func test_splitAndIncludeSeparators() {
+    XCTAssertEqual(
+      "What is your name? My name is 🐱, and I am a cat!"
+        .split(separator: " ")
+        .flatMap { $0.splitAndIncludeSeparators(\.isPunctuation) }
+        .map { String($0) },
+      [ "What", "is", "your", "name", "?",
+        "My", "name", "is", "🐱", ",", "and", "I", "am", "a", "cat", "!"
+      ]
+    )
+  }
   
 //MARK: firstUniqueElements
   func test_firstUniqueElements_Hashable() {
