@@ -5,7 +5,7 @@ public struct CircularSequence<Iterator: IteratorProtocol>: Sequence {
     iterator = makeIterator()
   }
 
-  private(set) var iterator: Iterator
+  private var iterator: Iterator
   private let makeIterator: () -> Iterator
 }
 

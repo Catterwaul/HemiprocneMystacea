@@ -4,15 +4,23 @@ import XCTest
 final class CircularSequenceTestCase: XCTestCase {
   func test() {
     enum 🦇: CaseIterable { case 🧛🏻, 🦹🏿, 🏏 }
-    XCTAssertEqual(
-      Array( CircularSequence(🦇.allCases).prefix(5) ),
-      [.🧛🏻, .🦹🏿, .🏏, .🧛🏻, .🦹🏿]
-    )
 
-    var iterator = CircularSequence(🦇.allCases).makeIterator()
-    for _ in 1...(🦇.allCases.count * 2 + 1) {
-      _ = iterator.next()
+    let circularSequence = CircularSequence(🦇.allCases)
+    let anySequence = AnySequence(cycling: 🦇.allCases)
+
+    func makePrefixArray<Sequence: Swift.Sequence>(_ sequence: Sequence) -> [Sequence.Element] {
+      .init( sequence.prefix(5) )
     }
-    XCTAssertEqual(iterator.next(), .🦹🏿)
+    let fiveBats = [🦇.🧛🏻, .🦹🏿, .🏏, .🧛🏻, .🦹🏿]
+    XCTAssertEqual(makePrefixArray(circularSequence), fiveBats)
+    XCTAssertEqual(makePrefixArray(anySequence), fiveBats)
+
+    var circularSequenceIterator = circularSequence.makeIterator()
+    let anySequenceIterator = anySequence.makeIterator()
+    for _ in 1...(🦇.allCases.count * 2 + 1) {
+      _ = ( circularSequenceIterator.next(), anySequenceIterator.next() )
+    }
+    XCTAssertEqual(circularSequenceIterator.next(), .🦹🏿)
+    XCTAssertEqual(anySequenceIterator.next(), .🦹🏿)
   }
 }
