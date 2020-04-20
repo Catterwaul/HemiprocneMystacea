@@ -2,11 +2,8 @@ import HM
 import XCTest
 
 private final class CaseIterableTestCase: XCTestCase {
-  enum 🦇: CircularCaseSequence {
-    case 🧛🏻, 🦹🏿, 🏏
-  }
-
   func test_subscript_case() {
+    enum 🦇: CaseIterable { case 🧛🏻, 🦹🏿, 🏏 }
     XCTAssertEqual(🦇[.🦹🏿], 1)
   }
 
@@ -18,16 +15,6 @@ private final class CaseIterableTestCase: XCTestCase {
     XCTAssertEqual(
       Alphabet.c...(.f),
       [.c, .d, .e, .f]
-    )
-  }
-
-  func test_Sequence() {
-    var bat = 🦇.🏏
-    _ = bat.next()
-    XCTAssertEqual(bat, .🧛🏻)
-
-    XCTAssert(
-      [.🦹🏿, .🏏, .🧛🏻, .🦹🏿 ].elementsEqual( bat.prefix(4) )
     )
   }
 }

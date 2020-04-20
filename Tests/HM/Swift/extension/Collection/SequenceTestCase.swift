@@ -137,12 +137,12 @@ final class SequenceTestCase: XCTestCase {
     ]
     
     XCTAssertEqual(
-      dictionary.max(\.value)!.key,
+      dictionary.max(by: \.value)!.key,
       "💯"
     )
     
     XCTAssertEqual(
-      dictionary.min(\.value)!.key,
+      dictionary.min(by: \.value)!.key,
       "1️⃣"
     )
   }
@@ -163,7 +163,7 @@ final class SequenceTestCase: XCTestCase {
       TypeWith1EquatableProperty(int: 3),
       TypeWith1EquatableProperty(int: 1),
       TypeWith1EquatableProperty(int: 2)
-    ].sorted(\.int)
+    ].sorted(by: \.int)
     
     XCTAssertEqual(
       sortedArray,
