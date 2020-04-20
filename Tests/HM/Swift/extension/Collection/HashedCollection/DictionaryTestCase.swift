@@ -103,6 +103,18 @@ final class DictionaryTestCase: XCTestCase {
   }
 
 //MARK:- Methods
+  func test_mapKeys() {
+    let dictionary = [100: "💯", 17: "📅"]
+    XCTAssertEqual(
+      dictionary.mapKeys(String.init),
+      ["100": "💯", "17": "📅"]
+    )
+    XCTAssertEqual(
+      dictionary.compactMapKeys { $0 > 50 ? $0 : nil },
+      [100: "💯"]
+    )
+  }
+
   func test_mapValues() {
     XCTAssertEqual(
       [ "🍍": "🥐",
