@@ -68,6 +68,7 @@ public extension Dictionary {
   ///
   /// - Parameter transform: Accepts each key of the dictionary as its parameter
   ///   and returns a key for the new dictionary.
+  /// - Postcondition: The collection of transformed keys must not contain duplicates.
   func mapKeys<Transformed>(
     _ transform: (Key) throws -> Transformed
   ) rethrows -> [Transformed: Value] {
@@ -80,6 +81,7 @@ public extension Dictionary {
   ///
   /// - Parameter transform: Accepts each key of the dictionary as its parameter
   ///   and returns a potential key for the new dictionary.
+  /// - Postcondition: The collection of transformed keys must not contain duplicates.
   func compactMapKeys<Transformed>(
     _ transform: (Key) throws -> Transformed?
   ) rethrows -> [Transformed: Value] {
