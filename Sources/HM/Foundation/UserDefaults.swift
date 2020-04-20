@@ -1,23 +1,64 @@
 import Foundation
 
 public extension UserDefaults {
-  static subscript(key: String) -> Bool? {
-    get { standard.bool(forKey: key) }
-    set { standard.set(newValue, forKey: key) }
+//MARK:- static
+
+  static subscript<Object: PropertyListObject>(key: String) -> Object? {
+    get { standard[key] }
+    set { standard[key] = newValue }
   }
 
-  static subscript(key: String) -> Int? {
-    get { standard.integer(forKey: key) }
-    set { standard.set(newValue, forKey: key) }
+  static subscript<
+    Key: LosslessStringConvertible, Value: PropertyListObject
+  >(key: String) -> [Key: Value]? {
+    get { standard[key] }
+    set { standard[key] = newValue }
   }
 
-  static subscript<Key: LosslessStringConvertible, Value>(key: String) -> [Key: Value]? {
+//MARK:- instance
+
+  subscript<Object: PropertyListObject>(key: String) -> Object? {
+    get { object(forKey: key) as? Object }
+    set { set(newValue, forKey: key) }
+  }
+
+  subscript<
+    Key: LosslessStringConvertible, Value: PropertyListObject
+  >(key: String) -> [Key: Value]? {
     get {
-      (standard.dictionary(forKey: key) as? [String: Value])?
-        .compactMapKeys(Key.init)
+      (dictionary(forKey: key) as? [String: Value])?
+      .compactMapKeys(Key.init)
     }
     set {
-      standard.set(newValue?.mapKeys(\.description), forKey: key)
+      set(newValue?.mapKeys(\.description), forKey: key)
     }
   }
 }
+
+public protocol PropertyListObject { }
+
+extension Bool: PropertyListObject { }
+extension Data: PropertyListObject { }
+extension Date: PropertyListObject { }
+extension String: PropertyListObject { }
+extension URL: PropertyListObject { }
+
+extension Int8: PropertyListObject { }
+extension Int16: PropertyListObject { }
+extension Int32: PropertyListObject { }
+extension Int64: PropertyListObject { }
+extension UInt8: PropertyListObject { }
+extension UInt16: PropertyListObject { }
+extension UInt32: PropertyListObject { }
+extension UInt64: PropertyListObject { }
+extension Float: PropertyListObject { }
+extension Double: PropertyListObject { }
+
+import CoreGraphics
+extension CGPoint: PropertyListObject { }
+extension CGVector: PropertyListObject { }
+extension CGSize: PropertyListObject { }
+extension CGRect: PropertyListObject { }
+extension CGAffineTransform: PropertyListObject { }
+
+extension Array: PropertyListObject where Element: PropertyListObject { }

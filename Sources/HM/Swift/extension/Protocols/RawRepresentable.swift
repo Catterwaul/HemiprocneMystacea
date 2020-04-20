@@ -13,5 +13,5 @@ where Self: RawRepresentable, Self.RawValue: LosslessStringConvertible  {
     self.init(rawValue: rawValue)
   }
 
-  var description: String { String(rawValue) }
+  var description: String { .init(rawValue) }
 }
