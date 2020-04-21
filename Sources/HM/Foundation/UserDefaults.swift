@@ -1,35 +1,56 @@
 import Foundation
 
 public extension UserDefaults {
-//MARK:- static
+  @propertyWrapper struct Value<WrappedValue: UserDefaults_Value_WrappedValue> {
+    public init(
+      wrappedValue: WrappedValue?,
+      key: String,
+      defaults: UserDefaults = .standard
+    ) {
+      self.key = key
+      self.defaults = defaults
+      self.wrappedValue = wrappedValue
+    }
 
-  static subscript<Object: PropertyListObject>(key: String) -> Object? {
+    public var wrappedValue: WrappedValue? {
+      get { defaults[key] }
+      set { defaults[key] = newValue }
+    }
+
+    public let key: String
+    private let defaults: UserDefaults
+  }
+
+  static subscript<Object: UserDefaults_Value_WrappedValue>(key: String) -> Object? {
     get { standard[key] }
     set { standard[key] = newValue }
   }
 
-  static subscript<
-    Key: LosslessStringConvertible, Value: PropertyListObject
-  >(key: String) -> [Key: Value]? {
-    standard[key]
-  }
-
-//MARK:- instance
-
-  subscript<Object: PropertyListObject>(key: String) -> Object? {
-    get { object(forKey: key) as? Object }
-    set { set(newValue, forKey: key) }
-  }
-
-  subscript<
-    Key: LosslessStringConvertible, Value: PropertyListObject
-  >(key: String) -> [Key: Value]? {
-    (dictionary(forKey: key) as? PropertyListDictionary)
-    .map(Dictionary.init)
+  subscript<Object: UserDefaults_Value_WrappedValue>(key: String) -> Object? {
+    get { object(forKey: key).flatMap(Object.init)  }
+    set { set(newValue?.convertertedToPropertyListObject, forKey: key) }
   }
 }
 
-public protocol PropertyListObject { }
+public protocol UserDefaults_Value_WrappedValue {
+  associatedtype PropertyListObject: HM.PropertyListObject
+  init?(propertyListObject: Any)
+  var convertertedToPropertyListObject: PropertyListObject { get }
+}
+
+public protocol PropertyListObject: UserDefaults_Value_WrappedValue
+where PropertyListObject == Self { }
+
+public extension PropertyListObject {
+  init?(propertyListObject: Any) {
+    guard let object = propertyListObject as? Self
+    else { return nil }
+
+    self = object
+  }
+
+  var convertertedToPropertyListObject: Self { self }
+}
 
 extension Bool: PropertyListObject { }
 extension Data: PropertyListObject { }
@@ -50,10 +71,29 @@ extension UInt64: PropertyListObject { }
 extension Float: PropertyListObject { }
 extension Double: PropertyListObject { }
 
-extension Array: PropertyListObject where Element: PropertyListObject { }
+extension Array: PropertyListObject & UserDefaults_Value_WrappedValue
+where Element: HM.PropertyListObject {
+  public typealias PropertyListObject = Self
+}
+
+extension Dictionary: UserDefaults_Value_WrappedValue
+where Key: LosslessStringConvertible, Value: HM.PropertyListObject {
+  public typealias PropertyListObject = PropertyListDictionary<Value>
+
+  public init?(propertyListObject: Any) {
+    guard let dictionary = propertyListObject as? PropertyListObject
+    else { return nil }
+
+    self.init(dictionary)
+  }
+
+  public var convertertedToPropertyListObject: PropertyListObject {
+    .init(self)
+  }
+}
 
 extension Dictionary: PropertyListObject
-where Key == String, Value: PropertyListObject { }
+where Key == String, Value: HM.PropertyListObject { }
 
 public typealias PropertyListDictionary<Value: PropertyListObject> = [String: Value]
 
