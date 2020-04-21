@@ -37,10 +37,12 @@ extension Date: PropertyListObject { }
 extension String: PropertyListObject { }
 extension URL: PropertyListObject { }
 
+extension Int: PropertyListObject { }
 extension Int8: PropertyListObject { }
 extension Int16: PropertyListObject { }
 extension Int32: PropertyListObject { }
 extension Int64: PropertyListObject { }
+extension UInt: PropertyListObject { }
 extension UInt8: PropertyListObject { }
 extension UInt16: PropertyListObject { }
 extension UInt32: PropertyListObject { }
