@@ -104,9 +104,3 @@ public extension Dictionary {
     )
   }
 }
-
-public extension Dictionary where Key: LosslessStringConvertible {
-  init(_ dictionary: [String: Value]) {
-    self = dictionary.compactMapKeys(Key.init)
-  }
-}

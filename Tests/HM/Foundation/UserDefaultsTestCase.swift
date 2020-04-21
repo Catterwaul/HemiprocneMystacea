@@ -18,7 +18,7 @@ final class UserDefaultsTestCase: XCTestCase {
     }
 
     let key = "🔑"
-    let dayta = [Day.sunday: "🌞", .monday: "🌛", ]
+    let dayta = [Day.sunday: "🌞", .monday: "🌛"]
 
     UserDefaults[key] = PropertyListDictionary(dayta)
     XCTAssertEqual(UserDefaults["🔑"], dayta)

@@ -50,14 +50,10 @@ extension Double: PropertyListObject { }
 
 extension Array: PropertyListObject where Element: PropertyListObject { }
 
-public typealias PropertyListDictionary<Value: PropertyListObject> = [String: Value]
+extension Dictionary: PropertyListObject
+where Key == String, Value: PropertyListObject { }
 
-extension PropertyListDictionary: PropertyListObject
-where Key == String, Value: PropertyListObject {
-  public init<Key: LosslessStringConvertible>(_ dictionary: [Key: Value]) {
-    self = dictionary.mapKeys(\.description)
-  }
-}
+public typealias PropertyListDictionary<Value: PropertyListObject> = [String: Value]
 
 import CoreGraphics
 extension CGPoint: PropertyListObject { }
