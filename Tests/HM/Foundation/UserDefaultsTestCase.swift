@@ -27,7 +27,7 @@ final class UserDefaultsTestCase: XCTestCase {
 
   func test_propertyWrapper() {
     struct Type {
-      @UserDefaults.Value(key: "🗝") var dayta = Day.ta
+      @UserDefaults.Value(key: Day.monday) var dayta = Day.ta
     }
 
     var instance = Type()

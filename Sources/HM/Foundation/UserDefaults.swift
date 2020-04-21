@@ -1,13 +1,14 @@
 import Foundation
 
 public extension UserDefaults {
+  /// A value that is stored in, and accessed from, `UserDefault`s.
   @propertyWrapper struct Value<WrappedValue: UserDefaults_Value_WrappedValue> {
-    public init(
+    public init<Key: CustomStringConvertible>(
       wrappedValue: WrappedValue?,
-      key: String,
+      key: Key,
       defaults: UserDefaults = .standard
     ) {
-      self.key = key
+      self.key = key.description
       self.defaults = defaults
       self.wrappedValue = wrappedValue
     }
@@ -32,6 +33,8 @@ public extension UserDefaults {
   }
 }
 
+//MARK:- Protocols
+
 public protocol UserDefaults_Value_WrappedValue {
   associatedtype PropertyListObject: HM.PropertyListObject
   init?(propertyListObject: Any)
@@ -51,6 +54,8 @@ public extension PropertyListObject {
 
   var convertertedToPropertyListObject: Self { self }
 }
+
+//MARK:- PropertyListObject Types
 
 extension Bool: PropertyListObject { }
 extension Data: PropertyListObject { }
@@ -76,6 +81,12 @@ where Element: HM.PropertyListObject {
   public typealias PropertyListObject = Self
 }
 
+/// A dictionary that is also a valid property-list object.
+public typealias PropertyListDictionary<Value: PropertyListObject> = [String: Value]
+
+extension Dictionary: PropertyListObject
+where Key == String, Value: HM.PropertyListObject { }
+
 extension Dictionary: UserDefaults_Value_WrappedValue
 where Key: LosslessStringConvertible, Value: HM.PropertyListObject {
   public typealias PropertyListObject = PropertyListDictionary<Value>
@@ -91,11 +102,6 @@ where Key: LosslessStringConvertible, Value: HM.PropertyListObject {
     .init(self)
   }
 }
-
-extension Dictionary: PropertyListObject
-where Key == String, Value: HM.PropertyListObject { }
-
-public typealias PropertyListDictionary<Value: PropertyListObject> = [String: Value]
 
 import CoreGraphics
 extension CGPoint: PropertyListObject { }
