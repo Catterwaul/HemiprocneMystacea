@@ -11,8 +11,7 @@ public extension UserDefaults {
   static subscript<
     Key: LosslessStringConvertible, Value: PropertyListObject
   >(key: String) -> [Key: Value]? {
-    get { standard[key] }
-    set { standard[key] = newValue }
+    standard[key]
   }
 
 //MARK:- instance
@@ -25,13 +24,8 @@ public extension UserDefaults {
   subscript<
     Key: LosslessStringConvertible, Value: PropertyListObject
   >(key: String) -> [Key: Value]? {
-    get {
-      (dictionary(forKey: key) as? [String: Value])?
-      .compactMapKeys(Key.init)
-    }
-    set {
-      set(newValue?.mapKeys(\.description), forKey: key)
-    }
+    (dictionary(forKey: key) as? PropertyListDictionary)
+    .map(Dictionary.init)
   }
 }
 
@@ -54,11 +48,20 @@ extension UInt64: PropertyListObject { }
 extension Float: PropertyListObject { }
 extension Double: PropertyListObject { }
 
+extension Array: PropertyListObject where Element: PropertyListObject { }
+
+public typealias PropertyListDictionary<Value: PropertyListObject> = [String: Value]
+
+extension PropertyListDictionary: PropertyListObject
+where Key == String, Value: PropertyListObject {
+  public init<Key: LosslessStringConvertible>(_ dictionary: [Key: Value]) {
+    self = dictionary.mapKeys(\.description)
+  }
+}
+
 import CoreGraphics
 extension CGPoint: PropertyListObject { }
 extension CGVector: PropertyListObject { }
 extension CGSize: PropertyListObject { }
 extension CGRect: PropertyListObject { }
 extension CGAffineTransform: PropertyListObject { }
-
-extension Array: PropertyListObject where Element: PropertyListObject { }
