@@ -18,7 +18,7 @@ final class UserDefaultsTestCase: XCTestCase {
     UserDefaults[key] = Day.ta
     XCTAssertEqual(UserDefaults["🔑"], Day.ta)
 
-    UserDefaults[key] = PropertyListDictionary([1: "🌞", 2: "🌛"])
+    UserDefaults[key] = [1: "🌞", 2: "🌛"]
     XCTAssertEqual(UserDefaults["🔑"], Day.ta)
 
     UserDefaults.standard[key] = ["1": "🌞", "2": "🌛"]
