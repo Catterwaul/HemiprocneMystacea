@@ -1,5 +1,5 @@
 public enum CastError {
-    /// An error that represents that an desired cast is not possible.
+    /// An error that represents that a desired cast is not possible.
   public struct Desired<Instance, DesiredCast>: Error {
     /// `nil` if `instance` is a `DesiredCast`.
     /// - Parameter instance: Anything. 🤷
