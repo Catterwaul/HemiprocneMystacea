@@ -30,6 +30,17 @@ final class CastErrorTestCase: XCTestCase {
     XCTAssertNoThrow( try failCast(of: Class(), to: Double.self) )
   }
 
+  func test_protocol() {
+    XCTAssertNoThrow(
+      try cast(Class(), to: Protocol.self)
+    )
+    XCTAssertThrowsError(
+      try failCast(of: Class(), to: Protocol.self)
+    ) {
+      XCTAssert($0 is CastError.Undesired<Class, Protocol>)
+    }
+  }
+
   func test_AnyObject() {
     XCTAssertNoThrow(
       try cast(0, to: AnyObject.self)
