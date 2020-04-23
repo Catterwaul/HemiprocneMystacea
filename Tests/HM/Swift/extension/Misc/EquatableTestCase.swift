@@ -29,5 +29,10 @@ final class EquatableTestCase: XCTestCase {
     XCTAssertThrowsError(
       try cupcake.getEquals() as (Int) -> Bool
     )
+
+    let anyEquatable = try AnyEquatable<Any>(cupcake)
+    XCTAssertEqual( anyEquatable, try .init(cupcake) )
+    XCTAssert(anyEquatable == cupcake)
+    XCTAssertFalse(notCake == anyEquatable)
   }
 }
