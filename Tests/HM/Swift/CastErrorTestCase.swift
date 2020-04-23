@@ -56,13 +56,10 @@ final class CastErrorTestCase: XCTestCase {
       try failCast(of: SuperClass(), to: Class.self)
     )
 
-    // Incorrect behavior,
-    // but I don't know how to solve it without the other tests breaking,
-    // and I care more about them.
-    XCTAssertThrowsError(
+    XCTAssertNoThrow(
       try cast(Class(), to: SuperClass.self)
     )
-    XCTAssertNoThrow(
+    XCTAssertThrowsError(
       try failCast(of: Class(), to: SuperClass.self)
     )
   }
@@ -70,7 +67,7 @@ final class CastErrorTestCase: XCTestCase {
 
 private protocol Protocol { }
 private class SuperClass { }
-final class Class: Protocol { }
+private final class Class: SuperClass, Protocol { }
 
 private func cast<Instance, DesiredCast>(
   _ instance: Instance, to desiredCastType: DesiredCast.Type
