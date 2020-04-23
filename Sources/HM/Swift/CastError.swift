@@ -1,23 +1,30 @@
 public enum CastError {
-    /// An error that represents that a desired cast is not possible.
-  public struct Desired<Instance, DesiredCast>: Error {
-    /// `nil` if `instance` is a `DesiredCast`.
-    /// - Parameter instance: Anything. 🤷
-    public init?(_ instance: Instance, _: DesiredCast.Type) {
-      if instance is DesiredCast
+  /// An error that represents  a desired cast is not possible.
+  public struct Desired: CastErrorProtocol {
+    /// `nil` if  a `Source` can be cast to `Desired`.
+    public init?<Source, Desired>(_: Source.Type, _: Desired.Type) {
+      if Source.self is Desired.Type
       { return nil }
     }
   }
 
-  /// An error that represents that an undesired cast is possible.
-  public struct Undesired<Instance, UndesiredCast>: Error {
-    /// `nil` if `instance` is not an `UndesiredCast`.
-    /// - Parameter instance: Anything. 🤷
-    /// - Note: Ineffective if `instance` is a protocol instance
-    /// and `UndesiredCast` is `AnyObject`.
-    public init?(_ instance: Instance, _: UndesiredCast.Type) {
-      guard type(of: instance) is UndesiredCast.Type
+  /// An error that represents an undesired cast is possible.
+  public struct Undesired: CastErrorProtocol {
+    /// `nil` if  a `Source` cannot be cast to `Undesired`.
+    public init?<Source, Undesired>(_: Source.Type, _: Undesired.Type) {
+      guard Source.self is Undesired.Type
       else { return nil }
     }
+  }
+}
+
+public protocol CastErrorProtocol: Error {
+  init?<Source, Cast>(_: Source.Type, _: Cast.Type)
+}
+
+public extension CastErrorProtocol {
+  /// `nil` if  a `Source` and `Cast` respect your casting wishes, either `Desired` or `Undesired`.
+  init?<Instance, Cast>(_: Instance, _: Cast.Type) {
+    self.init(Instance.self, Cast.self)
   }
 }

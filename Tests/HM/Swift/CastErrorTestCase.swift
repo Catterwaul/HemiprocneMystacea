@@ -8,25 +8,18 @@ final class CastErrorTestCase: XCTestCase {
     )
     XCTAssertThrowsError(
       try failCast(of: 0, to: Int.self)
-    ) {
-      XCTAssert($0 is CastError.Undesired<Int, Int>)
-    }
+    )
 
     XCTAssertNoThrow(
       try failCast(of: 0, to: Class.self)
     )
     XCTAssertThrowsError(
       try cast(0, to: Class.self)
-    ) {
-      XCTAssert($0 is CastError.Desired<Int, Class>)
-    }
+    )
 
     XCTAssertThrowsError(
       try failCast(of: Class(), to: Class.self)
-    ) {
-      XCTAssert($0 is CastError.Undesired<Class, Class>)
-    }
-
+    )
     XCTAssertNoThrow( try failCast(of: Class(), to: Double.self) )
   }
 
@@ -36,31 +29,24 @@ final class CastErrorTestCase: XCTestCase {
     )
     XCTAssertThrowsError(
       try failCast(of: Class(), to: Protocol.self)
-    ) {
-      XCTAssert($0 is CastError.Undesired<Class, Protocol>)
-    }
+    )
   }
 
   func test_AnyObject() {
-    XCTAssertNoThrow(
+    XCTAssertThrowsError(
       try cast(0, to: AnyObject.self)
     )
-
     XCTAssertNoThrow(
       try failCast(of: true, to: AnyObject.self)
     )
 
     XCTAssertThrowsError(
       try failCast(of: Class(), to: AnyObject.self)
-    ) {
-      XCTAssert($0 is CastError.Undesired<Class, AnyObject>)
-    }
-
+    )
     XCTAssertNoThrow(
       try failCast(of: Class() as Protocol, to: AnyObject.self)
     )
-
-    XCTAssertNoThrow(
+    XCTAssertThrowsError(
       try cast(Class() as Protocol, to: AnyObject.self)
     )
   }
