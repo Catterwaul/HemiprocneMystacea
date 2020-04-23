@@ -1,6 +1,6 @@
 public enum CastError {
   /// An error that represents  a desired cast is not possible.
-  public struct Desired: CastErrorProtocol {
+  public struct Impossible: CastErrorProtocol {
     /// `nil` if  a `Source` can be cast to `Desired`.
     public init?<Source, Desired>(_: Source.Type, _: Desired.Type) {
       if Source.self is Desired.Type
@@ -9,7 +9,7 @@ public enum CastError {
   }
 
   /// An error that represents an undesired cast is possible.
-  public struct Undesired: CastErrorProtocol {
+  public struct Possible: CastErrorProtocol {
     /// `nil` if  a `Source` cannot be cast to `Undesired`.
     public init?<Source, Undesired>(_: Source.Type, _: Undesired.Type) {
       guard Source.self is Undesired.Type

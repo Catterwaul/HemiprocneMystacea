@@ -8,4 +8,15 @@ public extension Equatable {
 
     return equatable0 == equatable1
   }
+
+  /// A closure that equates another instance to this intance.
+  /// - Parameters:
+  ///   - _: Use the metatype for `Castable` to avoid explicit typing.
+  /// - Throws: `CastError.Desired`
+  func getEquals<Castable>(_: Castable.Type? = nil) throws -> (Castable) -> Bool {
+    if let error = CastError.Impossible(self, Castable.self)
+    { throw error }
+
+    return { self == $0 as? Self }
+  }
 }
