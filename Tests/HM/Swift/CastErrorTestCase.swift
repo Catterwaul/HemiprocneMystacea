@@ -50,10 +50,27 @@ final class CastErrorTestCase: XCTestCase {
       try cast(Class() as Protocol, to: AnyObject.self)
     )
   }
+
+  func test_inheritance() {
+    XCTAssertNoThrow(
+      try failCast(of: SuperClass(), to: Class.self)
+    )
+
+    // Incorrect behavior,
+    // but I don't know how to solve it without the other tests breaking,
+    // and I care more about them.
+    XCTAssertThrowsError(
+      try cast(Class(), to: SuperClass.self)
+    )
+    XCTAssertNoThrow(
+      try failCast(of: Class(), to: SuperClass.self)
+    )
+  }
 }
 
 private protocol Protocol { }
-private final class Class: Protocol { }
+private class SuperClass { }
+final class Class: Protocol { }
 
 private func cast<Instance, DesiredCast>(
   _ instance: Instance, to desiredCastType: DesiredCast.Type
