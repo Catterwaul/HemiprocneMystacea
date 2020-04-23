@@ -23,7 +23,7 @@ public protocol CastErrorProtocol: Error {
 }
 
 public extension CastErrorProtocol {
-  /// `nil` if  a `Source` and `Cast` respect your casting wishes, either `Desired` or `Undesired`.
+  /// `nil` if  a `Source` and `Cast` respect your casting wishes, either `Possible` or `Impossible`.
   init?<Instance, Cast>(_: Instance, _: Cast.Type) {
     self.init(Instance.self, Cast.self)
   }
