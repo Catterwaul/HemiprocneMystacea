@@ -72,13 +72,13 @@ private final class Class: SuperClass, Protocol { }
 private func cast<Instance, DesiredCast>(
   _ instance: Instance, to desiredCastType: DesiredCast.Type
 ) throws {
-  if let error = CastError.Impossible(instance, desiredCastType)
+  if let error = CastError(instance, desired: desiredCastType)
   { throw error }
 }
 
 private func failCast<Instance, UndesiredCast>(
   of instance: Instance, to undesiredCastType: UndesiredCast.Type
 ) throws {
-  if let error = CastError.Possible(instance, undesiredCastType)
+  if let error = CastError(instance, undesired: undesiredCastType)
   { throw error }
 }

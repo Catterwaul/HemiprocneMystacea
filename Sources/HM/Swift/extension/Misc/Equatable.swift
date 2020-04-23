@@ -14,7 +14,7 @@ public extension Equatable {
   ///   - _: Use the metatype for `Castable` to avoid explicit typing.
   /// - Throws: `CastError.Impossible` if a `Castable` can't be cast to `Self`.
   func getEquals<Castable>(_: Castable.Type = Castable.self) throws -> (Castable) -> Bool {
-    if let error = CastError.Impossible(self, Castable.self)
+    if let error = CastError(self, desired: Castable.self)
     { throw error }
 
     return { self == $0 as? Self }

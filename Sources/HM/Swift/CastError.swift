@@ -1,30 +1,36 @@
-public enum CastError {
-  /// An error that represents  a desired cast is not possible.
-  public struct Impossible: CastErrorProtocol {
-    /// `nil` if  a `Source` can be cast to `Desired`.
-    public init?<Source, Desired>(_: Source.Type, _: Desired.Type) {
-      if Source.self is Desired.Type
-      { return nil }
-    }
-  }
+/// An error that represents casting gone wrong. 🧙‍♀️🙀
+public enum CastError: Error {
+  /// An undesired cast is possible.
+  case possible
 
-  /// An error that represents an undesired cast is possible.
-  public struct Possible: CastErrorProtocol {
-    /// `nil` if  a `Source` cannot be cast to `Undesired`.
-    public init?<Source, Undesired>(_: Source.Type, _: Undesired.Type) {
-      guard Source.self is Undesired.Type
-      else { return nil }
-    }
-  }
+  /// An desired cast is not possible.
+  case impossible
 }
 
-public protocol CastErrorProtocol: Error {
-  init?<Source, Cast>(_: Source.Type, _: Cast.Type)
-}
+public extension CastError {
+  /// `nil` if  an `Instance` can be cast to `Desired`. Otherwise, `.impossible`.
+  init?<Instance, Desired>(_: Instance, desired _: Desired.Type) {
+    self.init(Instance.self, desired: Desired.self)
+  }
 
-public extension CastErrorProtocol {
-  /// `nil` if  a `Source` and `Cast` respect your casting wishes, either `Possible` or `Impossible`.
-  init?<Instance, Cast>(_: Instance, _: Cast.Type) {
-    self.init(Instance.self, Cast.self)
+  /// `nil` if  a `Source` can be cast to `Desired`. Otherwise, `.impossible`.
+  init?<Source, Desired>(_: Source.Type, desired _: Desired.Type) {
+    if Source.self is Desired.Type
+    { return nil }
+
+    self = .impossible
+  }
+
+  /// `nil` if  an `Instance` cannot be cast to `Undesired`. Otherwise, `.possible`.
+  init?<Instance, Undesired>(_: Instance, undesired _: Undesired.Type) {
+    self.init(Instance.self, undesired: Undesired.self)
+  }
+
+  /// `nil` if  a `Source` cannot be cast to `Undesired`. Otherwise, `.possible`.
+  init?<Source, Undesired>(_: Source.Type, undesired _: Undesired.Type) {
+    guard Source.self is Undesired.Type
+    else { return nil }
+
+    self = .possible
   }
 }
