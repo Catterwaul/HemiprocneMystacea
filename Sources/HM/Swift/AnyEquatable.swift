@@ -1,3 +1,7 @@
+/// A type-erased equatable value.
+///
+/// An `Equatable` instance is stored as a "`Cast`".
+/// Only instances that can be cast to that type can be `==`'d with the `AnyEquatable`.
 public struct AnyEquatable<Cast> {
   public init<Equatable: Swift.Equatable>(_ equatable: Equatable) throws {
     equals = try equatable.getEquals()
@@ -15,11 +19,11 @@ extension AnyEquatable: Swift.Equatable {
 }
 
 public extension AnyEquatable {
-  static func == (equatable: Self, castable: Cast) -> Bool {
-    equatable.equals(castable)
+  static func == (equatable: Self, cast: Cast) -> Bool {
+    equatable.equals(cast)
   }
 
-  static func == (castable: Cast, equatable: Self) -> Bool {
-    equatable.equals(castable)
+  static func == (cast: Cast, equatable: Self) -> Bool {
+    equatable.equals(cast)
   }
 }

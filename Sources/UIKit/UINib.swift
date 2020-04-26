@@ -3,8 +3,8 @@ import UIKit
 public extension UINib {
   static func instantiate<Object: AnyObject>(owner: Any? = nil) -> Object? {
     Bundle(for: Object.self)
-      .loadNibNamed("\(Object.self)", owner: owner)?
-      .getFirst()
+    .loadNibNamed("\(Object.self)", owner: owner)?
+    .getFirst()
   }
 }
 

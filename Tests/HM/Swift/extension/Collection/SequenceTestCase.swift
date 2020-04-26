@@ -108,7 +108,12 @@ final class SequenceTestCase: XCTestCase {
   }
 
   func test_getFirst() {
-    XCTAssertEqual([1, "🥇"].getFirst(), "🥇")
+    let array: [Any] = [1, "🥇"]
+    
+    XCTAssertEqual(array.getFirst(), "🥇")
+
+    let getFirstInt = { array.getFirst(Int.self) }
+    XCTAssertEqual(getFirstInt(), 1)
   }
 
   func test_interleaved() {

@@ -86,7 +86,7 @@ public extension Sequence {
   }
 
   /// The first element of a given type.
-  func getFirst<T>() -> T? {
+  func getFirst<T>(_: T.Type = T.self) -> T? {
     lazy.compactMap { $0 as? T } .first
   }
 
