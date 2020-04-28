@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class FixedWidthIntegerTestCase: XCTestCase {
-  func test_unpack() throws {
+  func test_PackedInteger_Two() throws {
     let packed = try PackedInteger<Int>.Two<Int32, Int32>(Int32.min, Int32.min)
     XCTAssertEqual(packed.storage.bitPattern, 0x8000_0000_8000_0000)
 
