@@ -1,4 +1,18 @@
 public extension BinaryInteger {
+  /// A bitmask within a range.
+  /// - Parameter bitIndices: From least significant to most.
+  static subscript<BitIndices: closedRange>(mask bitIndices: BitIndices) -> Self
+  where
+    BitIndices.Bound: BinaryInteger,
+    BitIndices.Bound.Stride: SignedInteger
+  {
+    bitIndices.closedRange.reduce(0) { mask, shift in
+      1 << shift | mask
+    }
+  }
+
+//MARK:- Initializers
+
   /// Store a pattern of `1`s and `0`s.
   /// - Parameter bitPattern: `true` becomes `1`; `false` becomes `0`.
   /// - Returns: nil if bitPattern has no elements.
@@ -11,6 +25,19 @@ public extension BinaryInteger {
     self = integer
   }
 
+//MARK:- Subscripts
+
+  /// A range of bits from this number.
+  /// - Parameter bitIndices: From least significant to most.
+  subscript<BitIndices: closedRange>(mask bitIndices: BitIndices) -> Self
+  where
+    BitIndices.Bound: BinaryInteger,
+    BitIndices.Bound.Stride: SignedInteger
+  {
+    self & Self[mask: bitIndices]
+  }
+
+//MARK:- Methods
   func modulo(_ divisor: Self) -> Self {
     let remainder = self % divisor
     return
@@ -21,25 +48,6 @@ public extension BinaryInteger {
 }
 
 public extension BinaryInteger where Stride: SignedInteger  {
-  static func makeMask(
-    lowerBitIndex: Self = 0,
-    upperBitIndex: Self
-  ) -> Self {
-    (lowerBitIndex...upperBitIndex).reduce(0) { mask, shift in
-      1 << shift | mask
-    }
-  }
-
-  func masked(
-    lowerBitIndex: Self = 0,
-    upperBitIndex: Self
-  ) -> Self {
-    self & .makeMask(
-      lowerBitIndex: lowerBitIndex,
-      upperBitIndex: upperBitIndex
-    )
-  }
-
   /// - Note: `nil` for negative numbers
   var factorial: Self? {
     switch self {

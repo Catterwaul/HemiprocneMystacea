@@ -52,3 +52,20 @@ public extension ClosedRange where Bound: FloatingPoint {
     🏓(by: firstAdvancement, startingAt: (upperBound + lowerBound) / 2)
   }
 }
+
+//MARK:-
+
+/// A type that can be represented as a `ClosedRange`.
+public protocol closedRange {
+  associatedtype Bound: Comparable
+  var closedRange: ClosedRange<Bound> { get }
+}
+
+extension ClosedRange: closedRange {
+  public var closedRange: Self { self }
+}
+
+extension PartialRangeThrough: closedRange where Bound: ExpressibleByIntegerLiteral {
+  /// From zero to the upper bound, inclusive.
+  public var closedRange: ClosedRange<Bound> { 0...upperBound }
+}
