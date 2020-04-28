@@ -3,11 +3,15 @@ import XCTest
 
 final class FixedWidthIntegerTestCase: XCTestCase {
   func test_unpack() throws {
-    let packed = try Int(Int32.min, Int32.min)
-    XCTAssertEqual(packed.bitPattern, 0x8000_0000_8000_0000)
+    let packed = try PackedInteger<Int>.Two<Int32, Int32>(Int32.min, Int32.min)
+    XCTAssertEqual(packed.storage.bitPattern, 0x8000_0000_8000_0000)
 
-    let unpacked: (Int32, Int32) = try packed.unpack()
+    XCTAssertThrowsError(
+      // The compiler thinks the zeros are `Int`s.
+      try PackedInteger<Int>.Two<Int, Int8>(0, 0)
+    )
 
+    let unpacked = packed.unpacked
     XCTAssertEqual(unpacked.0, .min)
     XCTAssertEqual(unpacked.1, .min)
   }
