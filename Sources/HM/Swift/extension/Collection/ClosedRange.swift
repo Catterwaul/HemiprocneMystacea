@@ -69,3 +69,9 @@ extension PartialRangeThrough: closedRange where Bound: ExpressibleByIntegerLite
   /// From zero to the upper bound, inclusive.
   public var closedRange: ClosedRange<Bound> { 0...upperBound }
 }
+
+extension PartialRangeUpTo: closedRange
+where Bound: ExpressibleByIntegerLiteral & AdditiveArithmetic {
+  /// From zero to the upper bound, exclusive.
+  public var closedRange: ClosedRange<Bound> { 0...(upperBound - 1) }
+}

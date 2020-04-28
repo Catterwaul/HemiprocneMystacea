@@ -13,7 +13,7 @@ final class BinaryIntegerTestCase: XCTestCase {
 
   func test_masked() {
     XCTAssertEqual(
-      0b11_10_1110[mask: ...3],
+      0b11_10_1110[mask: ..<4],
       0b0_____1110
     )
 
