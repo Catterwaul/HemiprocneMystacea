@@ -40,6 +40,7 @@ public extension Sequence {
     zip( self, dropFirst() )
   }
 
+  /// - Complexity: O(n)
   var count: Int {
     reduce(0) { count, _ in count + 1 }
   }
@@ -144,6 +145,25 @@ public extension Sequence {
     by getComparable: (Element) throws -> Comparable?
   ) rethrows -> Element? {
     try getElement(getComparable) { $0.min { $0.0 }?.1 }
+  }
+
+    /// The only match for a predicate.
+  /// - Throws: `onlyMatchError.noMatches` or `.moreThanOneMatch`.
+  func onlyMatch(for getIsMatch: (Element) throws -> Bool) throws -> Element {
+    guard let onlyMatch: Element = (
+      try reduce(into: nil) { onlyMatch, element in
+        switch onlyMatch {
+        case nil where try getIsMatch(element):
+          onlyMatch = element
+        case nil:
+          break
+        case .some:
+          throw onlyMatchError.moreThanOneMatch
+        }
+      }
+    ) else { throw onlyMatchError.noMatches }
+
+    return onlyMatch
   }
 
   /// - Returns: `nil` If the sequence has no elements, instead of an "initial result".
@@ -273,4 +293,9 @@ public extension Array {
       self = array
     }
   }
+}
+
+public enum onlyMatchError: Error {
+  case noMatches
+  case moreThanOneMatch
 }

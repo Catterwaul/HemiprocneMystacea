@@ -117,12 +117,8 @@ final class SerializableDictionaryTestCase: XCTestCase {
     XCTAssertThrowsError(
       try [Instrument](jsonData: jsonData)
     ) {	error in
-      switch error {
-      case let error as InitializableWithSerializableDictionaryError:
-        XCTAssertEqual(error, .dataNotConvertibleToDictionaries)
-      default:
-        XCTFail()
-      }
+      guard case InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries = error
+      else { XCTFail(); return }
     }
   }
 	

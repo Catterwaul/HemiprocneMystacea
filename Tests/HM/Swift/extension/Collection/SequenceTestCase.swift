@@ -162,6 +162,20 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertEqual(catNames.min { $0 }, "Fluffy")
     XCTAssertEqual(catNames.max { $0 }, "Ozma")
   }
+
+  func test_onlyMatch() {
+    XCTAssertEqual( try (1...5).onlyMatch { $0 > 4 }, 5 )
+
+    XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 4 } ) { error in
+      guard case onlyMatchError.moreThanOneMatch = error
+      else { XCTFail(); return }
+    }
+
+    XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 1 } ) { error in
+      guard case onlyMatchError.noMatches = error
+      else { XCTFail(); return }
+    }
+  }
 	
   func test_sortedBy() {
     let sortedArray = [

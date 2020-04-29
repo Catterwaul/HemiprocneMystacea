@@ -177,7 +177,6 @@ extension PackedInteger.Three: PackedIntegerProtocol {
   }
 }
 
-
 //MARK: - PackedInteger.Four
 public extension PackedInteger.Four {
   /// - Parameters:
