@@ -24,6 +24,16 @@ final class FixedWidthIntegerTestCase: XCTestCase {
     XCTAssertEqual(unpacked.2, .max)
   }
 
+  func test_PackedInteger_Four() throws {
+    let unpacked =
+      try PackedInteger<Int32>.Four(Int8.min, UInt8.min, Int8.max, UInt8.max)
+      .unpacked
+    XCTAssertEqual(unpacked.0, .min)
+    XCTAssertEqual(unpacked.1, .min)
+    XCTAssertEqual(unpacked.2, .max)
+    XCTAssertEqual(unpacked.3, .max)
+  }
+
   func test_joined() {
     XCTAssertEqual(
       [1, 2].joined(),

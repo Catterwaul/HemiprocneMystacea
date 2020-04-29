@@ -45,6 +45,23 @@ public enum PackedInteger<Storage: FixedWidthInteger> {
     /// The integer that three others are packed into.
     public let storage: Storage
   }
+
+  /// Four integers packed into one.
+  public struct Four<
+    Integer0: FixedWidthInteger, Integer1: FixedWidthInteger,
+    Integer2: FixedWidthInteger, Integer3: FixedWidthInteger
+  > {
+    /// - Parameter storage: The integer that four others are packed into.
+    /// - Throws: `PackedInteger.Error.notEnoughBits`
+    ///   if the four integer types won't fit into `Storage` together.
+    public init(storage: Storage) throws {
+      try Self.verifyBitsCanFit()
+      self.storage = storage
+    }
+
+    /// The integer that four others are packed into.
+    public let storage: Storage
+  }
 }
 
 private protocol PackedIntegerProtocol: Hashable {
@@ -145,8 +162,7 @@ public extension PackedInteger.Three {
 
   /// Unpack three integers.
   var unpacked: (Integer0, Integer1, Integer2) {
-    return (
-      .init(truncatingIfNeeded: untruncatedBitPatterns[0]),
+    ( .init(truncatingIfNeeded: untruncatedBitPatterns[0]),
       .init(truncatingIfNeeded: untruncatedBitPatterns[1]),
       .init(truncatingIfNeeded: untruncatedBitPatterns[2])
     )
@@ -158,5 +174,45 @@ extension PackedInteger.Three: PackedIntegerProtocol {
 
   static var bitWidths: [Int] {
     [Integer0.bitWidth, Integer1.bitWidth, Integer2.bitWidth]
+  }
+}
+
+
+//MARK: - PackedInteger.Four
+public extension PackedInteger.Four {
+  /// - Parameters:
+  ///   - integer0: Will be bit-shifted left of `integer1`.
+  ///   - integer1: Will be bit-shifted left of `integer2`.
+  ///   - integer2: Will be bit-shifted left of `integer3`.
+  ///   - integer3: Stored directly.
+  /// - Throws: `PackedInteger.Error.notEnoughBits`
+  ///   if the three integer types won't fit into `Storage` together.
+  init(
+    _ integer0: Integer0, _ integer1: Integer1,
+    _ integer2: Integer2, _ integer3: Integer3
+  ) throws {
+    try self.init(bitPatterns:
+      .init(truncatingIfNeeded: integer0.bitPattern),
+      .init(truncatingIfNeeded: integer1.bitPattern),
+      .init(truncatingIfNeeded: integer2.bitPattern),
+      .init(truncatingIfNeeded: integer3.bitPattern)
+    )
+  }
+
+  /// Unpack four integers.
+  var unpacked: (Integer0, Integer1, Integer2, Integer3) {
+    ( .init(truncatingIfNeeded: untruncatedBitPatterns[0]),
+      .init(truncatingIfNeeded: untruncatedBitPatterns[1]),
+      .init(truncatingIfNeeded: untruncatedBitPatterns[2]),
+      .init(truncatingIfNeeded: untruncatedBitPatterns[3])
+    )
+  }
+}
+
+extension PackedInteger.Four: PackedIntegerProtocol {
+  typealias _Storage = Storage
+
+  static var bitWidths: [Int] {
+    [Integer0.bitWidth, Integer1.bitWidth, Integer2.bitWidth, Integer3.bitWidth]
   }
 }
