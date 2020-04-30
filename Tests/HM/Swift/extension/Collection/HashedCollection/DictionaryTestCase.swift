@@ -102,6 +102,13 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
 
+  func test_firstKeys() {
+    XCTAssertEqual(
+      try ["skunky": "monkey", "🦨": "🐒"].onlyKey(for: "🐒"),
+      "🦨"
+    )
+  }
+
 //MARK:- Methods
   func test_mapKeys() {
     let dictionary = [100: "💯", 17: "📅"]

@@ -1,3 +1,5 @@
+/// An emulation of the missing Swift feature of named subscripts.
+/// - Note: Argument labels are not supported.
 public struct NamedGetOnlySubscript<Index, Value> {
   public typealias GetValue = (Index) -> Value
   
@@ -6,6 +8,7 @@ public struct NamedGetOnlySubscript<Index, Value> {
 }
 
 public extension NamedGetOnlySubscript {
+  /// - Parameter getValue: Provide a `Value` for an `Index`.
   init(_ getValue: @escaping GetValue) {
     self.getValue = getValue
   }

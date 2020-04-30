@@ -147,21 +147,21 @@ public extension Sequence {
     try getElement(getComparable) { $0.min { $0.0 }?.1 }
   }
 
-    /// The only match for a predicate.
-  /// - Throws: `onlyMatchError.noMatches` or `.moreThanOneMatch`.
+  /// The only match for a predicate.
+  /// - Throws: `OnlyMatchError`
   func onlyMatch(for getIsMatch: (Element) throws -> Bool) throws -> Element {
     guard let onlyMatch: Element = (
       try reduce(into: nil) { onlyMatch, element in
-        switch onlyMatch {
-        case nil where try getIsMatch(element):
-          onlyMatch = element
-        case nil:
+        switch ( onlyMatch, try getIsMatch(element) ) {
+        case (_, false):
           break
-        case .some:
-          throw onlyMatchError.moreThanOneMatch
+        case (nil, true):
+          onlyMatch = element
+        case (.some, true):
+          throw OnlyMatchError.moreThanOneMatch
         }
       }
-    ) else { throw onlyMatchError.noMatches }
+    ) else { throw OnlyMatchError.noMatches }
 
     return onlyMatch
   }
@@ -295,7 +295,8 @@ public extension Array {
   }
 }
 
-public enum onlyMatchError: Error {
+/// An error thrown from a call to `onlyMatch`.
+public enum OnlyMatchError: Error {
   case noMatches
   case moreThanOneMatch
 }

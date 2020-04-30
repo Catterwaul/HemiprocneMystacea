@@ -1,5 +1,6 @@
 public extension Dictionary {
 //MARK:- Operators
+
   /// Remove key-value pairs for a `Sequence` of `Key`s.
   static func - <KeysToSetNil: Sequence>(
     dictionary: Self, keysToSetNil: KeysToSetNil
@@ -35,6 +36,7 @@ public extension Dictionary {
   }
 
 //MARK:- Initializers
+
   /// Group key-value pairs by their keys.
   ///
   /// - Parameter pairs: Either `Swift.KeyValuePairs<Key, Self.Value.Element>`
@@ -64,6 +66,7 @@ public extension Dictionary {
   }
 
 //MARK:- Methods
+
   /// Same values, corresponding to `map`ped keys.
   ///
   /// - Parameter transform: Accepts each key of the dictionary as its parameter
@@ -102,5 +105,13 @@ public extension Dictionary {
     .init(
       uniqueKeysWithValues: zip( keys, try map(transform) )
     )
+  }
+}
+
+public extension Dictionary where Value: Equatable {
+  /// The only key that maps to `value`.
+  /// - Throws: `OnlyMatchError`
+  func onlyKey(for value: Value) throws -> Key {
+    try onlyMatch { $0.value == value } .key
   }
 }

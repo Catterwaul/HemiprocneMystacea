@@ -167,12 +167,12 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertEqual( try (1...5).onlyMatch { $0 > 4 }, 5 )
 
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 4 } ) { error in
-      guard case onlyMatchError.moreThanOneMatch = error
+      guard case OnlyMatchError.moreThanOneMatch = error
       else { XCTFail(); return }
     }
 
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 1 } ) { error in
-      guard case onlyMatchError.noMatches = error
+      guard case OnlyMatchError.noMatches = error
       else { XCTFail(); return }
     }
   }
