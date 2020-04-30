@@ -279,6 +279,13 @@ public extension Sequence where Element: Hashable {
 }
 
 //MARK:-
+
+public extension Never {
+  /// An infinite sequence whose elements don't matter.
+  static var ending: AnySequence<Void> { .init { } }
+}
+
+//MARK:-
 public enum Spliteration<Element> {
   case separator(Element)
   case subSequence([Element])
