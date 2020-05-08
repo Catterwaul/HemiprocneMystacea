@@ -201,13 +201,15 @@ public extension Sequence {
     ? dropFirst(shift) + prefix(shift)
     : suffix(-shift) + dropLast(-shift)
   }
-  
+
+  /// Sorted by a common `Comparable` value.
   func sorted<Comparable: Swift.Comparable>(
     by getComparable: (Element) throws -> Comparable
   ) rethrows -> [Element] {
     try self.sorted(getComparable, <)
   }
 
+  /// Sorted by a common `Comparable` value, and sorting closure.
   func sorted<Comparable: Swift.Comparable>(
     _ getComparable: (Element) throws -> Comparable,
     _ getAreInIncreasingOrder: (Comparable, Comparable) throws -> Bool
