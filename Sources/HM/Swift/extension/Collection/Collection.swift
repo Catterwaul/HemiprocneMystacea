@@ -50,7 +50,7 @@ public extension Collection {
   }
 }
 
-/// Thrown when `getElement` is called with an invalid index.
+/// Thrown when `element(at:)` is called with an invalid index.
 public struct CollectionIndexingError: Error { }
 
 public extension Collection where Element: Equatable {
