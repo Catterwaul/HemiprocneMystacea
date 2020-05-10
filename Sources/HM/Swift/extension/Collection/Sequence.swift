@@ -265,6 +265,19 @@ public extension Sequence where Element: Equatable {
     }
   }
 
+  /// Returns only elements that don’t match the previous element.
+  var removingDuplicates: AnySequence<Element> {
+    guard let first = first
+    else { return .empty }
+
+    return .init(
+      sequence(first: first) {
+        [iterator = AnyIterator( makeIterator() )]
+        previous in iterator.first { previous != $0 }
+      }
+    )
+  }
+
   /// Whether all elements of the sequence are equal to `element`.
   func containsOnly(_ element: Element) -> Bool {
     allSatisfy { $0 == element }

@@ -69,6 +69,13 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertEqual(getNext(10), [55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181])
   }
 
+  func test_removingDuplicates() {
+    XCTAssertEqual(
+      String("⛲️⛲️⛲️🥐🥐⛲️⛲️⛲️⛲️🥐🥐🥐".removingDuplicates),
+      "⛲️🥐⛲️🥐"
+    )
+  }
+
 //MARK:- Subscripts
 
   func test_subscript_maxArrayCount() {
