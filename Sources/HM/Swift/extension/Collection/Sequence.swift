@@ -71,6 +71,14 @@ public extension Sequence {
 
 // MARK:- Methods
 
+  /// The elements of this sequence, and the ones after them.
+  /// - Note: Every returned array will have the same count,
+  /// so this stops short of the end of the sequence by `count - 1`.
+  /// - Precondition: `count > 0`
+  func consecutiveElements(by count: Int) -> AnySequence<[Element]> {
+    (0..<count).map(dropFirst).zipped
+  }
+
   /// The number of elements that match a predicate.
   func count(
     where getIsIncluded: (Element) throws -> Bool
@@ -290,6 +298,23 @@ public extension Sequence where Element: Hashable {
   var firstUniqueElements: [Element] {
     var set: Set<Element> = []
     return filter { set.insert($0).inserted }
+  }
+}
+
+//MARK: Element: Sequence
+public extension Sequence where Element: Sequence {
+  /// Like `zip`, but with no limit to how many sequences are zipped.
+  var zipped: AnySequence<[Element.Element]> {
+    .init(
+      sequence(
+        state: map { $0.makeIterator() }
+      ) { iterators in
+        Optional(
+          (iterators.indices).map { iterators[$0].next() },
+          nilWhen: { $0.contains { $0 == nil } }
+        )?.compactMap { $0 }
+      }
+    )
   }
 }
 
