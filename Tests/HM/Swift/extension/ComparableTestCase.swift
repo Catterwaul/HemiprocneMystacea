@@ -34,4 +34,10 @@ final class ComparableTestCase: XCTestCase {
   func test_clamped() {
     XCTAssertEqual("C".clamped(to: "F"..."P"), "F")
   }
+
+  func test_localExtrema() {
+    let (mininma, maxima) = [0, 1, 0, -1, -1, -1, 10, 11, -10].localExtrema
+    XCTAssertEqual(mininma, [-1])
+    XCTAssertEqual(maxima, [1, 11])
+  }
 }

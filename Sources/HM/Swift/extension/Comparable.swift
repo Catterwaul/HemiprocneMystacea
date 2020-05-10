@@ -42,3 +42,31 @@ public extension Comparable {
     min( Swift.max(limits.lowerBound, self), limits.upperBound )
   }
 }
+
+public extension Sequence where Element: Comparable {
+  var localExtrema: (minima: [Element], maxima: [Element]) {
+    let dictionary = Dictionary<Extremum, [Element]>(grouping:
+      removingDuplicates.consecutiveElements(by: 3).compactMap { consecutiveElements in
+        let value = consecutiveElements[1]
+        
+        guard let extremum: Extremum = ( {
+          let neighbors = [0, 2].map { consecutiveElements[$0] }
+          switch value {
+          case let minimum where neighbors.allSatisfy { $0 > minimum }:
+            return .minimum
+          case let maximum where neighbors.allSatisfy { $0 < maximum }:
+            return .maximum
+          default:
+            return nil
+          }
+        } () )
+        else { return nil }
+
+        return (key: extremum, value: value)
+      }
+    )
+
+    return (dictionary[.minimum] ?? [], dictionary[.maximum]  ?? [])
+  }
+}
+private enum Extremum { case minimum, maximum }

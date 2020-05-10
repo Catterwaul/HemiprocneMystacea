@@ -76,7 +76,7 @@ public extension Sequence {
   /// so this stops short of the end of the sequence by `count - 1`.
   /// - Precondition: `count > 0`
   func consecutiveElements(by count: Int) -> AnySequence<[Element]> {
-    (0..<count).map(dropFirst).zipped
+    (0..<count).map(Array(self).dropFirst).zipped
   }
 
   /// The number of elements that match a predicate.
