@@ -190,6 +190,14 @@ final class SequenceTestCase: XCTestCase {
       else { XCTFail(); return }
     }
   }
+
+  func test_rangesOf() {
+    XCTAssertEqual(
+      [0, 1, .min, .min, 2, 2, .min, 3, 3, 3, .min, 4, 4, .min, 5]
+        .ranges(for: [1, 2, 3, 4, 5]),
+      [1...1, 4...5, 7...9, 11...12, 14...14]
+    )
+  }
 	
   func test_sortedBy() {
     let sortedArray = [

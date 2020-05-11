@@ -290,6 +290,25 @@ public extension Sequence where Element: Equatable {
   func containsOnly(_ element: Element) -> Bool {
     allSatisfy { $0 == element }
   }
+
+  /// The ranges of in-order elements.
+  func ranges<Elements: Sequence>(for elements: Elements) -> [ClosedRange<Int>]
+  where Elements.Element == Element {
+    let (enumerated, getPrevious) = AnySequence.makeIterator( self.enumerated() )
+    return elements.compactMap { element in
+      enumerated.first { $0.element == element }
+      .map { start in
+        start.offset...(
+          enumerated.first { $0.element != element }
+          .map { $0.offset - 1 }
+          ?? {
+            let lastOffset = getPrevious()!.offset
+            return lastOffset
+          } ()
+        )
+      }
+    }
+  }
 }
 
 //MARK: Element: Hashable
