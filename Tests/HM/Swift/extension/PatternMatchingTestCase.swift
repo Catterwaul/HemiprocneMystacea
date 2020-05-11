@@ -28,4 +28,26 @@ final class PatternMatchingTestCase: XCTestCase {
       XCTFail()
     }
   }
+
+  func test_enum() {
+    enum 📧: Equatable {
+      case tuple(cat: String, hat: String)
+      case labeled(cake: String)
+      case noAssociatedValue
+    }
+
+    let tupleCase = 📧.tuple(cat: "🐯", hat: "🧢")
+    XCTAssertTrue(📧.tuple ~= tupleCase)
+
+    XCTAssertTrue( 📧.labeled ~= 📧.labeled(cake: "🍰") )
+
+    let makeTupleCase = 📧.tuple
+    XCTAssertFalse(makeTupleCase ~= 📧.noAssociatedValue)
+
+    switch tupleCase {
+    case 📧.labeled: XCTFail()
+    case makeTupleCase: break
+    default: XCTFail()
+    }
+  }
 }
