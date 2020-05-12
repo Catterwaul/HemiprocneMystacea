@@ -2,7 +2,14 @@ import HM
 import XCTest
 
 final class TupleTestCase: XCTestCase {
-  func test_TuplePlaceholder() {
+  func test_Placeholder() {
+    func makeIllustrations() -> [(image: String, Tuple.Placeholder)] {
+      [ ( image: "🐻", Tuple.Placeholder() ),
+        Tuple.`init`("🍯"),
+        ( image: "🐝", () )
+      ]
+    }
+
     XCTAssertEqual(makeIllustrations()[1].image, "🍯")
   }
 
@@ -16,13 +23,4 @@ final class TupleTestCase: XCTestCase {
     XCTAssertNil([].tuple3)
     XCTAssertNil([].tuple4)
   }
-}
-
-private typealias Illustration = (image: String, Tuple.Placeholder)
-
-private func makeIllustrations() -> [Illustration] {
-  [ ( image: "🐻", Tuple.Placeholder() ),
-    Tuple.`init`("🍯"),
-    ( image: "🐝", () )
-  ]
 }
