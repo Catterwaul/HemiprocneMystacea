@@ -29,6 +29,7 @@ public func ~= <Enum, AssociatedValue>(
   else { return false }
 
   return
-    Mirror(reflecting: dummyCase).children.first?.label
-    == instanceMirror.children.first?.label
+    [Mirror(reflecting: dummyCase), instanceMirror]
+    .map(\.children.first?.label)
+    .elementsAreAllEqual!
 }

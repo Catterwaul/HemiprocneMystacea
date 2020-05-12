@@ -264,6 +264,11 @@ public extension Sequence {
 
 //MARK: Element: Equatable
 public extension Sequence where Element: Equatable {
+  /// - Note: `nil` if empty.
+  var elementsAreAllEqual: Bool? {
+    first.map(dropFirst().containsOnly)
+  }
+  
   /// - Note: Has equivalent elements to a `Set`, made from this sequence.
   var firstUniqueElements: [Element] {
     reduce(into: []) { uniqueElements, element in
