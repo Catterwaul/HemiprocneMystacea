@@ -18,11 +18,11 @@ final class TupleTestCase: XCTestCase {
   }
 }
 
-private typealias Illustration = (image: String, TuplePlaceholder)
+private typealias Illustration = (image: String, Tuple.Placeholder)
 
 private func makeIllustrations() -> [Illustration] {
-  [ ( image: "🐻", TuplePlaceholder() ),
-    ( image: "🍯", TuplePlaceholder() ),
-    ( image: "🐝", TuplePlaceholder() )
+  [ ( image: "🐻", Tuple.Placeholder() ),
+    Tuple.`init`("🍯"),
+    ( image: "🐝", () )
   ]
 }

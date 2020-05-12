@@ -1,4 +1,17 @@
-public typealias TuplePlaceholder = Void
+public enum Tuple { }
+
+public extension Tuple {
+  /// Used to create a 2-tuple, as a single-element tuple can't have a label.
+  typealias Placeholder = Void
+
+  /// Stuff an element into a tuple that will have a labeled first element
+  /// when converted to a return value.
+  static func `init`<LabeledElement>(
+    _ labeledElement: LabeledElement
+  ) -> (LabeledElement, Placeholder) {
+    ( labeledElement, Placeholder() )
+  }
+}
 
 public extension Sequence {
   var tuple2: (Element, Element)? { makeTuple2()?.tuple }
