@@ -1,32 +1,41 @@
 /// Acts as a dictionary
-public protocol keyValueSubscript: keyValueThrowingSubscript {
+public protocol valueForKeyAccessor: valueForKeyThrowingAccessor {
 	associatedtype Value
 	
 	subscript(key: Key) -> Value? { get }
 }
 
-//MARK: keyValueThrowingSubscript
-public extension keyValueSubscript {
-  func value<Value>(for key: Key) throws -> Value {
-    guard let uncastValue: Self.Value = self[key]
+public extension valueForKeyAccessor {
+  /// - Throws: `GetValueForKeyError.noValue`
+  func value(for key: Key) throws -> Value {
+    guard let value = self[key]
     else { throw GetValueForKeyError.noValue(key: key) }
-    
-    guard let value = uncastValue as? Value
+
+    return value
+  }
+
+  /// - Throws: `GetValueForKeyError`
+  func value<Value>(for key: Key) throws -> Value {
+    guard let value = try value(for: key) as? Value
     else { throw GetValueForKeyError.typeCastFailure(key: key) }
     
     return value
   }
 }
 
+extension Dictionary: valueForKeyAccessor { }
+
+//MARK:-
+
 /// Acts as a dictionary that `throw`s instead of returning optionals.
-public protocol keyValueThrowingSubscript {
+public protocol valueForKeyThrowingAccessor {
 	associatedtype Key
 	
-	/// Should just be a generic, throwing subscript, but those don't exist yet.
+	/// Should just be a throwing subscript, but those don't exist yet.
 	func value<Value>(for: Key) throws -> Value
 }
 
-public extension keyValueThrowingSubscript {
+public extension valueForKeyThrowingAccessor {
 	/// Allows lookup by enumeration cases backed by `Key`s,
 	/// instead of having to manually use their raw values.
 	///
@@ -36,6 +45,8 @@ public extension keyValueThrowingSubscript {
     try self.value(for: key.rawValue)
   }
 }
+
+//MARK:-
 
 public enum GetValueForKeyError<Key>: Error {
   case noValue(key: Key)
