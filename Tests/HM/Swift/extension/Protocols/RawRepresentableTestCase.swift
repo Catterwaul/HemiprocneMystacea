@@ -22,4 +22,17 @@ final class RawRepresentableTestCase: XCTestCase {
 		XCTAssertFalse( NumberOfCats.contains(-10) )
 		XCTAssertFalse( NumberOfCats.contains(45672475) )
 	}
+
+  func test_InitializableWithElementSequence_init() {
+    enum 🧶: String, CaseIterable { case 🧵, 🎻 }
+
+    XCTAssertEqual(
+      🧶.allCases,
+      try .init(rawValues: ["🧵", "🎻"])
+    )
+
+    XCTAssertThrowsError(
+      try Set<🧶>(rawValues: ["🪕"])
+    )
+  }
 }

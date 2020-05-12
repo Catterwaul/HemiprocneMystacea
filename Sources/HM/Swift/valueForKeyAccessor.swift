@@ -1,4 +1,4 @@
-/// Acts as a dictionary
+/// Acts as a dictionary.
 public protocol valueForKeyAccessor: valueForKeyThrowingAccessor {
 	associatedtype Value
 	
