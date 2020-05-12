@@ -200,6 +200,10 @@ final class SequenceTestCase: XCTestCase {
   }
 	
   func test_sortedBy() {
+    struct TypeWith1EquatableProperty: Equatable {
+      let int: Int
+    }
+
     let sortedArray = [
       TypeWith1EquatableProperty(int: 3),
       TypeWith1EquatableProperty(int: 1),
@@ -227,32 +231,4 @@ final class SequenceTestCase: XCTestCase {
       ]
     )
   }
-  
-//MARK: firstUniqueElements
-  func test_firstUniqueElements_Hashable() {
-    XCTAssertEqual(
-      [1, 1, 1].firstUniqueElements,
-      [1]
-    )
-
-    XCTAssertEqual(
-      "ABCDEFABCDEFEDCBA".firstUniqueElements,
-      ["A", "B", "C", "D", "E", "F"]
-    )
-  }
-	
-	func test_firstUniqueElements_Equatable() {
-    let uniqueArray =
-      [1, 1, 2, 4, 2, 3, 4]
-        .map(TypeWith1EquatableProperty.init)
-        .firstUniqueElements
-		XCTAssertEqual(
-			uniqueArray,
-			[1, 2, 4, 3].map(TypeWith1EquatableProperty.init)
-		)
-	}
-}
-
-private struct TypeWith1EquatableProperty: Equatable {
-	let int: Int
 }
