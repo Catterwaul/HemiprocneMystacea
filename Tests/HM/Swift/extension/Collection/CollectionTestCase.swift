@@ -46,7 +46,7 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertEqual(try optionals.element(at: 0), 1)
 
     XCTAssertThrowsError( try optionals.element(at: optionals.endIndex) )
-    { XCTAssert($0 is CollectionExtensions.IndexingError) }
+    { XCTAssert($0 is AnyCollection<Int?>.IndexingError) }
   }
 
   func test_prefix() {

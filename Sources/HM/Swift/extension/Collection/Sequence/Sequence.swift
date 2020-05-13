@@ -158,7 +158,7 @@ public extension Sequence {
   /// The only match for a predicate.
   /// - Throws: `OnlyMatchError`
   func onlyMatch(for getIsMatch: (Element) throws -> Bool) throws -> Element {
-    typealias Error = SequenceExtensions.OnlyMatchError
+    typealias Error = AnySequence<Element>.OnlyMatchError
     guard let onlyMatch: Element = (
       try reduce(into: nil) { onlyMatch, element in
         switch ( onlyMatch, try getIsMatch(element) ) {
@@ -229,7 +229,7 @@ public extension Sequence {
   }
 
   func split(includingSeparators getIsSeparator: @escaping (Element) -> Bool)
-  -> AnySequence< SequenceExtensions.Spliteration<Element> > {
+  -> AnySequence< AnySequence<Element>.Spliteration > {
     var separatorFromPrefixIteration: Element?
 
     func process(next: Element?) -> Void {
@@ -258,7 +258,7 @@ public extension Sequence {
       return Optional(
         prefixIterator.prefix { !getIsSeparator($0) },
         nilWhen: \.isEmpty
-      ).map(SequenceExtensions.Spliteration.subSequence)
+      ).map(AnySequence.Spliteration.subSequence)
     }
   }
 }
@@ -282,22 +282,8 @@ public extension Sequence where Element: Sequence {
 
 //MARK:-
 
-/// A namespace for nested types within `Sequence`.
-public enum SequenceExtensions {
-  /// An error thrown from a call to `onlyMatch`.
-  public enum OnlyMatchError: Swift.Error {
-    case noMatches
-    case moreThanOneMatch
-  }
-
-  public enum Spliteration<Element> {
-    case separator(Element)
-    case subSequence([Element])
-  }
-}
-
 public extension Array {
-  init(_ spliteration: SequenceExtensions.Spliteration<Element>) {
+  init(_ spliteration: AnySequence<Element>.Spliteration) {
     switch spliteration {
     case .separator(let separator):
       self = [separator]

@@ -180,7 +180,7 @@ final class SequenceTestCase: XCTestCase {
   func test_onlyMatch() {
     XCTAssertEqual( try (1...5).onlyMatch { $0 > 4 }, 5 )
 
-    typealias Error = SequenceExtensions.OnlyMatchError
+    typealias Error = AnySequence<Int>.OnlyMatchError
     
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 4 } ) { error in
       guard case Error.moreThanOneMatch = error

@@ -1,4 +1,15 @@
 public extension AnySequence {
+    /// An error thrown from a call to `onlyMatch`.
+  enum OnlyMatchError: Swift.Error {
+    case noMatches
+    case moreThanOneMatch
+  }
+
+  enum Spliteration {
+    case separator(Element)
+    case subSequence([Element])
+  }
+
   /// Backtrack to the previous `next`, before resuming iteration.
   static func makeIterator<Sequence: Swift.Sequence>(_ sequence: Sequence)
   -> (Self, getPrevious: () -> Element?)

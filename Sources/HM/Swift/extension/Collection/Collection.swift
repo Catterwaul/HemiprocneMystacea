@@ -41,19 +41,13 @@ public extension Collection {
 //MARK:- Methods
 
   /// - Returns: same as subscript, if index is in bounds
-  /// - Throws: CollectionIndexingError
+  /// - Throws: `AnyCollection<Element>.IndexingError`
   func element(at index: Index) throws -> Element {
     guard indices.contains(index)
-    else { throw CollectionExtensions.IndexingError() }
+    else { throw AnyCollection<Element>.IndexingError() }
 
     return self[index]
   }
-}
-
-/// A namespace for nested types within `Collection`.
-public enum CollectionExtensions {
-  /// Thrown when `element(at:)` is called with an invalid index.
-  public struct IndexingError: Error { }
 }
 
 public extension Collection where Element: Equatable {
