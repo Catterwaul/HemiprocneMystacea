@@ -13,14 +13,14 @@ final class SerializableDictionaryTestCase: XCTestCase {
       "🔑"
     )
 		
-    typealias Error = GetValueForKeyError<String>
+    typealias Error<Value> = KeyValuePairs<String, Value>.AccessError
     
     let turKey = "🦃"
     XCTAssertThrowsError(
       try serializableDictionary.value(for: turKey) as Any
     ) { error in
       switch error {
-      case Error.noValue(let key):
+      case Error<Any>.noValue(let key):
         XCTAssertEqual(key, turKey)
       default:
         XCTFail()
@@ -31,7 +31,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
       try serializableDictionary.value(for: oldKey) as Bool
     ) { error in
       switch error {
-      case Error.typeCastFailure(let key):
+      case Error<Bool>.typeCastFailure(let key):
         XCTAssertEqual(key, oldKey)
       default:
         XCTFail()
@@ -39,7 +39,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
     }
   }
 	
-  func test_InitializableWithSerializableDictionaryArray_init() {
+  func test_InitializableWithSerializableDictionaryArray_init() throws {
     let dictionary = [
       "instruments": [
         [visualizationKey: "🎹"],
@@ -49,16 +49,13 @@ final class SerializableDictionaryTestCase: XCTestCase {
       ]
     ]
     
-    let instruments = try! [Instrument](
+    let instruments = try [Instrument](
       dictionary: dictionary,
       key: "instruments"
     )
     XCTAssertEqual(
       instruments.compactMap(\.visualization),
-      [ "🎹",
-        "🎸",
-        "🎷"
-      ]
+      ["🎹", "🎸", "🎷"]
     )
     
     let turKeyboard = "🦃⌨️"
@@ -69,7 +66,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
       )
     ) { error in
       switch error {
-      case GetValueForKeyError<String>.noValue(let key):
+      case KeyValuePairs<String, Any>.AccessError.noValue(let key):
         XCTAssertEqual(key, turKeyboard)
       default:
         XCTFail()

@@ -1,6 +1,6 @@
 import CloudKit
 
-extension CKRecord: valueForKeyAccessor {
+extension CKRecord: valueForKeySubscript {
   public typealias Key = FieldKey
 }
 

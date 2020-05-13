@@ -8,14 +8,14 @@ public extension RawRepresentable {
   /// if there is no value of the type that corresponds with the specified raw value.
   init(_ rawValue: RawValue) throws {
     guard let instance = Self(rawValue: rawValue)
-    else { throw RawRepresentableError.invalidRawValue }
+    else { throw RawRepresentableError<Self>.invalidRawValue(rawValue) }
 
     self = instance
   }
 }
 
-enum RawRepresentableError: Error {
-  case invalidRawValue
+public enum RawRepresentableError<RawRepresentable: Swift.RawRepresentable>: Error {
+  case invalidRawValue(RawRepresentable.RawValue)
 }
 
 public extension InitializableWithElementSequence where Element: RawRepresentable {

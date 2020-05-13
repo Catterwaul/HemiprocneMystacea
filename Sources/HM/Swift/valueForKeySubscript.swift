@@ -1,15 +1,15 @@
 /// Acts as a dictionary.
-public protocol valueForKeyAccessor: valueForKeyThrowingAccessor {
+public protocol valueForKeySubscript: valueForKeyThrowingAccessor {
 	associatedtype Value
 	
 	subscript(key: Key) -> Value? { get }
 }
 
-public extension valueForKeyAccessor {
-  /// - Throws: `GetValueForKeyError.noValue`
+public extension valueForKeySubscript {
+  /// - Throws: `KeyValuePairs.AccessError.noValue`
   func value(for key: Key) throws -> Value {
     guard let value = self[key]
-    else { throw GetValueForKeyError.noValue(key: key) }
+    else { throw KeyValuePairs<Key, Value>.AccessError.noValue(key: key) }
 
     return value
   }
@@ -17,13 +17,13 @@ public extension valueForKeyAccessor {
   /// - Throws: `GetValueForKeyError`
   func value<Value>(for key: Key) throws -> Value {
     guard let value = try value(for: key) as? Value
-    else { throw GetValueForKeyError.typeCastFailure(key: key) }
+    else { throw KeyValuePairs<Key, Value>.AccessError.typeCastFailure(key: key) }
     
     return value
   }
 }
 
-extension Dictionary: valueForKeyAccessor { }
+extension Dictionary: valueForKeySubscript { }
 
 //MARK:-
 
@@ -44,11 +44,4 @@ public extension valueForKeyThrowingAccessor {
   where Key.RawValue == Self.Key {
     try self.value(for: key.rawValue)
   }
-}
-
-//MARK:-
-
-public enum GetValueForKeyError<Key>: Error {
-  case noValue(key: Key)
-  case typeCastFailure(key: Key)
 }

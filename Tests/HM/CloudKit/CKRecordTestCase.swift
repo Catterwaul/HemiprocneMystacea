@@ -70,8 +70,8 @@ final class CKRecordTestCase: XCTestCase {
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
     XCTAssertThrowsError( try IntEnum(record: record) ) { error in
       switch error {
-      case let error as CKRecord.RawRepresentableInitializationError<Int>:
-        XCTAssertEqual(error.rawValue, -1)
+      case RawRepresentableError<IntEnum>.invalidRawValue(let rawValue):
+        XCTAssertEqual(rawValue, -1)
       default:
         XCTFail()
       }
@@ -94,8 +94,8 @@ final class CKRecordTestCase: XCTestCase {
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
     XCTAssertThrowsError( try StringEnum(record: record) ) { error in
       switch error {
-      case let error as CKRecord.RawRepresentableInitializationError<String>:
-        XCTAssertEqual(error.rawValue, "eh")
+      case RawRepresentableError<StringEnum>.invalidRawValue(let rawValue):
+        XCTAssertEqual(rawValue, "eh")
       default:
         XCTFail()
       }
@@ -103,7 +103,7 @@ final class CKRecordTestCase: XCTestCase {
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
     XCTAssertThrowsError( try StringEnum(record: record) ) { error in
-      guard case GetValueForKeyError<String>.noValue = error
+      guard case KeyValuePairs<String, CKRecordValue>.AccessError.noValue = error
       else { XCTFail(); return }
     }
   }
