@@ -4,7 +4,7 @@ public extension RawRepresentable {
   }
 
   /// Like `init(rawValue:)`, if it was throwing instead of failable.
-  /// - Throws: `RawRepresentableError.invalidRawValue`
+  /// - Throws: `RawRepresentableExtensions<Self>.Error.invalidRawValue`
   /// if there is no value of the type that corresponds with the specified raw value.
   init(_ rawValue: RawValue) throws {
     guard let instance = Self(rawValue: rawValue)
@@ -22,7 +22,7 @@ public enum RawRepresentableExtensions<RawRepresentable: Swift.RawRepresentable>
 }
 
 public extension InitializableWithElementSequence where Element: RawRepresentable {
-  /// - Throws: `RawRepresentableError.invalidRawValue`
+  /// - Throws: `RawRepresentableExtensions<Element>.Error.invalidRawValue`
   init<RawValues: Sequence>(rawValues: RawValues) throws
   where RawValues.Element == Element.RawValue {
     self.init(

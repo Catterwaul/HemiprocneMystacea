@@ -6,7 +6,7 @@ public protocol valueForKeySubscript: valueForKeyThrowingAccessor {
 }
 
 public extension valueForKeySubscript {
-  /// - Throws: `KeyValuePairs.AccessError.noValue`
+  /// - Throws: `KeyValuePairs<Key, Value>.AccessError.noValue`
   func value(for key: Key) throws -> Value {
     guard let value = self[key]
     else { throw KeyValuePairs<Key, Value>.AccessError.noValue(key: key) }
@@ -14,7 +14,7 @@ public extension valueForKeySubscript {
     return value
   }
 
-  /// - Throws: `GetValueForKeyError`
+  /// - Throws: `KeyValuePairs<Key, Value>.AccessError.typeCastFailure`
   func value<Value>(for key: Key) throws -> Value {
     guard let value = try value(for: key) as? Value
     else { throw KeyValuePairs<Key, Value>.AccessError.typeCastFailure(key: key) }
