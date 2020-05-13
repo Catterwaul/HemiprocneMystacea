@@ -1,8 +1,8 @@
 /// Acts as a dictionary.
 public protocol valueForKeySubscript: valueForKeyThrowingAccessor {
-	associatedtype Value
-	
-	subscript(key: Key) -> Value? { get }
+  associatedtype Value
+  
+  subscript(key: Key) -> Value? { get }
 }
 
 public extension valueForKeySubscript {
