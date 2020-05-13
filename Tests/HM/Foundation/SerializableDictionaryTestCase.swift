@@ -114,7 +114,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
     XCTAssertThrowsError(
       try [Instrument](jsonData: jsonData)
     ) {	error in
-      guard case InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries = error
+      guard case InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries = error
       else { XCTFail(); return }
     }
   }

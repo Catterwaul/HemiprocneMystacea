@@ -8,14 +8,17 @@ public extension RawRepresentable {
   /// if there is no value of the type that corresponds with the specified raw value.
   init(_ rawValue: RawValue) throws {
     guard let instance = Self(rawValue: rawValue)
-    else { throw RawRepresentableError<Self>.invalidRawValue(rawValue) }
+    else { throw RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue) }
 
     self = instance
   }
 }
 
-public enum RawRepresentableError<RawRepresentable: Swift.RawRepresentable>: Error {
-  case invalidRawValue(RawRepresentable.RawValue)
+/// A namespace for nested types within `RawRepresentable`.
+public enum RawRepresentableExtensions<RawRepresentable: Swift.RawRepresentable> {
+  public enum Error: Swift.Error {
+    case invalidRawValue(RawRepresentable.RawValue)
+  }
 }
 
 public extension InitializableWithElementSequence where Element: RawRepresentable {

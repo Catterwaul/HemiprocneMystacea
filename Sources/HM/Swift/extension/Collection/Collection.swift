@@ -44,14 +44,17 @@ public extension Collection {
   /// - Throws: CollectionIndexingError
   func element(at index: Index) throws -> Element {
     guard indices.contains(index)
-    else { throw CollectionIndexingError() }
+    else { throw CollectionExtensions.IndexingError() }
 
     return self[index]
   }
 }
 
-/// Thrown when `element(at:)` is called with an invalid index.
-public struct CollectionIndexingError: Error { }
+/// A namespace for nested types within `Collection`.
+public enum CollectionExtensions {
+  /// Thrown when `element(at:)` is called with an invalid index.
+  public struct IndexingError: Error { }
+}
 
 public extension Collection where Element: Equatable {
 //MARK:- Subscripts

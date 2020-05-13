@@ -15,7 +15,7 @@ public extension RawRepresentableWithCKRecordValue {
     let rawValue: RawValue = try record.value(for: key)
 
     guard let initializableWithCloudKitRecord = Self(rawValue: rawValue)
-    else { throw RawRepresentableError<Self>.invalidRawValue(rawValue) }
+    else { throw RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue) }
 
     self = initializableWithCloudKitRecord
   }

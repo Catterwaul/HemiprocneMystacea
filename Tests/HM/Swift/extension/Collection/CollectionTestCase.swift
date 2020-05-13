@@ -40,13 +40,13 @@ final class CollectionTestCase: XCTestCase {
 //MARK:- Methods
 
   func test_getElement() throws {
-XCTAssertThrowsError( try ["🐾", "🥝"].element(at: 2) )
+    XCTAssertThrowsError( try ["🐾", "🥝"].element(at: 2) )
 
-let optionals = [1, 2, nil]
-XCTAssertEqual(try optionals.element(at: 0), 1)
+    let optionals = [1, 2, nil]
+    XCTAssertEqual(try optionals.element(at: 0), 1)
 
-XCTAssertThrowsError( try optionals.element(at: optionals.endIndex) )
-{ XCTAssert($0 is CollectionIndexingError) }
+    XCTAssertThrowsError( try optionals.element(at: optionals.endIndex) )
+    { XCTAssert($0 is CollectionExtensions.IndexingError) }
   }
 
   func test_prefix() {

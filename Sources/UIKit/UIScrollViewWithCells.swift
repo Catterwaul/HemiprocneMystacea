@@ -51,18 +51,23 @@ public extension UIScrollViewWithCells {
   ///- Precondition: The name of `Cell` has been assigned to the `Identifier`
   ///  for a cell that this View uses
   func visibleCell<Cell: UIView>(at indexPath: IndexPath) throws -> Cell {
+    typealias Error = UIScrollViewWithCellsExtensions.GetVisibleCellError
+
     guard let baseCell = cellForItem(at: indexPath)
-    else { throw UIScrollViewWithCells_GetVisibleCellError.noVisisbleCell }
+    else { throw Error.noVisisbleCell }
 
     guard let cell = baseCell as? Cell
-    else { throw UIScrollViewWithCells_GetVisibleCellError.incorrectType }
+    else { throw Error.incorrectType }
 
     return cell
   }
 }
 
-public enum UIScrollViewWithCells_GetVisibleCellError: Error {
-  case noVisisbleCell, incorrectType
+/// A namespace for nested types within `UIScrollViewWithCells`.
+public enum UIScrollViewWithCellsExtensions {
+  public enum GetVisibleCellError: Error {
+    case noVisisbleCell, incorrectType
+  }
 }
 
 //MARK: internal

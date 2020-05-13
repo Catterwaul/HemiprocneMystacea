@@ -51,16 +51,20 @@ public extension InitializableWithSerializableDictionary {
 			}
 			return dictionary as? [String: Any]
 		} ()
-		else { throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionary }
+    else { throw InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionary }
 		
 		try self.init(dictionary)
 	}
 }
 
-//MARK:
-public enum InitializableWithSerializableDictionaryError: Error {
-	case dataNotConvertibleToDictionary
-	case dataNotConvertibleToDictionaries
+//MARK:-
+
+/// A namespace for nested types within `InitializableWithSerializableDictionary`.
+public enum InitializableWithSerializableDictionaryExtensions {
+  public enum Error: Swift.Error {
+    case dataNotConvertibleToDictionary
+    case dataNotConvertibleToDictionaries
+  }
 }
 
 //MARK:
@@ -70,7 +74,7 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 	init(_ array: [Any]) throws {
 		guard let dictionaries = array as? DictionaryArray
 		else {
-			throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries
+			throw InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries
 		}
 		
 		try self.init(dictionaries: dictionaries)
@@ -104,7 +108,7 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 //MARK: private
 	private init(deserialized: Any) throws {
 		guard let dictionaries = deserialized as? DictionaryArray
-		else { throw InitializableWithSerializableDictionaryError.dataNotConvertibleToDictionaries }
+		else { throw InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries }
 		
 		try self.init(dictionaries: dictionaries)
 	}

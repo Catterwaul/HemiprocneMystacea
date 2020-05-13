@@ -1,11 +1,16 @@
 import Metal
 
-public enum MTLDeviceError: Error {
-  case noSystemDefaultDevice
-  case couldNotMakeCommandQueue
+//MARK:-
+
+/// A namespace for nested types within `MTLDevice`.
+public enum MTLDeviceExtensions {
+  public enum Error: Swift.Error {
+    case noSystemDefaultDevice
+    case couldNotMakeCommandQueue
+  }
 }
 
-extension MTLDeviceError: CustomStringConvertible {
+extension MTLDeviceExtensions.Error: CustomStringConvertible {
   public var description: String {
     switch self {
     case .noSystemDefaultDevice:

@@ -58,6 +58,8 @@ public extension InitializableWithCloudKitRecordAndReferences {
   }
 }
 
-enum InitializableWithCloudKitRecordAndReferences_Error: Error {
-	case emptyReferenceList
+enum InitializableWithCloudKitRecordAndReferencesExtensions {
+  enum Error: Swift.Error {
+    case emptyReferenceList
+  }
 }

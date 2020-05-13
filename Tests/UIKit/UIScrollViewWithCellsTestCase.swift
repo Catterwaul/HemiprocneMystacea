@@ -1,4 +1,5 @@
 import XCTest
+import HM
 import UIKit_HM
 
 final class UIScrollViewWithCellsTestCase: XCTestCase {
@@ -10,7 +11,7 @@ final class UIScrollViewWithCellsTestCase: XCTestCase {
     XCTAssertThrowsError(
       try collectionView.visibleCell( at: IndexPath( item: 0, section: 0) )
     ) { error in
-      guard case UIScrollViewWithCells_GetVisibleCellError.noVisisbleCell = error
+      guard case UIScrollViewWithCellsExtensions.GetVisibleCellError.noVisisbleCell = error
       else { XCTFail(); return }
     }
   }

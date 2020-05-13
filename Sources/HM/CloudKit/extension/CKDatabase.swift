@@ -149,7 +149,7 @@ public extension CKDatabase {
         guard let references = requestedRecord[Requested.referenceKey] as? [CKRecord.Reference]
         else {
           processGetRequested {
-            throw InitializableWithCloudKitRecordAndReferences_Error.emptyReferenceList
+            throw InitializableWithCloudKitRecordAndReferencesExtensions.Error.emptyReferenceList
           }
           return
         }

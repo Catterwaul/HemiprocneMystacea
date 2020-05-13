@@ -180,13 +180,15 @@ final class SequenceTestCase: XCTestCase {
   func test_onlyMatch() {
     XCTAssertEqual( try (1...5).onlyMatch { $0 > 4 }, 5 )
 
+    typealias Error = SequenceExtensions.OnlyMatchError
+    
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 4 } ) { error in
-      guard case OnlyMatchError.moreThanOneMatch = error
+      guard case Error.moreThanOneMatch = error
       else { XCTFail(); return }
     }
 
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 1 } ) { error in
-      guard case OnlyMatchError.noMatches = error
+      guard case Error.noMatches = error
       else { XCTFail(); return }
     }
   }
