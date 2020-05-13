@@ -13,10 +13,9 @@ public extension RawRepresentableWithCKRecordValue {
   init<RecordKey: RawRepresentable>(record: CKRecord, key: RecordKey) throws
   where RecordKey.RawValue == CKRecord.FieldKey {
     let rawValue: RawValue = try record.value(for: key)
-
-    guard let initializableWithCloudKitRecord = Self(rawValue: rawValue)
-    else { throw RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue) }
-
-    self = initializableWithCloudKitRecord
+    self = try Result(
+      success: Self(rawValue: rawValue),
+      failure: RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue)
+    ).get()
   }
 }

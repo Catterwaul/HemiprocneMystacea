@@ -7,10 +7,10 @@ public extension RawRepresentable {
   /// - Throws: `RawRepresentableExtensions<Self>.Error.invalidRawValue`
   /// if there is no value of the type that corresponds with the specified raw value.
   init(_ rawValue: RawValue) throws {
-    guard let instance = Self(rawValue: rawValue)
-    else { throw RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue) }
-
-    self = instance
+    self = try Result(
+      success: Self(rawValue: rawValue),
+      failure: RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue)
+    ).get()
   }
 }
 
