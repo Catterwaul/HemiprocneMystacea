@@ -22,6 +22,6 @@ public enum AnyCaseIterable {
 }
 
 public extension comparable where Self: CaseIterable {
-  /// The index of two cases.
+  /// The index of this case in `allCases`.
   var comparable: AllCases.Index { try! getCaseIndex() }
 }
