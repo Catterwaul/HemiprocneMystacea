@@ -156,7 +156,7 @@ public extension Sequence {
   }
 
   /// The only match for a predicate.
-  /// - Throws: `OnlyMatchError`
+  /// - Throws: `AnySequence<Element>.OnlyMatchError`
   func onlyMatch(for getIsMatch: (Element) throws -> Bool) throws -> Element {
     typealias Error = AnySequence<Element>.OnlyMatchError
     guard let onlyMatch: Element = (
