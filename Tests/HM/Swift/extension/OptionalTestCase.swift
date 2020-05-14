@@ -2,6 +2,18 @@ import HM
 import XCTest
 
 final class OptionalTestCase: XCTestCase {
+  func test_init_optionals() throws {
+    var jenies: (String?, String?) = ("👖", "🧞‍♂️")
+
+    do {
+      let jenies = try XCTUnwrap( Optional(optionals: jenies) )
+      XCTAssert( jenies == ("👖", "🧞‍♂️") )
+    }
+
+    jenies.1 = nil
+    XCTAssertNil( Optional(optionals: jenies) )
+  }
+
   func test_reduce() {
     var int: Int? = nil
     XCTAssertEqual(int.reduce(1, +), 1)

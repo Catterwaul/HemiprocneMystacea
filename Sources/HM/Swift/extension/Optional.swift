@@ -10,6 +10,18 @@ public extension Optional {
     self = try getIsNil(wrapped) ? nil : wrapped
   }
 
+  /// Exchange two optionals for a single optional tuple.
+  /// - Returns: `nil` if either tuple element is `nil`.
+  init<Wrapped0, Wrapped1>( optionals: (Wrapped0?, Wrapped1?) )
+  where Wrapped == (Wrapped0, Wrapped1) {
+    switch optionals {
+    case let (wrapped0?, wrapped1?):
+      self = (wrapped0, wrapped1)
+    default:
+      self = nil
+    }
+  }
+
   /// - Parameters:
   ///   - makeResult: arguments: (`resultWhenNil`, `self!`)
   func reduce<Result>(
