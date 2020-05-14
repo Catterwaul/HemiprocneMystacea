@@ -8,4 +8,12 @@ final class AnySequenceTestCase: XCTestCase {
       "🧞🧞🧞"
     )
   }
+
+  func test_zip() {
+    XCTAssert(
+      AnySequence( zip: (1...4, ["🦸🏻‍♀️", "🧟‍♀️"]) )
+      ==
+      [(1, "🦸🏻‍♀️"), (2, "🧟‍♀️"), (3, nil), (4, nil)] as [(Int?, String?)]
+    )
+  }
 }

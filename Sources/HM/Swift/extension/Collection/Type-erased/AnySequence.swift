@@ -49,4 +49,20 @@ public extension AnySequence {
       }
     }
   }
+
+  /// Like `zip`, but with nil elements after shorter sequences are exhausted.
+  init<Sequence0: Sequence, Sequence1: Sequence>(
+    zip zipped: (Sequence0, Sequence1)
+  ) where Element == (Sequence0.Element?, Sequence1.Element?) {
+    self.init(
+      sequence(
+        state: ( zipped.0.makeIterator(), zipped.1.makeIterator() )
+      ) { iterators in
+        Optional(
+          ( iterators.0.next(), iterators.1.next() ),
+          nilWhen: { $0 == nil && $1 == nil }
+        )
+      }
+    )
+  }
 }
