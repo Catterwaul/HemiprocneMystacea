@@ -1,22 +1,26 @@
 import Foundation
 
 public extension URLSession {
+  typealias DataTaskResult<Response: URLResponse> =
+    Result<(data: Data?, response: Response), Error>
+
   func makeDataTask<Response: URLResponse>(
     request: URLRequest,
-    process: @escaping ( () throws -> (Data?, Response) ) -> Void
+    process: @escaping (DataTaskResult<Response>) -> Void
   ) -> URLSessionDataTask {
     dataTask(with: request) { data, response, error in
-      if let error = error {
-        process { throw error }
-      }
-
-      process { [response = response as! Response] in (data, response) }
+      process(
+        try! Result(
+          success: (response as? Response).map { (data, $0) },
+          failure: error
+        )
+      )
     }
   }
 
   func makeHTTPDataTask(
     request: URLRequest,
-    process: @escaping ( () throws -> (Data?, HTTPURLResponse) ) -> Void
+    process: @escaping (DataTaskResult<HTTPURLResponse>) -> Void
   ) -> URLSessionDataTask {
     makeDataTask(request: request, process: process)
   }

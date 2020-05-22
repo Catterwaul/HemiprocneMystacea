@@ -35,6 +35,7 @@ public extension AnySequence {
     self.init( Iterator(getNext) )
   }
 
+  /// A cyclical version of a sequence.
   init<Sequence: Swift.Sequence>(cycling sequence: Sequence)
   where Sequence.Element == Element {
     self.init { [makeIterator = sequence.makeIterator] in
@@ -50,7 +51,7 @@ public extension AnySequence {
     }
   }
 
-  /// Like `zip`, but with nil elements after shorter sequences are exhausted.
+  /// Like `zip`, but with `nil` elements for the shorter sequence after it is exhausted.
   init<Sequence0: Sequence, Sequence1: Sequence>(
     zip zipped: (Sequence0, Sequence1)
   ) where Element == (Sequence0.Element?, Sequence1.Element?) {

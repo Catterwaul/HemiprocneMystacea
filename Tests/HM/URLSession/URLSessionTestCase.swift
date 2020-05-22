@@ -20,7 +20,7 @@ final class URLSessionTestCase: XCTestCase {
           return urlComponents.url!
         } ()
       )
-    ) { getDataAndResponse in
+    ) { dataTaskResult in
       defer { expectation.fulfill() }
 
       do {
@@ -37,7 +37,7 @@ final class URLSessionTestCase: XCTestCase {
         }
 
 
-        let (data, response) = try getDataAndResponse()
+        let (data, response) = try dataTaskResult.get()
         let json = try JSONDecoder().decode(JSON.self, from: data!)
 
         XCTAssertEqual(response.statusCode, 200)
