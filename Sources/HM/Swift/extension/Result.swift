@@ -11,7 +11,19 @@ public extension Result {
     processSuccess: @escaping (Success) -> Void,
     processFailure: @escaping (Result<FinalSuccess, Failure>) -> Void
   ) -> (Success?, Failure?) -> Void {
-    makeHandleCompletion { result in
+    makeHandleCompletion(
+      makePromise(
+        processSuccess: processSuccess,
+        processFailure: processFailure
+      )
+    )
+  }
+
+  static func makePromise<FinalSuccess>(
+    processSuccess: @escaping (Success) -> Void,
+    processFailure: @escaping (Result<FinalSuccess, Failure>) -> Void
+  ) -> (Self) -> Void {
+    { result in
       switch result {
       case .success(let success):
         processSuccess(success)

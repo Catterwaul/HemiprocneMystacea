@@ -18,7 +18,7 @@ public func makeProcess<Intermediate, Final>(
   processGetError: @escaping ProcessGet<Final>,
   _ processIntermediate: @escaping (Intermediate) throws -> Void
 ) -> ProcessGet<Intermediate> {
-  return { getIntermediate in
+  { getIntermediate in
     do {
       let intermediate = try getIntermediate()
       try processIntermediate(intermediate)
