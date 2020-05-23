@@ -3,7 +3,7 @@ import UserNotifications
 public extension UNUserNotificationCenter {
   func add(
     _ request: UNNotificationRequest,
-    _ processAdditionResult: Process<VerificationResult>? = nil
+    _ processAdditionResult: Process< VerificationResult<Error> >? = nil
   ) {
     add(
       request,

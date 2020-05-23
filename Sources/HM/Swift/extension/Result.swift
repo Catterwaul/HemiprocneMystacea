@@ -23,7 +23,7 @@ public extension Result {
 //MARK:-
 
 /// A `Result` with no useful success value.
-public typealias VerificationResult = Result<Void, Error>
+public typealias VerificationResult<Failure: Error> = Result<Void, Failure>
 
 public extension VerificationResult where Success == Void {
   /// `.success( () )`

@@ -16,7 +16,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
 		_ process: @escaping ProcessGet<Self>,
-		_ processVerifyCompletion: @escaping Process<VerificationResult>
+		_ processVerifyCompletion: @escaping Process< VerificationResult<Error> >
 	) {
 		database.request(
 			predicate: predicate,
