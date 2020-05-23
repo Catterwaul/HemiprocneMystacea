@@ -156,10 +156,8 @@ public extension CKDatabase {
         dispatchGroup.enter()
         
         let operation = CKFetchRecordsOperation(references: references) {
-          getRecords in
-          
           do {
-            let records = try getRecords()
+            let records = try $0.get()
             let references = try records.map(Requested.Reference.init)
             
             processGetRequested {

@@ -16,21 +16,14 @@ public extension UNUserNotificationCenter {
     )
   }
   
-	func requestAuthorization(
-		options: UNAuthorizationOptions,
-		processGetGranted: @escaping ProcessGet<Bool>
-	) {
-		requestAuthorization(
-			options: options,
-			completionHandler: { granted, error in
-				if let error = error {
-					processGetGranted { throw error }
-					return
-				}
-				
-				processGetGranted { granted }
-			}
-		)
-	}
+  func requestAuthorization(
+    options: UNAuthorizationOptions,
+    process: @escaping (Result<Bool, Error>) -> Void
+  ) {
+    requestAuthorization(
+      options: options,
+      completionHandler: Result.makeHandleCompletion(process)
+    )
+  }
 }
  

@@ -30,8 +30,8 @@ public extension CloudKitBackReferenced {
         let operation = CKFetchRecordsOperation(
           recordIDs: Array(results.keys)
         ) {
-          getRecords in process {
-            let records = try getRecords()
+          result in process {
+            let records = try result.get()
             return records.compactMap {
               record in try? Self(
                 record: record.value,
