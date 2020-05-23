@@ -1,4 +1,26 @@
 public extension Result {
+  /// Create an Objective-C-style "completion handler".
+  static func makeHandleCompletion(
+    _ process: @escaping (Self) -> Void
+  ) -> (Success?, Failure?) -> Void {
+    { process( $1.map(Self.failure) ?? .success($0!) ) }
+  }
+
+  /// Create an Objective-C-style "completion handler".
+  static func makeHandleCompletion<FinalSuccess>(
+    processSuccess: @escaping (Success) -> Void,
+    processFailure: @escaping (Result<FinalSuccess, Failure>) -> Void
+  ) -> (Success?, Failure?) -> Void {
+    makeHandleCompletion { result in
+      switch result {
+      case .success(let success):
+        processSuccess(success)
+      case .failure(let error):
+        processFailure( .failure(error) )
+      }
+    }
+  }
+
   /// Create a `Result` based on a throwing operation.
   /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`.
   init(_ getSuccess: @autoclosure () throws -> Success) throws {
