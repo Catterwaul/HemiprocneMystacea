@@ -16,7 +16,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
 		_ process: @escaping ProcessGet<Self>,
-		_ processVerifyCompletion: @escaping Process< VerificationResult<Error> >
+		_ processVerifyCompletion: @escaping (VerificationResult<Error>) -> Void
 	) {
 		database.request(
 			predicate: predicate,
@@ -28,7 +28,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
   static func request(
     database: CKDatabase,
     predicate: NSPredicate = NSPredicate(value: true),
-    processSingleRecordError: @escaping Process<Error>,
+    processSingleRecordError: @escaping (Error) -> Void,
     _ process: @escaping ProcessGet<[Self]>
   ) {
     let operationQueue = OperationQueue()

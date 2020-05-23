@@ -8,8 +8,8 @@ public extension IndexPath {
   ///- Returns: `process(_ indexPath: IndexPath)`
   static func makeProcess<Processable>(
     processables: NamedGetOnlySubscript<IndexPath, Processable>,
-    process: @escaping Process<Processable>
-  ) -> Process<IndexPath> {
+    process: @escaping (Processable) -> Void
+  ) -> (IndexPath) -> Void {
     { indexPath in process(processables[indexPath]) }
   }
 

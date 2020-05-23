@@ -139,7 +139,7 @@ public extension CKDatabase {
   func request<Requested: InitializableWithCloudKitRecordAndReferences>(
     predicate: NSPredicate = NSPredicate(value: true),
     _ processGetRequested: @escaping ProcessGet<Requested>,
-    _ processCompletionResult: @escaping Process< VerificationResult<Error> >
+    _ processCompletionResult: @escaping (VerificationResult<Error>) -> Void
   ) {
     let dispatchGroup = DispatchGroup()
     
@@ -207,7 +207,7 @@ public extension CKDatabase {
   ///   - processResult: Process the result of attempting a save.
   func save(
     _ record: CKRecord,
-    processResult: @escaping Process< VerificationResult<Error> >
+    processResult: @escaping (VerificationResult<Error>) -> Void
   ) {
     save(record) {
       processResult( .init(failure: $1) )
