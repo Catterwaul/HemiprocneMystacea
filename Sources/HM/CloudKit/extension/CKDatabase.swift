@@ -12,28 +12,27 @@ public extension CKDatabase {
       CKModifyRecordsOperation(
         recordsToSave: recordsToSave,
         recordIDsToDelete: recordIDsToDelete
-      ) {
-        [unowned self] verifyCompletion in
-        
+      ) { [unowned self] processCompletionResult in
         defer { dispatchGroup.leave() }
         
-        do { try verifyCompletion() }
+        do { try processCompletionResult.get() }
         catch let error as CKError
         where CKError.Code(rawValue: error.errorCode) == .unknownItem {
           dispatchGroup.enter()
-          self.save(recordsToSave.first!) { verify in
+          self.save(recordsToSave.first!) { result in
             defer { dispatchGroup.leave() }
-            
-            do {
-              try verify()
+
+            switch result {
+            case .success:
               self.addModifyRecordsOperationsAsNeeded(
                 recordsToSave: Array( recordsToSave.dropFirst() ),
                 recordIDsToDelete: recordIDsToDelete,
                 dispatchGroup: dispatchGroup,
                 addToErrors: addToErrors
               )
+            case .failure(let error):
+              addToErrors(error)
             }
-            catch let error { addToErrors(error) }
           }
         }
         catch let error as CKError
@@ -140,7 +139,7 @@ public extension CKDatabase {
   func request<Requested: InitializableWithCloudKitRecordAndReferences>(
     predicate: NSPredicate = NSPredicate(value: true),
     _ processGetRequested: @escaping ProcessGet<Requested>,
-    _ processVerifyCompletion: @escaping Process<Verify>
+    _ processCompletionResult: @escaping Process<VerificationResult>
   ) {
     let dispatchGroup = DispatchGroup()
     
@@ -179,7 +178,7 @@ public extension CKDatabase {
 			
       operation.queryCompletionBlock = { cursor, error in
         if let error = error {
-          processVerifyCompletion { throw error }
+          processCompletionResult( .init(failure: error) )
         }
         else if let cursor = cursor {
           let operation = CKQueryOperation(cursor: cursor)
@@ -188,7 +187,7 @@ public extension CKDatabase {
         }
         else {
           dispatchGroup.notify( queue: DispatchQueue(label: "") ) {
-            processVerifyCompletion { }
+            processCompletionResult( .init() )
           }
         }
       }
@@ -205,18 +204,13 @@ public extension CKDatabase {
   }
   
   /// - Parameters:
-  ///   - processVerify: that the save succeeded
+  ///   - processResult: Process the result of attempting a save.
   func save(
     _ record: CKRecord,
-    processVerify: @escaping Process<Verify>
+    processResult: @escaping Process<VerificationResult>
   ) {
-    save(record) { record, error in
-      if let error = error {
-        processVerify { throw error }
-        return
-      }
-      
-      processVerify { }
+    save(record) {
+      processResult( .init(failure: $1) )
     }
   }
 }

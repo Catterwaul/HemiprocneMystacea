@@ -19,3 +19,25 @@ public extension Result {
     }
   }
 }
+
+//MARK:-
+
+/// A `Result` with no useful success value.
+public typealias VerificationResult = Result<Void, Error>
+
+public extension VerificationResult where Success == Void {
+  /// `.success( () )`
+  init() {
+    self = .success( () )
+  }
+
+  /// `.success` only when `failure` is `nil`.
+  init(failure: Failure?) {
+    switch failure {
+    case nil:
+      self.init()
+    case let failure?:
+      self = .failure(failure)
+    }
+  }
+}

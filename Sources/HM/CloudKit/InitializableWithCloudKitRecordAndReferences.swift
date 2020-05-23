@@ -16,7 +16,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		database: CKDatabase,
 		predicate: NSPredicate = NSPredicate(value: true),
 		_ process: @escaping ProcessGet<Self>,
-		_ processVerifyCompletion: @escaping Process<Verify>
+		_ processVerifyCompletion: @escaping Process<VerificationResult>
 	) {
 		database.request(
 			predicate: predicate,
@@ -47,13 +47,13 @@ public extension InitializableWithCloudKitRecordAndReferences {
         }
         catch { processSingleRecordError(error) }
       }
-    ) { verifyCompletion in
-      do {
-        try verifyCompletion()
-        
+    ) { completionResult in
+      switch completionResult {
+      case .success:
         operationQueue.addOperation { process { requesteds } }
+      case .failure(let error):
+        process { throw error }
       }
-      catch { process { throw error } }
     }
   }
 }
