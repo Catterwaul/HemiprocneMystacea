@@ -1,4 +1,19 @@
 public extension Result {
+  /// Create a `Result` based on a throwing operation.
+  /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`.
+  init(_ getSuccess: @autoclosure () throws -> Success) throws {
+    do {
+      let success = try getSuccess()
+      self = .success(success)
+    }
+    catch {
+      guard let failure = error as? Failure
+      else { throw CastError.impossible }
+
+      self = .failure(failure)
+    }
+  }
+
   /// `success` for `Optional.some`s; `failure` for `.none`s.
   init(
     success: Success?,
@@ -16,6 +31,31 @@ public extension Result {
       self = .success(success)
     case .option1(let failure):
       self = .failure(failure)
+    }
+  }
+}
+
+public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
+  /// Create a `Result` based on a throwing operation.
+  ///
+  /// If only one element is thrown, it will be turned into a `Success Sequence`.
+  ///
+  /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`,
+  /// or a `Failure.ArrayLiteralElement`.
+  init(groupingFailures getSuccess: @autoclosure () throws -> Success) throws {
+    do {
+      let success = try getSuccess()
+      self = .success(success)
+    }
+    catch {
+      switch error {
+      case let failure as Failure:
+        self = .failure(failure)
+      case let element as Failure.ArrayLiteralElement:
+        self = .failure([element])
+      default:
+        throw CastError.impossible
+      }
     }
   }
 }

@@ -26,4 +26,61 @@ final class ResultTestCase: XCTestCase {
       Result.failure( .init() )
     )
   }
+
+  func test_init_getSuccess() throws {
+    typealias Result = Swift.Result<String, Error>
+
+    func get😼() -> String { "😼" }
+    struct Error: Swift.Error { }
+
+    guard case let .success(😼)
+      = try Result( get😼() )
+    else { XCTFail(); return }
+
+    XCTAssertEqual(😼, "😼")
+
+    func throwError() throws -> String {
+      throw Error()
+    }
+
+    XCTAssert(
+      Result.failure ~= ( try .init( throwError() ) )
+    )
+
+    XCTAssertThrowsError(
+      try Swift.Result<String, [Error]>( throwError() )
+    )
+  }
+
+  func test_init_getSuccess_Array() throws {
+    enum Error: Swift.Error {
+      case bad, strongBad
+    }
+
+    func throwBad() throws {
+      throw Error.bad
+    }
+
+    func throwsStrongBads() throws {
+      throw [Error.strongBad, .strongBad]
+    }
+
+    XCTAssertEqual(
+      try [throwBad, throwsStrongBads].map {
+        try Result<Void, [Error]>(groupingFailures: $0() )
+      }.flatMap { Mirror(reflecting: $0).getAssociatedValue()! as [Error] },
+
+      [ Error.bad,
+        .strongBad, .strongBad
+      ]
+    )
+
+    do {
+      enum Error: Swift.Error { }
+
+      XCTAssertThrowsError(
+        try Result<Void, [Error]>( groupingFailures: throwsStrongBads() )
+      )
+    }
+  }
 }
