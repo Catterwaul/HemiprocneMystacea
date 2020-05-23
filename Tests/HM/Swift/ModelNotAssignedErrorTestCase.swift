@@ -28,7 +28,7 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
 }
 
 private struct ViewModel {
-  private var getInts: Get<[Int]>
+  private var getInts: () throws -> [Int]
   private var handleSelection: (Int) throws -> Void
   
   var doSomething: () throws -> Void
@@ -39,7 +39,7 @@ private struct ViewModel {
     doSomething = ModelNotAssignedError.makeMethod()
   }
   
-  mutating func set(getInts: @escaping Get<[Int]>) {
+  mutating func set(getInts: @escaping () throws -> [Int]) {
     self.getInts = getInts
   }
   

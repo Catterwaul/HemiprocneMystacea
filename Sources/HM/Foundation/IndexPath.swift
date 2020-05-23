@@ -23,7 +23,7 @@ public extension IndexPath {
 /// but you can't extend closures.
 public func getElement<Element>(
   indexPath: IndexPath,
-  getArray: Get<[Element]>
+  getArray: () throws -> [Element]
 ) throws -> Element {
   let array = try getArray()
   return try array.element(at: indexPath.item)
