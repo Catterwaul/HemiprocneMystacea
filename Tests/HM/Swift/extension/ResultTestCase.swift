@@ -83,4 +83,16 @@ final class ResultTestCase: XCTestCase {
       )
     }
   }
+
+  func test_VerificationResult() {
+    struct Error: Swift.Error { }
+
+    XCTAssert(
+      VerificationResult<Error>.success ~= .init(failure: nil )
+    )
+
+    XCTAssert(
+      VerificationResult.failure ~= .init(failure: Error() )
+    )
+  }
 }
