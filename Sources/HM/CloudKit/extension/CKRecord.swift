@@ -5,6 +5,8 @@ extension CKRecord: valueForKeySubscript {
 }
 
 public extension CKRecord {
+  typealias AccessError = KeyValuePairs<String, CKRecordValue>.AccessError
+  
   static func makeValue(_ any: Any) -> CKRecordValue? {
     switch any {
     case let convertibleToCKRecordValue as ConvertibleToCKRecordValue:
