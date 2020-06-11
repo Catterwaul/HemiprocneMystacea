@@ -74,6 +74,13 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
 
+  func test_init_bucketing() {
+    XCTAssertEqual(
+      Dictionary(bucketing: "🗑⚱️🗑🦌🦌🗑🗑🦌⚱️"),
+      ["⚱️": 2, "🗑": 4, "🦌": 3]
+    )
+  }
+
 //MARK:- Subscripts
   func test_optionalKeySubscript() {
     let dictionary = ["key": "value"]

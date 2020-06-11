@@ -115,3 +115,15 @@ public extension Dictionary where Value: Equatable {
     try onlyMatch { $0.value == value } .key
   }
 }
+
+public extension Dictionary where Value == Int {
+  /// Create "buckets" from a sequence of keys,
+  /// such as might be used for a histogram.
+  init<Keys: Sequence>(bucketing unbucketedKeys: Keys)
+  where Keys.Element == Key {
+    self.init(
+      zip( unbucketedKeys, AnyIterator { 1 } ),
+      uniquingKeysWith: +
+    )
+  }
+}
