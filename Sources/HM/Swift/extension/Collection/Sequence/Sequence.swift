@@ -292,10 +292,3 @@ public extension Array {
     }
   }
 }
-
-//MARK:-
-
-public extension Never {
-  /// An infinite sequence whose elements don't matter.
-  static var ending: AnySequence<Void> { .init { } }
-}
