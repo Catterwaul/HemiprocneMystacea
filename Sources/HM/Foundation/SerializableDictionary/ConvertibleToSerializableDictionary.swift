@@ -70,10 +70,10 @@ public extension ConvertibleToSerializableDictionary {
                 return
                   (child.value as? CGPoint)?.dictionaryRepresentation
                   ??
-                  (child.value as? Date).flatMap { date in
+                  (child.value as? Date).flatMap { date -> Any in
                     jsonCompatible
-                      ? date.timeIntervalSinceReferenceDate
-                      : date
+                    ? date.timeIntervalSinceReferenceDate
+                    : date
                   }
                   ?? child.value
               }

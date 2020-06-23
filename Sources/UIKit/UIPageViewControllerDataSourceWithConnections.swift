@@ -13,9 +13,9 @@ public extension UIPageViewControllerDataSourceWithConnectedViewControllers {
 }
 
 public extension UIPageViewController {
-	struct ConnectedViewControllers {
-		private let connectedViewControllers: [UIViewController]
-	}
+  struct ConnectedViewControllers {
+    fileprivate let connectedViewControllers: [UIViewController]
+  }
 }
 
 //MARK: public
