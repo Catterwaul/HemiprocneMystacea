@@ -28,3 +28,17 @@
     set { self = newValue }
   }
 }
+
+//MARK:- public
+public extension Computed {
+  init(
+    wrappedValue: Value,
+    get: @escaping Get = {
+      fatalError("`get` must be assigned before accessing `wrappedValue`.")
+    },
+    set: @escaping Set
+  ) {
+    self.init(get: get, set: set)
+    self.wrappedValue = wrappedValue
+  }
+}
