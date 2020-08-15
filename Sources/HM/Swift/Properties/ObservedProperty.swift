@@ -37,3 +37,12 @@ public extension ObservedProperty {
 		)
 	}
 }
+
+public protocol Property {
+  associatedtype Value
+
+  var value: Value {
+    get
+    nonmutating set
+  }
+}
