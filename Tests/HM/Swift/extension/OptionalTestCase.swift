@@ -6,7 +6,7 @@ final class OptionalTestCase: XCTestCase {
     var jenies: (String?, String?) = ("👖", "🧞‍♂️")
 
     do {
-      let jenies = try XCTUnwrap( Optional(optionals: jenies) )
+      let jenies = try XCTUnwrap( .init(optionals: jenies) )
       XCTAssert( jenies == ("👖", "🧞‍♂️") )
     }
 

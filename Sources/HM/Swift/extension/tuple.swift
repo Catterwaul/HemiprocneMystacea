@@ -8,6 +8,16 @@ public struct Tuple<Elements> {
 }
 
 public extension Tuple {
+  //MARK:- 2-tuple
+
+  /// Create a new tuple with one more element.
+  static subscript<Element0, Element1, Element2>(
+    tuple: Elements, element: Element2
+  ) -> (Element0, Element1, Element2)
+  where Elements == (Element0, Element1) {
+    (tuple.0, tuple.1, element)
+  }
+
   /// Stuff an element into a 2-tuple that will have a labeled first element
   /// when converted to a return value.
   /// - Note: Useful because a single-element tuple can't have a label.
@@ -37,6 +47,16 @@ public extension Tuple {
     ( elements.0(parameters), elements.1(parameters) )
   }
 
+  //MARK:- 3-tuple
+
+  /// Create a new tuple with one more element.
+  static subscript<Element0, Element1, Element2, Element3>(
+    tuple: Elements, element: Element3
+  ) -> (Element0, Element1, Element2, Element3)
+  where Elements == (Element0, Element1, Element2) {
+    (tuple.0, tuple.1, tuple.2, element)
+  }
+
   init<Parameters, Transformed0, Transformed1, Transformed2>(
     _ transform0: @escaping (Parameters) -> Transformed0,
     _ transform1: @escaping (Parameters) -> Transformed1,
@@ -63,12 +83,16 @@ public extension Tuple {
 }
 
 public extension Sequence {
-  var tuple2: (Element, Element)? { makeTuple2()?.tuple }
-  var tuple3: (Element, Element, Element)? { makeTuple3()?.tuple }
-  var tuple4: (Element, Element, Element, Element)? { makeTuple4()?.tuple }
+  typealias Tuple2 = (Element, Element)
+  typealias Tuple3 = (Element, Element, Element)
+  typealias Tuple4 = (Element, Element, Element, Element)
+
+  var tuple2: Tuple2? { makeTuple2()?.tuple }
+  var tuple3: Tuple3? { makeTuple3()?.tuple }
+  var tuple4: Tuple4? { makeTuple4()?.tuple }
 
   private func makeTuple2() -> (
-    tuple: (Element, Element),
+    tuple: Tuple2,
     getNext: () -> Element?
   )? {
     var iterator = makeIterator()
@@ -77,38 +101,32 @@ public extension Sequence {
     guard
       let _0 = getNext(),
       let _1 = getNext()
-    else {
-      return nil
-    }
+    else { return nil }
 
     return ( (_0, _1), getNext )
   }
 
   private func makeTuple3() -> (
-    tuple: (Element, Element, Element),
+    tuple: Tuple3,
     getNext: () -> Element?
   )? {
     guard
-      let (tuple2, getNext) = makeTuple2(),
-      let _2 = getNext()
-    else {
-      return nil
-    }
+      let (tuple, getNext) = makeTuple2(),
+      let element = getNext()
+    else { return nil }
 
-    return ( (tuple2.0, tuple2.1, _2), getNext )
+    return (Tuple[tuple, element], getNext)
   }
 
   private func makeTuple4() -> (
-    tuple: (Element, Element, Element, Element),
+    tuple: Tuple4,
     getNext: () -> Element?
   )? {
     guard
-      let (tuple3, getNext) = makeTuple3(),
-      let _3 = getNext()
-    else {
-      return nil
-    }
+      let (tuple, getNext) = makeTuple3(),
+      let element = getNext()
+    else { return nil }
 
-    return ( (tuple3.0, tuple3.1, tuple3.2, _3), getNext )
+    return (Tuple[tuple, element], getNext)
   }
 }
