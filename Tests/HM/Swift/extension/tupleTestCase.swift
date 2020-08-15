@@ -14,8 +14,7 @@ final class TupleTestCase: XCTestCase {
   }
 
   func test_callAsFunction() {
-    let ecuador = 🇪🇨()
-    XCTAssertEqual(ecuador, ecuador)
+    XCTAssertEqual( 🇪🇨(), 🇪🇨() )
   }
 
   /// Note: outside of test_callAsFunction because `==` can't be overridden there.
@@ -25,9 +24,11 @@ final class TupleTestCase: XCTestCase {
     let u = 1.0 / 1_000_000
     let al = 13
 
+    let probablyNotEqual = UUID()
+
     static func == (ecuador0: Self, ecuador1: Self) -> Bool {
-      let getProperties = Tuple(\🇪🇨.eq, \.u, \.al)
-      return  getProperties(ecuador0) == getProperties(ecuador1)
+      let getProperties = Tuple(\Self.eq, \.u, \.al)
+      return getProperties(ecuador0) == getProperties(ecuador1)
     }
   }
 
