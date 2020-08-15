@@ -1,6 +1,6 @@
 import struct MapKit.MKCoordinateSpan
 
-extension MKCoordinateSpan {
+public extension MKCoordinateSpan {
   enum CodingKey: Swift.CodingKey {
     case latitudeDelta
     case longitudeDelta
@@ -26,8 +26,7 @@ extension MKCoordinateSpan: Encodable {
 
 extension MKCoordinateSpan: Equatable {
   public static func == (span0: Self, span1: Self) -> Bool {
-    [\Self.latitudeDelta, \.longitudeDelta]
-      .map { (span0[keyPath: $0], span1[keyPath: $0]) }
-      .allSatisfy(==)
+    let getProperties = Tuple(\Self.latitudeDelta, \.longitudeDelta)
+    return getProperties(span0) == getProperties(span1)
   }
 }

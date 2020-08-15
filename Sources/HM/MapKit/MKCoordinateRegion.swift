@@ -26,7 +26,7 @@ extension MKCoordinateRegion: Encodable {
 
 extension MKCoordinateRegion: Equatable {
   public static func == (region0: Self, region1: Self) -> Bool {
-    region0.center == region1.center
-    && region0.span == region1.span
+    let getProperties = Tuple(\Self.center, \.span)
+    return getProperties(region1) == getProperties(region1)
   }
 }

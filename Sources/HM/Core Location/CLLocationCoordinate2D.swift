@@ -26,8 +26,7 @@ extension CLLocationCoordinate2D: Encodable {
 
 extension CLLocationCoordinate2D: Equatable {
   public static func == (coordinate0: Self, coordinate1: Self) -> Bool {
-    [\Self.latitude, \.longitude]
-      .map { (coordinate0[keyPath: $0], coordinate1[keyPath: $0]) }
-      .allSatisfy(==)
+    let getProperties = Tuple(\Self.latitude, \.longitude)
+    return getProperties(coordinate0) == getProperties(coordinate1)
   }
 }
