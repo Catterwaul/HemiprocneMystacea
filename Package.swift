@@ -1,48 +1,60 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 
 import PackageDescription
 
-let hm = "HM"
-let extendedFrameworkNames = ["SwiftUI", "UIKit"]
-
-extension String {
-  var dependency: Target.Dependency { .init(stringLiteral: self) }
-  var testsPath: String { "Tests/\(self)" }
-  var withDotHM: String { "\(self).\(hm)" }
-  var withTestsTargetSuffix: String { "\(self).Tests" }
-}
+let names = [
+  .hm,
+  "SwiftUI", "UIKit",
+  .xcTest
+]
 
 let package = Package(
   name: "HemiprocneMystacea",
-  platforms: [.iOS(.v13), .tvOS(.v13), .macOS(.v10_15)],
-  products:
-    [.library(name: hm, targets: [hm])]
-    + extendedFrameworkNames.map {
-      let productName = $0.withDotHM
-      return .library(name: productName, targets: [productName])
-    },
+  platforms: [.iOS(.v14), .tvOS(.v14), .macOS(.v11)],
+  products: names.map {
+    let name = $0.hm
+    return .library(name: name, targets: [name])
+  },
   targets:
-    [ .target(name: hm),
-      .testTarget(
-        name: hm.withTestsTargetSuffix,
-        dependencies: [hm.dependency],
-        path: hm.testsPath
+    [.target(name: .hm)]
+    + names.filter { $0 != .hm } .map { frameworkName in
+      .target(
+        name: frameworkName.hm,
+        dependencies: .init(.hm),
+        path: "Sources/\(frameworkName)"
       )
-    ]
-    + extendedFrameworkNames.flatMap { name in
-      [ .target(
-        name: name.withDotHM,
-          dependencies: [hm.dependency],
-          path: "Sources/\(name)"
-        ),
-        .testTarget(
-          name: name.withDotHM.withTestsTargetSuffix,
-          dependencies: [
-            hm.dependency,
-            name.withDotHM.dependency
-          ],
-          path: name.testsPath
-        )
-      ]
+    }
+    + names.filter { $0 != .xcTest } .map { name in
+      let tests = "Tests"
+      return .testTarget(
+        name: "\(name.hm).\(tests)",
+        dependencies: {
+          let commonDependencies =
+            [Target.Dependency](.hm)
+            + .init(String.xcTest.hm)
+          return name == .hm
+            ? commonDependencies
+            : commonDependencies + .init(name.hm)
+        } (),
+        path: "\(tests)/\(name)",
+        resources: [.process("Mousse with Mouse.png")]
+      )
     }
 )
+
+extension String {
+  static let hm = "HM"
+  static let xcTest = "XCTest"
+
+  var hm: String {
+    self == .hm
+      ? self
+      : "\(self).\(Self.hm)"
+  }
+}
+
+extension Array where Element == Target.Dependency {
+  init(_ name: String) {
+    self = [.init(stringLiteral: name)]
+  }
+}

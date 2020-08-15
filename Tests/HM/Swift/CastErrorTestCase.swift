@@ -1,4 +1,5 @@
 import HM
+import XCTest_HM
 import XCTest
 
 final class CastErrorTestCase: XCTestCase {
