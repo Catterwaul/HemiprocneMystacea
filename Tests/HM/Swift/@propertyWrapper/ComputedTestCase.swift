@@ -4,15 +4,15 @@ import XCTest
 final class ComputedTestCase: XCTestCase {
   func test_wrapper() {
     struct Structure {
-      private(set) static var value: Int = -1
+      private(set) static var value: Int = 0
 
-      @Computed( set: { value = $0 } ) var property = 0
+      @Computed( set: { value = $0 } ) var property = 1
     }
 
-    var value: Int = 1
+    var value: Int = .random
     var instance = Structure()
 
-    XCTAssertEqual(Structure.value, 0)
+    XCTAssertEqual(Structure.value, 1)
     instance.$property = .init
       { value }
       set: { value = $0 }
