@@ -2,34 +2,32 @@ import HM
 import XCTest
 
 private final class CaseIterableTestCase: XCTestCase {
-  func test_getRange() {
-    enum Alphabet: CaseIterable {
-      case a, b, c, d, e, f, g
-    }
+  enum Alphabet: CaseIterable {
+    case a, b, c, d, e, f, g,
+         z
+  }
 
+  func test_getRange() {
     XCTAssertEqual(
       Alphabet.c...(.f),
       [.c, .d, .e, .f]
     )
   }
 
-  func test_getCaseIndex() {
+  func test_caseIndex() {
     enum 💄: CaseIterable {
       static var allCases: [Self] { [] }
       case 💋
     }
     
-    XCTAssertThrowsError( try 💄.💋.getCaseIndex() ) { error in
+    XCTAssertThrowsError( try 💄.💋.caseIndex() ) { error in
       guard case AnyCaseIterable.AllCasesError<💄>.noIndex(.💋) = error
       else { XCTFail(); return }
     }
   }
 
-  func test_Comparable() {
-    enum 🦇: CaseIterable, comparable {
-      case 🧛🏻, 🦹🏿, 🏏
-    }
-
-    XCTAssertLessThan(🦇.🦹🏿, .🏏)
+  func test_nextCase() {
+    XCTAssertNil(Alphabet.z.nextCase(cyclic: false))
+    XCTAssertEqual(Alphabet.z.nextCase(cyclic: true), .a)
   }
 }

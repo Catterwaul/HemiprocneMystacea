@@ -6,11 +6,23 @@ public extension CaseIterable where Self: Equatable {
 
   /// The first match for this case in `allCases.indices`.
   /// - Throws: `AnyCaseIterable.AllCasesError.noIndex`
-  func getCaseIndex() throws -> AllCases.Index {
+  func caseIndex() throws -> AllCases.Index {
     try Result(
       success: Self.allCases.firstIndex(of: self),
       failure: AnyCaseIterable.AllCasesError.noIndex(self)
     ).get()
+  }
+}
+
+public extension CaseIterable where Self: Equatable, AllCases: BidirectionalCollection {
+  /// The case after this one, in `Self.allCases`.
+  /// - Parameter cyclic: Whether to wrap back around to the first case.
+  /// - Returns: `nil` for the last case if  `cyclic` is `false`.
+  func nextCase(cyclic: Bool = false) -> Self? {
+    ( cyclic ? AnySequence(cycling: Self.allCases) : .init(Self.allCases) )
+      .drop(while:) { $0 != self }
+      .dropFirst()
+      .first
   }
 }
 
