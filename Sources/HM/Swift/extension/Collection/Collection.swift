@@ -75,12 +75,6 @@ public extension Collection where Element: Equatable {
   func prefix(through element: Element) -> SubSequence? {
     firstIndex(of: element).map( prefix(through:) )
   }
-  
-  ///- Returns: nil if `element` isn't present
-  func suffix(from element: Element) -> SubSequence? {
-    firstIndex(of: element)
-    .map { suffix( from: index(after: $0) ) }
-  }
 }
 
 public extension Collection where SubSequence: RangeReplaceableCollection {

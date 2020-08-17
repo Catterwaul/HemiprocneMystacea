@@ -87,7 +87,7 @@ extension SortedArray: Collection {
   public var startIndex: Int { backingArray.startIndex }
 
   public func index(after index: Int) -> Int {
-    return backingArray.index(after: index)
+    backingArray.index(after: index)
   }
 }
 

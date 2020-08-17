@@ -39,7 +39,7 @@ public extension AnySequence {
   init<Sequence: Swift.Sequence>(cycling sequence: Sequence)
   where Sequence.Element == Element {
     self.init { [makeIterator = sequence.makeIterator] in
-      Iterator( state: makeIterator() ) { iterator in
+      Swift.sequence( state: makeIterator() ) { iterator in
         if let next = iterator.next() {
           return next
         }

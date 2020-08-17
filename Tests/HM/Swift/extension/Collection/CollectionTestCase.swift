@@ -75,12 +75,4 @@ final class CollectionTestCase: XCTestCase {
       [3, 0, 1, 2]
     )
   }
-  
-  func test_suffix() {
-    XCTAssertEqual(
-      "chunky skunky".suffix(from: "s"),
-      "kunky"
-    )
-    XCTAssertNil( "aaabbbccc".suffix(from: "z") )
-  }
 }
