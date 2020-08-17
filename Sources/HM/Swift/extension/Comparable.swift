@@ -70,17 +70,3 @@ public extension Sequence where Element: Comparable {
   }
 }
 private enum Extremum { case minimum, maximum }
-
-//MARK:- comparable
-
-/// A type with a `comparable` property, used for `<`.
-public protocol comparable: Comparable {
-  associatedtype Comparable: Swift.Comparable
-  var comparable: Comparable { get }
-}
-
-public extension comparable {
-  static func < (comparable0: Self, comparable1: Self) -> Bool {
-    comparable0.comparable < comparable1.comparable
-  }
-}

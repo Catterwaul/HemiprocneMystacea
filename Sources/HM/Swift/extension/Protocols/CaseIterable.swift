@@ -20,8 +20,3 @@ public enum AnyCaseIterable {
     case noIndex(Case)
   }
 }
-
-public extension comparable where Self: CaseIterable {
-  /// The index of this case in `allCases`.
-  var comparable: AllCases.Index { try! getCaseIndex() }
-}
