@@ -27,7 +27,7 @@ private final class CaseIterableTestCase: XCTestCase {
   }
 
   func test_nextCase() {
-    XCTAssertNil(Alphabet.z.nextCase(cyclic: false))
+    XCTAssertNil(Alphabet.z.nextCase())
     XCTAssertEqual(Alphabet.z.nextCase(cyclic: true), .a)
   }
 }
