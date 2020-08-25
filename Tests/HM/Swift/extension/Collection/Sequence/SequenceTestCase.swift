@@ -47,6 +47,15 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertNil(odds.prefix(0).first)
   }
 
+  func test_isEmpty() {
+    XCTAssert(
+      stride(from: 1, to: 1, by: 1).isEmpty
+    )
+    XCTAssertFalse(
+      stride(from: 1, through: 1, by: 1).isEmpty
+    )
+  }
+
   func test_pauseable() {
     range: do {
       let upperLimit = 5
@@ -206,18 +215,14 @@ final class SequenceTestCase: XCTestCase {
       let int: Int
     }
 
-    let sortedArray = [
-      TypeWith1EquatableProperty(int: 3),
-      TypeWith1EquatableProperty(int: 1),
-      TypeWith1EquatableProperty(int: 2)
-    ].sorted(by: \.int)
+    let sortedArray =
+      [3, 0, 1, 2, -1]
+      .map(TypeWith1EquatableProperty.init)
+      .sorted(by: \.int)
     
     XCTAssertEqual(
       sortedArray,
-      [ TypeWith1EquatableProperty(int: 1),
-        TypeWith1EquatableProperty(int: 2),
-        TypeWith1EquatableProperty(int: 3)
-      ]
+      (-1...3).map(TypeWith1EquatableProperty.init)
     )
   }
 

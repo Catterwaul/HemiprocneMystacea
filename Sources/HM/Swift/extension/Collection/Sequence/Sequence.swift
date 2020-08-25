@@ -52,6 +52,9 @@ public extension Sequence {
     return iterator.next()
   }
 
+  /// Whether the sequence iterates exactly zero elements.
+  var isEmpty: Bool { first == nil }
+
 // MARK:- Subscripts
 
   /// Splits a `Sequence` into equal "chunks".
