@@ -7,16 +7,14 @@ public protocol LocalizedStringKeyConvertible {
 }
 
 public extension LocalizedStringKeyConvertible where Self: CustomStringConvertible {
-  var localizedStringKey: LocalizedStringKey {
-    .init(stringLiteral: description)
-  }
+  var localizedStringKey: LocalizedStringKey { .init(stringLiteral: description) }
 }
 
 public extension Text {
   /// Displays localized content identified by a key.
   ///
   /// - Parameters:
-  ///   - key: An instance that is convertible to the key for a string in the table identified by `tableName`.
+  ///   - convertible: An instance that is convertible to the key for a string in the table identified by `tableName`.
   ///   - tableName: The name of the string table to search. If `nil`, use the
   ///     table in the `Localizable.strings` file.
   ///   - bundle: The bundle containing the strings file. If `nil`, use the
