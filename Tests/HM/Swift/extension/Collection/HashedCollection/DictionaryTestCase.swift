@@ -2,6 +2,21 @@ import HM
 import XCTest
 
 final class DictionaryTestCase: XCTestCase {
+  func test_PickValue() {
+    let original = ["🗝": "🏰"]
+    let overwriting = ["🗝": "✍️"]
+
+    XCTAssertEqual(
+      original.merging(overwriting, uniquingKeysWith: PickValue.keep),
+      original
+    )
+
+    XCTAssertEqual(
+      original.merging(overwriting, uniquingKeysWith: PickValue.overwrite),
+      overwriting
+    )
+  }
+
 //MARK:- Operators
   func test_minus() {
     let dictionary = [
