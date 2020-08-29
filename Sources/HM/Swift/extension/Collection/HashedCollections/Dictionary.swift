@@ -36,6 +36,19 @@ public extension Dictionary {
   }
 
 //MARK:- Initializers
+  /// Creates a new dictionary from the key-value pairs in the given sequence.
+  ///
+  /// - Parameter keysAndValues: A sequence of key-value pairs to use for
+  ///   the new dictionary. Every key in `keysAndValues` must be unique.
+  /// - Returns: A new dictionary initialized with the elements of
+  ///   `keysAndValues`.
+  /// - Precondition: The sequence must not have duplicate keys.
+  @inlinable init<Elements: Sequence>(uniqueKeysWithValues keysAndValues: Elements)
+  where Elements.Element == Element {
+    self.init(
+      uniqueKeysWithValues: keysAndValues.map { ($0, $1) }
+    )
+  }
 
   /// Group key-value pairs by their keys.
   ///

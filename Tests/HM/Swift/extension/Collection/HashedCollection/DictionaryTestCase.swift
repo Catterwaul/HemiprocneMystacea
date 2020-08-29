@@ -46,7 +46,19 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
   
-//MARK:- Initializers
+  //MARK: - Initializers
+  
+  func test_init_uniqueKeysWithValues_KeyValuePairs() {
+    XCTAssertEqual(
+      Dictionary(
+        uniqueKeysWithValues: ["🍐": "🪂", "👯‍♀️": "👯‍♂️"] as KeyValuePairs
+      ),
+      .init(
+        uniqueKeysWithValues: [("🍐", "🪂"), ("👯‍♀️", "👯‍♂️")]
+      )
+    )
+  }
+
   func test_init_grouping_KeyValuePairs() {
     let dictionary = [
       "🔑": [
