@@ -1,4 +1,3 @@
-//import HM
 import XCTest
 
 private final class DefaultStringInterpolationTestCase: XCTestCase {

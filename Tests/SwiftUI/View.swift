@@ -14,7 +14,7 @@ extension HorizontalAlignment {
   static let customCenter = Self(CustomCenter.self)
 }
 
-struct View: SwiftUI.View {
+private struct View: SwiftUI.View {
   var body: some SwiftUI.View {
     VStack(alignment: .customCenter) {
       Text("")
@@ -23,6 +23,6 @@ struct View: SwiftUI.View {
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
-  static var previews: View { View() }
+private struct ContentView_Previews: PreviewProvider {
+   static var previews: View { View() }
 }
