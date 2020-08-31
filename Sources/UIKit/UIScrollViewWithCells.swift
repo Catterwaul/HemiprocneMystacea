@@ -72,11 +72,11 @@ public enum UIScrollViewWithCellsExtensions {
 
 //MARK: internal
 extension UIScrollViewWithCells {
- func reusableCells_makeCellsWithDependenciesInjected<Cell: UIView>(
+  func reusableCells_makeCellsWithDependenciesInjected<Cell: UIView>(
     cellDependencies: NamedGetOnlySubscript<IndexPath, Cell.Dependencies>
   ) -> NamedGetOnlySubscript<IndexPath, Cell>
   where Cell: injectDependencies {
-    NamedGetOnlySubscript { [unowned self] indexPath in
+    .init { [unowned self] indexPath in
       let cell: Cell = self.dequeueReusableCell(indexPath: indexPath)
       cell.inject(dependencies: cellDependencies[indexPath])
       return cell

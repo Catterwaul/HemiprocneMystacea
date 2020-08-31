@@ -2,14 +2,14 @@ import HM
 import XCTest
 
 final class UITableViewTestCase: XCTestCase {
-	func test_makeCellsWithDependenciesInjected() {
-		let tableView = UITableView()
-		
-		_ = tableView.makeCellsWithDependenciesInjected(
-			cellDependencies: NamedGetOnlySubscript { _ in }
-		) as NamedGetOnlySubscript<IndexPath, Cell>
-	}
-	private final class Cell: UITableViewCell, injectDependencies {
-		func inject(dependencies _: Void) { }
-	}
+  func test_makeCellsWithDependenciesInjected() {
+    let tableView = UITableView()
+    
+    _ = tableView.makeCellsWithDependenciesInjected(
+      cellDependencies: .init { _ in }
+    ) as NamedGetOnlySubscript<IndexPath, Cell>
+  }
+  private final class Cell: UITableViewCell, injectDependencies {
+    func inject(dependencies _: Void) { }
+  }
 }
