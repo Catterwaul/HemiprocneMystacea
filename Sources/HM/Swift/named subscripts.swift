@@ -1,5 +1,34 @@
 /// An emulation of the missing Swift feature of named subscripts.
 /// - Note: Argument labels are not supported.
+public struct Subscript<Root, Index, Value> {
+  public typealias Pointer = UnsafeMutablePointer<Root>
+  public typealias Get = (Root) -> (Index) -> Value
+  public typealias Set = (inout Root, Index, Value) -> Void
+
+  public var pointer: Pointer
+  public var get: Get
+  public var set: Set
+}
+
+public extension Subscript {
+  init(
+    _ pointer: Pointer,
+    get: @escaping Get,
+    set: @escaping Set
+  ) {
+    self.pointer = pointer
+    self.get = get
+    self.set = set
+  }
+
+  subscript(index: Index) -> Value {
+    get { get(pointer.pointee)(index) }
+    nonmutating set { set(&pointer.pointee, index, newValue) }
+  }
+}
+
+/// An emulation of the missing Swift feature of named subscripts.
+/// - Note: Argument labels are not supported.
 public struct NamedGetOnlySubscript<Index, Value> {
   public typealias GetValue = (Index) -> Value
   
