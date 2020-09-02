@@ -22,8 +22,10 @@ public extension Optional {
     }
   }
 
+  /// Modify a wrapped value if not `nil`.
   /// - Parameters:
   ///   - makeResult: arguments: (`resultWhenNil`, `self!`)
+  /// - Returns: An unmodified value, when `nil`.
   func reduce<Result>(
     _ resultWhenNil: Result,
     _ makeResult: (_ resultWhenNil: Result, _ self: Wrapped) throws -> Result

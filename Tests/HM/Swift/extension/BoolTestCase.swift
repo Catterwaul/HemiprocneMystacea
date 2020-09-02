@@ -34,6 +34,21 @@ final class BoolTestCase: XCTestCase {
       Bool(binaryString: "🎱🧵")
     )
   }
+
+  func test_reduce() {
+    var isSnackTime = false
+
+    XCTAssertEqual(
+      isSnackTime.reduce("🐈", "🐹".appending),
+      "🐈"
+    )
+
+    isSnackTime = true
+    XCTAssertEqual(
+      isSnackTime.reduce("🐈") { "🏃 \($0)" },
+      "🏃 🐈"
+    )
+  }
   
 //MARK:- Sequences of Bools
   func test_containsOnly() {

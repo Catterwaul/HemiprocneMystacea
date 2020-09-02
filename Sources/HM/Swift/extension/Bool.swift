@@ -25,6 +25,17 @@ public extension Bool {
     
     self.init(bit: bit)
   }
+
+  /// Modify a value if `true`.
+  /// - Returns: An unmodified value, when false.
+  @inlinable func reduce<Result>(
+    _ resultWhenFalse: Result,
+    _ makeResult: (_ resultWhenFalse: Result) throws -> Result
+  ) rethrows -> Result {
+    self
+    ? try makeResult(resultWhenFalse)
+    : resultWhenFalse
+  }
 }
 
 public extension Sequence where Element == () -> Bool {
