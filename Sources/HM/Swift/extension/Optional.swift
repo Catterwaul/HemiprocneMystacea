@@ -30,12 +30,19 @@ public extension Optional {
     ?? resultWhenNil
   }
 
-  struct UnwrapError: Error { }
+  struct UnwrapError: Error {
+    public init() { }
+  }
 
-  /// Throw an error if `nil`.
-  /// - Throws: `UnwrapError`
   /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
-  func unwrap() throws -> Wrapped {
-    try self ?? { throw UnwrapError() } ()
+  /// - Throws: if `nil`.
+  func unwrap(
+    orThrow error: @autoclosure () -> Error = UnwrapError()
+  ) throws -> Wrapped {
+    if let wrapped = self {
+      return wrapped
+    } else {
+      throw error()
+    }
   }
 }
