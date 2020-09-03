@@ -177,6 +177,26 @@ public extension Sequence {
     return onlyMatch
   }
 
+  /// `reduce`, disregarding all sequence elements.
+  @inlinable func reduce<Result>(
+    _ initialResult: Result,
+    _ nextPartialResult: (_ partialResult: Result) throws -> Result
+  ) rethrows -> Result {
+    try reduce(initialResult) { partialResult, _ in
+      try nextPartialResult(partialResult)
+    }
+  }
+
+  /// `reduce`, disregarding all sequence elements.
+  @inlinable func reduce<Result>(
+    into initialResult: Result,
+    _ updateAccumulatingResult: (_ partialResult: inout Result) throws -> Void
+  ) rethrows -> Result {
+    try reduce(into: initialResult) { partialResult, _ in
+      try updateAccumulatingResult(&partialResult)
+    }
+  }
+
   /// - Returns: `nil` If the sequence has no elements, instead of an "initial result".
   func reduce(
     _ getNextPartialResult: (Element, Element) throws -> Element

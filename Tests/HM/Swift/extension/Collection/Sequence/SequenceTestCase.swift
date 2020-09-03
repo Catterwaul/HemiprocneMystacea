@@ -209,6 +209,22 @@ final class SequenceTestCase: XCTestCase {
       [1...1, 4...5, 7...9, 11...12, 14...14]
     )
   }
+
+  func test_reduce() {
+    let isSnackTime = true
+    XCTAssertEqual(
+      CollectionOfOne().reduce("🐈") { isSnackTime ? "🏃 \($0)" : $0 },
+      { isSnackTime ? "🏃 \($0)" : $0 } ("🐈")
+    )
+    XCTAssertEqual(
+      CollectionOfOne().reduce(into: "🐈") {
+        if isSnackTime {
+          $0 = "🏃 \($0)"
+        }
+      },
+      "🏃 🐈"
+    )
+  }
 	
   func test_sortedBy() {
     struct TypeWith1EquatableProperty: Equatable {
