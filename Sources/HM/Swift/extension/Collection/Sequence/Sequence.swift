@@ -65,9 +65,8 @@ public extension Sequence {
     .init(
       sequence( state: makeIterator() ) { iterator in
         Optional(
-          (0..<maxCount).compactMap { _ in iterator.next() },
-          nilWhen: \.isEmpty
-        )
+          (0..<maxCount).compactMap { _ in iterator.next() }
+        ).filter { !$0.isEmpty }
       }
     )
   }
@@ -258,10 +257,12 @@ public extension Sequence {
         return .separator(separator)
       }
 
-      return Optional(
-        prefixIterator.prefix { !getIsSeparator($0) },
-        nilWhen: \.isEmpty
-      ).map(AnySequence.Spliteration.subSequence)
+      return
+        Optional(
+          prefixIterator.prefix { !getIsSeparator($0) }
+        )
+        .filter { !$0.isEmpty }
+        .map(AnySequence.Spliteration.subSequence)
     }
   }
 }
@@ -275,9 +276,10 @@ public extension Sequence where Element: Sequence {
         state: map { $0.makeIterator() }
       ) { iterators in
         Optional(
-          (iterators.indices).map { iterators[$0].next() },
-          nilWhen: { $0.contains { $0 == nil } }
-        )?.compactMap { $0 }
+          (iterators.indices).map { iterators[$0].next() }
+        )
+        .filter { $0.allSatisfy { $0 != nil } }?
+        .compactMap { $0 }
       }
     )
   }

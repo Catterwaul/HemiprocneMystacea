@@ -1,13 +1,9 @@
 public extension Optional {
-  /// Wraps a value in an optional, based on a condition.
+  /// Transform `.some` into `.none`, if a condition fails.
   /// - Parameters:
-  ///   - wrapped: A non-optional value.
-  ///   - getIsNil: The condition that will result in `nil`.
-  init(
-    _ wrapped: Wrapped,
-    nilWhen getIsNil: (Wrapped) throws -> Bool
-  ) rethrows {
-    self = try getIsNil(wrapped) ? nil : wrapped
+  ///   - isSome: The condition that will result in `nil`, when evaluated to `false`.
+  func filter(_ isSome: (Wrapped) throws -> Bool) rethrows -> Self {
+    try flatMap { try isSome($0) ? $0 : nil }
   }
 
   /// Exchange two optionals for a single optional tuple.

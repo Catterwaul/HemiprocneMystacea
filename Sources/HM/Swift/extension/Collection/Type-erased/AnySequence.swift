@@ -60,9 +60,9 @@ public extension AnySequence {
         state: ( zipped.0.makeIterator(), zipped.1.makeIterator() )
       ) { iterators in
         Optional(
-          ( iterators.0.next(), iterators.1.next() ),
-          nilWhen: { $0 == nil && $1 == nil }
+          ( iterators.0.next(), iterators.1.next() )
         )
+        .filter { $0 != nil || $1 != nil }
       }
     )
   }
