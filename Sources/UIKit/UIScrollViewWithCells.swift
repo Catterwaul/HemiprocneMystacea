@@ -56,10 +56,9 @@ public extension UIScrollViewWithCells {
     guard let baseCell = cellForItem(at: indexPath)
     else { throw Error.noVisisbleCell }
 
-    return try Result(
-      success: baseCell as? Cell,
-      failure: Error.incorrectType
-    ).get()
+    return try (baseCell as? Cell).unwrap(
+      orThrow: Error.incorrectType
+    )
   }
 }
 

@@ -7,15 +7,14 @@ public extension RawRepresentable {
   /// - Throws: `RawRepresentableExtensions<Self>.Error.invalidRawValue`
   /// if there is no value of the type that corresponds with the specified raw value.
   init(_ rawValue: RawValue) throws {
-    self = try Result(
-      success: Self(rawValue: rawValue),
-      failure: RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue)
-    ).get()
+    self = try Self(rawValue: rawValue).unwrap(
+      orThrow: ConcreteRawRepresentable<Self>.Error.invalidRawValue(rawValue)
+    )
   }
 }
 
 /// A namespace for nested types within `RawRepresentable`.
-public enum RawRepresentableExtensions<RawRepresentable: Swift.RawRepresentable> {
+public enum ConcreteRawRepresentable<RawRepresentable: Swift.RawRepresentable>  {
   public enum Error: Swift.Error {
     case invalidRawValue(RawRepresentable.RawValue)
   }

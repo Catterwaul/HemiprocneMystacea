@@ -43,6 +43,9 @@ final class OptionalTestCase: XCTestCase {
     }
 
     XCTAssertNoThrow( try iterate() )
-    XCTAssertThrowsError( try iterate(nil) )
+    XCTAssertThrowsError(try iterate(nil)) { error in
+      guard error is Optional<Any>.UnwrapError
+      else { XCTFail(); return }
+    }
   }
 }

@@ -13,9 +13,8 @@ public extension RawRepresentableWithCKRecordValue {
   init<RecordKey: RawRepresentable>(record: CKRecord, key: RecordKey) throws
   where RecordKey.RawValue == CKRecord.FieldKey {
     let rawValue: RawValue = try record.value(for: key)
-    self = try Result(
-      success: Self(rawValue: rawValue),
-      failure: RawRepresentableExtensions<Self>.Error.invalidRawValue(rawValue)
-    ).get()
+    self = try Self(rawValue: rawValue).unwrap(
+      orThrow: ConcreteRawRepresentable<Self>.Error.invalidRawValue(rawValue)
+    )
   }
 }

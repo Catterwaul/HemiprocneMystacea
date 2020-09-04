@@ -8,18 +8,16 @@ public protocol valueForKeySubscript: valueForKeyThrowingAccessor {
 public extension valueForKeySubscript {
   /// - Throws: `KeyValuePairs<Key, Value>.AccessError.noValue`
   func value(for key: Key) throws -> Value {
-    try Result(
-      success: self[key],
-      failure: KeyValuePairs<Key, Value>.AccessError.noValue(key: key)
-    ).get()
+    try self[key].unwrap(
+      orThrow: KeyValuePairs<Key, Value>.AccessError.noValue(key: key)
+    )
   }
 
   /// - Throws: `KeyValuePairs<Key, Value>.AccessError.typeCastFailure`
   func value<Value>(for key: Key) throws -> Value {
-    try Result(
-      success: try value(for: key) as? Value,
-      failure: KeyValuePairs<Key, Value>.AccessError.typeCastFailure(key: key)
-    ).get()
+    try (value(for: key) as? Value).unwrap(
+      orThrow: KeyValuePairs<Key, Value>.AccessError.typeCastFailure(key: key)
+    )
   }
 }
 

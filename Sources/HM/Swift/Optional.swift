@@ -30,9 +30,7 @@ public extension Optional {
     ?? resultWhenNil
   }
 
-  struct UnwrapError: Error {
-    public init() { }
-  }
+  final class UnwrapError: AnyOptional.UnwrapError { }
 
   /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
   /// - Throws: if `nil`.
@@ -44,5 +42,11 @@ public extension Optional {
     } else {
       throw error()
     }
+  }
+}
+
+public enum AnyOptional {
+  public class UnwrapError: Error {
+    public init() { }
   }
 }

@@ -27,6 +27,16 @@ final class ResultTestCase: XCTestCase {
     )
   }
 
+  func test_init_Optional_Failure() {
+    let success: Never? = nil
+    XCTAssertThrowsError(
+      try Result(
+        success: success,
+        failure: Optional<Never>.UnwrapError()
+      ).get()
+    )
+  }
+
   func test_init_getSuccess() throws {
     typealias Result = Swift.Result<String, Error>
 
