@@ -102,9 +102,8 @@ final class CKRecordTestCase: XCTestCase {
     }
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
-    XCTAssertThrowsError( try StringEnum(record: record) ) { error in
-      guard case CKRecord.AccessError.noValue = error
-      else { XCTFail(); return }
+    XCTAssertThrowsError( try StringEnum(record: record) ) {
+      XCTAssert(CKRecord.AccessError.noValue ~= $0)
     }
   }
 }

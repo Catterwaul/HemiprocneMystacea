@@ -42,11 +42,11 @@ final class CollectionTestCase: XCTestCase {
   func test_getElement() throws {
     XCTAssertThrowsError( try ["🐾", "🥝"].element(at: 2) )
 
-    let optionals = [1, 2, nil]
-    XCTAssertEqual(try optionals.element(at: 0), 1)
+    let collection = Array(1...10)
+    XCTAssertEqual(try collection.element(at: 0), 1)
 
-    XCTAssertThrowsError( try optionals.element(at: optionals.endIndex) )
-    { XCTAssert($0 is AnyCollection<Int?>.IndexingError) }
+    XCTAssertThrowsError( try collection.element(at: collection.endIndex) )
+    { XCTAssert($0 is AnyCollection<Int>.IndexingError) }
   }
 
   func test_prefix() {
