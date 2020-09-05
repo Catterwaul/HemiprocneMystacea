@@ -7,6 +7,10 @@ final class WrappedTestCase: XCTestCase {
       Struct().$cat { "🏃 \($0)" },
       .snackTimeIllustration
     )
+
+    var cat = Struct().$cat
+    cat { $0 = "🐆" }
+    XCTAssertEqual(cat.wrappedValue, "🐆")
   }
 
   func test_if() {
@@ -19,7 +23,7 @@ final class WrappedTestCase: XCTestCase {
 
     isSnackTime = true
     XCTAssertEqual(
-      Wrapped(wrappedValue: "🐈")
+      Wrapped("🐈")
         .if(isSnackTime) { "🏃 \($0)" },
       .snackTimeIllustration
     )

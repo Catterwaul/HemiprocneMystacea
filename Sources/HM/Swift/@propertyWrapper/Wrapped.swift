@@ -1,6 +1,6 @@
 /// An affordance for adding extensions to every type.
 @propertyWrapper public struct Wrapped<Value> {
-  public let wrappedValue: Value
+  public var wrappedValue: Value
   public var projectedValue: Self { self }
 
   public init(wrappedValue: Value) {
@@ -9,13 +9,26 @@
 }
 
 public extension Wrapped {
-  typealias Transform = (Value) throws -> Value
+  init(_ wrappedValue: Value) {
+    self.init(wrappedValue: wrappedValue)
+  }
 
-  func callAsFunction(transform: Transform) rethrows -> Value {
+  func callAsFunction(
+    transform: (Value) throws -> Value
+  ) rethrows -> Value {
     try transform(wrappedValue)
   }
 
-  func `if`(_ condition: Bool, transform: Transform) rethrows -> Value {
+  mutating func callAsFunction(
+    transform: (inout Value) throws -> Void
+  ) rethrows {
+    try transform(&wrappedValue)
+  }
+
+  func `if`(
+    _ condition: Bool,
+    transform: (Value) throws -> Value
+  ) rethrows -> Value {
     condition
       ? try transform(wrappedValue)
       : wrappedValue
