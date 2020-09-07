@@ -16,18 +16,43 @@ public extension Mirror {
     }
   }
 
-  /// Get the associated value from an `enum` instance.
-  func getAssociatedValue<AssociatedValue>(
+  /// Get an `enum` case's `associatedValue`.
+  static func associatedValue<AssociatedValue>(
+    of subject: Any,
     _: AssociatedValue.Type = AssociatedValue.self
   ) -> AssociatedValue? {
-    guard let childValue = children.first?.value
+    guard let childValue = Self(reflecting: subject).children.first?.value
     else { return nil }
 
     if let associatedValue = childValue as? AssociatedValue {
       return associatedValue
     }
 
-    let labeledAssociatedValue = Mirror(reflecting: childValue).children.first
+    let labeledAssociatedValue = Self(reflecting: childValue).children.first
     return labeledAssociatedValue?.value as? AssociatedValue
+  }
+
+  /// Get an `enum` case's `associatedValue`.
+  /// - Parameter case: Looks like `Enum.case`.
+  static func associatedValue<Enum: Equatable, AssociatedValue>(
+    of instance: Enum,
+    ifCase case: (AssociatedValue) -> Enum
+  ) -> AssociatedValue? {
+    associatedValue(of: instance).filter { `case`($0) == instance }
+  }
+
+  /// Get an `enum` case's `associatedValue`.
+  /// - Parameter case: Looks like `Enum.case`.
+  static func associatedValue<Enum, AssociatedValue>(
+    of instance: Enum,
+    ifCase case: (AssociatedValue) -> Enum
+  ) -> AssociatedValue? {
+    associatedValue(of: instance).filter {
+      func label(_ subject: Any) -> String? {
+        Self(reflecting: subject).children.first?.label
+      }
+
+      return label(`case`($0)) == label(instance)
+    }
   }
 }

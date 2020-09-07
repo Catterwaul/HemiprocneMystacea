@@ -32,12 +32,14 @@ final class PatternMatchingTestCase: XCTestCase {
   func test_enum_Equatable() {
     enum 📧: Equatable {
       case tuple(cat: String, hat: String)
+      case anotherTuple(cat: String, hat: String)
       case labeled(cake: String)
       case noAssociatedValue
     }
 
     let tupleCase = 📧.tuple(cat: "🐯", hat: "🧢")
     XCTAssertTrue(📧.tuple ~= tupleCase)
+    XCTAssertFalse(📧.anotherTuple ~= tupleCase)
 
     XCTAssertTrue( 📧.labeled ~= 📧.labeled(cake: "🍰") )
 
@@ -54,12 +56,14 @@ final class PatternMatchingTestCase: XCTestCase {
   func test_enum_NotEquatable() {
     enum 📧 {
       case tuple(cat: String, hat: String)
+      case anotherTuple(cat: String, hat: String)
       case labeled(cake: String)
       case noAssociatedValue
     }
 
     let tupleCase = 📧.tuple(cat: "🐯", hat: "🧢")
     XCTAssertTrue(📧.tuple ~= tupleCase)
+    XCTAssertFalse(📧.anotherTuple ~= tupleCase)
 
     XCTAssertFalse( { .noAssociatedValue } ~= 📧.noAssociatedValue )
     XCTAssertTrue( 📧.labeled ~= 📧.labeled(cake: "🍰") )

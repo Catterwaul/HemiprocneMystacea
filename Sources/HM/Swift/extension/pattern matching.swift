@@ -8,28 +8,19 @@ public func ~= <Value>(
 //MARK:-
 
 /// Match `enum` cases with associated values, while disregarding the values themselves.
-/// - Parameter makeCase: Looks like `Enum.case`.
+/// - Parameter case: Looks like `Enum.case`.
 public func ~= <Enum: Equatable, AssociatedValue>(
-  makeCase: (AssociatedValue) -> Enum,
+  case: (AssociatedValue) -> Enum,
   instance: Enum
 ) -> Bool {
-  Mirror(reflecting: instance).getAssociatedValue().map(makeCase)
-  == instance
+  Mirror.associatedValue(of: instance, ifCase: `case`) != nil
 }
 
 /// Match `enum` cases with associated values, while disregarding the values themselves.
-/// - Parameter makeCase: Looks like `Enum.case`.
+/// - Parameter case: Looks like `Enum.case`.
 public func ~= <Enum, AssociatedValue>(
-  makeCase: (AssociatedValue) -> Enum,
+  case: (AssociatedValue) -> Enum,
   instance: Enum
 ) -> Bool {
-  let instanceMirror = Mirror(reflecting: instance)
-
-  guard let dummyCase = instanceMirror.getAssociatedValue().map(makeCase)
-  else { return false }
-
-  return
-    [Mirror(reflecting: dummyCase), instanceMirror]
-    .map(\.children.first?.label)
-    .elementsAreAllEqual!
+  Mirror.associatedValue(of: instance, ifCase: `case`) != nil
 }
