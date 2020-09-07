@@ -9,3 +9,18 @@ public extension KeyPath {
     { root[keyPath: self] }
   }
 }
+
+public extension ReferenceWritableKeyPath {
+  /// Convert a `KeyPath` to a partially-applied get/set accessor pair.
+  subscript() -> (Root) -> Computed<Value> {
+    { self[$0] }
+  }
+
+  /// Convert a `KeyPath` to a get/set accessor pair.
+  subscript(root: Root) -> Computed<Value> {
+    .init(
+      get: self[root],
+      set: { root[keyPath: self] = $0 }
+    )
+  }
+}
