@@ -8,9 +8,10 @@ extension Published: Encodable where Value: Encodable {
         .map(Mirror.init)?.children.first?.value,
       let value =
         storageValue as? Value
-        ?? ((storageValue as? Publisher).map { publisher in
-          Mirror(reflecting: publisher).descendant("subject", "currentValue")
-        }) as? Value
+        ??
+        (storageValue as? Publisher).map(Mirror.init)?
+        .descendant("subject", "currentValue")
+        as? Value
     else { throw EncodingError.invalidValue(self, codingPath: encoder.codingPath) }
 
     try value.encode(to: encoder)
