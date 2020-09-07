@@ -48,11 +48,9 @@ public extension Mirror {
     ifCase case: (AssociatedValue) -> Enum
   ) -> AssociatedValue? {
     associatedValue(of: instance).filter {
-      func label(_ subject: Any) -> String? {
-        Self(reflecting: subject).children.first?.label
+      equate(`case`($0), to: instance) {
+        Self(reflecting: $0).children.first?.label
       }
-
-      return label(`case`($0)) == label(instance)
     }
   }
 }

@@ -20,3 +20,11 @@ public extension Equatable {
     return { self == $0 as? Self }
   }
 }
+
+/// Equate two values using a closure.
+ func equate<Wrapped, Equatable: Swift.Equatable>(
+  _ optional0: Wrapped?, to optional1: Wrapped?,
+  using transform: (Wrapped) throws -> Equatable
+) rethrows -> Bool {
+  try optional0.map(transform) == optional1.map(transform)
+}
