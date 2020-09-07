@@ -226,7 +226,7 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 	
-  func test_sortedBy() {
+  func test_sorted() {
     struct TypeWith1EquatableProperty: Equatable {
       let int: Int
     }
@@ -234,11 +234,17 @@ final class SequenceTestCase: XCTestCase {
     let sortedArray =
       [3, 0, 1, 2, -1]
       .map(TypeWith1EquatableProperty.init)
-      .sorted(by: \.int)
+      .sorted(\.int)
     
     XCTAssertEqual(
       sortedArray,
       (-1...3).map(TypeWith1EquatableProperty.init)
+    )
+
+    XCTAssert(
+      [(1, 2), (1, 1)].sorted { $0 }
+      ==
+      [(1, 1), (1, 2)]
     )
   }
 

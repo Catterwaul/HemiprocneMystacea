@@ -235,18 +235,36 @@ public extension Sequence {
 
   /// Sorted by a common `Comparable` value.
   func sorted<Comparable: Swift.Comparable>(
-    by getComparable: (Element) throws -> Comparable
+    _ comparable: (Element) throws -> Comparable
   ) rethrows -> [Element] {
-    try self.sorted(getComparable, <)
+    try sorted(comparable, <)
   }
 
   /// Sorted by a common `Comparable` value, and sorting closure.
   func sorted<Comparable: Swift.Comparable>(
-    _ getComparable: (Element) throws -> Comparable,
-    _ getAreInIncreasingOrder: (Comparable, Comparable) throws -> Bool
+    _ comparable: (Element) throws -> Comparable,
+    _ areInIncreasingOrder: (Comparable, Comparable) throws -> Bool
   ) rethrows -> [Element] {
     try sorted {
-      try getAreInIncreasingOrder( getComparable($0), getComparable($1) )
+      try areInIncreasingOrder(comparable($0), comparable($1))
+    }
+  }
+
+  /// Sorted by two common `Comparable` values.
+  @available(swift, deprecated: 5.4, message: "segfault without the trailing closure")
+  func sorted<Comparable0: Comparable, Comparable1: Comparable>(
+    _ comparables: (Element) throws -> (Comparable0, Comparable1)
+  ) rethrows -> [Element] {
+    try sorted(comparables) { $0 < $1 }
+  }
+
+  /// Sorted by two common `Comparable` values, and sorting closure.
+  func sorted<Comparable0: Comparable, Comparable1: Comparable>(
+    _ comparables: (Element) throws -> (Comparable0, Comparable1),
+    _ areInIncreasingOrder: ((Comparable0, Comparable1), (Comparable0, Comparable1)) throws -> Bool
+  ) rethrows -> [Element] {
+    try sorted {
+      try areInIncreasingOrder( comparables($0), comparables($1) )
     }
   }
 
