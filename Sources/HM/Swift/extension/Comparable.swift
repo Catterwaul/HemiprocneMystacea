@@ -41,6 +41,16 @@ public extension Comparable {
   func clamped(to limits: ClosedRange<Self>) -> Self {
     min( Swift.max(limits.lowerBound, self), limits.upperBound )
   }
+
+  /// Like `<`, but with a default for the case when `==` evaluates to `true`.
+  func isLessThan(
+    _ comparable: Self,
+    whenEqual default: @autoclosure () -> Bool
+  ) -> Bool {
+    self == comparable
+    ? `default`()
+    : self < comparable
+  }
 }
 
 public extension Sequence where Element: Comparable {
