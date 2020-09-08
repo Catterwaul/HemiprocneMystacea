@@ -7,16 +7,16 @@ private final class PersonNameComponentsTestCase: XCTestCase {
     let names = [
       "Aladdin",
       "Dr. Ally Cat",
-      "Yur A Cat, Esq.",
-      "Yur D Cat, Esq.",
-      "Dr. Bengerman Düd",
+      "Yur A cat, Esq.",
+      "yur D Cat, Esq.",
+      "DR. BenGERMAN DÜD",
       "Ernie",
       "Gert",
-      "Jay",
+      "jay",
       "John Jay",
       "Madonna",
-      "Donna Madsen",
-      "Mr. Yuri Ruley, Jr."
+      "Donna madsen",
+      "Mr. yuri Ruley, Jr."
     ].compactMap(PersonNameComponentsFormatter().personNameComponents)
 
     XCTAssertEqual(names.sorted(), names)

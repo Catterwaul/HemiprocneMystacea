@@ -7,23 +7,31 @@ extension PersonNameComponents: Comparable {
         Optional(
           optionals: (components0[keyPath: $0], components1[keyPath: $0])
         )
-        .map(<)
+        .map { $0.lowercased().isLessThan($1.lowercased(), whenEqual: false) }
         ?? false
       }
     }
 
-    switch (components0.familyName, components1.familyName) {
-    case let (familyName0?, familyName1?):
+    switch (
+      components0.givenName?.lowercased(), components0.familyName?.lowercased(),
+      components1.givenName?.lowercased(), components1.familyName?.lowercased()
+    ) {
+    case let (
+      _, familyName0?,
+      _, familyName1?
+    ):
       return familyName0.isLessThan(familyName1, whenEqual: fallback)
-    case (let familyName0?, nil):
-      return components1.givenName.map { givenName1 in
-        familyName0.isLessThan(givenName1, whenEqual: fallback)
-      } ?? fallback
-    case (nil, let familyName1?):
-      return components0.givenName.map { givenName0 in
-        givenName0.isLessThan(familyName1, whenEqual: fallback)
-      } ?? fallback
-    case (nil, nil):
+    case (
+      _, let familyName0?,
+      let givenName1?, nil
+    ):
+      return familyName0.isLessThan(givenName1, whenEqual: fallback)
+    case (
+      let givenName0?, nil,
+      _, let familyName1?
+    ):
+      return givenName0.isLessThan(familyName1, whenEqual: fallback)
+    default:
       return fallback
     }
   }
