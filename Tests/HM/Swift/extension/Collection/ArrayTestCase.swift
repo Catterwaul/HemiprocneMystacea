@@ -19,4 +19,17 @@ final class ArrayTestCase: XCTestCase {
     XCTAssertEqual(intsSplitInHalf[0], [1, 2])
     XCTAssertEqual(intsSplitInHalf[1], [3, 4, 5])
   }
+
+  func test_without() {
+    let rabbitsAndEars = ["👯", "🐇", "🐰", "👂", "🌽"]
+
+    XCTAssertNil(
+      rabbitsAndEars.without(prefix: ["🐰"])
+    )
+
+    XCTAssertEqual(
+      rabbitsAndEars.without(prefix: ["👯", "🐇"]),
+      ["🐰", "👂", "🌽"]
+    )
+  }
 }

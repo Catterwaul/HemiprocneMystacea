@@ -1,5 +1,5 @@
 public extension Collection {
-//MARK:- Subscripts
+  //MARK:- Subscripts
 
   /// Splits a `Collection` into equal "chunks".
   /// - Parameter maxSubSequenceCount: The maximum number of elements in a chunk.
@@ -38,7 +38,7 @@ public extension Collection {
     self[index(startIndex, offsetBy: position)]
   }
 
-//MARK:- Methods
+  //MARK: - Methods
 
   /// - Returns: same as subscript, if index is in bounds
   /// - Throws: `AnyCollection<Element>.IndexingError`
@@ -47,6 +47,25 @@ public extension Collection {
     else { throw AnyCollection<Element>.IndexingError() }
 
     return self[index]
+  }
+
+  /// Remove the beginning or end of a `Collection`.
+  /// - Parameters:
+  ///   - adfix: A prefix or suffix.
+  ///   - hasAdfix: Whether a collection is adfixed by `adfix`.
+  ///   - drop: Create a `SubSequence` by removing…
+  ///    - count: …this many`Element`s.
+  /// - Returns: `nil` if `hasAffix(affix)` is `false`.
+  func without<Adfix: Sequence>(
+    adfix: Adfix,
+    hasAdfix: (Adfix) -> Bool,
+    drop: (_ count: Int) -> SubSequence
+  ) -> SubSequence?
+  where Element == Adfix.Element {
+    guard hasAdfix(adfix)
+    else { return nil }
+
+    return drop(adfix.count)
   }
 }
 

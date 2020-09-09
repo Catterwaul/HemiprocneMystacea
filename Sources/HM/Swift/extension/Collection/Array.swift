@@ -1,5 +1,5 @@
 public extension Array {
-  //MARK:- Initializers
+  //MARK: - Initializers
 
   /// Create an `Array` if `subject's` values are all of one type.
   /// - Note: Useful for converting tuples to `Array`s.
@@ -29,7 +29,7 @@ public extension Array {
       .map { try iterate(&state) }
   }
 
-  //MARK:- Properties
+  //MARK: - Properties
 
   /// The first array will be shorter by one element,
   /// if `count` is odd.
@@ -39,5 +39,15 @@ public extension Array {
       prefix(upTo: halfCount),
       dropFirst(halfCount)
     ].map(Array.init)
+  }
+}
+
+//MARK: - Equatable
+public extension Array where Element: Equatable {
+  ///- Returns: `nil` if not prefixed with `prefix`.
+  func without<Prefix: Sequence>(prefix: Prefix) -> Self?
+  where Element == Prefix.Element {
+    without(adfix: prefix, hasAdfix: starts, drop: dropFirst)
+      .map(Self.init)
   }
 }
