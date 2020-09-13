@@ -1,6 +1,10 @@
 /// An emulation of the missing Swift feature of named subscripts.
 /// - Note: Argument labels are not supported.
 public struct Subscript<Root, Index, Value> {
+
+/// An emulation of the missing Swift feature of named subscripts.
+/// - Note: Argument labels are not supported.
+public struct ValueSubscript<Root, Index, Value> {
   public typealias Pointer = UnsafeMutablePointer<Root>
   public typealias Get = (Root) -> (Index) -> Value
   public typealias Set = (inout Root, Index, Value) -> Void
@@ -10,7 +14,7 @@ public struct Subscript<Root, Index, Value> {
   public var set: Set
 }
 
-public extension Subscript {
+public extension ValueSubscript {
   init(
     _ pointer: Pointer,
     get: @escaping Get,

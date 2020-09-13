@@ -54,7 +54,7 @@ public extension Collection {
   ///   - adfix: A prefix or suffix.
   ///   - hasAdfix: Whether a collection is adfixed by `adfix`.
   ///   - drop: Create a `SubSequence` by removing…
-  ///    - count: …this many`Element`s.
+  ///    - count: …this many `Element`s.
   /// - Returns: `nil` if `hasAffix(affix)` is `false`.
   func without<Adfix: Sequence>(
     adfix: Adfix,

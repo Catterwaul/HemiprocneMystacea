@@ -1,5 +1,5 @@
 public extension SetAlgebra {
-  var contains: Subscript<Self, Element, Bool> {
+  var contains: ValueSubscript<Self, Element, Bool> {
     mutating get {
       .init(
         &self,

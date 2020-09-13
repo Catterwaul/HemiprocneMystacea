@@ -1,4 +1,3 @@
-import HM
 import XCTest
 
 final class SetAlgebraTestCase: XCTestCase {
