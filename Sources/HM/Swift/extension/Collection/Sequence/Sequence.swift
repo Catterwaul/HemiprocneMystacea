@@ -96,6 +96,30 @@ public extension Sequence {
     try count { try $0.map(getIsIncluded) == true }
   }
 
+  /// The elements of the sequences, with "duplicates" removed
+  /// based on a closure.
+  func firstUniqueElements<Hashable: Swift.Hashable>(
+    _ getHashable: (Element) -> Hashable
+  ) -> [Element] {
+    var set: Set<Hashable> = []
+    return filter { set.insert(getHashable($0)).inserted }
+  }
+
+  /// The elements of the sequence, with "duplicates" removed,
+  /// based on a closure.
+  func firstUniqueElements<Equatable: Swift.Equatable>(
+    _ getEquatable: (Element) -> Equatable
+  ) -> [Element] {
+    reduce(into: []) { uniqueElements, element in
+      if zip(
+        uniqueElements.lazy.map(getEquatable),
+        AnyIterator { [equatable = getEquatable(element)] in equatable }
+      ).allSatisfy(!=) {
+        uniqueElements.append(element)
+      }
+    }
+  }
+
   /// The first element of a given type.
   func getFirst<T>(_: T.Type = T.self) -> T? {
     lazy.compactMap { $0 as? T } .first
