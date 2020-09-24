@@ -45,4 +45,30 @@ final class NamedSubscriptTestCase: XCTestCase {
       ["🍓", "🍏", "🍌"]
     )
   }
+
+  func test_ObjectSubscript() {
+    final class Class {
+      var bools: ObjectSubscript<Class, String, Bool?> {
+        .init(
+          self,
+          get: { object in
+            { object._bools[$0]
+              ?? Bool(binaryString: $0)
+            }
+          },
+          set: { $0._bools[$1] = $2 }
+        )
+      }
+
+      private var _bools: [String: Bool] = [:]
+    }
+
+    let object = Class()
+    let ghoul = "🧟"
+    XCTAssertEqual(object.bools["1"], true)
+
+    XCTAssertNil(object.bools[ghoul])
+    object.bools[ghoul] = false
+    XCTAssertEqual(object.bools[ghoul], false)
+  }
 }

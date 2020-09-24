@@ -1,6 +1,30 @@
 /// An emulation of the missing Swift feature of named subscripts.
 /// - Note: Argument labels are not supported.
-public struct Subscript<Root, Index, Value> {
+public struct ObjectSubscript<Object: AnyObject, Index, Value> {
+  public typealias Get = (Object) -> (Index) -> Value
+  public typealias Set = (Object, Index, Value) -> Void
+
+  public unowned var object: Object
+  public var get: Get
+  public var set: Set
+}
+
+public extension ObjectSubscript {
+  init(
+    _ object: Object,
+    get: @escaping Get,
+    set: @escaping Set
+  ) {
+    self.object = object
+    self.get = get
+    self.set = set
+  }
+
+  subscript(index: Index) -> Value {
+    get { get(object)(index) }
+    nonmutating set { set(object, index, newValue) }
+  }
+}
 
 /// An emulation of the missing Swift feature of named subscripts.
 /// - Note: Argument labels are not supported.
