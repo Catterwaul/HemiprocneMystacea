@@ -154,6 +154,11 @@ final class DictionaryTestCase: XCTestCase {
       dictionary.compactMapKeys { $0 > 50 ? $0 : nil },
       [100: "💯"]
     )
+
+    XCTAssertEqual(
+      ["🐯": 1, "🦁": 2].mapKeys( { _ in "😺" }, uniquingKeysWith: + ),
+      ["😺": 3]
+    )
   }
 
   func test_mapValues() {
