@@ -329,8 +329,19 @@ public extension Sequence {
   }
 }
 
-//MARK: Element: Sequence
+// MARK: - Element: Sequence
 public extension Sequence where Element: Sequence {
+  var combinations: [[Element.Element]] {
+    guard let initialResult = ( first?.map { [$0] } )
+    else { return [] }
+
+    return dropFirst().reduce(initialResult) { combinations, iteration in
+      combinations.flatMap { combination in
+        iteration.map { combination + [$0] }
+      }
+    }
+  }
+
   /// Like `zip`, but with no limit to how many sequences are zipped.
   var zipped: AnySequence<[Element.Element]> {
     .init(
@@ -347,7 +358,7 @@ public extension Sequence where Element: Sequence {
   }
 }
 
-//MARK:-
+// MARK: -
 
 public extension Array {
   init(_ spliteration: AnySequence<Element>.Spliteration) {
