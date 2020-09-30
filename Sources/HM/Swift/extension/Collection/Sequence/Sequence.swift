@@ -225,10 +225,9 @@ public extension Sequence {
   func reduce(
     _ getNextPartialResult: (Element, Element) throws -> Element
   ) rethrows -> Element? {
-    guard let first = first
-    else { return nil }
-
-    return try dropFirst().reduce(first, getNextPartialResult)
+    try first.map {
+      try dropFirst().reduce($0, getNextPartialResult)
+    }
   }
 
   /// Accumulates transformed elements.

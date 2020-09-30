@@ -2,8 +2,13 @@ import HM
 import XCTest
 
 final class SequenceOfEquatableTestCase: XCTestCase {
-//MARK:- firstUniqueElements
+  func test_elementsAreAllEqual() {
+    XCTAssertNil([Bool]().elementsAreAllEqual)
+    XCTAssert([1].elementsAreAllEqual == true)
+    XCTAssert(["⭐️", "⭐️"].elementsAreAllEqual == true)
+  }
 
+//MARK:- firstUniqueElements
   func test_firstUniqueElements_Hashable() {
     XCTAssertEqual(
       [1, 1, 1].firstUniqueElements,
