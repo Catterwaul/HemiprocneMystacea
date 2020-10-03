@@ -28,3 +28,10 @@ public extension Equatable {
 ) rethrows -> Bool {
   try optional0.map(transform) == optional1.map(transform)
 }
+
+// MARK: - AnyObject
+public extension Equatable where Self: AnyObject {
+  static func == (class0: Self, class1: Self) -> Bool {
+    class0 === class1
+  }
+}

@@ -2,7 +2,7 @@
 /// from a collection of closures.
 ///- Note: Designed for one-to-many events, hence no return value.
 ///  Returning a single value from multiple closures doesn't make sense.
-public final class MultiClosure<Input>: EquatableObject {
+public final class MultiClosure<Input>: Equatable {
   public init(_ closures: EquatableClosure<Input>...) {
     self += closures
   }
@@ -47,7 +47,7 @@ public extension MultiClosure where Input == () {
 }
 
 /// A wrapper around a closure, for use with MultiClosures
-public final class EquatableClosure<Input>: EquatableObject {
+public final class EquatableClosure<Input>: Equatable {
   public init(_ closure: @escaping (Input) -> Void) {
     self.closure = closure
   }
