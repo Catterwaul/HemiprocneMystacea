@@ -1,7 +1,7 @@
 public extension BinaryInteger {
   /// A bitmask within a range.
   /// - Parameter bitIndices: From least significant to most.
-  static subscript<BitIndices: closedRange>(mask bitIndices: BitIndices) -> Self
+  static subscript<BitIndices: ClosedRangeConvertible>(mask bitIndices: BitIndices) -> Self
   where
     BitIndices.Bound: BinaryInteger,
     BitIndices.Bound.Stride: SignedInteger
@@ -29,7 +29,7 @@ public extension BinaryInteger {
 
   /// A range of bits from this number.
   /// - Parameter bitIndices: From least significant to most.
-  subscript<BitIndices: closedRange>(mask bitIndices: BitIndices) -> Self
+  subscript<BitIndices: ClosedRangeConvertible>(mask bitIndices: BitIndices) -> Self
   where
     BitIndices.Bound: BinaryInteger,
     BitIndices.Bound.Stride: SignedInteger

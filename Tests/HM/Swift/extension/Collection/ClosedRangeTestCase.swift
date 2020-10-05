@@ -2,6 +2,10 @@ import HM
 import XCTest
 
 final class ClosedRangeTestCase: XCTestCase {
+  func test_division() {
+    XCTAssertEqual((10...100) / 10, 1...10)
+  }
+
   func test_🏓() {
     XCTAssertEqual(
       Array( (2...10).🏓() ),

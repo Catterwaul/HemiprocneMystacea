@@ -1,3 +1,10 @@
+public extension ClosedRange where Bound: FloatingPoint {
+  static func / (range: Self, bound: Bound) -> Self {
+    (range.lowerBound / bound)...(range.upperBound / bound)
+  }
+}
+
+// MARK: - Bound: AdditiveArithmetic
 public extension ClosedRange where Bound: AdditiveArithmetic {
   func 🏓(
     by contiguousAdvancement: Bound,
@@ -56,21 +63,22 @@ public extension ClosedRange where Bound: FloatingPoint {
 //MARK:-
 
 /// A type that can be represented as a `ClosedRange`.
-public protocol closedRange {
+public protocol ClosedRangeConvertible {
   associatedtype Bound: Comparable
   var closedRange: ClosedRange<Bound> { get }
 }
 
-extension ClosedRange: closedRange {
+
+extension ClosedRange: ClosedRangeConvertible {
   public var closedRange: Self { self }
 }
 
-extension PartialRangeThrough: closedRange where Bound: ExpressibleByIntegerLiteral {
+extension PartialRangeThrough: ClosedRangeConvertible where Bound: ExpressibleByIntegerLiteral {
   /// From zero to the upper bound, inclusive.
   public var closedRange: ClosedRange<Bound> { 0...upperBound }
 }
 
-extension PartialRangeUpTo: closedRange
+extension PartialRangeUpTo: ClosedRangeConvertible
 where Bound: ExpressibleByIntegerLiteral & AdditiveArithmetic {
   /// From zero to the upper bound, exclusive.
   public var closedRange: ClosedRange<Bound> { 0...(upperBound - 1) }
