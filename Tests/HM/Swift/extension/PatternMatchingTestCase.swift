@@ -41,7 +41,7 @@ final class PatternMatchingTestCase: XCTestCase {
     XCTAssertTrue(📧.tuple ~= tupleCase)
     XCTAssertFalse(📧.anotherTuple ~= tupleCase)
 
-    XCTAssertTrue( 📧.labeled ~= 📧.labeled(cake: "🍰") )
+    XCTAssertTrue(📧.labeled ~= 📧.labeled(cake: "🍰"))
 
     let makeTupleCase = 📧.tuple
     XCTAssertFalse(makeTupleCase ~= 📧.noAssociatedValue)
@@ -65,8 +65,8 @@ final class PatternMatchingTestCase: XCTestCase {
     XCTAssertTrue(📧.tuple ~= tupleCase)
     XCTAssertFalse(📧.anotherTuple ~= tupleCase)
 
-    XCTAssertFalse( { .noAssociatedValue } ~= 📧.noAssociatedValue )
-    XCTAssertTrue( 📧.labeled ~= 📧.labeled(cake: "🍰") )
+    XCTAssertTrue(📧.noAssociatedValue ~= .noAssociatedValue)
+    XCTAssertTrue(📧.labeled ~= 📧.labeled(cake: "🍰"))
 
     let makeTupleCase = 📧.tuple
     XCTAssertFalse(makeTupleCase ~= 📧.noAssociatedValue)

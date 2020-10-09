@@ -36,19 +36,20 @@ public extension Mirror {
   /// - Parameter case: Looks like `Enum.case`.
   static func associatedValue<Enum: Equatable, AssociatedValue>(
     of instance: Enum,
-    ifCase case: (AssociatedValue) -> Enum
-  ) -> AssociatedValue? {
-    associatedValue(of: instance).filter { `case`($0) == instance }
+    ifCase case: (AssociatedValue) throws -> Enum
+  ) rethrows -> AssociatedValue? {
+    try associatedValue(of: instance)
+      .filter { try `case`($0) == instance }
   }
 
   /// Get an `enum` case's `associatedValue`.
   /// - Parameter case: Looks like `Enum.case`.
   static func associatedValue<Enum, AssociatedValue>(
     of instance: Enum,
-    ifCase case: (AssociatedValue) -> Enum
-  ) -> AssociatedValue? {
-    associatedValue(of: instance).filter {
-      equate(`case`($0), to: instance) {
+    ifCase case: (AssociatedValue) throws -> Enum
+  ) rethrows -> AssociatedValue? {
+    try associatedValue(of: instance).filter {
+      .equate(try `case`($0), to: instance) {
         Self(reflecting: $0).children.first?.label
       }
     }

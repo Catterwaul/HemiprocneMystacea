@@ -24,3 +24,19 @@ public func ~= <Enum, AssociatedValue>(
 ) -> Bool {
   Mirror.associatedValue(of: instance, ifCase: `case`) != nil
 }
+
+/// Match non-`Equatable` `enum` cases without associated values.
+public func ~= <Enum>(pattern: Enum, instance: Enum) -> Bool {
+  guard let labels = (
+    [pattern, instance].compactMap {
+      Optional(Mirror(reflecting: $0))
+        .filter {
+          $0.displayStyle == .enum
+            && $0.children.isEmpty
+        }
+    }
+    .tuple2
+  ) else { return false }
+
+  return "\(labels.0)" == "\(labels.1)"
+}
