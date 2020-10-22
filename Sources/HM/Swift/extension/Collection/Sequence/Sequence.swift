@@ -20,10 +20,10 @@ public extension Sequence {
   }
 
   /// Combines two `Sequence`s.
-  static func + <Sequence1: Swift.Sequence>(sequence0: Self, sequence1: Sequence1) -> AnySequence<Element>
+  static func + <Sequence1: Sequence>(sequence0: Self, sequence1: Sequence1) -> AnySequence<Element>
   where Sequence1.Element == Element {
     .init { () -> AnyIterator<Element> in
-      var iterators = ( sequence0.makeIterator(), sequence1.makeIterator() )
+      var iterators = (sequence0.makeIterator(), sequence1.makeIterator())
       return .init { iterators.0.next() ?? iterators.1.next() }
     }
   }
@@ -36,7 +36,7 @@ public extension Sequence {
   }
 
   /// Each elements of the sequence, paired with the element after.
-  var consecutivePairs: Zip2Sequence< Self, DropFirstSequence<Self> > {
+  var consecutivePairs: Zip2Sequence<Self, DropFirstSequence<Self>> {
     zip( self, dropFirst() )
   }
 

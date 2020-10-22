@@ -27,16 +27,14 @@ public func ~= <Enum, AssociatedValue>(
 
 /// Match non-`Equatable` `enum` cases without associated values.
 public func ~= <Enum>(pattern: Enum, instance: Enum) -> Bool {
-  guard let labels = (
-    [pattern, instance].compactMap {
-      Optional(Mirror(reflecting: $0))
-        .filter {
-          $0.displayStyle == .enum
-            && $0.children.isEmpty
-        }
+  guard (
+    [pattern, instance].allSatisfy {
+      let mirror = Mirror(reflecting: $0)
+      return
+        mirror.displayStyle == .enum
+        && mirror.children.isEmpty
     }
-    .tuple2
   ) else { return false }
 
-  return "\(labels.0)" == "\(labels.1)"
+  return .equate(pattern, to: instance) { "\($0)" }
 }

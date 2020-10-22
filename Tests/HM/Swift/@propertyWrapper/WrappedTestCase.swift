@@ -13,6 +13,20 @@ final class WrappedTestCase: XCTestCase {
     XCTAssertEqual(cat.wrappedValue, "🐆")
   }
 
+  func test_callAsFunction_object() {
+    final class OuterClass {
+      final class InnerClass {
+        var cat = "🐈"
+      }
+
+      @Wrapped var object = InnerClass()
+    }
+
+    let object = OuterClass().$object
+    object { $0.cat = "🐆" }
+    XCTAssertEqual(object.wrappedValue.cat, "🐆")
+  }
+
   func test_if() {
     var isSnackTime = false
     XCTAssertEqual(

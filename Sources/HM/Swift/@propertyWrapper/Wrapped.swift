@@ -34,3 +34,11 @@ public extension Wrapped {
       : wrappedValue
   }
 }
+
+public extension Wrapped where Value: AnyObject {
+  func callAsFunction(
+    transform: (Value) throws -> Void
+  ) rethrows {
+    try transform(wrappedValue)
+  }
+}
