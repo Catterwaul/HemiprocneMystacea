@@ -12,7 +12,7 @@ public struct AnyEquatable<Cast> {
   private let cast: Cast
 }
 
-extension AnyEquatable: Swift.Equatable {
+extension AnyEquatable: Equatable {
   public static func == (equatable0: Self, equatable1: Self) -> Bool {
     equatable0 == equatable1.cast
   }

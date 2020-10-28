@@ -2,6 +2,10 @@ import HM
 import XCTest
 
 final class BoolTestCase: XCTestCase {
+  func test_Comparable() {
+    XCTAssertGreaterThan(true.comparable, false)
+  }
+
   func test_init_validBits() throws {
     let boolFromFalseBit = try XCTUnwrap( Bool(bit: 0) )
     XCTAssertFalse(boolFromFalseBit)
