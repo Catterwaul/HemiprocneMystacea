@@ -6,6 +6,19 @@ final class ClosedRangeTestCase: XCTestCase {
     XCTAssertEqual((10...100) / 10, 1...10)
   }
 
+  func test_init_encompassing() {
+    XCTAssertNil(ClosedRange(encompassing: [] as [Int]))
+  }
+
+  func test_normalize() throws {
+    XCTAssertEqual(
+      ClosedRange(encompassing: [1.0, -10, 10])?.normalize(0),
+      0.5
+    )
+
+    XCTAssertNil((1...1).normalize(1))
+  }
+
   func test_🏓() {
     XCTAssertEqual(
       Array((2...10).🏓()),

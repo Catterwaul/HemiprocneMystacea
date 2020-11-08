@@ -3,9 +3,11 @@ import XCTest
 
 final class NumericTestCase: XCTestCase {
   func test_DivisionByZeroError() {
-    let numerator = Int.random( in: .min...(.max) )
-    let error = ConcreteNumeric.DivisionByZeroError(numerator: numerator)
-    XCTAssertEqual(error.numerator, numerator)
+    let numerator = Int.random(in: .min...(.max))
+    XCTAssertEqual(
+      DivisionByZeroError(numerator: numerator).numerator,
+      numerator
+    )
   }
 
   func test_squared() {

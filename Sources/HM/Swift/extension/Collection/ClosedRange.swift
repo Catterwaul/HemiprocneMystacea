@@ -1,6 +1,40 @@
+public extension ClosedRange {
+  /// A range whose bounds are the extremes of a given sequence.
+  ///
+  /// - Returns: `nil` if the sequence is empty.
+  init?<Bounds: Sequence>(encompassing bounds: Bounds)
+  where Bounds.Element == Bound {
+    guard let initialRange = (bounds.first.map { $0...$0 } )
+    else { return nil }
+
+    self = bounds.dropFirst().reduce(into: initialRange) { range, bound in
+      if bound < range.lowerBound {
+        range = bound...range.upperBound
+      } else if bound > range.upperBound {
+        range = range.lowerBound...bound
+      }
+    }
+  }
+}
+
+public extension ClosedRange where Bound: AdditiveArithmetic {
+  /// `upperBound - lowerBound`
+  var magnitude: Bound { upperBound - lowerBound }
+}
+
 public extension ClosedRange where Bound: FloatingPoint {
   static func / (range: Self, bound: Bound) -> Self {
     (range.lowerBound / bound)...(range.upperBound / bound)
+  }
+
+  /// A value whose unit is the `magnitude` of this range,
+  /// and whose origin is `lowerBound`.
+  ///
+  /// - Note: Not clamped between 0 and 1.
+  ///
+  /// - Returns: `nil` when the range has zero magnitude.
+  func normalize(_ bound: Bound) -> Bound? {
+    try? (bound - lowerBound) ÷ magnitude
   }
 }
 
