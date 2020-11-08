@@ -6,7 +6,7 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
     var viewModel = ViewModel()
     let indexPath = IndexPath(item: 2, section: 0)
     
-    XCTAssertThrowsError( try viewModel.getRowCount() ) { error in
+    XCTAssertThrowsError(try viewModel.getRowCount()) { error in
       guard case ModelNotAssignedError.getAccessor = error
       else { XCTFail(); return }
     }
@@ -20,7 +20,7 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
       else { XCTFail(); return }
     }
     
-    XCTAssertThrowsError( try viewModel.doSomething() ) { error in
+    XCTAssertThrowsError(try viewModel.doSomething()) { error in
       guard case ModelNotAssignedError.method = error
       else { XCTFail(); return }
     }

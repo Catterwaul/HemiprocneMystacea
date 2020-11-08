@@ -37,7 +37,7 @@ public extension Sequence {
 
   /// Each elements of the sequence, paired with the element after.
   var consecutivePairs: Zip2Sequence<Self, DropFirstSequence<Self>> {
-    zip( self, dropFirst() )
+    zip(self, dropFirst())
   }
 
   /// - Complexity: O(n)
@@ -63,7 +63,7 @@ public extension Sequence {
   ///   until the last chunk, which may be smaller.
   subscript(maxArrayCount maxCount: Int) -> AnySequence<[Element]> {
     .init(
-      sequence( state: makeIterator() ) { iterator in
+      sequence(state: makeIterator()) { iterator in
         Optional(
           (0..<maxCount).compactMap { _ in iterator.next() }
         ).filter { !$0.isEmpty }
@@ -138,8 +138,8 @@ public extension Sequence {
     ? .init {
       AnyIterator(
         state: (
-          AnyIterator( self.makeIterator() ),
-          AnyIterator( sequence.makeIterator() )
+          AnyIterator(self.makeIterator()),
+          AnyIterator(sequence.makeIterator())
         )
       ) { iterators in 
         defer { iterators = (iterators.1, iterators.0) }
@@ -187,7 +187,7 @@ public extension Sequence {
     typealias Error = AnySequence<Element>.OnlyMatchError
     guard let onlyMatch: Element = (
       try reduce(into: nil) { onlyMatch, element in
-        switch ( onlyMatch, try getIsMatch(element) ) {
+        switch (onlyMatch, try getIsMatch(element)) {
         case (_, false):
           break
         case (nil, true):
@@ -287,7 +287,7 @@ public extension Sequence {
     _ areInIncreasingOrder: ((Comparable0, Comparable1), (Comparable0, Comparable1)) throws -> Bool
   ) rethrows -> [Element] {
     try sorted {
-      try areInIncreasingOrder( comparables($0), comparables($1) )
+      try areInIncreasingOrder(comparables($0), comparables($1))
     }
   }
 

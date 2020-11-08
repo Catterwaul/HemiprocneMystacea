@@ -42,7 +42,7 @@ public extension MultiClosure {
 public extension MultiClosure where Input == () {
   /// Execute every closure
   func callAsFunction() {
-    self( () )
+    self(())
   }
 }
 

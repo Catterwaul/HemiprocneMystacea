@@ -11,6 +11,6 @@ final class UIColorTestCase: XCTestCase {
 		XCTAssertEqual(hsba.brightness, 0.5)
 		XCTAssertEqual(hsba.alpha, 0.5)
 		
-		XCTAssertEqual( UIColor(hsba), color )
+		XCTAssertEqual(UIColor(hsba), color)
 	}
 }

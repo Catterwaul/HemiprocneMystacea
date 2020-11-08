@@ -12,7 +12,7 @@ public extension UIViewController {
   ///   2.  `ViewController` is the initial view controller for that storyboard.
   static func instantiate<ViewController: UIViewController>(
     bundle: Bundle? = nil,
-    init: ( (NSCoder) -> ViewController )?
+    init: ((NSCoder) -> ViewController )?
   ) -> ViewController? {
     UIStoryboard(name: "\(ViewController.self)", bundle: bundle)
     .instantiateInitialViewController(creator: `init`)
@@ -27,7 +27,7 @@ public extension UIViewController {
   /// - Precondition:
   ///   `storyboard` contains a view controller whose identifier has the same name as `ViewController`.
   static func instantiate<ViewController: UIViewController>(
-    storyboard: UIStoryboard, init: ( (NSCoder) -> ViewController )?
+    storyboard: UIStoryboard, init: ((NSCoder) -> ViewController )?
   ) -> ViewController {
     storyboard.instantiateViewController(
       identifier: "\(ViewController.self)", creator: `init`

@@ -23,7 +23,7 @@ public extension Tuple {
   /// - Note: Useful because a single-element tuple can't have a label.
   init<LabeledElement>(_ labeledElement: LabeledElement)
   where Elements == (LabeledElement, Never?) {
-    self.init( (labeledElement, nil) )
+    self.init((labeledElement, nil))
   }
 
   init<Parameters, Transformed0, Transformed1>(
@@ -34,7 +34,7 @@ public extension Tuple {
     (Parameters) -> Transformed0,
     (Parameters) -> Transformed1
   ) {
-    self.init( (transform0, transform1) )
+    self.init((transform0, transform1))
   }
 
   func callAsFunction<Parameters, Transformed0, Transformed1>(
@@ -44,7 +44,7 @@ public extension Tuple {
     (Parameters) -> Transformed0,
     (Parameters) -> Transformed1
   ) {
-    ( elements.0(parameters), elements.1(parameters) )
+    (elements.0(parameters), elements.1(parameters))
   }
 
   //MARK:- 3-tuple
@@ -67,7 +67,7 @@ public extension Tuple {
     (Parameters) -> Transformed1,
     (Parameters) -> Transformed2
   ) {
-    self.init( (transform0, transform1, transform2) )
+    self.init((transform0, transform1, transform2))
   }
 
   func callAsFunction<Parameters, Transformed0, Transformed1, Transformed2>(
@@ -78,7 +78,7 @@ public extension Tuple {
     (Parameters) -> Transformed1,
     (Parameters) -> Transformed2
   ) {
-    ( elements.0(parameters), elements.1(parameters), elements.2(parameters) )
+    (elements.0(parameters), elements.1(parameters), elements.2(parameters))
   }
 }
 
@@ -103,7 +103,7 @@ public extension Sequence {
       let _1 = getNext()
     else { return nil }
 
-    return ( (_0, _1), getNext )
+    return ((_0, _1), getNext)
   }
 
   private func makeTuple3() -> (

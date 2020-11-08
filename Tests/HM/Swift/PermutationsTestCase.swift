@@ -36,7 +36,7 @@ final class PermutationsTestCase: XCTestCase {
     )
 
     XCTAssertEqual(
-      Array( Permutations(["A", "B", "C"]) ),
+      Array(Permutations(["A", "B", "C"])),
       [ ["A", "B", "C"],
         ["A", "C", "B"],
 

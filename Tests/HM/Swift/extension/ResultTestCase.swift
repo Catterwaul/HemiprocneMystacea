@@ -8,7 +8,7 @@ final class ResultTestCase: XCTestCase {
     typealias OneOfTwo = HM.OneOfTwo<Int, Error>
 
     XCTAssertThrowsError(
-      try Result( success: 1, failure: .init() as Optional )
+      try Result(success: 1, failure: .init() as Optional)
     ) { error in
       guard case OneOfTwo.Error.both = error
       else { XCTFail(); return }
@@ -22,8 +22,8 @@ final class ResultTestCase: XCTestCase {
     }
 
     XCTAssertEqual(
-      try Result( success: nil, failure: .init() as Optional ),
-      Result.failure( .init() )
+      try Result(success: nil, failure: .init() as Optional),
+      Result.failure(.init())
     )
   }
 
@@ -44,7 +44,7 @@ final class ResultTestCase: XCTestCase {
     struct Error: Swift.Error { }
 
     guard case let .success(😼)
-      = try Result( get😼() )
+      = try Result(get😼())
     else { XCTFail(); return }
 
     XCTAssertEqual(😼, "😼")
@@ -54,11 +54,11 @@ final class ResultTestCase: XCTestCase {
     }
 
     XCTAssert(
-      Result.failure ~= ( try .init( throwError() ) )
+      Result.failure ~= ( try .init(throwError()) )
     )
 
     XCTAssertThrowsError(
-      try Swift.Result<String, [Error]>( throwError() )
+      try Swift.Result<String, [Error]>(throwError())
     )
   }
 
@@ -77,10 +77,10 @@ final class ResultTestCase: XCTestCase {
 
     XCTAssertEqual(
       try [throwBad, throwsStrongBads].map {
-        try Result<Void, [Error]>(groupingFailures: $0() )
+        try Result<Void, [Error]>(groupingFailures: $0())
       }.flatMap { Mirror.associatedValue(of: $0)! as [Error] },
 
-      [ Error.bad,
+      [Error.bad,
         .strongBad, .strongBad
       ]
     )
@@ -89,7 +89,7 @@ final class ResultTestCase: XCTestCase {
       enum Error: Swift.Error { }
 
       XCTAssertThrowsError(
-        try Result<Void, [Error]>( groupingFailures: throwsStrongBads() )
+        try Result<Void, [Error]>(groupingFailures: throwsStrongBads())
       )
     }
   }
@@ -102,7 +102,7 @@ final class ResultTestCase: XCTestCase {
     )
 
     XCTAssert(
-      VerificationResult.failure ~= .init(failure: Error() )
+      VerificationResult.failure ~= .init(failure: Error())
     )
   }
 }

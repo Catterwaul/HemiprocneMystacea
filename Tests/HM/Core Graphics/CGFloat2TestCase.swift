@@ -9,11 +9,11 @@ final class CGFloat2TestCase: XCTestCase {
       CGSize(width: 1, height: 2)
       + CGSize(width: 3, height: 4)
 
-    XCTAssertEqual( sum, CGSize(width: 4, height: 6) )
+    XCTAssertEqual(sum, CGSize(width: 4, height: 6))
 
     sum += CGSize(width: -3, height: -4)
 
-    XCTAssertEqual( sum, CGSize(width: 1, height: 2) )
+    XCTAssertEqual(sum, CGSize(width: 1, height: 2))
   }
 
   func test_subtract() {
@@ -21,11 +21,11 @@ final class CGFloat2TestCase: XCTestCase {
       CGVector(dx: 1, dy: 2)
       - CGVector(dx: 3, dy: 4)
 
-    XCTAssertEqual( difference, CGVector(dx: -2, dy: -2) )
+    XCTAssertEqual(difference, CGVector(dx: -2, dy: -2))
 
     difference -= CGVector(dx: -3, dy: -4)
 
-    XCTAssertEqual( difference, CGVector(dx: 1, dy: 2) )
+    XCTAssertEqual(difference, CGVector(dx: 1, dy: 2))
 
     XCTAssertEqual(
       CGSize(width: 60, height: -80)
@@ -61,8 +61,8 @@ final class CGFloat2TestCase: XCTestCase {
 
   func test_initWithPoint() {
     XCTAssertEqual(
-      CGSize( CGPoint(x: 5, y: 55) ),
-      CGSize( width: 5, height: 55 )
+      CGSize(CGPoint(x: 5, y: 55)),
+      CGSize(width: 5, height: 55 )
     )
   }
 
@@ -71,7 +71,7 @@ final class CGFloat2TestCase: XCTestCase {
   func test_clamped() {
     let point = CGPoint(x: -4, y: 20)
     XCTAssertEqual(
-      point.clamped( within: CGRect(x: 1, y: 1, width: 10, height: 10) ),
+      point.clamped(within: CGRect(x: 1, y: 1, width: 10, height: 10)),
       CGPoint(x: 1, y: 11)
     )
   }

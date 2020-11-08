@@ -46,7 +46,7 @@ final class CKRecordTestCase: XCTestCase {
           unit: .kilograms
         )
       ),
-      unSmashingPumpkin = try! Pumpkin( record: CKRecord(mrPumpkin) )
+      unSmashingPumpkin = try! Pumpkin(record: CKRecord(mrPumpkin))
 
     XCTAssertEqual(unSmashingPumpkin.eyesCount, 2)
     XCTAssertEqual(unSmashingPumpkin.halloween, spookyOldHalloween)
@@ -68,7 +68,7 @@ final class CKRecordTestCase: XCTestCase {
     XCTAssertEqual(try IntEnum(record: record), .zero)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
-    XCTAssertThrowsError( try IntEnum(record: record) ) { error in
+    XCTAssertThrowsError(try IntEnum(record: record)) { error in
       switch error {
       case ConcreteRawRepresentable<IntEnum>.Error.invalidRawValue(let rawValue):
         XCTAssertEqual(rawValue, -1)
@@ -92,7 +92,7 @@ final class CKRecordTestCase: XCTestCase {
     XCTAssertEqual(try StringEnum(record: record), .a)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
-    XCTAssertThrowsError( try StringEnum(record: record) ) { error in
+    XCTAssertThrowsError(try StringEnum(record: record)) { error in
       switch error {
       case ConcreteRawRepresentable<StringEnum>.Error.invalidRawValue(let rawValue):
         XCTAssertEqual(rawValue, "eh")
@@ -102,7 +102,7 @@ final class CKRecordTestCase: XCTestCase {
     }
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
-    XCTAssertThrowsError( try StringEnum(record: record) ) {
+    XCTAssertThrowsError(try StringEnum(record: record)) {
       XCTAssert(CKRecord.AccessError.noValue ~= $0)
     }
   }

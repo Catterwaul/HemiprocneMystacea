@@ -11,7 +11,7 @@ final class WeakMethodTestCase: XCTestCase {
     XCTAssertEqual(reference?.property, 1234)
 
     reference = nil
-    XCTAssertThrowsError( try assign1234() ) {
+    XCTAssertThrowsError(try assign1234()) {
       XCTAssert($0 is WeakMethod<Reference, (), Void>.ReferenceDeallocatedError)
     }
   }
@@ -21,11 +21,11 @@ final class WeakMethodTestCase: XCTestCase {
 
     let assignSum = WeakMethod(reference: reference, method: Reference.assignSum)
 
-    XCTAssertEqual( try assignSum(2, 3), 5 )
+    XCTAssertEqual(try assignSum(2, 3), 5)
     XCTAssertEqual(reference?.property, 5)
 
     reference = nil
-    XCTAssertThrowsError( try assignSum(2, 3) ) {
+    XCTAssertThrowsError(try assignSum(2, 3)) {
       XCTAssert($0 is WeakMethod<Reference, (Int, Int), Int>.ReferenceDeallocatedError)
     }
   }
@@ -41,7 +41,7 @@ final class WeakMethodTestCase: XCTestCase {
     XCTAssertEqual(reference?.property, 1234)
     
     reference = nil
-    XCTAssertThrowsError( try assign1234() ) {
+    XCTAssertThrowsError(try assign1234()) {
       XCTAssert($0 is WeakMethod<Reference, (), Void>.ReferenceDeallocatedError)
     }
   }
@@ -57,7 +57,7 @@ final class WeakMethodTestCase: XCTestCase {
     XCTAssertEqual(reference?.property, 1234)
     
     reference = nil
-    XCTAssertThrowsError( try assign(1234) ) {
+    XCTAssertThrowsError(try assign(1234)) {
       XCTAssert($0 is WeakMethod<Reference, Int, Void>.ReferenceDeallocatedError)
     }
   }

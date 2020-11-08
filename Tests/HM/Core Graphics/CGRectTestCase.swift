@@ -56,7 +56,7 @@ final class CGRectTestCase: XCTestCase {
     )
 
     XCTAssertEqual(
-      SIMD2(1, 1).signedDistance( to: .init() ),
+      SIMD2(1, 1).signedDistance(to: .init()),
       2.squareRoot()
     )
   }

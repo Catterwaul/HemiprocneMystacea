@@ -6,12 +6,12 @@ final class OptionalTestCase: XCTestCase {
     var jenies: (String?, String?) = ("👖", "🧞‍♂️")
 
     do {
-      let jenies = try XCTUnwrap( .init(optionals: jenies) )
-      XCTAssert( jenies == ("👖", "🧞‍♂️") )
+      let jenies = try XCTUnwrap(.init(optionals: jenies))
+      XCTAssert(jenies == ("👖", "🧞‍♂️"))
     }
 
     jenies.1 = nil
-    XCTAssertNil( Optional(optionals: jenies) )
+    XCTAssertNil(Optional(optionals: jenies))
   }
 
   func test_reduce() {
@@ -42,7 +42,7 @@ final class OptionalTestCase: XCTestCase {
       try array.forEach { _ = try $0.unwrap() }
     }
 
-    XCTAssertNoThrow( try iterate() )
+    XCTAssertNoThrow(try iterate())
     XCTAssertThrowsError(try iterate(nil)) {
       XCTAssert($0 is Optional<Any>.UnwrapError)
     }

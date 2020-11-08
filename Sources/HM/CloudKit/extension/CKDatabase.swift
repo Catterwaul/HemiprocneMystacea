@@ -25,7 +25,7 @@ public extension CKDatabase {
             switch result {
             case .success:
               self.addModifyRecordsOperationsAsNeeded(
-                recordsToSave: Array( recordsToSave.dropFirst() ),
+                recordsToSave: Array(recordsToSave.dropFirst()),
                 recordIDsToDelete: recordIDsToDelete,
                 dispatchGroup: dispatchGroup,
                 addToErrors: addToErrors
@@ -80,13 +80,11 @@ public extension CKDatabase {
       operation.queryCompletionBlock = { cursor, error in
         if let error = error {
           process { throw error }
-        }
-        else if let cursor = cursor {
+        } else if let cursor = cursor {
           let operation = CKQueryOperation(cursor: cursor)
           initPhase2(operation)
           self.add(operation)
-        }
-        else {
+        } else {
           operationQueue.addOperation { process { records } }
         }
       }
@@ -176,16 +174,14 @@ public extension CKDatabase {
 			
       operation.queryCompletionBlock = { cursor, error in
         if let error = error {
-          processCompletionResult( .init(failure: error) )
-        }
-        else if let cursor = cursor {
+          processCompletionResult(.init(failure: error))
+        } else if let cursor = cursor {
           let operation = CKQueryOperation(cursor: cursor)
           initialize(operation)
           self.add(operation)
-        }
-        else {
-          dispatchGroup.notify( queue: DispatchQueue(label: "") ) {
-            processCompletionResult( .init() )
+        } else {
+          dispatchGroup.notify(queue: DispatchQueue(label: "")) {
+            processCompletionResult(.init())
           }
         }
       }
@@ -208,7 +204,7 @@ public extension CKDatabase {
     processResult: @escaping (VerificationResult<Error>) -> Void
   ) {
     save(record) {
-      processResult( .init(failure: $1) )
+      processResult(.init(failure: $1))
     }
   }
 }

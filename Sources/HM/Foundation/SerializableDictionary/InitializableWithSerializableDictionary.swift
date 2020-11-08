@@ -69,7 +69,7 @@ public enum InitializableWithSerializableDictionaryExtensions {
 
 //MARK:
 public extension Array where Element: InitializableWithSerializableDictionary {
-	private typealias DictionaryArray = [ [String: Any] ]
+	private typealias DictionaryArray = [[String: Any]]
 	
 	init(_ array: [Any]) throws {
 		guard let dictionaries = array as? DictionaryArray

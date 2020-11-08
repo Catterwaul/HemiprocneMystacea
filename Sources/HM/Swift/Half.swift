@@ -31,7 +31,7 @@ public extension Half {
   }
   
   init<Integer: BinaryInteger>(_ integer: Integer) {    
-    self.init( Float(integer) )
+    self.init(Float(integer))
   }
   
   var exponent: Int { exponentBitPattern - 0xF }

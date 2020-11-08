@@ -87,12 +87,12 @@ public extension Collection where Element: Equatable {
 
   ///- Returns: nil if `element` isn't present
   func prefix(upTo element: Element) -> SubSequence? {
-    firstIndex(of: element).map( prefix(upTo:) )
+    firstIndex(of: element).map(prefix(upTo:))
   }
 
   ///- Returns: nil if `element` isn't present
   func prefix(through element: Element) -> SubSequence? {
-    firstIndex(of: element).map( prefix(through:) )
+    firstIndex(of: element).map(prefix(through:))
   }
 }
 

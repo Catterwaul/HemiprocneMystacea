@@ -12,7 +12,7 @@ public extension CKModifyRecordsOperation {
     )
     
     modifyRecordsCompletionBlock = {
-      processCompletionResult( .init(failure: $2) )
+      processCompletionResult(.init(failure: $2))
     }
   }
 }

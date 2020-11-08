@@ -28,7 +28,7 @@ public extension CKContainer {
           )
         )
       case .failure(let error):
-        process( .failure(error) )
+        process(.failure(error))
       case .success:
         break
       }

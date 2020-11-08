@@ -7,7 +7,7 @@ public protocol ViewControllerWithDependentOutlets: UIViewController {
   /// 
   /// Don't manually give it a value; 
   /// instead, let `respondToOutletDependencies` do that.
-  var respondToViewDidLoad: ( () -> Void )? { get set }
+  var respondToViewDidLoad: (() -> Void )? { get set }
   
   /// - Important: 
   /// 1. Make this a `lazy var`.

@@ -21,7 +21,7 @@ final class CastErrorTestCase: XCTestCase {
     XCTAssertThrowsError(
       try failCast(of: Class(), to: Class.self)
     )
-    XCTAssertNoThrow( try failCast(of: Class(), to: Double.self) )
+    XCTAssertNoThrow(try failCast(of: Class(), to: Double.self))
   }
 
   func test_protocol() throws {

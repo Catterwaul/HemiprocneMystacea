@@ -104,7 +104,7 @@ extension PackedIntegerProtocol {
 
   /// The untruncated bit patterns for the packed integers.
   var untruncatedBitPatterns: [_Storage.Magnitude] {
-    Self.bitWidths.reversed().reduce( into: ([], storage.bitPattern) ) {
+    Self.bitWidths.reversed().reduce(into: ([], storage.bitPattern)) {
       bitPatterns, bitWidth in
       bitPatterns.0.append(bitPatterns.1)
       bitPatterns.1 >>= bitWidth

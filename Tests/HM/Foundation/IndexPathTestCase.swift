@@ -20,10 +20,10 @@ final class IndexPathTestCase: XCTestCase {
       process: { double = $0 }
     )
     
-    process( IndexPath(item: 1, section: 0) )
+    process(IndexPath(item: 1, section: 0))
     XCTAssertEqual(double, 2)
     
-    process( IndexPath(item: 234, section: 0) )
+    process(IndexPath(item: 234, section: 0))
     XCTAssertEqual(double, 468)
   }
 }

@@ -3,7 +3,7 @@ public extension AnyIterator {
   /// whose iteration can be "paused", if not fully-consumed in one operation.
   init<Sequence: Swift.Sequence>(pauseable sequence: Sequence)
   where Sequence.Element == Element {
-    self.init( sequence.makeIterator() )
+    self.init(sequence.makeIterator())
   }
 
   /// Use when `AnyIterator` is required / `UnfoldSequence` can't be used.
@@ -22,7 +22,7 @@ public extension AnyIterator {
     _ sequence: Sequence,
     processNext: @escaping (Element?) -> Void
   ) where Sequence.Element == Element {
-    self.init( state: sequence.makeIterator() ) { iterator -> Element? in
+    self.init(state: sequence.makeIterator()) { iterator -> Element? in
       let next = iterator.next()
       processNext(next)
       return next

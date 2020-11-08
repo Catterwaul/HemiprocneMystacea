@@ -54,7 +54,7 @@ public extension Dictionary {
   ///
   /// - Parameter pairs: Either `Swift.KeyValuePairs<Key, Self.Value.Element>`
   ///   or a `Sequence` with the same element type as that.
-  /// - Returns: `[ KeyValuePairs.Key: [KeyValuePairs.Value] ]`
+  /// - Returns: `[KeyValuePairs.Key: [KeyValuePairs.Value]]`
   init<Value, KeyValuePairs: Sequence>(grouping pairs: KeyValuePairs)
   where
     KeyValuePairs.Element == (key: Key, value: Value),
@@ -69,7 +69,7 @@ public extension Dictionary {
   ///
   /// - Parameter pairs: Like `Swift.KeyValuePairs<Key, Self.Value.Element>`,
   ///   but with unlabeled elements.
-  /// - Returns: `[ KeyValuePairs.Key: [KeyValuePairs.Value] ]`
+  /// - Returns: `[KeyValuePairs.Key: [KeyValuePairs.Value]]`
   init<Value, KeyValuePairs: Sequence>(grouping pairs: KeyValuePairs)
   where
     KeyValuePairs.Element == (Key, Value),
@@ -134,7 +134,7 @@ public extension Dictionary {
     _ transform: (Element) throws -> Transformed
   ) rethrows -> [Key: Transformed] {
     .init(
-      uniqueKeysWithValues: zip( keys, try map(transform) )
+      uniqueKeysWithValues: zip(keys, try map(transform))
     )
   }
 }

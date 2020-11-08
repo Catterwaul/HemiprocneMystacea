@@ -14,6 +14,6 @@ final class FibonacciSequenceTestCase: XCTestCase {
       first29
     )
 
-    XCTAssertEqual( FibonacciSequence()[25], CGFloat(75025) )
+    XCTAssertEqual(FibonacciSequence()[25], CGFloat(75025))
   }
 }

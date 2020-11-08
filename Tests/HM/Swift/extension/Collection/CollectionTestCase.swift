@@ -25,10 +25,12 @@ final class CollectionTestCase: XCTestCase {
     ] {
       XCTAssertEqual(ints[modulo: index], int)
     }
-
+    
     let string = "abc"
     XCTAssertEqual(
-      "abc"[modulo: string.index( after: string.firstIndex(of: "c")! )],
+      "abc"[
+        modulo: string.index(after: string.firstIndex(of: "c")!)
+      ],
       "a"
     )
   }
@@ -40,12 +42,12 @@ final class CollectionTestCase: XCTestCase {
 //MARK:- Methods
 
   func test_getElement() throws {
-    XCTAssertThrowsError( try ["🐾", "🥝"].element(at: 2) )
+    XCTAssertThrowsError(try ["🐾", "🥝"].element(at: 2))
 
     let collection = Array(1...10)
     XCTAssertEqual(try collection.element(at: 0), 1)
 
-    XCTAssertThrowsError( try collection.element(at: collection.endIndex) )
+    XCTAssertThrowsError(try collection.element(at: collection.endIndex))
     { XCTAssert($0 is AnyCollection<Int>.IndexingError) }
   }
 
@@ -60,18 +62,18 @@ final class CollectionTestCase: XCTestCase {
       "glorb1"
     )
 
-    XCTAssertNil( "boogalawncare".prefix(upTo: "z") )
-    XCTAssertNil( "boogalawncare".prefix(through: "z") )
+    XCTAssertNil("boogalawncare".prefix(upTo: "z"))
+    XCTAssertNil("boogalawncare".prefix(through: "z"))
   }
 
   func test_shifted() {
     XCTAssertEqual(
-      Array( stride(from: 0, through: 3, by: 1).shifted(by: 1) ),
+      Array(stride(from: 0, through: 3, by: 1).shifted(by: 1)),
       [1, 2, 3, 0]
     )
 
     XCTAssertEqual(
-      Array( [0, 1, 2, 3].shifted(by: -1) ),
+      Array([0, 1, 2, 3].shifted(by: -1)),
       [3, 0, 1, 2]
     )
   }

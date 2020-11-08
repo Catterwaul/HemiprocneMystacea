@@ -7,7 +7,7 @@ final class SequenceTestCase: XCTestCase {
   func test_tupleEquality() {
     let intStringTuples = [(1, "a"), (2, "b")]
     XCTAssertTrue(intStringTuples == intStringTuples.lazy)
-    XCTAssertFalse(intStringTuples == [ intStringTuples[0] ].lazy)
+    XCTAssertFalse(intStringTuples == [intStringTuples[0]].lazy)
 
     let boolDoubleTuples = [(true, 1.2), (false, 3.4)]
     XCTAssert(boolDoubleTuples == boolDoubleTuples)
@@ -29,7 +29,7 @@ final class SequenceTestCase: XCTestCase {
 
   func test_consecutiveElements() {
     XCTAssertEqual(
-      Array( (1...5).consecutiveElements(by: 3) ),
+      Array((1...5).consecutiveElements(by: 3)),
       [.init(1...3), .init(2...4), .init(3...5)]
     )
   }
@@ -59,7 +59,7 @@ final class SequenceTestCase: XCTestCase {
   func test_pauseable() {
     range: do {
       let upperLimit = 5
-      let pauseableRange = AnyIterator(pauseable: 1...upperLimit)
+      let pauseableRange = AnyIterator((1...upperLimit).makeIterator())
 
       _ = pauseableRange.next()
       for _ in pauseableRange.prefix(1) { }
@@ -75,10 +75,10 @@ final class SequenceTestCase: XCTestCase {
 
     typealias Number = Int
     let pauseableFibonacciSequence =
-      AnyIterator( pauseable: FibonacciSequence<Number>() )
+      AnyIterator(FibonacciSequence<Number>())
 
     func getNext(_ count: Int) -> [Number] {
-      .init( pauseableFibonacciSequence.prefix(count) )
+      .init(pauseableFibonacciSequence.prefix(count))
     }
 
     XCTAssertEqual(getNext(10), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
@@ -99,21 +99,21 @@ final class SequenceTestCase: XCTestCase {
       Array(
         (1...6)[maxArrayCount: 2]
       ),
-      [ [1, 2], [3, 4], [5, 6] ]
+      [[1, 2], [3, 4], [5, 6]]
     )
 
     XCTAssertEqual(
       Array(
         stride(from: 1, through: 3, by: 0.5)[maxArrayCount: 2]
       ),
-      [ [1, 1.5], [2, 2.5], [3] ]
+      [[1, 1.5], [2, 2.5], [3]]
     )
 
     XCTAssertEqual(
       Array(
         (1...2)[maxArrayCount: 10]
       ),
-      [ [1, 2] ]
+      [[1, 2]]
     )
   }
 
@@ -145,7 +145,7 @@ final class SequenceTestCase: XCTestCase {
     let oneThrough6 = Array(1...6)
 
     XCTAssertEqual(
-      Array( oddsTo7.interleaved(with: evensThrough10) ),
+      Array(oddsTo7.interleaved(with: evensThrough10)),
       oneThrough6
     )
 
@@ -187,7 +187,7 @@ final class SequenceTestCase: XCTestCase {
   }
 
   func test_onlyMatch() {
-    XCTAssertEqual( try (1...5).onlyMatch { $0 > 4 }, 5 )
+    XCTAssertEqual(try (1...5).onlyMatch { $0 > 4 }, 5 )
 
     typealias Error = AnySequence<Int>.OnlyMatchError
     

@@ -22,7 +22,7 @@ public extension Sequence where Element: Equatable {
 
     return .init(
       sequence(first: first) {
-        [iterator = AnyIterator( makeIterator() )]
+        [iterator = AnyIterator(makeIterator())]
         previous in iterator.first { previous != $0 }
       }
     )
@@ -36,7 +36,7 @@ public extension Sequence where Element: Equatable {
   /// The ranges of in-order elements.
   func ranges<Elements: Sequence>(for elements: Elements) -> [ClosedRange<Int>]
   where Elements.Element == Element {
-    let (enumerated, getPrevious) = AnySequence.makeIterator( self.enumerated() )
+    let (enumerated, getPrevious) = AnySequence.makeIterator(self.enumerated())
     return elements.compactMap { element in
       enumerated.first { $0.element == element }
       .map { start in

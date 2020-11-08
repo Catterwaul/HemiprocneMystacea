@@ -9,11 +9,11 @@ public extension Decimal {
     self.init(
       sign: integerAndFraction.sign,
       exponent: -Int(fractionalDigitCount),
-      significand: Self( Int(
-        ( integerAndFraction
-          * IntegerAndFraction( Self.radix.toThe(fractionalDigitCount) )
+      significand: Self(Int(
+        (integerAndFraction
+          * IntegerAndFraction(Self.radix.toThe(fractionalDigitCount))
         ).rounded()
-      ) )
+      ))
     )
   }
 

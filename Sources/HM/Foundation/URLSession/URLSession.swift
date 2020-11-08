@@ -6,7 +6,7 @@ public extension URLSession {
     process: @escaping (URLSessionDataTask.Result<Response>) -> Void
   ) -> URLSessionDataTask {
     dataTask(with: request) {
-      process( .init(data: $0, response: $1, error: $2) )
+      process(.init(data: $0, response: $1, error: $2))
     }
   }
 

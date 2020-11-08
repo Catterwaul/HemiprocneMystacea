@@ -10,14 +10,15 @@ public extension Numeric {
   }
 }
 
-public enum ConcreteNumeric<Numeric: Swift.Numeric> {
-  // Division isn't actually found in `Numeric`,
-  // but it does seem to be found in all the important protocols that inherit from it.
-  public struct DivisionByZeroError: Error {
-    public let numerator: Numeric
+// Division isn't actually found in `Numeric`,
+// but it does seem to be found in all the important protocols that inherit from it.
+public struct DivisionByZeroError<Numerator: Swift.Numeric>: Error {
+  public let numerator: Numerator
 
-    public init(numerator: Numeric) {
-      self.numerator = numerator
-    }
+  public init(numerator: Numerator) {
+    self.numerator = numerator
   }
 }
+
+extension DivisionByZeroError: Equatable where Numerator: Equatable { }
+extension DivisionByZeroError: Hashable where Numerator: Hashable { }

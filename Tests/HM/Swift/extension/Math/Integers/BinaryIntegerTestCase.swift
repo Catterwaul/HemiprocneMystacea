@@ -8,7 +8,7 @@ final class BinaryIntegerTestCase: XCTestCase {
       0b1010
     )
 
-    XCTAssertNil( Int(bitPattern: []) )
+    XCTAssertNil(Int(bitPattern: []))
   }
 
   func test_masked() {
@@ -30,11 +30,11 @@ final class BinaryIntegerTestCase: XCTestCase {
 
   func test_modulo() {
     XCTAssertEqual(1.modulo(2), 1 % 2)
-    XCTAssertEqual( (-1).modulo(2), 1 )
+    XCTAssertEqual((-1).modulo(2), 1)
   }
 
   func test_factorial() {
-    XCTAssertNil( (-4).factorial )
+    XCTAssertNil((-4).factorial)
     XCTAssertEqual(0.factorial, 1)
     XCTAssertEqual(4.factorial, 24)
   }

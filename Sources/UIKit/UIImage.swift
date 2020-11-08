@@ -12,7 +12,7 @@ public extension UIImage {
 
 public extension KeyedDecodingContainer {
   func decode(key: Key) throws -> UIImage {
-    guard let image = UIImage( data: try decode(Data.self, forKey: key) )
+    guard let image = UIImage(data: try decode(Data.self, forKey: key))
     else {
       throw DecodingError.dataCorrupted(
         DecodingError.Context(

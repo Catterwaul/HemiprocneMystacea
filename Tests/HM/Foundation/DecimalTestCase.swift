@@ -6,7 +6,7 @@ final class DecimalTestCase: XCTestCase {
   func test_init_integerAndFraction() {
     let string = "-17.01"
     XCTAssertNotEqual("\(-17.01 as Decimal)", string )
-    XCTAssertEqual("\( Decimal(integerAndFraction: -17.01) )", string)
+    XCTAssertEqual("\(Decimal(integerAndFraction: -17.01))", string)
   }
 
   func test_dollarsAndCents() {

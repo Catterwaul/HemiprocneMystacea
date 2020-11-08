@@ -32,14 +32,14 @@ public extension AnySequence {
   /// Use when `AnySequence` is required / `AnyIterator` can't be used.
   /// - Parameter getNext: Executed as the `next` method of this sequence's iterator.
   init(_ getNext: @escaping () -> Element?) {
-    self.init( Iterator(getNext) )
+    self.init(Iterator(getNext))
   }
 
   /// A cyclical version of a sequence.
   init<Sequence: Swift.Sequence>(cycling sequence: Sequence)
   where Sequence.Element == Element {
     self.init { [makeIterator = sequence.makeIterator] in
-      Swift.sequence( state: makeIterator() ) { iterator in
+      Swift.sequence(state: makeIterator()) { iterator in
         if let next = iterator.next() {
           return next
         }
@@ -57,10 +57,10 @@ public extension AnySequence {
   ) where Element == (Sequence0.Element?, Sequence1.Element?) {
     self.init(
       sequence(
-        state: ( zipped.0.makeIterator(), zipped.1.makeIterator() )
+        state: (zipped.0.makeIterator(), zipped.1.makeIterator())
       ) { iterators in
         Optional(
-          ( iterators.0.next(), iterators.1.next() )
+          (iterators.0.next(), iterators.1.next())
         )
         .filter { $0 != nil || $1 != nil }
       }

@@ -7,7 +7,7 @@ final class UIViewTestCase: XCTestCase {
 
     final class Subview: UIView { }
 
-    view.addSubview( Subview() )
+    view.addSubview(Subview())
     XCTAssertNotNil(view.getSubview() as? Subview)
   }
 }

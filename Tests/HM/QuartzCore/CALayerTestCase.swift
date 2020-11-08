@@ -23,7 +23,7 @@ final class CALayerTestCase: XCTestCase {
 
     final class Sublayer: CALayer { }
 
-    layer.addSublayer( Sublayer() )
+    layer.addSublayer(Sublayer())
     XCTAssertNotNil(layer.getSublayer() as? Sublayer)
   }
 }

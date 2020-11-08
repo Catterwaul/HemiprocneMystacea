@@ -46,7 +46,7 @@ extension CommonOperable {
     _ parameters: Parameters
   ) -> Result
   where Operand == Result.Operand {
-    Result( performMethod(method, parameters) )
+    Result(performMethod(method, parameters))
   }
 }
 

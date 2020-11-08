@@ -39,7 +39,7 @@ public extension WeakMethod {
   /// - Throws: ReferenceDeallocatedError
   func callAsFunction<Input0, Input1>(_ input0: Input0, _ input1: Input1) throws -> Output
   where Input == (Input0, Input1) {
-    try self( (input0, input1) )
+    try self((input0, input1))
   }
 }
 
@@ -56,6 +56,6 @@ public extension WeakMethod where Input == () {
 
   /// - Throws: ReferenceDeallocatedError
   func callAsFunction() throws -> Output {
-    try self( () )
+    try self(())
   }
 }

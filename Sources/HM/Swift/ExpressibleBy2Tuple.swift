@@ -4,7 +4,7 @@ public protocol ExpressibleBy2Tuple {
   associatedtype Element0
   associatedtype Element1
 
-  init( _: (Element0, Element1) )
+  init(_: (Element0, Element1))
 }
 
 public protocol ExpressibleByKeyValuePair: ExpressibleBy2Tuple {
@@ -19,7 +19,7 @@ extension Array: ExpressibleByDictionaryLiteral where Element: ExpressibleByKeyV
 }
 
 extension URLQueryItem: ExpressibleByKeyValuePair {
-  public init( _ pair: (String, String?) ) {
+  public init(_ pair: (String, String?)) {
     self.init(name: pair.0, value: pair.1)
   }
 }

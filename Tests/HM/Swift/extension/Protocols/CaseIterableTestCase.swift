@@ -20,7 +20,7 @@ private final class CaseIterableTestCase: XCTestCase {
       case 💋
     }
     
-    XCTAssertThrowsError( try 💄.💋.caseIndex() ) { error in
+    XCTAssertThrowsError(try 💄.💋.caseIndex()) { error in
       guard case AnyCaseIterable<💄>.AllCasesError.noIndex(.💋) = error
       else { XCTFail(); return }
     }

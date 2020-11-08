@@ -3,14 +3,14 @@ import UserNotifications
 public extension UNUserNotificationCenter {
   func add(
     _ request: UNNotificationRequest,
-    _ processAdditionResult: ( (VerificationResult<Error>) -> Void )? = nil
+    _ processAdditionResult: ((VerificationResult<Error>) -> Void )? = nil
   ) {
     add(
       request,
       withCompletionHandler:
         processAdditionResult.map {
           processAdditionResult in {
-            processAdditionResult( .init(failure: $0) )
+            processAdditionResult(.init(failure: $0))
           }
         }
     )

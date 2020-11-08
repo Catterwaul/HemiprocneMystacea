@@ -14,7 +14,7 @@ final class UIViewControllerTestCase: XCTestCase {
 
     final class Child: UIViewController { }
 
-    parent.addChild( Child() )
+    parent.addChild(Child())
     XCTAssertNotNil(parent.getChild() as? Child)
   }
 }

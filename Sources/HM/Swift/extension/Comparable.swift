@@ -39,7 +39,7 @@ public extension Comparable {
   }
 
   func clamped(to limits: ClosedRange<Self>) -> Self {
-    min( Swift.max(limits.lowerBound, self), limits.upperBound )
+    min(Swift.max(limits.lowerBound, self), limits.upperBound )
   }
 
   /// Like `<`, but with a default for the case when `==` evaluates to `true`.
@@ -69,7 +69,7 @@ public extension Sequence where Element: Comparable {
           default:
             return nil
           }
-        } () )
+        } ())
         else { return nil }
 
         return (key: extremum, value: value)
