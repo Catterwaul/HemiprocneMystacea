@@ -65,11 +65,4 @@ public extension Sequence where Element: Hashable {
     let getSelf: (Element) -> Element = \.self
     return firstUniqueElements(getSelf)
   }
-
-  /// Sorted by a common `Comparable` value.
-  func sorted<Comparable: Swift.Comparable>(
-    _ comparable: (Element) throws -> Comparable
-  ) rethrows -> [Element] {
-    try sorted(comparable, <)
-  }
 }

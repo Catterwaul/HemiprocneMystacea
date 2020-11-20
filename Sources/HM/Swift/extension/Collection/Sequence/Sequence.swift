@@ -125,6 +125,23 @@ public extension Sequence {
     lazy.compactMap { $0 as? T } .first
   }
 
+  /// Group the elements by a transformation into an `Equatable`.
+  /// - Note: Similar to `Dictionary(grouping values:)`,
+  /// but preserves "key" ordering, and doesn't require hashability.
+  func grouped<Equatable: Swift.Equatable>(
+    by equatable: (Element) throws -> Equatable
+  ) rethrows -> [[Element]] {
+    try reduce(into: [(equatable: Equatable, elements: [Element])]()) {
+      let equatable = try equatable($1)
+
+      if let index = ( $0.firstIndex { $0.equatable == equatable } ) {
+        $0[index].elements.append($1)
+      } else {
+        $0.append((equatable, [$1]))
+      }
+    }.map(\.elements)
+  }
+
   /// Alternates between the elements of two sequences.
   /// - Parameter keepSuffix:
   /// When `true`, and the sequences have different lengths,

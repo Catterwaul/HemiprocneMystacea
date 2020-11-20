@@ -5,6 +5,7 @@ extension CGPoint: ExpressibleByArrayLiteral {
     self.init(x: floats[0], y: floats[1])
   }
 }
+
 extension CGPoint: Hashable {
   public func hash(into hasher: inout Hasher) {
     hasher.combine(x)

@@ -139,6 +139,13 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertEqual(getFirstInt(), 1)
   }
 
+  func test_grouped() {
+    XCTAssertEqual(
+      (0...4).grouped { $0 % 3 },
+      [[0, 3], [1, 4], [2]]
+    )
+  }
+
   func test_interleaved() {
     let oddsTo7 = stride(from: 1, to: 7, by: 2)
     let evensThrough10 = stride(from: 2, through: 10, by: 2)
