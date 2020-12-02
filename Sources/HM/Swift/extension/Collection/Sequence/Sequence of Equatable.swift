@@ -65,4 +65,14 @@ public extension Sequence where Element: Hashable {
     let getSelf: (Element) -> Element = \.self
     return firstUniqueElements(getSelf)
   }
+
+
+  /// Matches interleaved subsequences of identical elements with seperate iterations of some other sequence.
+  func withKeyedIterations<Sequence: Swift.Sequence>(of sequence: Sequence)
+  -> [(Element, Sequence.Element)] {
+    var iterators: [Element: Sequence.Iterator] = [:]
+    return map {
+      ($0, iterators[$0, default: sequence.makeIterator()].next()!)
+    }
+  }
 }
