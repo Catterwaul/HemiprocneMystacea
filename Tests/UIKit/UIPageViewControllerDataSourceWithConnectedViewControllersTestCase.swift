@@ -39,13 +39,13 @@ final class UIPageViewControllerDataSourceWithConnectedViewControllersTestCase: 
 }
 
 private final class PageViewController: UIPageViewController {
-//MARK: UIPageViewControllerDataSourceWithConnectedViewControllers
+// MARK: UIPageViewControllerDataSourceWithConnectedViewControllers
   let _connectedViewControllers = [UIViewController(), UIViewController()]
 }
 
-//MARK: UIPageViewControllerDataSourceWithConnectedViewControllers
+// MARK: UIPageViewControllerDataSourceWithConnectedViewControllers
 extension PageViewController: UIPageViewControllerDataSourceWithConnectedViewControllers {
-//MARK: UIPageViewControllerDataSource
+// MARK: UIPageViewControllerDataSource
   func pageViewController(
     _ pageViewController: UIPageViewController,
     viewControllerBefore viewController: UIViewController

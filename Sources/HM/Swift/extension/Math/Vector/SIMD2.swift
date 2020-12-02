@@ -13,12 +13,12 @@ public extension SIMD2 {
 }
 
 public extension SIMD2 where Scalar == CGFloat.NativeType {
-//MARK:- Initializers
+// MARK: - Initializers
   init(_ x: CGFloat, _ y: CGFloat) {
     self.init(x.native, y.native)
   }
 
-//MARK:- Methods
+// MARK: - Methods
 
   func clamped(within bounds: CGRect) -> Self {
     simd.clamp(

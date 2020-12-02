@@ -14,7 +14,7 @@ final class MeasurementTestCase: XCTestCase {
     }
   }
 
-//MARK: sum
+// MARK: sum
   func test_UnitMass_sum() {
     XCTAssertEqual(
       [ Measurement(value: 1, unit: UnitMass.grams),

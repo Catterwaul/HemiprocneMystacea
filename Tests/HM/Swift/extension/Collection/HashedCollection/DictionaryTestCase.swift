@@ -17,7 +17,7 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
 
-//MARK:- Operators
+// MARK: - Operators
   func test_minus() {
     let dictionary = [
       1: 10,
@@ -46,7 +46,7 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
   
-  //MARK: - Initializers
+  // MARK: - Initializers
   
   func test_init_uniqueKeysWithValues_KeyValuePairs() {
     XCTAssertEqual(
@@ -108,7 +108,7 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
 
-//MARK:- Subscripts
+// MARK: - Subscripts
   func test_optionalKeySubscript() {
     let dictionary = ["key": "value"]
     let key: String? = "key"
@@ -143,7 +143,7 @@ final class DictionaryTestCase: XCTestCase {
     )
   }
 
-//MARK:- Methods
+// MARK: - Methods
   func test_mapKeys() {
     let dictionary = [100: "💯", 17: "📅"]
     XCTAssertEqual(

@@ -115,7 +115,7 @@ public extension ConvertibleToSerializableDictionary {
 	}
 }
 
-//MARK:
+// MARK:
 public extension Sequence where Element: ConvertibleToSerializableDictionary {
   func makeJSONData(
     options: JSONSerialization.WritingOptions = [],

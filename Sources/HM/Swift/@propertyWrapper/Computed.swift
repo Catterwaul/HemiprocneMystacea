@@ -29,7 +29,7 @@
   }
 }
 
-//MARK:- public
+// MARK: - public
 public extension Computed {
   init(
     wrappedValue: Value,

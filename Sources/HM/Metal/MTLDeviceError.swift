@@ -1,6 +1,6 @@
 import Metal
 
-//MARK:-
+// MARK: -
 
 /// A namespace for nested types within `MTLDevice`.
 public enum MTLDeviceExtensions {

@@ -8,7 +8,7 @@ public struct Tuple<Elements> {
 }
 
 public extension Tuple {
-  //MARK:- 2-tuple
+  // MARK: - 2-tuple
 
   /// Create a new tuple with one more element.
   static subscript<Element0, Element1, Element2>(
@@ -47,7 +47,7 @@ public extension Tuple {
     (elements.0(parameters), elements.1(parameters))
   }
 
-  //MARK:- 3-tuple
+  // MARK: - 3-tuple
 
   /// Create a new tuple with one more element.
   static subscript<Element0, Element1, Element2, Element3>(

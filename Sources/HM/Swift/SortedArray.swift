@@ -7,7 +7,7 @@ public struct SortedArray<Element: Equatable> {
   private let getAreInIncreasingOrder: GetAreInIncreasingOrder
 }
 
-//MARK: public
+// MARK: public
 public extension SortedArray {
   static func == <Elements: Sequence>(
     backedByArray: SortedArray,
@@ -76,7 +76,7 @@ public extension SortedArray where Element: Comparable {
   }
 }
 
-//MARK: Collection
+// MARK: Collection
 extension SortedArray: Collection {
   public subscript(index: Int) -> Element {
     backingArray[index]
@@ -91,7 +91,7 @@ extension SortedArray: Collection {
   }
 }
 
-//MARK: Sequence
+// MARK: Sequence
 public extension SortedArray {
 	func min() -> Element? { backingArray.first }
 	func max() -> Element? { backingArray.last }

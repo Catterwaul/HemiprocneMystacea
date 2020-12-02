@@ -4,7 +4,7 @@ import XCTest
 final class BackedByArrayTestCase: XCTestCase {
 	let sortedArray = SortedArray(500, 100)
 	
-//MARK: Collection
+// MARK: Collection
 	func test_subscript() {
 		XCTAssertEqual(sortedArray[1], 500)
 	}

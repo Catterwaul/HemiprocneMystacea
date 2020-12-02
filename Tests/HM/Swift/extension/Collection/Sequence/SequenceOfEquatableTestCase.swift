@@ -8,7 +8,7 @@ final class SequenceOfEquatableTestCase: XCTestCase {
     XCTAssert(["⭐️", "⭐️"].elementsAreAllEqual == true)
   }
 
-//MARK:- firstUniqueElements
+// MARK: - firstUniqueElements
   func test_firstUniqueElements_Hashable() {
     XCTAssertEqual(
       [1, 1, 1].firstUniqueElements,

@@ -71,7 +71,7 @@ extension Half: ExpressibleByIntegerLiteral {
   }
 }
 
-// MARK:-
+// MARK: -
 public extension BinaryFloatingPoint {
   init(_ half: Half) {
     self.init(

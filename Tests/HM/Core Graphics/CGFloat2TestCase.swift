@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class CGFloat2TestCase: XCTestCase {
-//MARK:- Operators
+// MARK: - Operators
 
   func test_add() {
     var sum =
@@ -66,7 +66,7 @@ final class CGFloat2TestCase: XCTestCase {
     )
   }
 
-//MARK:- Methods
+// MARK: - Methods
 
   func test_clamped() {
     let point = CGPoint(x: -4, y: 20)

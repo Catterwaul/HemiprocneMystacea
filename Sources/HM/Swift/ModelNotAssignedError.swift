@@ -3,7 +3,7 @@ public enum ModelNotAssignedError: Error {
   case method
 }
 
-//MARK: public
+// MARK: public
 public extension ModelNotAssignedError {
   static func makeGetAccessor<Property>() -> () throws -> Property {
     { throw getAccessor }

@@ -17,7 +17,7 @@ public extension MCBrowserViewController {
   }
 }
 
-//MARK:-
+// MARK: -
 private final class PeerBrowserViewControllerDelegate: NSObject {
   init(handleFinish: @escaping (MCSession) -> Void) {
     self.handleFinish = handleFinish
@@ -27,7 +27,7 @@ private final class PeerBrowserViewControllerDelegate: NSObject {
   private let handleFinish: (MCSession) -> Void
 }
 
-//MARK: MCBrowserViewControllerDelegate
+// MARK: MCBrowserViewControllerDelegate
 extension PeerBrowserViewControllerDelegate: MCBrowserViewControllerDelegate {
   func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
     browserViewController.dismiss(animated: true) {

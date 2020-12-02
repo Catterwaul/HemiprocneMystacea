@@ -28,7 +28,7 @@ public extension MCAdvertiserAssistant {
   }
 }
 
-//MARK:-
+// MARK: -
 private final class AdvertiserAssistantDelegate: NSObject {
   init(handleFinish: @escaping (MCSession) -> Void) {
     self.handleFinish = handleFinish
@@ -38,7 +38,7 @@ private final class AdvertiserAssistantDelegate: NSObject {
   private let handleFinish: (MCSession) -> Void
 }
 
-//MARK: MCAdvertiserAssistantDelegate
+// MARK: MCAdvertiserAssistantDelegate
 extension AdvertiserAssistantDelegate: MCAdvertiserAssistantDelegate {
   func advertiserAssistantDidDismissInvitation(_ advertiserAssistant: MCAdvertiserAssistant) {
     advertiserAssistant.stop()

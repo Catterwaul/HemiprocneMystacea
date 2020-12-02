@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class CollectionTestCase: XCTestCase {
-//MARK:- Subscripts
+// MARK: - Subscripts
 
   func test_subscript_maxSubSequenceCount() {
     XCTAssertEqual(
@@ -39,7 +39,7 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertEqual("🎤🐈"[startIndexOffsetBy: 1], "🐈")
   }
 
-//MARK:- Methods
+// MARK: - Methods
 
   func test_getElement() throws {
     XCTAssertThrowsError(try ["🐾", "🥝"].element(at: 2))

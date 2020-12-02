@@ -24,7 +24,7 @@ final class StringTestCase: XCTestCase {
     )
   }
 
-  //MARK: -  Operators
+  // MARK: -  Operators
 
   func test_minus() {
     XCTAssertEqual(

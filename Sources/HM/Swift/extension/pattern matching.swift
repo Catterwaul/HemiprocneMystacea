@@ -5,7 +5,7 @@ public func ~= <Value>(
   matchPattern(value)
 }
 
-//MARK:-
+// MARK: -
 
 /// Match `enum` cases with associated values, while disregarding the values themselves.
 /// - Parameter case: Looks like `Enum.case`.

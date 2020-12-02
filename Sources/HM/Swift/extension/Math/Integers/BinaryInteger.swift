@@ -11,7 +11,7 @@ public extension BinaryInteger {
     }
   }
 
-//MARK:- Initializers
+// MARK: - Initializers
 
   /// Store a pattern of `1`s and `0`s.
   /// - Parameter bitPattern: `true` becomes `1`; `false` becomes `0`.
@@ -25,7 +25,7 @@ public extension BinaryInteger {
     self = integer
   }
 
-//MARK:- Subscripts
+// MARK: - Subscripts
 
   /// A range of bits from this number.
   /// - Parameter bitIndices: From least significant to most.
@@ -37,12 +37,12 @@ public extension BinaryInteger {
     self & Self[mask: bitIndices]
   }
 
-//MARK:- Methods
+// MARK: - Methods
 
   /// The bits of this integer, in an unsigned variant.
   var bitPattern: Magnitude { .init(truncatingIfNeeded: self) }
 
-//MARK:- Methods
+// MARK: - Methods
   func modulo(_ divisor: Self) -> Self {
     let remainder = self % divisor
     return

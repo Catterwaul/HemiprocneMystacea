@@ -7,7 +7,7 @@ public struct Permutations<Element> {
   private let array: [Element]
 }
 
-//MARK: RandomAccessCollection
+// MARK: RandomAccessCollection
 extension Permutations: RandomAccessCollection { }
 public extension Permutations {
   subscript(position: Int) -> [Element] {

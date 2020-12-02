@@ -60,7 +60,7 @@ public extension ValueSubscript {
 public struct NamedGetOnlySubscript<Index, Value> {
   public typealias GetValue = (Index) -> Value
   
-//MARK: private
+// MARK: private
   private let getValue: GetValue
 }
 

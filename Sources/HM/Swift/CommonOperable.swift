@@ -14,7 +14,7 @@ public extension CommonOperable {
   }
 }
 
-//MARK: internal
+// MARK: internal
 extension CommonOperable {
   /// Forwards  operators to converted operands.
   static func operate<Operable1: CommonOperable, Result: CommonOperable>(

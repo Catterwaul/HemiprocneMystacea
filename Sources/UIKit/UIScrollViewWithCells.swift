@@ -31,7 +31,7 @@ extension UITableView: UIScrollViewWithCells {
   }
 }
 
-//MARK: public
+// MARK: public
 public extension UIScrollViewWithCells {
   ///- Returns: A reusable cell
 	///  dequeued without the standard need for passing its name as a `String`,
@@ -69,7 +69,7 @@ public enum UIScrollViewWithCellsExtensions {
   }
 }
 
-//MARK: internal
+// MARK: internal
 extension UIScrollViewWithCells {
   func reusableCells_makeCellsWithDependenciesInjected<Cell: UIView>(
     cellDependencies: NamedGetOnlySubscript<IndexPath, Cell.Dependencies>

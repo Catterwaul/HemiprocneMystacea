@@ -16,7 +16,7 @@ public final class MultiClosure<Input>: Equatable {
     UnownedReferencer< EquatableClosure<Input> >
   > = []
 
-//MARK: deallocation
+// MARK: deallocation
   // We can't find self in `closures` without this.
   fileprivate lazy var unownedSelf = UnownedReferencer(self)
   
@@ -59,7 +59,7 @@ public final class EquatableClosure<Input>: Equatable {
 
   private let closure: (Input) -> Void
 
-//MARK: deallocation
+// MARK: deallocation
   var multiClosures: Set<
     UnownedReferencer< MultiClosure<Input> >
   > = []

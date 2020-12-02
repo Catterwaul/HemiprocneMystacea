@@ -18,7 +18,7 @@ public extension UIPageViewController {
   }
 }
 
-//MARK: public
+// MARK: public
 public extension UIPageViewController.ConnectedViewControllers {
 	subscript(successor viewController: UIViewController) -> UIViewController? {
     getConnectedViewController(
@@ -35,7 +35,7 @@ public extension UIPageViewController.ConnectedViewControllers {
 	}
 }
 
-//MARK: private
+// MARK: private
 private extension UIPageViewController.ConnectedViewControllers {
   func getConnectedViewController(
     viewController: UIViewController,

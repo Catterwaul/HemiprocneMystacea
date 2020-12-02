@@ -94,7 +94,7 @@ public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
   }
 }
 
-//MARK:-
+// MARK: -
 
 /// A `Result` with no useful success value.
 public typealias VerificationResult<Failure: Error> = Result<Void, Failure>

@@ -175,7 +175,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 	}
 }
 
-//MARK:
+// MARK:
 private struct 👻 {
 	init(
 		boool: Bool,
@@ -207,7 +207,7 @@ extension 👻: InitializableWithSerializableDictionary {
 	}
 }
 
-//MARK: 
+// MARK: 
 private struct 👻s: ConvertibleToSerializableDictionary {
 	enum SerializableDictionaryKey: String {
 		case array
@@ -216,7 +216,7 @@ private struct 👻s: ConvertibleToSerializableDictionary {
 	let array: [👻]
 }
 
-//MARK:
+// MARK:
 private struct 💀 {
 	let skool: String?
 	
@@ -248,7 +248,7 @@ extension 💀: InitializableWithSerializableDictionary {
 }
 
 
-//MARK:
+// MARK:
 private struct 🐭: ConvertibleToSerializableDictionary {
 	enum SerializableDictionaryKey: String {
 		case date

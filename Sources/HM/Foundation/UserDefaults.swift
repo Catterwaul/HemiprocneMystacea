@@ -33,7 +33,7 @@ public extension UserDefaults {
   }
 }
 
-//MARK:- Protocols
+// MARK: - Protocols
 
 public protocol UserDefaults_Value_WrappedValue {
   associatedtype PropertyListObject: HM.PropertyListObject
@@ -55,7 +55,7 @@ public extension PropertyListObject {
   var convertertedToPropertyListObject: Self { self }
 }
 
-//MARK:- PropertyListObject Types
+// MARK: - PropertyListObject Types
 
 extension Bool: PropertyListObject { }
 extension Data: PropertyListObject { }

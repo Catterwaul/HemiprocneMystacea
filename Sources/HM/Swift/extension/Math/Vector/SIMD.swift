@@ -25,7 +25,7 @@ where Operand: SIMD, Operand.Scalar: FloatingPoint {
     operable0 = operable0 + operable1
   }
 
-//MARK:-
+// MARK: -
 
   static func - <Operable1: CommonOperable, Result: CommonOperable>
   (operable0: Self, operable1: Operable1) -> Result
@@ -43,7 +43,7 @@ where Operand: SIMD, Operand.Scalar: FloatingPoint {
     operable0 = operable0 - operable1
   }
 
-//MARK:-
+// MARK: -
 
   static func / <Divisor: CommonOperable, Result: CommonOperable>
   (dividend: Self, divisor: Divisor) -> Result

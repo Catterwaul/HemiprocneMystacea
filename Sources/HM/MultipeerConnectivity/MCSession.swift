@@ -8,12 +8,13 @@ extension MCSession {
       session.delegate = self
     }
 
-  //MARK: protected
+    // MARK: - "protected"
+
     public let session: MCSession
   }
 }
 
-//MARK: MCSessionDelegate
+// MARK: MCSessionDelegate
 extension MCSession.Delegate: MCSessionDelegate {
   open func session(_: MCSession, didReceive data: Data, fromPeer _: MCPeerID) { }
   open func session(_: MCSession, peer _: MCPeerID, didChange _: MCSessionState) { }

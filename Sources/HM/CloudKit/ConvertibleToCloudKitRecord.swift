@@ -15,12 +15,12 @@ public protocol ConvertibleToCloudKitRecord {
   var recordDictionary: RecordDictionary { get }
 }
 
-//MARK: public
+// MARK: public
 public extension ConvertibleToCloudKitRecord {
 	var recordDictionaryOverrides: RecordDictionary { [:] }
 }
 
-//MARK: private
+// MARK: private
 public extension ConvertibleToCloudKitRecord {
   var recordDictionary: RecordDictionary {
     let keyValuePairs = Mirror(reflecting: self).children.compactMap {
@@ -42,7 +42,7 @@ public extension ConvertibleToCloudKitRecord {
 	}
 }
 
-//MARK:-
+// MARK: -
 public extension CKRecord {
 	/// - Important: Type name of ConvertibleToCloudKitRecord is the name of its CKRecord
 	convenience init<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(

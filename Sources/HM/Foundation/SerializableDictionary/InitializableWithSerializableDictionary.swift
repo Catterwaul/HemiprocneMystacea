@@ -38,7 +38,8 @@ public extension InitializableWithSerializableDictionary {
 		)
 	}
 	
-//MARK: private
+  // MARK: - private
+
 	private init(
 		dictionary: Any,
 		key: String? = nil
@@ -57,7 +58,7 @@ public extension InitializableWithSerializableDictionary {
 	}
 }
 
-//MARK:-
+// MARK: -
 
 /// A namespace for nested types within `InitializableWithSerializableDictionary`.
 public enum InitializableWithSerializableDictionaryExtensions {
@@ -67,7 +68,7 @@ public enum InitializableWithSerializableDictionaryExtensions {
   }
 }
 
-//MARK:
+// MARK:
 public extension Array where Element: InitializableWithSerializableDictionary {
 	private typealias DictionaryArray = [[String: Any]]
 	
@@ -105,13 +106,14 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 		)
 	}
 	
-//MARK: private
-	private init(deserialized: Any) throws {
-		guard let dictionaries = deserialized as? DictionaryArray
-		else { throw InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries }
-		
-		try self.init(dictionaries: dictionaries)
-	}
+  // MARK: - private
+
+  private init(deserialized: Any) throws {
+    guard let dictionaries = deserialized as? DictionaryArray
+    else { throw InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries }
+
+    try self.init(dictionaries: dictionaries)
+  }
 	
 	private init<Dictionaries: Sequence>(dictionaries: Dictionaries) throws
 	where Dictionaries.Element == [String: Any] {

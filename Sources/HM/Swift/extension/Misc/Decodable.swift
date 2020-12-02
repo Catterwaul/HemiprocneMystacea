@@ -4,9 +4,9 @@ public extension Decodable {
   ///   - init: An initializer (or  factory function) whose arguments are the decoded values.
   ///   - keys: `CodingKey` instances, matching the arguments.
   init<
-    Argument0: Decodable, Argument1: Decodable, Key: CodingKey
+    Parameter0: Decodable, Parameter1: Decodable, Key: CodingKey
   >(
-    _ init: (Argument0, Argument1) -> Self,
+    _ init: (Parameter0, Parameter1) -> Self,
     _ keys: (Key, Key),
     decoder: Decoder
   ) throws {

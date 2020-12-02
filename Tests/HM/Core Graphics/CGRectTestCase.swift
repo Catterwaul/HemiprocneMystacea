@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class CGRectTestCase: XCTestCase {
-//MARK:- Initializers
+// MARK: - Initializers
 
 	func test_initWithSize() {
 		XCTAssertEqual(
@@ -17,7 +17,7 @@ final class CGRectTestCase: XCTestCase {
 		)
 	}
 
-//MARK:- Properties
+// MARK: - Properties
   func test_center() {
     XCTAssertEqual(
       CGRect(

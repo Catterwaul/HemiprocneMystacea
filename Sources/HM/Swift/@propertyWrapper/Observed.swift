@@ -24,7 +24,7 @@
   }
 }
 
-//MARK:- public
+// MARK: - public
 public extension Observed {
   init(
     wrappedValue: Value,

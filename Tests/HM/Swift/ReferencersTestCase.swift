@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 final class ReferencersTestCase: XCTestCase {
-//MARK:- UnownedReferencer
+// MARK: - UnownedReferencer
    func test_unownedReferencer() {
       var `class`: Class! = Class()
       let referencers = [
@@ -23,7 +23,7 @@ final class ReferencersTestCase: XCTestCase {
       XCTAssertEqual(referencers, [])
    }
    
-//MARK:- WeakReferencer
+// MARK: - WeakReferencer
    func test_weakReferencer() {
       var `class`: Class! = Class()
       let referencers = [

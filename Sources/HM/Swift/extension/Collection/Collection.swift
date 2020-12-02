@@ -1,5 +1,5 @@
 public extension Collection {
-  //MARK:- Subscripts
+  // MARK: - Subscripts
 
   /// Splits a `Collection` into equal "chunks".
   /// - Parameter maxSubSequenceCount: The maximum number of elements in a chunk.
@@ -38,7 +38,7 @@ public extension Collection {
     self[index(startIndex, offsetBy: position)]
   }
 
-  //MARK: - Methods
+  // MARK: - Methods
 
   /// - Returns: same as subscript, if index is in bounds
   /// - Throws: `AnyCollection<Element>.IndexingError`
@@ -70,7 +70,7 @@ public extension Collection {
 }
 
 public extension Collection where Element: Equatable {
-//MARK:- Subscripts
+// MARK: - Subscripts
   
   /// Circularly wraps `index`, to always provide an element,
   /// even when `index` is not valid.
@@ -83,7 +83,7 @@ public extension Collection where Element: Equatable {
     }
   }
 
-//MARK:- Methods
+// MARK: - Methods
 
   ///- Returns: nil if `element` isn't present
   func prefix(upTo element: Element) -> SubSequence? {

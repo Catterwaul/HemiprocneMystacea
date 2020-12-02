@@ -92,7 +92,7 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
-//MARK:- Subscripts
+// MARK: - Subscripts
 
   func test_subscript_maxArrayCount() {
     XCTAssertEqual(

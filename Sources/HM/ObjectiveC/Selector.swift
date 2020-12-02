@@ -13,7 +13,7 @@ public extension Selector {
   }
 }
 
-//MARK: public
+// MARK: public
 public extension Selector.Perform {
   @objc func callAsFunction() { perform() }
   var selector: Selector { #selector(callAsFunction) }

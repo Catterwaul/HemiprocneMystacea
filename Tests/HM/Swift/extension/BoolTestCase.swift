@@ -54,7 +54,7 @@ final class BoolTestCase: XCTestCase {
     )
   }
   
-//MARK:- Sequences of Bools
+// MARK: - Sequences of Bools
   func test_containsOnly() {
     let trueConditions = [
       { true },

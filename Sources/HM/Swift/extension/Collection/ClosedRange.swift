@@ -94,7 +94,7 @@ public extension ClosedRange where Bound: FloatingPoint {
   }
 }
 
-//MARK:-
+// MARK: -
 
 /// A type that can be represented as a `ClosedRange`.
 public protocol ClosedRangeConvertible {

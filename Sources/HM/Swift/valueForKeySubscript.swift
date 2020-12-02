@@ -23,7 +23,7 @@ public extension valueForKeySubscript {
 
 extension Dictionary: valueForKeySubscript { }
 
-//MARK:-
+// MARK: -
 
 /// Acts as a dictionary that `throw`s instead of returning optionals.
 public protocol valueForKeyThrowingAccessor {

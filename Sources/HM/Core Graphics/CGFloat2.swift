@@ -6,14 +6,14 @@ where Operand == SIMD2<CGFloat.NativeType> {
   init(_: CGFloat.NativeType, _: CGFloat.NativeType)
 }
 
-//MARK: CommonOperable
+// MARK: CommonOperable
 public extension CGFloat2 {
   init(_ simd: Operand) {
     self.init(simd.x, simd.y)
   }
 }
 
-//MARK: CommonVectorOperable
+// MARK: CommonVectorOperable
 public extension CGFloat2 {
   static var convertToOperandScalar: (CGFloat) -> Operand.Scalar { \.native }
 }

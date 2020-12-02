@@ -53,7 +53,7 @@ public extension Sequence where Element: Equatable {
   }
 }
 
-//MARK: Element: Hashable
+// MARK: Element: Hashable
 public extension Sequence where Element: Hashable {
   /// The elements of the sequence, with duplicates removed.
   /// - Note: Has equivalent elements to `Set(self)`.

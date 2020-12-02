@@ -1,7 +1,7 @@
 import CoreGraphics
 
 public extension CGRect {
-  //MARK:- Initializers
+  // MARK: - Initializers
 
   init<Size: CommonOperable>(
     x: CGFloat, y: CGFloat,
@@ -14,7 +14,7 @@ public extension CGRect {
     )
   }
 
-  //MARK:- Properties
+  // MARK: - Properties
 
   var center: CGPoint { .init(x: midX, y: midY) }
   var max: CGPoint { .init(x: maxX, y: maxY) }

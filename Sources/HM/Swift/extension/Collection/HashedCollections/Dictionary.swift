@@ -1,5 +1,5 @@
 public extension Dictionary {
-//MARK:- Operators
+// MARK: - Operators
 
   /// Remove key-value pairs for a `Sequence` of `Key`s.
   static func - <KeysToSetNil: Sequence>(
@@ -18,7 +18,7 @@ public extension Dictionary {
     dictionary = dictionary - keysToSetNil
   }
 
-//MARK:- Subscripts
+// MARK: - Subscripts
   ///- Returns: nil if `key` is nil
   subscript(key: Key?) -> Value? { key.flatMap { self[$0] } }
 
@@ -35,7 +35,7 @@ public extension Dictionary {
     }
   }
 
-//MARK:- Initializers
+// MARK: - Initializers
   /// Creates a new dictionary from the key-value pairs in the given sequence.
   ///
   /// - Parameter keysAndValues: A sequence of key-value pairs to use for
@@ -78,7 +78,7 @@ public extension Dictionary {
     self.init( grouping: pairs.map { (key: $0, value: $1) } )
   }
 
-//MARK:- Methods
+// MARK: - Methods
 
   /// Same values, corresponding to `map`ped keys.
   ///

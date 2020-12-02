@@ -7,7 +7,7 @@ public extension Sequence where Element: FixedWidthInteger {
   }
 }
 
-//MARK: - PackedInteger
+// MARK: - PackedInteger
 
 /// Multiple integers packed into `Storage`.
 public enum PackedInteger<Storage: FixedWidthInteger> {
@@ -112,7 +112,7 @@ extension PackedIntegerProtocol {
   }
 }
 
-//MARK: - PackedInteger.Two
+// MARK: - PackedInteger.Two
 public extension PackedInteger.Two {
   /// - Parameters:
   ///   - integer0: Will be bit-shifted left of `integer1`.
@@ -142,7 +142,7 @@ extension PackedInteger.Two: PackedIntegerProtocol {
   }
 }
 
-//MARK: - PackedInteger.Three
+// MARK: - PackedInteger.Three
 public extension PackedInteger.Three {
   /// - Parameters:
   ///   - integer0: Will be bit-shifted left of `integer1`.
@@ -177,7 +177,7 @@ extension PackedInteger.Three: PackedIntegerProtocol {
   }
 }
 
-//MARK: - PackedInteger.Four
+// MARK: - PackedInteger.Four
 public extension PackedInteger.Four {
   /// - Parameters:
   ///   - integer0: Will be bit-shifted left of `integer1`.

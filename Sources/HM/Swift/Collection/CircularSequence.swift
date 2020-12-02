@@ -9,7 +9,7 @@ public struct CircularSequence<Iterator: IteratorProtocol>: Sequence {
   private let makeIterator: () -> Iterator
 }
 
-//MARK: IteratorProtocol
+// MARK: IteratorProtocol
 extension CircularSequence: IteratorProtocol {
   public mutating func next() -> Iterator.Element? {
     if let next = iterator.next() {
