@@ -6,12 +6,12 @@ final class OptionalTestCase: XCTestCase {
     var jenies: (String?, String?) = ("👖", "🧞‍♂️")
 
     do {
-      let jenies = try XCTUnwrap(.init(optionals: jenies))
+      let jenies: (String, String) = try XCTUnwrap(.init(jenies))
       XCTAssert(jenies == ("👖", "🧞‍♂️"))
     }
 
     jenies.1 = nil
-    XCTAssertNil(Optional(optionals: jenies))
+    XCTAssertNil((String, String)?(jenies))
   }
 
   func test_reduce() {

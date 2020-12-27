@@ -5,7 +5,7 @@ extension PersonNameComponents: Comparable {
     var fallback: Bool {
       [\PersonNameComponents.givenName, \.middleName].contains {
         Optional(
-          optionals: (components0[keyPath: $0], components1[keyPath: $0])
+          (components0[keyPath: $0], components1[keyPath: $0])
         )
         .map { $0.lowercased().isLessThan($1.lowercased(), whenEqual: false) }
         ?? false
