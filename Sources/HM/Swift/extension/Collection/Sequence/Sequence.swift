@@ -19,6 +19,15 @@ public extension Sequence {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+  /// Equates two `Sequence`s of 4-tuples.
+  static func == <
+    Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable, Equatable3: Equatable,
+    Tuples1: Sequence
+  >(tuples0: Self, tuples1: Tuples1) -> Bool
+  where Element == (Equatable0, Equatable1, Equatable2, Equatable3), Tuples1.Element == Element {
+    tuples0.elementsEqual(tuples1, by: ==)
+  }
+
   /// Combines two `Sequence`s.
   static func + <Sequence1: Sequence>(sequence0: Self, sequence1: Sequence1) -> AnySequence<Element>
   where Sequence1.Element == Element {

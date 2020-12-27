@@ -18,6 +18,30 @@ public extension Optional {
     }
   }
 
+  /// Exchange three optionals for a single optional tuple.
+  /// - Returns: `nil` if any tuple element is `nil`.
+  init<Wrapped0, Wrapped1, Wrapped2>(_ optionals: (Wrapped0?, Wrapped1?, Wrapped2?))
+  where Wrapped == (Wrapped0, Wrapped1, Wrapped2) {
+    switch optionals {
+    case let (wrapped0?, wrapped1?, wrapped2?):
+      self = (wrapped0, wrapped1, wrapped2)
+    default:
+      self = nil
+    }
+  }
+
+  /// Exchange four optionals for a single optional tuple.
+  /// - Returns: `nil` if any tuple element is `nil`.
+  init<Wrapped0, Wrapped1, Wrapped2, Wrapped3>(_ optionals: (Wrapped0?, Wrapped1?, Wrapped2?, Wrapped3?))
+  where Wrapped == (Wrapped0, Wrapped1, Wrapped2, Wrapped3) {
+    switch optionals {
+    case let (wrapped0?, wrapped1?, wrapped2?, wrapped3?):
+      self = (wrapped0, wrapped1, wrapped2, wrapped3)
+    default:
+      self = nil
+    }
+  }
+
   /// Modify a wrapped value if not `nil`.
   /// - Parameters:
   ///   - makeResult: arguments: (`resultWhenNil`, `self!`)
