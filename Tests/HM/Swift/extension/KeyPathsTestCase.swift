@@ -24,7 +24,7 @@ final class KeyPathsTestCase: XCTestCase {
 
     let instance = Class()
     let makeProperty: (Class) -> Computed = (\Class.mango)[]
-    var property = makeProperty(instance)
+    let property = makeProperty(instance)
     property.wrappedValue = mangoat
     XCTAssertEqual(instance.mango, mangoat)
   }

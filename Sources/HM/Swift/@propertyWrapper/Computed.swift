@@ -20,7 +20,7 @@
 
   public var wrappedValue: Value {
     get { get() }
-    set { set(newValue) }
+    nonmutating set { set(newValue) }
   }
 
   public var projectedValue: Self {
