@@ -40,13 +40,15 @@ public extension Dictionary {
   ///
   /// - Parameter keysAndValues: A sequence of key-value pairs to use for
   ///   the new dictionary. Every key in `keysAndValues` must be unique.
-  /// - Returns: A new dictionary initialized with the elements of
-  ///   `keysAndValues`.
+  /// - Returns: A new dictionary initialized with the elements of `keysAndValues`.
   /// - Precondition: The sequence must not have duplicate keys.
+  /// - Note: Differs from the initializer in the standard library, which doesn't allow labeled tuple elements.
+  ///     This can't support *all* labels, but it does support `(key:value:)` specifically,
+  ///     which `Dictionary` and `KeyValuePairs` use for their elements.
   @inlinable init<Elements: Sequence>(uniqueKeysWithValues keysAndValues: Elements)
   where Elements.Element == Element {
     self.init(
-      uniqueKeysWithValues: keysAndValues.map { ($0, $1) }
+      uniqueKeysWithValues: keysAndValues.map { ($0.key, $0.value) }
     )
   }
 
