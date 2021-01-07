@@ -22,6 +22,13 @@ public extension ClosedRange where Bound: AdditiveArithmetic {
   var magnitude: Bound { upperBound - lowerBound }
 }
 
+public extension ClosedRange where Bound: Numeric {
+  /// Linear interpolation between `lowerBound` and `upperBound`.
+  subscript(normalized normalizedValue: Bound) -> Bound {
+    normalizedValue * magnitude + lowerBound
+  }
+}
+
 public extension ClosedRange where Bound: FloatingPoint {
   static func / (range: Self, bound: Bound) -> Self {
     (range.lowerBound / bound)...(range.upperBound / bound)

@@ -10,6 +10,13 @@ final class ClosedRangeTestCase: XCTestCase {
     XCTAssertNil(ClosedRange(encompassing: [] as [Int]))
   }
 
+  func test_subscript_normalized() {
+    XCTAssertEqual(
+      (-1...3)[normalized: 0.5],
+      1
+    )
+  }
+
   func test_normalize() throws {
     XCTAssertEqual(
       ClosedRange(encompassing: [1.0, -10, 10])?.normalize(0),
