@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import QuartzCore
 
 public extension CABasicAnimation {
@@ -14,3 +15,4 @@ public extension CABasicAnimation {
 		let to: AnyObject
 	}
 }
+#endif

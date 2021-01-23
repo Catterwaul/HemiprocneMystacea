@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import QuartzCore
 
 public extension CATransform3D {
@@ -7,3 +8,4 @@ public extension CATransform3D {
 		case translation
 	}
 }
+#endif

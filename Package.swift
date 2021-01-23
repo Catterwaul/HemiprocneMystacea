@@ -10,7 +10,7 @@ let names = [
 
 let package = Package(
   name: "HemiprocneMystacea",
-  platforms: [.iOS(.v14), .tvOS(.v14), .macOS(.v11)],
+  platforms: [.iOS(.v14), .macOS(.v11), .tvOS(.v14), .watchOS(.v7)],
   products: names.map {
     let name = $0.hm
     return .library(name: name, targets: [name])

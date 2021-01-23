@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import MultipeerConnectivity
 
 public extension MCBrowserViewController {
@@ -42,3 +43,4 @@ extension PeerBrowserViewControllerDelegate: MCBrowserViewControllerDelegate {
     browserViewController.dismiss(animated: true)
   }
 }
+#endif

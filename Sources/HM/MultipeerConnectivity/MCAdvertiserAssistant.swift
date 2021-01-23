@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import MultipeerConnectivity
 
 public extension MCAdvertiserAssistant {
@@ -45,3 +46,4 @@ extension AdvertiserAssistantDelegate: MCAdvertiserAssistantDelegate {
     handleFinish(advertiserAssistant.session)
   }
 }
+#endif

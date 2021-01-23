@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import MultipeerConnectivity
 
 extension MCSession {
@@ -22,3 +23,4 @@ extension MCSession.Delegate: MCSessionDelegate {
   open func session(_: MCSession, didStartReceivingResourceWithName _: String, fromPeer _: MCPeerID, with _: Progress) { }
   open func session(_: MCSession, didFinishReceivingResourceWithName _: String, fromPeer _: MCPeerID, at _: URL?, withError _: Error?) { }
 }
+#endif

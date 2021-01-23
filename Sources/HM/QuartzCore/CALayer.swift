@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import QuartzCore
 
 public extension CALayer {	
@@ -22,3 +23,4 @@ public extension CALayer.KeyPath {
     .init { keyPath in "transform.\(keyPath.rawValue)" }
   }
 }
+#endif

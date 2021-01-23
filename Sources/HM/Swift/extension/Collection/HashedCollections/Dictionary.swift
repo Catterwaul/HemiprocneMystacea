@@ -6,9 +6,7 @@ public extension Dictionary {
     dictionary: Self, keysToSetNil: KeysToSetNil
   ) -> Self
   where KeysToSetNil.Element == Key {
-    keysToSetNil.reduce(into: dictionary) { dictionary, key in
-      dictionary[key] = nil
-    }
+    dictionary.filter { !keysToSetNil.contains($0.key) }
   }
   /// Remove key-value pairs for a `Sequence` of `Key`s.
   static func -= <KeysToSetNil: Sequence>(

@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import Metal
 
 // MARK: -
@@ -20,3 +21,4 @@ extension MTLDeviceExtensions.Error: CustomStringConvertible {
     }
   }
 }
+#endif

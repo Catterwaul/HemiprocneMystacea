@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import QuartzCore
 
 public extension CATransaction {
@@ -8,3 +9,4 @@ public extension CATransaction {
     CATransaction.commit()
   }
 }
+#endif
