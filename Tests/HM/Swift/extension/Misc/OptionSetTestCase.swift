@@ -1,3 +1,4 @@
+#if !os(macOS)
 import HM
 import XCTest
 
@@ -138,3 +139,4 @@ extension UIView.AutoresizingFlexibilities {
     .init(UIView.AutoresizingMask.flexibleBottomMargin)
   }
 }
+#endif

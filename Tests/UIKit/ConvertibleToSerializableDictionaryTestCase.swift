@@ -1,3 +1,4 @@
+#if !os(macOS)
 import HM
 import XCTest
 
@@ -266,3 +267,4 @@ private struct 🐭: ConvertibleToSerializableDictionary {
     )
   )!
 }
+#endif

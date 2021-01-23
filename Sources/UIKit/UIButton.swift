@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIButton {
@@ -13,3 +14,4 @@ public extension UIButton {
 		}
 	}
 }
+#endif

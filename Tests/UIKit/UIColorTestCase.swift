@@ -1,3 +1,4 @@
+#if !os(macOS)
 import XCTest
 
 final class UIColorTestCase: XCTestCase {
@@ -14,3 +15,4 @@ final class UIColorTestCase: XCTestCase {
 		XCTAssertEqual(UIColor(hsba), color)
 	}
 }
+#endif

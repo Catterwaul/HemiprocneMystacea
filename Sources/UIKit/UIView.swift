@@ -1,3 +1,4 @@
+#if !os(macOS)
 import class UIKit.UIView
 
 public extension UIView {
@@ -11,3 +12,4 @@ public extension UIView {
     getSubviews().first
   }
 }
+#endif

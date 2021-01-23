@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIBarButtonItem {
@@ -5,3 +6,4 @@ public extension UIBarButtonItem {
     value(forKey: "view") as! UIView
   }
 }
+#endif

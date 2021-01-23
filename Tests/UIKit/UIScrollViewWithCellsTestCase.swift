@@ -1,3 +1,4 @@
+#if !os(macOS)
 import XCTest
 import HM
 import UIKit_HM
@@ -16,3 +17,4 @@ final class UIScrollViewWithCellsTestCase: XCTestCase {
     }
   }
 }
+#endif

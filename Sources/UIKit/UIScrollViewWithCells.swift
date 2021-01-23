@@ -1,3 +1,4 @@
+#if !os(macOS)
 import HM
 import UIKit
 
@@ -82,3 +83,4 @@ extension UIScrollViewWithCells {
     }
   }
 }
+#endif

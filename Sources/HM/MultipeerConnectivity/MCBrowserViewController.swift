@@ -1,4 +1,4 @@
-#if !os(watchOS)
+#if !os(watchOS) && !os(macOS)
 import MultipeerConnectivity
 
 public extension MCBrowserViewController {

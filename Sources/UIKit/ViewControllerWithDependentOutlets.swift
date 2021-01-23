@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public protocol ViewControllerWithDependentOutlets: UIViewController {
@@ -44,3 +45,4 @@ public extension ViewControllerWithDependentOutlets  {
     respondToOutletDependencies = inject(outletDependencies:)
   }
 }
+#endif

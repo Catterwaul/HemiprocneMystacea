@@ -1,3 +1,4 @@
+#if !os(macOS)
 import HM
 import UIKit
 
@@ -13,3 +14,4 @@ public extension UITableView {
     )
   }
 }
+#endif

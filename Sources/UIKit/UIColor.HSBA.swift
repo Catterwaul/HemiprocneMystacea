@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIColor {
@@ -40,3 +41,4 @@ public extension UIColor.HSBA {
     self = hsba
   }
 }
+#endif

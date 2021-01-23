@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UILabel {
@@ -19,3 +20,4 @@ public extension UILabel {
     lineBreakMode = .byTruncatingTail
   }
 }
+#endif

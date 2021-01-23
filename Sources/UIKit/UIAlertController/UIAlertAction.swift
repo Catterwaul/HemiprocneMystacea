@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIAlertAction {
@@ -8,3 +9,4 @@ public extension UIAlertAction {
     )
   }
 }
+#endif

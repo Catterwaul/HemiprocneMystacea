@@ -1,3 +1,4 @@
+#if !os(macOS)
 import Combine
 import MultipeerConnectivity
 import protocol SwiftUI.UIViewControllerRepresentable
@@ -63,3 +64,4 @@ extension MCBrowserViewController.View: MCBrowserViewControllerDelegate {
     wasCancelledSubject.send()
   }
 }
+#endif

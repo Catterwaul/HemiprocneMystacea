@@ -1,3 +1,4 @@
+#if !os(macOS)
 import XCTest
 
 final class UIViewTestCase: XCTestCase {
@@ -11,3 +12,4 @@ final class UIViewTestCase: XCTestCase {
     XCTAssertNotNil(view.getSubview() as? Subview)
   }
 }
+#endif

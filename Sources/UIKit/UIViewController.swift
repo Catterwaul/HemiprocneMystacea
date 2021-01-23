@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIViewController {
@@ -87,3 +88,4 @@ public extension UIViewController {
 		)
 	}
 }
+#endif

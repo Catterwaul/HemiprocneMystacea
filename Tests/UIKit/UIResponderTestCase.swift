@@ -1,3 +1,4 @@
+#if !os(macOS)
 import XCTest
 
 final class UIResponderTestCase: XCTestCase {
@@ -6,3 +7,4 @@ final class UIResponderTestCase: XCTestCase {
     textField.disableInputAssistantItem()
   }
 }
+#endif

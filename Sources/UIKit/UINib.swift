@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UINib {
@@ -46,3 +47,4 @@ public extension NibSuperview {
     return subview
   }
 }
+#endif

@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIImage {
@@ -42,3 +43,4 @@ public extension KeyedEncodingContainer {
     try encode(data, forKey: key)
   }
 }
+#endif

@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIResponder {
@@ -7,3 +8,4 @@ public extension UIResponder {
     ].forEach { inputAssistantItem[keyPath: $0].removeAll() }
   }
 }
+#endif

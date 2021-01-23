@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIAlertController {
@@ -20,3 +21,4 @@ public extension UIAlertController {
     actions.forEach(addAction)
   }
 }
+#endif

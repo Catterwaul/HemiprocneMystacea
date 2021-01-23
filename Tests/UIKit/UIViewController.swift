@@ -1,3 +1,4 @@
+#if !os(macOS)
 import XCTest
 
 final class UIViewControllerTestCase: XCTestCase {
@@ -18,3 +19,4 @@ final class UIViewControllerTestCase: XCTestCase {
     XCTAssertNotNil(parent.getChild() as? Child)
   }
 }
+#endif

@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public protocol UIPageViewControllerDataSourceWithConnectedViewControllers: UIPageViewControllerDataSource {
@@ -52,3 +53,4 @@ private extension UIPageViewController.ConnectedViewControllers {
     return connectedViewControllers[requestedIndex]
   }
 }
+#endif

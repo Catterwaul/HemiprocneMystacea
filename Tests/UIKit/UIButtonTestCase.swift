@@ -1,3 +1,4 @@
+#if !os(macOS)
 import XCTest
 
 final class UIButtonTestCase: XCTestCase {
@@ -13,3 +14,4 @@ final class UIButtonTestCase: XCTestCase {
 		XCTAssertEqual(button.alpha, 1)
    }
 }
+#endif

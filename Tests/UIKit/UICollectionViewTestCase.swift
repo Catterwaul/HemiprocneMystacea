@@ -1,3 +1,4 @@
+#if !os(macOS)
 import HM
 import XCTest
 
@@ -16,3 +17,4 @@ final class UICollectionViewTestCase: XCTestCase {
     func inject(dependencies _: Void) { }
   }
 }
+#endif

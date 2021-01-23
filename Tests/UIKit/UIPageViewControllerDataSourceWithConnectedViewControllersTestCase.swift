@@ -1,3 +1,4 @@
+#if !os(macOS)
 import HM
 import XCTest
 import UIKit_HM
@@ -60,3 +61,4 @@ extension PageViewController: UIPageViewControllerDataSourceWithConnectedViewCon
     connectedViewControllers[predecessor: viewController]
   }
 }
+#endif
