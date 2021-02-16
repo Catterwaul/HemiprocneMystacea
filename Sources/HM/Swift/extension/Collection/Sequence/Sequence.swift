@@ -300,11 +300,10 @@ public extension Sequence {
   }
 
   /// Sorted by two common `Comparable` values.
-  @available(swift, deprecated: 5.4, message: "segfault without the trailing closure")
   func sorted<Comparable0: Comparable, Comparable1: Comparable>(
     _ comparables: (Element) throws -> (Comparable0, Comparable1)
   ) rethrows -> [Element] {
-    try sorted(comparables) { $0 < $1 }
+    try sorted(comparables, <)
   }
 
   /// Sorted by two common `Comparable` values, and sorting closure.

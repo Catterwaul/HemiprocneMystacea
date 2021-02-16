@@ -7,8 +7,8 @@ public extension Sequence where Element: Equatable {
   /// The elements of the sequence, with duplicates removed.
   /// - Note: Has equivalent elements to `Set(self)`.
   @available(
-  swift, deprecated: 5.4,
-  message: "Doesn't compile without the constant in Swift 5.3."
+  swift, deprecated: 5.5,
+  message: "Doesn't compile without the constant in Swift 5.4."
   )
   var firstUniqueElements: [Element] {
     let getSelf: (Element) -> Element = \.self
@@ -58,8 +58,8 @@ public extension Sequence where Element: Hashable {
   /// The elements of the sequence, with duplicates removed.
   /// - Note: Has equivalent elements to `Set(self)`.
   @available(
-  swift, deprecated: 5.4,
-  message: "Doesn't compile without the constant in Swift 5.3."
+  swift, deprecated: 5.5,
+  message: "Doesn't compile without the constant in Swift 5.4."
   )
   var firstUniqueElements: [Element] {
     let getSelf: (Element) -> Element = \.self
