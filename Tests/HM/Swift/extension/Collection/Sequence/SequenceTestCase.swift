@@ -232,6 +232,13 @@ final class SequenceTestCase: XCTestCase {
       "🏃 🐈"
     )
   }
+
+  func test_scan() {
+    XCTAssertEqual(
+      .init((1...5).scan(1, *)),
+      [1, 1, 2, 6, 24, 120]
+    )
+  }
 	
   func test_sorted() {
     struct TypeWith1EquatableProperty: Equatable {
