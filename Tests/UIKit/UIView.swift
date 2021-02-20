@@ -4,12 +4,12 @@ import XCTest
 final class UIViewTestCase: XCTestCase {
   func test_getSubviews() {
     let view = UIView()
-    XCTAssertEqual(view.getSubviews(), [])
+    XCTAssertEqual(view.subviews(), [])
 
     final class Subview: UIView { }
 
     view.addSubview(Subview())
-    XCTAssertNotNil(view.getSubview() as? Subview)
+    XCTAssertNotNil(view.subviews().first(Subview.self))
   }
 }
 #endif

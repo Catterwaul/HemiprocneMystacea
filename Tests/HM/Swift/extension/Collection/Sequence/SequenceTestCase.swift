@@ -133,9 +133,9 @@ final class SequenceTestCase: XCTestCase {
   func test_getFirst() {
     let array: [Any] = [1, "🥇"]
     
-    XCTAssertEqual(array.getFirst(), "🥇")
+    XCTAssertEqual(array.first(), "🥇")
 
-    let getFirstInt = { array.getFirst(Int.self) }
+    let getFirstInt = { array.first(Int.self) }
     XCTAssertEqual(getFirstInt(), 1)
   }
 
