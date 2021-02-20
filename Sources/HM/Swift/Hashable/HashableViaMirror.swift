@@ -1,5 +1,6 @@
 /// A type whose `Hashable` conformance could be auto-synthesized,
-/// but the API provider forgot.
+/// but either the API provider forgot, or more likely,
+/// the API is written in Objective-C, and hasn't been modernized.
 public protocol HashableViaMirror: Hashable { }
 
 public extension HashableViaMirror {
