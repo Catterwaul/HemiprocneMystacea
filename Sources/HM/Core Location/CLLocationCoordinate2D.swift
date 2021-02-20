@@ -24,9 +24,4 @@ extension CLLocationCoordinate2D: Encodable {
   }
 }
 
-extension CLLocationCoordinate2D: Equatable {
-  public static func == (coordinate0: Self, coordinate1: Self) -> Bool {
-    let getProperties = Tuple(\Self.latitude, \.longitude)
-    return getProperties(coordinate0) == getProperties(coordinate1)
-  }
-}
+extension CLLocationCoordinate2D: HashableViaMirror { }

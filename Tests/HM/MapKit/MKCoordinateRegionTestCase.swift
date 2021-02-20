@@ -17,5 +17,7 @@ final class MKCoordinateRegionTestCase: XCTestCase {
         from: JSONEncoder().encode(region)
       )
     )
+
+    XCTAssertEqual([region: "🗺"][region], "🗺")
   }
 }
