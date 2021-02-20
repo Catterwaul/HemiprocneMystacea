@@ -24,9 +24,4 @@ extension MKCoordinateSpan: Encodable {
   }
 }
 
-extension MKCoordinateSpan: Equatable {
-  public static func == (span0: Self, span1: Self) -> Bool {
-    let getProperties = Tuple(\Self.latitudeDelta, \.longitudeDelta)
-    return getProperties(span0) == getProperties(span1)
-  }
-}
+extension MKCoordinateSpan: HashableViaMirror { }
