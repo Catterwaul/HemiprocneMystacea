@@ -24,4 +24,4 @@ extension MKCoordinateSpan: Encodable {
   }
 }
 
-extension MKCoordinateSpan: HashableViaMirror { }
+extension MKCoordinateSpan: HashableSynthesizable { }

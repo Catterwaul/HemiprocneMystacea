@@ -24,4 +24,4 @@ extension MKCoordinateRegion: Encodable {
   }
 }
 
-extension MKCoordinateRegion: HashableViaMirror { }
+extension MKCoordinateRegion: HashableSynthesizable { }

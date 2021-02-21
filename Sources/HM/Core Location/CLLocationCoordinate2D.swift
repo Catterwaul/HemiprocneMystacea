@@ -24,4 +24,4 @@ extension CLLocationCoordinate2D: Encodable {
   }
 }
 
-extension CLLocationCoordinate2D: HashableViaMirror { }
+extension CLLocationCoordinate2D: HashableSynthesizable { }
