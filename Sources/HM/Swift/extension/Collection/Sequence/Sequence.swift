@@ -82,6 +82,12 @@ public extension Sequence {
 
 // MARK:- Methods
 
+  /// `compactMap`, without the `map`!
+  func compact<Wrapped>() -> [Wrapped]
+  where Element == Wrapped? {
+    compactMap { $0 }
+  }
+
   /// The elements of this sequence, and the ones after them.
   /// - Note: Every returned array will have the same count,
   /// so this stops short of the end of the sequence by `count - 1`.
@@ -391,7 +397,7 @@ public extension Sequence where Element: Sequence {
           (iterators.indices).map { iterators[$0].next() }
         )
         .filter { $0.allSatisfy { $0 != nil } }?
-        .compactMap { $0 }
+        .compact()
       }
     )
   }
