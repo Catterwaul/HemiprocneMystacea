@@ -1,7 +1,7 @@
 import CoreGraphics
 import simd
 
-public protocol CGFloat2: CommonVectorOperable
+public protocol CGFloat2: CommonVectorOperable, ExpressibleByArrayLiteral
 where Operand == SIMD2<CGFloat.NativeType> {
   init(_: CGFloat.NativeType, _: CGFloat.NativeType)
 }
@@ -10,6 +10,10 @@ where Operand == SIMD2<CGFloat.NativeType> {
 public extension CGFloat2 {
   init(_ simd: Operand) {
     self.init(simd.x, simd.y)
+  }
+
+  init(arrayLiteral floats: CGFloat...) {
+    self.init(floats[0].native, floats[1].native)
   }
 }
 

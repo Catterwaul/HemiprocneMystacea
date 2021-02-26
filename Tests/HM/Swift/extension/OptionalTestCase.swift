@@ -14,6 +14,18 @@ final class OptionalTestCase: XCTestCase {
     XCTAssertNil((String, String)?(jenies))
   }
 
+  func test_map() {
+    XCTAssertEqual(
+      ["💿🗺"],
+      ("💿🗺" as Optional).compactMap()
+    )
+
+    XCTAssertEqual(
+      Set(),
+      Int?.none.compactMap()
+    )
+  }
+
   func test_reduce() {
     var int: Int? = nil
     XCTAssertEqual(int.reduce(1, +), 1)

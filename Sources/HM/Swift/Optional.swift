@@ -42,6 +42,15 @@ public extension Optional {
     }
   }
 
+  /// Create a single-element array literal, or an empty one.
+  /// - Returns: `[self!]` if `.some`; `[]` if `nil`.
+  /// - Note: `compactMap` cannot be generalized to all types,
+  /// as Swift doesn't employ  universal non-optional defaults.
+  func compactMap<ExpressibleByArrayLiteral: Swift.ExpressibleByArrayLiteral>() -> ExpressibleByArrayLiteral
+  where ExpressibleByArrayLiteral.ArrayLiteralElement == Wrapped {
+    map { [$0] } ?? []
+  }
+
   /// Modify a wrapped value if not `nil`.
   /// - Parameters:
   ///   - makeResult: arguments: (`resultWhenNil`, `self!`)
