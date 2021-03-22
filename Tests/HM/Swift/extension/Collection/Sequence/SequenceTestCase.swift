@@ -130,12 +130,12 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
-  func test_getFirst() {
+  func test_firstOfType() {
     let array: [Any] = [1, "🥇"]
     
-    XCTAssertEqual(array.first(), "🥇")
+    XCTAssertEqual(array.firstOfType(), "🥇")
 
-    let getFirstInt = { array.first(Int.self) }
+    let getFirstInt = { array.firstOfType(Int.self) }
     XCTAssertEqual(getFirstInt(), 1)
   }
 
@@ -248,7 +248,7 @@ final class SequenceTestCase: XCTestCase {
     let sortedArray =
       [3, 0, 1, 2, -1]
       .map(TypeWith1EquatableProperty.init)
-      .sorted(\.int)
+      .sorted(by: \.int)
     
     XCTAssertEqual(
       sortedArray,

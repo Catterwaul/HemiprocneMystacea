@@ -136,7 +136,7 @@ public extension Sequence {
   }
 
   /// The first element of a given type.
-  func first<T>(_: T.Type = T.self) -> T? {
+  func firstOfType<T>(_: T.Type = T.self) -> T? {
     lazy.compactMap { $0 as? T } .first
   }
 
@@ -285,13 +285,13 @@ public extension Sequence {
   /// A sequence of the partial results that `reduce` would employ.
   func scan<Result>(
     _ initialResult: Result,
-    _ nextPartialResult: @escaping (Result, Element) -> Result
+    _ nextPartialResult: @escaping (Result, Element) throws -> Result
   ) -> AnySequence<Result> {
     var iterator = makeIterator()
     return .init(
       sequence(first: initialResult) { partialResult in
-        iterator.next().map {
-          nextPartialResult(partialResult, $0)
+        iterator.next().flatMap {
+          try? nextPartialResult(partialResult, $0)
         }
       }
     )
@@ -305,14 +305,14 @@ public extension Sequence {
 
   /// Sorted by a common `Comparable` value.
   func sorted<Comparable: Swift.Comparable>(
-    _ comparable: (Element) throws -> Comparable
+    by comparable: (Element) throws -> Comparable
   ) rethrows -> [Element] {
-    try sorted(comparable, <)
+    try sorted(by: comparable, <)
   }
 
   /// Sorted by a common `Comparable` value, and sorting closure.
   func sorted<Comparable: Swift.Comparable>(
-    _ comparable: (Element) throws -> Comparable,
+    by comparable: (Element) throws -> Comparable,
     _ areInIncreasingOrder: (Comparable, Comparable) throws -> Bool
   ) rethrows -> [Element] {
     try sorted {

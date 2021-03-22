@@ -9,7 +9,7 @@ final class UIViewTestCase: XCTestCase {
     final class Subview: UIView { }
 
     view.addSubview(Subview())
-    XCTAssertNotNil(view.subviews().first(Subview.self))
+    XCTAssertNotNil(view.subviews().firstOfType(Subview.self))
   }
 }
 #endif
