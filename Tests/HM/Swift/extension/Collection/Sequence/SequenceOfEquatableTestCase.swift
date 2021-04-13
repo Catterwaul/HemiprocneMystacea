@@ -2,6 +2,24 @@ import HM
 import XCTest
 
 final class SequenceOfEquatableTestCase: XCTestCase {
+  func test_contains() {
+    XCTAssert(
+      (-1...10).contains(inOrder: [2, 3, 4])
+    )
+
+    XCTAssertFalse(
+      (-1...10).contains(inOrder: [2, 4])
+    )
+
+    XCTAssertFalse(
+      (2...4).contains(inOrder: (-1...5))
+    )
+
+    XCTAssertFalse(
+      (-1...10).contains(inOrder: EmptyCollection())
+    )
+  }
+
   func test_elementsAreAllEqual() {
     XCTAssertNil([Bool]().elementsAreAllEqual)
     XCTAssert([1].elementsAreAllEqual == true)

@@ -1,7 +1,29 @@
 public extension Sequence where Element: Equatable {
+  /// The iterators of all subsequences, incrementally dropping early elements.
+  /// - Note: Begins with the iterator for the full sequence (dropping zero).
+  var dropIterators: AnySequence<AnyIterator<Element>> {
+    .init(
+      sequence(state: makeIterator()) {
+        let iterator = $0
+        return $0.next().map { _ in .init(iterator) }
+      }
+    )
+  }
+
   /// - Note: `nil` if empty.
   var elementsAreAllEqual: Bool? {
     first.map(dropFirst().containsOnly)
+  }
+
+  /// - Note: `false` if `elements` is empty.
+  func contains<Elements: Sequence>(inOrder elements: Elements) -> Bool
+  where Elements.Element == Element {
+    elements.isEmpty
+      ? false
+      : dropIterators.contains {
+        AnySequence(zip: ($0, elements))
+          .first(where: !=)?.1 == nil
+      }
   }
 
   /// The elements of the sequence, with duplicates removed.
