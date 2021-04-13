@@ -111,6 +111,26 @@ public extension Sequence {
     try count { try $0.map(getIsIncluded) == true }
   }
 
+  /// - Parameters:
+  ///   - comparable: The property to compare.
+  ///   - areSorted: Whether the elements are in order, approaching the extremum.
+  func extremum<Comparable: Swift.Comparable>(
+    comparing comparable: (Element) throws -> Comparable,
+    areSorted: (Comparable, Comparable) throws -> Bool
+  ) rethrows -> Extremum<Element>? {
+    try first.map { first in
+      try dropFirst().reduce(into: .init(value: first, count: 1)) {
+        let comparables = (try comparable($0.value), try comparable($1))
+
+        if try areSorted(comparables.0, comparables.1) {
+          $0 = .init(value: $1, count: 1)
+        } else if (comparables.0 == comparables.1) {
+          $0.count += 1
+        }
+      }
+    }
+  }
+
   /// The elements of the sequences, with "duplicates" removed
   /// based on a closure.
   func firstUniqueElements<Hashable: Swift.Hashable>(
@@ -372,6 +392,21 @@ public extension Sequence {
         .map(AnySequence.Spliteration.subSequence)
     }
   }
+
+  /// - throws: `Extremum<Element>.UniqueError`
+  func uniqueMin<Comparable: Swift.Comparable>(
+    comparing comparable: (Element) throws -> Comparable
+  ) throws -> Extremum<Element> {
+    typealias Error = Extremum<Element>.UniqueError
+
+    guard let extremum = try extremum(comparing: comparable, areSorted: >)
+    else { throw Error.emptySequence }
+
+    guard extremum.count == 1
+    else { throw Error.notUnique(extremum) }
+
+    return extremum
+  }
 }
 
 // MARK: - Element: Sequence
@@ -414,4 +449,14 @@ public extension Array {
       self = array
     }
   }
+}
+
+public struct Extremum<Value> {
+  public enum UniqueError: Swift.Error {
+    case emptySequence
+    case notUnique(Extremum)
+  }
+
+  public var value: Value
+  public var count: Int
 }

@@ -275,6 +275,29 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
+  func test_uniqueMin() {
+    XCTAssertEqual(try (1...10).uniqueMin { $0 }.value, 1)
+
+    XCTAssertThrowsError(
+      try [1, 2, 1, 2, 3].uniqueMin { $0 }
+    ) { error in
+      switch error {
+      case Extremum<Int>.UniqueError.notUnique(let extremum):
+        XCTAssertEqual(extremum.count, 2)
+      default:
+        XCTFail()
+      }
+    }
+
+    do {
+      _ = try ([] as [Int]).uniqueMin { $0 }
+    }
+    catch Extremum<Int>.UniqueError.emptySequence { }
+    catch {
+      XCTFail()
+    }
+  }
+
   // MARK: - Element: Sequence
 
   func test_combinations() {

@@ -55,11 +55,11 @@ public extension Comparable {
 
 public extension Sequence where Element: Comparable {
   var localExtrema: (minima: [Element], maxima: [Element]) {
-    let dictionary = Dictionary<Extremum, [Element]>(grouping:
+    let dictionary = Dictionary<ExtremumOption, [Element]>(grouping:
       removingDuplicates.consecutiveElements(by: 3).compactMap { consecutiveElements in
         let value = consecutiveElements[1]
         
-        guard let extremum: Extremum = ( {
+        guard let extremum: ExtremumOption = ( {
           let neighbors = [0, 2].map { consecutiveElements[$0] }
           switch value {
           case let minimum where neighbors.allSatisfy { $0 > minimum }:
@@ -79,4 +79,4 @@ public extension Sequence where Element: Comparable {
     return (dictionary[.minimum] ?? [], dictionary[.maximum]  ?? [])
   }
 }
-private enum Extremum { case minimum, maximum }
+private enum ExtremumOption { case minimum, maximum }
