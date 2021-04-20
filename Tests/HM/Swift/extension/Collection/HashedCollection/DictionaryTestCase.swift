@@ -144,6 +144,20 @@ final class DictionaryTestCase: XCTestCase {
   }
 
 // MARK: - Methods
+  func test_flatMap() {
+    XCTAssert(
+      [ "red": ["🍷", "💄"],
+        "green": ["🤢"],
+        "blue": ["🥏", "👮‍♀️", "👮‍♀️"]
+      ].flatMap().sorted { $0 }
+      ==
+      [ ("red", "🍷"), ("red", "💄"),
+        ("green", "🤢"),
+        ("blue", "🥏"), ("blue", "👮‍♀️"), ("blue", "👮‍♀️"),
+      ].sorted { $0 }
+    )
+  }
+
   func test_mapKeys() {
     let dictionary = [100: "💯", 17: "📅"]
     XCTAssertEqual(

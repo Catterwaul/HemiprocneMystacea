@@ -147,6 +147,14 @@ public extension Dictionary where Value: Equatable {
   }
 }
 
+public extension Dictionary where Value: Sequence {
+  /// Flatten value sequences,
+  /// pairing each value element with its original key.
+  func flatMap() -> [(key: Key, value: Value.Element)] {
+    flatMap { key, value in value.map { (key, $0) } }
+  }
+}
+
 public extension Dictionary where Value == Int {
   /// Create "buckets" from a sequence of keys,
   /// such as might be used for a histogram.
