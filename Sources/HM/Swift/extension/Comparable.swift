@@ -78,5 +78,18 @@ public extension Sequence where Element: Comparable {
 
     return (dictionary[.minimum] ?? [], dictionary[.maximum]  ?? [])
   }
+
+  /// Two minima, with the second satisfying a partitioning criterion.
+  func minima(
+    partitionedBy belongsInSecondPartition: (Element) -> Bool
+  ) -> (Element?, Element?) {
+    reduce(into: (nil, nil)) { minima, element in
+      let partitionKeyPath = belongsInSecondPartition(element) ? \(Element?, Element?).1 : \.0
+
+      if minima[keyPath: partitionKeyPath].map({ element < $0 }) ?? true {
+        minima[keyPath: partitionKeyPath] = element
+      }
+    }
+  }
 }
 private enum ExtremumOption { case minimum, maximum }

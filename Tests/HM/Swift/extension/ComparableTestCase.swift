@@ -40,4 +40,12 @@ final class ComparableTestCase: XCTestCase {
     XCTAssertEqual(mininma, [-1])
     XCTAssertEqual(maxima, [1, 11])
   }
+
+  func test_minima() {
+    XCTAssert(
+      [1, -1000, 1000, -2, 1001].minima { $0.isMultiple(of: 2) }
+      ==
+      (1, -1000)
+    )
+  }
 }

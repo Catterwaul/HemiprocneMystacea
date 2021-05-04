@@ -149,12 +149,14 @@ final class DictionaryTestCase: XCTestCase {
       [ "red": ["🍷", "💄"],
         "green": ["🤢"],
         "blue": ["🥏", "👮‍♀️", "👮‍♀️"]
-      ].flatMap().sorted { $0 }
-      ==
-      [ ("red", "🍷"), ("red", "💄"),
-        ("green", "🤢"),
-        ("blue", "🥏"), ("blue", "👮‍♀️"), ("blue", "👮‍♀️"),
-      ].sorted { $0 }
+      ].flatMap().sorted { $0.key }
+      .elementsEqual(
+        [ "blue": "🥏", "blue": "👮‍♀️", "blue": "👮‍♀️",
+          "green": "🤢",
+          "red": "🍷", "red": "💄",
+        ] as KeyValuePairs,
+        by: ==
+      )
     )
   }
 
