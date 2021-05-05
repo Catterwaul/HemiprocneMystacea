@@ -48,4 +48,10 @@ final class ComparableTestCase: XCTestCase {
       (1, -1000)
     )
   }
+
+  func test_sort() {
+    let sorted = (Int.min, Int.max)
+    XCTAssert(sort(Int.max, .min) == sorted)
+    XCTAssert(sort(Int.min, .max) == sorted)
+  }
 }

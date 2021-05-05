@@ -93,3 +93,12 @@ public extension Sequence where Element: Comparable {
   }
 }
 private enum ExtremumOption { case minimum, maximum }
+
+/// Create a "sorted tuple".
+public func sort<Comparable: Swift.Comparable>(
+  _ comparable0: Comparable, _ comparable1: Comparable
+) -> (Comparable, Comparable) {
+  comparable0 <= comparable1
+    ? (comparable0, comparable1)
+    : (comparable1, comparable0)
+}
