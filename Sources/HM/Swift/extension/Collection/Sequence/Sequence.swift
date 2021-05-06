@@ -281,21 +281,6 @@ public extension Sequence {
     return try getElement(comparablesAndElements)
   }
 
-  /// A sequence of the partial results that `reduce` would employ.
-  func scan<Result>(
-    _ initialResult: Result,
-    _ nextPartialResult: @escaping (Result, Element) throws -> Result
-  ) -> AnySequence<Result> {
-    var iterator = makeIterator()
-    return .init(
-      sequence(first: initialResult) { partialResult in
-        iterator.next().flatMap {
-          try? nextPartialResult(partialResult, $0)
-        }
-      }
-    )
-  }
-
   func shifted(by shift: Int) -> AnySequence<Element> {
     shift >= 0
     ? dropFirst(shift) + prefix(shift)
