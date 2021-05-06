@@ -32,9 +32,9 @@ public extension Sequence where Element: Equatable {
   swift, deprecated: 5.5,
   message: "Doesn't compile without the constant in Swift 5.4."
   )
-  var firstUniqueElements: [Element] {
+  var uniqued: [Element] {
     let getSelf: (Element) -> Element = \.self
-    return firstUniqueElements(getSelf)
+    return uniqued(on: getSelf)
   }
 
   /// Returns only elements that don’t match the previous element.
@@ -77,18 +77,6 @@ public extension Sequence where Element: Equatable {
 
 // MARK: Element: Hashable
 public extension Sequence where Element: Hashable {
-  /// The elements of the sequence, with duplicates removed.
-  /// - Note: Has equivalent elements to `Set(self)`.
-  @available(
-  swift, deprecated: 5.5,
-  message: "Doesn't compile without the constant in Swift 5.4."
-  )
-  var firstUniqueElements: [Element] {
-    let getSelf: (Element) -> Element = \.self
-    return firstUniqueElements(getSelf)
-  }
-
-
   /// Matches interleaved subsequences of identical elements with seperate iterations of some other sequence.
   func withKeyedIterations<Sequence: Swift.Sequence>(of sequence: Sequence)
   -> [(Element, Sequence.Element)] {

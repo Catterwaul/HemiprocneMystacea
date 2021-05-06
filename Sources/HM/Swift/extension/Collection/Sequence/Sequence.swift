@@ -122,24 +122,15 @@ public extension Sequence {
     }
   }
 
-  /// The elements of the sequences, with "duplicates" removed
-  /// based on a closure.
-  func firstUniqueElements<Hashable: Swift.Hashable>(
-    _ getHashable: (Element) -> Hashable
-  ) -> [Element] {
-    var set: Set<Hashable> = []
-    return filter { set.insert(getHashable($0)).inserted }
-  }
-
   /// The elements of the sequence, with "duplicates" removed,
   /// based on a closure.
-  func firstUniqueElements<Equatable: Swift.Equatable>(
-    _ getEquatable: (Element) -> Equatable
-  ) -> [Element] {
-    reduce(into: []) { uniqueElements, element in
+  @inlinable func uniqued<Equatable: Swift.Equatable>(
+    on getEquatable: (Element) throws -> Equatable
+  ) rethrows -> [Element] {
+    try reduce(into: []) { uniqueElements, element in
       if zip(
-        uniqueElements.lazy.map(getEquatable),
-        AnyIterator { [equatable = getEquatable(element)] in equatable }
+        try uniqueElements.lazy.map(getEquatable),
+        AnyIterator { [equatable = try getEquatable(element)] in equatable }
       ).allSatisfy(!=) {
         uniqueElements.append(element)
       }

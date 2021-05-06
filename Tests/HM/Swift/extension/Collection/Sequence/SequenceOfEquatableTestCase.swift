@@ -26,20 +26,7 @@ final class SequenceOfEquatableTestCase: XCTestCase {
     XCTAssert(["⭐️", "⭐️"].elementsAreAllEqual == true)
   }
 
-// MARK: - firstUniqueElements
-  func test_firstUniqueElements_Hashable() {
-    XCTAssertEqual(
-      [1, 1, 1].firstUniqueElements,
-      [1]
-    )
-
-    XCTAssertEqual(
-      "ABCDEFABCDEFEDCBA".firstUniqueElements,
-      ["A", "B", "C", "D", "E", "F"]
-    )
-  }
-
-  func test_firstUniqueElements_Equatable() {
+  func test_uniqued_Equatable() {
     struct TypeWith1EquatableProperty: Equatable {
       let int: Int
     }
@@ -47,7 +34,7 @@ final class SequenceOfEquatableTestCase: XCTestCase {
     let uniqueArray =
       [1, 1, 2, 4, 2, 3, 4]
         .map(TypeWith1EquatableProperty.init)
-        .firstUniqueElements
+        .uniqued
     XCTAssertEqual(
       uniqueArray,
       [1, 2, 4, 3].map(TypeWith1EquatableProperty.init)
