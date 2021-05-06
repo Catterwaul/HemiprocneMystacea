@@ -130,7 +130,7 @@ final class DictionaryTestCase: XCTestCase {
     )
     XCTAssertEqual(
       dictionary,
-      [  "key": "value",
+      [ "key": "value",
         "kee": "valyoo"
       ]
     )
