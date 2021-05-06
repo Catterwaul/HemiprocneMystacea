@@ -1,3 +1,5 @@
+import Algorithms
+
 public extension Sequence {
 // MARK:- Operators
 
@@ -81,12 +83,6 @@ public extension Sequence {
   }
 
 // MARK:- Methods
-
-  /// `compactMap`, without the `map`!
-  func compact<Wrapped>() -> [Wrapped]
-  where Element == Wrapped? {
-    compactMap { $0 }
-  }
 
   /// The elements of this sequence, and the ones after them.
   /// - Note: Every returned array will have the same count,
@@ -431,8 +427,8 @@ public extension Sequence where Element: Sequence {
         Optional(
           (iterators.indices).map { iterators[$0].next() }
         )
-        .filter { $0.allSatisfy { $0 != nil } }?
-        .compact()
+        .filter { $0.allSatisfy { $0 != nil } }
+        .map { .init($0.compacted()) }
       }
     )
   }
