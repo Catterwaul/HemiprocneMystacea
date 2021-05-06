@@ -16,7 +16,7 @@ let package = Package(
     return .library(name: name, targets: [name])
   },
   dependencies: [
-    .package(url: "https://github.com/apple/swift-algorithms", from: "0.0.1")
+    .package(url: "https://github.com/apple/swift-algorithms", .branch("main"))
   ],
   targets:
     [ .target(
