@@ -33,10 +33,7 @@ public extension Sequence {
   /// Combines two `Sequence`s.
   static func + <Sequence1: Sequence>(sequence0: Self, sequence1: Sequence1) -> AnySequence<Element>
   where Sequence1.Element == Element {
-    .init { () -> AnyIterator<Element> in
-      var iterators = (sequence0.makeIterator(), sequence1.makeIterator())
-      return .init { iterators.0.next() ?? iterators.1.next() }
-    }
+    .init(chain(sequence0, sequence1))
   }
 
 // MARK:- Properties
