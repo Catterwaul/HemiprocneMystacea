@@ -1,3 +1,4 @@
+import Algorithms
 import CoreGraphics
 import simd
 
@@ -46,7 +47,7 @@ public extension Collection where Element == SIMD2<Double> {
     guard !isEmpty
     else { return nil }
 
-    let definiteIntegral = consecutivePairs.reduce(0.0) { definiteIntegral, points in
+    let definiteIntegral = adjacentPairs().reduce(0.0) { definiteIntegral, points in
       let delta = points.1 - points.0
       return
         definiteIntegral

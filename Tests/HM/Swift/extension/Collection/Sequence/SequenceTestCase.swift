@@ -19,14 +19,6 @@ final class SequenceTestCase: XCTestCase {
 
 // MARK:- Properties
 
-  func test_consecutivePairs() {
-    XCTAssert(
-      Array([1, 3, 9, -44].consecutivePairs)
-      ==
-      [(1, 3), (3, 9), (9, -44)]
-    )
-  }
-
   func test_consecutiveElements() {
     XCTAssertEqual(
       Array((1...5).consecutiveElements(by: 3)),

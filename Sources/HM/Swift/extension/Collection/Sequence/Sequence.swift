@@ -46,11 +46,6 @@ public extension Sequence {
     .init(EmptyCollection.Iterator.init)
   }
 
-  /// Each elements of the sequence, paired with the element after.
-  var consecutivePairs: Zip2Sequence<Self, DropFirstSequence<Self>> {
-    zip(self, dropFirst())
-  }
-
   /// - Complexity: O(n)
   var count: Int {
     reduce(0) { count, _ in count + 1 }
