@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.4
 
 import PackageDescription
 
@@ -15,8 +15,17 @@ let package = Package(
     let name = $0.hm
     return .library(name: name, targets: [name])
   },
+  dependencies: [
+    .package(url: "https://github.com/apple/swift-algorithms", from: "0.0.1")
+  ],
   targets:
-    [.target(name: .hm)]
+    [ .target(
+        name: .hm,
+        dependencies: [
+          .product(name: "Algorithms", package: "swift-algorithms")
+        ]
+      )
+    ]
     + names.filter { $0 != .hm } .map { frameworkName in
       .target(
         name: frameworkName.hm,
