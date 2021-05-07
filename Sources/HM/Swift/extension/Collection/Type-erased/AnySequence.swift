@@ -1,3 +1,5 @@
+import Algorithms
+
 public extension AnySequence {
     /// An error thrown from a call to `onlyMatch`.
   enum OnlyMatchError: Swift.Error {
@@ -23,7 +25,7 @@ public extension AnySequence {
     }
 
     return (
-      previous.map { CollectionOfOne($0) + iterator }
+      previous.map { .init(chain(CollectionOfOne($0), iterator)) }
         ?? .init(iterator),
       { previous }
     )

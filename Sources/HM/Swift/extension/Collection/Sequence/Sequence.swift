@@ -30,12 +30,6 @@ public extension Sequence {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
-  /// Combines two `Sequence`s.
-  static func + <Sequence1: Sequence>(sequence0: Self, sequence1: Sequence1) -> AnySequence<Element>
-  where Sequence1.Element == Element {
-    .init(chain(sequence0, sequence1))
-  }
-
 // MARK:- Properties
 
   /// An empty sequence, whose `Element` "would" match this type's.
@@ -283,8 +277,12 @@ public extension Sequence {
 
   func shifted(by shift: Int) -> AnySequence<Element> {
     shift >= 0
-    ? dropFirst(shift) + prefix(shift)
-    : suffix(-shift) + dropLast(-shift)
+      ? .init(
+        chain(dropFirst(shift), prefix(shift))
+      )
+      : .init(
+        chain(suffix(-shift), dropLast(-shift))
+      )
   }
 
   /// Sorted by a common `Comparable` value.
