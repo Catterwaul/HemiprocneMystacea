@@ -1,25 +1,6 @@
 public extension Collection {
   // MARK: - Subscripts
 
-  /// Splits a `Collection` into equal "chunks".
-  /// - Parameter maxSubSequenceCount: The maximum number of elements in a chunk.
-  /// - Returns: `SubSequence`s with `maxSubSequenceLength` `counts`,
-  ///   until the last chunk, which may be smaller.
-  subscript(maxSubSequenceCount maxCount: Int) -> AnySequence<SubSequence> {
-    .init(
-      sequence(state: startIndex) { startIndex in
-        guard startIndex < self.endIndex
-        else { return nil }
-
-        let endIndex =
-          self.index(startIndex, offsetBy: maxCount, limitedBy: self.endIndex)
-          ?? self.endIndex
-        defer { startIndex = endIndex }
-        return self[startIndex..<endIndex]
-      }
-    )
-  }
-
   /// Circularly wraps `index`, to always provide an element,
   /// even when `index` is not valid.
   subscript(modulo index: Index) -> Element {

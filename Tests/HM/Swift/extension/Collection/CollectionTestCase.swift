@@ -4,17 +4,6 @@ import XCTest
 final class CollectionTestCase: XCTestCase {
 // MARK: - Subscripts
 
-  func test_subscript_maxSubSequenceCount() {
-    XCTAssertEqual(
-      Array("❤️🌹💄🦋👖🥶♻️"[maxSubSequenceCount: 3]),
-      ["❤️🌹💄", "🦋👖🥶", "♻️"]
-    )
-
-    XCTAssert(
-      Array([Any]()[maxSubSequenceCount: 10]).isEmpty
-    )
-  }
-
   func test_subscript_modulo() {
     let ints = [1, 2]
     for (index, int) in [
