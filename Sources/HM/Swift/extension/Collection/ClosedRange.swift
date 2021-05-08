@@ -17,6 +17,12 @@ public extension ClosedRange {
   }
 }
 
+public extension ClosedRange where Bound: Strideable , Bound.Stride: SignedInteger {
+  init(_ slice: SubSequence) {
+    self = slice.first!...slice.last!
+  }
+}
+
 public extension ClosedRange where Bound: AdditiveArithmetic {
   /// `upperBound - lowerBound`
   var magnitude: Bound { upperBound - lowerBound }

@@ -10,6 +10,15 @@ final class ClosedRangeTestCase: XCTestCase {
     XCTAssertNil(ClosedRange(encompassing: [] as [Int]))
   }
 
+  func test_init_Slice() {
+    let closedRange = 0...10
+    let slice = closedRange[(closedRange.firstIndex(of: 2))!...(closedRange.firstIndex(of: 5))!]
+    XCTAssertEqual(
+      ClosedRange(slice),
+      2...5
+    )
+  }
+
   func test_subscript_normalized() {
     XCTAssertEqual(
       (-1...3)[normalized: 0.5],
