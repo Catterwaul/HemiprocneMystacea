@@ -62,7 +62,7 @@ final class BoolTestCase: XCTestCase {
       { "🦁" == "🦁" }
     ]
     
-    XCTAssertTrue(trueConditions.containsOnly(true))
+    XCTAssert(trueConditions.containsOnly(true))
     XCTAssertFalse(
       (trueConditions + [ { false } ])
       .containsOnly(true)

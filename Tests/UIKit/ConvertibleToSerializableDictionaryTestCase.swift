@@ -38,7 +38,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 	func test_UIImage() {
 		let instance = 🐭()
 		
-		XCTAssertTrue(
+		XCTAssert(
 			UIImage(
 				data:
 					instance
@@ -48,7 +48,7 @@ final class ConvertibleToSerializableDictionaryTestCase: XCTestCase {
 			)!.hasEqualPixels(instance.image)
 		)
 		
-		XCTAssertTrue(
+		XCTAssert(
 			UIImage(
 				data: Data(
 					base64Encoded:

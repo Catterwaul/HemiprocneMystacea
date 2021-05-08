@@ -6,7 +6,7 @@ final class UIButtonTestCase: XCTestCase {
 		let button = UIButton()
 		
 		button.disabledAndDim = true
-		XCTAssertTrue(button.disabledAndDim)
+		XCTAssert(button.disabledAndDim)
 		XCTAssertEqual(button.alpha, 0.5)
 		
 		button.disabledAndDim = false

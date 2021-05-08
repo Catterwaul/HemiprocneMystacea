@@ -41,7 +41,7 @@ final class URLSessionTestCase: XCTestCase {
         let json = try JSONDecoder().decode(JSON.self, from: data!)
 
         XCTAssertEqual(response.statusCode, 200)
-        XCTAssertTrue(
+        XCTAssert(
           json.tracks.map(\.artistName).contains("Mr Little Jeans")
         )
       }

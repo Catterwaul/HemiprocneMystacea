@@ -8,8 +8,8 @@ final class RawRepresentableTestCase: XCTestCase {
       case 👾
 		}
 			
-		XCTAssertTrue(Alien.contains("👽"))
-		XCTAssertTrue(Alien.contains("👾"))
+		XCTAssert(Alien.contains("👽"))
+		XCTAssert(Alien.contains("👾"))
 		XCTAssertFalse(Alien.contains("🐗"))
 		
 		enum NumberOfCats: Int {
@@ -17,8 +17,8 @@ final class RawRepresentableTestCase: XCTestCase {
       case good = 7_000_000
 		}
 		
-		XCTAssertTrue(NumberOfCats.contains(0))
-		XCTAssertTrue(NumberOfCats.contains(7_000_000))
+		XCTAssert(NumberOfCats.contains(0))
+		XCTAssert(NumberOfCats.contains(7_000_000))
 		XCTAssertFalse(NumberOfCats.contains(-10))
 		XCTAssertFalse(NumberOfCats.contains(45672475))
 	}
