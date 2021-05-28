@@ -128,11 +128,6 @@ public extension Sequence {
     }
   }
 
-  /// The first element of a given type.
-  func firstOfType<T>(_: T.Type = T.self) -> T? {
-    lazy.compactMap { $0 as? T } .first
-  }
-
   /// Group the elements by a transformation into an `Equatable`.
   /// - Note: Similar to `Dictionary(grouping values:)`,
   /// but preserves "key" ordering, and doesn't require hashability.

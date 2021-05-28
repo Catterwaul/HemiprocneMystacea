@@ -122,15 +122,6 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
-  func test_firstOfType() {
-    let array: [Any] = [1, "🥇"]
-    
-    XCTAssertEqual(array.firstOfType(), "🥇")
-
-    let getFirstInt = { array.firstOfType(Int.self) }
-    XCTAssertEqual(getFirstInt(), 1)
-  }
-
   func test_grouped() {
     XCTAssertEqual(
       (0...4).grouped { $0 % 3 },
