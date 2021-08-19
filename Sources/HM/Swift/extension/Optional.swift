@@ -8,6 +8,13 @@ public extension Optional {
 
   /// Exchange two optionals for a single optional tuple.
   /// - Returns: `nil` if either tuple element is `nil`.
+  init<Wrapped0, Wrapped1>(_ optional0: Wrapped0?, _ optional1: Wrapped1?)
+  where Wrapped == (Wrapped0, Wrapped1) {
+    self = .init((optional0, optional1))
+  }
+
+  /// Exchange two optionals for a single optional tuple.
+  /// - Returns: `nil` if either tuple element is `nil`.
   init<Wrapped0, Wrapped1>(_ optionals: (Wrapped0?, Wrapped1?))
   where Wrapped == (Wrapped0, Wrapped1) {
     switch optionals {
