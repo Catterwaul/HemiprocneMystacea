@@ -104,7 +104,7 @@ final class DictionaryTestCase: XCTestCase {
   func test_init_bucketing() {
     XCTAssertEqual(
       Dictionary(bucketing: "🗑⚱️🗑🦌🦌🗑🗑🦌⚱️"),
-      ["⚱️": 2, "🗑": 4, "🦌": 3]
+      ["⚱️" as Character: 2, "🗑": 4, "🦌": 3]
     )
   }
 

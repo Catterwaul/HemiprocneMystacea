@@ -1,5 +1,5 @@
 public extension LosslessStringConvertible
-where Self: RawRepresentable, Self.RawValue: LosslessStringConvertible  {
+where Self: RawRepresentable, RawValue: LosslessStringConvertible  {
   init?(_ description: String) {
     guard let rawValue = RawValue(description)
     else { return nil }
