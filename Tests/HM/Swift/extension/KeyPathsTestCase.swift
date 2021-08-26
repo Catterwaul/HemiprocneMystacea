@@ -6,13 +6,20 @@ final class KeyPathsTestCase: XCTestCase {
     let oneTo5 = 1...5
     let keyPath = \(Int, Int).0
     XCTAssert(
-      zip(oneTo5, oneTo5).map(keyPath[]).elementsEqual(oneTo5)
+      zip(oneTo5, oneTo5).map(keyPath()).elementsEqual(oneTo5)
     )
   }
-  
+
+  func test_subscript_transform() {
+    XCTAssertEqual(
+      [true, true].map((\.self).map(!)),
+      [false, false]
+    )
+  }
+
   func test_subscript_get() {
     let keyPath = \Double.isZero
-    XCTAssertFalse(keyPath[1.0]())
+    XCTAssertFalse(keyPath(1.0)())
   }
 
   func test_ReferenceWritableKeyPath_subscripts() {
