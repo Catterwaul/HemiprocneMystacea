@@ -16,6 +16,12 @@ public extension KeyPath {
   }
 }
 
+public extension KeyPath where Value == Bool {
+  static prefix func !(keypath: KeyPath) -> (Root) -> Value {
+    keypath.map(!)
+  }
+}
+
 public extension ReferenceWritableKeyPath {
   /// Convert a `KeyPath` to a partially-applied get/set accessor pair.
   subscript() -> (Root) -> Computed<Value> {

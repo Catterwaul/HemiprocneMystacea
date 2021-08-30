@@ -12,7 +12,7 @@ final class KeyPathsTestCase: XCTestCase {
 
   func test_subscript_transform() {
     XCTAssertEqual(
-      [true, true].map((\.self).map(!)),
+      [true, true].map(!\.self),
       [false, false]
     )
   }
