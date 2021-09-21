@@ -1,18 +1,17 @@
 public extension KeyPath {
-  /// Convert a `KeyPath` to a partially-applied get accessor.
-  func callAsFunction() -> (Root) -> Value {
+  /// Convert this `KeyPath` to a partially-applied get accessor.
+  ///
+  /// This is the same as what the compiler can do for key path expressions,
+  /// but extends the capability to named variables.
+  var asClosure: (Root) -> Value {
     { $0[keyPath: self] }
   }
 
+  /// - Returns: A closure that returns a transformed `Value`.
   func map<Transformed>(
     _ transform: @escaping (Value) -> Transformed
   ) -> (Root) -> Transformed {
     { transform($0[keyPath: self]) }
-  }
-
-  /// Convert a `KeyPath` to a get accessor.
-  func callAsFunction(_ root: Root) -> () -> Value {
-    { root[keyPath: self] }
   }
 }
 
@@ -22,17 +21,15 @@ public extension KeyPath where Value == Bool {
   }
 }
 
-public extension ReferenceWritableKeyPath {
-  /// Convert a `KeyPath` to a partially-applied get/set accessor pair.
-  subscript() -> (Root) -> Computed<Value> {
-    { self[$0] }
-  }
-
+public extension Computed {
   /// Convert a `KeyPath` to a get/set accessor pair.
-  subscript(root: Root) -> Computed<Value> {
-    .init(
-      get: self(root),
-      set: { root[keyPath: self] = $0 }
+  init<Root>(
+    root: Root,
+    keyPath: ReferenceWritableKeyPath<Root, Value>
+  ) {
+    self.init(
+      get: { root[keyPath: keyPath] },
+      set: { root[keyPath: keyPath] = $0 }
     )
   }
 }
