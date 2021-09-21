@@ -38,13 +38,6 @@ public extension Bool {
   }
 }
 
-public extension Sequence where Element == () -> Bool {
-  ///- Returns: whether all elements of the sequence evaluate to `bool`
-  func containsOnly(_ bool: Bool) -> Bool {
-    allSatisfy { getBool in bool == getBool() }
-  }
-}
-
 // MARK: - Comparable
 public extension Bool {
   /// A way to compare `Bool`s.
@@ -61,5 +54,26 @@ public extension Bool {
 extension Bool.Comparable: ExpressibleByBooleanLiteral {
   public init(booleanLiteral value: Bool) {
     self = value ? .true : .false
+  }
+}
+
+// MARK: - Bool-returning closures
+
+public prefix func !<Root>(
+  getBool: @escaping (Root) -> Bool
+) -> (Root) -> Bool {
+  { !getBool($0) }
+}
+
+public prefix func !(
+  getBool: @escaping () -> Bool
+) -> () -> Bool {
+  { !getBool() }
+}
+
+public extension Sequence where Element == () -> Bool {
+  ///- Returns: whether all elements of the sequence evaluate to `bool`
+  func containsOnly(_ bool: Bool) -> Bool {
+    allSatisfy { getBool in bool == getBool() }
   }
 }

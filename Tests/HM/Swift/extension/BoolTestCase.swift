@@ -53,8 +53,16 @@ final class BoolTestCase: XCTestCase {
       "🏃 🐈"
     )
   }
-  
-// MARK: - Sequences of Bools
+
+// MARK: - closures
+  func test_complement() {
+    let getTrue = !{ false }
+    XCTAssertTrue(getTrue())
+
+    let getFalse = !{ (_: Int) in true }
+    XCTAssertFalse(getFalse(.random))
+  }
+
   func test_containsOnly() {
     let trueConditions = [
       { true },
