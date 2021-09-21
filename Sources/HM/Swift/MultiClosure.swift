@@ -80,8 +80,8 @@ public func += <Input>(
   multiClosure: MultiClosure<Input>,
   closure: EquatableClosure<Input>
 ) {
-  multiClosure.closures.formUnion([closure.unownedSelf])
-  closure.multiClosures.formUnion([multiClosure.unownedSelf])
+  multiClosure.closures.insert(closure.unownedSelf)
+  closure.multiClosures.insert(multiClosure.unownedSelf)
 }
 
 /// Add `closures` to the set of closures that runs
