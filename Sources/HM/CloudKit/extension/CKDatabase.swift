@@ -1,139 +1,98 @@
 import CloudKit
 
 public extension CKDatabase {
-  func addModifyRecordsOperationsAsNeeded(
-    recordsToSave: [CKRecord],
-    recordIDsToDelete: [CKRecord.ID],
-    dispatchGroup: DispatchGroup,
-    addToErrors: @escaping (Error) -> Void
-  ) {
-    dispatchGroup.enter()
-    add(
-      CKModifyRecordsOperation(
-        recordsToSave: recordsToSave,
-        recordIDsToDelete: recordIDsToDelete
-      ) { [unowned self] processCompletionResult in
-        defer { dispatchGroup.leave() }
-        
-        do { try processCompletionResult.get() }
-        catch let error as CKError
-        where CKError.Code(rawValue: error.errorCode) == .unknownItem {
-          dispatchGroup.enter()
-          self.save(recordsToSave.first!) { result in
-            defer { dispatchGroup.leave() }
-
-            switch result {
-            case .success:
-              self.addModifyRecordsOperationsAsNeeded(
-                recordsToSave: Array(recordsToSave.dropFirst()),
-                recordIDsToDelete: recordIDsToDelete,
-                dispatchGroup: dispatchGroup,
-                addToErrors: addToErrors
-              )
-            case .failure(let error):
-              addToErrors(error)
-            }
-          }
+  func modifyRecordsRecursivelyAsNeeded(
+    saving recordsToSave: [CKRecord],
+    deleting recordIDsToDelete: [CKRecord.ID]
+  ) async throws {
+    do {
+      _ = try await modifyRecords(saving: recordsToSave, deleting: recordIDsToDelete)
+    } catch let error as CKError {
+      switch CKError.Code(rawValue: error.errorCode) {
+      case.unknownItem:
+        try await save(recordsToSave.first!)
+        try await modifyRecordsRecursivelyAsNeeded(
+          saving: .init(recordsToSave.dropFirst()),
+          deleting: recordIDsToDelete
+        )
+      case .limitExceeded:
+        for (recordsToSave, recordIDsToDelete)
+              in zip(recordsToSave.splitInHalf, recordIDsToDelete.splitInHalf) {
+          try await self.modifyRecordsRecursivelyAsNeeded(
+            saving: recordsToSave,
+            deleting: recordIDsToDelete
+          )
         }
-        catch let error as CKError
-        where CKError.Code(rawValue: error.errorCode) == .limitExceeded {
-          for (recordsToSave, recordIDsToDelete)
-          in zip(recordsToSave.splitInHalf, recordIDsToDelete.splitInHalf) {
-            self.addModifyRecordsOperationsAsNeeded(
-              recordsToSave: recordsToSave,
-              recordIDsToDelete: recordIDsToDelete,
-              dispatchGroup: dispatchGroup,
-              addToErrors: addToErrors
-            )
-          }
-        }
-        catch let error { addToErrors(error) }
-      }
-    )
-  }
-  
-	/// Request `CKRecord`s that correspond to a Swift type.
-	///
-	/// - Parameters:
-	///   - recordType: Its name has to be the same in your code, and in CloudKit.
-	///   - predicate: for the `CKQuery`
-	///   - process: processes a *throwing get [CKRecord]*
-  func request<Requested>(
-    recordType: Requested.Type,
-    predicate: NSPredicate = NSPredicate(value: true),
-    resultsLimit: Int? = nil,
-    process: @escaping ProcessGet<[CKRecord]>
-  ) {
-    var records: [CKRecord] = []
-    
-    let operationQueue = OperationQueue()
-    operationQueue.maxConcurrentOperationCount = 1
-    
-    func initPhase2(_ operation: CKQueryOperation) {
-      if let resultsLimit = resultsLimit {
-        operation.resultsLimit = resultsLimit
-      }
-      operation.recordFetchedBlock = { record in
-        operationQueue.addOperation { records.append(record) }
-      }
-      
-      operation.queryCompletionBlock = { cursor, error in
-        if let error = error {
-          process { throw error }
-        } else if let cursor = cursor {
-          let operation = CKQueryOperation(cursor: cursor)
-          initPhase2(operation)
-          self.add(operation)
-        } else {
-          operationQueue.addOperation { process { records } }
-        }
+      default:
+        throw error
       }
     }
-    
-    let operation = CKQueryOperation(
-      query: CKQuery(
-        recordType: "\(Requested.self)",
-        predicate: predicate
-      )
-    )
-    initPhase2(operation)
-    add(operation)
   }
-	
-	/// Request `CKRecord`s that correspond to a Swift type,
-	/// and return the result of initializing those types
-	/// with the records.
-	///
-	/// - Parameters:
-	///   - predicate: for the `CKQuery`
-	///   - process: processes a *throwing get [Requested]*
-	func request<Requested: InitializableWithCloudKitRecord>(
-		predicate: NSPredicate = NSPredicate(value: true),
-		process: @escaping ProcessGet<[Requested]>
-	) {
-		request(
-			recordType: Requested.self,
-			predicate: predicate
-		) {
-      getRecords in process {
-				let records = try getRecords()
-				return try records.map(Requested.init)
-			}
-		}
-	}
-	
-	/// Request `CKRecord`s that correspond to a Swift type,
-	/// and implement `InitializableWithCloudKitRecordAndReferences`
-	/// because they use forward references.
-	///
-	/// Processing the result of initializing instances of those types
-	/// happens individually. 
-	/// Then processing verification of completion of the operation happens.
-	///
-	/// - Parameters:
-	///   - predicate: for the `CKQuery`
-	///   - processGetRequested: processes a *throwing get Requested*
-	///   - processVerifyCompletion: processes a `Verify` upon completion of the request
+  
+  /// Request `CKRecord`s that correspond to a Swift type.
+  ///
+  /// - Parameters:
+  ///   - recordType: Its name has to be the same in your code, and in CloudKit.
+  ///   - predicate: for the `CKQuery`
+  func records<Record>(
+    type: Record.Type,
+    predicate: NSPredicate = NSPredicate(value: true)
+  ) async throws -> [CKRecord] {
+    try await withThrowingTaskGroup(of: [CKRecord].self) { group in
+      func process(
+        _ records: (
+          matchResults: [(CKRecord.ID, Result<CKRecord, Error>)],
+          queryCursor: CKQueryOperation.Cursor?
+        )
+      ) async throws {
+        group.addTask {
+          try records.matchResults.map { try $1.get() }
+        }
+        
+        if let cursor = records.queryCursor {
+          try await process(self.records(continuingMatchFrom: cursor))
+        }
+      }
+      
+      try await process(
+        records(
+          matching: .init(
+            recordType: "\(Record.self)",
+            predicate: predicate
+          )
+        )
+      )
+      
+      return try await group.reduce(into: [], +=)
+    }
+  }
+  
+  /// Request `CKRecord`s that correspond to a Swift type,
+  /// and return the result of initializing those types
+  /// with the records.
+  ///
+  /// - Parameter predicate: for the `CKQuery`
+  func records<Requested: InitializableWithCloudKitRecord>(
+    predicate: NSPredicate = NSPredicate(value: true)
+  ) async throws -> [Requested] {
+    try await records(
+      type: Requested.self,
+      predicate: predicate
+    ).map(Requested.init)
+  }
+  
+  /// Request `CKRecord`s that correspond to a Swift type,
+  /// and implement `InitializableWithCloudKitRecordAndReferences`
+  /// because they use forward references.
+  ///
+  /// Processing the result of initializing instances of those types
+  /// happens individually.
+  /// Then processing verification of completion of the operation happens.
+  ///
+  /// - Parameters:
+  ///   - predicate: for the `CKQuery`
+  ///   - processGetRequested: processes a *throwing get Requested*
+  ///   - processVerifyCompletion: processes a `Verify` upon completion of the request
   func request<Requested: InitializableWithCloudKitRecordAndReferences>(
     predicate: NSPredicate = NSPredicate(value: true),
     _ processGetRequested: @escaping ProcessGet<Requested>,
@@ -171,7 +130,7 @@ public extension CKDatabase {
         }
         self.add(operation)
       }
-			
+      
       operation.queryCompletionBlock = { cursor, error in
         if let error = error {
           processCompletionResult(.init(failure: error))
@@ -186,7 +145,7 @@ public extension CKDatabase {
         }
       }
     }
-		
+    
     let operation = CKQueryOperation(
       query: CKQuery(
         recordType: "\(Requested.self)",
@@ -195,16 +154,5 @@ public extension CKDatabase {
     )
     initialize(operation)
     add(operation)
-  }
-  
-  /// - Parameters:
-  ///   - processResult: Process the result of attempting a save.
-  func save(
-    _ record: CKRecord,
-    processResult: @escaping (VerificationResult<Error>) -> Void
-  ) {
-    save(record) {
-      processResult(.init(failure: $1))
-    }
   }
 }
