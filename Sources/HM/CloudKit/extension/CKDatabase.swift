@@ -35,7 +35,7 @@ public extension CKDatabase {
   ///   - recordType: Its name has to be the same in your code, and in CloudKit.
   ///   - predicate: for the `CKQuery`
   func records<Record>(
-    type: Record.Type = Record.self,
+    type: Record.Type,
     predicate: NSPredicate = NSPredicate(value: true)
   ) async throws -> [CKRecord] {
     try await withThrowingTaskGroup(of: [CKRecord].self) { group in
@@ -65,20 +65,6 @@ public extension CKDatabase {
       
       return try await group.reduce(into: [], +=)
     }
-  }
-  
-  /// Request `CKRecord`s that correspond to a Swift type,
-  /// and return the result of initializing those types
-  /// with the records.
-  ///
-  /// - Parameter predicate: for the `CKQuery`
-  func records<Requested: InitializableWithCloudKitRecord>(
-    predicate: NSPredicate = NSPredicate(value: true)
-  ) async throws -> [Requested] {
-    try await records(
-      type: Requested.self,
-      predicate: predicate
-    ).map(Requested.init)
   }
   
   /// Request `CKRecord`s that correspond to a Swift type,
