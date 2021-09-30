@@ -20,16 +20,3 @@ public extension KeyPath where Value == Bool {
     keypath.map(!)
   }
 }
-
-public extension Computed {
-  /// Convert a `KeyPath` to a get/set accessor pair.
-  init<Root>(
-    root: Root,
-    keyPath: ReferenceWritableKeyPath<Root, Value>
-  ) {
-    self.init(
-      get: { root[keyPath: keyPath] },
-      set: { root[keyPath: keyPath] = $0 }
-    )
-  }
-}

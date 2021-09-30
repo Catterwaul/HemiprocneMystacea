@@ -41,4 +41,15 @@ public extension Computed {
     self.init(get: get, set: set)
     self.wrappedValue = wrappedValue
   }
+  
+  /// Convert a `KeyPath` to a get/set accessor pair.
+  init<Root>(
+    root: Root,
+    keyPath: ReferenceWritableKeyPath<Root, Value>
+  ) {
+    self.init(
+      get: { root[keyPath: keyPath] },
+      set: { root[keyPath: keyPath] = $0 }
+    )
+  }
 }
