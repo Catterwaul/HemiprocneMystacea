@@ -35,7 +35,7 @@ public extension CKDatabase {
   ///   - recordType: Its name has to be the same in your code, and in CloudKit.
   ///   - predicate: for the `CKQuery`
   func records<Record>(
-    type: Record.Type,
+    type: Record.Type = Record.self,
     predicate: NSPredicate = NSPredicate(value: true)
   ) async throws -> [CKRecord] {
     try await withThrowingTaskGroup(of: [CKRecord].self) { group in
