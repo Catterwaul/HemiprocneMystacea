@@ -31,14 +31,15 @@ public extension Array {
 
   // MARK: - Properties
 
-  /// The first array will be shorter by one element,
+  /// The first array will be longer by one element,
   /// if `count` is odd.
-  var splitInHalf: [Array] {
+  var splitInHalf: [Self] {
     let halfCount = count / 2
-    return [
-      prefix(upTo: halfCount),
-      dropFirst(halfCount)
-    ].map(Array.init)
+    return chunks(
+      ofCount: count.isMultiple(of: 2)
+      ? halfCount
+      : halfCount + 1
+    ).map(Self.init)
   }
 }
 
