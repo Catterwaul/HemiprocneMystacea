@@ -61,7 +61,7 @@ final class CKRecordTestCase: XCTestCase {
     }
 
     let record = CKRecord(IntEnum.one)
-    XCTAssertEqual(try record.value(for: "rawValue"), 1)
+    XCTAssertEqual(try record["rawValue"], 1)
     XCTAssertEqual(try IntEnum(record: record), .one)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = 0.ckRecordValue
@@ -69,12 +69,7 @@ final class CKRecordTestCase: XCTestCase {
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
     XCTAssertThrowsError(try IntEnum(record: record)) { error in
-      switch error {
-      case ConcreteRawRepresentable<IntEnum>.Error.invalidRawValue(let rawValue):
-        XCTAssertEqual(rawValue, -1)
-      default:
-        XCTFail()
-      }
+      XCTAssertEqual(error as? Optional<IntEnum>.UnwrapError, .nil)
     }
   }
   
@@ -85,7 +80,7 @@ final class CKRecordTestCase: XCTestCase {
     }
 
     let record = CKRecord(StringEnum.eh)
-    XCTAssertEqual(try record.value(for: "rawValue"), "🇨🇦")
+    XCTAssertEqual(try record["rawValue"], "🇨🇦")
     XCTAssertEqual(try StringEnum(record: record), .eh)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "a".ckRecordValue
@@ -93,17 +88,12 @@ final class CKRecordTestCase: XCTestCase {
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
     XCTAssertThrowsError(try StringEnum(record: record)) { error in
-      switch error {
-      case ConcreteRawRepresentable<StringEnum>.Error.invalidRawValue(let rawValue):
-        XCTAssertEqual(rawValue, "eh")
-      default:
-        XCTFail()
-      }
+      XCTAssertEqual(error as? Optional<StringEnum>.UnwrapError, .nil)
     }
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
-    XCTAssertThrowsError(try StringEnum(record: record)) {
-      XCTAssert(CKRecord.AccessError.noValue ~= $0)
+    XCTAssertThrowsError(try StringEnum(record: record)) { error in
+      XCTAssertEqual(error as? Optional<CKRecord.Value>.UnwrapError, .nil)
     }
   }
 }
@@ -125,11 +115,11 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
 
 extension CKRecordTestCase.Pumpkin {
   init(record: CKRecord) throws {
-    let weightValue: Double = try record.value(for: CloudKitRecordKey.weight)
+    let weightValue: Double = try record[CloudKitRecordKey.weight]
     self.init(
-      eyesCount: try record.value(for: CloudKitRecordKey.eyesCount),
-      halloween: try record.value(for: CloudKitRecordKey.halloween),
-      vine: try record.value(for: CloudKitRecordKey.vine),
+      eyesCount: try record[CloudKitRecordKey.eyesCount],
+      halloween: try record[CloudKitRecordKey.halloween],
+      vine: try record[CloudKitRecordKey.vine],
       weight: Measurement(
         value: weightValue,
         unit: .kilograms

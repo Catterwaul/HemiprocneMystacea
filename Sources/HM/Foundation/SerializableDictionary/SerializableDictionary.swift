@@ -11,10 +11,7 @@ public extension SerializableDictionary {
 	}
 }
 
-// MARK: keyValueThrowingSubscript
-extension SerializableDictionary: valueForKeyThrowingAccessor { }
-public extension SerializableDictionary {  
-  func value<Value>(for key: String) throws -> Value {
-    try dictionary.value(for: key)
-  }
+// MARK: DictionaryLike
+extension SerializableDictionary: DictionaryLike {
+  public subscript(key: String) -> Any? { dictionary[key] }
 }

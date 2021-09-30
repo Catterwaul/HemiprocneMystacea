@@ -10,11 +10,9 @@ public extension RawRepresentableWithCKRecordValue {
 }
 
 public extension RawRepresentableWithCKRecordValue {
+  /// - Throws: `UnwrapError`s
   init<RecordKey: RawRepresentable>(record: CKRecord, key: RecordKey) throws
   where RecordKey.RawValue == CKRecord.FieldKey {
-    let rawValue: RawValue = try record.value(for: key)
-    self = try Self(rawValue: rawValue).unwrap(
-      orThrow: ConcreteRawRepresentable<Self>.Error.invalidRawValue(rawValue)
-    )
+    self = try Self(rawValue: record[key]).unwrapped
   }
 }

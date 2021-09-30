@@ -27,7 +27,7 @@ public extension CloudKitBackReferencer {
           )? in
           
           guard
-            let backReference: CKRecord.Reference = try? record.value(for: backReferenceKey),
+            let backReference: CKRecord.Reference = try? record[backReferenceKey],
             
             case let backReferencer = try Self(record: record),
             let result = makeRequestResult(

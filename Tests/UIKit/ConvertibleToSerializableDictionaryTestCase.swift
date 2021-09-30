@@ -198,14 +198,12 @@ extension 👻: ConvertibleToSerializableDictionary {
 }
 
 extension 👻: InitializableWithSerializableDictionary {
-   init(serializableDictionary dictionary: SerializableDictionary) throws {
-		self.init(
-			boool: try dictionary.value(for: SerializableDictionaryKey.boool),
-			skoool: try 💀(
-				try dictionary.value(for: SerializableDictionaryKey.skoool)
-			)
-		)
-	}
+  init(serializableDictionary dictionary: SerializableDictionary) throws {
+    self.init(
+      boool: try dictionary[SerializableDictionaryKey.boool],
+      skoool: try 💀(dictionary[SerializableDictionaryKey.skoool])
+    )
+  }
 }
 
 // MARK: 
@@ -232,12 +230,12 @@ extension 💀: ConvertibleToSerializableDictionary {
 }
 
 extension 💀: InitializableWithSerializableDictionary {
-   init(serializableDictionary dictionary: SerializableDictionary) throws {
-		do {
-			self.init(
-				skool: try dictionary.value(for: SerializableDictionaryKey.skool)
-			)
-		}
+  init(serializableDictionary dictionary: SerializableDictionary) throws {
+    do {
+      self.init(
+        skool: try dictionary[SerializableDictionaryKey.skool]
+      )
+    }
     catch {
       if case KeyValuePairs<String, String?>.AccessError.typeCastFailure = error {
         throw error

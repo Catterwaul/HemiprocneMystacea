@@ -9,33 +9,21 @@ final class SerializableDictionaryTestCase: XCTestCase {
       serializableDictionary = SerializableDictionary(dictionary)
     
     XCTAssertEqual(
-      try serializableDictionary.value(for: oldKey),
+      try serializableDictionary[oldKey],
       "🔑"
     )
-		
-    typealias Error<Value> = KeyValuePairs<String, Value>.AccessError
     
     let turKey = "🦃"
     XCTAssertThrowsError(
-      try serializableDictionary.value(for: turKey) as Any
+      try serializableDictionary[turKey] as Any
     ) { error in
-      switch error {
-      case Error<Any>.noValue(let key):
-        XCTAssertEqual(key, turKey)
-      default:
-        XCTFail()
-      }
+      XCTAssertEqual(error as? Optional<Any>.UnwrapError, .nil)
     }
 		
     XCTAssertThrowsError(
-      try serializableDictionary.value(for: oldKey) as Bool
+      try serializableDictionary[oldKey] as Bool
     ) { error in
-      switch error {
-      case Error<Bool>.typeCastFailure(let key):
-        XCTAssertEqual(key, oldKey)
-      default:
-        XCTFail()
-      }
+      XCTAssertEqual(error as? Optional<Any>.UnwrapError, .typeMismatch)
     }
   }
 	
@@ -65,12 +53,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
         key: turKeyboard
       )
     ) { error in
-      switch error {
-      case KeyValuePairs<String, Any>.AccessError.noValue(let key):
-        XCTAssertEqual(key, turKeyboard)
-      default:
-        XCTFail()
-      }
+      XCTAssertEqual(error as? Optional<Any>.UnwrapError, .nil)
     }
   }
 	
@@ -133,8 +116,6 @@ private struct Instrument: Equatable {
 
 extension Instrument: InitializableWithSerializableDictionary {
   init(serializableDictionary dictionary: SerializableDictionary) throws {
-    visualization = try dictionary.value(
-      for: SerializableDictionaryKey.visualization
-    )
+    visualization = try dictionary[SerializableDictionaryKey.visualization]
   }
 }

@@ -1,8 +1,6 @@
 import CloudKit
 
-extension CKRecord: valueForKeySubscript {
-  public typealias Key = FieldKey
-}
+extension CKRecord: DictionaryLike { }
 
 public extension CKRecord {
   typealias AccessError = KeyValuePairs<String, CKRecordValue>.AccessError

@@ -81,16 +81,14 @@ public extension Array where Element: InitializableWithSerializableDictionary {
 		try self.init(dictionaries: dictionaries)
 	}
 	
-	init(
-		dictionary: [String: Any],
-		key: String
-	) throws {
-		try self.init(
-			dictionaries:
-				try SerializableDictionary(dictionary).value(for: key)
-				as DictionaryArray
-		)
-	}
+  init(
+    dictionary: [String: Any],
+    key: String
+  ) throws {
+    try self.init(
+      dictionaries: try SerializableDictionary(dictionary)[key] as DictionaryArray
+    )
+  }
 	
 	init(jsonData: Data) throws {
 		try self.init(
