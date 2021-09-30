@@ -10,7 +10,7 @@ public extension Array where Element: InitializableWithCloudKitRecord {
     predicate: NSPredicate = NSPredicate(value: true)
   ) async throws {
     self = try await database.records(
-      type: Element.self
+      type: Element.self,
       predicate: predicate
     ).map(Element.init)
   }
