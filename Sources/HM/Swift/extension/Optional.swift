@@ -1,9 +1,8 @@
 public extension Optional {
-  /// Transform `.some` into `.none`, if a condition fails.
-  /// - Parameters:
-  ///   - isSome: The condition that will result in `nil`, when evaluated to `false`.
-  func filter(_ isSome: (Wrapped) throws -> Bool) rethrows -> Self {
-    try flatMap { try isSome($0) ? $0 : nil }
+  /// Represents that an `Optional` was `nil`.
+  enum UnwrapError: Error {
+    case `nil`
+    case typeMismatch
   }
 
   /// Exchange two optionals for a single optional tuple.
@@ -49,6 +48,36 @@ public extension Optional {
     }
   }
 
+  /// [An alterative to overloading `??` to throw errors upon `nil`.](
+  /// https://forums.swift.org/t/unwrap-or-throw-make-the-safe-choice-easier/14453/7)
+  /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
+  /// - Throws: `UnwrapError` when `nil`.
+  var unwrapped: Wrapped {
+    get throws {
+      switch self {
+      case let wrapped?:
+        return wrapped
+      case nil:
+        throw UnwrapError.nil
+      }
+    }
+  }
+
+  /// [An alterative to overloading `??` to throw errors upon `nil`.](
+  /// https://forums.swift.org/t/unwrap-or-throw-make-the-safe-choice-easier/14453/7)
+  /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
+  /// - Throws: `UnwrapError`
+  func unwrap<Wrapped>() throws -> Wrapped {
+    switch self {
+    case let wrapped as Wrapped:
+      return wrapped
+    case .some:
+      throw UnwrapError.typeMismatch
+    case nil:
+      throw UnwrapError.nil
+    }
+  }
+
   /// Create a single-element array literal, or an empty one.
   /// - Returns: `[self!]` if `.some`; `[]` if `nil`.
   /// - Note: `compactMap` cannot be generalized to all types,
@@ -56,6 +85,13 @@ public extension Optional {
   func compactMap<ExpressibleByArrayLiteral: Swift.ExpressibleByArrayLiteral>() -> ExpressibleByArrayLiteral
   where ExpressibleByArrayLiteral.ArrayLiteralElement == Wrapped {
     map { [$0] } ?? []
+  }
+
+  /// Transform `.some` into `.none`, if a condition fails.
+  /// - Parameters:
+  ///   - isSome: The condition that will result in `nil`, when evaluated to `false`.
+  func filter(_ isSome: (Wrapped) throws -> Bool) rethrows -> Self {
+    try flatMap { try isSome($0) ? $0 : nil }
   }
 
   /// Modify a wrapped value if not `nil`.
@@ -68,25 +104,5 @@ public extension Optional {
   ) rethrows -> Result {
     try map { try makeResult(resultWhenNil, $0) }
     ?? resultWhenNil
-  }
-
-  final class UnwrapError: AnyOptional.UnwrapError { }
-
-  /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
-  /// - Throws: if `nil`.
-  func unwrap(
-    orThrow error: @autoclosure () -> Error = UnwrapError()
-  ) throws -> Wrapped {
-    if let wrapped = self {
-      return wrapped
-    } else {
-      throw error()
-    }
-  }
-}
-
-public enum AnyOptional {
-  public class UnwrapError: Error {
-    public init() { }
   }
 }

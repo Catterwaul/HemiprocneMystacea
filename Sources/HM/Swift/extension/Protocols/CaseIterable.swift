@@ -7,9 +7,11 @@ public extension CaseIterable where Self: Equatable {
   /// The first match for this case in `allCases`.
   /// - Throws: `AnyCaseIterable<Self>.AllCasesError.noIndex`
   func caseIndex() throws -> AllCases.Index {
-    try Self.allCases.firstIndex(of: self).unwrap(
-      orThrow: AnyCaseIterable.AllCasesError.noIndex(self)
-    )
+    do {
+      return try Self.allCases.firstIndex(of: self).unwrapped
+    } catch {
+      throw AnyCaseIterable.AllCasesError.noIndex(self)
+    }
   }
 }
 

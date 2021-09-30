@@ -32,7 +32,7 @@ final class ResultTestCase: XCTestCase {
     XCTAssertThrowsError(
       try Result(
         success: success,
-        failure: Optional<Never>.UnwrapError()
+        failure: Optional<Never>.UnwrapError.nil
       ).get()
     )
   }
