@@ -4,16 +4,11 @@ import CloudKit
 import UIKit
 
 public extension UIImage {
-	convenience init?(asset: CKAsset) {
+	convenience init?(asset: CKAsset) throws {
     guard let fileURL = asset.fileURL
     else { return nil }
 
-		do {
-      let data = try Data(contentsOf: fileURL)
-      
-			self.init(data: data)
-		}
-		catch { return nil }
+    self.init(data: try .init(contentsOf: fileURL))
 	}
 }
 

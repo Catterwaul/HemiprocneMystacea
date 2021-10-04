@@ -27,8 +27,7 @@ public extension ConvertibleToCloudKitRecord {
       child -> (key: CloudKitRecordKey, value: CKRecordValue)? in
 
       guard
-        let label = child.label,
-        let key = CloudKitRecordKey(rawValue: label),
+        let key = child.label.flatMap(CloudKitRecordKey.init),
         !recordDictionaryOverrides.keys.contains(key),
         let value = CKRecord.makeValue(child.value)
       else { return nil }
