@@ -1,10 +1,10 @@
 import CloudKit
 
 public extension CKContainer {
-  /// `userIdentity(forUserRecordID: userRecordID())`!
-  var userIdentity: CKUserIdentity {
+  /// `userIdentity(forUserRecordID: userRecordID())`
+  var userIdentity: CKUserIdentity? {
     get async throws {
-      try await userIdentity(forUserRecordID: userRecordID())!
+      try await userIdentity(forUserRecordID: userRecordID())
     }
   }
 }
