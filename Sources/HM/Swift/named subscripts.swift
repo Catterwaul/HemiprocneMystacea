@@ -2,7 +2,7 @@
 /// - Note: Argument labels are not supported.
 public struct ObjectSubscript<Object: AnyObject, Index, Value> {
   public typealias Get = (Object) -> (Index) -> Value
-  public typealias Set = (Object, Index, Value) -> Void
+  public typealias Set = (Object) -> (Value, Index) -> Void
 
   public unowned var object: Object
   public var get: Get
@@ -22,7 +22,7 @@ public extension ObjectSubscript {
 
   subscript(index: Index) -> Value {
     get { get(object)(index) }
-    nonmutating set { set(object, index, newValue) }
+    nonmutating set { set(object)(newValue, index) }
   }
 }
 

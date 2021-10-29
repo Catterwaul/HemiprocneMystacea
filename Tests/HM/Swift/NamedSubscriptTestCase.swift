@@ -56,7 +56,9 @@ final class NamedSubscriptTestCase: XCTestCase {
               ?? Bool(binaryString: $0)
             }
           },
-          set: { $0._bools[$1] = $2 }
+          set: { object in
+            { object._bools[$1] = $0 }
+          }
         )
       }
 
