@@ -1,6 +1,11 @@
 import XCTest
 
 final class SetAlgebraTestCase: XCTestCase {
+  func test_init_unique() {
+    XCTAssertThrowsError(try Set(unique: [1, 1]))
+    XCTAssertNoThrow(try Set(unique: [1, 2]))
+  }
+
   func test_contains() {
     var set: Set = [1, 2, 3]
 

@@ -1,4 +1,13 @@
 public extension SetAlgebra {
+  /// - Throws: if `elements` contains any duplicates.
+  init<Elements: Sequence>(unique elements: Elements) throws
+  where Elements.Element == Element {
+    self = try elements.reduce(into: .init()) {
+      guard $0.insert($1).inserted
+      else { throw Error() }
+    }
+  }
+
   var contains: ValueSubscript<Self, Element, Bool> {
     mutating get {
       .init(
@@ -15,3 +24,5 @@ public extension SetAlgebra {
     }
   }
 }
+
+private struct Error: Swift.Error { }
