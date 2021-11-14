@@ -7,7 +7,7 @@ public struct AnyAsyncSequence<Iterator: IteratorProtocol> {
   private let makeIterator: () -> Iterator
 }
 
-extension AnyAsyncSequence: AsyncNonThrowingSequence {
+extension AnyAsyncSequence: AsyncSequence {
   public typealias Element = Iterator.Element
   
   public func makeAsyncIterator() -> AnyIterator<Element> {
