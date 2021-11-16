@@ -16,13 +16,15 @@ let package = Package(
     return .library(name: name, targets: [name])
   },
   dependencies: [
-    .package(url: "https://github.com/apple/swift-algorithms", .branch("main"))
+    .package(url: "https://github.com/apple/swift-algorithms", .branch("main")),
+    .package(url: "https://github.com/apple/swift-collections", .branch("main"))
   ],
   targets:
     [ .target(
         name: .hm,
         dependencies: [
-          .product(name: "Algorithms", package: "swift-algorithms")
+          .product(name: "Algorithms", package: "swift-algorithms"),
+          .product(name: "Collections", package: "swift-collections")
         ]
       )
     ]
