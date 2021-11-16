@@ -22,14 +22,20 @@ public extension Sequence {
     priority: TaskPriority? = nil,
     _ transform: @escaping (Element) async throws -> Transformed
   ) async rethrows -> [Transformed] {
-    try await withThrowingTaskGroup(of: Transformed.self) { group in
-      for element in self {
+    try await withThrowingTaskGroup(
+      of: EnumeratedSequence<[Transformed]>.Element.self
+    ) { group in
+      for (offset, element) in enumerated() {
         group.addTask(priority: priority) {
-          try await transform(element)
+          try await (offset, transform(element))
         }
       }
       
-      return try await .init(group)
+      return try await group.reduce(
+        into: map { _ in nil } as [Transformed?]
+      ) {
+        $0[$1.offset] = $1.element
+      } as! [Transformed]
     }
   }
 }
