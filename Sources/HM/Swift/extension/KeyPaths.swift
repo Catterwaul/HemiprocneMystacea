@@ -20,3 +20,19 @@ public extension KeyPath where Value == Bool {
     keypath.map(!)
   }
 }
+
+public extension ReferenceWritableKeyPath {
+  /// Partially-applied `get` and `set` accessors for this key path.
+  ///
+  /// Typical usage: `accessors(root)`
+  var accessors: (Root) -> (
+    get: () -> Value,
+    set: (Value) -> Void
+  ) {
+    { root in
+      ( get: { root[keyPath: self] },
+        set: { root[keyPath: self] = $0 }
+      )
+    }
+  }
+}

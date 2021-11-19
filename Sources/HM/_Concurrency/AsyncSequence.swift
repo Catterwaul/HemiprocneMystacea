@@ -27,7 +27,7 @@ public extension Sequence {
     ) { group in
       for (offset, element) in enumerated() {
         group.addTask(priority: priority) {
-          try await (offset, transform(element))
+          (offset, try await transform(element))
         }
       }
       
