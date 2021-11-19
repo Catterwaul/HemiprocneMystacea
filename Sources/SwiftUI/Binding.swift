@@ -1,3 +1,4 @@
+import HM
 import struct SwiftUI.Binding
 
 public extension Binding {
@@ -8,6 +9,13 @@ public extension Binding {
     )
   ) {
     self.init(get: accessors.get, set: accessors.set)
+  }
+  
+  init<Root>(
+    _ root: Root,
+    keyPath: ReferenceWritableKeyPath<Root, Value>
+  ) {
+    self.init(accessors: keyPath.accessors(root))
   }
   
   /// Assign and return a `default` when the value for a key is `nil`.

@@ -10,8 +10,8 @@ private final class BindingTestCase: XCTestCase {
     
     let model = Model()
     let fallenLeaves = "🍂"
-    Binding(accessors: (\Model.leaves).accessors(model))
-      .wrappedValue = fallenLeaves
+    @Binding(model, keyPath: \.leaves) var leaves;
+    leaves = fallenLeaves
     XCTAssertEqual(model.leaves, fallenLeaves)
   }
   
