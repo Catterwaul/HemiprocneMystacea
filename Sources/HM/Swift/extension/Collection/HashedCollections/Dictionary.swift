@@ -161,7 +161,7 @@ public extension Dictionary where Value == Int {
   init<Keys: Sequence>(bucketing unbucketedKeys: Keys)
   where Keys.Element == Key {
     self.init(
-      zip( unbucketedKeys, AnyIterator { 1 } ),
+      zip(unbucketedKeys, AnyIterator { 1 }),
       uniquingKeysWith: +
     )
   }

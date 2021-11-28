@@ -77,6 +77,15 @@ public extension Sequence where Element: Equatable {
 
 // MARK: Element: Hashable
 public extension Sequence where Element: Hashable {
+  var containsOnlyUniqueElements: Bool {
+    do {
+      _ = try Set(unique: self)
+      return true
+    } catch {
+      return false
+    }
+  }
+
   /// Matches interleaved subsequences of identical elements with seperate iterations of some other sequence.
   func withKeyedIterations<Sequence: Swift.Sequence>(of sequence: Sequence)
   -> [(Element, Sequence.Element)] {

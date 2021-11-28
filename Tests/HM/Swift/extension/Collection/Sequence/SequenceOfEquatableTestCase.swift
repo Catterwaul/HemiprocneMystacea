@@ -19,6 +19,11 @@ final class SequenceOfEquatableTestCase: XCTestCase {
       (-1...10).contains(inOrder: EmptyCollection())
     )
   }
+  
+  func test_containsOnlyUniqueValues() {
+    XCTAssert((1...5).containsOnlyUniqueElements)
+    XCTAssertFalse(["👯", "👯"].containsOnlyUniqueElements)
+  }
 
   func test_elementsAreAllEqual() {
     XCTAssertNil([Bool]().elementsAreAllEqual)
