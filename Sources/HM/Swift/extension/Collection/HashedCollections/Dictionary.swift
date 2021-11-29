@@ -22,8 +22,8 @@ public extension Dictionary {
 
   subscript(
     key: Key,
-    valueAddedIfNil getValue: @autoclosure() -> Dictionary.Value
-  ) -> Dictionary.Value {
+    valueAddedIfNil getValue: @autoclosure() -> Value
+  ) -> Value {
     mutating get {
       self[key]
       ?? {
