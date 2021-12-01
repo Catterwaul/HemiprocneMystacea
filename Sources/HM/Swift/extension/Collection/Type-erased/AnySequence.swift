@@ -61,7 +61,7 @@ public extension AnySequence {
       sequence(
         state: (zipped.0.makeIterator(), zipped.1.makeIterator())
       ) { iterators in
-        Optional(iterators.0.next(), iterators.1.next())
+        ((iterators.0.next(), iterators.1.next()) as Optional)
           .filter { $0 != nil || $1 != nil }
       }
     )

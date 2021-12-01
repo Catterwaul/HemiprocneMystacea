@@ -1,3 +1,16 @@
+public func firstNonNil<Element>(_ tuple: (Element?, Element?)) -> Element? {
+  switch tuple {
+  case (let _0?, _):
+    return _0
+  case (nil, let _1?):
+    return _1
+  case (nil, nil):
+    return nil
+  }
+}
+
+// MARK: -
+
 /// A workaround for not being able to extend tuples.
 public struct Tuple<Elements> {
   public var elements: Elements

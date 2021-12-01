@@ -2,6 +2,20 @@ import HM
 import XCTest
 
 final class TupleTestCase: XCTestCase {
+  func test_firstNonNil() {
+    var tuple: (String?, String?)
+    
+    tuple.0 = "🥟"
+    XCTAssertEqual(firstNonNil(tuple), "🥟")
+    
+    tuple = (nil, "🫔")
+    XCTAssertEqual(firstNonNil(tuple), "🫔")
+    
+    tuple.1 = nil
+    
+    XCTAssertNil(firstNonNil(tuple))
+  }
+  
   func test_placeholder() {
     func makeIllustrations() -> [(image: String, Never?)] {
       [ (image: "🐻", nil),
