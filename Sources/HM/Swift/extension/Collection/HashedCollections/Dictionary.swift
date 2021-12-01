@@ -160,10 +160,7 @@ public extension Dictionary where Value == Int {
   /// such as might be used for a histogram.
   init<Keys: Sequence>(bucketing unbucketedKeys: Keys)
   where Keys.Element == Key {
-    self.init(
-      zip(unbucketedKeys, AnyIterator { 1 }),
-      uniquingKeysWith: +
-    )
+    self.init(zip(unbucketedKeys, 1), uniquingKeysWith: +)
   }
 }
 
