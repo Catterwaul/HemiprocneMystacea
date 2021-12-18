@@ -242,11 +242,12 @@ public extension Sequence {
   }
 
   /// - Returns: `nil` If the sequence has no elements, instead of an "initial result".
-  func reduce(
-    _ getNextPartialResult: (Element, Element) throws -> Element
+  @inlinable func reduce(
+    _ nextPartialResult: (Element, Element) throws -> Element
   ) rethrows -> Element? {
-    try first.map {
-      try dropFirst().reduce($0, getNextPartialResult)
+    var iterator = makeIterator()
+    return try iterator.next().map { first in
+      try IteratorSequence(iterator).reduce(first, nextPartialResult)
     }
   }
 

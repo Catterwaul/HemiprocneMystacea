@@ -10,6 +10,7 @@ final class UITableViewTestCase: XCTestCase {
       cellDependencies: .init { _ in }
     ) as NamedGetOnlySubscript<IndexPath, Cell>
   }
+  
   private final class Cell: UITableViewCell, injectDependencies {
     func inject(dependencies _: Void) { }
   }

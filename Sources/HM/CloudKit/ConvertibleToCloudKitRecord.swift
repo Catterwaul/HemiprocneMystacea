@@ -18,10 +18,7 @@ public protocol ConvertibleToCloudKitRecord {
 // MARK: public
 public extension ConvertibleToCloudKitRecord {
 	var recordDictionaryOverrides: RecordDictionary { [:] }
-}
 
-// MARK: private
-public extension ConvertibleToCloudKitRecord {
   var recordDictionary: RecordDictionary {
     let keyValuePairs = Mirror(reflecting: self).children.compactMap {
       child -> (key: CloudKitRecordKey, value: CKRecordValue)? in
