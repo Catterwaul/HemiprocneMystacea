@@ -55,4 +55,25 @@ public extension Sequence {
       } as! [Transformed]
     }
   }
+  
+  func compactMap<Transformed>(
+    priority: TaskPriority? = nil,
+    _ transform: @escaping (Element) async throws -> Transformed?
+  ) async rethrows -> [Transformed] {
+    try await withThrowingTaskGroup(
+      of: EnumeratedSequence<[Transformed?]>.Element.self
+    ) { group in
+      for (offset, element) in enumerated() {
+        group.addTask(priority: priority) {
+          (offset, try await transform(element))
+        }
+      }
+      
+      return
+        try await group.reduce(into: map { _ in Transformed?.none }) {
+          $0[$1.offset] = $1.element
+        }
+        .compactMap { $0 }
+    }
+  }
 }

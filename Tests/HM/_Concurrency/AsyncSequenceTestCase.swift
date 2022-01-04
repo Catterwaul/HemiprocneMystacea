@@ -31,4 +31,22 @@ final class AsyncSequenceTestCase: XCTestCase {
       XCTAssertEqual(transformed, array)
     }
   }
+  
+  func test_compactMap() async throws {
+    let array = ["0", nil, "2"]
+
+    func element(_ element: String?) async throws -> String? {
+      element
+    }
+
+    do {
+      let transformed = try await array.compactMap(element)
+      XCTAssertEqual(transformed, ["0", "2"])
+    }
+
+    do {
+      let transformed = await array.compactMap { try! await element($0) }
+      XCTAssertEqual(transformed, ["0", "2"])
+    }
+  }
 }
