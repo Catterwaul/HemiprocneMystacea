@@ -7,7 +7,7 @@ public protocol InitializableWithCloudKitRecord {
 public extension Array where Element: InitializableWithCloudKitRecord {
   init(
     database: CKDatabase,
-    predicate: NSPredicate = NSPredicate(value: true)
+    predicate: NSPredicate = .init(value: true)
   ) async throws {
     self = try await database.records(
       type: Element.self,

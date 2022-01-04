@@ -5,6 +5,14 @@ public extension AsyncSequence {
     }
   }
 }
+  
+public extension AsyncSequence where Element: Hashable {
+  var collected: Set<Element> {
+    get async throws {
+      try await .init(self)
+    }
+  }
+}
 
 // MARK: - Array
 
@@ -15,9 +23,18 @@ public extension Array {
   }
 }
 
+// MARK: - Set
+
+public extension Set {
+  init<AsyncSequence: _Concurrency.AsyncSequence>(_ asyncSequence: AsyncSequence) async rethrows
+  where AsyncSequence.Element == Element {
+    self = try await asyncSequence.reduce(into: []) { $0.insert($1) }
+  }
+}
+
 // MARK: - Sequence
 
-public extension Sequence {  
+public extension Sequence {
   func map<Transformed>(
     priority: TaskPriority? = nil,
     _ transform: @escaping (Element) async throws -> Transformed

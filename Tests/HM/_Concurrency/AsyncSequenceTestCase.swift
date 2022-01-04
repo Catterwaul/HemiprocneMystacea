@@ -3,9 +3,15 @@ import XCTest
 
 final class AsyncSequenceTestCase: XCTestCase {
   func test_collected() async throws {
-    let array = ["🔥"]
-    let collected = try await AnyAsyncSequence(array).collected
-    XCTAssertEqual(collected, array)
+    do {
+      let array = ["🔥"]
+      let collected: Array = try await AnyAsyncSequence(array).collected
+      XCTAssertEqual(collected, array)
+    }
+    
+    let set: Set = ["🔥"]
+    let collected = try await AnyAsyncSequence(set).collected
+    XCTAssertEqual(collected, set)
   }
   
   func test_map() async throws {

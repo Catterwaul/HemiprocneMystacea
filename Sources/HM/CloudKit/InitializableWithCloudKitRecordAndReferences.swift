@@ -14,7 +14,7 @@ public protocol InitializableWithCloudKitRecordAndReferences {
 public extension InitializableWithCloudKitRecordAndReferences {
 	static func request(
 		database: CKDatabase,
-		predicate: NSPredicate = NSPredicate(value: true),
+		predicate: NSPredicate = .init(value: true),
 		_ process: @escaping ProcessGet<Self>,
 		_ processVerifyCompletion: @escaping (VerificationResult<Error>) -> Void
 	) {
@@ -27,7 +27,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 	
   static func request(
     database: CKDatabase,
-    predicate: NSPredicate = NSPredicate(value: true),
+    predicate: NSPredicate = .init(value: true),
     processSingleRecordError: @escaping (Error) -> Void,
     _ process: @escaping ProcessGet<[Self]>
   ) {

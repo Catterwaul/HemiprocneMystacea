@@ -36,7 +36,7 @@ public extension CKDatabase {
   ///   - predicate: for the `CKQuery`
   func records<Record>(
     type: Record.Type,
-    predicate: NSPredicate = NSPredicate(value: true)
+    predicate: NSPredicate = .init(value: true)
   ) async throws -> [CKRecord] {
     try await withThrowingTaskGroup(of: [CKRecord].self) { group in
       func process(
@@ -80,7 +80,7 @@ public extension CKDatabase {
   ///   - processGetRequested: processes a *throwing get Requested*
   ///   - processVerifyCompletion: processes a `Verify` upon completion of the request
   func request<Requested: InitializableWithCloudKitRecordAndReferences>(
-    predicate: NSPredicate = NSPredicate(value: true),
+    predicate: NSPredicate = .init(value: true),
     _ processGetRequested: @escaping ProcessGet<Requested>,
     _ processCompletionResult: @escaping (VerificationResult<Error>) -> Void
   ) {
