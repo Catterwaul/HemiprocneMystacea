@@ -31,6 +31,13 @@ final class SequenceTestCase: XCTestCase {
       stride(from: 0, to: 10, by: 2).count, 5
     )
   }
+  
+  func test_distributedUniformly() {
+    XCTAssertEqual(
+      (1...10).distributedUniformly(shareCount: 3),
+      [[1, 4, 7, 10], [2, 5, 8], [3, 6, 9]]
+    )
+  }
 
   func test_first() {
     let odds = stride(from: 1, through: 9, by: 2)

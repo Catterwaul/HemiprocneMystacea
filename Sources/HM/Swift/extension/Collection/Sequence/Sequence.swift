@@ -92,6 +92,21 @@ public extension Sequence {
   where Element == Wrapped? {
     try count { try $0.map(getIsIncluded) == true }
   }
+  
+  /// Distribute the elements as uniformly as possible, as if dealing one-by-one into shares.
+  /// - Note: Later shares will be one smaller if the element count is not a multiple of `shareCount`.
+  @inlinable func distributedUniformly(shareCount: Int)
+  -> LazyMapSequence<Range<Int>, StrideSequence<DropFirstSequence<Self>>> {
+    (0..<shareCount).lazy.map {
+      dropFirst($0).striding(by: shareCount)
+    }
+  }
+  
+  /// Distribute the elements as uniformly as possible, as if dealing one-by-one into shares.
+  /// - Note: Later shares will be one smaller if the element count is not a multiple of `shareCount`.
+  @inlinable func distributedUniformly(shareCount: Int) -> [[Element]] {
+    .init(distributedUniformly(shareCount: shareCount).map(Array.init))
+  }
 
   /// - Parameters:
   ///   - comparable: The property to compare.
