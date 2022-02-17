@@ -6,7 +6,7 @@ final class ComputedTestCase: XCTestCase {
     struct Structure {
       private(set) static var value: Int = 0
 
-      @Computed( set: { value = $0 } ) var property = 1
+      @Computed(set: { value = $0 }) var property = 1
     }
 
     var value: Int = .random
@@ -30,19 +30,18 @@ final class ComputedTestCase: XCTestCase {
 
   func test_capture() {
     func setValue<Value>(
-      property: inout Computed<Value>,
+      property: inout Value,
       value: Value
     ) {
-      property.wrappedValue = value
+      property = value
     }
 
     var value = 0
-    var property = Computed { value }
-      set: { value = $0 }
+    @Computed(get: { value }, set: { value = $0 }) var property;
     setValue(
       property: &property,
       value: 777
     )
-    XCTAssertEqual(property.wrappedValue, 777)
+    XCTAssertEqual(property, 777)
   }
 }

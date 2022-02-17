@@ -2,14 +2,6 @@ import HM
 import XCTest
 
 final class NumericTestCase: XCTestCase {
-  func test_DivisionByZeroError() {
-    let numerator = Int.random(in: .min...(.max))
-    XCTAssertEqual(
-      DivisionByZeroError(numerator: numerator).numerator,
-      numerator
-    )
-  }
-
   func test_squared() {
     let intMaxSquareRoot = Int(Double(Int.max).squareRoot())
     let int = Int.random(in: -intMaxSquareRoot...intMaxSquareRoot)

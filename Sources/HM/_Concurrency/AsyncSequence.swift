@@ -1,16 +1,12 @@
 public extension AsyncSequence {
   var collected: [Element] {
-    get async throws {
-      try await .init(self)
-    }
+    get async throws { try await .init(self) }
   }
 }
   
 public extension AsyncSequence where Element: Hashable {
   var collected: Set<Element> {
-    get async throws {
-      try await .init(self)
-    }
+    get async throws { try await .init(self) }
   }
 }
 

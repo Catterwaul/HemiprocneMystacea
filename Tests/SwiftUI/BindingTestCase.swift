@@ -3,7 +3,22 @@ import HM
 import SwiftUI_HM
 import XCTest
 
-private final class BindingTestCase: XCTestCase {
+final class BindingTestCase: XCTestCase {
+  func test_nilCoalesing() {
+    var wrappedValue: String? = "📬"
+    @Binding(
+      get: { wrappedValue },
+      set: { wrappedValue = $0 }
+    ) var string;
+
+    let stringOrDefault = $string ?? "📭"
+    XCTAssertEqual(stringOrDefault.wrappedValue, "📬")
+    string = nil
+    XCTAssertEqual(stringOrDefault.wrappedValue, "📭")
+    stringOrDefault.wrappedValue = "📪"
+    XCTAssertEqual(string, "📪")
+  }
+
   func test_init_accessors() {
     final class Model {
       var leaves = "🍃"
@@ -32,7 +47,7 @@ private final class BindingTestCase: XCTestCase {
     var gummies: [String: String] = [:]
     Binding(
       get: { gummies },
-      set: { gummies = $0}
+      set: { gummies = $0 }
     )["🪱", default: "🧸"].wrappedValue += "🍔"
     XCTAssertEqual(gummies["🪱"], "🧸🍔")
   }
