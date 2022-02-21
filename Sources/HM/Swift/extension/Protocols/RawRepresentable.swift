@@ -7,11 +7,8 @@ public extension RawRepresentable {
   /// - Throws: `RawRepresentableExtensions<Self>.Error.invalidRawValue`
   /// if there is no value of the type that corresponds with the specified raw value.
   init(_ rawValue: RawValue) throws {
-    do {
-      self = try Self(rawValue: rawValue).unwrapped
-    } catch {
-      throw ConcreteRawRepresentable<Self>.Error.invalidRawValue(rawValue)
-    }
+    do { self = try Self(rawValue: rawValue).unwrapped }
+    catch { throw ConcreteRawRepresentable<Self>.Error.invalidRawValue(rawValue) }
   }
 }
 

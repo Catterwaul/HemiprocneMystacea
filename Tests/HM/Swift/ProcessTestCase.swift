@@ -42,8 +42,9 @@ final class ProcessTestCase: XCTestCase {
       do {
         let final = try getFinal()
         XCTAssertEqual(final, "\(1)")
+      } catch {
+        XCTFail("\(error)")
       }
-      catch { XCTFail("\(error)") }
     }
 
     intermediate = 2
@@ -52,8 +53,7 @@ final class ProcessTestCase: XCTestCase {
       do {
         _ = try getFinal()
         XCTFail()
-      }
-      catch {
+      } catch {
         XCTAssertEqual(
           (error as! Error).intermediate,
           2

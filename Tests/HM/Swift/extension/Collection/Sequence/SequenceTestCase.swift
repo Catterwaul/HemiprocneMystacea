@@ -276,9 +276,7 @@ final class SequenceTestCase: XCTestCase {
       _ = try ([] as [Int]).uniqueMin { $0 }
     }
     catch Extremum<Int>.UniqueError.emptySequence { }
-    catch {
-      XCTFail()
-    }
+    catch { XCTFail() }
   }
 
   // MARK: - Element: Sequence

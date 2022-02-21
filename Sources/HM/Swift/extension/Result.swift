@@ -39,8 +39,7 @@ public extension Result {
     do {
       let success = try getSuccess()
       self = .success(success)
-    }
-    catch {
+    } catch {
       guard let failure = error as? Failure
       else { throw CastError.impossible }
 
@@ -80,8 +79,7 @@ public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
     do {
       let success = try getSuccess()
       self = .success(success)
-    }
-    catch {
+    } catch {
       switch error {
       case let failure as Failure:
         self = .failure(failure)

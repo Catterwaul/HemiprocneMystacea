@@ -44,8 +44,9 @@ public extension InitializableWithCloudKitRecordAndReferences {
           let requested = try getRequested()
           
           operationQueue.addOperation { requesteds += [requested] }
+        } catch {
+          processSingleRecordError(error)
         }
-        catch { processSingleRecordError(error) }
       }
     ) { completionResult in
       switch completionResult {

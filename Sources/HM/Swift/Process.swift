@@ -22,7 +22,8 @@ public func makeProcess<Intermediate, Final>(
     do {
       let intermediate = try getIntermediate()
       try processIntermediate(intermediate)
+    } catch {
+      processGetError { throw error }
     }
-    catch { processGetError { throw error } }
   }
 }

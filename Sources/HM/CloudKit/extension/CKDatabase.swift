@@ -17,7 +17,7 @@ public extension CKDatabase {
         )
       case .limitExceeded:
         for (recordsToSave, recordIDsToDelete)
-              in zip(recordsToSave.splitInHalf, recordIDsToDelete.splitInHalf) {
+        in zip(recordsToSave.splitInHalf, recordIDsToDelete.splitInHalf) {
           try await self.modifyRecordsRecursivelyAsNeeded(
             saving: recordsToSave,
             deleting: recordIDsToDelete
@@ -35,7 +35,7 @@ public extension CKDatabase {
   ///   - recordType: Its name has to be the same in your code, and in CloudKit.
   ///   - predicate: for the `CKQuery`
   func records<Record>(
-    type: Record.Type,
+    type _: Record.Type,
     predicate: NSPredicate = .init(value: true)
   ) async throws -> [CKRecord] {
     try await withThrowingTaskGroup(of: [CKRecord].self) { group in
@@ -109,8 +109,9 @@ public extension CKDatabase {
                 references: references
               )
             }
+          } catch {
+            processGetRequested { throw error }
           }
-          catch { processGetRequested { throw error } }
           
           dispatchGroup.leave()
         }
@@ -133,7 +134,7 @@ public extension CKDatabase {
     }
     
     let operation = CKQueryOperation(
-      query: CKQuery(
+      query: .init(
         recordType: "\(Requested.self)",
         predicate: predicate
       )

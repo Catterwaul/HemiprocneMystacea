@@ -235,8 +235,7 @@ extension 💀: InitializableWithSerializableDictionary {
       self.init(
         skool: try dictionary[SerializableDictionaryKey.skool]
       )
-    }
-    catch {
+    } catch {
       if case KeyValuePairs<String, String?>.AccessError.typeCastFailure = error {
         throw error
       }

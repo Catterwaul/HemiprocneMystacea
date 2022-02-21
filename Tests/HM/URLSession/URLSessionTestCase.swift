@@ -44,8 +44,9 @@ final class URLSessionTestCase: XCTestCase {
         XCTAssert(
           json.tracks.map(\.artistName).contains("Mr Little Jeans")
         )
+      } catch {
+        XCTFail("\(error)")
       }
-      catch { XCTFail("\(error)") }
     }
       .resume()
   }
