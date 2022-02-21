@@ -87,7 +87,16 @@ public extension CKDatabase {
     let dispatchGroup = DispatchGroup()
     
     func initialize(_ operation: CKQueryOperation) {
-      operation.recordFetchedBlock = { requestedRecord in
+      operation.recordMatchedBlock = { _, result in
+        let requestedRecord: CKRecord
+
+        do {
+          requestedRecord = try result.get()
+        } catch {
+          processGetRequested { throw error }
+          return
+        }
+
         guard let references = requestedRecord[Requested.referenceKey] as? [CKRecord.Reference]
         else {
           processGetRequested {
@@ -117,16 +126,17 @@ public extension CKDatabase {
         }
         self.add(operation)
       }
-      
-      operation.queryCompletionBlock = { cursor, error in
-        if let error = error {
+
+      operation.queryResultBlock = { result in
+        switch result {
+        case .failure(let error):
           processCompletionResult(.init(failure: error))
-        } else if let cursor = cursor {
+        case .success(let cursor?):
           let operation = CKQueryOperation(cursor: cursor)
           initialize(operation)
           self.add(operation)
-        } else {
-          dispatchGroup.notify(queue: DispatchQueue(label: "")) {
+        case .success:
+          dispatchGroup.notify(queue: .init(label: "")) {
             processCompletionResult(.init())
           }
         }
