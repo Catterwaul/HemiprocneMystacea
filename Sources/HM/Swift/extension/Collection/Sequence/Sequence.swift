@@ -96,7 +96,7 @@ public extension Sequence {
   /// Distribute the elements as uniformly as possible, as if dealing one-by-one into shares.
   /// - Note: Later shares will be one smaller if the element count is not a multiple of `shareCount`.
   @inlinable func distributedUniformly(shareCount: Int)
-  -> LazyMapSequence<Range<Int>, StrideSequence<DropFirstSequence<Self>>> {
+  -> LazyMapSequence<Range<Int>, StridingSequence<DropFirstSequence<Self>>> {
     (0..<shareCount).lazy.map {
       dropFirst($0).striding(by: shareCount)
     }
