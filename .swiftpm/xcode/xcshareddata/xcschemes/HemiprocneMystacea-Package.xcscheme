@@ -132,6 +132,11 @@
                BlueprintName = "HM.Tests"
                ReferencedContainer = "container:">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "URLSessionTestCase/test_makeHTTPDataTask()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

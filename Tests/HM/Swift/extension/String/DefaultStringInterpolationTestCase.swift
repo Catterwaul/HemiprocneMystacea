@@ -1,6 +1,6 @@
 import XCTest
 
-private final class DefaultStringInterpolationTestCase: XCTestCase {
+final class DefaultStringInterpolationTestCase: XCTestCase {
   func test_appendInterpolation_String() {
     XCTAssertEqual(
       "string: \(.🧵) & \(.🧶)",

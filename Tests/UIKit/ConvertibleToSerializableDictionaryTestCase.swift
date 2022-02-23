@@ -260,6 +260,7 @@ private struct 🐭: ConvertibleToSerializableDictionary {
       contentsOf:
         URL(fileURLWithPath: #file)
           .deletingLastPathComponent()
+          .deletingLastPathComponent()
           .appendingPathComponent("Mousse with Mouse.png")
     )
   )!
