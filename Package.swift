@@ -15,43 +15,56 @@ let package = Package(
     let name = $0.hm
     return .library(name: name, targets: [name])
   },
-  dependencies: [
-    .package(url: "https://github.com/apple/swift-algorithms", .branch("main")),
-    .package(url: "https://github.com/apple/swift-collections", .branch("main"))
-  ],
-  targets:
-    [ .target(
-        name: .hm,
-        dependencies: [
-          .product(name: "Algorithms", package: "swift-algorithms"),
-          .product(name: "Collections", package: "swift-collections")
-        ]
-      )
-    ]
-    + names.filter { $0 != .hm } .map { frameworkName in
+  dependencies: Package.Dependency.names.map {
+    .package(url: "https://github.com/apple/\($0.swiftPrefixed)", .branch("main"))
+  },
+  targets: names.flatMap { frameworkName -> [Target] in
+    var suffixedTarget: Target {
       .target(
         name: frameworkName.hm,
-        dependencies: .init(.hm),
+        dependencies: [.init(stringLiteral: .hm)],
         path: "Sources/\(frameworkName)"
       )
     }
-    + names.filter { $0 != .xcTest } .map { name in
+
+    var testTarget: Target {
       let tests = "Tests"
       return .testTarget(
-        name: "\(name.hm).\(tests)",
+        name: "\(frameworkName.hm).\(tests)",
         dependencies: {
-          let commonDependencies =
-            [Target.Dependency](.hm)
-            + .init(String.xcTest.hm)
-          return name == .hm
-            ? commonDependencies
-            : commonDependencies + .init(name.hm)
+          var dependencies = [String.hm, .xcTest.hm]
+          if frameworkName != .hm {
+            dependencies.append(frameworkName.hm)
+          }
+          return dependencies.map(Target.Dependency.init)
         } (),
-        path: "\(tests)/\(name)",
-        resources: [.process("Mousse with Mouse.png")]
+        path: "\(tests)/\(frameworkName)",
+        resources: [.process("../Mousse with Mouse.png")]
       )
     }
+
+    switch frameworkName {
+    case .hm:
+      return [
+        .target(
+          name: .hm,
+          dependencies: Package.Dependency.names.map {
+            .product(name: $0.capitalized, package: $0.swiftPrefixed)
+          }
+        ),
+        testTarget
+      ]
+    case .xcTest:
+      return [suffixedTarget]
+    default:
+      return [suffixedTarget, testTarget]
+    }
+  }
 )
+
+extension Package.Dependency {
+  static let names = ["algorithms", "collections"]
+}
 
 extension String {
   static let hm = "HM"
@@ -62,10 +75,6 @@ extension String {
       ? self
       : "\(self).\(Self.hm)"
   }
-}
 
-extension Array where Element == Target.Dependency {
-  init(_ name: String) {
-    self = [.init(stringLiteral: name)]
-  }
+  var swiftPrefixed: String { "swift-\(self)" }
 }
