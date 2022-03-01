@@ -28,6 +28,20 @@ final class BinaryIntegerTestCase: XCTestCase {
     )
   }
 
+  func test_nybbles() {
+    var nybbles: UInt64 = 0x13579BDF
+
+    XCTAssertEqual(
+      (0...7).map { nybbles[nybble: $0] } .reversed(),
+      [1, 3, 5, 7, 9, 0xB, 0xD, 0xF]
+    )
+
+    nybbles[nybble: 4] = 0
+    XCTAssertEqual(nybbles, 0x13509BDF)
+    nybbles[nybble: 1] = 0xDADFACE // 🥸
+    XCTAssertEqual(nybbles, 0x13509BEF)
+  }
+
   func test_modulo() {
     XCTAssertEqual(1.modulo(2), 1 % 2)
     XCTAssertEqual((-1).modulo(2), 1)

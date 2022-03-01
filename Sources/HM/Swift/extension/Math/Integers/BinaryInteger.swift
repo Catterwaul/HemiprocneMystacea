@@ -27,6 +27,16 @@ public extension BinaryInteger {
 
 // MARK: - Subscripts
 
+  /// The nybbles of this integer, from least significant to most.
+  subscript(nybble index: Self) -> Self {
+    get { self >> (index * 4) & 0xF }
+    set {
+      let index = index * 4
+      let selfWithEmptyNybble = self & ~(0xF << index)
+      self = selfWithEmptyNybble | (newValue & 0xF) << index
+    }
+  }
+
   /// A range of bits from this number.
   /// - Parameter bitIndices: From least significant to most.
   subscript<BitIndices: ClosedRangeConvertible>(mask bitIndices: BitIndices) -> Self
