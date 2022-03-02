@@ -57,5 +57,11 @@ final class FixedWidthIntegerTestCase: XCTestCase {
     XCTAssertEqual(integer, 0xBAC)
 
     XCTAssertEqual(0x12345.nybbles.sum, 15)
+
+    XCTAssertEqual(Nybbles(10 as Int) / 5, 2)
+    XCTAssertEqual(
+      Set([Nybbles(4 as UInt16)]),
+      [4]
+    )
   }
 }
