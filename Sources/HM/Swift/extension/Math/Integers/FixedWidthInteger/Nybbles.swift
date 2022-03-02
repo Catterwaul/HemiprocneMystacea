@@ -1,6 +1,6 @@
 public extension FixedWidthInteger {
-  init(_ nybbles: Nybbles<Self>) {
-    self = nybbles.integer
+  init<Integer>(_ nybbles: Nybbles<Integer>) {
+    self.init(nybbles.integer)
   }
 
   var nybbles: Nybbles<Self> {
