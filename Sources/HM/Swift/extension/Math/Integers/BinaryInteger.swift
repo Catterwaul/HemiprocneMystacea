@@ -47,12 +47,11 @@ public extension BinaryInteger {
     self & Self[mask: bitIndices]
   }
 
-// MARK: - Methods
+// MARK: -
 
   /// The bits of this integer, in an unsigned variant.
   var bitPattern: Magnitude { .init(truncatingIfNeeded: self) }
 
-// MARK: - Methods
   func modulo(_ divisor: Self) -> Self {
     let remainder = self % divisor
     return

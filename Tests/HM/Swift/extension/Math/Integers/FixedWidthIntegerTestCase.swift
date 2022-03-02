@@ -50,4 +50,12 @@ final class FixedWidthIntegerTestCase: XCTestCase {
       0x110
     )
   }
+
+  func test_Nybbles() {
+    var integer = 0xABC
+    integer.nybbles.swapAt(2, 1)
+    XCTAssertEqual(integer, 0xBAC)
+
+    XCTAssertEqual(0x12345.nybbles.sum, 15)
+  }
 }
