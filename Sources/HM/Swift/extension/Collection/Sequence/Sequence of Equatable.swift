@@ -29,7 +29,7 @@ public extension Sequence where Element: Equatable {
   /// The elements of the sequence, with duplicates removed.
   /// - Note: Has equivalent elements to `Set(self)`.
   @available(
-    swift, deprecated: 5.6,
+    swift, deprecated: 5.7,
     message: "Doesn't compile without the constant in Swift 5.5."
   )
   var uniqued: [Element] {

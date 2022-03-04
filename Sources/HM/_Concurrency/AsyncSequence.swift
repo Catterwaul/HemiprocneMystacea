@@ -30,10 +30,10 @@ public extension Set {
 
 // MARK: - Sequence
 
-public extension Sequence {
-  func map<Transformed>(
+public extension Sequence where Element: Sendable {
+  func map<Transformed: Sendable>(
     priority: TaskPriority? = nil,
-    _ transform: @escaping (Element) async throws -> Transformed
+    _ transform: @escaping @Sendable (Element) async throws -> Transformed
   ) async rethrows -> [Transformed] {
     try await withThrowingTaskGroup(
       of: EnumeratedSequence<[Transformed]>.Element.self
@@ -52,9 +52,9 @@ public extension Sequence {
     }
   }
   
-  func compactMap<Transformed>(
+  func compactMap<Transformed: Sendable>(
     priority: TaskPriority? = nil,
-    _ transform: @escaping (Element) async throws -> Transformed?
+    _ transform: @escaping @Sendable (Element) async throws -> Transformed?
   ) async rethrows -> [Transformed] {
     try await map(transform).compactMap { $0 }
   }

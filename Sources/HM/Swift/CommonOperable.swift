@@ -50,8 +50,16 @@ extension CommonOperable {
   }
 }
 
+@available(
+  swift, deprecated: 5.7,
+  message: "Operand.MaskStorage.MaskStorage == Operand.MaskStorage"
+)
 /// A vector type that can operate with other types via intermediate conversion.
-public protocol CommonVectorOperable: CommonOperable where Operand: SIMD {
+public protocol CommonVectorOperable: CommonOperable
+where
+  Operand: SIMD,
+  Operand.MaskStorage.MaskStorage == Operand.MaskStorage
+{
   associatedtype Scalar
 
   static var convertToOperandScalar: (Scalar) -> Operand.Scalar { get }

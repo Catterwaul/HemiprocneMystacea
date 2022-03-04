@@ -17,7 +17,7 @@ final class AsyncSequenceTestCase: XCTestCase {
   func test_map() async throws {
     let array = ["🔥"]
 
-    func element(_ element: String) async throws -> String {
+    @Sendable func element(_ element: String) async throws -> String {
       element
     }
         
@@ -35,7 +35,7 @@ final class AsyncSequenceTestCase: XCTestCase {
   func test_compactMap() async throws {
     let array = ["0", nil, "2"]
 
-    func element(_ element: String?) async throws -> String? {
+    @Sendable func element(_ element: String?) async throws -> String? {
       element
     }
 

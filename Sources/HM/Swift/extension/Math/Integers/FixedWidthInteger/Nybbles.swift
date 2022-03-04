@@ -25,19 +25,10 @@ extension Nybbles: MutableCollection, RandomAccessCollection {
       integer |= (newValue & 0xF) << index
     }
   }
-
-  public func index(after index: Index) -> Index {
-    index + 1
-  }
 }
 
 // MARK: - RangeReplaceableCollection
-extension Nybbles: RangeReplaceableCollection {
-  /// All zeros.
-  public init() {
-    self.init(0)
-  }
-}
+extension Nybbles: RangeReplaceableCollection { }
 
 // MARK: BackedByInteger
 extension Nybbles: BackedByInteger {
