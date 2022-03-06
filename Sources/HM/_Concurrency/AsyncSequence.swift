@@ -28,6 +28,15 @@ public extension Set {
   }
 }
 
+// MARK: - String
+
+public extension String {
+  init<AsyncStrings: _Concurrency.AsyncSequence>(_ strings: AsyncStrings) async rethrows
+  where AsyncStrings.Element == String {
+    self = try await strings.reduce(into: .init()) { $0.append($1) }
+  }
+}
+
 // MARK: - Sequence
 
 public extension Sequence where Element: Sendable {
