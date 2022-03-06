@@ -5,7 +5,6 @@ final class HashableViaIDTestCase: XCTestCase {
   func test() {
     struct S: HashableViaID {
       let id: String
-      let notHashable = { }
     }
 
     XCTAssertEqual(S(id: "🆔"), S(id: "🆔"))
