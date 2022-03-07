@@ -401,11 +401,13 @@ public extension Sequence where Element: Sequence {
       sequence(
         state: map { $0.makeIterator() }
       ) { iterators in
-        Optional(
-          iterators.indices.map { iterators[$0].next() }
-        )
-        .filter { $0.allSatisfy { $0 != nil } }
-        .map { .init($0.compacted()) }
+        let compacted = iterators.indices.map { iterators[$0].next() }.compacted()
+
+        guard compacted.count == iterators.count else {
+          return nil
+        }
+
+        return .init(compacted)
       }
     )
   }
