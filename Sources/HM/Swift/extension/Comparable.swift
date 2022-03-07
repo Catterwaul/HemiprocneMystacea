@@ -56,7 +56,7 @@ public extension Comparable {
 public extension Sequence where Element: Comparable {
   var localExtrema: (minima: [Element], maxima: [Element]) {
     let dictionary = Dictionary<ExtremumOption, [Element]>(grouping:
-      removingDuplicates.consecutiveElements(by: 3).compactMap { consecutiveElements in
+      removingDuplicates.windows(ofCount: 3).compactMap { consecutiveElements in
         let value = consecutiveElements[1]
         
         guard let extremum: ExtremumOption = ( {

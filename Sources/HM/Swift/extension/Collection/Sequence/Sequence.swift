@@ -74,7 +74,7 @@ public extension Sequence {
   /// - Note: Every returned array will have the same count,
   /// so this stops short of the end of the sequence by `count - 1`.
   /// - Precondition: `count > 0`
-  func consecutiveElements(by count: Int) -> AnySequence<[Element]> {
+  func windows(ofCount count: Int) -> AnySequence<[Element]> {
     (0..<count).map(Array(self).dropFirst).zipped
   }
 
@@ -402,7 +402,7 @@ public extension Sequence where Element: Sequence {
         state: map { $0.makeIterator() }
       ) { iterators in
         Optional(
-          (iterators.indices).map { iterators[$0].next() }
+          iterators.indices.map { iterators[$0].next() }
         )
         .filter { $0.allSatisfy { $0 != nil } }
         .map { .init($0.compacted()) }

@@ -21,7 +21,7 @@ final class SequenceTestCase: XCTestCase {
 
   func test_consecutiveElements() {
     XCTAssertEqual(
-      Array((1...5).consecutiveElements(by: 3)),
+      Array((1...5).windows(ofCount: 3)),
       [.init(1...3), .init(2...4), .init(3...5)]
     )
   }
