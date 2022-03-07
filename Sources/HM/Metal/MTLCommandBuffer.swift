@@ -22,4 +22,15 @@ public extension MTLCommandBuffer {
       }
     }
   }
+
+  /// Commit this buffer and wait for the GPU to finish executing its commands.
+  func complete() async {
+    await withUnsafeContinuation { continuation in
+      self.addCompletedHandler { _ in
+        continuation.resume()
+      }
+
+      commit()
+    } as Void
+  }
 }

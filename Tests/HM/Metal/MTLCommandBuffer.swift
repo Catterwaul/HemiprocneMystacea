@@ -3,6 +3,9 @@ import XCTest
 
 final class MTLCommandBufferTestCase: XCTestCase {
   func test() async {
+    let buffer = MTLCreateSystemDefaultDevice()!.makeCommandQueue()!.makeCommandBuffer()!
+    await buffer.complete()
+
     let string: String = await withTaskGroup(of: String.self) { group in
       let buffer = MTLCreateSystemDefaultDevice()!.makeCommandQueue()!.makeCommandBuffer()!
 
