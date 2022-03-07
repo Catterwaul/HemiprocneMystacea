@@ -13,8 +13,8 @@ public extension AsyncSequence where Element: Hashable {
 // MARK: - Array
 
 public extension Array {
-  init<AsyncSequence: _Concurrency.AsyncSequence>(_ asyncSequence: AsyncSequence) async rethrows
-  where AsyncSequence.Element == Element {
+  init<Elements: AsyncSequence>(_ asyncSequence: Elements) async rethrows
+  where Elements.Element == Element {
     self = try await asyncSequence.reduce(into: []) { $0.append($1) }
   }
 }
@@ -22,8 +22,8 @@ public extension Array {
 // MARK: - Set
 
 public extension Set {
-  init<AsyncSequence: _Concurrency.AsyncSequence>(_ asyncSequence: AsyncSequence) async rethrows
-  where AsyncSequence.Element == Element {
+  init<Elements: AsyncSequence>(_ asyncSequence: Elements) async rethrows
+  where Elements.Element == Element {
     self = try await asyncSequence.reduce(into: []) { $0.insert($1) }
   }
 }
@@ -31,8 +31,8 @@ public extension Set {
 // MARK: - String
 
 public extension String {
-  init<AsyncStrings: _Concurrency.AsyncSequence>(_ strings: AsyncStrings) async rethrows
-  where AsyncStrings.Element == String {
+  init<Strings: AsyncSequence>(_ strings: Strings) async rethrows
+  where Strings.Element == String {
     self = try await strings.reduce(into: .init()) { $0.append($1) }
   }
 }
