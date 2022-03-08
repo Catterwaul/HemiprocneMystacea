@@ -52,3 +52,14 @@ public extension Array where Element: Equatable {
       .map(Self.init)
   }
 }
+
+// MARK: - ExpressibleByArrayLiteral
+public extension ExpressibleByArrayLiteral {
+  /// Create a single-element array literal, or an empty one.
+  /// - Returns: `[optional!]` if `.some`; `[]` if `nil`.
+  /// - Note: This cannot be generalized to all types,
+  /// as Swift doesn't employ  universal non-optional defaults.
+  init<Wrapped>(compacting optional: Wrapped?) where ArrayLiteralElement == Wrapped {
+    self = optional.map { [$0] } ?? []
+  }
+}

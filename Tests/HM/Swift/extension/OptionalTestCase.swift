@@ -17,12 +17,12 @@ final class OptionalTestCase: XCTestCase {
   func test_map() {
     XCTAssertEqual(
       ["💿🗺"],
-      ("💿🗺" as Optional).compactMap()
+      ("💿🗺" as Optional).compacted()
     )
 
     XCTAssertEqual(
       Set(),
-      Int?.none.compactMap()
+      Int?.none.compacted()
     )
   }
 
