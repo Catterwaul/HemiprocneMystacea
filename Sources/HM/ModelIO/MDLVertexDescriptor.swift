@@ -6,4 +6,10 @@ public extension MDLVertexDescriptor {
     get { attributes as! [MDLVertexAttribute] }
     set { attributes = newValue as! NSMutableArray }
   }
+
+  /// A type-safe versions of `layouts`.
+  var layoutArray: [MDLVertexBufferLayout] {
+    get { layouts as! [MDLVertexBufferLayout] }
+    set { layouts = newValue as! NSMutableArray }
+  }
 }
