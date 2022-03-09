@@ -62,7 +62,7 @@ public extension Sequence {
     .init(
       sequence(state: makeIterator()) { iterator in
         Optional(
-          (0..<maxCount).compactMap { _ in iterator.next() }
+          maxCount.iterations.compactMap { iterator.next() }
         ).filter { !$0.isEmpty }
       }
     )
