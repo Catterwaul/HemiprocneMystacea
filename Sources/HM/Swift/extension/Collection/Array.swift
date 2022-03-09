@@ -24,8 +24,7 @@ public extension Array {
   ) throws {
     var state = initialState
     self = try
-      AnyIterator { } .lazy
-      .prefix { continuing(state) }
+      `while` { continuing(state) }
       .map { try iterate(&state) }
   }
 

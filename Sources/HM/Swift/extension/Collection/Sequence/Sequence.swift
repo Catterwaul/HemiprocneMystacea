@@ -435,3 +435,11 @@ public struct Extremum<Value> {
   public var value: Value
   public var count: Int
 }
+
+/// A sequence of `Void`s that terminates when `predicate` returns `false`.
+@inlinable public func `while`(_ predicate: @escaping () -> Bool)
+-> UnfoldSequence<Void, Void> {
+  sequence(state: ()) {
+    predicate() ? $0 : nil
+  }
+}
