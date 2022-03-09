@@ -5,10 +5,12 @@ public extension CaseIterable where Self: Equatable {
   }
 
   /// The first match for this case in `allCases`.
-  /// - Throws: `AnyCaseIterable<Self>.AllCasesError.noIndex`
-  func caseIndex() throws -> AllCases.Index {
-    do { return try Self.allCases.firstIndex(of: self).unwrapped }
-    catch { throw AnyCaseIterable.AllCasesError.noIndex(self) }
+  /// - Throws: `AllCasesError<Self>.noIndex`
+  var caseIndex: AllCases.Index {
+    get throws {
+      do { return try Self.allCases.firstIndex(of: self).unwrapped }
+      catch { throw AllCasesError.noIndex(self) }
+    }
   }
 }
 
@@ -24,9 +26,7 @@ public extension CaseIterable where Self: Equatable, AllCases: BidirectionalColl
   }
 }
 
-public enum AnyCaseIterable<Case> {
-  public enum AllCasesError: Error {
-    /// No `AllCases.Index` corresponds to this case.
-    case noIndex(Case)
-  }
+public enum AllCasesError<Case: CaseIterable>: Error {
+  /// No `AllCases.Index` corresponds to this case.
+  case noIndex(Case)
 }

@@ -15,13 +15,19 @@ private final class CaseIterableTestCase: XCTestCase {
   }
 
   func test_caseIndex() {
+    enum 🦇: CaseIterable {
+      case 🏏, 🧛
+    }
+
+    XCTAssertEqual(try 🦇.🧛.caseIndex, 1)
+
     enum 💄: CaseIterable {
       static var allCases: [Self] { [] }
       case 💋
     }
     
-    XCTAssertThrowsError(try 💄.💋.caseIndex()) { error in
-      guard case AnyCaseIterable<💄>.AllCasesError.noIndex(.💋) = error
+    XCTAssertThrowsError(try 💄.💋.caseIndex) { error in
+      guard case AllCasesError<💄>.noIndex(.💋) = error
       else { XCTFail(); return }
     }
   }
