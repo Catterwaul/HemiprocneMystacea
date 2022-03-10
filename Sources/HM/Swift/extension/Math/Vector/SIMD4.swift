@@ -14,31 +14,31 @@ public extension SIMD4 {
 
 public extension SIMD4 where Scalar: BinaryFloatingPoint {
   /// Scale for `xyz`. Then a translation for `z` in the `w` position.
-  static func orthographic(xySize: SIMD2<Scalar>, near: Scalar, far: Scalar) -> Self {
-    clipSpaceProjection(
+  static func orthographicProjection(xySize: SIMD2<Scalar>, near: Scalar, far: Scalar) -> Self {
+    orthographicProjection(
       xyScale: 2 / xySize, // Doubled because xySize is twice the magnitude of the near/far clip plane extents.
-      zScale: 1,
       near: near,
       far: far
     )
   }
 
   /// Scale for `xyz`. Then a translation for `z` in the `w` position.
-  static func perpective(fov: Scalar, near: Scalar, far: Scalar, aspectRatio: Scalar) -> Self {
+  /// - Parameters:
+  ///   - fov: Horizontal field of view in radians.
+  static func perpectiveProjection(fov: Scalar, near: Scalar, far: Scalar, aspectRatio: Scalar) -> Self {
     let yScale = 1 / Scalar(tan(Double(fov) / 2))
-    return clipSpaceProjection(
+    let orthographicProjection = orthographicProjection(
       xyScale: [yScale / aspectRatio, yScale],
-      zScale: far,
       near: near,
       far: far
     )
+    return .init(orthographicProjection.lowHalf, orthographicProjection.highHalf * far)
   }
 
   /// Scale for `xyz`. Then a translation for `z` in the `w` position.
-  private static func clipSpaceProjection(
-    xyScale: SIMD2<Scalar>, zScale: Scalar, near: Scalar, far: Scalar
+  private static func orthographicProjection(
+    xyScale: SIMD2<Scalar>, near: Scalar, far: Scalar
   ) -> Self {
-    let zScale = zScale / (far - near)
-    return .init(xyScale, zScale, -near * zScale)
+    .init(xyScale, [1, -near] / (far - near))
   }
 }
