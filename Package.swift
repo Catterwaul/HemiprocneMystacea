@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.6
 
 import PackageDescription
 
@@ -16,7 +16,10 @@ let package = Package(
     return .library(name: name, targets: [name])
   },
   dependencies: Package.Dependency.names.map {
-    .package(url: "https://github.com/apple/\($0.swiftPrefixed)", .branch("main"))
+    .package(
+      url: "https://github.com/apple/\($0.swiftPrefixed)",
+      branch: "main"
+    )
   },
   targets: names.flatMap { frameworkName -> [Target] in
     var suffixedTarget: Target {
