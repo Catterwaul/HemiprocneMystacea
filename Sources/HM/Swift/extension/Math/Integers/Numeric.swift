@@ -10,15 +10,26 @@ public extension Numeric {
   }
 }
 
-// Division isn't actually found in `Numeric`,
-// but it does seem to be found in all the important protocols that inherit from it.
-public struct DivisionByZeroError<Numerator: Swift.Numeric>: Error {
-  public let numerator: Numerator
+infix operator ÷: MultiplicationPrecedence
 
-  public init(numerator: Numerator) {
-    self.numerator = numerator
+public extension FloatingPoint {
+  /// - Throws: `DivisionByZeroError<Self>`
+  static func ÷ (numerator: @autoclosure () -> Self, denominator: Self) throws -> Self {
+    guard denominator != 0
+    else { throw DivisionByZeroError() }
+
+    return numerator() / denominator
   }
 }
 
-extension DivisionByZeroError: Equatable where Numerator: Equatable { }
-extension DivisionByZeroError: Hashable where Numerator: Hashable { }
+public extension BinaryInteger {
+  /// - Throws: `DivisionByZeroError<Self>`
+  static func ÷ (numerator: @autoclosure () -> Self, denominator: Self) throws -> Self {
+    guard denominator != 0
+    else { throw DivisionByZeroError() }
+
+    return numerator() / denominator
+  }
+}
+
+public struct DivisionByZeroError: Error { }
