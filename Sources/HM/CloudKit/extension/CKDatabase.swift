@@ -137,7 +137,7 @@ public extension CKDatabase {
           self.add(operation)
         case .success:
           dispatchGroup.notify(queue: .init(label: "")) {
-            processCompletionResult(.init())
+            processCompletionResult(.success(()))
           }
         }
       }

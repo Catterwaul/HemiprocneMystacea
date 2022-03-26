@@ -99,17 +99,10 @@ public typealias VerificationResult<Failure: Error> = Result<Void, Failure>
 
 public extension VerificationResult where Success == Void {
   /// `.success(())`
-  init() {
-    self = .success(())
-  }
+  static var success: Self { .success(()) }
 
   /// `.success` only when `failure` is `nil`.
   init(failure: Failure?) {
-    switch failure {
-    case nil:
-      self.init()
-    case let failure?:
-      self = .failure(failure)
-    }
+    self = failure.map(Self.failure) ?? .success
   }
 }

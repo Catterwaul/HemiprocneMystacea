@@ -1,6 +1,5 @@
 import SwiftUI
 import SwiftUI_HM
-import XCTest
 
 extension HorizontalAlignment {
   enum CustomCenter: SingleAxisAlignmentID {
