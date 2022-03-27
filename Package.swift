@@ -2,82 +2,111 @@
 
 import PackageDescription
 
-let names = [
-  .hm,
-  "SwiftUI", "UIKit",
-  .xcTest
-]
-
-let package = Package(
+_ = Package(
   name: "HemiprocneMystacea",
   platforms: [.iOS(.v15), .macOS(.v12), .tvOS(.v15), .watchOS(.v8)],
-  products: names.map {
-    let name = $0.hm
-    return .library(name: name, targets: [name])
-  },
-  dependencies: Package.Dependency.names.map {
-    .package(
-      url: "https://github.com/apple/\($0.swiftPrefixed)",
-      branch: "main"
-    )
-  },
-  targets: names.flatMap { frameworkName -> [Target] in
-    var suffixedTarget: Target {
+  products: Product.Library.HM.allCases.map(\.library),
+  dependencies: Package.Apple.allCases.map(\.package),
+  targets: Product.Library.HM.allCases.flatMap(\.targets)
+)
+
+// MARK: -
+
+extension Product.Library {
+  enum HM: CaseIterable {
+    case hm, swiftUI, uiKit, xcTest
+  }
+}
+
+extension Product.Library.HM {
+  var library: Product {
+    .library(name: hmSuffixedName, targets: [hmSuffixedName])
+  }
+
+  var targets: [Target] {
+    var hmSuffixedTarget: Target {
       .target(
-        name: frameworkName.hm,
-        dependencies: [.init(stringLiteral: .hm)],
-        path: "Sources/\(frameworkName)"
+        name: hmSuffixedName,
+        dependencies: [.init(stringLiteral: Self.hm.name)],
+        path: "Sources/\(name)"
       )
     }
 
     var testTarget: Target {
       let tests = "Tests"
       return .testTarget(
-        name: "\(frameworkName.hm).\(tests)",
-        dependencies: {
-          var dependencies = [String.hm, .xcTest.hm]
-          if frameworkName != .hm {
-            dependencies.append(frameworkName.hm)
-          }
-          return dependencies.map(Target.Dependency.init)
-        } (),
-        path: "\(tests)/\(frameworkName)",
+        name: "\(hmSuffixedName).\(tests)",
+        dependencies:
+          // It's a Set, because for the base HM target,
+          // `Self.hm.name` is the same as `hmSuffixedName`.
+          ([Self.hm.name, Self.xcTest.hmSuffixedName, hmSuffixedName] as Set)
+            .map(Target.Dependency.init),
+        path: "\(tests)/\(name)",
         resources: [.process("../Mousse with Mouse.png")]
       )
     }
 
-    switch frameworkName {
+    switch self {
     case .hm:
       return [
         .target(
-          name: .hm,
-          dependencies: Package.Dependency.names.map {
-            .product(name: $0.capitalized, package: $0.swiftPrefixed)
-          }
+          name: name,
+          dependencies: Package.Apple.allCases.map(\.product)
         ),
         testTarget
       ]
     case .xcTest:
-      return [suffixedTarget]
+      return [hmSuffixedTarget]
     default:
-      return [suffixedTarget, testTarget]
+      return [hmSuffixedTarget, testTarget]
     }
   }
-)
 
-extension Package.Dependency {
-  static let names = ["algorithms", "collections"]
-}
-
-extension String {
-  static let hm = "HM"
-  static let xcTest = "XCTest"
-
-  var hm: String {
-    self == .hm
-      ? self
-      : "\(self).\(Self.hm)"
+  private var name: String {
+    switch self {
+    case .hm:
+      return "HM"
+    case .swiftUI:
+      return "SwiftUI"
+    case .uiKit:
+      return "UIKit"
+    case .xcTest:
+      return "XCTest"
+    }
   }
 
-  var swiftPrefixed: String { "swift-\(self)" }
+  private var hmSuffixedName: String {
+    switch self {
+    case .hm:
+      return name
+    default:
+      return "\(name).\(Self.hm.name)"
+    }
+  }
+}
+
+// MARK: -
+
+extension Package {
+  enum Apple: CaseIterable {
+    case algorithms, collections
+  }
+}
+
+extension Package.Apple {
+  var package: Package.Dependency {
+    .package(
+      url: "https://github.com/apple/\(swiftPrefixedName)",
+      branch: "main"
+    )
+  }
+
+  var product: Target.Dependency {
+    .product(
+      name: "\(self)".split(separator: "-").map(\.capitalized).joined(),
+      package: swiftPrefixedName
+    )
+  }
+
+  private var swiftPrefixedName: String { "swift-\(self)" }
 }
