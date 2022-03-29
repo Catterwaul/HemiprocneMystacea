@@ -35,7 +35,8 @@ public extension CKDatabase {
   ///   - recordType: Its name has to be the same in your code, and in CloudKit.
   ///   - predicate: for the `CKQuery`
   func records<Record>(
-    type _: Record.Type,
+    type _: Record.Type = Record.self,
+    zoneID: CKRecordZone.ID? = nil,
     predicate: NSPredicate = .init(value: true)
   ) async throws -> [CKRecord] {
     try await withThrowingTaskGroup(of: [CKRecord].self) { group in
@@ -59,7 +60,8 @@ public extension CKDatabase {
           matching: .init(
             recordType: "\(Record.self)",
             predicate: predicate
-          )
+          ),
+          inZoneWith: zoneID
         )
       )
       
