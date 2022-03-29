@@ -155,15 +155,6 @@ public extension Dictionary where Value: Sequence {
   }
 }
 
-public extension Dictionary where Value == Int {
-  /// Create "buckets" from a sequence of keys,
-  /// such as might be used for a histogram.
-  init<Keys: Sequence>(bucketing unbucketedKeys: Keys)
-  where Keys.Element == Key {
-    self.init(zip(unbucketedKeys, 1), uniquingKeysWith: +)
-  }
-}
-
 // MARK: -
 
 /// Return an unmodified value when uniquing `Dictionary` keys.
