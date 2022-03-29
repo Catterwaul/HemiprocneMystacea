@@ -1,3 +1,5 @@
+import OrderedCollections
+
 public extension Sequence where Element: Equatable {
   /// The iterators of all subsequences, incrementally dropping early elements.
   /// - Note: Begins with the iterator for the full sequence (dropping zero).
@@ -84,6 +86,11 @@ public extension Sequence where Element: Hashable {
     } catch {
       return false
     }
+  }
+
+  /// The non-unique elements of this collection, in the order of their first occurrences.
+  var duplicates: OrderedSet<Element> {
+    OrderedDictionary(bucketing: self).filter { $1 > 1 }.keys
   }
 
   /// Matches interleaved subsequences of identical elements with seperate iterations of some other sequence.
