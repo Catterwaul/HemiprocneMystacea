@@ -13,7 +13,7 @@ final class UIScrollViewWithCellsTestCase: XCTestCase {
       try collectionView.visibleCell(at: IndexPath(item: 0, section: 0))
     ) { error in
       guard case UIScrollViewWithCellsExtensions.GetVisibleCellError.noVisisbleCell = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
   }
 }

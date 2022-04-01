@@ -98,7 +98,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
       try [Instrument](jsonData: jsonData)
     ) {	error in
       guard case InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
   }
 	

@@ -190,12 +190,12 @@ final class SequenceTestCase: XCTestCase {
     
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 4 } ) { error in
       guard case Error.moreThanOneMatch = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
 
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 1 } ) { error in
       guard case Error.noMatches = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
   }
 

@@ -11,14 +11,14 @@ final class ResultTestCase: XCTestCase {
       try Result(success: 1, failure: .init() as Optional)
     ) { error in
       guard case OneOfTwo.Error.both = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
 
     XCTAssertThrowsError(
       try Result(success: nil, failure: nil)
     ) { error in
       guard case OneOfTwo.Error.neither = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
 
     XCTAssertEqual(
@@ -45,7 +45,7 @@ final class ResultTestCase: XCTestCase {
 
     guard case let .success(😼)
       = try Result(get😼())
-    else { XCTFail(); return }
+    else { return XCTFail() }
 
     XCTAssertEqual(😼, "😼")
 

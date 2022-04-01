@@ -8,7 +8,7 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
     
     XCTAssertThrowsError(try viewModel.getRowCount()) { error in
       guard case ModelNotAssignedError.getAccessor = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
     
     viewModel.set( getInts: { [0, 1, 2, 3] } )
@@ -17,12 +17,12 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
       try viewModel.handleSelection(indexPath: indexPath)
     ) { error in
       guard case ModelNotAssignedError.method = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
     
     XCTAssertThrowsError(try viewModel.doSomething()) { error in
       guard case ModelNotAssignedError.method = error
-      else { XCTFail(); return }
+      else { return XCTFail() }
     }
   }
 }
