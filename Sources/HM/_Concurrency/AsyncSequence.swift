@@ -13,6 +13,10 @@ public extension AsyncSequence where Element: Hashable {
 // MARK: - Array
 
 public extension Array {
+  @available(
+    swift, deprecated: 5.7,
+    message: "Delete this and use AsyncAlgorithms!"
+  )
   init<Elements: AsyncSequence>(_ asyncSequence: Elements) async rethrows
   where Elements.Element == Element {
     self = try await asyncSequence.reduce(into: []) { $0.append($1) }

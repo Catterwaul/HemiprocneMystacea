@@ -25,6 +25,15 @@ final class SequenceOfEquatableTestCase: XCTestCase {
     XCTAssertFalse(["👯", "👯"].containsOnlyUniqueElements)
   }
 
+  func test_isOrderedSuperset() {
+    XCTAssert([-10, 1, 2, 5, 2, 3, 0, 4, 6, 9, 5, 4].isOrderedSuperset(of: 1...5))
+    XCTAssert("🐱🐱".isOrderedSuperset(of: "🐱🐱"))
+    XCTAssertFalse("🦎🧙🏽‍♂️".isOrderedSuperset(of: "🧙🏽‍♂️🦎"))
+    XCTAssertFalse(
+      CollectionOfOne(true).isOrderedSuperset(of: [true, false])
+    )
+  }
+
   func test_duplicates() {
     XCTAssertEqual(
       .init("💞❤️‍🔥💝❤️‍🔥🫀💕💔❤️‍🔥💕💝💘".duplicates),
