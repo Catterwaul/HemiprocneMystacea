@@ -54,6 +54,9 @@ public extension Comparable {
 }
 
 public extension Sequence where Element: Comparable {
+  /// Whether the elements of this sequence are in order.
+  @inlinable var isSorted: Bool { adjacentPairs().allSatisfy(<) }
+
   var localExtrema: (minima: [Element], maxima: [Element]) {
     let dictionary = Dictionary<ExtremumOption, [Element]>(grouping:
       removingDuplicates.windows(ofCount: 3).compactMap { consecutiveElements in

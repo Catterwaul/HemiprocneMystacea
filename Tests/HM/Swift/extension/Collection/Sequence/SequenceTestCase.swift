@@ -222,6 +222,19 @@ final class SequenceTestCase: XCTestCase {
       "🏃 🐈"
     )
   }
+
+  func test_isSorted() {
+    struct TypeWithComparable {
+      let comparable: Int
+    }
+
+    let random = Int.random(in: 1...(.max))
+    let stride =
+      stride(from: -random, through: random, by: random)
+        .lazy.map(TypeWithComparable.init)
+    XCTAssert(stride.isSorted(by: \.comparable))
+    XCTAssert(stride.reversed().isSorted(by: \.comparable, >))
+  }
 	
   func test_sorted() {
     struct TypeWith1EquatableProperty: Equatable {

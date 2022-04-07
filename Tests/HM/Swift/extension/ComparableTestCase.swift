@@ -35,6 +35,13 @@ final class ComparableTestCase: XCTestCase {
     XCTAssertEqual("C".clamped(to: "F"..."P"), "F")
   }
 
+  func test_isSorted() {
+    let random = Int.random(in: 1...(.max))
+    let stride = stride(from: -random, through: random, by: random)
+    XCTAssert(stride.isSorted)
+    XCTAssertFalse(stride.reversed().isSorted)
+  }
+
   func test_localExtrema() {
     let (mininma, maxima) = [0, 1, 0, -1, -1, -1, 10, 11, -10].localExtrema
     XCTAssertEqual(mininma, [-1])

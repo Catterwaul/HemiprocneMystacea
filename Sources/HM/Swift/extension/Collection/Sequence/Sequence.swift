@@ -296,40 +296,6 @@ public extension Sequence {
       )
   }
 
-  /// Sorted by a common `Comparable` value.
-  func sorted<Comparable: Swift.Comparable>(
-    by comparable: (Element) throws -> Comparable
-  ) rethrows -> [Element] {
-    try sorted(by: comparable, <)
-  }
-
-  /// Sorted by a common `Comparable` value, and sorting closure.
-  func sorted<Comparable: Swift.Comparable>(
-    by comparable: (Element) throws -> Comparable,
-    _ areInIncreasingOrder: (Comparable, Comparable) throws -> Bool
-  ) rethrows -> [Element] {
-    try sorted {
-      try areInIncreasingOrder(comparable($0), comparable($1))
-    }
-  }
-
-  /// Sorted by two common `Comparable` values.
-  func sorted<Comparable0: Comparable, Comparable1: Comparable>(
-    _ comparables: (Element) throws -> (Comparable0, Comparable1)
-  ) rethrows -> [Element] {
-    try sorted(comparables, <)
-  }
-
-  /// Sorted by two common `Comparable` values, and sorting closure.
-  func sorted<Comparable0: Comparable, Comparable1: Comparable>(
-    _ comparables: (Element) throws -> (Comparable0, Comparable1),
-    _ areInIncreasingOrder: ((Comparable0, Comparable1), (Comparable0, Comparable1)) throws -> Bool
-  ) rethrows -> [Element] {
-    try sorted {
-      try areInIncreasingOrder(comparables($0), comparables($1))
-    }
-  }
-
   func split(includingSeparators getIsSeparator: @escaping (Element) -> Bool)
   -> AnySequence< AnySequence<Element>.Spliteration > {
     var separatorFromPrefixIteration: Element?
@@ -379,6 +345,60 @@ public extension Sequence {
     else { throw Error.notUnique(extremum) }
 
     return extremum
+  }
+
+  // MARK: -
+
+  /// Whether the elements of this sequence are sorted by a common `Comparable` value.
+  @inlinable func isSorted<Comparable: Swift.Comparable>(
+    by comparable: (Element) throws -> Comparable
+  ) rethrows -> Bool {
+    try isSorted(by: comparable, <)
+  }
+
+  /// Whether the elements of this sequence are sorted by a common `Comparable` value,
+  /// and sorting closure.
+  @inlinable func isSorted<Comparable: Swift.Comparable>(
+    by comparable: (Element) throws -> Comparable,
+    _ areInIncreasingOrder: (Comparable, Comparable) throws -> Bool
+  ) rethrows -> Bool {
+    try adjacentPairs().allSatisfy {
+      try areInIncreasingOrder(comparable($0), comparable($1))
+    }
+  }
+
+  /// Sorted by a common `Comparable` value.
+  func sorted<Comparable: Swift.Comparable>(
+    by comparable: (Element) throws -> Comparable
+  ) rethrows -> [Element] {
+    try sorted(by: comparable, <)
+  }
+
+  /// Sorted by a common `Comparable` value, and sorting closure.
+  func sorted<Comparable: Swift.Comparable>(
+    by comparable: (Element) throws -> Comparable,
+    _ areInIncreasingOrder: (Comparable, Comparable) throws -> Bool
+  ) rethrows -> [Element] {
+    try sorted {
+      try areInIncreasingOrder(comparable($0), comparable($1))
+    }
+  }
+
+  /// Sorted by two common `Comparable` values.
+  func sorted<Comparable0: Comparable, Comparable1: Comparable>(
+    _ comparables: (Element) throws -> (Comparable0, Comparable1)
+  ) rethrows -> [Element] {
+    try sorted(comparables, <)
+  }
+
+  /// Sorted by two common `Comparable` values, and sorting closure.
+  func sorted<Comparable0: Comparable, Comparable1: Comparable>(
+    _ comparables: (Element) throws -> (Comparable0, Comparable1),
+    _ areInIncreasingOrder: ((Comparable0, Comparable1), (Comparable0, Comparable1)) throws -> Bool
+  ) rethrows -> [Element] {
+    try sorted {
+      try areInIncreasingOrder(comparables($0), comparables($1))
+    }
   }
 }
 
