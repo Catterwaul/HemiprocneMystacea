@@ -19,10 +19,18 @@ public extension CaseIterable where Self: Equatable, AllCases: BidirectionalColl
   /// - Parameter cyclic: Whether to wrap back around to the first case.
   /// - Returns: `nil` for the last case if  `cyclic` is `false`.
   func nextCase(cyclic: Bool = false) -> Self? {
-    ( cyclic ? AnySequence(cycling: Self.allCases) : .init(Self.allCases) )
-      .drop(while:) { $0 != self }
-      .dropFirst()
-      .first
+    func nextCase<AllCases: Sequence>(_ allCases: AllCases) -> Self?
+    where AllCases.Element == Self {
+      allCases
+        .drop(while:) { $0 != self }
+        .dropFirst()
+        .first
+    }
+
+    return
+      cyclic
+        ? nextCase(Self.allCases.cycled())
+        : nextCase(Self.allCases)
   }
 }
 

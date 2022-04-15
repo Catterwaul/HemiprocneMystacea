@@ -37,22 +37,6 @@ public extension AnySequence {
     self.init(Iterator(getNext))
   }
 
-  /// A cyclical version of a sequence.
-  init<Sequence: Swift.Sequence>(cycling sequence: Sequence)
-  where Sequence.Element == Element {
-    self.init { [makeIterator = sequence.makeIterator] in
-      Swift.sequence(state: makeIterator()) { iterator in
-        if let next = iterator.next() {
-          return next
-        }
-        else {
-          iterator = makeIterator()
-          return iterator.next()
-        }
-      }
-    }
-  }
-
   /// Like `zip`, but with `nil` elements for the shorter sequence after it is exhausted.
   init<Sequence0: Sequence, Sequence1: Sequence>(
     zip zipped: (Sequence0, Sequence1)
