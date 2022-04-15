@@ -1,15 +1,6 @@
 import OrderedCollections
 
 public extension Sequence where Element: Equatable {
-  /// The iterators of all subsequences, incrementally dropping early elements.
-  /// - Note: Begins with the iterator for the full sequence (dropping zero).
-  var dropIterators: UnfoldSequence<AnyIterator<Element>, Iterator> {
-    sequence(state: makeIterator()) {
-      let iterator = $0
-      return $0.next().map { _ in .init(iterator) }
-    }
-  }
-
   /// - Note: `nil` if empty.
   var elementsAreAllEqual: Bool? {
     first.map(dropFirst().containsOnly)
@@ -20,8 +11,8 @@ public extension Sequence where Element: Equatable {
   where Elements.Element == Element {
     elements.isEmpty
       ? false
-      : dropIterators.contains {
-        AnySequence(zip: ($0, elements))
+      : withDropIterators.contains {
+        AnySequence(zip: (IteratorSequence($1), elements))
           .first(where: !=)?.1 == nil
       }
   }

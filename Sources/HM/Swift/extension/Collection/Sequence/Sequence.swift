@@ -42,6 +42,15 @@ public extension Sequence {
     reduce(0) { count, _ in count + 1 }
   }
 
+  /// Like `zip`ping with the iterators of all subsequences, incrementally dropping early elements.
+  /// - Note: Begins with the iterator for the full sequence (dropping zero).
+  var withDropIterators: UnfoldSequence<(Element, Iterator), Iterator> {
+    sequence(state: makeIterator()) {
+      let iterator = $0
+      return $0.next().map { ($0, iterator) }
+    }
+  }
+
   /// The first element of the sequence.
   /// - Note: `nil` if the sequence is empty.
   var first: Element? {
