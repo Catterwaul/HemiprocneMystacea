@@ -64,4 +64,28 @@ final class FixedWidthIntegerTestCase: XCTestCase {
       [4]
     )
   }
+
+  func test_Bits() {
+    var integer = 0b1010
+    integer.bits.swapAt(2, 1)
+    XCTAssertEqual(integer, 0b1100)
+
+    XCTAssertEqual(0x1010_1111.bits.sum, 6)
+
+    XCTAssertEqual(Bits(10 as Int) / 5, 2)
+
+    XCTAssertEqual(
+      0b1001.afterMitosis,
+      0b11_00_00_11
+    )
+  }
+}
+
+private extension FixedWidthInteger where Self: _ExpressibleByBuiltinIntegerLiteral {
+  var afterMitosis: Self {
+    bits.enumerated().prefix(4).reduce(0) {
+      let clonedBitPair = $1.element | $1.element << 1
+      return $0 | clonedBitPair << ($1.offset * 2)
+    }
+  }
 }
