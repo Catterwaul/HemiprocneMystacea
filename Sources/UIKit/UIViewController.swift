@@ -45,6 +45,13 @@ public extension UIViewController {
     getChildren().first
   }
 
+  final func present(_ viewController: UIViewController, animated: Bool) async {
+    await withCheckedContinuation { continuation in
+      present(viewController, animated: animated) {
+        continuation.resume()
+      }
+    }
+  }
   
 	final func presentActionSheet(
 		title: String? = nil,
