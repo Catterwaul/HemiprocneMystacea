@@ -1,3 +1,5 @@
+import Algorithms
+
 public extension Collection {
   // MARK: - Subscripts
 
@@ -28,6 +30,13 @@ public extension Collection {
     else { throw AnyCollection<Element>.IndexingError() }
 
     return self[index]
+  }
+
+  /// - Note: The first "half" will be longer by one element,
+  /// if `count` is odd.
+  var splitInHalf: ChunksOfCountCollection<Self> {
+    let (halfCount, remainder) = count.quotientAndRemainder(dividingBy: 2)
+    return chunks(ofCount: halfCount + remainder)
   }
 
   /// Remove the beginning or end of a `Collection`.

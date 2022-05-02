@@ -19,8 +19,8 @@ public extension CKDatabase {
         for (recordsToSave, recordIDsToDelete)
         in zip(recordsToSave.splitInHalf, recordIDsToDelete.splitInHalf) {
           try await self.modifyRecordsRecursivelyAsNeeded(
-            saving: recordsToSave,
-            deleting: recordIDsToDelete
+            saving: .init(recordsToSave),
+            deleting: .init(recordIDsToDelete)
           )
         }
       default:

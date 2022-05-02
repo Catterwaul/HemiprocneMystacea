@@ -27,19 +27,6 @@ public extension Array {
       `while` { continuing(state) }
       .map { try iterate(&state) }
   }
-
-  // MARK: - Properties
-
-  /// The first array will be longer by one element,
-  /// if `count` is odd.
-  var splitInHalf: [Self] {
-    let halfCount = count / 2
-    return chunks(
-      ofCount: count.isMultiple(of: 2)
-      ? halfCount
-      : halfCount + 1
-    ).map(Self.init)
-  }
 }
 
 // MARK: - Equatable
