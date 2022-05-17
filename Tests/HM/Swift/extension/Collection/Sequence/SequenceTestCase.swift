@@ -256,6 +256,41 @@ final class SequenceTestCase: XCTestCase {
       ==
       [(1, 1), (1, 2)]
     )
+
+    struct Struct: Equatable {
+      let int: Int
+      let string: String
+    }
+
+    let structs = [(1, "A"), (2, "A"), (2, "B")].map(Struct.init)
+
+    XCTAssertEqual(
+      structs.sorted(orders: (.forward, .forward)) {
+        ($0.string, $0.int % 2)
+      },
+      [(2, "A"), (1, "A"), (2, "B")].map(Struct.init)
+    )
+
+    XCTAssertEqual(
+      structs.sorted(orders: (.forward, .reverse)) {
+        ($0.string, $0.int % 2)
+      },
+      [(1, "A"), (2, "A"), (2, "B")].map(Struct.init)
+    )
+
+    XCTAssertEqual(
+      structs.sorted(orders: (.reverse, .forward)) {
+        ($0.string, $0.int % 2)
+      },
+      [(2, "B"), (2, "A"), (1, "A")].map(Struct.init)
+    )
+
+    XCTAssertEqual(
+      structs.sorted(orders: (.reverse, .reverse)) {
+        ($0.string, $0.int % 2)
+      },
+      [(2, "B"), (1, "A"), (2, "A"), ].map(Struct.init)
+    )
   }
 
   func test_splitAndIncludeSeparators() {

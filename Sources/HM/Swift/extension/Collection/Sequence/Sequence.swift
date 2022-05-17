@@ -1,4 +1,5 @@
 import Algorithms
+import enum Foundation.SortOrder
 
 public extension Sequence {
 // MARK:- Operators
@@ -407,6 +408,25 @@ public extension Sequence {
   ) rethrows -> [Element] {
     try sorted {
       try areInIncreasingOrder(comparables($0), comparables($1))
+    }
+  }
+
+  func sorted<Comparable0: Comparable, Comparable1: Comparable>(
+    orders: (SortOrder, SortOrder),
+    _ comparables: (Element) throws -> (Comparable0, Comparable1)
+  ) rethrows -> [Element] {
+    try sorted {
+      let comparables = try (comparables($0), comparables($1))
+      switch orders {
+      case (.forward, .forward):
+        return comparables.0 < comparables.1
+      case (.forward, .reverse):
+        return (comparables.0.0, comparables.1.1) < (comparables.1.0, comparables.0.1)
+      case (.reverse, .forward):
+        return (comparables.1.0, comparables.0.1) < (comparables.0.0, comparables.1.1)
+      case (.reverse, .reverse):
+        return (comparables.1.0, comparables.1.1) < (comparables.0.0, comparables.0.1)
+      }
     }
   }
 }
