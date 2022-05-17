@@ -2,6 +2,20 @@ import HM
 import XCTest
 
 final class OptionalTestCase: XCTestCase {
+  func test_assignmentOperator() {
+    var optional: String? = "🪕"
+    var some = "🎻"
+
+    optional =? some
+    XCTAssertEqual(optional, some)
+
+    some =? nil
+    XCTAssertNotNil(some)
+    optional = "🎸"
+    some =? optional
+    XCTAssertEqual(optional, some)
+  }
+
   func test_init_optionals() throws {
     var jenies: (String?, String?) = ("👖", "🧞‍♂️")
 

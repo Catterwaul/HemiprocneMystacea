@@ -1,8 +1,22 @@
+infix operator =?: AssignmentPrecedence
+
 public extension Optional {
   /// Represents that an `Optional` was `nil`.
   enum UnwrapError: Error {
     case `nil`
     case typeMismatch
+  }
+
+  static func =? (optional0: inout Self, optional1: Self) {
+    if let some = optional1 {
+      optional0 = some
+    }
+  }
+
+  static func =? (wrapped: inout Wrapped, optional: Self) {
+    if let some = optional {
+      wrapped = some
+    }
   }
 
   /// Exchange two optionals for a single optional tuple.
