@@ -31,7 +31,7 @@ extension Bits: RangeReplaceableCollection { }
 
 // MARK: BackedByInteger
 extension Bits: BackedByInteger {
-  // Automatic synthesis compiles but results in an infinite loop as of March 2022.
+  // Automatic synthesis compiles but results in an infinite loop as of May 2022.
   public static func == (lhs: Self, rhs: Self) -> Bool {
     lhs.integer == rhs.integer
   }

@@ -22,13 +22,13 @@ public extension Dictionary {
 
   subscript(
     key: Key,
-    valueAddedIfNil getValue: @autoclosure() -> Value
+    valueAddedIfNil value: @autoclosure() -> Value
   ) -> Value {
     mutating get {
       self[key]
-      ?? {
-        self[key] = getValue()
-        return self[key]!
+      ?? { [value = value()] in
+        self[key] = value
+        return value
       } ()
     }
   }

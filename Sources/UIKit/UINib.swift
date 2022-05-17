@@ -36,14 +36,7 @@ public protocol NibSuperview where Self: UIView {
 public extension NibSuperview {
   func addSubview() -> Subview {
     let subview: Subview = UINib.instantiate()!
-    subview.translatesAutoresizingMaskIntoConstraints = false
-    addSubview(subview)
-    NSLayoutConstraint.activate([
-      subview.centerXAnchor.constraint(equalTo: centerXAnchor),
-      subview.centerYAnchor.constraint(equalTo: centerYAnchor),
-      subview.widthAnchor.constraint(equalTo: widthAnchor),
-      subview.heightAnchor.constraint(equalTo: heightAnchor)
-    ])
+    addConstrainedSubview(subview)
     return subview
   }
 }
