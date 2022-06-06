@@ -22,3 +22,5 @@ extension CurrentValueIterator: IteratorProtocol {
     return value
   }
 }
+
+extension CurrentValueIterator: Sequence { }

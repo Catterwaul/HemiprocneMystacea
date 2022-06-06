@@ -88,6 +88,24 @@ public extension Sequence where Element: Hashable {
     OrderedDictionary(bucketing: self).filter { $1 > 1 }.keys
   }
 
+  /// The unique elements of this collection, in the order of their first occurrences.
+  func uniqueElements() -> LazyMapSequence<
+    LazyFilterSequence<OrderedDictionary<Element, Int>>,
+    Element
+  > {
+    OrderedDictionary(bucketing: self)
+      .lazy
+      .filter { $0.value == 1 }
+      .map(\.key)
+  }
+
+  /// The unique elements of this collection, in the order of their first occurrences.
+  @_disfavoredOverload func uniqueElements() -> OrderedSet<Element> {
+    OrderedDictionary(bucketing: self)
+      .filter { $0.value == 1 }
+      .keys
+  }
+
   /// Matches interleaved subsequences of identical elements with seperate iterations of some other sequence.
   func withKeyedIterations<Sequence: Swift.Sequence>(of sequence: Sequence)
   -> [(Element, Sequence.Element)] {

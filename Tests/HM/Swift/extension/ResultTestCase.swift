@@ -54,7 +54,7 @@ final class ResultTestCase: XCTestCase {
     }
 
     XCTAssert(
-      Result.failure ~= ( try .init(throwError()) )
+      Result.failure ~= (try .init(throwError()))
     )
 
     XCTAssertThrowsError(

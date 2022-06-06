@@ -41,6 +41,13 @@ final class SequenceOfEquatableTestCase: XCTestCase {
     )
   }
 
+  func test_uniqueElements() {
+    XCTAssertEqual(
+      "💞❤️‍🔥💝❤️‍🔥🫀💕💔❤️‍🔥💕💝💘".uniqueElements().first,
+      "💞"
+    )
+  }
+
   func test_elementsAreAllEqual() {
     XCTAssertNil([Bool]().elementsAreAllEqual)
     XCTAssert([1].elementsAreAllEqual == true)
