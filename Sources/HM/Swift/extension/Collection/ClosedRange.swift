@@ -56,9 +56,8 @@ public extension ClosedRange where Bound: AdditiveArithmetic {
   func 🏓(
     by contiguousAdvancement: Bound,
     startingAt start: Bound
-  ) -> AnySequence<Bound> {
-    guard contains(start)
-    else { return .empty }
+  ) -> some Sequence<Bound> {
+    guard contains(start) else { return AnySequence<Bound>.empty }
 
     var advancement = contiguousAdvancement
 
@@ -66,7 +65,7 @@ public extension ClosedRange where Bound: AdditiveArithmetic {
     var pingPong: Operate = (+)
     var contiguouslyAdvance: Operate = (-)
 
-    return .init(
+    return AnySequence(
       sequence(first: start) { previous in
         pingPongIterate: do {
           defer { advancement += contiguousAdvancement }
@@ -90,19 +89,19 @@ public extension ClosedRange where Bound: AdditiveArithmetic {
 }
 
 public extension ClosedRange where Bound: AdditiveArithmetic & ExpressibleByIntegerLiteral {
-  func 🏓(startingAt start: Bound) -> AnySequence<Bound> {
+  func 🏓(startingAt start: Bound) -> some Sequence<Bound> {
     🏓(by: 1, startingAt: start)
   }
 }
 
 public extension ClosedRange where Bound: BinaryInteger {
-  func 🏓(by firstAdvancement: Bound = 1) -> AnySequence<Bound> {
+  func 🏓(by firstAdvancement: Bound = 1) -> some Sequence<Bound> {
     🏓(by: firstAdvancement, startingAt: (upperBound + lowerBound) / 2)
   }
 }
 
 public extension ClosedRange where Bound: FloatingPoint {
-  func 🏓(by firstAdvancement: Bound = 1) -> AnySequence<Bound> {
+  func 🏓(by firstAdvancement: Bound = 1) -> some Sequence<Bound> {
     🏓(by: firstAdvancement, startingAt: (upperBound + lowerBound) / 2)
   }
 }
