@@ -35,15 +35,13 @@ public extension Sequence where Element: Equatable {
   }
 
   /// Returns only elements that don’t match the previous element.
-  var removingDuplicates: AnySequence<Element> {
-    guard let first else { return .empty }
-
-    return .init(
-      sequence(first: first) {
-        [iterator = AnyIterator(makeIterator())]
-        previous in iterator.first { previous != $0 }
-      }
-    )
+  var removingDuplicates: some Sequence<Element> {
+    sequence(state: nil) {
+      [iterator = AnyIterator(makeIterator())]
+      previous in
+      previous = iterator.first { $0 != previous }
+      return previous
+    }
   }
 
   /// Whether all elements of the sequence are equal to `element`.
