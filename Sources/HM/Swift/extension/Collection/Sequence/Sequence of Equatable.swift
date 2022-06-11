@@ -36,8 +36,7 @@ public extension Sequence where Element: Equatable {
 
   /// Returns only elements that don’t match the previous element.
   var removingDuplicates: AnySequence<Element> {
-    guard let first = first
-    else { return .empty }
+    guard let first else { return .empty }
 
     return .init(
       sequence(first: first) {

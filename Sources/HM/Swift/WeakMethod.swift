@@ -18,8 +18,7 @@ public extension WeakMethod {
 
   /// - Throws: ReferenceDeallocatedError
   func callAsFunction(_ input: Input) throws -> Output {
-    guard let reference = reference
-    else { throw ReferenceDeallocatedError() }
+    guard let reference else { throw ReferenceDeallocatedError() }
 
     return method(reference)(input)
   }
