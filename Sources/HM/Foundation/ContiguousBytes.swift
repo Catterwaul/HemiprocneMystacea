@@ -5,11 +5,9 @@ public extension ContiguousBytes {
     withUnsafeBytes { $0.load(as: T.self) }
   }
 
-  @available(
-    swift, deprecated: 5.7,
-    message: "`$0.withMemoryRebound(to: Element.self, Array.init)`?"
-  )
   func load<Element>(_: [Element].Type = [Element].self) -> [Element] {
-    withUnsafeBytes { .init($0.bindMemory(to: Element.self)) }
+    withUnsafeBytes {
+      $0.withMemoryRebound(to: Element.self, Array.init)
+    }
   }
 }

@@ -51,7 +51,7 @@ extension CommonOperable {
 }
 
 @available(
-  swift, deprecated: 5.7,
+  swift, deprecated: 5.8,
   message: "Operand.MaskStorage.MaskStorage == Operand.MaskStorage"
 )
 /// A vector type that can operate with other types via intermediate conversion.
