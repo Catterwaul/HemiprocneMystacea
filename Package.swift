@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -88,25 +88,27 @@ extension Product.Library.HM {
 // MARK: -
 
 extension Package {
-  enum Apple: CaseIterable {
-    case algorithms, collections
+  enum Apple: String, CaseIterable {
+    case algorithms
+    case asyncAlgorithms = "async-algorithms"
+    case collections
   }
 }
 
 extension Package.Apple {
   var package: Package.Dependency {
     .package(
-      url: "https://github.com/apple/\(swiftPrefixedName)",
+      url: "https://github.com/apple/" + swiftPrefixedName,
       branch: "main"
     )
   }
 
   var product: Target.Dependency {
     .product(
-      name: "\(self)".split(separator: "-").map(\.capitalized).joined(),
+      name: rawValue.split(separator: "-").map(\.capitalized).joined(),
       package: swiftPrefixedName
     )
   }
 
-  private var swiftPrefixedName: String { "swift-\(self)" }
+  private var swiftPrefixedName: String { "swift-" + rawValue }
 }

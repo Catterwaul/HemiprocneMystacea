@@ -33,8 +33,8 @@ public extension Bool {
     _ makeResult: (_ resultWhenFalse: Result) throws -> Result
   ) rethrows -> Result {
     self
-    ? try makeResult(resultWhenFalse)
-    : resultWhenFalse
+      ? try makeResult(resultWhenFalse)
+      : resultWhenFalse
   }
 }
 

@@ -1,3 +1,4 @@
+import AsyncAlgorithms
 import HM
 import XCTest
 
@@ -6,7 +7,7 @@ final class MTLCommandBufferTestCase: XCTestCase {
     let buffer = MTLCreateSystemDefaultDevice()!.makeCommandQueue()!.makeCommandBuffer()!
     await buffer.complete()
 
-    let string: String = await withTaskGroup(of: String.self) { group in
+    let string: String = await withTaskGroup(of: Character.self) { group in
       let buffer = MTLCreateSystemDefaultDevice()!.makeCommandQueue()!.makeCommandBuffer()!
 
       group.addTask {

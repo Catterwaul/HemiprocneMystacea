@@ -1,19 +1,7 @@
 import HM
 import XCTest
 
-final class AsyncSequenceTestCase: XCTestCase {
-  func test_collected() async throws {
-    do {
-      let array = ["🔥"]
-      let collected: Array = try await AnyAsyncSequence(array).collected
-      XCTAssertEqual(collected, array)
-    }
-    
-    let set: Set = ["🔥"]
-    let collected = try await AnyAsyncSequence(set).collected
-    XCTAssertEqual(collected, set)
-  }
-  
+final class AsyncSequenceTestCase: XCTestCase {  
   func test_map() async throws {
     let array = ["🔥"]
 
