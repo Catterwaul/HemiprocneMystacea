@@ -486,8 +486,23 @@ public struct Extremum<Value> {
 
 /// A sequence of `Void`s that terminates when `predicate` returns `false`.
 @inlinable public func `while`(_ predicate: @escaping () -> Bool)
--> UnfoldSequence<Void, Void> {
+-> some Sequence<Void> {
   sequence(state: ()) {
     predicate() ? $0 : nil
   }
+}
+
+/// An infinite sequence of a single value.
+@available(
+  swift, deprecated: 5.8,
+  message: "Doesn't compile without the constant in Swift 5.7."
+)
+@inlinable public func sequence<Element>(_ element: Element) -> some Sequence<Element> {
+  let getSelf: (Element) -> Element = \.self
+  return sequence(first: element, next: getSelf)
+}
+
+/// An infinite sequence producing no values.
+@inlinable public func sequence() -> some Sequence<Void> {
+  sequence(())
 }

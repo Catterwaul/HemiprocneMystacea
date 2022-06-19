@@ -103,7 +103,7 @@ public extension Sequence where Element: Hashable {
       .keys
   }
 
-  /// Matches interleaved subsequences of identical elements with seperate iterations of some other sequence.
+  /// Matches interleaved subsequences of identical elements with separate iterations of some other sequence.
   func withKeyedIterations<Sequence: Swift.Sequence>(of sequence: Sequence)
   -> [(Element, Sequence.Element)] {
     var iterators: [Element: Sequence.Iterator] = [:]
