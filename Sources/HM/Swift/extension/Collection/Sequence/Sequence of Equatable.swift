@@ -86,10 +86,7 @@ public extension Sequence where Element: Hashable {
   }
 
   /// The unique elements of this collection, in the order of their first occurrences.
-  func uniqueElements() -> LazyMapSequence<
-    LazyFilterSequence<OrderedDictionary<Element, Int>>,
-    Element
-  > {
+  func uniqueElements() -> some Sequence<Element> {
     OrderedDictionary(bucketing: self)
       .lazy
       .filter { $0.value == 1 }

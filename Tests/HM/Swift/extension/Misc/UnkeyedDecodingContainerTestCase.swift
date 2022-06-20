@@ -10,9 +10,10 @@ final class UnkeyedDecodingContainerTestCase: XCTestCase {
         enum CodingKey: Swift.CodingKey { case 🧲 }
 
         init(from decoder: Decoder) throws {
-          magnets = try .init(container:
-            decoder.container(keyedBy: CodingKey.self)
-            .nestedUnkeyedContainer(forKey: .🧲)
+          magnets = try .init(
+            container:
+              decoder.container(keyedBy: CodingKey.self)
+              .nestedUnkeyedContainer(forKey: .🧲)
           ) { try $0.decode(🧲.self) }
         }
         

@@ -71,7 +71,7 @@ public extension Sequence {
   subscript(maxArrayCount maxCount: Int) -> some Sequence<[Element]> {
     sequence(state: makeIterator()) { iterator in
       Optional(
-        maxCount.iterations.compactMap { iterator.next() }
+        sequence().prefix(maxCount).compactMap { iterator.next() }
       ).filter { !$0.isEmpty }
     }
   }

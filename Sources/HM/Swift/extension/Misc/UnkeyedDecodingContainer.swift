@@ -3,7 +3,7 @@ public extension Array {
   /// - Parameters:
   ///   - iterate: Mutates `container` and returns an `Element`, or `throw`s.
   init(
-    container: UnkeyedDecodingContainer,
+    container: some UnkeyedDecodingContainer,
     iterate: (inout UnkeyedDecodingContainer) throws -> Element
   ) throws {
     try self.init(
