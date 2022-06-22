@@ -204,6 +204,15 @@ public extension Sequence {
     }
   }
 
+  /// Transform this sequence until encountering a "`nil`".
+  func mapUntilNil<Transformed>(
+    _ transform: @escaping (Element) -> Transformed?
+  ) -> some Sequence<Transformed> {
+    sequence(state: makeIterator()) {
+      $0.next().flatMap(transform)
+    }
+  }
+
   /// - Returns: max() for the elements with comparables
   func max<Comparable: Swift.Comparable>(
     by getComparable: (Element) throws -> Comparable?

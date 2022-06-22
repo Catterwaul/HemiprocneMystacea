@@ -41,6 +41,13 @@ final class SequenceOfEquatableTestCase: XCTestCase {
     )
   }
 
+  func test_map() {
+    XCTAssertEqual(
+      Array(["98", "99", "💯", "101"].mapUntilNil(Int.init)),
+      [98, 99]
+    )
+  }
+
   func test_uniqueElements() {
     XCTAssertEqual(
       "💞❤️‍🔥💝❤️‍🔥🫀💕💔❤️‍🔥💕💝💘".uniqueElements().first,
