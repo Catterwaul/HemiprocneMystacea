@@ -14,23 +14,15 @@ public extension CaseIterable where Self: Equatable {
   }
 }
 
-public extension CaseIterable where Self: Equatable, AllCases: BidirectionalCollection {
+extension IteratorProtocol where Self: CaseIterable & Equatable {
   /// The case after this one, in `Self.allCases`.
-  /// - Parameter cyclic: Whether to wrap back around to the first case.
-  /// - Returns: `nil` for the last case if  `cyclic` is `false`.
-  func nextCase(cyclic: Bool = false) -> Self? {
-    func nextCase<AllCases: Sequence>(_ allCases: AllCases) -> Self?
-    where AllCases.Element == Self {
-      allCases
-        .drop(while:) { $0 != self }
-        .dropFirst()
-        .first
-    }
+  public func next() -> Self? {
+    .allCases(after: self)
+  }
 
-    return
-      cyclic
-        ? nextCase(Self.allCases.cycled())
-        : nextCase(Self.allCases)
+  /// The case after this one, in `Self.allCases.cycled()`.
+  public func next() -> Self {
+    .allCases.cycled()(after: self)!
   }
 }
 

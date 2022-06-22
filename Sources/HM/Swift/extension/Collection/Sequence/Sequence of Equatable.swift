@@ -17,6 +17,13 @@ public extension Sequence where Element: Equatable {
       }
   }
 
+  /// The element that follows.
+  func callAsFunction(after element: Element) -> Element? {
+    var iterator = makeIterator()
+    while iterator.next() != element { }
+    return iterator.next()
+  }
+
   /// Whether this sequence contains all the elements of another, in order.
   func isOrderedSuperset<Elements: Sequence>(of elements: Elements) -> Bool
   where Elements.Element == Element {

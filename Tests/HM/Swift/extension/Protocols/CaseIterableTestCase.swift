@@ -2,7 +2,7 @@ import HM
 import XCTest
 
 private final class CaseIterableTestCase: XCTestCase {
-  enum Alphabet: CaseIterable {
+  enum Alphabet: CaseIterable & IteratorProtocol {
     case a, b, c, d, e, f, g,
          z
   }
@@ -33,7 +33,7 @@ private final class CaseIterableTestCase: XCTestCase {
   }
 
   func test_nextCase() {
-    XCTAssertNil(Alphabet.z.nextCase())
-    XCTAssertEqual(Alphabet.z.nextCase(cyclic: true), .a)
+    XCTAssertNil(Alphabet.z.next())
+    XCTAssertEqual(Alphabet.z.next() as Alphabet, .a)
   }
 }
