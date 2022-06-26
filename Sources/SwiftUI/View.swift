@@ -8,6 +8,12 @@ public extension View {
       content: preferredColorScheme
     )
   }
+
+  /// Execute imperative code.
+  func callAsFunction(_ execute: () -> Void) -> Self {
+    execute()
+    return self
+  }
   
   /// Modify a view with a `ViewBuilder` closure.
   ///
