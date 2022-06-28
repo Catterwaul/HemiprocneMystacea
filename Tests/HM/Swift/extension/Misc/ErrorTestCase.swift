@@ -1,0 +1,32 @@
+import HM
+import XCTest
+
+final class ErrorTestCase: XCTestCase {
+  func test_doCatch() {
+    struct Error: Swift.Error {
+      let property = "😫"
+    }
+
+    do {
+      let result: Result<_, Error> = .success(true)
+
+      guard let success = `do`(
+        result.get,
+        catch: { _ in XCTFail() }
+      ) else { return }
+      
+      XCTAssertTrue(success)
+    }
+
+    do {
+      let result: Result<Void, _> = .failure(Error())
+
+      guard let _ = `do`(
+        result,
+        catch: { XCTAssert($0.property == "😫") }
+      ) else { return }
+
+      XCTFail()
+    }
+  }
+}
