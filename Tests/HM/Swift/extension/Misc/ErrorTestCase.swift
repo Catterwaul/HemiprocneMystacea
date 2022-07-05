@@ -19,6 +19,11 @@ final class ErrorTestCase: XCTestCase {
     }
 
     do {
+      let result: Result<_, Error> = .success(true)
+      XCTAssertTrue(try `do`(result.get) { _ in  })
+    }
+
+    do {
       let result: Result<Void, _> = .failure(Error())
 
       guard let _ = `do`(

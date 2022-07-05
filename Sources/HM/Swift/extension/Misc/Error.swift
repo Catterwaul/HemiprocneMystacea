@@ -13,6 +13,18 @@ public func `do`<Success>(
   }
 }
 
+public func `do`<Success>(
+  _ success: () throws -> Success,
+  catch: (any Error) -> Void
+) throws -> Success {
+  do {
+    return try success()
+  } catch {
+    `catch`(error)
+    throw error
+  }
+}
+
 public func `do`<Success, Failure>(
   _ result: Result<Success, Failure>,
   catch: (Failure) -> Void
