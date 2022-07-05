@@ -5,14 +5,20 @@ import XCTest
 final class FileManagerTestCase: XCTestCase {
   func test_userDocumentsDirectory() throws {
     XCTAssertEqual(
-      FileManager.userDocumentsDirectory.lastPathComponent,
+      URL.documentsDirectory.lastPathComponent,
       "Documents"
     )
   }
 
   func test_removeExistingFile() throws {
-    let url = FileManager.userDocumentsDirectory
-      .appendingPathComponent("😺", isDirectory: true)
+    let url: URL
+    let documentsDirectory = URL.documentsDirectory
+    if #available(iOS 16, *) {
+      url = documentsDirectory.appending(path: "😺")
+    } else {
+      url = documentsDirectory
+        .appendingPathComponent("😺", isDirectory: true)
+    }
 
     var fileExists: Bool {
       FileManager.default.fileExists(atPath: url.path)
