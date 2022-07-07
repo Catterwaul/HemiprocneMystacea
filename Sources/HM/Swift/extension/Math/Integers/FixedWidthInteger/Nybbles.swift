@@ -10,14 +10,11 @@ public struct Nybbles<Integer: FixedWidthInteger & _ExpressibleByBuiltinIntegerL
   public var integer: Integer
 }
 
-// MARK: - MutableCollection, RandomAccessCollection
-extension Nybbles: MutableCollection, RandomAccessCollection {
-  public typealias Index = Int
-
-  public var startIndex: Index { 0 }
+// MARK: - Collection
+extension Nybbles {
   public var endIndex: Index { Integer.bitWidth / 4 }
 
-  public subscript(index: Index) -> Integer {
+  public subscript(index: Int) -> Integer {
     get { integer >> (index * 4) & 0xF }
     set {
       let index = index * 4
@@ -27,16 +24,8 @@ extension Nybbles: MutableCollection, RandomAccessCollection {
   }
 }
 
-// MARK: - RangeReplaceableCollection
-extension Nybbles: RangeReplaceableCollection { }
-
-// MARK: BackedByInteger
+// MARK: - BackedByInteger
 extension Nybbles: BackedByInteger {
-  // Automatic synthesis compiles but results in an infinite loop as of March 2022.
-  public static func == (lhs: Self, rhs: Self) -> Bool {
-    lhs.integer == rhs.integer
-  }
-
   public init(_ integer: Integer) {
     self.integer = integer
   }

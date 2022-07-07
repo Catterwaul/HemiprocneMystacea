@@ -10,14 +10,11 @@ public struct Bits<Integer: FixedWidthInteger & _ExpressibleByBuiltinIntegerLite
   public var integer: Integer
 }
 
-// MARK: - MutableCollection, RandomAccessCollection
-extension Bits: MutableCollection, RandomAccessCollection {
-  public typealias Index = Int
-
-  public var startIndex: Index { 0 }
+// MARK: - Collection
+extension Bits: BackedByInteger {
   public var endIndex: Index { Integer.bitWidth }
 
-  public subscript(index: Index) -> Integer {
+  public subscript(index: Int) -> Integer {
     get { integer >> index & 1 }
     set {
       integer &= ~(1 << index)
@@ -26,16 +23,8 @@ extension Bits: MutableCollection, RandomAccessCollection {
   }
 }
 
-// MARK: - RangeReplaceableCollection
-extension Bits: RangeReplaceableCollection { }
-
-// MARK: BackedByInteger
-extension Bits: BackedByInteger {
-  // Automatic synthesis compiles but results in an infinite loop as of May 2022.
-  public static func == (lhs: Self, rhs: Self) -> Bool {
-    lhs.integer == rhs.integer
-  }
-
+// MARK: - BackedByInteger
+extension Bits {
   public init(_ integer: Integer) {
     self.integer = integer
   }
