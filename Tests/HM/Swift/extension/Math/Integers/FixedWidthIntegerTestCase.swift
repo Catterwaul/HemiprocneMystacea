@@ -57,11 +57,6 @@ final class FixedWidthIntegerTestCase: XCTestCase {
     XCTAssertEqual(integer, 0xBAC)
 
     XCTAssertEqual(0x12345.nybbles.sum, 15)
-
-    XCTAssertEqual(
-      Set([Nybbles(4 as UInt16)]),
-      [4]
-    )
   }
 
   func test_Bits() {
