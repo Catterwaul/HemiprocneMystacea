@@ -187,4 +187,10 @@ final class DictionaryTestCase: XCTestCase {
       ]
     )
   }
+
+  func test_merge() {
+    var dictionary = ["👁": "👀"]
+    dictionary.merge(["🍩"].keyed { $0 }, uniquingKeysWith: PickValue.keep)
+    XCTAssertEqual(dictionary, ["👁": "👀", "🍩": "🍩"])
+  }
 }

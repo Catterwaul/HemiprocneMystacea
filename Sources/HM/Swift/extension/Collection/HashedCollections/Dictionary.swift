@@ -154,23 +154,3 @@ public extension Dictionary where Value: Sequence {
     flatMap { key, value in value.map { (key, $0) } }
   }
 }
-
-// MARK: -
-
-/// Return an unmodified value when uniquing `Dictionary` keys.
-public enum PickValue<Value> { }
-
-public extension PickValue {
-  typealias Original = Value
-  typealias Overwriting = Value
-
-  /// Keep the original value.
-  static var keep: (Original, Overwriting) -> Value {
-    { old, _ in old }
-  }
-
-  /// Overwrite the original value.
-  static var overwrite: (Original, Overwriting) -> Value {
-    { $1 }
-  }
-}

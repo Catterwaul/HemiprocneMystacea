@@ -190,10 +190,11 @@ public extension Sequence {
     : zip(self, sequence).lazy.flatMap { [$0, $1] }
   }
 
+  /// Transform this sequence into key-value pairs.
   @inlinable func keyed<Key: Hashable>(
     by key: (Element) throws -> Key
-  ) rethrows -> [KeyValuePairs<Key, Element>.Element] {
-    try map { (try key($0), $0) }
+  ) rethrows -> some Sequence<KeyValuePairs<Key, Element>.Element> {
+    try lazy.map { (try key($0), $0) }
   }
 
   func max<Comparable: Swift.Comparable>(

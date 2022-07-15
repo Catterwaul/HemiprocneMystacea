@@ -9,6 +9,12 @@ public func firstNonNil<Element>(_ tuple: (Element?, Element?)) -> Element? {
   }
 }
 
+/// Remove the labels from a tuple.
+/// - Parameter tuple: A tuple that may have at least one label.
+@inlinable public func removeLabels<_0, _1>(_ tuple: (_0, _1)) -> (_0, _1) {
+  tuple
+}
+
 // MARK: -
 
 /// A workaround for not being able to extend tuples.
