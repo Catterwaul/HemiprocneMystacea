@@ -18,7 +18,7 @@ public extension Sequence where Element: Equatable {
   }
 
   /// The element that follows.
-  func callAsFunction(after element: Element) -> Element? {
+  subscript(after element: Element) -> Element? {
     var iterator = makeIterator()
     while iterator.next() != element { }
     return iterator.next()

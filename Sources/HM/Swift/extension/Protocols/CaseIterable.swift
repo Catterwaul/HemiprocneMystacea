@@ -17,12 +17,12 @@ public extension CaseIterable where Self: Equatable {
 extension IteratorProtocol where Self: CaseIterable & Equatable {
   /// The case after this one, in `Self.allCases`.
   public func next() -> Self? {
-    .allCases(after: self)
+    .allCases[after: self]
   }
 
   /// The case after this one, in `Self.allCases.cycled()`.
   public func next() -> Self {
-    .allCases.cycled()(after: self)!
+    .allCases.cycled()[after: self]!
   }
 }
 
