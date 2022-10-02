@@ -2,6 +2,12 @@ import HM
 import XCTest
 
 final class ChainTestCase: XCTestCase {
+  func test_chain() {
+    XCTAssert(
+      chain("🔗" as Character, "⛓️").elementsEqual("🔗⛓️")
+    )
+  }
+
   func test_chainWithoutOverlap() {
     XCTAssertEqual(
       Array(

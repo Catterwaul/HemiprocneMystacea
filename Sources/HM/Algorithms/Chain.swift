@@ -1,5 +1,13 @@
 import Algorithms
 
+/// Prepend an element before a sequence.
+@inlinable public func chain<Element>(
+  _ element: Element,
+  _ sequence: some Sequence<Element>
+) -> some Sequence<Element> {
+  chain(CollectionOfOne(element), sequence)
+}
+
 @inlinable public func chainWithoutOverlap<Element: Equatable>(
   _ sequence1: some Sequence<Element>, _ sequence2: some Sequence<Element>
 ) -> some Sequence<Element> {
