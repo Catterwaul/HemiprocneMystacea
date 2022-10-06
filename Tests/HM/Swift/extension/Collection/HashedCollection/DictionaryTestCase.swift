@@ -16,35 +16,6 @@ final class DictionaryTestCase: XCTestCase {
       overwriting
     )
   }
-
-// MARK: - Operators
-  func test_minus() {
-    let dictionary = [
-      1: 10,
-      2: 20,
-      3: 30
-    ]
-    XCTAssertEqual(
-      dictionary - [1, 3],
-      [2: 20]
-    )
-  }
-
-  func test_minusEquals() {
-    var dictionary = [
-      1: 10,
-      2: 20,
-      3: 30
-    ]
-    dictionary -= [
-      2: "🏩",
-      1: "🤘🏽"
-    ].keys
-    XCTAssertEqual(
-      dictionary,
-      [3: 30]
-    )
-  }
   
   // MARK: - Initializers
   
