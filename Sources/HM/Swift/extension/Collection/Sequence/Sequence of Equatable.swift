@@ -7,8 +7,7 @@ public extension Sequence where Element: Equatable {
   }
 
   /// - Note: `false` if `elements` is empty.
-  func contains<Elements: Sequence>(inOrder elements: Elements) -> Bool
-  where Elements.Element == Element {
+  func contains(inOrder elements: some Sequence<Element>) -> Bool {
     elements.isEmpty
       ? false
       : withDropIterators.contains {
@@ -25,8 +24,7 @@ public extension Sequence where Element: Equatable {
   }
 
   /// Whether this sequence contains all the elements of another, in order.
-  func isOrderedSuperset<Elements: Sequence>(of elements: Elements) -> Bool
-  where Elements.Element == Element {
+  func isOrderedSuperset(of elements: some Sequence<Element>) -> Bool {
     elements.allSatisfy(AnyIterator(makeIterator()).contains)
   }
 
@@ -57,8 +55,7 @@ public extension Sequence where Element: Equatable {
   }
 
   /// The ranges of in-order elements.
-  func ranges<Elements: Sequence>(for elements: Elements) -> [ClosedRange<Int>]
-  where Elements.Element == Element {
+  func ranges(for elements: some Sequence<Element>) -> [ClosedRange<Int>] {
     let (enumerated, getPrevious) = AnySequence.makeIterator(self.enumerated())
     return elements.compactMap { element in
       enumerated.first { $0.element == element }

@@ -2,8 +2,7 @@ public extension ClosedRange {
   /// A range whose bounds are the extremes of a given sequence.
   ///
   /// - Returns: `nil` if the sequence is empty.
-  init?<Bounds: Sequence>(encompassing bounds: Bounds)
-  where Bounds.Element == Bound {
+  init?(encompassing bounds: some Sequence<Bound>) {
     guard let initialRange = (bounds.first.map { $0...$0 } )
     else { return nil }
 
@@ -17,7 +16,7 @@ public extension ClosedRange {
   }
 }
 
-public extension ClosedRange where Bound: Strideable , Bound.Stride: SignedInteger {
+public extension ClosedRange where Bound: Strideable, Bound.Stride: SignedInteger {
   init(_ slice: SubSequence) {
     self = slice.first!...slice.last!
   }
@@ -57,7 +56,9 @@ public extension ClosedRange where Bound: AdditiveArithmetic {
     by contiguousAdvancement: Bound,
     startingAt start: Bound
   ) -> some Sequence<Bound> {
-    guard contains(start) else { return AnySequence<Bound>.empty }
+    guard contains(start) else {
+      return AnySequence(AnySequence<Bound>.empty)
+    }
 
     var advancement = contiguousAdvancement
 

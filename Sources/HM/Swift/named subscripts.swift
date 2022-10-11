@@ -72,8 +72,7 @@ public extension NamedGetOnlySubscript {
   
   subscript(index: Index) -> Value { getValue(index) }
   
-  subscript<Indices: Sequence>(indices: Indices) -> [Value]
-  where Indices.Element == Index {
+  subscript(indices: some Sequence<Index>) -> [Value] {
     indices.map { self[$0] }
   }
   

@@ -1,6 +1,6 @@
 import simd
 
-public extension SIMD3 where Scalar == Double {
+public extension SIMD3<Double> {
   /// A random color.
   /// - Parameters:
   ///   - saturation: Normalized. 0...1

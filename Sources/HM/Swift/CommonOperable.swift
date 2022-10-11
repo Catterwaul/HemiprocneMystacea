@@ -1,5 +1,5 @@
 /// A type that can operate with other types via intermediate conversion.
-public protocol CommonOperable {
+public protocol CommonOperable<Operand> {
   /// The type to be converted to, for interoperability.
   associatedtype Operand
 
@@ -8,8 +8,7 @@ public protocol CommonOperable {
 }
 
 public extension CommonOperable {
-  init<Operable: CommonOperable>(_ operable: Operable)
-  where Operand == Operable.Operand {
+  init(_ operable: some CommonOperable<Operand>) {
     self.init(operable.convertedToOperand)
   }
 }
@@ -17,13 +16,12 @@ public extension CommonOperable {
 // MARK: internal
 extension CommonOperable {
   /// Forwards  operators to converted operands.
-  static func operate<Operable1: CommonOperable, Result: CommonOperable>(
+  static func operate<Result: CommonOperable<Operand>>(
     _ operable0: Self,
     _ operate: (Operand, Operand) -> Operand,
-    _ operable1: Operable1
-  ) -> Result
-  where Operand == Operable1.Operand, Operand == Result.Operand {
-    Result(
+    _ operable1: some CommonOperable<Operand>
+  ) -> Result {
+    .init(
       operate(
         operable0.convertedToOperand,
         operable1.convertedToOperand
@@ -41,12 +39,11 @@ extension CommonOperable {
 
   /// Forwards  `Operand` methods to converted operands.
   /// - Returns: A converted result.
-  func performMethod<Parameters, Result: CommonOperable>(
+  func performMethod<Parameters, Result: CommonOperable<Operand>>(
     _ method: (Operand) -> (Parameters) -> Operand,
     _ parameters: Parameters
-  ) -> Result
-  where Operand == Result.Operand {
-    Result(performMethod(method, parameters))
+  ) -> Result {
+    .init(performMethod(method, parameters))
   }
 }
 
@@ -55,7 +52,7 @@ extension CommonOperable {
   message: "Operand.MaskStorage.MaskStorage == Operand.MaskStorage"
 )
 /// A vector type that can operate with other types via intermediate conversion.
-public protocol CommonVectorOperable: CommonOperable
+public protocol CommonVectorOperable<Operand>: CommonOperable
 where
   Operand: SIMD,
   Operand.MaskStorage.MaskStorage == Operand.MaskStorage

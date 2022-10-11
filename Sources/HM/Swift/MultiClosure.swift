@@ -7,8 +7,7 @@ public final class MultiClosure<Input>: Equatable {
     self += closures
   }
 
-  public init<Closures: Sequence>(_ closures: Closures)
-  where Closures.Element == EquatableClosure<Input> {
+  public init(_ closures: some Sequence<EquatableClosure<Input>>) {
     self += closures
   }
 
@@ -86,14 +85,10 @@ public func += <Input>(
 
 /// Add `closures` to the set of closures that runs
 /// when `multiClosure` does
-public func += <
-  Input,
-  Closures: Sequence
->(
+public func += <Input>(
   multiClosure: MultiClosure<Input>,
-  closures: Closures
-)
-where Closures.Element == EquatableClosure<Input> {
+  closures: some Sequence<EquatableClosure<Input>>
+) {
   for closure in closures {
     multiClosure += closure
   }

@@ -1,7 +1,6 @@
 /// A type that can be initialized with a `Sequence` of its `Element`s.
 public protocol InitializableWithElementSequence: Sequence {
-  init<Sequence: Swift.Sequence>(_: Sequence)
-  where Sequence.Element == Element
+  init(_: some Sequence<Element>)
 }
 
 extension Array: InitializableWithElementSequence { }

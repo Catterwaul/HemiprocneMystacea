@@ -6,36 +6,33 @@ public extension Sequence {
 
   /// Equates two `Sequence`s of 2-tuples.
   static func == <
-    Equatable0: Equatable, Equatable1: Equatable,
-    Tuples1: Sequence
-  >(tuples0: Self, tuples1: Tuples1) -> Bool
-  where Element == (Equatable0, Equatable1), Tuples1.Element == Element {
+    Equatable0: Equatable, Equatable1: Equatable
+  >(tuples0: Self, tuples1: some Sequence<Element>) -> Bool
+  where Element == (Equatable0, Equatable1) {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
   /// Equates two `Sequence`s of 3-tuples.
   static func == <
-    Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable,
-    Tuples1: Sequence
-  >(tuples0: Self, tuples1: Tuples1) -> Bool
-  where Element == (Equatable0, Equatable1, Equatable2), Tuples1.Element == Element {
+    Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable
+  >(tuples0: Self, tuples1: some Sequence<Element>) -> Bool
+  where Element == (Equatable0, Equatable1, Equatable2) {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
   /// Equates two `Sequence`s of 4-tuples.
   static func == <
-    Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable, Equatable3: Equatable,
-    Tuples1: Sequence
-  >(tuples0: Self, tuples1: Tuples1) -> Bool
-  where Element == (Equatable0, Equatable1, Equatable2, Equatable3), Tuples1.Element == Element {
+    Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable, Equatable3: Equatable
+  >(tuples0: Self, tuples1: some Sequence<Element>) -> Bool
+  where Element == (Equatable0, Equatable1, Equatable2, Equatable3) {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
 // MARK:- Properties
 
   /// An empty sequence, whose `Element` "would" match this type's.
-  static var empty: AnySequence<Element> {
-    .init(EmptyCollection.Iterator.init)
+  static var empty: some Sequence<Element> {
+    IteratorSequence(EmptyCollection.Iterator())
   }
 
   /// - Complexity: O(n)
@@ -172,11 +169,10 @@ public extension Sequence {
   /// - Parameter keepSuffix:
   /// When `true`, and the sequences have different lengths,
   /// the suffix of `interleaved`  will be the suffix of the longer sequence.
-  func interleaved<Sequence: Swift.Sequence>(
-    with sequence: Sequence,
+  func interleaved(
+    with sequence: some Sequence<Element>,
     keepingLongerSuffix keepSuffix: Bool = false
-  ) -> any Swift.Sequence<Element>
-  where Sequence.Element == Element {
+  ) -> any Swift.Sequence<Element> {
     keepSuffix
     ? AnyIterator(
         state: (

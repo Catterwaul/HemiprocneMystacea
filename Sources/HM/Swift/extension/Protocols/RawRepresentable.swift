@@ -21,8 +21,7 @@ public enum ConcreteRawRepresentable<RawRepresentable: Swift.RawRepresentable>  
 
 public extension InitializableWithElementSequence where Element: RawRepresentable {
   /// - Throws: `RawRepresentableExtensions<Element>.Error.invalidRawValue`
-  init<RawValues: Sequence>(rawValues: RawValues) throws
-  where RawValues.Element == Element.RawValue {
+  init(rawValues: some Sequence<Element.RawValue>) throws {
     self.init(
       try rawValues.map(Element.init)
     )

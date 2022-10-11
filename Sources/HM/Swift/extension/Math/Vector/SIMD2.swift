@@ -7,13 +7,12 @@ public extension SIMD2 {
     self.init(scalars.0, scalars.1)
   }
 
-  init<Float2: CommonVectorOperable>(_ float2: Float2)
-  where Float2.Operand == Self {
+  init(_ float2: some CommonVectorOperable<Self>) {
     self = float2.convertedToOperand
   }
 }
 
-public extension SIMD2 where Scalar == CGFloat.NativeType {
+public extension SIMD2<CGFloat.NativeType> {
 // MARK: - Initializers
   init(_ x: CGFloat, _ y: CGFloat) {
     self.init(x.native, y.native)
@@ -42,7 +41,7 @@ public extension SIMD2 where Scalar == CGFloat.NativeType {
   }
 }
 
-public extension Collection where Element == SIMD2<Double> {
+public extension Collection<SIMD2<Double>> {
   var definiteIntegral: Double? {
     guard !isEmpty
     else { return nil }
@@ -59,7 +58,7 @@ public extension Collection where Element == SIMD2<Double> {
   }
 }
 
-public extension Collection where Element == (Double, Double) {
+public extension Collection<(Double, Double)> {
   var definiteIntegral: Double? {
     map(SIMD2.init(_:)).definiteIntegral
   }

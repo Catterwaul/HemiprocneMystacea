@@ -71,7 +71,7 @@ public prefix func !(
   { !getBool() }
 }
 
-public extension Sequence where Element == () -> Bool {
+public extension Sequence<() -> Bool> {
   ///- Returns: whether all elements of the sequence evaluate to `bool`
   func containsOnly(_ bool: Bool) -> Bool {
     allSatisfy { getBool in bool == getBool() }

@@ -32,8 +32,7 @@ public extension Array {
 // MARK: - Equatable
 public extension Array where Element: Equatable {
   ///- Returns: `nil` if not prefixed with `prefix`.
-  func without<Prefix: Sequence>(prefix: Prefix) -> Self?
-  where Element == Prefix.Element {
+  func without(prefix: some Sequence<Element>) -> Self? {
     without(adfix: prefix, hasAdfix: starts, drop: dropFirst)
       .map(Self.init)
   }

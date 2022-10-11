@@ -1,7 +1,6 @@
 public extension SetAlgebra {
   /// - Throws: if `elements` contains any duplicates.
-  init<Elements: Sequence>(unique elements: Elements) throws
-  where Elements.Element == Element {
+  init(unique elements: some Sequence<Element>) throws {
     self = try elements.reduce(into: .init()) {
       guard $0.insert($1).inserted
       else { throw Error() }

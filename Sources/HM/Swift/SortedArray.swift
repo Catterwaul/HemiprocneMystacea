@@ -9,20 +9,18 @@ public struct SortedArray<Element: Equatable> {
 
 // MARK: public
 public extension SortedArray {
-  static func == <Elements: Sequence>(
+  static func == (
     backedByArray: SortedArray,
-    elements: Elements
-  ) -> Bool
-  where Elements.Element == Element {
-    backedByArray.backingArray == Array(elements)
+    elements: some Sequence<Element>
+  ) -> Bool {
+    backedByArray.backingArray == .init(elements)
   }
 
-  static func + <Elements: Sequence>(
+  static func + (
     sortedArray: SortedArray,
-    elements: Elements
-  ) -> SortedArray
-  where Elements.Element == Element {
-    SortedArray(
+    elements: some Sequence<Element>
+  ) -> SortedArray {
+    .init(
       sortedArray.backingArray + elements,
       getAreInIncreasingOrder: sortedArray.getAreInIncreasingOrder
     )
@@ -52,19 +50,17 @@ public extension SortedArray {
     backedByArray = backedByArray - element
   }
 
-  init<Elements: Sequence>(
-    _ elements: Elements,
+  init(
+    _ elements: some Sequence<Element>,
     getAreInIncreasingOrder: @escaping GetAreInIncreasingOrder
-  )
-  where Elements.Element == Element {
+  ) {
     backingArray = elements.sorted(by: getAreInIncreasingOrder)
     self.getAreInIncreasingOrder = getAreInIncreasingOrder
   }
 }
 
 public extension SortedArray where Element: Comparable {
-  init<Elements: Sequence>(_ elements: Elements)
-  where Elements.Element == Element {
+  init(_ elements: some Sequence<Element>) {
     self.init(
       elements,
       getAreInIncreasingOrder: <

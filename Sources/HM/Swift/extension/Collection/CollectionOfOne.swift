@@ -1,4 +1,4 @@
-public extension CollectionOfOne where Element == Never? {
+public extension CollectionOfOne<Never?> {
   /// A collection whose element is irrelevant.
   init() {
     self.init(nil)

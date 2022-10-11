@@ -18,10 +18,9 @@ public func - (string0: String, string1: String) -> String {
 }
 
 /// `string`, with all occurrences of each of the `strings` removed
-public func - <Strings: Sequence>(
+public func - (
   string: String,
-  strings: Strings
-) -> String
-where Strings.Element == String {
+  strings: some Sequence<String>
+) -> String {
   strings.reduce(string, -)
 }

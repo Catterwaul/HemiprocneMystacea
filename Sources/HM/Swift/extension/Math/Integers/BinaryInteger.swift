@@ -16,8 +16,7 @@ public extension BinaryInteger {
   /// Store a pattern of `1`s and `0`s.
   /// - Parameter bitPattern: `true` becomes `1`; `false` becomes `0`.
   /// - Returns: nil if bitPattern has no elements.
-  init?<BitPattern: Sequence>(bitPattern: BitPattern)
-  where BitPattern.Element == Bool {
+  init?(bitPattern: some Sequence<Bool>) {
     guard let integer: Self = (
       bitPattern.reduce( { $0 ? 1 : 0 } ) { $0 << 1 | $1 }
     ) else { return nil }

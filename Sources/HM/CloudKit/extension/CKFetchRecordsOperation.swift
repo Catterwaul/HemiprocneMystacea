@@ -13,11 +13,10 @@ public extension CKFetchRecordsOperation {
 
   /// - Parameters:
   ///   - process: records
-  convenience init<References: Sequence>(
-    references: References,
+  convenience init(
+    references: some Sequence<CKRecord.Reference>,
     process: @escaping (Result<[CKRecord], Error>) -> Void
-  )
-  where References.Element == CKRecord.Reference {
+  ) {
     let ids = references.map(\.recordID)
     self.init(recordIDs: ids) { result in
       process(

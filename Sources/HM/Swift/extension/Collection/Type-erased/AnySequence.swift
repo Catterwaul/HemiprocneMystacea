@@ -13,9 +13,8 @@ public extension AnySequence {
   }
 
   /// Backtrack to the previous `next`, before resuming iteration.
-  static func makeIterator<Sequence: Swift.Sequence>(_ sequence: Sequence)
-  -> (Self, getPrevious: () -> Element?)
-  where Sequence.Element == Element {
+  static func makeIterator(_ sequence: some Sequence<Element>)
+  -> (Self, getPrevious: () -> Element?) {
     var previous: Element?
     
     let iterator = AnyIterator(sequence) {

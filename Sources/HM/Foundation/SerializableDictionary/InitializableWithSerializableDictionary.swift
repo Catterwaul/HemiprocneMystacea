@@ -113,8 +113,7 @@ public extension Array where Element: InitializableWithSerializableDictionary {
     try self.init(dictionaries: dictionaries)
   }
 	
-	private init<Dictionaries: Sequence>(dictionaries: Dictionaries) throws
-	where Dictionaries.Element == [String: Any] {
+	private init(dictionaries: some Sequence<[String: Any]>) throws {
 		self = try
 			dictionaries
 			.enumerated()
