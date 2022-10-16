@@ -3,9 +3,9 @@ import Foundation
 public extension UserDefaults {
   /// A value that is stored in, and accessed from, `UserDefault`s.
   @propertyWrapper struct Value<WrappedValue: UserDefaults_Value_WrappedValue> {
-    public init<Key: CustomStringConvertible>(
+    public init(
       wrappedValue: WrappedValue?,
-      key: Key,
+      key: some CustomStringConvertible,
       defaults: UserDefaults = .standard
     ) {
       self.key = key.description

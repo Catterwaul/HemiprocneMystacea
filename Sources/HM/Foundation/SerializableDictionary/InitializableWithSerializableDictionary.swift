@@ -45,7 +45,7 @@ public extension InitializableWithSerializableDictionary {
 		key: String? = nil
 	) throws {
 		guard let dictionary: [String: Any] = {
-			if let key = key {
+			if let key {
 				return
 					(dictionary as? [String: Any])?[key]
 					as? [String: Any]

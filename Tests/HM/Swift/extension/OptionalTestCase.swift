@@ -9,8 +9,6 @@ final class OptionalTestCase: XCTestCase {
     optional =? some
     XCTAssertEqual(optional, some)
 
-    some =? nil
-    XCTAssertNotNil(some)
     optional = "🎸"
     some =? optional
     XCTAssertEqual(optional, some)

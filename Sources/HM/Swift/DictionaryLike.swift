@@ -1,5 +1,5 @@
 /// Acts as a dictionary that `throw`s instead of returning optionals.
-public protocol DictionaryLike {
+public protocol DictionaryLike<Key, Value> {
 	associatedtype Key
   associatedtype Value
 
@@ -14,8 +14,7 @@ public extension DictionaryLike {
 
   /// Allows lookup by enumeration cases backed by `Key`s,
   /// instead of having to manually use their raw values.
-  subscript<Key: RawRepresentable, Value>(key: Key) -> Value
-  where Key.RawValue == Self.Key {
+  subscript<Value>(key: some RawRepresentable<Key>) -> Value {
     get throws { try self[key.rawValue] }
   }
 }

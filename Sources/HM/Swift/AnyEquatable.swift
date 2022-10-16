@@ -3,7 +3,7 @@
 /// An `Equatable` instance is stored as a "`Cast`".
 /// Only instances that can be cast to that type can be `==`'d with the `AnyEquatable`.
 public struct AnyEquatable<Cast> {
-  public init<Equatable: Swift.Equatable>(_ equatable: Equatable) throws {
+  public init(_ equatable: some Equatable) throws {
     equals = try equatable.getEquals()
     cast = equatable as! Cast
   }

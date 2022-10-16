@@ -135,8 +135,8 @@ public extension Sequence {
 
   /// The elements of the sequence, with "duplicates" removed,
   /// based on a closure.
-  @inlinable func uniqued<Equatable: Swift.Equatable>(
-    on getEquatable: (Element) throws -> Equatable
+  @inlinable func uniqued(
+    on getEquatable: (Element) throws -> some Equatable
   ) rethrows -> [Element] {
     try reduce(into: []) { uniqueElements, element in
       if zip(
@@ -193,8 +193,8 @@ public extension Sequence {
     try lazy.map { (try key($0), $0) }
   }
 
-  func max<Comparable: Swift.Comparable>(
-    by getComparable: (Element) throws -> Comparable
+  func max(
+    by getComparable: (Element) throws -> some Comparable
   ) rethrows -> Element? {
     try self.max {
       try getComparable($0) < getComparable($1)
@@ -211,14 +211,14 @@ public extension Sequence {
   }
 
   /// - Returns: max() for the elements with comparables
-  func max<Comparable: Swift.Comparable>(
-    by getComparable: (Element) throws -> Comparable?
+  func max(
+    by getComparable: (Element) throws -> (some Comparable)?
   ) rethrows -> Element? {
     try getElement(getComparable) { $0.max { $0.0 }? .1 }
   }
   
-  func min<Comparable: Swift.Comparable>(
-    by getComparable: (Element) throws -> Comparable
+  func min(
+    by getComparable: (Element) throws -> some Comparable
   ) rethrows -> Element? {
     try self.min {
       try getComparable($0) < getComparable($1)
@@ -226,8 +226,8 @@ public extension Sequence {
   }
 
   /// - Returns: min() for the elements with comparables
-  func min<Comparable: Swift.Comparable>(
-    by getComparable: (Element) throws -> Comparable?
+  func min(
+    by getComparable: (Element) throws -> (some Comparable)?
   ) rethrows -> Element? {
     try getElement(getComparable) { $0.min { $0.0 }?.1 }
   }
@@ -349,8 +349,8 @@ public extension Sequence {
   }
 
   /// - throws: `Extremum<Element>.UniqueError`
-  func uniqueMin<Comparable: Swift.Comparable>(
-    comparing comparable: (Element) throws -> Comparable
+  func uniqueMin(
+    comparing comparable: (Element) throws -> some Comparable
   ) throws -> Extremum<Element> {
     typealias Error = Extremum<Element>.UniqueError
 
@@ -366,8 +366,8 @@ public extension Sequence {
   // MARK: -
 
   /// Whether the elements of this sequence are sorted by a common `Comparable` value.
-  @inlinable func isSorted<Comparable: Swift.Comparable>(
-    by comparable: (Element) throws -> Comparable
+  @inlinable func isSorted(
+    by comparable: (Element) throws -> some Comparable
   ) rethrows -> Bool {
     try isSorted(by: comparable, <)
   }
@@ -384,8 +384,8 @@ public extension Sequence {
   }
 
   /// Sorted by a common `Comparable` value.
-  func sorted<Comparable: Swift.Comparable>(
-    by comparable: (Element) throws -> Comparable
+  func sorted(
+    by comparable: (Element) throws -> some Comparable
   ) rethrows -> [Element] {
     try sorted(by: comparable, <)
   }
@@ -440,7 +440,7 @@ public extension Sequence {
 // MARK: - Element: Sequence
 public extension Sequence where Element: Sequence {
   var combinations: [[Element.Element]] {
-    guard let initialResult = ( first?.map { [$0] } )
+    guard let initialResult = (first?.map { [$0] })
     else { return [] }
 
     return dropFirst().reduce(initialResult) { combinations, iteration in

@@ -37,7 +37,7 @@ public extension ViewControllerWithDependentOutlets  {
   ///	2. Sets `respondToViewDidLoad` to `nil`.
   /// * Sets `respondToOutletDependencies` to `inject(outletDependencies:)`
   func ViewControllerWithDependentOutlets_viewDidLoad() {
-    if let respondToViewDidLoad = respondToViewDidLoad {
+    if let respondToViewDidLoad {
       respondToViewDidLoad()
       self.respondToViewDidLoad = nil
     }

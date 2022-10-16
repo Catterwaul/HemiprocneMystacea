@@ -3,8 +3,7 @@ import UIKit
 
 public extension UILabel {
   final func hyphenateText() {
-    guard let text = text
-    else { return }
+    guard let text else { return }
     
     attributedText = NSMutableAttributedString(
       string: text,

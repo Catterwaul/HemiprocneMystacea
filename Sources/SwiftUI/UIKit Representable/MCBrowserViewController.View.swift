@@ -45,7 +45,7 @@ extension MCBrowserViewController.View: UIViewControllerRepresentable {
 
     browser.delegate = self
 
-    if let peerCountRange = peerCountRange {
+    if let peerCountRange {
       browser.minimumNumberOfPeers = peerCountRange.lowerBound
       browser.maximumNumberOfPeers = peerCountRange.upperBound
     }

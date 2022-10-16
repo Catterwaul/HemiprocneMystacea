@@ -11,7 +11,7 @@ where Self: RawRepresentable, RawValue: LosslessStringConvertible  {
 }
 
 public extension Dictionary where Key == String {
-  init<Key: LosslessStringConvertible>(_ dictionary: [Key: Value]) {
+  init(_ dictionary: [some LosslessStringConvertible: Value]) {
     self = dictionary.mapKeys(\.description)
   }
 }

@@ -7,15 +7,17 @@ public extension Optional {
     case typeMismatch
   }
 
+  /// Assign only non-nil values.
   static func =? (optional0: inout Self, optional1: Self) {
-    if let some = optional1 {
-      optional0 = some
+    if let optional1 {
+      optional0 = optional1
     }
   }
 
+  /// Assign only non-nil values.
   static func =? (wrapped: inout Wrapped, optional: Self) {
-    if let some = optional {
-      wrapped = some
+    if let optional {
+      wrapped = optional
     }
   }
 

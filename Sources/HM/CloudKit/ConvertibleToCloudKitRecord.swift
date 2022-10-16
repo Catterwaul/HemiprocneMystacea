@@ -41,16 +41,12 @@ public extension ConvertibleToCloudKitRecord {
 // MARK: -
 public extension CKRecord {
 	/// - Important: Type name of ConvertibleToCloudKitRecord is the name of its CKRecord
-	convenience init<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(
-		_ convertibleToCloudKitRecord: ConvertibleToCloudKitRecord
-	) {
-		self.init(recordType: "\(ConvertibleToCloudKitRecord.self)")
+	convenience init(_ convertibleToCloudKitRecord: some ConvertibleToCloudKitRecord) {
+		self.init(recordType: "\(type(of: convertibleToCloudKitRecord))")
 		synchronize(convertibleToCloudKitRecord)
 	}
   
-  func synchronize<ConvertibleToCloudKitRecord: HM.ConvertibleToCloudKitRecord>(
-    _ convertibleToCloudKitRecord: ConvertibleToCloudKitRecord
-  ) {
+  func synchronize(_ convertibleToCloudKitRecord: some ConvertibleToCloudKitRecord) {
     for (key, value) in convertibleToCloudKitRecord.recordDictionary {
       self[key.rawValue] = value
     }

@@ -3,7 +3,7 @@ public extension ClosedRange {
   ///
   /// - Returns: `nil` if the sequence is empty.
   init?(encompassing bounds: some Sequence<Bound>) {
-    guard let initialRange = (bounds.first.map { $0...$0 } )
+    guard let initialRange = (bounds.first.map { $0...$0 })
     else { return nil }
 
     self = bounds.dropFirst().reduce(into: initialRange) { range, bound in
