@@ -1,4 +1,5 @@
 infix operator =?: AssignmentPrecedence
+import Algorithms
 
 public extension Optional {
   /// Represents that an `Optional` was `nil`.
@@ -120,5 +121,17 @@ public extension Optional {
   ) rethrows -> Result {
     try map { try makeResult(resultWhenNil, $0) }
     ?? resultWhenNil
+  }
+}
+
+// MARK: - Sequence
+
+extension Sequence {
+  /// A compacted version of this sequence, only when no elements are `nil`.
+  func compactedIfAllAreSome<Wrapped>() -> (CompactedSequence<Self, Wrapped>)?
+  where Element == Wrapped? {
+    guard (allSatisfy { $0 != nil }) else { return nil }
+
+    return compacted()
   }
 }

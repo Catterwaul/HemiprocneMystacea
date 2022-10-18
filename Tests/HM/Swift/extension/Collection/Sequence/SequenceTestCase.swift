@@ -19,13 +19,6 @@ final class SequenceTestCase: XCTestCase {
 
 // MARK:- Properties
 
-  func test_consecutiveElements() {
-    XCTAssertEqual(
-      Array((1...5).windows(ofCount: 3)),
-      [.init(1...3), .init(2...4), .init(3...5)]
-    )
-  }
-
   func test_count() {
     XCTAssertEqual(
       stride(from: 0, to: 10, by: 2).count, 5
@@ -116,7 +109,7 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
-// MARK:- Methods
+// MARK: - Methods
 
   func test_containsOnly() {
     XCTAssert(["🐯", "🐯"].containsOnly("🐯"))
@@ -325,6 +318,13 @@ final class SequenceTestCase: XCTestCase {
     }
     catch Extremum<Int>.UniqueError.emptySequence { }
     catch { XCTFail() }
+  }
+
+  func test_windows() {
+    XCTAssertEqual(
+      .init(stride(from: 1, through: 5, by: 1).windows(ofCount: 3).map(Array.init)),
+      [.init(1...3), .init(2...4), .init(3...5)]
+    )
   }
 
   // MARK: - Element: Sequence

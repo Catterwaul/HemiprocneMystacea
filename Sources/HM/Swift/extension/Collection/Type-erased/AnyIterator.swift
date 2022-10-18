@@ -1,10 +1,4 @@
 public extension AnyIterator {
-  /// A single-pass version of a sequence,
-  /// whose iteration can be "paused", if not fully-consumed in one operation.
-  init(pauseable sequence: some Sequence<Element>) {
-    self.init(sequence.makeIterator())
-  }
-
   /// Use when `AnyIterator` is required / `UnfoldSequence` can't be used.
   init<State>(
     state: State,

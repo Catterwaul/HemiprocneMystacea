@@ -79,7 +79,9 @@ public extension Sequence {
   /// - Note: Every returned array will have the same count,
   /// so this stops short of the end of the sequence by `count - 1`.
   /// - Precondition: `count > 0`
-  func windows(ofCount count: Int) -> some Sequence<[Element]> {
+  func windows(ofCount count: Int) -> some Sequence<
+    CompactedSequence<[Element?], Element>
+  > {
     (0..<count).map(Array(self).dropFirst).zipped
   }
 
@@ -451,17 +453,12 @@ public extension Sequence where Element: Sequence {
   }
 
   /// Like `zip`, but with no limit to how many sequences are zipped.
-  var zipped: some Sequence<[Element.Element]> {
-    sequence(
-      state: map { $0.makeIterator() }
-    ) { iterators in
-      let compacted = iterators.indices.map { iterators[$0].next() }.compacted()
-      
-      guard compacted.count == iterators.count else {
-        return nil
-      }
-      
-      return .init(compacted)
+  var zipped: some Sequence<
+    CompactedSequence<[Element.Element?], Element.Element>
+  > {
+    sequence(state: map { $0.makeIterator() }) { iterators in
+      iterators.indices.lazy.map { iterators[$0].next() }
+        .compactedIfAllAreSome()
     }
   }
 }

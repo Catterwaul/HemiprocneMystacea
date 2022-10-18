@@ -58,28 +58,30 @@ public extension Sequence where Element: Comparable {
   @inlinable var isSorted: Bool { adjacentPairs().allSatisfy(<) }
 
   var localExtrema: (minima: [Element], maxima: [Element]) {
-    let dictionary = Dictionary<ExtremumOption, [Element]>(grouping:
-      removingDuplicates.windows(ofCount: 3).compactMap { consecutiveElements in
-        let value = consecutiveElements[1]
-        
-        guard let extremum: ExtremumOption = ( {
-          let neighbors = [0, 2].map { consecutiveElements[$0] }
-          switch value {
-          case let minimum where neighbors.allSatisfy { $0 > minimum }:
-            return .minimum
-          case let maximum where neighbors.allSatisfy { $0 < maximum }:
-            return .maximum
-          default:
-            return nil
-          }
-        } ())
-        else { return nil }
+    let dictionary = Dictionary<ExtremumOption, [Element]>(
+      grouping:
+        removingDuplicates.windows(ofCount: 3).compactMap { consecutiveElements in
+          let consecutiveElements = Array(consecutiveElements)
+          let value = consecutiveElements[1]
 
-        return (key: extremum, value: value)
-      }
+          guard let extremum: ExtremumOption = ( {
+            let neighbors = [0, 2].map { consecutiveElements[$0] }
+            switch value {
+            case let minimum where neighbors.allSatisfy { $0 > minimum }:
+              return .minimum
+            case let maximum where neighbors.allSatisfy { $0 < maximum }:
+              return .maximum
+            default:
+              return nil
+            }
+          } ())
+          else { return nil }
+
+          return (key: extremum, value: value)
+        }
     )
 
-    return (dictionary[.minimum] ?? [], dictionary[.maximum]  ?? [])
+    return (dictionary[.minimum] ?? [], dictionary[.maximum] ?? [])
   }
 
   /// Two minima, with the second satisfying a partitioning criterion.
