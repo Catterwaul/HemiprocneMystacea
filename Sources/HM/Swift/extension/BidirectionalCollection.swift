@@ -1,6 +1,21 @@
 import Algorithms
 import OrderedCollections
 
+public extension BidirectionalCollection where Self: MutableCollection & RangeReplaceableCollection {
+  /// Adds the `set` accessor to the `last` property.
+  var last_set: Element? {
+    get { last }
+    set {
+      switch (isEmpty, newValue) {
+      case (false, let newValue?): self[index(before: endIndex)] = newValue
+      case (false, nil): removeLast()
+      case (true, let newValue?): append(newValue)
+      case (true, nil): break
+      }
+    }
+  }
+}
+
 public extension BidirectionalCollection where Element: Equatable {
   /// A subsequence starting at the last occurrence of `element.`
   ///
