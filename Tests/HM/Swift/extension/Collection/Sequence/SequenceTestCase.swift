@@ -201,18 +201,15 @@ final class SequenceTestCase: XCTestCase {
   }
 
   func test_reduce() {
-    let isSnackTime = true
+    func 🏃(_ string: String) -> String { "🏃\(string)" }
+    let 🏃🐈 = 🏃("🐈")
     XCTAssertEqual(
-      CollectionOfOne().reduce("🐈") { isSnackTime ? "🏃 \($0)" : $0 },
-      { isSnackTime ? "🏃 \($0)" : $0 } ("🐈")
+      CollectionOfOne().reduce("🐈", 🏃),
+      🏃🐈
     )
     XCTAssertEqual(
-      CollectionOfOne().reduce(into: "🐈") {
-        if isSnackTime {
-          $0 = "🏃 \($0)"
-        }
-      },
-      "🏃 🐈"
+      CollectionOfOne().reduce(into: "🐈") { $0 = 🏃($0) },
+      🏃🐈
     )
   }
 
