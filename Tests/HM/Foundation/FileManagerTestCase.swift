@@ -3,22 +3,8 @@ import HM
 import XCTest
 
 final class FileManagerTestCase: XCTestCase {
-  func test_userDocumentsDirectory() throws {
-    XCTAssertEqual(
-      URL.documentsDirectory.lastPathComponent,
-      "Documents"
-    )
-  }
-
   func test_removeExistingFile() throws {
-    let url: URL
-    let documentsDirectory = URL.documentsDirectory
-    if #available(iOS 16, *) {
-      url = documentsDirectory.appending(path: "😺")
-    } else {
-      url = documentsDirectory
-        .appendingPathComponent("😺", isDirectory: true)
-    }
+    let url = URL.documentsDirectory.appending(path: "😺")
 
     var fileExists: Bool {
       FileManager.default.fileExists(atPath: url.path)

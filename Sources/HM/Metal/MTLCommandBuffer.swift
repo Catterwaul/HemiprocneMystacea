@@ -5,9 +5,7 @@ public extension MTLCommandBuffer {
   var schedulingCompletion: Void {
     get async {
       await withUnsafeContinuation { continuation in
-        addScheduledHandler { _ in
-          continuation.resume()
-        }
+        addScheduledHandler { _ in continuation.resume() }
       }
     }
   }
@@ -16,9 +14,7 @@ public extension MTLCommandBuffer {
   var completion: Void {
     get async {
       await withUnsafeContinuation { continuation in
-        addCompletedHandler { _ in
-          continuation.resume()
-        }
+        addCompletedHandler { _ in continuation.resume() }
       }
     }
   }
@@ -26,11 +22,8 @@ public extension MTLCommandBuffer {
   /// Commit this buffer and wait for the GPU to finish executing its commands.
   func complete() async {
     await withUnsafeContinuation { continuation in
-      self.addCompletedHandler { _ in
-        continuation.resume()
-      }
-
+      addCompletedHandler { _ in continuation.resume() }
       commit()
-    } as Void
+    }
   }
 }
