@@ -15,8 +15,7 @@ public extension CastError {
 
   /// `nil` if  a `Source` can be cast to `Desired`. Otherwise, `.impossible`.
   init?<Source, Desired>(_: Source.Type, desired _: Desired.Type) {
-    if Source.self is Desired.Type
-    { return nil }
+    if Source.self is Desired.Type { return nil }
 
     self = .impossible
   }
@@ -28,8 +27,7 @@ public extension CastError {
 
   /// `nil` if  a `Source` cannot be cast to `Undesired`. Otherwise, `.possible`.
   init?<Source, Undesired>(_: Source.Type, undesired _: Undesired.Type) {
-    guard Source.self is Undesired.Type
-    else { return nil }
+    guard Source.self is Undesired.Type else { return nil }
 
     self = .possible
   }

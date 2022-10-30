@@ -46,14 +46,12 @@ public extension Collection {
   ///   - drop: Create a `SubSequence` by removing…
   ///    - count: …this many `Element`s.
   /// - Returns: `nil` if `hasAffix(affix)` is `false`.
-  func without<Adfix: Sequence>(
+  func without<Adfix: Sequence<Element>>(
     adfix: Adfix,
     hasAdfix: (Adfix) -> Bool,
     drop: (_ count: Int) -> SubSequence
-  ) -> SubSequence?
-  where Element == Adfix.Element {
-    guard hasAdfix(adfix)
-    else { return nil }
+  ) -> SubSequence? {
+    guard hasAdfix(adfix) else { return nil }
 
     return drop(adfix.count)
   }

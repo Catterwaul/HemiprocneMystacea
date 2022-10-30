@@ -47,8 +47,7 @@ public extension EnumerationPickerView {
   var selection: EnumerationCase? {
     let index = selectedRow(inComponent: 0)
 
-    guard EnumerationCase.allCases.indices.contains(index)
-    else { return nil }
+    guard EnumerationCase.allCases.indices.contains(index) else { return nil }
 
     return EnumerationCase.allCases[index]
   }

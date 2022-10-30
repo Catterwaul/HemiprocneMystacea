@@ -3,8 +3,7 @@ public extension UnsignedInteger {
   /// - Parameter radix: The base the result will use.
   func digits(radix: Self = 10) -> [Self] {
     sequence(state: self) { quotient in
-      guard quotient > 0
-      else { return nil }
+      guard quotient > 0 else { return nil }
 
       let division = quotient.quotientAndRemainder(dividingBy: radix)
       quotient = division.quotient

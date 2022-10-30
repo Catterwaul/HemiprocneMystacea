@@ -43,8 +43,7 @@ public extension SIMD2<CGFloat.NativeType> {
 
 public extension Collection<SIMD2<Double>> {
   var definiteIntegral: Double? {
-    guard !isEmpty
-    else { return nil }
+    guard !isEmpty else { return nil }
 
     let definiteIntegral = adjacentPairs().reduce(0.0) { definiteIntegral, points in
       let delta = points.1 - points.0
