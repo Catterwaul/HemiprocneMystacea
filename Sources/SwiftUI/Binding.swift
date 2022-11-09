@@ -47,7 +47,7 @@ public extension Binding {
   }
 }
 
-public extension Binding where Value == Bool {
+public extension Binding<Bool> {
   prefix static func !(binding: Self) -> Self {
     .init(
       get: { !binding.wrappedValue },

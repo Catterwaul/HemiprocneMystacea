@@ -23,5 +23,5 @@ private struct View: SwiftUI.View {
 }
 
 private struct ContentView_Previews: PreviewProvider {
-   static var previews: View { View() }
+  static var previews: View { View() }
 }

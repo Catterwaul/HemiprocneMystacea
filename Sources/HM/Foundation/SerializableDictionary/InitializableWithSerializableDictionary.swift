@@ -44,14 +44,10 @@ public extension InitializableWithSerializableDictionary {
 		dictionary: Any,
 		key: String? = nil
 	) throws {
-		guard let dictionary: [String: Any] = {
-			if let key {
-				return
-					(dictionary as? [String: Any])?[key]
-					as? [String: Any]
-			}
-			return dictionary as? [String: Any]
-		} ()
+		guard let dictionary =
+      (key.reduce(dictionary as? [String: Any]) { dictionary, key in
+        dictionary?[key] as? [String: Any]
+      })
     else { throw InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionary }
 		
 		try self.init(dictionary)

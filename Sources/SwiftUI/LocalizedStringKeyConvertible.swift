@@ -20,8 +20,8 @@ public extension Text {
   ///   - bundle: The bundle containing the strings file. If `nil`, use the
   ///     main bundle.
   ///   - comment: Contextual information about this key-value pair.
-  init<Convertible: LocalizedStringKeyConvertible>(
-    _ convertible: Convertible,
+  init(
+    _ convertible: some LocalizedStringKeyConvertible,
     tableName: String? = nil,
     bundle: Bundle? = nil,
     comment: StaticString? = nil
