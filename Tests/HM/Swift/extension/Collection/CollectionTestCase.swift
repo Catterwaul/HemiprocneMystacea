@@ -30,14 +30,14 @@ final class CollectionTestCase: XCTestCase {
 
 // MARK: - Methods
 
-  func test_getElement() throws {
-    XCTAssertThrowsError(try ["🐾", "🥝"].element(at: 2))
+  func test_subscript_validating() {
+    XCTAssertThrowsError(try ["🐾", "🥝"][validating: 2])
 
     let collection = Array(1...10)
-    XCTAssertEqual(try collection.element(at: 0), 1)
-
-    XCTAssertThrowsError(try collection.element(at: collection.endIndex))
-    { XCTAssert($0 is AnyCollection<Int>.IndexingError) }
+    XCTAssertEqual(try collection[validating: 0], 1)
+    XCTAssertThrowsError(try collection[validating: collection.endIndex]) {
+      XCTAssert($0 is AnyCollection<Int>.IndexingError)
+    }
   }
 
   func test_prefix() {

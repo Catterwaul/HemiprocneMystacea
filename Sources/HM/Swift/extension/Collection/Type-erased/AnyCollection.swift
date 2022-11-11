@@ -1,4 +1,4 @@
 public extension AnyCollection {
-  /// Thrown when `element(at:)` is called with an invalid index.
+  /// Thrown when `[validating:]` is called with an invalid index.
   struct IndexingError: Error { }
 }

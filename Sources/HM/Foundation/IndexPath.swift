@@ -26,5 +26,5 @@ public func getElement<Element>(
   getArray: () throws -> [Element]
 ) throws -> Element {
   let array = try getArray()
-  return try array.element(at: indexPath.item)
+  return try array[validating: indexPath.item]
 }

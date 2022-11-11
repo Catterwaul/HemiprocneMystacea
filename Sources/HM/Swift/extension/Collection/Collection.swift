@@ -22,14 +22,17 @@ public extension Collection {
   }
 
   // MARK: - Methods
-
-  /// - Returns: same as subscript, if index is in bounds
+  /// Ensure an index is valid before accessing an element of the collection.
+  /// - Returns: The same as the unlabeled subscript, if an error is not thrown.
   /// - Throws: `AnyCollection<Element>.IndexingError`
-  func element(at index: Index) throws -> Element {
-    guard indices.contains(index)
-    else { throw AnyCollection<Element>.IndexingError() }
-
-    return self[index]
+  ///   if `indices` does not contain `index`.
+  subscript(validating index: Index) -> Element {
+    get throws {
+      guard indices.contains(index)
+      else { throw AnyCollection<Element>.IndexingError() }
+      
+      return self[index]
+    }
   }
 
   /// - Note: The first "half" will be longer by one element,
