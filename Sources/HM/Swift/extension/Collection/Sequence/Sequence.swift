@@ -82,7 +82,7 @@ public extension Sequence {
   func windows(ofCount count: Int) -> some Sequence<
     CompactedSequence<[Element?], Element>
   > {
-    (0..<count).map(Array(self).dropFirst).zipped
+    (0..<count).map(Array(self).dropFirst).transposed
   }
 
   /// The number of elements that match a predicate.
@@ -453,7 +453,7 @@ public extension Sequence where Element: Sequence {
   }
 
   /// Like `zip`, but with no limit to how many sequences are zipped.
-  var zipped: some Sequence<
+  var transposed: some Sequence<
     CompactedSequence<[Element.Element?], Element.Element>
   > {
     sequence(state: map { $0.makeIterator() }) { iterators in
