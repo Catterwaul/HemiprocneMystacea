@@ -1,3 +1,4 @@
+import Algorithms
 import OrderedCollections
 
 public extension Sequence where Element: Equatable {
@@ -16,11 +17,14 @@ public extension Sequence where Element: Equatable {
       }
   }
 
-  /// The element that follows.
+  /// The element that precedes the first occurrence of `element`.
+  subscript(before element: Element) -> Element? {
+    adjacentPairs().first { $0.1 == element }?.0
+  }
+
+  /// The element that follows the first occurrence of `element`.
   subscript(after element: Element) -> Element? {
-    var iterator = makeIterator()
-    while iterator.next() != element { }
-    return iterator.next()
+    adjacentPairs().first { $0.0 == element }?.1
   }
 
   /// Whether this sequence contains all the elements of another, in order.
