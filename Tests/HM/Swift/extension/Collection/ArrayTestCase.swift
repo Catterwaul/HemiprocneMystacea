@@ -13,13 +13,6 @@ final class ArrayTestCase: XCTestCase {
     )
   }
 
-  func test_splitInHalf() {
-    let intsSplitInHalf = [1, 2, 3, 4, 5].splitInHalf.map(Array.init)
-    
-    XCTAssertEqual(intsSplitInHalf[0], [1, 2, 3])
-    XCTAssertEqual(intsSplitInHalf[1], [4, 5])
-  }
-
   func test_without() {
     let rabbitsAndEars = ["👯", "🐇", "🐰", "👂", "🌽"]
 

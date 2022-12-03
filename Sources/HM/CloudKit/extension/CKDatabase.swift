@@ -17,7 +17,10 @@ public extension CKDatabase {
         )
       case .limitExceeded:
         for (recordsToSave, recordIDsToDelete)
-        in zip(recordsToSave.splitInHalf, recordIDsToDelete.splitInHalf) {
+        in zip(
+          recordsToSave.chunks(totalCount: 2),
+          recordIDsToDelete.chunks(totalCount: 2)
+        ) {
           try await self.modifyRecordsRecursivelyAsNeeded(
             saving: .init(recordsToSave),
             deleting: .init(recordIDsToDelete)

@@ -35,11 +35,16 @@ public extension Collection {
     }
   }
 
-  /// - Note: The first "half" will be longer by one element,
-  /// if `count` is odd.
-  var splitInHalf: ChunksOfCountCollection<Self> {
-    let (halfCount, remainder) = count.quotientAndRemainder(dividingBy: 2)
-    return chunks(ofCount: halfCount + remainder)
+  /// Split the collection into a total number of chunks.
+  /// - Parameter count:
+  ///   If this is not evenly divided by the count of the base `Collection`,
+  ///   the last chunk will contain more elements than all of the other chunks.
+  func chunks(totalCount: Int) -> some Sequence<SubSequence> {
+    let (chunkSize, remainder) = count.quotientAndRemainder(dividingBy: totalCount)
+    return chain(
+      chunks(ofCount: chunkSize).dropLast(remainder == 0 ? 1 : 2),
+      suffix(chunkSize + remainder)
+    )
   }
 
   /// Remove the beginning or end of a `Collection`.

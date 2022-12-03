@@ -40,6 +40,18 @@ final class CollectionTestCase: XCTestCase {
     }
   }
 
+  func test_chunks() {
+    XCTAssertEqual(
+      (1...6).chunks(totalCount: 3).map(Array.init),
+      [[1, 2], [3, 4], [5, 6]]
+    )
+
+    XCTAssertEqual(
+      (1...7).chunks(totalCount: 2).map(Array.init),
+      [[1, 2, 3], [4, 5, 6, 7]]
+    )
+  }
+
   func test_prefix() {
     XCTAssertEqual(
       "glorb14prawn".prefix(upTo: "1"),
