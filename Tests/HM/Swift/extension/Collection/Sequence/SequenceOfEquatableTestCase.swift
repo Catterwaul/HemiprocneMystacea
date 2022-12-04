@@ -4,19 +4,23 @@ import XCTest
 final class SequenceOfEquatableTestCase: XCTestCase {
   func test_contains() {
     XCTAssert(
-      (-1...10).contains(inOrder: [2, 3, 4])
+      stride(from: -1, through: 1, by: 1).contains([-1, 0, 1])
+    )
+
+    XCTAssert(
+      stride(from: -1, to: 10, by: 1).contains([2, 3, 4])
     )
 
     XCTAssertFalse(
-      (-1...10).contains(inOrder: [2, 4])
+      stride(from: -1, to: 10, by: 1).contains([2, 4])
     )
 
     XCTAssertFalse(
-      (2...4).contains(inOrder: (-1...5))
+      stride(from: 2, to: 4, by: 1).contains((-1...5))
     )
 
-    XCTAssertFalse(
-      (-1...10).contains(inOrder: EmptyCollection())
+    XCTAssert(
+      stride(from: -1, to: 10, by: 1).contains(EmptyCollection())
     )
   }
   

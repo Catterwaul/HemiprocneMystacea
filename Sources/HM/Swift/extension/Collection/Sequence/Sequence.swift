@@ -40,9 +40,15 @@ public extension Sequence {
     reduce(0) { count, _ in count + 1 }
   }
 
+  /// The iterators of all subsequences, incrementally dropping early elements.
+  /// - Note: Begins with the iterator for the full sequence (dropping zero).
+  @inlinable var dropIterators: some Sequence<Iterator> {
+    withDropIterators.lazy.map(\.1)
+  }
+
   /// Like `zip`ping with the iterators of all subsequences, incrementally dropping early elements.
   /// - Note: Begins with the iterator for the full sequence (dropping zero).
-  @inlinable var withDropIterators: UnfoldSequence<(Element, Iterator), Iterator> {
+  @inlinable var withDropIterators: some Sequence<(Element, Iterator)> {
     sequence(state: makeIterator()) {
       let iterator = $0
       return $0.next().map { ($0, iterator) }

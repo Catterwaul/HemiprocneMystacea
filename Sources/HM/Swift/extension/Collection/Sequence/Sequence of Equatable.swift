@@ -7,14 +7,14 @@ public extension Sequence where Element: Equatable {
     first.map(dropFirst().containsOnly)
   }
 
-  /// - Note: `false` if `elements` is empty.
-  func contains(inOrder elements: some Sequence<Element>) -> Bool {
-    elements.isEmpty
-      ? false
-      : withDropIterators.contains {
-        AnySequence(zip: (IteratorSequence($1), elements))
-          .first(where: !=)?.1 == nil
-      }
+  /// - Note: `true` if `elements` is empty.
+  func contains(_ elements: some Sequence<Element>) -> Bool {
+    dropIterators.contains {
+      AnySequence(zip: (IteratorSequence($0), elements))
+        .first(where: !=)?.1 == nil
+      // If `elements` is longer than this drop-iterator,
+      // `.0` will be nil, not `.1`.
+    }
   }
 
   /// The element that precedes the first occurrence of `element`.
