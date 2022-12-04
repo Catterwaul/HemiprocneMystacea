@@ -89,7 +89,7 @@ public extension Sequence {
   func count(
     where getIsIncluded: (Element) throws -> Bool
   ) rethrows -> Int {
-    try filter(getIsIncluded).count
+    try lazy.filter(getIsIncluded).count
   }
 
   /// The number of elements that match a predicate.
