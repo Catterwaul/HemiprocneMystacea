@@ -14,11 +14,29 @@ public extension ClosedRange {
       }
     }
   }
+
+  /// Whether the bounds of another range are within this range.
+  func contains(_ range: Self) -> Bool {
+    [range.lowerBound, range.upperBound].allSatisfy(contains)
+  }
 }
 
 public extension ClosedRange where Bound: Strideable, Bound.Stride: SignedInteger {
   init(_ slice: SubSequence) {
     self = slice.first!...slice.last!
+  }
+}
+
+public extension ClosedRange where Bound: ExpressibleByIntegerLiteral {
+  /// From zero to the upper bound, inclusive.
+  @inlinable init(_ range: PartialRangeThrough<Bound>) {
+    self = 0...range.upperBound
+  }
+
+  /// From zero to the upper bound, exclusive.
+  @inlinable init(_ range: PartialRangeUpTo<Bound>)
+  where Bound: Strideable, Bound.Stride: SignedInteger {
+    self = 0...range.upperBound.advanced(by: -1)
   }
 }
 
@@ -122,11 +140,14 @@ extension ClosedRange: ClosedRangeConvertible {
 
 extension PartialRangeThrough: ClosedRangeConvertible where Bound: ExpressibleByIntegerLiteral {
   /// From zero to the upper bound, inclusive.
-  public var closedRange: ClosedRange<Bound> { 0...upperBound }
+  public var closedRange: ClosedRange<Bound> { .init(self) }
 }
 
 extension PartialRangeUpTo: ClosedRangeConvertible
-where Bound: ExpressibleByIntegerLiteral & AdditiveArithmetic {
+where
+  Bound: ExpressibleByIntegerLiteral & Strideable,
+  Bound.Stride: SignedInteger
+{
   /// From zero to the upper bound, exclusive.
-  public var closedRange: ClosedRange<Bound> { 0...(upperBound - 1) }
+  public var closedRange: ClosedRange<Bound> { .init(self) }
 }

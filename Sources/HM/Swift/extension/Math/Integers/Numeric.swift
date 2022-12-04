@@ -13,7 +13,7 @@ public extension Numeric {
 infix operator ÷: MultiplicationPrecedence
 
 public extension FloatingPoint {
-  /// - Throws: `DivisionByZeroError<Self>`
+  /// - Throws: `DivisionByZeroError`
   static func ÷ (numerator: @autoclosure () -> Self, denominator: Self) throws -> Self {
     guard denominator != 0
     else { throw DivisionByZeroError() }
