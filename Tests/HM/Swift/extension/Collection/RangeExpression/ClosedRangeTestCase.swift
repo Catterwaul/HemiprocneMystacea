@@ -16,10 +16,6 @@ final class ClosedRangeTestCase: XCTestCase {
     XCTAssertEqual(.init(slice), 2...5)
   }
 
-  func test_contains() {
-    XCTAssert((0...10).contains(.init(..<11)))
-  }
-
   func test_subscript_normalized() {
     XCTAssertEqual(
       (-1...3)[normalized: 0.5],
