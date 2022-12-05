@@ -4,6 +4,13 @@ import XCTest
 final class CollectionTestCase: XCTestCase {
 // MARK: - Subscripts
 
+  func test_subscript_indexSequence() {
+    XCTAssertEqual(
+      Array(["🐰", "🌞", "🎃", "🎅"][stride(from: 1, to: 4, by: 2)]),
+      ["🌞", "🎅"]
+    )
+  }
+
   func test_subscript_modulo() {
     let ints = [1, 2]
     for (index, int) in [
@@ -28,17 +35,17 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertEqual("🎤🐈"[startIndexOffsetBy: 1], "🐈")
   }
 
-// MARK: - Methods
-
   func test_subscript_validating() {
     XCTAssertThrowsError(try ["🐾", "🥝"][validating: 2])
-
+    
     let collection = Array(1...10)
     XCTAssertEqual(try collection[validating: 0], 1)
     XCTAssertThrowsError(try collection[validating: collection.endIndex]) {
       XCTAssert($0 is AnyCollection<Int>.IndexingError)
     }
   }
+
+// MARK: - Methods
 
   func test_chunks() {
     XCTAssertEqual(

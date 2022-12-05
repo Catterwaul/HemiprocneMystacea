@@ -3,6 +3,10 @@ import Algorithms
 public extension Collection {
   // MARK: - Subscripts
 
+  subscript(indices: some Sequence<Index>) -> some Sequence<Element> {
+    indices.lazy.map { self[$0] }
+  }
+
   /// Circularly wraps `index`, to always provide an element,
   /// even when `index` is not valid.
   subscript(modulo index: Index) -> Element {
