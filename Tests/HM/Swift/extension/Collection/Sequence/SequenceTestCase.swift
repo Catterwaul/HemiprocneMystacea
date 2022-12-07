@@ -324,6 +324,22 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
+  func test_root() {
+    struct Struct {
+      let property: Int
+
+      var parent: Struct? {
+        Optional(.init(property: property - 1))
+          .filter { $0.property > 0 }
+      }
+    }
+
+    XCTAssertEqual(
+      root(Struct(property: 5), \.parent).property,
+      1
+    )
+  }
+
   // MARK: - Element: Sequence
 
   func test_combinations() {

@@ -14,7 +14,7 @@ public extension AnySequence {
 
   /// Backtrack to the previous `next`, before resuming iteration.
   static func makeIterator(_ sequence: some Sequence<Element>)
-  -> (Self, getPrevious: () -> Element?) {
+  -> (some Sequence<Element>, getPrevious: () -> Element?) {
     var previous: Element?
     
     let iterator = AnyIterator(sequence) {
@@ -24,7 +24,7 @@ public extension AnySequence {
     }
 
     return (
-      previous.map { .init(chain(CollectionOfOne($0), iterator)) }
+      previous.map { Self(chain(CollectionOfOne($0), iterator)) }
         ?? .init(iterator),
       { previous }
     )

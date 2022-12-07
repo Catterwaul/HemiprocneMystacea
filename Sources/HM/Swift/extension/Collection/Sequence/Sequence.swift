@@ -62,6 +62,11 @@ public extension Sequence {
     return iterator.next()
   }
 
+  /// The last element of the sequence.
+  /// - Precondition: The sequence is finite.
+  /// - Note: `nil` if the sequence is empty.
+  var last: Element? { reduce { $1 } }
+
   /// Whether the sequence iterates exactly zero elements.
   var isEmpty: Bool { first == nil }
 
@@ -442,6 +447,13 @@ public extension Sequence {
         return (comparables.1.0, comparables.1.1) < (comparables.0.0, comparables.0.1)
       }
     }
+  }
+}
+
+/// Recursively apply a transformation until it is no longer possible.
+@inlinable public func root<T>(_ first: T, _ next: (T) -> T?) -> T {
+  withoutActuallyEscaping(next) {
+    sequence(first: first, next: $0).last!
   }
 }
 
