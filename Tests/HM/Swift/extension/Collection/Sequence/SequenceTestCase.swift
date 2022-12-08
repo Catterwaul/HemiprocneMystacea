@@ -192,6 +192,13 @@ final class SequenceTestCase: XCTestCase {
     }
   }
 
+  func test_prefixThroughFirst() {
+    XCTAssertEqual(
+      .init([1, 2, 3, 3, 5].prefixThroughFirst { $0 >= 3 }),
+      [1, 2, 3]
+    )
+  }
+
   func test_rangesOf() {
     XCTAssertEqual(
       [0, 1, .min, .min, 2, 2, .min, 3, 3, 3, .min, 4, 4, .min, 5]

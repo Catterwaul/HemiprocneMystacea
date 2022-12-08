@@ -264,6 +264,21 @@ public extension Sequence {
 
     return onlyMatch
   }
+  
+  /// Like `prefix(while:)`, but including one more element.
+  @inlinable func prefixThroughFirst(
+    where predicate: @escaping (Element) -> Bool
+  ) -> some Sequence<Element> {
+    sequence(state: (iterator: makeIterator(), finished: false)) {
+      guard
+        !$0.finished,
+        let next = $0.iterator.next()
+      else { return nil }
+      
+      if predicate(next) { $0.finished = true }
+      return next
+    }
+  }
 
   /// `reduce`, disregarding all sequence elements.
   @inlinable func reduce<Result>(
