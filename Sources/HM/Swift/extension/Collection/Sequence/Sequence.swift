@@ -457,6 +457,21 @@ public extension Sequence {
   }
 }
 
+@available(
+  swift, deprecated: 5.8,
+  message: "`lazy.flatMap` will not compile."
+)
+/// Recursively collect the elements of sequences.
+@inlinable public func recursive<Root>(
+  _ root: Root,
+  _ children: (Root) -> some Sequence<Root>
+) -> some Sequence<Root> {
+  chain(
+    root,
+    children(root).flatMap { recursive($0, children) }
+  )
+}
+
 // MARK: - Element: Sequence
 public extension Sequence where Element: Sequence {
   var combinations: [[Element.Element]] {

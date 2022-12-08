@@ -340,6 +340,30 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
+  func test_recursive() {
+    struct Struct {
+      let array: [Struct]
+    }
+
+    let hierarchy = Struct(
+      array: [
+        .init(
+          array: [
+            .init(array: []),
+            .init(array: [])
+          ]
+        ),
+        .init(array: [])
+      ]
+    )
+
+    XCTAssertEqual(
+      recursive(hierarchy, \.array).count,
+      5
+    )
+  }
+
+
   // MARK: - Element: Sequence
 
   func test_combinations() {
