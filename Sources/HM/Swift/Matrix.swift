@@ -16,4 +16,10 @@ public extension Matrix {
     get { columns.transposed.map(Array.init) }
     set { columns = newValue.transposed.map(Array.init) }
   }
+
+  var indices: some Sequence<(Int, Int)> {
+    rows.indexed().lazy.flatMap { row in
+      row.element.indices.lazy.map { ($0, row.index) }
+    }
+  }
 }
