@@ -1,5 +1,14 @@
 import CoreGraphics
 
+public extension SIMD where Scalar: Numeric {
+  var squareMagnitude: Scalar { dot(self) }
+  
+  /// The dot product.
+  func dot(_ vector: Self) -> Scalar {
+    indices.lazy.map { self[$0] * vector[$0] }.sum!
+  }
+}
+
 public extension SIMD where Scalar: FloatingPoint {
   /// Convert integers to floating point vectors.
   init<Integer: BinaryInteger>(_ integers: Integer...) {

@@ -9,4 +9,8 @@ final class SIMDTestCase: XCTestCase {
       .one
     )
   }
+
+  func test_squareMagnitude() {
+    XCTAssertEqual(SIMD2(2, 3).squareMagnitude, 13)
+  }
 }
