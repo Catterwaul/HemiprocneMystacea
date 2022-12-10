@@ -109,6 +109,13 @@ final class SequenceTestCase: XCTestCase {
     )
   }
 
+  func test_subscript_sorted() {
+    XCTAssertEqual(
+      Array(stride(from: 10, through: 100, by: 10)[sorted: [0, 2, 3, 7, 10, 20]]),
+      [10, 30, 40, 80]
+    )
+  }
+
 // MARK: - Methods
 
   func test_containsOnly() {

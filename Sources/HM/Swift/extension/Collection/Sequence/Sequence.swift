@@ -84,6 +84,17 @@ public extension Sequence {
     }
   }
 
+  /// - Precondition: The indices must be sorted, and non-negative.
+  subscript(sorted indices: some Sequence<Int>) -> some Sequence<Element> {
+    var iterator = makeIterator()
+    return indices.differences.mapUntilNil {
+      if case let skipCount = $0 - 1, skipCount > 0 {
+        sequence().prefix(skipCount).forEach { iterator.iterate() }
+      }
+      return iterator.next()
+    }
+  }
+
 // MARK:- Methods
 
   /// The elements of this sequence, and the ones after them.
