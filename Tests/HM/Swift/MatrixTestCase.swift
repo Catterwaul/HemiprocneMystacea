@@ -16,10 +16,17 @@ final class MatrixTestCase: XCTestCase {
     )
 
     XCTAssertEqual(
-      matrix.indices.map(SIMD2.init),
+      matrix.orthogonalNeighbors([1, 1]),
+      [[0, 1]: 1, [2, 1]: 100, [1, 0]: 1]
+    )
+
+    XCTAssertEqual(
+      Array(matrix.indices),
       [ (0, 0), (1, 0), (2, 0),
         (0, 1), (1, 1), (2, 1)
       ].map(SIMD2.init)
     )
+
+    XCTAssertThrowsError(try matrix.validate([-1, -1]))
   }
 }
