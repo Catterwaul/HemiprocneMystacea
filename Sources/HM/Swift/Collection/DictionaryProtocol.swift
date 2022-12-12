@@ -147,6 +147,17 @@ public extension DictionaryProtocol where Value: Sequence {
   }
 }
 
+public extension DictionaryProtocol where Key == Value {
+  /// The longest series of elements that will lead to `destination`.
+  /// - Precondition: The elements represent a "`destination:source`" relationship.
+  /// - Returns: `nil` if `destination` is not a key in this dictionary.
+  func path(to destination: Value) -> (some Sequence<Value>)? {
+    self[destination].map { _ in
+      sequence(first: destination) { self[$0] }.reversed()
+    }
+  }
+}
+
 public extension DictionaryProtocol where Value == Int {
   /// Create "buckets" from a sequence of keys,
   /// such as might be used for a histogram.

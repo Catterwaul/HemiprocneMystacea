@@ -164,4 +164,16 @@ final class DictionaryTestCase: XCTestCase {
     dictionary.merge(["🍩"].keyed { $0 }, uniquingKeysWith: PickValue.keep)
     XCTAssertEqual(dictionary, ["👁": "👀", "🍩": "🍩"])
   }
+
+  func test_path() {
+    let dictionary = [
+      "👣": "🐾",
+      "🐾": "🦶",
+    ]
+    XCTAssertEqual(
+      dictionary.path(to: "👣").map(Array.init),
+      ["🦶", "🐾", "👣"]
+    )
+    XCTAssertNil(dictionary.path(to: "🏈"))
+  }
 }
