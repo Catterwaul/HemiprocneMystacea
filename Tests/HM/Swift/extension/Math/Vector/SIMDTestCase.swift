@@ -2,6 +2,10 @@ import HM
 import XCTest
 
 final class SIMDTestCase: XCTestCase {
+  func test_negation() {
+    XCTAssertEqual(-SIMD2(0, 1), [0, -1])
+  }
+
   func test_convertFromInts() {
     let ints = (1, 1)
     XCTAssertEqual(

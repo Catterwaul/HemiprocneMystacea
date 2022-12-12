@@ -9,6 +9,12 @@ public extension SIMD where Scalar: Numeric {
   }
 }
 
+public extension SIMD where Scalar: SignedNumeric {
+  prefix static func -(vector: Self) -> Self {
+    .init(vector.indices.lazy.map { -vector[$0] })
+  }
+}
+
 public extension SIMD where Scalar: FloatingPoint {
   /// Convert integers to floating point vectors.
   init<Integer: BinaryInteger>(_ integers: Integer...) {
