@@ -53,3 +53,9 @@ public extension Matrix {
     _ = try self[validating: index]
   }
 }
+
+extension Matrix: Sequence {
+  public func makeIterator() -> some IteratorProtocol<Element> {
+    indices.lazy.map { columns[$0.x][$0.y] }.makeIterator()
+  }
+}

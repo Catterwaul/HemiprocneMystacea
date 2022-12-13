@@ -11,8 +11,12 @@ final class MatrixTestCase: XCTestCase {
     )
 
     matrix.rows[1][2] = 100
+
     XCTAssertEqual(
-      matrix.columns[2][1], 100
+      Array(matrix),
+      [ 0, 1, 2,
+        1, 2, 100
+      ]
     )
 
     XCTAssertEqual(
