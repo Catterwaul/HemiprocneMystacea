@@ -1,3 +1,4 @@
+import Algorithms
 import HeapModule
 
 /// A rectangular matrix.
@@ -26,14 +27,16 @@ public extension Matrix {
     }
   }
 
+  var size: Index { [columns.count, columns.first?.count ?? 0]}
+
   var rows: [[Element]] {
     get { columns.transposed.map(Array.init) }
     set { columns = newValue.transposed.map(Array.init) }
   }
 
   var indices: some Sequence<Index> {
-    rows.indexed().lazy.flatMap { row in
-      row.element.indices.lazy.map { .init($0, row.index) }
+    product(0..<size.y, 0..<size.x).lazy.map { y, x in
+      .init(x, y)
     }
   }
 
