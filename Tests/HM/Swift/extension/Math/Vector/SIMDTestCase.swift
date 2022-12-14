@@ -6,6 +6,13 @@ final class SIMDTestCase: XCTestCase {
     XCTAssertEqual(-SIMD2(0, 1), [0, -1])
   }
 
+  func test_closedRange() {
+    XCTAssertEqual(
+      Array(SIMD2(0, 2)...[-2, 3]),
+      [[0, 2], [-1, 3], [-2, 3]]
+    )
+  }
+
   func test_convertFromInts() {
     let ints = (1, 1)
     XCTAssertEqual(

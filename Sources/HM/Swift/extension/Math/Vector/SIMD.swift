@@ -15,6 +15,19 @@ public extension SIMD where Scalar: SignedNumeric {
   }
 }
 
+public extension SIMD where Scalar: FixedWidthInteger {
+  static func ...(vector0: Self, vector1: Self) -> some Sequence<Self> {
+    sequence(first: vector0) {
+      guard $0 != vector1 else { return nil }
+
+      return $0 &+ (vector1 &- $0).clamped(
+        lowerBound: .init(repeating: -1),
+        upperBound: .init(repeating: 1)
+      )
+    }
+  }
+}
+
 public extension SIMD where Scalar: FloatingPoint {
   /// Convert integers to floating point vectors.
   init<Integer: BinaryInteger>(_ integers: Integer...) {
