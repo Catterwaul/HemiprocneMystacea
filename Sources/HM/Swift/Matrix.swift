@@ -44,6 +44,12 @@ public extension Matrix {
     indices.lazy.map { ($0, columns[$0.x][$0.y]) }
   }
 
+  /// Draw a picture! 🧑‍🎨
+  func description(_ transform: (Element) -> String) -> String {
+    rows.map { $0.lazy.map(transform).joined() }
+      .joined(separator: "\n")
+  }
+
   /// Indexed neighbors in four directions.
   /// - Note: There will be fewer than 4 if the index is on an edge.
   func orthogonalNeighbors(_ index: Index) -> [Index: Element] {

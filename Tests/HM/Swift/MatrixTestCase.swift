@@ -31,6 +31,14 @@ final class MatrixTestCase: XCTestCase {
       ].map(SIMD2.init)
     )
 
+    XCTAssertEqual(
+      matrix.description { $0.isMultiple(of: 2) ? "🌆" : "🅾️"  },
+      """
+      🌆🅾️🌆
+      🅾️🌆🌆
+      """
+    )
+
     XCTAssertThrowsError(try matrix.validate([-1, -1]))
   }
 }
