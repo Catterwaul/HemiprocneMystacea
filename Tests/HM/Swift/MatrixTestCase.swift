@@ -10,7 +10,7 @@ final class MatrixTestCase: XCTestCase {
       ]
     )
 
-    matrix.rows[1][2] = 100
+    matrix[[2, 1]] = 100
 
     XCTAssertEqual(
       Array(matrix),
@@ -40,5 +40,6 @@ final class MatrixTestCase: XCTestCase {
     )
 
     XCTAssertThrowsError(try matrix.validate([-1, -1]))
+    XCTAssertEqual(matrix.size, [3, 2])
   }
 }

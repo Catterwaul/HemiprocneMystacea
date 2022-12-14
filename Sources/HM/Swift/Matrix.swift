@@ -9,6 +9,10 @@ public struct Matrix<Element> {
 public extension Matrix {
   typealias Index = SIMD2<Int>
 
+  struct IndexingError: Error {
+    public init() { }
+  }
+
   init(columns: some Sequence<some Sequence<Element>>) {
     self.columns = columns.map(Array.init)
   }
@@ -17,13 +21,22 @@ public extension Matrix {
     self.init(columns: rows.transposed)
   }
 
+  subscript(index: Index) -> Element {
+    get { columns[index.x][index.y] }
+    set { columns[index.x][index.y] = newValue }
+  }
+
   /// Ensure an index is valid before accessing an element of the collection.
   /// - Returns: The same as the unlabeled subscript, if an error is not thrown.
   /// - Throws: `AnyCollection<Element>.IndexingError`
   ///   if `indices` does not contain `index`.
   subscript(validating index: Index) -> Element {
     get throws {
-      try columns[validating: index.x][validating: index.y]
+      do {
+        return try columns[validating: index.x][validating: index.y]
+      } catch {
+        throw IndexingError()
+      }
     }
   }
 
