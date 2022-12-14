@@ -35,6 +35,10 @@ public extension Matrix {
     }
   }
 
+  var indexed: some Sequence<(index: Index, element: Element)> {
+    indices.lazy.map { ($0, columns[$0.x][$0.y]) }
+  }
+
   /// Indexed neighbors in four directions.
   /// - Note: There will be fewer than 4 if the index is on an edge.
   func orthogonalNeighbors(_ index: Index) -> [Index: Element] {
@@ -56,6 +60,6 @@ public extension Matrix {
 
 extension Matrix: Sequence {
   public func makeIterator() -> some IteratorProtocol<Element> {
-    indices.lazy.map { columns[$0.x][$0.y] }.makeIterator()
+    indexed.lazy.map(\.element).makeIterator()
   }
 }
