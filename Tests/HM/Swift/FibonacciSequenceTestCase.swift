@@ -10,10 +10,10 @@ final class FibonacciSequenceTestCase: XCTestCase {
     ]
 
     XCTAssertEqual(
-      FibonacciSequence().prefix(29).map { $0 },
+      Double.fibonacciSequence.prefix(29).map { $0 },
       first29
     )
 
-    XCTAssertEqual(FibonacciSequence()[25], CGFloat(75025))
+    XCTAssertEqual(CGFloat.fibonacciSequence.makeIterator()[25], 75025)
   }
 }

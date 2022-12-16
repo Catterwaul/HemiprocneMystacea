@@ -66,8 +66,7 @@ final class SequenceTestCase: XCTestCase {
     }
 
     typealias Number = Int
-    let pauseableFibonacciSequence =
-      AnyIterator(FibonacciSequence<Number>())
+    let pauseableFibonacciSequence = AnyIterator(Number.fibonacciSequence.makeIterator())
 
     func getNext(_ count: Int) -> [Number] {
       .init(pauseableFibonacciSequence.prefix(count))

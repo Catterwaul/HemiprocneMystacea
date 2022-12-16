@@ -9,6 +9,15 @@ public extension AdditiveArithmetic where Self: Comparable {
   }
 }
 
+public extension AdditiveArithmetic where Self: ExpressibleByIntegerLiteral {
+  static var fibonacciSequence: some Sequence<Self> {
+    sequence(state: (0 as Self, 1 as Self)) { numbers in
+      defer { numbers = (numbers.1, numbers.0 + numbers.1) }
+      return numbers.0
+    }
+  }
+}
+
 public extension Sequence where Element: AdditiveArithmetic {
   var sum: Element? { reduce(+) }
 
