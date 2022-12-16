@@ -12,6 +12,13 @@ public extension SIMD2 {
   }
 }
 
+public extension SIMD2 where Scalar: SignedNumeric {
+  static var up: Self { [0, 1] }
+  static var down: Self { [0, -1] }
+  static var left: Self { [-1, 0] }
+  static var right: Self { [1, 0] }
+}
+
 public extension SIMD2<CGFloat.NativeType> {
 // MARK: - Initializers
   init(_ x: CGFloat, _ y: CGFloat) {

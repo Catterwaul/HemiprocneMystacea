@@ -12,4 +12,11 @@ final class SIMD2TestCase: XCTestCase {
     
     XCTAssertEqual([(0.0, -3.0), (4, 1)].definiteIntegral, -4)
   }
+
+  func test_range() {
+    XCTAssertEqual(
+      Array(SIMD2(0, 2)..<[-2, 3]),
+      [[0, 2], [-1, 3]]
+    )
+  }
 }
