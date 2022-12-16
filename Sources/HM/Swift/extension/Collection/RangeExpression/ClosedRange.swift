@@ -57,6 +57,21 @@ public extension ClosedRange where Bound: FloatingPoint {
   }
 }
 
+public extension Sequence {
+  @available(
+    swift, deprecated: 5.8,
+    message: "Doe extension Sequence<ClosedBound> compile yet?"
+  )
+  /// The sorted ranges, 
+  func accumulated<Bound>() -> some Sequence<Element>
+  where Element == ClosedRange<Bound> {
+    sorted(by: \.lowerBound).accumulated({ !$0.overlaps($1) }) {
+      // Either $0.lowerBound is lower, or the lower bounds are equivalent.
+      return $0.lowerBound...Swift.max($0.upperBound, $1.upperBound)
+    }
+  }
+}
+
 // MARK: - Bound: AdditiveArithmetic
 public extension ClosedRange where Bound: AdditiveArithmetic {
   func 🏓(

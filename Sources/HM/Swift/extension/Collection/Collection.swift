@@ -25,7 +25,6 @@ public extension Collection {
     self[index(startIndex, offsetBy: position)]
   }
 
-  // MARK: - Methods
   /// Ensure an index is valid before accessing an element of the collection.
   /// - Returns: The same as the unlabeled subscript, if an error is not thrown.
   /// - Throws: `AnyCollection<Element>.IndexingError`
@@ -37,6 +36,18 @@ public extension Collection {
       
       return self[index]
     }
+  }
+
+  // MARK: - Methods
+
+  /// A sequence made of sequences of elements that have potentially been combined.
+  /// - Returns: An empty sequence if this sequence is itself empty.
+  @inlinable func accumulated(
+    _ canBeAccumulated: @escaping (Element, Element) -> Bool,
+    _ accumulate: @escaping (Element, Element) -> Element
+  ) -> some Sequence<Element> {
+    chunked { !canBeAccumulated($0, $1) }
+      .lazy.compactMap { $0.reduce(accumulate) }
   }
 
   /// Split the collection into a total number of chunks.

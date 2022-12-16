@@ -23,6 +23,13 @@ final class ClosedRangeTestCase: XCTestCase {
     )
   }
 
+  func test_accumulated() {
+    XCTAssertEqual(
+      Array([6...7, 0...1, 4...5, 1...2, 4...4, -3...0].accumulated()),
+      [-3...2, 4...5, 6...7]
+    )
+  }
+
   func test_normalize() throws {
     XCTAssertEqual(
       ClosedRange(encompassing: [1.0, -10, 10])?.normalize(0),

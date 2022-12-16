@@ -95,7 +95,23 @@ public extension Sequence {
     }
   }
 
-// MARK:- Methods
+// MARK: - Methods
+
+  /// A sequence made of sequences of elements that have potentially been combined.
+  /// - Returns: An empty sequence if this sequence is itself empty.
+  @inlinable func accumulated(
+    _ accumulate: @escaping (Element, Element) -> Element?
+  ) -> some Sequence<Element> {
+    sequence(state: CurrentValueIterator(self)) { iterator in
+      guard let accumulation = iterator.value else { return nil }
+
+      return withoutActuallyEscaping({ iterator.next() }) { next in
+        sequence(first: accumulation) { accumulation in
+          next().flatMap { accumulate(accumulation, $0) }
+        }.last
+      }
+    }
+  }
 
   /// The elements of this sequence, and the ones after them.
   /// - Note: Every returned array will have the same count,
