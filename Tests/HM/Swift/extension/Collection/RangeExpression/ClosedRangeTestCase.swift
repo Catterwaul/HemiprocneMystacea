@@ -28,6 +28,11 @@ final class ClosedRangeTestCase: XCTestCase {
       Array([6...7, 0...1, 4...5, 1...2, 4...4, -3...0].accumulated()),
       [-3...2, 4...5, 6...7]
     )
+
+    XCTAssertEqual(
+      Array([12...12, 2...14, -2...2, 2...14, 16...24, 14...18].accumulated()),
+      [-2...24]
+    )
   }
 
   func test_normalize() throws {

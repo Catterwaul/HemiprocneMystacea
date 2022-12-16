@@ -65,7 +65,9 @@ public extension Sequence {
   /// The sorted ranges, 
   func accumulated<Bound>() -> some Sequence<Element>
   where Element == ClosedRange<Bound> {
-    sorted(by: \.lowerBound).accumulated({ !$0.overlaps($1) }) {
+    sorted(by: \.lowerBound).accumulated {
+      guard $0.overlaps($1) else { return nil }
+
       // Either $0.lowerBound is lower, or the lower bounds are equivalent.
       return $0.lowerBound...Swift.max($0.upperBound, $1.upperBound)
     }

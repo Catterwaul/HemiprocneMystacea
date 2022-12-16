@@ -40,16 +40,6 @@ public extension Collection {
 
   // MARK: - Methods
 
-  /// A sequence made of sequences of elements that have potentially been combined.
-  /// - Returns: An empty sequence if this sequence is itself empty.
-  @inlinable func accumulated(
-    _ canBeAccumulated: @escaping (Element, Element) -> Bool,
-    _ accumulate: @escaping (Element, Element) -> Element
-  ) -> some Sequence<Element> {
-    chunked { !canBeAccumulated($0, $1) }
-      .lazy.compactMap { $0.reduce(accumulate) }
-  }
-
   /// Split the collection into a total number of chunks.
   /// - Parameter count:
   ///   If this is not evenly divided by the count of the base `Collection`,
