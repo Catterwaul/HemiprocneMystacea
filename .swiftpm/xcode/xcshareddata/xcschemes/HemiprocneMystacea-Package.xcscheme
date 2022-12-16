@@ -134,6 +134,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "MTLCommandBufferTestCase/test()">
+               </Test>
+               <Test
                   Identifier = "URLSessionTestCase/test_makeHTTPDataTask()">
                </Test>
             </SkippedTests>
