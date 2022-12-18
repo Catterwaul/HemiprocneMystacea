@@ -10,7 +10,7 @@ public extension Sequence where Element: Equatable {
   /// - Note: `true` if `elements` is empty.
   func contains(_ elements: some Sequence<Element>) -> Bool {
     dropIterators.contains {
-      AnySequence(zip: (IteratorSequence($0), elements))
+      AnySequence.zip(IteratorSequence($0), elements)
         .first(where: !=)?.1 == nil
       // If `elements` is longer than this drop-iterator,
       // `.0` will be nil, not `.1`.

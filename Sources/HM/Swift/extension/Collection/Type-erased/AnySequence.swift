@@ -37,16 +37,10 @@ public extension AnySequence {
   }
 
   /// Like `zip`, but with `nil` elements for the shorter sequence after it is exhausted.
-  init<Sequence0: Sequence, Sequence1: Sequence>(
-    zip zipped: (Sequence0, Sequence1)
-  ) where Element == (Sequence0.Element?, Sequence1.Element?) {
-    self.init(
-      sequence(
-        state: (zipped.0.makeIterator(), zipped.1.makeIterator())
-      ) { iterators in
-        ((iterators.0.next(), iterators.1.next()) as Optional)
-          .filter { $0 != nil || $1 != nil }
-      }
-    )
+  static func zip<Sequence0: Sequence, Sequence1: Sequence>(
+    _ zipped0: Sequence0, _ zipped1: Sequence1
+  ) -> some Sequence<(Sequence0.Element?, Sequence1.Element?)>
+  where Element == (Sequence0.Element?, Sequence1.Element?) {
+    zipForever(zipped0, zipped1).prefix { !($0 == nil && $1 == nil) }
   }
 }

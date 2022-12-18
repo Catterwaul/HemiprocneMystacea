@@ -11,7 +11,7 @@ final class AnySequenceTestCase: XCTestCase {
 
   func test_init_zip() {
     XCTAssert(
-      AnySequence(zip: (sequences.0, sequences.1))
+      AnySequence.zip(sequences.0, sequences.1)
       ==
       [(1, "🇨🇦"), (2, "🐝"), (3, "🌊"), (4, nil), (5, nil)] as [(Int?, String?)]
     )
