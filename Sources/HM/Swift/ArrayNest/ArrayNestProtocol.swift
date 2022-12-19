@@ -18,15 +18,31 @@ public enum ArrayNestError: Error {
 
 public extension ArrayNestProtocol {
   mutating func setElement(
+    _ transform: (inout Element) throws -> Void
+  ) throws {
+    var element = try element
+    try transform(&element)
+    self = .element(element)
+  }
+
+  mutating func setElement(
     _ transform: (Element) throws -> Element
   ) throws {
-    self = .element(try transform(element))
+    try setElement { $0 = try transform($0) }
+  }
+
+  mutating func setArray(
+    _ transform: (inout [ArrayElement]) throws -> Void
+  ) throws {
+    var array = try array
+    try transform(&array)
+    self = .array(array)
   }
 
   mutating func setArray(
     _ transform: ([ArrayElement]) throws -> [ArrayElement]
   ) throws {
-    self = .array(try transform(array))
+    try setArray { $0 = try transform($0) }
   }
 }
 
