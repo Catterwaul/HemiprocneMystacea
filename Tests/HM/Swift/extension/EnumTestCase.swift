@@ -2,6 +2,25 @@ import HM
 import XCTest
 
 final class PatternMatchingTestCase: XCTestCase {
+  func test_set() throws {
+    enum 📧<Brief> {
+      case 💼(Brief)
+
+      var brief: Brief {
+        get {
+          guard case .💼(let brief) = self else {
+            fatalError()
+          }
+          return brief
+        }
+      }
+    }
+
+    var instance = 📧.💼("🩲")
+    try set(&instance, \.brief, { _ in "👙" }, 📧.💼)
+    XCTAssertEqual(instance.brief, "👙")
+  }
+
   func test_Character() {
     let g: Character = "g"
     switch g {

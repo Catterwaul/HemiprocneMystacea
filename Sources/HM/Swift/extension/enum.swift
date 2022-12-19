@@ -1,3 +1,19 @@
+/// Mutate an enum instance's payload.
+/// - Parameter associatedValue: It can't actually be a key path because they can't throw.
+///   But it will look close, like `{ try $0.case }`
+///   That requires an instance property, `case`,
+///   which needs to be manually defined because you can't actually
+///   check the case and get at the payload in any simpler way.
+/// - Parameter case: The `case` of the enum, as a method.
+public func set<Enum, AssociatedValue>(
+  _ instance: inout Enum,
+  _ associatedValue: (Enum) throws -> AssociatedValue,
+  _ transform: (AssociatedValue) throws -> AssociatedValue,
+  _ case: (AssociatedValue) -> Enum
+) throws {
+  instance = try `case`(transform(associatedValue(instance)))
+}
+
 public func ~= <Value>(
   matchPattern: (Value) -> Bool,
   value: Value
