@@ -16,24 +16,34 @@ public enum ArrayNestError: Error {
   case accessedElementAsArray
 }
 
+public extension ArrayNestProtocol {
+  mutating func setElement(
+    _ transform: (Element) throws -> Element
+  ) throws {
+    self = .element(try transform(element))
+  }
+
+  mutating func setArray(
+    _ transform: ([ArrayElement]) throws -> [ArrayElement]
+  ) throws {
+    self = .array(try transform(array))
+  }
+}
+
+
 // MARK: - value type
 public extension ArrayNestProtocol where ArrayElement == Self {
   static func array(_ elements: [Element]) -> Self {
     array(elements.map(element))
   }
 
-  init<ReferenceArrayNest: ArrayNestProtocol>(
-    _ referenceArrayNest: ReferenceArrayNest
-  )
-  where
-    ReferenceArrayNest.Element == Element,
-    ReferenceArrayNest.ArrayElement == Reference<ReferenceArrayNest>
-  {
-    do {
-      self = .element(try referenceArrayNest.element)
-    } catch {
+  init(_ referenceArrayNest: ReferenceArrayNest<Element>) {
+    switch referenceArrayNest {
+    case .element(let element):
+      self = .element(element)
+    case .array(let array):
       self = .array(
-        try! referenceArrayNest.array.map { .init($0.wrappedValue) }
+        array.map { .init($0.wrappedValue) }
       )
     }
   }

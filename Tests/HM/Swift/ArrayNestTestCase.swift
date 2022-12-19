@@ -10,11 +10,22 @@ final class ArrayNestTestCase: XCTestCase {
     array.append(.array())
     array.append(.array(["🐈‍⬛"]))
     referenceArrayNest = .array(array)
-    let valueArrayNest = ValueArrayNest(referenceArrayNest)
+    var valueArrayNest = ValueArrayNest(referenceArrayNest)
     XCTAssertEqual(
       valueArrayNest,
       .array([.element("🐈‍⬛"), .element("🐈"), .array(), .array(["🐈‍⬛"])])
     )
     XCTAssertThrowsError(try valueArrayNest.array[0].array)
+
+    try valueArrayNest.setArray {
+      var array = $0.map { _ in ValueArrayNest.element("🐱") }
+      try array[2].setElement { _ in "🐈‍⬛" }
+      return array
+    }
+
+    XCTAssertEqual(
+      valueArrayNest,
+      .array([.element("🐱"), .element("🐱"), .element("🐈‍⬛"), .element("🐱")])
+    )
   }
 }

@@ -13,7 +13,7 @@ extension ReferenceArrayNest: ArrayNestProtocol {
     }
   }
 
-  public var array: [ArrayElement] {
+  public var array: [Reference<Self>] {
     get throws {
       guard case .array(let array) = self else {
         throw Error.accessedElementAsArray

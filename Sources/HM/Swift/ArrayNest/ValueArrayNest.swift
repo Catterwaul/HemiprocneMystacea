@@ -24,4 +24,4 @@ extension ValueArrayNest: ArrayNestProtocol {
 }
 
 // MARK: - Equatable
-extension ValueArrayNest: Equatable where Element: Equatable, ArrayElement: Equatable { }
+extension ValueArrayNest: Equatable where Element: Equatable { }
