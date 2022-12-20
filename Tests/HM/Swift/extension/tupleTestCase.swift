@@ -2,6 +2,10 @@ import HM
 import XCTest
 
 final class TupleTestCase: XCTestCase {
+  func test_reverse() {
+    XCTAssert(reverse(1, 2) == (2, 1))
+  }
+
   func test_firstNonNil() {
     var tuple: (String?, String?)
     
