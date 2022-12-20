@@ -42,6 +42,10 @@ final class WrappedTestCase: XCTestCase {
       .snackTimeIllustration
     )
   }
+
+  func test_ellipsis() {
+    XCTAssertEqual(1…{ $0 + 1 }, 2)
+  }
 }
 
 private struct Struct {

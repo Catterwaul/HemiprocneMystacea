@@ -42,3 +42,12 @@ public extension Wrapped where Value: AnyObject {
     try transform(wrappedValue)
   }
 }
+
+infix operator …
+
+public func … <Value, Transformed>(
+  instance: Value,
+  tranform: (Value) -> Transformed
+) -> Transformed {
+  tranform(instance)
+}
