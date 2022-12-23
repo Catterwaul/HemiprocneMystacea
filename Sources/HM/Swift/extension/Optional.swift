@@ -72,10 +72,8 @@ public extension Optional {
   var unwrapped: Wrapped {
     get throws {
       switch self {
-      case let wrapped?:
-        return wrapped
-      case nil:
-        throw UnwrapError.nil
+      case let wrapped?: return wrapped
+      case nil: throw UnwrapError.nil
       }
     }
   }
@@ -85,14 +83,10 @@ public extension Optional {
   /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
   /// - Throws: `UnwrapError`
   func unwrap<Wrapped>() throws -> Wrapped {
-    switch self {
-    case let wrapped as Wrapped:
-      return wrapped
-    case .some:
-      throw UnwrapError.typeMismatch
-    case nil:
-      throw UnwrapError.nil
-    }
+    guard case let wrapped as Wrapped = try unwrapped
+    else { throw UnwrapError.typeMismatch }
+
+    return wrapped
   }
 
   /// Create a single-element array literal, or an empty one.
