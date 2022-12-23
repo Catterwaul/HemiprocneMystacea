@@ -24,16 +24,3 @@ public func `do`<Success>(
     throw error
   }
 }
-
-public func `do`<Success, Failure>(
-  _ result: Result<Success, Failure>,
-  catch: (Failure) -> Void
-) -> Success? {
-  switch result {
-  case .success(let success):
-    return success
-  case .failure(let failure):
-    `catch`(failure)
-    return nil
-  }
-}

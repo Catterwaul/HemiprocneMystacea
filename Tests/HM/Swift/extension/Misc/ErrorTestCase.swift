@@ -26,10 +26,8 @@ final class ErrorTestCase: XCTestCase {
     do {
       let result: Result<Void, _> = .failure(Error())
 
-      guard let _ = `do`(
-        result,
-        catch: { XCTAssert($0.property == "😫") }
-      ) else { return }
+      guard let _ = result.get({ XCTAssert($0.property == "😫") })
+      else { return }
 
       XCTFail()
     }

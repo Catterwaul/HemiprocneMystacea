@@ -66,6 +66,17 @@ public extension Result {
       self = .failure(failure)
     }
   }
+
+  /// A version of `get` that allows for processing a strongly-typed error, upon failure.
+  func get(_ catch: (Failure) -> Void) -> Success? {
+    switch self {
+    case .success(let success):
+      return success
+    case .failure(let failure):
+      `catch`(failure)
+      return nil
+    }
+  }
 }
 
 public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
