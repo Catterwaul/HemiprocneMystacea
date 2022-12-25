@@ -5,12 +5,9 @@ public extension Bool {
   /// `nil` otherwise
   init?<Integer: ExpressibleByIntegerLiteral & Equatable>(bit: Integer) {
     switch bit {
-    case 0:
-      self = false
-    case 1:
-      self = true
-    default:
-      return nil
+    case 0: self = false
+    case 1: self = true
+    default: return nil
     }
   }
 
@@ -19,10 +16,7 @@ public extension Bool {
   /// `true` for `"1"`,
   /// `nil` otherwise
   init?(binaryString: String) {
-    guard let bit = Int(binaryString) else {
-      return nil
-    }
-    
+    guard let bit = Int(binaryString) else { return nil }
     self.init(bit: bit)
   }
 
@@ -32,9 +26,7 @@ public extension Bool {
     _ resultWhenFalse: Result,
     _ makeResult: (_ resultWhenFalse: Result) throws -> Result
   ) rethrows -> Result {
-    self
-      ? try makeResult(resultWhenFalse)
-      : resultWhenFalse
+    self ? try makeResult(resultWhenFalse) : resultWhenFalse
   }
 }
 

@@ -15,9 +15,7 @@ infix operator ÷: MultiplicationPrecedence
 public extension FloatingPoint {
   /// - Throws: `DivisionByZeroError`
   static func ÷ (numerator: @autoclosure () -> Self, denominator: Self) throws -> Self {
-    guard denominator != 0
-    else { throw DivisionByZeroError() }
-
+    guard denominator != 0 else { throw DivisionByZeroError() }
     return numerator() / denominator
   }
 }
@@ -25,9 +23,7 @@ public extension FloatingPoint {
 public extension BinaryInteger {
   /// - Throws: `DivisionByZeroError<Self>`
   static func ÷ (numerator: @autoclosure () -> Self, denominator: Self) throws -> Self {
-    guard denominator != 0
-    else { throw DivisionByZeroError() }
-
+    guard denominator != 0 else { throw DivisionByZeroError() }
     return numerator() / denominator
   }
 }
