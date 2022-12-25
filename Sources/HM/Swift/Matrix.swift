@@ -83,8 +83,10 @@ public extension Matrix {
   ) -> [Index: Index] {
     var shortestPathSources: [Index: Index] = [:]
     var stepCounts = [start: 0]
-    func stepCount(index: Index) -> Int { stepCounts[index]! }
-    var heap = Heap([Heap.ElementValuePair(start, stepCount)])
+    func heapElement(_ index: Index) -> Heap<Int>.ElementValuePair<Index> {
+      .init(index) { stepCounts[$0]! }
+    }
+    var heap = Heap([heapElement(start)])
 
     while let source = heap.popMin()?.value {
       let newStepCount = stepCounts[source]! + 1
@@ -96,7 +98,7 @@ public extension Matrix {
       {
         stepCounts[destination.key] = newStepCount
         shortestPathSources[destination.key] = source
-        heap.insert(.init(destination.key, stepCount))
+        heap.insert(heapElement(destination.key))
       }
     }
 
