@@ -3,7 +3,10 @@ import SwiftUI
 
 @propertyWrapper
 public final class ObservableObjects<Objects: Sequence>: ObservableObject
-where Objects.Element: ObservableObject {
+where
+  Objects.Element: ObservableObject,
+  Objects.Element.ObjectWillChangePublisher == ObservableObjectPublisher
+{
   public init(wrappedValue: Objects) {
     self.wrappedValue = wrappedValue
     assignCancellable()
@@ -20,7 +23,7 @@ where Objects.Element: ObservableObject {
 private extension ObservableObjects {
   func assignCancellable() {
     cancellable = Publishers.MergeMany(wrappedValue.map(\.objectWillChange))
-      .sink { [unowned self] _ in objectWillChange.send() }
+      .forwardedThroughObjectWillChange(of: self)
   }
 }
 
@@ -28,7 +31,10 @@ private extension ObservableObjects {
 
 @propertyWrapper
 public struct ObservedObjects<Objects: Sequence>: DynamicProperty
-where Objects.Element: ObservableObject {
+where
+  Objects.Element: ObservableObject,
+  Objects.Element.ObjectWillChangePublisher == ObservableObjectPublisher
+{
   public init(wrappedValue: Objects) {
     _objects = .init(
       wrappedValue: .init(wrappedValue: wrappedValue)
@@ -47,7 +53,10 @@ where Objects.Element: ObservableObject {
 
 @propertyWrapper
 public struct StateObjects<Objects: Sequence>: DynamicProperty
-where Objects.Element: ObservableObject {
+where
+  Objects.Element: ObservableObject,
+  Objects.Element.ObjectWillChangePublisher == ObservableObjectPublisher
+{
   public init(wrappedValue: Objects) {
     _objects = .init(
       wrappedValue: .init(wrappedValue: wrappedValue)
