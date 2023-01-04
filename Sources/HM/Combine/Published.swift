@@ -1,27 +1,27 @@
 import struct Combine.Published
 
+public extension Published {
+  /// The stored value of a `Published`.
+  /// - Note: Only useful when not having access to the enclosing class instance.
+  var value: Value { Storage(self).value }
+
+  private final class Storage {
+    @Published private(set) var value: Value
+
+    init(_ published: Published) {
+      _value = published
+    }
+  }
+}
+
 extension Published: Encodable where Value: Encodable {
   public func encode(to encoder: Encoder) throws {
-    guard
-      let storageValue =
-        Mirror(reflecting: self).descendant("storage")
-        .map(Mirror.init)?.children.first?.value,
-      let value =
-        storageValue as? Value
-        ??
-        (storageValue as? Publisher).map(Mirror.init)?
-        .descendant("subject", "currentValue")
-        as? Value
-    else { throw EncodingError.invalidValue(self, codingPath: encoder.codingPath) }
-
     try value.encode(to: encoder)
   }
 }
 
 extension Published: Decodable where Value: Decodable {
   public init(from decoder: Decoder) throws {
-    self.init(
-      initialValue: try .init(from: decoder)
-    )
+    self.init(initialValue: try .init(from: decoder))
   }
 }
