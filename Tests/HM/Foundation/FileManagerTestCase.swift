@@ -1,4 +1,4 @@
-import class Foundation.FileManager
+import typealias Foundation.FileManager
 import HM
 import XCTest
 

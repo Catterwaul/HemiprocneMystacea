@@ -1,4 +1,4 @@
-import class Foundation.UnitDuration
+import typealias Foundation.UnitDuration
 
 public extension UnitDuration {
   static var days: UnitDuration {

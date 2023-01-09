@@ -1,4 +1,4 @@
-import struct XCTest.XCTSkip
+import typealias XCTest.XCTSkip
 
 public extension XCTSkip {
   /// Skip the rest of a test if an error is thrown.

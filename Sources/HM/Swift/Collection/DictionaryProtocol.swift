@@ -1,4 +1,4 @@
-import struct OrderedCollections.OrderedDictionary
+import typealias OrderedCollections.OrderedDictionary
 
 public protocol DictionaryProtocol<Key, Value>: Sequence where Element == (key: Key, value: Value) {
   associatedtype Key

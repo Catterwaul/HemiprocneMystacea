@@ -1,4 +1,4 @@
-import struct SwiftUI.Binding
+import typealias SwiftUI.Binding
 import HM
 import SwiftUI_HM
 import XCTest

@@ -1,4 +1,4 @@
-import struct CoreLocation.CLLocationCoordinate2D
+import typealias CoreLocation.CLLocationCoordinate2D
 
 public extension CLLocationCoordinate2D {
   enum CodingKey: Swift.CodingKey {

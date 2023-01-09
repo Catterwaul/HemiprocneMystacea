@@ -1,5 +1,5 @@
 #if !os(macOS)
-import class UIKit_HM.TapGestureRecognizer
+import typealias UIKit_HM.TapGestureRecognizer
 import XCTest
 
 final class TapGestureRecognizerTestCase {

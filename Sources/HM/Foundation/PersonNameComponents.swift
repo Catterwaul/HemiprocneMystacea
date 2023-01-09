@@ -1,4 +1,4 @@
-import struct Foundation.PersonNameComponents
+import typealias Foundation.PersonNameComponents
 
 extension PersonNameComponents: Comparable {
   public static func < (components0: Self, components1: Self) -> Bool {

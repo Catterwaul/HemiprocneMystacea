@@ -1,6 +1,6 @@
 import HM
 import XCTest
-import struct MapKit.MKCoordinateRegion
+import typealias MapKit.MKCoordinateRegion
 
 final class MKCoordinateRegionTestCase: XCTestCase {
   func test() throws {

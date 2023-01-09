@@ -1,4 +1,4 @@
-import struct Combine.Published
+import typealias Combine.Published
 
 public extension Published {
   /// The stored value of a `Published`.

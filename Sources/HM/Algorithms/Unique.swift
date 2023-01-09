@@ -1,4 +1,4 @@
-import struct OrderedCollections.OrderedDictionary
+import typealias OrderedCollections.OrderedDictionary
 
 public extension Sequence {
   @inlinable func uniqued(

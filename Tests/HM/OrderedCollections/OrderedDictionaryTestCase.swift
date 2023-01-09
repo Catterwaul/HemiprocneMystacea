@@ -1,4 +1,4 @@
-import struct Collections.OrderedDictionary
+import typealias Collections.OrderedDictionary
 import HM
 import XCTest
 

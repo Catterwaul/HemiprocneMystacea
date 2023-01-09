@@ -1,4 +1,5 @@
 import CloudKit
+import typealias Combine.Future
 
 public extension CKFetchRecordsOperation {
   /// - Parameters:

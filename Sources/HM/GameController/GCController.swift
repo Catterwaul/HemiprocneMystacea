@@ -1,5 +1,5 @@
 #if !os(watchOS)
-import class GameController.GCController
+import typealias GameController.GCController
 
 public extension GCController {
   final var isRemote: Bool { extendedGamepad == nil }

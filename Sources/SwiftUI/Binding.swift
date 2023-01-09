@@ -1,5 +1,5 @@
 import HM
-import struct SwiftUI.Binding
+import typealias SwiftUI.Binding
 
 public extension Binding {
   static func ?? <Wrapped>(optional: Self, defaultValue: Wrapped) -> Binding<Wrapped>

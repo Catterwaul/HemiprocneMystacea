@@ -1,4 +1,4 @@
-import struct MapKit.MKCoordinateSpan
+import typealias MapKit.MKCoordinateSpan
 
 public extension MKCoordinateSpan {
   enum CodingKey: Swift.CodingKey {

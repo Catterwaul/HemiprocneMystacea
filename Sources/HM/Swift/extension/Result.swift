@@ -1,3 +1,5 @@
+import typealias Combine.Future
+
 public extension Result {
   /// Create an Objective-C-style "completion handler".
   static func makeHandleCompletion(
