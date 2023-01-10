@@ -52,11 +52,7 @@ public extension BinaryInteger {
   var bitPattern: Magnitude { .init(truncatingIfNeeded: self) }
 
   func modulo(_ divisor: Self) -> Self {
-    let remainder = self % divisor
-    return
-      remainder >= 0
-      ? remainder
-      : remainder + divisor
+    (self % divisor + divisor) % divisor
   }
 }
 

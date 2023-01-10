@@ -22,11 +22,8 @@ final class CollectionTestCase: XCTestCase {
       XCTAssertEqual(ints[modulo: index], int)
     }
     
-    let string = "abc"
     XCTAssertEqual(
-      "abc"[
-        modulo: string.index(after: string.firstIndex(of: "c")!)
-      ],
+      "abc"["c", moduloOffset: 1],
       "a"
     )
   }

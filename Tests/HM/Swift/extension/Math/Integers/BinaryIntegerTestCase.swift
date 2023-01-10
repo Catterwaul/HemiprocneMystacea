@@ -45,6 +45,7 @@ final class BinaryIntegerTestCase: XCTestCase {
   func test_modulo() {
     XCTAssertEqual(1.modulo(2), 1 % 2)
     XCTAssertEqual((-1).modulo(2), 1)
+    XCTAssertEqual((-3).modulo(-2), -3 % -2)
   }
 
   func test_factorial() {
