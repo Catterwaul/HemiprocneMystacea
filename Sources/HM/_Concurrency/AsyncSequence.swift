@@ -1,5 +1,5 @@
 public extension Sequence where Element: Sendable {
-  func map<Transformed: Sendable>(
+  func mapWithTaskGroup<Transformed: Sendable>(
     priority: TaskPriority? = nil,
     _ transform: @escaping @Sendable (Element) async throws -> Transformed
   ) async rethrows -> [Transformed] {
@@ -20,10 +20,10 @@ public extension Sequence where Element: Sendable {
     }
   }
   
-  func compactMap<Transformed: Sendable>(
+  func compactMapWithTaskGroup<Transformed: Sendable>(
     priority: TaskPriority? = nil,
     _ transform: @escaping @Sendable (Element) async throws -> Transformed?
   ) async rethrows -> [Transformed] {
-    try await map(transform).compactMap { $0 }
+    try await mapWithTaskGroup(transform).compactMap { $0 }
   }
 }

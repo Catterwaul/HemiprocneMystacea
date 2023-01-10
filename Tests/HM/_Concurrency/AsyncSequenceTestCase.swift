@@ -10,12 +10,12 @@ final class AsyncSequenceTestCase: XCTestCase {
     }
         
     do {
-      let transformed = try await array.map(element)
+      let transformed = try await array.mapWithTaskGroup(element)
       XCTAssertEqual(transformed, array)
     }
     
     do {
-      let transformed = await array.map { try! await element($0) }
+      let transformed = await array.mapWithTaskGroup { try! await element($0) }
       XCTAssertEqual(transformed, array)
     }
   }
@@ -28,12 +28,12 @@ final class AsyncSequenceTestCase: XCTestCase {
     }
 
     do {
-      let transformed = try await array.compactMap(element)
+      let transformed = try await array.compactMapWithTaskGroup(element)
       XCTAssertEqual(transformed, ["0", "2"])
     }
 
     do {
-      let transformed = await array.compactMap { try! await element($0) }
+      let transformed = await array.compactMapWithTaskGroup { try! await element($0) }
       XCTAssertEqual(transformed, ["0", "2"])
     }
   }
