@@ -1,3 +1,4 @@
+import typealias Combine.Future
 import CloudKit
 
 public protocol InitializableWithCloudKitRecordAndReferences {
@@ -16,7 +17,7 @@ public extension InitializableWithCloudKitRecordAndReferences {
 		database: CKDatabase,
 		predicate: NSPredicate = .init(value: true),
 		_ process: @escaping ProcessGet<Self>,
-		_ processVerifyCompletion: @escaping (VerificationResult<Error>) -> Void
+    _ processVerifyCompletion: @escaping Future<Void, Error>.Promise
 	) {
 		database.request(
 			predicate: predicate,

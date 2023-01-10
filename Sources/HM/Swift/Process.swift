@@ -1,4 +1,4 @@
-public typealias ProcessGet<Gettable> = (() throws -> Gettable ) -> Void
+public typealias ProcessGet<Gettable> = (() throws -> Gettable) -> Void
 
 /// Used to eliminate the boilerplate of "processing throwing get accessors" returned from asynchronous functions.
 /// Errors will be forwarded on; you won't need to use a `do/catch`.

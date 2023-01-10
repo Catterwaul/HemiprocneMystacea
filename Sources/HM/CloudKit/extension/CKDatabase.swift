@@ -1,3 +1,4 @@
+import typealias Combine.Future
 import CloudKit
 
 public extension CKDatabase {
@@ -87,7 +88,7 @@ public extension CKDatabase {
   func request<Requested: InitializableWithCloudKitRecordAndReferences>(
     predicate: NSPredicate = .init(value: true),
     _ processGetRequested: @escaping ProcessGet<Requested>,
-    _ processCompletionResult: @escaping (VerificationResult<Error>) -> Void
+    _ processCompletionResult: @escaping Future<Void, Error>.Promise
   ) {
     let dispatchGroup = DispatchGroup()
     

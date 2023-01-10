@@ -6,7 +6,7 @@ public extension CKFetchRecordsOperation {
   ///   - process: ID to record dictionary
   convenience init(
     recordIDs: [CKRecord.ID],
-    process: @escaping (Result<[CKRecord.ID: CKRecord], Error>) -> Void
+    process: @escaping Future<[CKRecord.ID: CKRecord], Error>.Promise
   ) {
     self.init(recordIDs: recordIDs)
     fetchRecordsCompletionBlock = Result.makeHandleCompletion(process)
@@ -16,7 +16,7 @@ public extension CKFetchRecordsOperation {
   ///   - process: records
   convenience init(
     references: some Sequence<CKRecord.Reference>,
-    process: @escaping (Result<[CKRecord], Error>) -> Void
+    process: @escaping Future<[CKRecord], Error>.Promise
   ) {
     let ids = references.map(\.recordID)
     self.init(recordIDs: ids) { result in

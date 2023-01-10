@@ -5,13 +5,15 @@ public extension Result {
   static func makeHandleCompletion(
     _ process: @escaping (Self) -> Void
   ) -> (Success?, Failure?) -> Void {
-    { process($1.map(Self.failure) ?? .success($0!)) }
+    { success, failure in
+      process(failure.map(Self.failure) ?? .success(success!))
+    }
   }
 
   /// Create an Objective-C-style "completion handler".
   static func makeHandleCompletion<FinalSuccess>(
     processSuccess: @escaping (Success) -> Void,
-    processFailure: @escaping (Result<FinalSuccess, Failure>) -> Void
+    processFailure: @escaping Future<FinalSuccess, Failure>.Promise
   ) -> (Success?, Failure?) -> Void {
     makeHandleCompletion(
       makePromise(
@@ -23,8 +25,8 @@ public extension Result {
 
   static func makePromise<FinalSuccess>(
     processSuccess: @escaping (Success) -> Void,
-    processFailure: @escaping (Result<FinalSuccess, Failure>) -> Void
-  ) -> (Self) -> Void {
+    processFailure: @escaping Future<FinalSuccess, Failure>.Promise
+  ) -> Future<Success, Failure>.Promise {
     { result in
       switch result {
       case .success(let success):
@@ -107,10 +109,7 @@ public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
 
 // MARK: -
 
-/// A `Result` with no useful success value.
-public typealias VerificationResult<Failure: Error> = Result<Void, Failure>
-
-public extension VerificationResult where Success == Void {
+public extension Result where Success == Void {
   /// `.success(())`
   static var success: Self { .success(()) }
 

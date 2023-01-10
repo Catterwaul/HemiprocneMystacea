@@ -98,11 +98,11 @@ final class ResultTestCase: XCTestCase {
     struct Error: Swift.Error { }
 
     XCTAssert(
-      VerificationResult<Error>.success as (()) -> _ ~= .init(failure: nil)
+      Result<_, Error>.success as (()) -> _ ~= .init(failure: nil)
     )
 
     XCTAssert(
-      VerificationResult.failure ~= .init(failure: Error())
+      Result.failure ~= .init(failure: Error())
     )
   }
 }
