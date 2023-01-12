@@ -13,6 +13,10 @@ public protocol DictionaryProtocol<Key, Value>: Sequence where Element == (key: 
   ) rethrows
 
   subscript(key: Key) -> Value? { get set }
+  subscript(
+    key: Key,
+    default defaultValue: @autoclosure () -> Value
+  ) -> Value { get set }
 
   var keys: Keys { get }
 
@@ -161,6 +165,7 @@ public extension DictionaryProtocol where Key == Value {
 public extension DictionaryProtocol where Value == Int {
   /// Create "buckets" from a sequence of keys,
   /// such as might be used for a histogram.
+  /// - Note: This can be used for a "counted set".
   @inlinable init(bucketing unbucketedKeys: some Sequence<Key>) {
     self.init(zip(unbucketedKeys, 1), uniquingKeysWith: +)
   }
