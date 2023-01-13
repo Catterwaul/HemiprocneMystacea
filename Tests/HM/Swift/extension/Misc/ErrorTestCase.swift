@@ -2,6 +2,15 @@ import HM
 import XCTest
 
 final class ErrorTestCase: XCTestCase {
+  func test_AnyError() {
+    XCTAssertEqual(
+      AnyError(),
+      AnyError { throw AnyError() }
+    )
+
+    XCTAssertNil(AnyError {})
+  }
+
   func test_doCatch() {
     struct Error: Swift.Error {
       let property = "😫"

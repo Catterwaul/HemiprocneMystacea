@@ -3,12 +3,11 @@ import XCTest
 
 final class ResultTestCase: XCTestCase {
   func test_init_optionals() throws {
-    struct Error: Swift.Error, Equatable { }
-    typealias Result = Swift.Result<Int, Error>
-    typealias OneOfTwo = HM.OneOfTwo<Int, Error>
+    typealias Result = Swift.Result<Int, AnyError>
+    typealias OneOfTwo = HM.OneOfTwo<Int, AnyError>
 
     XCTAssertThrowsError(
-      try Result(success: 1, failure: .init() as Optional)
+      try Result(success: 1, failure: AnyError() as Optional)
     ) { error in
       guard case OneOfTwo.Error.both = error
       else { return XCTFail() }
@@ -41,24 +40,18 @@ final class ResultTestCase: XCTestCase {
     typealias Result = Swift.Result<String, Error>
 
     func get😼() -> String { "😼" }
-    struct Error: Swift.Error { }
 
-    guard case let .success(😼)
-      = try Result(get😼())
+    guard case let .success(😼) = try Result(get😼())
     else { return XCTFail() }
 
     XCTAssertEqual(😼, "😼")
 
-    func throwError() throws -> String {
-      throw Error()
-    }
-
     XCTAssert(
-      Result.failure ~= (try .init(throwError()))
+      Result.failure ~= (try .init(AnyError.throw()))
     )
 
     XCTAssertThrowsError(
-      try Swift.Result<String, [Error]>(throwError())
+      try Swift.Result<String, [Error]>(AnyError.throw())
     )
   }
 
@@ -86,23 +79,19 @@ final class ResultTestCase: XCTestCase {
     )
 
     do {
-      enum Error: Swift.Error { }
-
       XCTAssertThrowsError(
-        try Result<Void, [Error]>(groupingFailures: throwsStrongBads())
+        try Result<Void, [AnyError]>(groupingFailures: throwsStrongBads())
       )
     }
   }
 
   func test_VerificationResult() {
-    struct Error: Swift.Error { }
-
     XCTAssert(
       Result<_, Error>.success as (()) -> _ ~= .init(failure: nil)
     )
 
     XCTAssert(
-      Result.failure ~= .init(failure: Error())
+      Result.failure ~= .init(failure: AnyError())
     )
   }
 }

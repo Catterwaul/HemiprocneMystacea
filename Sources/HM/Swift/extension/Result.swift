@@ -44,9 +44,7 @@ public extension Result {
       let success = try getSuccess()
       self = .success(success)
     } catch {
-      guard let failure = error as? Failure
-      else { throw CastError.impossible }
-
+      guard let failure = error as? Failure else { throw CastError.impossible }
       self = .failure(failure)
     }
   }

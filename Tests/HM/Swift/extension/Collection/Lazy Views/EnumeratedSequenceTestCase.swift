@@ -8,10 +8,7 @@ final class EnumeratedSequenceTestCase: XCTestCase {
         ["🚽", "🛁"]
         .enumerated()
         .mapElements {
-          guard $0 == "🚽" else {
-            struct Error: Swift.Error { }
-            throw Error()
-          }
+          guard $0 == "🚽" else { throw AnyError() }
         }
     }
     catch let error as EnumeratedSequence<[String]>.Error {

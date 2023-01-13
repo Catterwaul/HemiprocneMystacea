@@ -3,7 +3,7 @@ public extension SetAlgebra {
   init(unique elements: some Sequence<Element>) throws {
     self = try elements.reduce(into: .init()) {
       guard $0.insert($1).inserted
-      else { throw Error() }
+      else { throw AnyError() }
     }
   }
 
@@ -23,5 +23,3 @@ public extension SetAlgebra {
     }
   }
 }
-
-private struct Error: Swift.Error { }

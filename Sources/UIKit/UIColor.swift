@@ -77,6 +77,4 @@ private func makeComponents<Components>(
   
   return `init`(components)
 }
-
-private struct Error: Swift.Error { }
 #endif
