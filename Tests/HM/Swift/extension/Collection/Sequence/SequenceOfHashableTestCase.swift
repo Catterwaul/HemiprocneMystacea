@@ -12,4 +12,20 @@ final class SequenceOfHashableTestCase: XCTestCase {
         ]
     )
   }
+
+  func test_filteringOutEarliestOccurrences() {
+    XCTAssert(
+      ["the", "people", "prefer", "to", "go", "to", "the", "sun", "beach"]
+        .filteringOutEarliestOccurrences(
+          from: ["the", "people", "prefer", "go", "to", "the", "moon", "beach"]
+        )
+        .elementsEqual(["to", "sun"])
+    )
+    
+    XCTAssert(
+      [1, 2, 3, 1]
+        .filteringOutEarliestOccurrences(from: [2, 1, 2])
+        .elementsEqual([3, 1])
+    )
+  }
 }
