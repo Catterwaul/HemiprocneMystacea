@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if !os(macOS) && canImport(MultipeerConnectivity)
 import Combine
 import MultipeerConnectivity
 import protocol SwiftUI.UIViewControllerRepresentable

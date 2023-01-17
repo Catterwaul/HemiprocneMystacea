@@ -1,3 +1,4 @@
+#if canImport(ModelIO)
 import ModelIO
 
 public extension MDLVertexDescriptor {
@@ -13,3 +14,4 @@ public extension MDLVertexDescriptor {
     set { layouts = .init(array: newValue) }
   }
 }
+#endif

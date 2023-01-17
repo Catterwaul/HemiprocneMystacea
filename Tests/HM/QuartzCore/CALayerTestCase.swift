@@ -1,3 +1,4 @@
+#if canImport(QuartzCore)
 import HM
 import XCTest
 
@@ -27,3 +28,4 @@ final class CALayerTestCase: XCTestCase {
     XCTAssertNotNil(layer.getSublayer() as? Sublayer)
   }
 }
+#endif

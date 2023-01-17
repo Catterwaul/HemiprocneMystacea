@@ -1,4 +1,4 @@
-#if !os(watchOS)
+#if canImport(GameController)
 import typealias GameController.GCController
 
 public extension GCController {

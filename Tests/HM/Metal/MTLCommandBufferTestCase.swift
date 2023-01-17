@@ -1,3 +1,4 @@
+#if canImport(Metal)
 import AsyncAlgorithms
 import HM
 import XCTest
@@ -31,3 +32,4 @@ final class MTLCommandBufferTestCase: XCTestCase {
     XCTAssertEqual(string, "123")
   }
 }
+#endif

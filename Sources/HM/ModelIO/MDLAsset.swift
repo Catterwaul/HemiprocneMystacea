@@ -1,3 +1,4 @@
+#if canImport(ModelIO)
 import ModelIO
 
 public extension MDLAsset {
@@ -6,3 +7,4 @@ public extension MDLAsset {
     childObjects(of: Object.self) as! [Object]
   }
 }
+#endif

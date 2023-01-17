@@ -23,12 +23,14 @@ extension AnyStyle: ButtonStyle where Configuration == ButtonStyleConfiguration 
   }
 }
 
+#if !os(watchOS)
 // MARK: - GroupBoxStyle
 extension AnyStyle: GroupBoxStyle where Configuration == GroupBoxStyleConfiguration {
   public init(_ style: some GroupBoxStyle) {
     self.init(makeBody: style.makeBody)
   }
 }
+#endif
 
 // MARK: - LabelStyle
 extension AnyStyle: LabelStyle where Configuration == LabelStyleConfiguration {

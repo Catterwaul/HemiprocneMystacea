@@ -1,3 +1,4 @@
+#if canImport(Metal)
 import Metal
 
 public extension MTLCommandBuffer {
@@ -27,3 +28,4 @@ public extension MTLCommandBuffer {
     }
   }
 }
+#endif

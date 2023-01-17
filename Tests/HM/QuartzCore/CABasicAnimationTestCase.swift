@@ -1,3 +1,4 @@
+#if canImport(QuartzCore)
 import HM
 import XCTest
 
@@ -13,3 +14,4 @@ final class CABasicAnimationTestCase: XCTestCase {
     )
   }
 }
+#endif

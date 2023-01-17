@@ -1,4 +1,4 @@
-#if !os(watchOS)
+#if canImport(QuartzCore)
 import QuartzCore
 
 public extension CATransaction {

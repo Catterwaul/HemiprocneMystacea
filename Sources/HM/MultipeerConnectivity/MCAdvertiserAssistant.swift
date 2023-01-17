@@ -1,4 +1,4 @@
-#if !os(watchOS)
+#if canImport(MultipeerConnectivity)
 import MultipeerConnectivity
 
 public extension MCAdvertiserAssistant {

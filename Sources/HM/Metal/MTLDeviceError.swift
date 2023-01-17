@@ -1,4 +1,4 @@
-#if !os(watchOS)
+#if canImport(Metal)
 import Metal
 
 public enum MTLDeviceError: Error {
