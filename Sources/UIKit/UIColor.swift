@@ -1,4 +1,5 @@
-#if !os(macOS)
+#if canImport(UIKit)
+import typealias HM.AnyError
 import UIKit
 
 public extension UIColor {
@@ -72,7 +73,7 @@ private func makeComponents<Components>(
     &components.2,
     &components.3
   ) else {
-    throw Error()
+    throw AnyError()
   }
   
   return `init`(components)

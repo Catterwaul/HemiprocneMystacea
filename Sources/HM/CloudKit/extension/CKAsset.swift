@@ -1,7 +1,6 @@
-#if !os(macOS)
-
-import CloudKit
-import UIKit
+#if canImport(UIKit)
+import typealias CloudKit.CKAsset
+import typealias UIKit.UIImage
 
 public extension UIImage {
 	convenience init?(asset: CKAsset) throws {
