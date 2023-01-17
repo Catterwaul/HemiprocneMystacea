@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if !(os(macOS) || os(watchOS))
 import XCTest
 import HM
 import UIKit_HM

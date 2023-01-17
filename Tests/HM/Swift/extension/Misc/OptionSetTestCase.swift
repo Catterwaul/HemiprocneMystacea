@@ -49,7 +49,7 @@ final class OptionSetTypeTestCase: XCTestCase {
     XCTAssertEqual(options.rawValue, 0b1111_1100_0000_0000_0000)
   }
   
-#if !os(macOS)
+#if !(os(macOS) || os(watchOS))
   func testInitWithCompatibleOptionSet() {
     let view = UIView()
     
@@ -104,7 +104,7 @@ private struct Options: OptionSet {
   ) = Options.makeOptions(startingFlagIndex: 14)
 }
 
-#if !os(macOS)
+#if !(os(macOS) || os(watchOS))
 extension UIView {
   struct AutoresizingFlexibilities: OptionSet {
     let rawValue: UInt

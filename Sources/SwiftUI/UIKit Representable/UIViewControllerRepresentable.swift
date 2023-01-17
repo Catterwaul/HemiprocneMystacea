@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if !(os(macOS) || os(watchOS))
 import protocol SwiftUI.UIViewControllerRepresentable
 
 public extension UIViewControllerRepresentable {
