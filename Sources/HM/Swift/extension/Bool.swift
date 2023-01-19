@@ -28,6 +28,11 @@ public extension Bool {
   ) rethrows -> Result {
     self ? try makeResult(resultWhenFalse) : resultWhenFalse
   }
+
+  /// "Not `self`"
+  var toggled: Self {
+    self…{ $0.toggle() }
+  }
 }
 
 // MARK: - Comparable

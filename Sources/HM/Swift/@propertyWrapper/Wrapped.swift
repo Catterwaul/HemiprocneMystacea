@@ -46,8 +46,19 @@ public extension Wrapped where Value: AnyObject {
 infix operator …
 
 public func … <Value, Transformed>(
-  instance: Value,
-  tranform: (Value) -> Transformed
+  value: Value,
+  transform: (Value) -> Transformed
 ) -> Transformed {
-  tranform(instance)
+  transform(value)
+}
+
+/// A mutated version of a value.
+public func … <Value>(
+  value: Value,
+  transform: (inout Value) -> Void
+) -> Value {
+  var value = value
+  transform(&value)
+  return value
+}
 }

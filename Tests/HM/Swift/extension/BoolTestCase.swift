@@ -39,6 +39,10 @@ final class BoolTestCase: XCTestCase {
     )
   }
 
+  func test_toggled() {
+    XCTAssertFalse(true.toggled)
+  }
+
   func test_reduce() {
     var isSnackTime = false
 
