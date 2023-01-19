@@ -59,13 +59,13 @@ extension Bool.Comparable: ExpressibleByBooleanLiteral {
 public prefix func !<Root>(
   getBool: @escaping (Root) -> Bool
 ) -> (Root) -> Bool {
-  { !getBool($0) }
+  getBool…(!)
 }
 
 public prefix func !(
   getBool: @escaping () -> Bool
 ) -> () -> Bool {
-  { !getBool() }
+  getBool…((!) as (Bool) -> _)
 }
 
 public extension Sequence<() -> Bool> {

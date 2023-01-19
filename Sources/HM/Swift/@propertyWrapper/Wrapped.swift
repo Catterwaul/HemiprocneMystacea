@@ -61,4 +61,17 @@ public func … <Value>(
   transform(&value)
   return value
 }
+
+public func … <Root, Value, Transformed>(
+  value: @escaping (Root) -> Value,
+  transform: @escaping (Value) -> Transformed
+) -> (Root) -> Transformed {
+  { transform(value($0)) }
+}
+
+public func … <Value, Transformed>(
+  value: @escaping () -> Value,
+  transform: @escaping (Value) -> Transformed
+) -> () -> Transformed {
+  { transform(value()) }
 }
