@@ -69,7 +69,7 @@ final class CKRecordTestCase: XCTestCase {
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
     XCTAssertThrowsError(try IntEnum(record: record)) { error in
-      XCTAssertEqual(error as? Optional<IntEnum>.UnwrapError, .nil)
+      XCTAssert(error is Optional<IntEnum>.UnwrapError)
     }
   }
   
@@ -88,12 +88,12 @@ final class CKRecordTestCase: XCTestCase {
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
     XCTAssertThrowsError(try StringEnum(record: record)) { error in
-      XCTAssertEqual(error as? Optional<StringEnum>.UnwrapError, .nil)
+      XCTAssert(error is Optional<StringEnum>.UnwrapError)
     }
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
     XCTAssertThrowsError(try StringEnum(record: record)) { error in
-      XCTAssertEqual(error as? Optional<CKRecord.Value>.UnwrapError, .nil)
+      XCTAssert(error is Optional<CKRecord.Value>.UnwrapError)
     }
   }
 }

@@ -1,5 +1,4 @@
 #if canImport(UIKit)
-
 import UIKit
 
 public protocol ConvertibleToSerializableDictionary {
@@ -26,18 +25,14 @@ public extension ConvertibleToSerializableDictionary {
     key: String? = nil
   ) -> [String: Any] {
     let serializableDictionary: [String: Any] = Dictionary(
-      uniqueKeysWithValues: Mirror(reflecting: self).children.compactMap {
-        child in
-        
+      uniqueKeysWithValues: Mirror(reflecting: self).children.compactMap { child in
         guard
           let label = child.label,
           SerializableDictionaryKey.contains(label),
-          
-          // Don't include keys with nil values.
-          !Mirror(reflecting: child.value).reflectsOptionalNone
+          let value = .init(flattening: child.value)
         else { return nil }
         
-        switch child.value {
+        switch value {
         case let image as UIImage:
           // possibly nil
           return image.pngData().map {
@@ -54,7 +49,7 @@ public extension ConvertibleToSerializableDictionary {
           return (
             key: label,
             value: {
-              switch child.value {
+              switch value {
 //              case let value as ConvertibleToSerializableDictionary:
 //                return value.makeSerializableDictionary(
 //                  jsonCompatible: jsonCompatible
@@ -68,14 +63,14 @@ public extension ConvertibleToSerializableDictionary {
 //                }
               default:
                 return
-                  (child.value as? CGPoint)?.dictionaryRepresentation
+                  (value as? CGPoint)?.dictionaryRepresentation
                   ??
-                  (child.value as? Date).flatMap { date -> Any in
+                  (value as? Date).flatMap { date -> Any in
                     jsonCompatible
                     ? date.timeIntervalSinceReferenceDate
                     : date
                   }
-                  ?? child.value
+                  ?? value
               }
             } ()
           )

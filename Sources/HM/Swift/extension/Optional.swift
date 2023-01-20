@@ -3,9 +3,8 @@ import Algorithms
 
 public extension Optional {
   /// Represents that an `Optional` was `nil`.
-  enum UnwrapError: Error {
-    case `nil`
-    case typeMismatch
+  struct UnwrapError: Error & Equatable {
+    public init() { }
   }
 
   /// Assign only non-nil values.
@@ -73,7 +72,7 @@ public extension Optional {
     get throws {
       switch self {
       case let wrapped?: return wrapped
-      case nil: throw UnwrapError.nil
+      case nil: throw UnwrapError()
       }
     }
   }
@@ -81,10 +80,10 @@ public extension Optional {
   /// [An alternative to overloading `??` to throw errors upon `nil`.](
   /// https://forums.swift.org/t/unwrap-or-throw-make-the-safe-choice-easier/14453/7)
   /// - Note: Useful for emulating `break`, with `map`, `forEach`, etc.
-  /// - Throws: `UnwrapError`
+  /// - Throws: `UnwrapError`, `CastError`
   func unwrap<Wrapped>() throws -> Wrapped {
     guard case let wrapped as Wrapped = try unwrapped
-    else { throw UnwrapError.typeMismatch }
+    else { throw CastError.impossible }
 
     return wrapped
   }
@@ -127,5 +126,37 @@ extension Sequence {
     guard (allSatisfy { $0 != nil }) else { return nil }
 
     return compacted()
+  }
+}
+
+// MARK: - Any?
+public extension Any? {
+  /// Represent an `Optional` with `Any?` instead of `Any`.
+  ///
+  /// If `any` is an optional, this instance will copy it.
+  /// Otherwise, this instance will wrap it.
+  ///
+  /// - Note: Use this to avoid an `Any?` actually representing an `Any??`.
+  init(flattening any: Any) {
+    switch any {
+    case let optional as Self:
+      self = optional
+    }
+  }
+
+  /// The wrapped value, whether `Wrapped` is an `Optional` or not.
+  /// - Throws: `Any?.UnwrapError` when `nil`,
+  ///   or  `Any??.UnwrapError` when wrapping another `Optional` that is `nil`.
+  var doublyUnwrapped: Wrapped {
+    get throws {
+      switch self {
+      case let doubleWrapped?? as Self?:
+        return doubleWrapped
+      case _?:
+        throw Self?.UnwrapError()
+      case nil:
+        throw UnwrapError()
+      }
+    }
   }
 }

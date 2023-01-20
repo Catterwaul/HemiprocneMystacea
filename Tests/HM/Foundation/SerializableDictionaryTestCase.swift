@@ -17,13 +17,13 @@ final class SerializableDictionaryTestCase: XCTestCase {
     XCTAssertThrowsError(
       try serializableDictionary[turKey] as Any
     ) { error in
-      XCTAssertEqual(error as? Optional<Any>.UnwrapError, .nil)
+      XCTAssert(error is Optional<Any>.UnwrapError)
     }
 		
     XCTAssertThrowsError(
       try serializableDictionary[oldKey] as Bool
     ) { error in
-      XCTAssertEqual(error as? Optional<Any>.UnwrapError, .typeMismatch)
+      XCTAssertEqual(error as? CastError, .impossible)
     }
   }
 	
@@ -53,7 +53,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
         key: turKeyboard
       )
     ) { error in
-      XCTAssertEqual(error as? Optional<Any>.UnwrapError, .nil)
+      XCTAssert(error is Optional<Any>.UnwrapError)
     }
   }
 	
