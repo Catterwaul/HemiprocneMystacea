@@ -14,7 +14,7 @@ public extension HashableSynthesizable {
 }
 
 private extension HashableSynthesizable {
-  var hashables: [AnyHashable] {
+  private var hashables: [AnyHashable] {
     Mirror(reflecting: self).children
       .compactMap { $0.value as? AnyHashable }
   }

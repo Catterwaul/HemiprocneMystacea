@@ -32,7 +32,7 @@ public extension MCBrowserViewController.View {
 
 // MARK: - private
 private extension MCBrowserViewController {
-  typealias CompletionSubject = PassthroughSubject<Void, Never>
+  private typealias CompletionSubject = PassthroughSubject<Void, Never>
 }
 
 // MARK: - UIViewControllerRepresentable

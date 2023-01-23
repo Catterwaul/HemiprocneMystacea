@@ -38,7 +38,7 @@ public extension UIPageViewController.ConnectedViewControllers {
 
 // MARK: private
 private extension UIPageViewController.ConnectedViewControllers {
-  func getConnectedViewController(
+  private func getConnectedViewController(
     viewController: UIViewController,
     adjustIndex: (Int, Int) -> Int
   ) -> UIViewController? {

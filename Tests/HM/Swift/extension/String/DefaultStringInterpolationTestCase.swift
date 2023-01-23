@@ -9,7 +9,7 @@ final class DefaultStringInterpolationTestCase: XCTestCase {
   }
 }
 
-private extension String {
+fileprivate extension String {
   static let 🧵 = "🧵"
   static let 🧶 = "🧶"
 }

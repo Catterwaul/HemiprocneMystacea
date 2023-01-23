@@ -73,7 +73,7 @@ final class FixedWidthIntegerTestCase: XCTestCase {
   }
 }
 
-private extension FixedWidthInteger where Self: _ExpressibleByBuiltinIntegerLiteral {
+fileprivate extension FixedWidthInteger where Self: _ExpressibleByBuiltinIntegerLiteral {
   var afterMitosis: Self {
     bits.enumerated().prefix(4).reduce(0) {
       let clonedBitPair = $1.element | $1.element << 1

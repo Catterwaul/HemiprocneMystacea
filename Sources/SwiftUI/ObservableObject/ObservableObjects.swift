@@ -21,7 +21,7 @@ where
 
 // MARK: - private
 private extension ObservableObjects {
-  func assignCancellable() {
+  private func assignCancellable() {
     cancellable = Publishers.MergeMany(wrappedValue.map(\.objectWillChange))
       .forwardedThroughObjectWillChange(of: self)
   }

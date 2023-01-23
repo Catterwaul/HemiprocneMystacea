@@ -52,6 +52,6 @@ private struct Struct {
   @Wrapped var cat = "🐈"
 }
 
-private extension String {
+fileprivate extension String {
   static let snackTimeIllustration = "🏃 🐈"
 }
