@@ -1,31 +1,6 @@
-import Combine
+import typealias Combine.ObservableObjectPublisher
+import HM
 import SwiftUI
-
-@propertyWrapper
-public final class ObservableObjects<Objects: Sequence>: ObservableObject
-where
-  Objects.Element: ObservableObject,
-  Objects.Element.ObjectWillChangePublisher == ObservableObjectPublisher
-{
-  public init(wrappedValue: Objects) {
-    self.wrappedValue = wrappedValue
-    assignCancellable()
-  }
-
-  @Published public var wrappedValue: Objects {
-    didSet { assignCancellable() }
-  }
-
-  private var cancellable: AnyCancellable!
-}
-
-// MARK: - private
-private extension ObservableObjects {
-  private func assignCancellable() {
-    cancellable = wrappedValue.map(\.objectWillChange)
-      .forwardedThroughObjectWillChange(of: self)
-  }
-}
 
 // MARK: -
 

@@ -24,19 +24,12 @@ public extension ObservableObjectParent {
   }
 }
 
-public extension Sequence<ObservableObjectPublisher> {
-  /// Forward output through an  `ObservableObject`'s `objectWillChange`.
-  func forwardedThroughObjectWillChange<Object: ObservableObject>(of object: Object) -> AnyCancellable
-  where Object.ObjectWillChangePublisher == ObservableObjectPublisher {
-    Publishers.MergeMany(self).forwardedThroughObjectWillChange(of: object)
-  }
-}
+// MARK: - Subject
+extension ObservableObjectPublisher: Subject {
+  public func send(subscription: any Subscription) { fatalError() }
+  public func send(completion: Subscribers.Completion<Never>) { fatalError() }
 
-
-public extension Publisher<Void, Never> {
-  /// Forward output through an  `ObservableObject`'s `objectWillChange`.
-  func forwardedThroughObjectWillChange<Object: ObservableObject>(of object: Object) -> AnyCancellable
-  where Object.ObjectWillChangePublisher == ObservableObjectPublisher {
-    sink { [unowned object] in object.objectWillChange.send() }
+  public func send(_: Void) {
+    send()
   }
 }

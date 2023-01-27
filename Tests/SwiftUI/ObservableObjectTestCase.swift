@@ -1,10 +1,10 @@
 import Combine
-import SwiftUI_HM
+import HM
 import XCTest
 
 final class ObservableObjectTestCase: XCTestCase {
   func test_forwardedObjectWillChangeCancellables() {
-    final class ObservableObjectParent: SwiftUI_HM.ObservableObjectParent {
+    final class ObservableObjectParent: HM.ObservableObjectParent {
       final class ObservableObject: Combine.ObservableObject {
         @Published var property: Void = ()
       }
@@ -13,7 +13,7 @@ final class ObservableObjectTestCase: XCTestCase {
       private var cancellable: AnyCancellable!
 
       init() {
-        cancellable = childrenObjectWillChanges.forwardedThroughObjectWillChange(of: self)
+        cancellable = childrenObjectWillChanges.merged.sink(objectWillChange)
       }
     }
 
