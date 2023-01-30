@@ -19,7 +19,7 @@ final class CollectionTestCase: XCTestCase {
       (-1, 2), (-2, 1),
       (-3, 2), (-4, 1)
     ] {
-      XCTAssertEqual(ints[modulo: index], int)
+      XCTAssertEqual(ints[cycling: index], int)
     }
     
     XCTAssertEqual(

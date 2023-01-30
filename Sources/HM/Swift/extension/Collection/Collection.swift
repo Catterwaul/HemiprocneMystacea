@@ -9,15 +9,8 @@ public extension Collection {
 
   /// Circularly wraps `index`, to always provide an element,
   /// even when `index` is not valid.
-  subscript(modulo index: Index) -> Element {
-    self[
-      self.index(
-        startIndex,
-        offsetBy:
-          distance(from: startIndex, to: index)
-          .modulo(count)
-      )
-    ]
+  subscript(cycling index: Index) -> Element {
+    self[cycledIndex(index)]
   }
 
   /// - Complexity: O(`position`)
@@ -52,6 +45,16 @@ public extension Collection {
     )
   }
 
+  /// Circularly wraps the result, to always provide an element.
+  func cycledIndex(_ index: Index, offsetBy distance: Int = 0) -> Index {
+    self.index(
+      startIndex,
+      offsetBy:
+        (self.distance(from: startIndex, to: index) + distance)
+        .modulo(count)
+    )
+  }
+
   /// Remove the beginning or end of a `Collection`.
   /// - Parameters:
   ///   - adfix: A prefix or suffix.
@@ -80,7 +83,7 @@ public extension Collection where Element: Equatable {
     moduloOffset offset: Int
   ) -> Element? {
     firstIndex(of: element).map {
-      self[modulo: index($0, offsetBy: offset)]
+      self[cycling: index($0, offsetBy: offset)]
     }
   }
 
