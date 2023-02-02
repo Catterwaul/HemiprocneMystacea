@@ -1,7 +1,7 @@
 import Combine
 
-@propertyWrapper
-public final class ObservableObjects<Objects: Sequence>: ObservableObject
+/// `ObservableObject`s  which all forward their `objectWillChange` through a parent.
+@propertyWrapper public final class ObservableObjectCollection<Objects: Collection>: ObservableObject
 where
   Objects.Element: ObservableObject,
   Objects.Element.ObjectWillChangePublisher == ObservableObjectPublisher
@@ -19,7 +19,7 @@ where
 }
 
 // MARK: - public
-public extension ObservableObjects {
+public extension ObservableObjectCollection {
   func assignCancellable() {
     cancellable = wrappedValue.map(\.objectWillChange).merged.subscribe(objectWillChange)
   }
