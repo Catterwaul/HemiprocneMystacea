@@ -23,13 +23,3 @@ public extension ObservableObjectParent {
     }
   }
 }
-
-// MARK: - Subject
-extension ObservableObjectPublisher: Subject {
-  public func send(subscription: any Subscription) { fatalError() }
-  public func send(completion: Subscribers.Completion<Never>) { fatalError() }
-
-  public func send(_: Void) {
-    send()
-  }
-}

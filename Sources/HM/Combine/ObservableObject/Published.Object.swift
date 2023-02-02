@@ -19,7 +19,7 @@ where Value: ObservableObject, Value.ObjectWillChangePublisher == ObservableObje
         @Computed(root: parent, keyPath: keyPath) var `self`
 
         // It's `nil` until a parent can be provided.
-        if self.objectWillChangeSubscriber == nil {
+        if self.objectWillChangeSubscription == nil {
           self.setParent(parent)
         }
 
@@ -37,8 +37,8 @@ where Value: ObservableObject, Value.ObjectWillChangePublisher == ObservableObje
 
     private var _wrappedValue: Value
 
-    /// The subscriber which forwards  `_wrappedValue`'s `objectWillChange` through a "parent".
-    private var objectWillChangeSubscriber: AnyCancellable!
+    /// The subscription which forwards  `_wrappedValue`'s `objectWillChange` through a "parent".
+    private var objectWillChangeSubscription: AnyCancellable!
   }
 }
 
@@ -53,7 +53,7 @@ public extension Published.Object {
 private extension Published.Object {
   private mutating func setParent<Parent: ObservableObject>(_ parent: Parent)
   where Parent.ObjectWillChangePublisher == ObservableObjectPublisher {
-    objectWillChangeSubscriber = _wrappedValue.objectWillChange.sink(parent.objectWillChange)
+    objectWillChangeSubscription = _wrappedValue.objectWillChange.subscribe(parent.objectWillChange)
   }
 }
 

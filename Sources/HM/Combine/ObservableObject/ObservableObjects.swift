@@ -21,6 +21,6 @@ where
 // MARK: - public
 public extension ObservableObjects {
   func assignCancellable() {
-    cancellable = wrappedValue.map(\.objectWillChange).merged.sink(objectWillChange)
+    cancellable = wrappedValue.map(\.objectWillChange).merged.subscribe(objectWillChange)
   }
 }

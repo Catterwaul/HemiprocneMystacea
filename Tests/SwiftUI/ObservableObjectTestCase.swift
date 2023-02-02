@@ -13,7 +13,7 @@ final class ObservableObjectTestCase: XCTestCase {
       private var cancellable: AnyCancellable!
 
       init() {
-        cancellable = childrenObjectWillChanges.merged.sink(objectWillChange)
+        cancellable = childrenObjectWillChanges.merged.subscribe(objectWillChange)
       }
     }
 
