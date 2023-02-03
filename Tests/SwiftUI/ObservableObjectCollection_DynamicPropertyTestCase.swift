@@ -8,7 +8,7 @@ final class ObservableObjectCollection_DynamicPropertyTestCase: XCTestCase {
     struct View {
       final class Object: ObservableObject { }
       @ObservedObject.Collection var observed: [Object] = []
-      @StateObject.Collection var state3: [Object] = []
+      @StateObject.Collection var state: [Object] = []
     }
 
     _ = View()
