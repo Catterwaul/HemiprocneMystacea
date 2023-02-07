@@ -235,8 +235,9 @@ final class SequenceTestCase: XCTestCase {
     let stride =
       stride(from: -random, through: random, by: random)
         .lazy.map(TypeWithComparable.init)
-    XCTAssert(stride.isSorted(by: \.comparable))
-    XCTAssert(stride.reversed().isSorted(by: \.comparable, >))
+    let chain = chain(.init(comparable: -random), stride)
+    XCTAssert(chain.isSorted(by: \.comparable))
+    XCTAssert(chain.reversed().isSorted(by: \.comparable, >=))
   }
 	
   func test_sorted() {

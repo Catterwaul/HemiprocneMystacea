@@ -424,7 +424,7 @@ public extension Sequence {
   @inlinable func isSorted(
     by comparable: (Element) throws -> some Comparable
   ) rethrows -> Bool {
-    try isSorted(by: comparable, <)
+    try isSorted(by: comparable, <=)
   }
 
   /// Whether the elements of this sequence are sorted by a common `Comparable` value,
