@@ -2,11 +2,12 @@ import HM
 import typealias SwiftUI.Binding
 
 public extension Binding {
-  static func ?? <Wrapped>(optional: Self, defaultValue: Wrapped) -> Binding<Wrapped>
-  where Value == Wrapped? {
+  /// A `Binding` whose `get` accessor returns a default value instead of `nil`.
+  static func ?? (optional: Binding<Value?>, default: Value) -> Self {
     .init(
-      get: { optional.wrappedValue ?? defaultValue },
-      set: { optional.wrappedValue = $0 }
+      get: { optional.wrappedValue ?? `default`},
+      set: { optional.wrappedValue = $0
+      }
     )
   }
 
@@ -27,11 +28,11 @@ public extension Binding {
   }
   
   /// Assign and return a `default` when the value for a key is `nil`.
-  subscript<Key, Value_Value>(
+  subscript<Key, DictionaryValue>(
     key: Key,
-    default default: Value_Value
-  ) -> Binding<Value_Value>
-  where Value == [Key: Value_Value] {
+    default default: DictionaryValue
+  ) -> Binding<DictionaryValue>
+  where Value == [Key: DictionaryValue] {
     .init(
       get: {
         switch wrappedValue[key] {

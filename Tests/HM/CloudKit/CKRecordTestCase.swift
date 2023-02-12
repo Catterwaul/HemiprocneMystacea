@@ -1,6 +1,7 @@
 import CloudKit
 import HM
 import XCTest
+import XCTest_HM
 
 final class CKRecordTestCase: XCTestCase {
   struct Pumpkin {
@@ -68,9 +69,10 @@ final class CKRecordTestCase: XCTestCase {
     XCTAssertEqual(try IntEnum(record: record), .zero)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
-    XCTAssertThrowsError(try IntEnum(record: record)) { error in
-      XCTAssert(error is Optional<IntEnum>.UnwrapError)
-    }
+    assert(
+      try IntEnum(record: record),
+      throws: Optional<IntEnum>.UnwrapError.self
+    )
   }
   
   func test_StringEnum() {
@@ -87,14 +89,16 @@ final class CKRecordTestCase: XCTestCase {
     XCTAssertEqual(try StringEnum(record: record), .a)
     
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
-    XCTAssertThrowsError(try StringEnum(record: record)) { error in
-      XCTAssert(error is Optional<StringEnum>.UnwrapError)
-    }
-    
+    assert(
+      try StringEnum(record: record),
+      throws: Optional<StringEnum>.UnwrapError.self
+    )
+
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
-    XCTAssertThrowsError(try StringEnum(record: record)) { error in
-      XCTAssert(error is Optional<CKRecord.Value>.UnwrapError)
-    }
+    assert(
+      try StringEnum(record: record),
+      throws: Optional<CKRecord.Value>.UnwrapError.self
+    )
   }
 }
 

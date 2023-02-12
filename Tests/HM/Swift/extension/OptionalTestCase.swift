@@ -90,12 +90,14 @@ final class OptionalTestCase: XCTestCase {
       }
 
       var s = S()
-      XCTAssertThrowsError(try s[""]) { error in
-        XCTAssert(error is Optional<Any>.UnwrapError)
-      }
-      XCTAssertThrowsError(try s["property"])  { error in
-        XCTAssert(error is Optional<Any?>.UnwrapError)
-      }
+      assert(
+        try s[""],
+        throws: Optional<Any>.UnwrapError.self
+      )
+      assert(
+        try s["property"],
+        throws: Optional<Any?>.UnwrapError.self
+      )
       s.property = 0
       XCTAssertEqual(try s["property"] as! Int, 0)
     }

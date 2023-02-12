@@ -3,9 +3,10 @@ import XCTest
 
 final class NumericTestCase: XCTestCase {
   func test_divide() {
-    XCTAssertThrowsError(try 1 ÷ 0) { error in
-      XCTAssert(error is DivisionByZeroError)
-    }
+    assert(
+      try 1 ÷ 0,
+      throws: DivisionByZeroError.self
+    )
   }
 
   func test_squared() {

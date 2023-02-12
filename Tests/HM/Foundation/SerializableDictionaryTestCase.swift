@@ -14,11 +14,10 @@ final class SerializableDictionaryTestCase: XCTestCase {
     )
     
     let turKey = "🦃"
-    XCTAssertThrowsError(
-      try serializableDictionary[turKey] as Any
-    ) { error in
-      XCTAssert(error is Optional<Any>.UnwrapError)
-    }
+    assert(
+      try serializableDictionary[turKey] as Any,
+      throws: Optional<Any>.UnwrapError.self
+    )
 		
     XCTAssertThrowsError(
       try serializableDictionary[oldKey] as Bool
@@ -47,14 +46,13 @@ final class SerializableDictionaryTestCase: XCTestCase {
     )
     
     let turKeyboard = "🦃⌨️"
-    XCTAssertThrowsError(
+    assert(
       try [Instrument](
         dictionary: dictionary,
         key: turKeyboard
-      )
-    ) { error in
-      XCTAssert(error is Optional<Any>.UnwrapError)
-    }
+      ),
+      throws: Optional<Any>.UnwrapError.self
+    )
   }
 	
 	func test_convertInitializableWithSerializableDictionaryArray() {
