@@ -9,15 +9,13 @@ final class ResultTestCase: XCTestCase {
     XCTAssertThrowsError(
       try Result(success: 1, failure: AnyError() as Optional)
     ) { error in
-      guard case OneOfTwo.Error.both = error
-      else { return XCTFail() }
+      XCTAssert(OneOfTwo.Error.both ~= error)
     }
 
     XCTAssertThrowsError(
       try Result(success: nil, failure: nil)
     ) { error in
-      guard case OneOfTwo.Error.neither = error
-      else { return XCTFail() }
+      XCTAssert(OneOfTwo.Error.neither ~= error)
     }
 
     XCTAssertEqual(
@@ -41,10 +39,10 @@ final class ResultTestCase: XCTestCase {
 
     func get😼() -> String { "😼" }
 
-    guard case let .success(😼) = try Result(get😼())
-    else { return XCTFail() }
-
-    XCTAssertEqual(😼, "😼")
+    XCTAssertEqual(
+      try Result(get😼()).get(),
+      "😼"
+    )
 
     XCTAssert(
       Result.failure ~= (try .init(AnyError.throw()))

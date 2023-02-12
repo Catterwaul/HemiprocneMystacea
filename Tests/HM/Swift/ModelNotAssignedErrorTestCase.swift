@@ -7,8 +7,7 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
     let indexPath = IndexPath(item: 2, section: 0)
     
     XCTAssertThrowsError(try viewModel.getRowCount()) { error in
-      guard case ModelNotAssignedError.getAccessor = error
-      else { return XCTFail() }
+      XCTAssert(ModelNotAssignedError.getAccessor ~= error)
     }
     
     viewModel.set( getInts: { [0, 1, 2, 3] } )
@@ -16,13 +15,11 @@ final class ModelNotAssignedErrorTestCase: XCTestCase {
     XCTAssertThrowsError(
       try viewModel.handleSelection(indexPath: indexPath)
     ) { error in
-      guard case ModelNotAssignedError.method = error
-      else { return XCTFail() }
+      XCTAssert(ModelNotAssignedError.method ~= error)
     }
     
     XCTAssertThrowsError(try viewModel.doSomething()) { error in
-      guard case ModelNotAssignedError.method = error
-      else { return XCTFail() }
+      XCTAssert(ModelNotAssignedError.method ~= error)
     }
   }
 }

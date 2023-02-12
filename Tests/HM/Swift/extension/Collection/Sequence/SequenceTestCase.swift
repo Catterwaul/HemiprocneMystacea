@@ -188,13 +188,11 @@ final class SequenceTestCase: XCTestCase {
     typealias Error = AnySequence<Int>.OnlyMatchError
     
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 4 } ) { error in
-      guard case Error.moreThanOneMatch = error
-      else { return XCTFail() }
+      XCTAssert(Error.moreThanOneMatch ~= error)
     }
 
     XCTAssertThrowsError( try (1...5).onlyMatch { $0 < 1 } ) { error in
-      guard case Error.noMatches = error
-      else { return XCTFail() }
+      XCTAssert(Error.noMatches ~= error)
     }
   }
 
