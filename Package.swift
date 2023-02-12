@@ -97,13 +97,7 @@ extension Package {
 
 extension Package.Apple {
   var package: Package.Dependency {
-    let url = "https://github.com/apple/" + swiftPrefixedName
-    switch self {
-    case .asyncAlgorithms:
-      return .package(url: url, revision: "cc0621eb1bb3ae0e6dd0d51beedbdb1f655c911e")
-    default:
-      return .package(url: url, branch: "main")
-    }
+   .package(url: "https://github.com/apple/" + swiftPrefixedName, branch: "main")
   }
 
   var product: Target.Dependency {
