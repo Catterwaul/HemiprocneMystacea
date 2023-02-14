@@ -15,7 +15,7 @@ public protocol ConvertibleToCloudKitRecord {
   var recordDictionary: RecordDictionary { get }
 }
 
-// MARK: public
+// MARK: - public
 public extension ConvertibleToCloudKitRecord {
 	var recordDictionaryOverrides: RecordDictionary { [:] }
 
