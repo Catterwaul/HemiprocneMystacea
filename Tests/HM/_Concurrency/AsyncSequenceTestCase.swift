@@ -3,19 +3,20 @@ import XCTest
 
 final class AsyncSequenceTestCase: XCTestCase {  
   func test_map() async throws {
-    let array = ["🔥"]
+    let array = [0, 100, 200]
 
-    @Sendable func element(_ element: String) async throws -> String {
-      element
+    @Sendable func delayed(_ adjustment: Int) async throws -> Int {
+      try await Task.sleep(for: .milliseconds(array.last! - adjustment))
+      return adjustment
     }
         
     do {
-      let transformed = try await array.mapWithTaskGroup(element)
+      let transformed = try await array.mapWithTaskGroup(delayed)
       XCTAssertEqual(transformed, array)
     }
     
     do {
-      let transformed = await array.mapWithTaskGroup { try! await element($0) }
+      let transformed = await array.mapWithTaskGroup { try! await delayed($0) }
       XCTAssertEqual(transformed, array)
     }
   }

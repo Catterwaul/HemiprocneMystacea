@@ -1,22 +1,21 @@
+import Collections
+
 public extension Sequence where Element: Sendable {
   func mapWithTaskGroup<Transformed: Sendable>(
     priority: TaskPriority? = nil,
     _ transform: @escaping @Sendable (Element) async throws -> Transformed
   ) async rethrows -> [Transformed] {
-    try await withThrowingTaskGroup(
-      of: EnumeratedSequence<[Transformed]>.Element.self
-    ) { group in
+    typealias ChildTaskResult = Heap<Int>.ElementValuePair<Transformed>
+    return try await withThrowingTaskGroup(of: ChildTaskResult.self) { group in
       for (offset, element) in enumerated() {
         group.addTask(priority: priority) {
-          (offset, try await transform(element))
+          .init(offset, try await transform(element))
         }
       }
-      
-      return try await group.reduce(
-        into: map { _ in nil } as [Transformed?]
-      ) {
-        $0[$1.offset] = $1.element
-      } as! [Transformed]
+
+      return try await group.reduce(into: Heap<ChildTaskResult>()) {
+        $0.insert($1)
+      }.sorted.map(\.value)
     }
   }
   
