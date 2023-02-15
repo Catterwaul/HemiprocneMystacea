@@ -1,28 +1,81 @@
-import Collections
+import AsyncAlgorithms
+import HeapModule
 
-public extension Sequence where Element: Sendable {
+public extension Sequence {
+  /// Transform a sequence asynchronously, and potentially in parallel.
+  /// - Returns: An `AsyncSequence` which returns transformed elements, in their original order,
+  /// as soon as they become available.
+  func mapWithTaskGroup<Transformed: Sendable>(
+    priority: TaskPriority? = nil,
+    _ transform: @escaping @Sendable (Element) async -> Transformed
+  ) -> AsyncChannel<Transformed> {
+    let channel = AsyncChannel<Transformed>()
+    Task { await mapWithTaskGroup(channel: channel, transform) }
+    return channel
+  }
+
+  /// Transform a sequence asynchronously, and potentially in parallel.
+  /// - Returns: An `AsyncSequence` which returns transformed elements, in their original order,
+  /// as soon as they become available.
   func mapWithTaskGroup<Transformed: Sendable>(
     priority: TaskPriority? = nil,
     _ transform: @escaping @Sendable (Element) async throws -> Transformed
-  ) async rethrows -> [Transformed] {
-    typealias ChildTaskResult = Heap<Int>.ElementValuePair<Transformed>
-    return try await withThrowingTaskGroup(of: ChildTaskResult.self) { group in
-      for (offset, element) in enumerated() {
-        group.addTask(priority: priority) {
-          .init(offset, try await transform(element))
-        }
+  ) -> AsyncThrowingChannel<Transformed, Error> {
+    let channel = AsyncThrowingChannel<Transformed, Error>()
+    Task {
+      do {
+        try await mapWithTaskGroup(channel: channel, transform)
+      } catch {
+        channel.fail(error)
       }
-
-      return try await group.reduce(into: Heap<ChildTaskResult>()) {
-        $0.insert($1)
-      }.sorted.map(\.value)
     }
+    return channel
   }
   
   func compactMapWithTaskGroup<Transformed: Sendable>(
     priority: TaskPriority? = nil,
     _ transform: @escaping @Sendable (Element) async throws -> Transformed?
   ) async rethrows -> [Transformed] {
-    try await mapWithTaskGroup(transform).compactMap { $0 }
+    try await .init(mapWithTaskGroup(transform).compacted())
+  }
+}
+
+// MARK: - private
+private protocol AsyncChannelProtocol<Element> {
+  associatedtype Element
+  func send(_: Element) async
+  func finish()
+}
+
+extension AsyncChannel: AsyncChannelProtocol { }
+extension AsyncThrowingChannel: AsyncChannelProtocol { }
+
+private extension Sequence {
+  private func mapWithTaskGroup<Transformed>(
+    channel: some AsyncChannelProtocol<Transformed>,
+    priority: TaskPriority? = nil,
+    _ transform: @escaping @Sendable (Element) async throws -> Transformed
+  ) async rethrows {
+    typealias ChildTaskResult = Heap<Int>.ElementValuePair<Transformed>
+    try await withThrowingTaskGroup(of: ChildTaskResult.self) { group in
+      for (offset, element) in enumerated() {
+        group.addTask(priority: priority) {
+          .init(offset, try await transform(element))
+        }
+      }
+
+      var heap = Heap<ChildTaskResult>()
+      var lastSentOffset = -1
+      for try await childTaskResult in group {
+        heap.insert(childTaskResult)
+        // Send as many in-order `Transformed`s as possible.
+        while heap.min()?.element == lastSentOffset + 1 {
+          await channel.send(heap.removeMin().value)
+          lastSentOffset += 1
+        }
+      }
+
+      channel.finish()
+    }
   }
 }

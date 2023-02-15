@@ -11,31 +11,34 @@ final class AsyncSequenceTestCase: XCTestCase {
     }
         
     do {
-      let transformed = try await array.mapWithTaskGroup(delayed)
+      let transformed = try await Array(array.mapWithTaskGroup(delayed))
       XCTAssertEqual(transformed, array)
     }
     
+    // Utilize `rethrows` to eliminate `try`
     do {
-      let transformed = await array.mapWithTaskGroup { try! await delayed($0) }
+      let transformed = await Array(array.mapWithTaskGroup { try! await delayed($0) })
       XCTAssertEqual(transformed, array)
     }
   }
   
   func test_compactMap() async throws {
     let array = ["0", nil, "2"]
+    let compacted = Array(array.compacted())
 
-    @Sendable func element(_ element: String?) async throws -> String? {
+    @Sendable func transform<Element>(_ element: Element?) async throws -> Element? {
       element
     }
 
     do {
-      let transformed = try await array.compactMapWithTaskGroup(element)
-      XCTAssertEqual(transformed, ["0", "2"])
+      let transformed = try await array.compactMapWithTaskGroup(transform)
+      XCTAssertEqual(transformed, compacted)
     }
 
+    // Utilize `rethrows` to eliminate `try`
     do {
-      let transformed = await array.compactMapWithTaskGroup { try! await element($0) }
-      XCTAssertEqual(transformed, ["0", "2"])
+      let transformed = await array.compactMapWithTaskGroup { try! await transform($0) }
+      XCTAssertEqual(transformed, compacted)
     }
   }
 }
