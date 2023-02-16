@@ -60,7 +60,7 @@ public extension ClosedRange where Bound: FloatingPoint {
 public extension Sequence {
   @available(
     swift, deprecated: 5.8,
-    message: "Doe extension Sequence<ClosedBound> compile yet?"
+    message: "Does extension Sequence<ClosedBound> compile yet?"
   )
   /// The sorted ranges, 
   func accumulated<Bound>() -> some Sequence<Element>

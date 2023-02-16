@@ -18,6 +18,9 @@ final class PublishedObjectTestCase: XCTestCase {
     value = nil
     parent!.child.property = "🍷"
     XCTAssertNotNil(value)
+    value = nil
+    parent!.array[0].property = "🍷"
+    XCTAssertNotNil(value)
 
     // Test for retain cycles
     do {
@@ -31,11 +34,21 @@ final class PublishedObjectTestCase: XCTestCase {
 
   func test_Codable() {
     XCTAssertEqual(
-      "🍇",
       try JSONDecoder().decode(
         Parent.self,
         from: try JSONEncoder().encode(Parent())
-      ).child.property
+      ).child.property,
+      "🍇"
+    )
+  }
+
+  func test_Collection_Codable() {
+    XCTAssertEqual(
+      try JSONDecoder().decode(
+        Parent.self,
+        from: try JSONEncoder().encode(Parent())
+      ).array.map(\.property),
+      ["🍇"]
     )
   }
 }
@@ -46,4 +59,5 @@ fileprivate final class Parent: ObservableObject & Codable {
   }
 
   @Published.Object var child = Child()
+  @Published.Object.Collection var array = [Child()]
 }

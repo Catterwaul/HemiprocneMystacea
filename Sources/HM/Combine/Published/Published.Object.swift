@@ -39,5 +39,4 @@ public extension Published.Object {
 }
 
 // MARK: - Codable
-extension Published.Object: Encodable where Value: Encodable { }
-extension Published.Object: Decodable where Value: Decodable { }
+extension Published.Object: Codable where Value: Codable { }
