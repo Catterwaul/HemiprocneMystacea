@@ -1,4 +1,5 @@
 #if !(os(macOS) || os(watchOS))
+import HM
 import UIKit
 
 /// A `UITapGestureRecognizer` that wraps a closure.

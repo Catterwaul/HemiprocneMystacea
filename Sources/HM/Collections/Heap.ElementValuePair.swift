@@ -28,3 +28,6 @@ extension Heap.ElementValuePair: Comparable {
     fatalError()
   }
 }
+
+// MARK: - Sendable
+extension Heap.ElementValuePair: Sendable where Element: Sendable, Value: Sendable { }

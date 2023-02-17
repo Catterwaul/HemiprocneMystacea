@@ -1,3 +1,4 @@
+import protocol Combine.ObservableObject
 import HM
 import SwiftUI
 

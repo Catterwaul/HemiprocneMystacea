@@ -1,7 +1,7 @@
 import AsyncAlgorithms
 import HeapModule
 
-public extension Sequence {
+public extension Sequence where Element: Sendable {
   /// Transform a sequence asynchronously, and potentially in parallel.
   /// - Returns: An `AsyncSequence` which returns transformed elements, in their original order,
   /// as soon as they become available.
@@ -50,8 +50,8 @@ private protocol AsyncChannelProtocol<Element> {
 extension AsyncChannel: AsyncChannelProtocol { }
 extension AsyncThrowingChannel: AsyncChannelProtocol { }
 
-private extension Sequence {
-  private func mapWithTaskGroup<Transformed>(
+private extension Sequence where Element: Sendable {
+  private func mapWithTaskGroup<Transformed: Sendable>(
     channel: some AsyncChannelProtocol<Transformed>,
     priority: TaskPriority? = nil,
     _ transform: @escaping @Sendable (Element) async throws -> Transformed

@@ -1,3 +1,5 @@
+import Algorithms
+
 public extension Comparable {
   /// The properties with the maximum value.
   /// - Parameter subject: An instance of any type.

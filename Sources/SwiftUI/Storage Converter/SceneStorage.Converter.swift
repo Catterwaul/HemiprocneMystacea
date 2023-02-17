@@ -11,8 +11,12 @@ public extension SceneStorage {
 extension SceneStorage: StorageDynamicProperty { }
 
 // MARK: - Data
-/// - Warning: Not a good match for tvOS, due to severely limited local storage allowance.
+@available(
+  swift, deprecated: 5.8,
+  message: "The where clause is redundant."
+)
 public extension SceneStorage<Data>.Converter where Converted: Codable, Storage == SceneStorage<Data> {
+  /// - Warning: Not a good match for tvOS, due to severely limited local storage allowance.
   init<Decoder: TopLevelDecoder, Encoder: TopLevelEncoder>(
     wrappedValue: Converted,
     _ key: String, store: UserDefaults? = nil,
@@ -32,6 +36,10 @@ public extension SceneStorage<Data>.Converter where Converted: Codable, Storage 
 }
 
 // MARK: - Double
+@available(
+  swift, deprecated: 5.8,
+  message: "The where clause is redundant."
+)
 public extension AppStorage<Double>.Converter where Storage == SceneStorage<Double> {
   init(
     wrappedValue: Converted,

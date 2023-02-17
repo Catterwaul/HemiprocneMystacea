@@ -56,8 +56,8 @@ final class TupleTestCase: XCTestCase {
     XCTAssert(array.tuple3! == (0, 1, 2))
     XCTAssert(array.tuple4! == (0, 1, 2, 3))
 
-    XCTAssertNil([].tuple2)
-    XCTAssertNil([].tuple3)
-    XCTAssertNil([].tuple4)
+    XCTAssertNil([Never]().tuple2)
+    XCTAssertNil([Never]().tuple3)
+    XCTAssertNil([Never]().tuple4)
   }
 }

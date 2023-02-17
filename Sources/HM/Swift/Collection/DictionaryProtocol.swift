@@ -178,12 +178,6 @@ public extension DictionaryProtocol where Value == Int {
   }
 }
 
-// MARK: - 🐞🪲
-
-@available(
-  swift, deprecated: 5.8,
-  message: "All attempts to move any of this into DictionaryProtocol have failed."
-)
 public extension Dictionary {
   /// Group key-value pairs by their keys.
   ///
