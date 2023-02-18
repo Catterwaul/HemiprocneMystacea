@@ -496,7 +496,7 @@ public extension Sequence {
 }
 
 @available(
-  swift, deprecated: 5.8,
+  swift, deprecated: 5.9,
   message: "`lazy.flatMap` will not compile."
 )
 /// Recursively collect the elements of sequences.
@@ -566,10 +566,6 @@ public struct Extremum<Value> {
 }
 
 /// An infinite sequence of a single value.
-@available(
-  swift, deprecated: 5.8,
-  message: "Doesn't compile without the constant in Swift 5.7."
-)
 @inlinable public func sequence<Element>(_ element: Element) -> some Sequence<Element> {
   let getSelf: (Element) -> Element = \.self
   return sequence(first: element, next: getSelf)
