@@ -1,8 +1,10 @@
 #if canImport(Metal)
 import AsyncAlgorithms
 import HM
+@preconcurrency import Metal
 import XCTest
 
+@preconcurrency
 final class MTLCommandBufferTestCase: XCTestCase {
   func test() async {
     let buffer = MTLCreateSystemDefaultDevice()!.makeCommandQueue()!.makeCommandBuffer()!
