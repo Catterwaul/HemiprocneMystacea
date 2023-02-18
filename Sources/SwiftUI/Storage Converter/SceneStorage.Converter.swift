@@ -1,35 +1,38 @@
 import Combine
+import protocol HM.wrappedValue_nonmutating_set
 import SwiftUI
 
 public extension SceneStorage {
   /// A way to use `SceneStorage` with more types,
   /// via conversion to and from the limited supported types.
-  typealias Converter<Converted> = StorageConverter<Self, Converted>
+  typealias Converter<WrappedValue> = WrapperConverterWithBinding<Self, WrappedValue>
 }
 
-// MARK: - StorageDynamicProperty
-extension SceneStorage: StorageDynamicProperty { }
+// MARK: - wrappedValue_nonmutating_set
+extension SceneStorage: wrappedValue_nonmutating_set {
+  public typealias WrappedValue = Value
+}
 
 // MARK: - Data
 @available(
   swift, deprecated: 5.8,
   message: "The where clause is redundant."
 )
-public extension SceneStorage<Data>.Converter where Converted: Codable, Storage == SceneStorage<Data> {
+public extension SceneStorage<Data>.Converter where WrappedValue: Codable, Wrapper == SceneStorage<Data> {
   /// - Warning: Not a good match for tvOS, due to severely limited local storage allowance.
   init<Decoder: TopLevelDecoder, Encoder: TopLevelEncoder>(
-    wrappedValue: Converted,
+    wrappedValue: WrappedValue,
     _ key: String, store: UserDefaults? = nil,
     decoder: Decoder = JSONDecoder(), encoder: Encoder = JSONEncoder()
   )
   where Decoder.Input == Data, Encoder.Output == Data {
-    func toStorage(_ converted: Converted) -> Data {
+    func toStorage(_ converted: WrappedValue) -> Data {
       (try? encoder.encode(converted)) ?? .init()
     }
 
     self.init(
-      storage: .init(wrappedValue: toStorage(wrappedValue), key),
-      fromStorage: { (try? decoder.decode(Converted.self, from: $0)) ?? wrappedValue },
+      wrapper: .init(wrappedValue: toStorage(wrappedValue), key),
+      fromStorage: { (try? decoder.decode(WrappedValue.self, from: $0)) ?? wrappedValue },
       toStorage: toStorage
     )
   }
@@ -40,16 +43,16 @@ public extension SceneStorage<Data>.Converter where Converted: Codable, Storage 
   swift, deprecated: 5.8,
   message: "The where clause is redundant."
 )
-public extension AppStorage<Double>.Converter where Storage == SceneStorage<Double> {
+public extension AppStorage<Double>.Converter where Wrapper == SceneStorage<Double> {
   init(
-    wrappedValue: Converted,
+    wrappedValue: WrappedValue,
     _ key: String,
     store: UserDefaults? = nil,
-    fromStorage: @escaping FromStorage,
-    toStorage: @escaping ToStorage
+    fromStorage: @escaping Converter.FromWrapper,
+    toStorage: @escaping Converter.ToWrapper
   ) {
     self.init(
-      storage: .init(wrappedValue: toStorage(wrappedValue), key),
+      wrapper: .init(wrappedValue: toStorage(wrappedValue), key),
       fromStorage: fromStorage, toStorage: toStorage
     )
   }
@@ -57,7 +60,7 @@ public extension AppStorage<Double>.Converter where Storage == SceneStorage<Doub
 
 public extension SceneStorage<Double>.Converter<Date> {
   init(
-    wrappedValue: Converted,
+    wrappedValue: WrappedValue,
     _ key: String,
     store: UserDefaults? = nil
   ) {

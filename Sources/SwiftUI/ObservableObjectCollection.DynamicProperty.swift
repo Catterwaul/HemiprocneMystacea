@@ -4,8 +4,10 @@ import SwiftUI
 
 public extension ObservableObjectCollection {
   @propertyWrapper struct DynamicProperty<
-    DynamicProperty: DynamicObservableObjectProperty<ObservableObjectCollection>
-  >: SwiftUI.DynamicProperty {
+    DynamicProperty: SwiftUI.DynamicProperty
+      & wrappedValue<ObservableObjectCollection>
+      & projectedValue<ObservedObject<DynamicProperty.WrappedValue>.Wrapper>
+  > {
     @MainActor public var wrappedValue: Objects {
       get { objects.wrappedValue }
       nonmutating set { objects.wrappedValue = newValue }
@@ -17,14 +19,17 @@ public extension ObservableObjectCollection {
   }
 }
 
+// MARK: - public
 public extension ObservableObjectCollection.DynamicProperty {
   init(property: DynamicProperty) {
     _objects = .init(property)
   }
 }
 
-// MARK: -
+// MARK: - SwiftUI.DynamicProperty
+extension ObservableObjectCollection.DynamicProperty: SwiftUI.DynamicProperty { }
 
+// MARK: - ObservedObject
 public extension ObservedObject {
   typealias Collection<Objects> = ObservableObjectCollection<Objects>.DynamicProperty<Self>
   where ObjectType == ObservableObjectCollection<Objects>
@@ -40,8 +45,9 @@ extension ObservableObjectCollection.DynamicProperty where DynamicProperty == Ob
   }
 }
 
-// MARK: -
+extension ObservedObject: wrappedValue & projectedValue { }
 
+// MARK: - StateObject
 public extension StateObject {
   typealias Collection<Objects> = ObservableObjectCollection<Objects>.DynamicProperty<Self>
   where ObjectType == ObservableObjectCollection<Objects>
@@ -57,17 +63,4 @@ public extension ObservableObjectCollection.DynamicProperty where DynamicPropert
   }
 }
 
-// MARK: - 
-
-public protocol DynamicObservableObjectProperty<WrappedValue>: DynamicProperty & PropertyWrapper
-where
-  WrappedValue: ObservableObject,
-  ProjectedValue == ObservedObject<WrappedValue>.Wrapper
-{
-  var wrappedValue: WrappedValue { get }
-  var projectedValue: ProjectedValue { get }
-}
-
-
-extension ObservedObject: DynamicObservableObjectProperty { }
-extension StateObject: DynamicObservableObjectProperty { }
+extension StateObject: wrappedValue & projectedValue { }
