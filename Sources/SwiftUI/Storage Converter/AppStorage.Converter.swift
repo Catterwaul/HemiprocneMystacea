@@ -4,49 +4,22 @@ import SwiftUI
 public extension AppStorage {
   /// A way to use `AppStorage` with more types,
   /// via conversion to and from the limited supported types.
-  @propertyWrapper struct Converter<Converted> {
-    public typealias ToStorage = (Converted) -> Value
-    public typealias FromStorage = (Value) -> Converted
-
-    public var wrappedValue: Converted {
-      get { fromStorage(storage) }
-      nonmutating set { storage = toStorage(newValue) }
-    }
-
-    public var projectedValue: Binding<Converted> {
-      .init(
-        get: { wrappedValue },
-        set: { wrappedValue = $0 }
-      )
-    }
-
-    // MARK: private
-    @AppStorage private var storage: Value
-    private let fromStorage: FromStorage
-    private let toStorage: ToStorage
-
-    private init(
-      storage: AppStorage,
-      fromStorage: @escaping FromStorage,
-      toStorage: @escaping ToStorage
-    ) {
-      _storage = storage
-      self.toStorage = toStorage
-      self.fromStorage = fromStorage
-    }
-  }
+  typealias Converter<Converted> = StorageConverter<Self, Converted>
 }
+
+// MARK: - StorageDynamicProperty
+extension AppStorage: StorageDynamicProperty { }
 
 // MARK: - Data
 /// - Warning: Not a good match for tvOS, due to severely limited local storage allowance.
-public extension AppStorage<Data>.Converter where Converted: Codable {
+public extension AppStorage<Data>.Converter where Converted: Codable, Storage == AppStorage<Data> {
   init<Decoder: TopLevelDecoder, Encoder: TopLevelEncoder>(
     wrappedValue: Converted,
     _ key: String, store: UserDefaults? = nil,
     decoder: Decoder = JSONDecoder(), encoder: Encoder = JSONEncoder()
   )
   where Decoder.Input == Data, Encoder.Output == Data {
-    func toStorage(_ converted: Converted) -> Value {
+    func toStorage(_ converted: Converted) -> Data {
       (try? encoder.encode(converted)) ?? .init()
     }
     
@@ -59,7 +32,7 @@ public extension AppStorage<Data>.Converter where Converted: Codable {
 }
 
 // MARK: - Double
-public extension AppStorage<Double>.Converter {
+public extension AppStorage<Double>.Converter where Storage == AppStorage<Double> {
   init(
     wrappedValue: Converted,
     _ key: String,
@@ -89,6 +62,3 @@ public extension AppStorage<Double>.Converter<Date> {
     )
   }
 }
-
-// MARK: - DynamicProperty
-extension AppStorage.Converter: DynamicProperty { }

@@ -3,5 +3,6 @@ import XCTest
 import SwiftUI
 
 private struct View {
-  @AppStorage.Converter("🗝️") var date = .now
+  @AppStorage.Converter("🗝️") var appDate = .now
+  @SceneStorage.Converter("🗝️") var sceneDate = .now
 }
