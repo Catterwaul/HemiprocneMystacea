@@ -1,3 +1,4 @@
+import protocol HM.ReconstitutablePropertyWrapper
 import SwiftUI
 
 public extension View {
@@ -12,13 +13,14 @@ public extension View {
     @ViewBuilder actions: (Data) -> some View,
     @ViewBuilder message: (Data) -> some View
   ) -> some View {
-    alert(
+    @Binding(data) var data
+    return alert(
       title,
       isPresented: .init(
-        get: { data.wrappedValue != nil },
-        set: { _ in data.wrappedValue = nil }
+        get: { data != nil },
+        set: { _ in data = nil }
       ),
-      presenting: data.wrappedValue,
+      presenting: data,
       actions: actions,
       message: message
     )

@@ -48,6 +48,7 @@ public extension Binding {
   }
 }
 
+// MARK: - Binding<Bool>
 public extension Binding<Bool> {
   prefix static func !(binding: Self) -> Self {
     .init(
@@ -56,3 +57,6 @@ public extension Binding<Bool> {
     )
   }
 }
+
+// MARK: - ReconstitutablePropertyWrapper
+extension Binding: ReconstitutablePropertyWrapper { }
