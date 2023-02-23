@@ -1,8 +1,9 @@
-import protocol Combine.ObservableObject
 import HM
 import SwiftUI
 
 public extension ObservableObjectCollection {
+  /// A `Collection` of `ObservableObject`s that invalidate a view
+  /// when changes are made to their `Published` properties.
   @propertyWrapper struct DynamicProperty<
     DynamicProperty: SwiftUI.DynamicProperty
       & wrappedValue<ObservableObjectCollection>
@@ -13,15 +14,17 @@ public extension ObservableObjectCollection {
       nonmutating set { objects.wrappedValue = newValue }
     }
 
-    @MainActor public var projectedValue: Binding<Objects> { $objects.wrappedValue }
+    @MainActor public var projectedValue: ObservedObject<DynamicProperty.WrappedValue>.Wrapper {
+      $objects
+    }
 
     @Rewrapper<DynamicProperty> private var objects: DynamicProperty.WrappedValue
   }
 }
 
-// MARK: - public
-public extension ObservableObjectCollection.DynamicProperty {
-  init(property: DynamicProperty) {
+// MARK: - private
+private extension ObservableObjectCollection.DynamicProperty {
+  private init(property: DynamicProperty) {
     _objects = .init(property)
   }
 }
@@ -35,8 +38,12 @@ public extension ObservedObject {
   where ObjectType == ObservableObjectCollection<Objects>
 }
 
-extension ObservableObjectCollection.DynamicProperty where DynamicProperty == ObservedObject<ObservableObjectCollection> {
-  public init(wrappedValue: Objects) {
+@available(
+  swift, deprecated: 5.8,
+  message: "`where` clause will not compile with generic syntax instead"
+)
+public extension ObservableObjectCollection.DynamicProperty where DynamicProperty == ObservedObject<ObservableObjectCollection> {
+  init(wrappedValue: Objects) {
     self.init(
       property: .init(
         wrappedValue: .init(wrappedValue: wrappedValue)
@@ -53,6 +60,10 @@ public extension StateObject {
   where ObjectType == ObservableObjectCollection<Objects>
 }
 
+@available(
+  swift, deprecated: 5.8,
+  message: "`where` clause will not compile with generic syntax instead"
+)
 public extension ObservableObjectCollection.DynamicProperty where DynamicProperty == StateObject<ObservableObjectCollection> {
   init(wrappedValue: Objects) {
     self.init(
