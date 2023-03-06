@@ -75,25 +75,25 @@ private struct Options: OptionSet {
   
   let rawValue: UInt
   
-  static let (option1, option2) = Options.makeOptions()
+  static let (option1, option2) = Self[]
   static let (
     option3,
     option4,
     option5
-  ) = Options.makeOptions(startingFlagIndex: 2)
+  ) = Self[startingFlagIndex: 2]
   static let (
     option6,
     option7,
     option8,
     option9
-  ) = Options.makeOptions(startingFlagIndex: 5)
+  ) = Self[startingFlagIndex: 5]
   static let (
     option10,
     option11,
     option12,
     option13,
     option14
-  ) = Options.makeOptions(startingFlagIndex: 9)
+  ) = Self[startingFlagIndex: 9]
   static let (
     option15,
     option16,
@@ -101,7 +101,7 @@ private struct Options: OptionSet {
     option18,
     option19,
     option20
-  ) = Options.makeOptions(startingFlagIndex: 14)
+  ) = Self[startingFlagIndex: 14]
 }
 
 #if !(os(macOS) || os(watchOS))
