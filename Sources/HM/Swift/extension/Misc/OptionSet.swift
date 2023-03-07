@@ -1,7 +1,10 @@
 public extension OptionSet {
-  init<CompatibleOptionSet: OptionSet>(_ compatibleOptionSet: CompatibleOptionSet)
-  where CompatibleOptionSet.RawValue == RawValue {
-    self.init(rawValue: compatibleOptionSet.rawValue)
+  init(_ compatibleRawRepresentable: some RawRepresentable<RawValue>) {
+    self.init(rawValue: compatibleRawRepresentable.rawValue)
+  }
+
+  init(_ option: some RawRepresentable<some RawRepresentable<RawValue>>) {
+    self.init(rawValue: option.rawValue.rawValue)
   }
 }
 
