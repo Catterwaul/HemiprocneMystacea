@@ -66,6 +66,22 @@ final class OptionSetTypeTestCase: XCTestCase {
     )
   }
 #endif
+
+  func test_Option() {
+    struct ShippingOptions: OptionSet {
+      @Option(0) static var nextDay
+      @Option(after: _nextDay) static var secondDay
+      @Option(3) static var priority
+      @Option(after: _priority) static var standard
+
+      let rawValue: UInt8
+    }
+
+    XCTAssertEqual(
+      ([.nextDay, .secondDay, .priority, .standard] as ShippingOptions).rawValue,
+      0b1_1011
+    )
+  }
 }
 
 private struct Options: OptionSet {
