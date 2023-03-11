@@ -77,8 +77,8 @@ private extension Sequence where Element: Sendable {
       for try await childTaskResult in group {
         heap.insert(childTaskResult)
         // Send as many in-order `Transformed`s as possible.
-        while heap.min()?.element == lastSentOffset + 1 {
-          await channel.send(heap.removeMin().value)
+        while heap.min()?.conformer == lastSentOffset + 1 {
+          await channel.send(heap.removeMin().nonconformer)
           lastSentOffset += 1
         }
       }

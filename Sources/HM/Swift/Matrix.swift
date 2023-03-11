@@ -88,7 +88,7 @@ public extension Matrix {
     }
     var heap = Heap([heapElement(start)])
 
-    while let source = heap.popMin()?.value {
+    while let source = heap.popMin()?.nonconformer {
       let newStepCount = stepCounts[source]! + 1
 
       for destination in orthogonalNeighbors(source)
