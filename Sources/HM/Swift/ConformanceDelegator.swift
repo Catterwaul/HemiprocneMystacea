@@ -1,37 +1,24 @@
-/// A combination of an instance that needs to conform to protocol, but doesn't,
-/// and a "delegate", which does.
-/// The entire structure is considered to conform, when the delegate does.
-@propertyWrapper public struct ConformanceDelegator<Nonconformer, Delegate> {
-  public var wrappedValue: Nonconformer
-  public var delegate: Delegate
-
-  public init(wrappedValue: Nonconformer, delegate: Delegate) {
-    self.wrappedValue = wrappedValue
-    self.delegate = delegate
-  }
-
-  public var projectedValue: Self {
-    get { self }
-    set { self = newValue }
-  }
-}
-
-// MARK: - Equatable
-extension ConformanceDelegator: Equatable where Delegate: Equatable {
-  public static func == (lhs: Self, rhs: Self) -> Bool {
-    forwardToDelegates(lhs, ==, rhs)
-  }
+/// An instance that needs to conform to protocol, but doesn't,
+/// which delegates to an instance of something that does conform.
+/// The entire type is considered to conform, when the delegate does.
+public protocol ConformanceDelegator {
+  associatedtype Delegate
+  var delegate: Delegate { get }
 }
 
 // MARK: - Comparable
-extension ConformanceDelegator: Comparable where Delegate: Comparable {
+extension ConformanceDelegator where Delegate: Comparable {
   public static func < (lhs: Self, rhs: Self) -> Bool {
     forwardToDelegates(lhs, <, rhs)
   }
 }
 
-// MARK: - Sendable
-extension ConformanceDelegator: Sendable where Nonconformer: Sendable, Delegate: Sendable { }
+// MARK: - Equatable
+extension ConformanceDelegator where Delegate: Equatable {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    forwardToDelegates(lhs, ==, rhs)
+  }
+}
 
 // MARK: - private
 private extension ConformanceDelegator {
