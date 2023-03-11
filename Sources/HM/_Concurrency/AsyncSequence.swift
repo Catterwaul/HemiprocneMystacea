@@ -1,6 +1,14 @@
 import AsyncAlgorithms
 import HeapModule
 
+public extension AsyncSequence {
+  @inlinable func forEach(_ body: (Element) async throws -> Void) async rethrows {
+    for try await element in self {
+      try await body(element)
+    }
+  }
+}
+
 public extension Sequence where Element: Sendable {
   /// Transform a sequence asynchronously, and potentially in parallel.
   /// - Returns: An `AsyncSequence` which returns transformed elements, in their original order,

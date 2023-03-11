@@ -1,8 +1,15 @@
+import AsyncAlgorithms
 import HM
 import XCTest
 
-final class AsyncSequenceTestCase: XCTestCase {  
-  func test_map() async throws {
+final class AsyncSequenceTestCase: XCTestCase {
+  func test_forEach() async {
+    var 🐱 = "🐱"
+    await [()].async.forEach { 🐱 = "😺" }
+    XCTAssertEqual(🐱, "😺")
+  }
+
+  func test_mapWithTaskGroup() async throws {
     let array = [0, 100, 200]
 
     @Sendable func delayed(_ adjustment: Int) async throws -> Int {
