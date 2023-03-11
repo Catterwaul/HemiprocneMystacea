@@ -84,11 +84,11 @@ public extension Matrix {
     var shortestPathSources: [Index: Index] = [:]
     var stepCounts = [start: 0]
     func heapElement(_ index: Index) -> Heap<Int>.ElementValuePair<Index> {
-      .init(index, delegate: stepCounts[index]!)
+      .init(wrappedValue: index, delegate: stepCounts[index]!)
     }
     var heap = Heap([heapElement(start)])
 
-    while let source = heap.popMin()?.nonconformer {
+    while let source = heap.popMin()?.wrappedValue {
       let newStepCount = stepCounts[source]! + 1
 
       for destination in orthogonalNeighbors(source)

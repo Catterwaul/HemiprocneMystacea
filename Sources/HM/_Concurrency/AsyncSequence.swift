@@ -68,7 +68,7 @@ private extension Sequence where Element: Sendable {
     try await withThrowingTaskGroup(of: ChildTaskResult.self) { group in
       for (offset, element) in enumerated() {
         group.addTask(priority: priority) {
-          .init(try await transform(element), delegate: offset)
+          .init(wrappedValue: try await transform(element), delegate: offset)
         }
       }
 
@@ -78,7 +78,7 @@ private extension Sequence where Element: Sendable {
         heap.insert(childTaskResult)
         // Send as many in-order `Transformed`s as possible.
         while heap.min()?.delegate == lastSentOffset + 1 {
-          await channel.send(heap.removeMin().nonconformer)
+          await channel.send(heap.removeMin().wrappedValue)
           lastSentOffset += 1
         }
       }
