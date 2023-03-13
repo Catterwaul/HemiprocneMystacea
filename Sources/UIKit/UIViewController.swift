@@ -16,7 +16,7 @@ public extension UIViewController {
     init: ((NSCoder) -> ViewController )?
   ) -> ViewController? {
     UIStoryboard(name: "\(ViewController.self)", bundle: bundle)
-    .instantiateInitialViewController(creator: `init`)
+      .instantiateInitialViewController(creator: `init`)
   }
 
   /// Instantiate a view controller without relying on an `identifier` argument.
