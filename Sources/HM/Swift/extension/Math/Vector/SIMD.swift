@@ -9,12 +9,6 @@ public extension SIMD where Scalar: Numeric {
   }
 }
 
-public extension SIMD where Scalar: SignedNumeric {
-  prefix static func -(vector: Self) -> Self {
-    .init(vector.indices.lazy.map { -vector[$0] })
-  }
-}
-
 public extension SIMD where Scalar: FixedWidthInteger {
   static func ...(vector0: Self, vector1: Self) -> some Sequence<Self> {
     sequence(first: vector0) {

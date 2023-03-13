@@ -1,3 +1,4 @@
+import simd
 import HM
 import XCTest
 
@@ -23,5 +24,12 @@ final class SIMDTestCase: XCTestCase {
 
   func test_squareMagnitude() {
     XCTAssertEqual(SIMD2(2, 3).squareMagnitude, 13)
+  }
+
+  func test_matrix_init() {
+    XCTAssertEqual(
+      matrix_float3x3(column: [1, 2, 3], row: [2, 3, 4]),
+      .init(columns: ([2, 4, 6], [3, 6, 9], [4, 8, 12]))
+    )
   }
 }
