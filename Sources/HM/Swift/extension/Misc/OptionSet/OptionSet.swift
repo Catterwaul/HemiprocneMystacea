@@ -6,6 +6,15 @@ public extension OptionSet {
   init(_ option: some RawRepresentable<some RawRepresentable<RawValue>>) {
     self.init(rawValue: option.rawValue.rawValue)
   }
+
+  init(rawValues: some Sequence<RawValue>) {
+    self = []
+    rawValues.forEach { formUnion(.init(rawValue: $0)) }
+  }
+
+  init(_ rawValues: some Sequence<some RawRepresentable<some RawRepresentable<RawValue>>>) {
+    self.init(rawValues: rawValues.map(\.rawValue.rawValue))
+  }
 }
 
 public extension OptionSet where RawValue: BinaryInteger {
