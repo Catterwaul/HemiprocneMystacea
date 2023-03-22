@@ -79,7 +79,7 @@ public extension Sequence {
   subscript(maxArrayCount maxCount: Int) -> some Sequence<[Element]> {
     sequence(state: makeIterator()) { iterator in
       Optional(
-        sequence().prefix(maxCount).compactMap { iterator.next() }
+        `repeat`(count: maxCount).compactMap { iterator.next() }
       ).filter { !$0.isEmpty }
     }
   }
@@ -89,7 +89,7 @@ public extension Sequence {
     var iterator = makeIterator()
     return indices.differences.mapUntilNil {
       if case let skipCount = $0 - 1, skipCount > 0 {
-        sequence().prefix(skipCount).forEach { iterator.iterate() }
+        `repeat`(count: skipCount).forEach { iterator.iterate() }
       }
       return iterator.next()
     }
