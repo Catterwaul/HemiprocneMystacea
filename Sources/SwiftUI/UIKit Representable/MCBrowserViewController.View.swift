@@ -26,8 +26,8 @@ public extension MCBrowserViewController {
 
 // MARK: - public
 public extension MCBrowserViewController.View {
-  var didFinishPublisher: AnyPublisher<Void, Never> { didFinishSubject.eraseToAnyPublisher() }
-  var wasCancelledPublisher: AnyPublisher<Void, Never> { wasCancelledSubject.eraseToAnyPublisher() }
+  var didFinishPublisher: some Publisher<Void, Never> { didFinishSubject }
+  var wasCancelledPublisher: some Publisher<Void, Never> { wasCancelledSubject }
 }
 
 // MARK: - private

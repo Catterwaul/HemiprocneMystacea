@@ -357,14 +357,10 @@ public extension Sequence {
     return try getElement(comparablesAndElements)
   }
 
-  func shifted(by shift: Int) -> AnySequence<Element> {
+  func shifted(by shift: Int) -> any Sequence<Element> {
     shift >= 0
-    ? .init(
-      chain(dropFirst(shift), prefix(shift))
-    )
-    : .init(
-      chain(suffix(-shift), dropLast(-shift))
-    )
+    ? chain(dropFirst(shift), prefix(shift))
+    : chain(suffix(-shift), dropLast(-shift))
   }
 
   func split(includingSeparators getIsSeparator: @escaping (Element) -> Bool)

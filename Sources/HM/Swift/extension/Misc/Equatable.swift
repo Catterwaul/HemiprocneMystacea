@@ -8,7 +8,7 @@ public extension Equatable {
   }
 
   /// Equate two values of unknown type.
-  static func equate(_ any0: Any, _ any1: Any) -> Bool {
+  static func equate(_ any0: some Any, _ any1: some Any) -> Bool {
     guard
       let equatable0 = any0 as? Self,
       let equatable1 = any1 as? Self
@@ -22,9 +22,7 @@ public extension Equatable {
   ///   - _: Use the metatype for `Castable` to avoid explicit typing.
   /// - Throws: `CastError.impossible` if a `Castable` can't be cast to `Self`.
   func getEquals<Castable>(_: Castable.Type = Castable.self) throws -> (Castable) -> Bool {
-    if let error = CastError(self, desired: Castable.self)
-    { throw error }
-
+    if let error = CastError(self, desired: Castable.self) { throw error }
     return { self == $0 as? Self }
   }
 }

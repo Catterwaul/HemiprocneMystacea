@@ -71,9 +71,14 @@ final class CollectionTestCase: XCTestCase {
     XCTAssertNil("boogalawncare".prefix(through: "z"))
   }
 
+  @available(
+    swift, deprecated: 5.9,
+    message: "Won't compile without the `shifted` constant"
+  )
   func test_shifted() {
+    let shifted = stride(from: 0, through: 3, by: 1).shifted(by: 1)
     XCTAssertEqual(
-      Array(stride(from: 0, through: 3, by: 1).shifted(by: 1)),
+      Array(shifted),
       [1, 2, 3, 0]
     )
 
