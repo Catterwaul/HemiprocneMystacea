@@ -3,7 +3,7 @@ public extension Array {
 
   /// Create an `Array` if `subject's` values are all of one type.
   /// - Note: Useful for converting tuples to `Array`s.
-  init?<Subject>(mirrorChildValuesOf subject: Subject) {
+  init?(mirrorChildValuesOf subject: some Any) {
     guard let array =
       Mirror(reflecting: subject).children.map(\.value)
       as? Self

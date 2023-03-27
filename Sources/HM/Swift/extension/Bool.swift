@@ -3,7 +3,7 @@ public extension Bool {
   /// `false` for `0`,
   /// `true` for `1`,
   /// `nil` otherwise
-  init?<Integer: ExpressibleByIntegerLiteral & Equatable>(bit: Integer) {
+  init?(bit: some ExpressibleByIntegerLiteral & Equatable) {
     switch bit {
     case 0: self = false
     case 1: self = true

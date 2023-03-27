@@ -68,7 +68,7 @@ final class ResultTestCase: XCTestCase {
 
     XCTAssertEqual(
       try [throwBad, throwsStrongBads].map {
-        try Result<Void, [Error]>(groupingFailures: $0())
+        try Result<_, [Error]>(groupingFailures: $0())
       }.flatMap { Mirror.associatedValue(of: $0)! as [Error] },
 
       [Error.bad,
@@ -78,7 +78,7 @@ final class ResultTestCase: XCTestCase {
 
     do {
       XCTAssertThrowsError(
-        try Result<Void, [AnyError]>(groupingFailures: throwsStrongBads())
+        try Result<_, [AnyError]>(groupingFailures: throwsStrongBads())
       )
     }
   }

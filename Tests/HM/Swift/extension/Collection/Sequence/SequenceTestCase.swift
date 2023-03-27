@@ -56,7 +56,7 @@ final class SequenceTestCase: XCTestCase {
       _ = pauseableRange.next()
       for _ in pauseableRange.prefix(1) { }
 
-      func doNothin<NothinDoin>(_: NothinDoin) { }
+      func doNothin(_: some Any) { }
       pauseableRange.prefix(1).forEach(doNothin)
       _ = pauseableRange.prefix(1).map(doNothin)
 

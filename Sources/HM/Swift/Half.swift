@@ -30,7 +30,7 @@ public extension Half {
     )
   }
   
-  init<Integer: BinaryInteger>(_ integer: Integer) {    
+  init(_ integer: some BinaryInteger) {    
     self.init(Float(integer))
   }
   

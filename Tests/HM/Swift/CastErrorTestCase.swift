@@ -71,15 +71,17 @@ private protocol Protocol { }
 private class SuperClass { }
 private final class Class: SuperClass, Protocol { }
 
-private func cast<Instance, DesiredCast>(
-  _ instance: Instance, to desiredCastType: DesiredCast.Type
+private func cast(
+  _ instance: some Any,
+  to desiredCastType: (some Any).Type
 ) throws {
   if let error = CastError(instance, desired: desiredCastType)
   { throw error }
 }
 
-private func failCast<Instance, UndesiredCast>(
-  of instance: Instance, to undesiredCastType: UndesiredCast.Type
+private func failCast(
+  of instance: some Any,
+  to undesiredCastType: (some Any).Type
 ) throws {
   if let error = CastError(instance, undesired: undesiredCastType)
   { throw error }

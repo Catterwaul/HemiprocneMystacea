@@ -8,7 +8,7 @@ public extension UIView {
   }
 
   /// Add a subview with the same dynamic frame.
-  func addConstrainedSubview<Subview: UIView>(_ subview: Subview) {
+  func addConstrainedSubview(_ subview: some UIView) {
     subview.translatesAutoresizingMaskIntoConstraints = false
     addSubview(subview)
     NSLayoutConstraint.activate([

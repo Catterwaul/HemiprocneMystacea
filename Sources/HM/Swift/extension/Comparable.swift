@@ -4,8 +4,8 @@ public extension Comparable {
   /// The properties with the maximum value.
   /// - Parameter subject: An instance of any type.
   /// - Returns: `nil` if no value matches the `Comparable` type.
-  static func max<Subject>(
-    ofPropertiesOf subject: Subject
+  static func max(
+    ofPropertiesOf subject: some Any
   ) -> (labels: [String], value: Self)? {
     max(ofPropertiesOf: subject, by: <)
   }
@@ -15,8 +15,8 @@ public extension Comparable {
   ///   - subject: An instance of any type.
   ///   - getAreInIncreasingOrder: Sorts two values.
   /// - Returns: `nil` if no value matches the `Comparable` type.
-  static func max<Subject>(
-    ofPropertiesOf subject: Subject,
+  static func max(
+    ofPropertiesOf subject: some Any,
     by getAreInIncreasingOrder: (Self, Self) throws -> Bool
   ) rethrows -> (labels: [String], value: Self)? {
     let comparableChildren =

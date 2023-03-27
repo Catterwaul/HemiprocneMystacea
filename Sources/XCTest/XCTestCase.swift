@@ -2,8 +2,8 @@ import XCTest
 
 public extension XCTestCase {
   /// Assert that a specific type of error is thrown.
-  func assert<Error: Swift.Error, Return>(
-    _ expression: @autoclosure () throws -> Return,
+  func assert<Error: Swift.Error>(
+    _ expression: @autoclosure () throws -> some Any,
     _ message: @autoclosure () -> String = "",
     file: StaticString = #filePath,
     line: UInt = #line,
