@@ -41,4 +41,11 @@ final class ErrorTestCase: XCTestCase {
       XCTFail()
     }
   }
+
+  func test_map() async {
+    do {
+      try await { try await AnyError.throw() as Void } ?! AnyError()
+      XCTFail()
+    } catch { }
+  }
 }

@@ -1,3 +1,15 @@
+infix operator ?!
+
+/// Map one `Error` to another upon failure, disregarding the original.
+public func ?! <Success>(
+  _ success: () async throws -> Success,
+  _ error: @autoclosure () -> some Error
+) async throws -> Success {
+  try await Result(catching: success)
+    .mapError { _ in error() }
+    .get()
+}
+
 /// A nondescript error.
 public struct AnyError: Error & Equatable {
   public init() { }
@@ -6,11 +18,16 @@ public struct AnyError: Error & Equatable {
 public extension AnyError {
   /// Always `throw`, instead of returning a value.
   static func `throw`<Never>() throws -> Never {
-    throw AnyError()
+    throw Self()
+  }
+
+  /// Always `throw`, instead of returning a value.
+  static func `throw`<Never>() async throws -> Never {
+    throw Self()
   }
 
   /// Initialize an `AnyError` if a closure throws an error.
-  init?<Value>(_ value: () throws -> Value) {
+  init?(_ value: () throws -> some Any) {
     do {
       _ = try value()
       return nil

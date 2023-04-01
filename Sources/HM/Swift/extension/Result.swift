@@ -41,8 +41,7 @@ public extension Result {
   /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`.
   init(_ getSuccess: @autoclosure () throws -> Success) throws {
     do {
-      let success = try getSuccess()
-      self = .success(success)
+      self = .success(try getSuccess())
     } catch {
       guard let failure = error as? Failure else { throw CastError.impossible }
       self = .failure(failure)
@@ -77,6 +76,16 @@ public extension Result {
     case .failure(let failure):
       `catch`(failure)
       return nil
+    }
+  }
+}
+
+public extension Result where Failure == Error {
+  init(catching success: () async throws -> Success) async {
+    do {
+      self = .success(try await success())
+    } catch {
+      self = .failure(error)
     }
   }
 }
