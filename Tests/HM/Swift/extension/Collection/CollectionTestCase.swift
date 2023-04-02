@@ -38,7 +38,7 @@ final class CollectionTestCase: XCTestCase {
     let collection = Array(1...10)
     XCTAssertEqual(try collection[validating: 0], 1)
     XCTAssertThrowsError(try collection[validating: collection.endIndex]) {
-      XCTAssert($0 is AnyCollection<Int>.IndexingError)
+      XCTAssert($0 is Array<Int>.IndexingError)
     }
   }
 

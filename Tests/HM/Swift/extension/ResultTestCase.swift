@@ -45,11 +45,11 @@ final class ResultTestCase: XCTestCase {
     )
 
     XCTAssert(
-      Result.failure ~= (try .init(AnyError.throw()))
+      Result.failure ~= (try .init(AnyError().throw()))
     )
 
     XCTAssertThrowsError(
-      try Swift.Result<String, [Error]>(AnyError.throw())
+      try Swift.Result<String, [Error]>(AnyError().throw())
     )
   }
 

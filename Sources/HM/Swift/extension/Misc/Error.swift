@@ -10,22 +10,24 @@ public func ?! <Success>(
     .get()
 }
 
+public extension Error {
+  /// `throw` this from a function, instead of returning a value.
+  func `throw`<Never>() throws -> Never {
+    throw self
+  }
+
+  /// `throw` this from a function, instead of returning a value.
+  func `throw`<Never>() async throws -> Never {
+    throw self
+  }
+}
+
 /// A nondescript error.
 public struct AnyError: Error & Equatable {
   public init() { }
 }
 
 public extension AnyError {
-  /// Always `throw`, instead of returning a value.
-  static func `throw`<Never>() throws -> Never {
-    throw Self()
-  }
-
-  /// Always `throw`, instead of returning a value.
-  static func `throw`<Never>() async throws -> Never {
-    throw Self()
-  }
-
   /// Initialize an `AnyError` if a closure throws an error.
   init?(_ value: () throws -> some Any) {
     do {

@@ -1,5 +1,8 @@
 import Algorithms
 
+/// Thrown when `[validating:]` is called with an invalid index.
+public struct IndexingError<Collection: Swift.Collection>: Error { }
+
 public extension Collection {
   // MARK: - Subscripts
 
@@ -18,15 +21,14 @@ public extension Collection {
     self[index(startIndex, offsetBy: position)]
   }
 
+  typealias IndexingError = HM.IndexingError<Self>
+
   /// Ensure an index is valid before accessing an element of the collection.
   /// - Returns: The same as the unlabeled subscript, if an error is not thrown.
-  /// - Throws: `AnyCollection<Element>.IndexingError`
-  ///   if `indices` does not contain `index`.
+  /// - Throws: `IndexingError` if `indices` does not contain `index`.
   subscript(validating index: Index) -> Element {
     get throws {
-      guard indices.contains(index)
-      else { throw AnyCollection<Element>.IndexingError() }
-      
+      guard indices.contains(index) else { throw IndexingError() }
       return self[index]
     }
   }
