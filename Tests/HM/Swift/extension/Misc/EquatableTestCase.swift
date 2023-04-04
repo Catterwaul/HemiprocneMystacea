@@ -3,8 +3,8 @@ import XCTest
 
 final class EquatableTestCase: XCTestCase {
   func test_equate() {
-    let int: Any = Int.random(in: .min...(.max))
-    let bool: Any = Bool.random()
+    let int: some Any = Int.random(in: .min...(.max))
+    let bool: any Any = Bool.random()
 
     XCTAssertTrue(Int.equate(int, int))
     XCTAssertTrue(.equate(bool, bool))
@@ -12,6 +12,9 @@ final class EquatableTestCase: XCTestCase {
 
     XCTAssertTrue(AnyHashable.equate(bool, bool))
     XCTAssertFalse(AnyHashable.equate(bool, int))
+    
+    struct Equatable: Swift.Equatable { }
+    XCTAssertTrue(Equatable.equate(Equatable(), Equatable()))
   }
 
   func test_getEquals() throws {

@@ -7,14 +7,9 @@ public extension Equatable {
     try optional0.map(transform) == optional1.map(transform)
   }
 
-  /// Equate two values of unknown type.
+  /// Equate two values of unknown types.
   static func equate(_ any0: some Any, _ any1: some Any) -> Bool {
-    guard
-      let equatable0 = any0 as? Self,
-      let equatable1 = any1 as? Self
-    else { return false }
-
-    return equatable0 == equatable1
+    ((any0, any1) as? (Self, Self)).map(==) ?? false
   }
 
   /// A closure that equates another instance to this intance.
