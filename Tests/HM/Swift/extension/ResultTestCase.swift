@@ -85,7 +85,7 @@ final class ResultTestCase: XCTestCase {
 
   func test_VerificationResult() {
     XCTAssert(
-      Result<_, Error>.success as (()) -> _ ~= .init(failure: nil)
+      Result<_, Error>.success as (_) -> _ ~= .init(failure: nil)
     )
 
     XCTAssert(

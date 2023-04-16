@@ -19,6 +19,6 @@ public extension Decimal {
 
   var dollarsAndCents: (dollars: Int, cents: Int) {
     (self * 100 as NSDecimalNumber).intValue
-      .quotientAndRemainder(dividingBy: 100) as (Int, Int)
+      .quotientAndRemainder(dividingBy: 100) as (_, _)
   }
 }
