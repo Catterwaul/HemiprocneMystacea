@@ -10,8 +10,8 @@ public extension AdditiveArithmetic where Self: Comparable {
 }
 
 public extension AdditiveArithmetic where Self: ExpressibleByIntegerLiteral {
-  static var fibonacciSequence: some Sequence<Self> {
-    sequence(state: (0 as Self, 1 as Self)) { numbers in
+  static func fibonacciSequence(_ numbers: (Self, Self) = (0, 1)) -> some Sequence<Self> {
+    sequence(state: numbers) { numbers in
       defer { numbers = (numbers.1, numbers.0 + numbers.1) }
       return numbers.0
     }
