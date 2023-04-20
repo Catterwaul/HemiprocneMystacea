@@ -17,6 +17,12 @@ final class EquatableTestCase: XCTestCase {
     XCTAssertTrue(Equatable.equate(Equatable(), Equatable()))
   }
 
+  func test_equals() {
+    XCTAssert("😾".equals("😾" as any Any))
+    XCTAssertFalse("😾".equals("🦮" as any Equatable))
+    XCTAssertFalse("😾".equals(0))
+  }
+
   func test_getEquals() throws {
     let cupcake = "🧁"
     let notCake = 0xca_e

@@ -12,6 +12,11 @@ public extension Equatable {
     ((any0, any1) as? (Self, Self)).map(==) ?? false
   }
 
+  /// Equate with a value of unknown type.
+  func equals(_ any: some Any) -> Bool {
+    self == any as? Self
+  }
+
   /// A closure that equates another instance to this intance.
   /// - Parameters:
   ///   - _: Use the metatype for `Castable` to avoid explicit typing.
