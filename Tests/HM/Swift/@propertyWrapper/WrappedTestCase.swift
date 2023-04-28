@@ -2,6 +2,12 @@ import HM
 import XCTest
 
 final class WrappedTestCase: XCTestCase {
+  func test_init_projectedValue() {
+    func ƒ(@Wrapped _: some Any) { }
+    @Wrapped var void: Void = ()
+    ƒ($_: $void)
+  }
+
   func test_callAsFunction() {
     XCTAssertEqual(
       Struct().$cat { "🏃 \($0)" },

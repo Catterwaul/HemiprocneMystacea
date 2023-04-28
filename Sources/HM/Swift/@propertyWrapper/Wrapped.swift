@@ -6,6 +6,10 @@
   public init(wrappedValue: Value) {
     self.wrappedValue = wrappedValue
   }
+
+  public init(projectedValue: Self) {
+    self = projectedValue
+  }
 }
 
 public extension Wrapped {
