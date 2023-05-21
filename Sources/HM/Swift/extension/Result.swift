@@ -53,9 +53,7 @@ public extension Result {
     success: Success?,
     failure: @autoclosure () -> Failure
   ) {
-    self =
-      success.map(Self.success)
-      ?? .failure(failure())
+    self = success.map(Self.success) ?? .failure(failure())
   }
 
   /// - Throws: OneOfTwo<Success, Failure>.Error

@@ -1,6 +1,6 @@
 public extension Equatable {
   /// Equate two values using a closure.
-   static func equate<Wrapped>(
+  static func equate<Wrapped>(
     _ optional0: Wrapped?, to optional1: Wrapped?,
     using transform: (Wrapped) throws -> some Equatable
   ) rethrows -> Bool {

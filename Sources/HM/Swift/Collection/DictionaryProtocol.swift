@@ -146,8 +146,12 @@ public extension DictionaryProtocol where Value: Equatable {
 public extension DictionaryProtocol where Value: Sequence {
   /// Flatten value sequences,
   /// pairing each value element with its original key.
-  @inlinable func flatMap() -> [(key: Key, value: Value.Element)] {
-    flatMap { key, value in value.map { (key, $0) } }
+  @available(
+    swift, deprecated: 5.9,
+    message: "Should be `lazy.flatMap`, but tests won't compile."
+  )
+  @inlinable func flatMap() -> some Sequence<(key: Key, value: Value.Element)> {
+    flatMap { key, value in value.lazy.map { (key, $0) } }
   }
 }
 
