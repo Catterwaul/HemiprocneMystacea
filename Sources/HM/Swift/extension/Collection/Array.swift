@@ -44,7 +44,11 @@ public extension ExpressibleByArrayLiteral {
   /// - Returns: `[optional!]` if `.some`; `[]` if `nil`.
   /// - Note: This cannot be generalized to all types,
   /// as Swift doesn't employ  universal non-optional defaults.
-  init(compacting optional: ArrayLiteralElement?) {
-    self = optional.map { [$0] } ?? []
+  init(compacting wrapper: some ThrowingPropertyWrapper<ArrayLiteralElement>) {
+    do {
+      self = [try wrapper.wrappedValue]
+    } catch {
+      self = []
+    }
   }
 }

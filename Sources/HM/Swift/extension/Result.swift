@@ -43,8 +43,7 @@ public extension Result {
     do {
       self = .success(try getSuccess())
     } catch {
-      guard let failure = error as? Failure else { throw CastError.impossible }
-      self = .failure(failure)
+      self = .failure(try cast(error))
     }
   }
 
@@ -112,8 +111,6 @@ public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
   }
 }
 
-// MARK: -
-
 public extension Result where Success == Void {
   /// `.success(())`
   static var success: Self { .success(()) }
@@ -121,5 +118,11 @@ public extension Result where Success == Void {
   /// `.success` only when `failure` is `nil`.
   init(failure: Failure?) {
     self = failure.map(Self.failure) ?? .success
+  }
+}
+
+extension Result: ExpressibleByNilLiteral where Failure == Optional<Success>.UnwrapError {
+  public init(nilLiteral: ()) {
+    self = .failure(.init())
   }
 }

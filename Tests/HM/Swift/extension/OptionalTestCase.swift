@@ -63,7 +63,7 @@ final class OptionalTestCase: XCTestCase {
 
   func test_unwrap() {
     func iterate(_ array: Any?...) throws {
-      try array.forEach { _ = try $0.unwrapped }
+      try array.forEach { _ = try $0.wrappedValue }
     }
 
     XCTAssertNoThrow(try iterate())

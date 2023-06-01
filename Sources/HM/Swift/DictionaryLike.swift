@@ -9,7 +9,7 @@ public protocol DictionaryLike<Key, Value> {
 public extension DictionaryLike {
   /// `self[key].unwrap()`
   subscript<Value>(key: Key) -> Value {
-    get throws { try self[key].unwrap() }
+    get throws { try cast(self[key].wrappedValue) }
   }
 
   /// Allows lookup by enumeration cases backed by `Key`s,

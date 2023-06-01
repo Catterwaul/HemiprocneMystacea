@@ -20,6 +20,21 @@ public extension Bool {
     self.init(bit: bit)
   }
 
+  /// Whether a throwing operation succeeds.
+  ///
+  /// Provides an equivalent value to this [`is case`expression](https://forums.swift.org/t/pitch-is-case-expressions/64185):
+  /// ```
+  /// Result(catching: success) is case .success
+  /// ```
+  static func success(catching success: @autoclosure () throws -> some Any) -> Self {
+    do {
+      _ = try success()
+      return true
+    } catch {
+      return false
+    }
+  }
+
   /// Modify a value if `true`.
   /// - Returns: An unmodified value, when false.
   @inlinable func reduce<Result>(

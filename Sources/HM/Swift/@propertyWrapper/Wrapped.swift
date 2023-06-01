@@ -56,6 +56,13 @@ public func … <Value, Transformed>(
   transform(value)
 }
 
+public func … <Value, Transformed>(
+  value: Value,
+  transform: (Value) throws -> Transformed
+) throws -> Transformed {
+  try transform(value)
+}
+
 /// A mutated version of a value.
 public func … <Value>(
   value: Value,
