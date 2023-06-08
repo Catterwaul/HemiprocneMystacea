@@ -61,11 +61,8 @@ public extension Sequence where Element: Equatable {
       .map { start in
         start.offset...(
           enumerated.first { $0.element != element }
-          .map { $0.offset - 1 }
-          ?? {
-            let lastOffset = getPrevious()!.offset
-            return lastOffset
-          } ()
+            .map { $0.offset - 1 }
+          ?? getPrevious()!.offset
         )
       }
     }
