@@ -146,12 +146,8 @@ public extension DictionaryProtocol where Value: Equatable {
 public extension DictionaryProtocol where Value: Sequence {
   /// Flatten value sequences,
   /// pairing each value element with its original key.
-  @available(
-    swift, deprecated: 5.9,
-    message: "Should be `lazy.flatMap`, but tests won't compile."
-  )
   @inlinable func flatMap() -> some Sequence<(key: Key, value: Value.Element)> {
-    flatMap { key, value in value.lazy.map { (key, $0) } }
+    lazy.flatMap { key, value in value.lazy.map { (key, $0) } }
   }
 }
 
@@ -185,44 +181,44 @@ public extension DictionaryProtocol where Value == Int {
 public extension Dictionary {
   /// Group key-value pairs by their keys.
   ///
-  /// - Parameter pairs: Either `KeyValuePairs<Key, Self.Value.Element>`
+  /// - Parameter pairs: Either `KeyValuePairs<Key, Value.Element>`
   ///   or a `Sequence` with the same element type as that.
-  /// - Returns: `[Key: [Value]]`
-  init<Value>(grouping pairs: some Sequence<(key: Key, value: Value)>)
-  where Self.Value == [Value] {
+  /// - Returns: `[Key: [ValueElement]]`
+  init<ValueElement>(grouping pairs: some Sequence<(key: Key, value: ValueElement)>)
+  where Self.Value == [ValueElement] {
     self = [_: _](grouping: pairs, by: \.key).mapValues { $0.map(\.value) }
   }
 
   /// Group key-value pairs by their keys.
   ///
-  /// - Parameter pairs: Like `KeyValuePairs<Key, Self.Value.Element>`,
+  /// - Parameter pairs: Like `KeyValuePairs<Key, Value.Element>`,
   ///   but with unlabeled elements.
-  /// - Returns: `[Key: [Value]]`
-  init<Value>(grouping pairs: some Sequence<(Key, Value)>)
-  where Self.Value == [Value] {
-    self.init( grouping: pairs.lazy.map { (key: $0, value: $1) } )
+  /// - Returns: `[Key: [ValueElement]]`
+  init<ValueElement>(grouping pairs: some Sequence<(Key, ValueElement)>)
+  where Value == [ValueElement] {
+    self.init(grouping: pairs.lazy.map { (key: $0, value: $1) })
   }
 }
 
 public extension OrderedDictionary {
   /// Group key-value pairs by their keys.
   ///
-  /// - Parameter pairs: Either `KeyValuePairs<Key, Self.Value.Element>`
+  /// - Parameter pairs: Either `KeyValuePairs<Key, Value.Element>`
   ///   or a `Sequence` with the same element type as that.
-  /// - Returns: `[Key: [Value]]`
-  init<Value>(grouping pairs: some Sequence<(key: Key, value: Value)>)
-  where Self.Value == [Value] {
+  /// - Returns: `[Key: [ValueElement]]`
+  init<ValueElement>(grouping pairs: some Sequence<(key: Key, value: ValueElement)>)
+  where Self.Value == [ValueElement] {
     self = OrderedDictionary<_, Array>(grouping: pairs, by: \.key)
       .mapValues { $0.map(\.value) }
   }
 
   /// Group key-value pairs by their keys.
   ///
-  /// - Parameter pairs: Like `KeyValuePairs<Key, Self.Value.Element>`,
+  /// - Parameter pairs: Like `KeyValuePairs<Key, Value.Element>`,
   ///   but with unlabeled elements.
-  /// - Returns: `[Key: [Value]]`
-  init<Value>(grouping pairs: some Sequence<(Key, Value)>)
-  where Self.Value == [Value] {
+  /// - Returns: `[Key: [ValueElement]]`
+  init<ValueElement>(grouping pairs: some Sequence<(Key, ValueElement)>)
+  where Self.Value == [ValueElement] {
     self.init( grouping: pairs.lazy.map { (key: $0, value: $1) } )
   }
 }

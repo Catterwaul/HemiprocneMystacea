@@ -72,7 +72,7 @@ final class CollectionTestCase: XCTestCase {
   }
 
   @available(
-    swift, deprecated: 5.9,
+    swift, deprecated: 6,
     message: "Won't compile without the `shifted` constant"
   )
   func test_shifted() {

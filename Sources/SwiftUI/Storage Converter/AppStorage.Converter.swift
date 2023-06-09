@@ -15,7 +15,7 @@ extension AppStorage: wrappedValue_nonmutating_set {
 
 // MARK: - Data
 @available(
-  swift, deprecated: 5.8,
+  swift, deprecated: 6,
   message: "The where clause is redundant."
 )
 public extension AppStorage<Data>.Converter where WrappedValue: Codable, Wrapper == AppStorage<Data> {
@@ -40,7 +40,7 @@ public extension AppStorage<Data>.Converter where WrappedValue: Codable, Wrapper
 
 // MARK: - Double
 @available(
-  swift, deprecated: 5.8,
+  swift, deprecated: 6,
   message: "The where clause is redundant."
 )
 public extension AppStorage<Double>.Converter where Wrapper == AppStorage<Double> {

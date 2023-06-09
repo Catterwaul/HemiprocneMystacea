@@ -67,8 +67,8 @@ public extension Sequence where Element: Comparable {
           let value = consecutiveElements[1]
 
           guard let extremum: ExtremumOption = ( {
-            let neighbors = [0, 2].map { consecutiveElements[$0] }
-            return switch value {
+            [neighbors = [0, 2].map { consecutiveElements[$0] }] in
+            switch value {
             case let minimum where neighbors.allSatisfy { $0 > minimum }: .minimum
             case let maximum where neighbors.allSatisfy { $0 < maximum }: .maximum
             default: nil

@@ -41,8 +41,4 @@ extension Published.Object.Collection: PublishedObject {
 }
 
 // MARK: - Codable
-@available(
-  swift, deprecated: 5.8,
-  message: "`Value == ObservableObjectCollection<Objects>` is redundant."
-)
-extension Published.Object.Collection: Codable where Objects: Codable, Value == ObservableObjectCollection<Objects> { }
+extension Published.Object.Collection: Codable where Objects: Codable { }

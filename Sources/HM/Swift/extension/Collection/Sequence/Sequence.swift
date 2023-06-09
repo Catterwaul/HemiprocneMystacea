@@ -495,10 +495,6 @@ public extension Sequence {
   }
 }
 
-@available(
-  swift, deprecated: 5.9,
-  message: "`lazy.flatMap` will not compile."
-)
 /// Recursively collect the elements of sequences.
 @inlinable public func recursive<Root>(
   _ root: Root,

@@ -15,7 +15,7 @@ extension SceneStorage: wrappedValue_nonmutating_set {
 
 // MARK: - Data
 @available(
-  swift, deprecated: 5.8,
+  swift, deprecated: 6,
   message: "The where clause is redundant."
 )
 public extension SceneStorage<Data>.Converter where WrappedValue: Codable, Wrapper == SceneStorage<Data> {
@@ -40,7 +40,7 @@ public extension SceneStorage<Data>.Converter where WrappedValue: Codable, Wrapp
 
 // MARK: - Double
 @available(
-  swift, deprecated: 5.8,
+  swift, deprecated: 6,
   message: "The where clause is redundant."
 )
 public extension AppStorage<Double>.Converter where Wrapper == SceneStorage<Double> {

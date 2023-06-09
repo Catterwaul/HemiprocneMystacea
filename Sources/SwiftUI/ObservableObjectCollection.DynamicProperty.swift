@@ -39,7 +39,7 @@ public extension ObservedObject {
 }
 
 @available(
-  swift, deprecated: 5.8,
+  swift, deprecated: 6,
   message: "`where` clause will not compile with generic syntax instead"
 )
 public extension ObservableObjectCollection.DynamicProperty where DynamicProperty == ObservedObject<ObservableObjectCollection> {
@@ -61,7 +61,7 @@ public extension StateObject {
 }
 
 @available(
-  swift, deprecated: 5.8,
+  swift, deprecated: 6,
   message: "`where` clause will not compile with generic syntax instead"
 )
 public extension ObservableObjectCollection.DynamicProperty where DynamicProperty == StateObject<ObservableObjectCollection> {

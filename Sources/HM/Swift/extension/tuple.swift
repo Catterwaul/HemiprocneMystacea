@@ -1,6 +1,8 @@
 /// Reverse the order of the elements in the tuple.
-@inlinable public func reverse<T0, T1>(_ t0: T0, _ t1: T1) -> (T1, T0) {
-  (t1, t0)
+@inlinable public func reverse<Element0, Element1>(
+  _ element0: Element0, _ element1: Element1
+) -> (Element1, Element0) {
+  (element1, element0)
 }
 
 public func firstNonNil<Element>(_ tuple: (Element?, Element?)) -> Element? {

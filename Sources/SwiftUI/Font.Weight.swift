@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - CaseIterable
 extension Font.Weight: CaseIterable {
-  @available(macOS, deprecated: 14, message: "It's that time of year—check for new cases!")
+  @available(macOS, deprecated: 15, message: "It's that time of year—check for new cases!")
   public static var allCases: [Self] {
     [ ultraLight,
       thin,
@@ -19,7 +19,7 @@ extension Font.Weight: CaseIterable {
 
 // MARK: - CustomStringConvertible
 extension Font.Weight: CustomStringConvertible {
-  @available(macOS, deprecated: 14, message: "It's that time of year—check for new cases!")
+  @available(macOS, deprecated: 15, message: "It's that time of year—check for new cases!")
   public var description: String {
     switch self {
     case .ultraLight: return "ultraLight"
