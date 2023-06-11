@@ -129,9 +129,10 @@ final class SequenceTestCase: XCTestCase {
   }
 
   func test_grouped() {
-    XCTAssertEqual(
-      (0...4).grouped { $0 % 3 },
-      [[0, 3], [1, 4], [2]]
+    XCTAssert(
+      (0...4).grouped { $0 % 3 }
+      ==
+      [(0, [0, 3]), (1, [1, 4]), (2, [2])]
     )
   }
 

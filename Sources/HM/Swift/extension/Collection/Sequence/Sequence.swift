@@ -188,21 +188,21 @@ public extension Sequence {
     }
   }
 
-  /// Group the elements by a transformation into an `Equatable`.
+  /// Group the elements by a transformation into a `Key`.
   /// - Note: Similar to `Dictionary(grouping values:)`,
   /// but preserves "key" ordering, and doesn't require hashability.
-  func grouped<Equatable: Swift.Equatable>(
-    by equatable: (Element) throws -> Equatable
-  ) rethrows -> [[Element]] {
-    try reduce(into: [(equatable: Equatable, elements: [Element])]()) {
-      let equatable = try equatable($1)
+  func grouped<Key: Equatable>(
+    by key: (Element) throws -> Key
+  ) rethrows -> [KeyValuePairs<Key, [Element]>.Element] {
+    try reduce(into: []) {
+      let key = try key($1)
 
-      if let index = ( $0.firstIndex { $0.equatable == equatable } ) {
-        $0[index].elements.append($1)
+      if let index = ($0.firstIndex { $0.key == key }) {
+        $0[index].value.append($1)
       } else {
-        $0.append((equatable, [$1]))
+        $0.append((key, [$1]))
       }
-    }.map(\.elements)
+    }
   }
 
   /// Alternates between the elements of two sequences.

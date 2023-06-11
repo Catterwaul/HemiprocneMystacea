@@ -185,7 +185,7 @@ public extension Dictionary {
   ///   or a `Sequence` with the same element type as that.
   /// - Returns: `[Key: [ValueElement]]`
   init<ValueElement>(grouping pairs: some Sequence<(key: Key, value: ValueElement)>)
-  where Self.Value == [ValueElement] {
+  where Value == [ValueElement] {
     self = [_: _](grouping: pairs, by: \.key).mapValues { $0.map(\.value) }
   }
 
@@ -207,8 +207,8 @@ public extension OrderedDictionary {
   ///   or a `Sequence` with the same element type as that.
   /// - Returns: `[Key: [ValueElement]]`
   init<ValueElement>(grouping pairs: some Sequence<(key: Key, value: ValueElement)>)
-  where Self.Value == [ValueElement] {
-    self = OrderedDictionary<_, Array>(grouping: pairs, by: \.key)
+  where Value == [ValueElement] {
+    self = OrderedDictionary<_, _>(grouping: pairs, by: \.key)
       .mapValues { $0.map(\.value) }
   }
 
@@ -218,8 +218,8 @@ public extension OrderedDictionary {
   ///   but with unlabeled elements.
   /// - Returns: `[Key: [ValueElement]]`
   init<ValueElement>(grouping pairs: some Sequence<(Key, ValueElement)>)
-  where Self.Value == [ValueElement] {
-    self.init( grouping: pairs.lazy.map { (key: $0, value: $1) } )
+  where Value == [ValueElement] {
+    self.init(grouping: pairs.lazy.map { (key: $0, value: $1) })
   }
 }
 
