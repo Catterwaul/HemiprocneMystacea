@@ -70,6 +70,11 @@ public extension Sequence {
   /// Whether the sequence iterates exactly zero elements.
   var isEmpty: Bool { first == nil }
 
+  /// Iterated normally, but after the iterator is exhausted: infinite `nil`s.
+  @inlinable var padded: some Sequence<Element?> {
+    sequence(state: makeIterator()) { $0.next() as Element?? }
+  }
+
 // MARK:- Subscripts
 
   /// Splits a `Sequence` into equal "chunks".

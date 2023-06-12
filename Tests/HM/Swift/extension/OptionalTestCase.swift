@@ -15,15 +15,10 @@ final class OptionalTestCase: XCTestCase {
   }
 
   func test_init_optionals() throws {
-    var jenies: (String?, String?) = ("👖", "🧞‍♂️")
-
-    do {
-      let jenies: (String, String) = try XCTUnwrap(.init(jenies))
-      XCTAssert(jenies == ("👖", "🧞‍♂️"))
-    }
-
+    var jenies: (_?, _?) = ("👖", "🧞‍♂️")
+    XCTAssert(try XCTUnwrap(.zip(jenies)) == ("👖", "🧞‍♂️"))
     jenies.1 = nil
-    XCTAssertNil((String, String)?(jenies))
+    XCTAssertNil(_?.zip(jenies))
   }
 
   func test_map() {

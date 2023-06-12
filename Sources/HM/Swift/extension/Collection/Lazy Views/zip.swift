@@ -25,7 +25,7 @@
       sequence2.makeIterator()
     )
   ) {
-    .init(
+    .zip(
       ( $0.0.next(),
         $0.1.next(),
         $0.2.next()
@@ -58,23 +58,12 @@
       sequence3.makeIterator()
     )
   ) {
-    .init(
+    .zip(
       ( $0.0.next(),
         $0.1.next(),
         $0.2.next(),
         $0.3.next()
       )
     )
-  }
-}
-
-/// Like `zip`, but with `nil` elements after the iterators are is exhausted.
-@inlinable public func zipForever<Sequence0: Sequence, Sequence1: Sequence>(
-  _ sequence0: Sequence0, _ sequence1: Sequence1
-) -> some Sequence<(Sequence0.Element?, Sequence1.Element?)> {
-  sequence(
-    state: (sequence0.makeIterator(), sequence1.makeIterator())
-  ) {
-    ($0.0.next(), $0.1.next())
   }
 }

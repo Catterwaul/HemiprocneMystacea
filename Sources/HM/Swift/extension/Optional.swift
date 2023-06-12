@@ -8,44 +8,38 @@ public extension Optional {
 
   /// Exchange two optionals for a single optional tuple.
   /// - Returns: `nil` if either tuple element is `nil`.
-  init<Wrapped0, Wrapped1>(_ optional0: Wrapped0?, _ optional1: Wrapped1?)
+  static func zip<Wrapped0, Wrapped1>(_ optional0: Wrapped0?, _ optional1: Wrapped1?) -> Self
   where Wrapped == (Wrapped0, Wrapped1) {
-    self = .init((optional0, optional1))
+    .zip((optional0, optional1))
   }
 
   /// Exchange two optionals for a single optional tuple.
   /// - Returns: `nil` if either tuple element is `nil`.
-  init<Wrapped0, Wrapped1>(_ optionals: (Wrapped0?, Wrapped1?))
+  static func zip<Wrapped0, Wrapped1>(_ optionals: (Wrapped0?, Wrapped1?)) -> Self
   where Wrapped == (Wrapped0, Wrapped1) {
     switch optionals {
-    case let (wrapped0?, wrapped1?):
-      self = (wrapped0, wrapped1)
-    default:
-      self = nil
+    case let (wrapped0?, wrapped1?): (wrapped0, wrapped1)
+    default: nil
     }
   }
 
   /// Exchange three optionals for a single optional tuple.
   /// - Returns: `nil` if any tuple element is `nil`.
-  init<Wrapped0, Wrapped1, Wrapped2>(_ optionals: (Wrapped0?, Wrapped1?, Wrapped2?))
+  static func zip<Wrapped0, Wrapped1, Wrapped2>(_ optionals: (Wrapped0?, Wrapped1?, Wrapped2?)) -> Self
   where Wrapped == (Wrapped0, Wrapped1, Wrapped2) {
     switch optionals {
-    case let (wrapped0?, wrapped1?, wrapped2?):
-      self = (wrapped0, wrapped1, wrapped2)
-    default:
-      self = nil
+    case let (wrapped0?, wrapped1?, wrapped2?): (wrapped0, wrapped1, wrapped2)
+    default: nil
     }
   }
 
   /// Exchange four optionals for a single optional tuple.
   /// - Returns: `nil` if any tuple element is `nil`.
-  init<Wrapped0, Wrapped1, Wrapped2, Wrapped3>(_ optionals: (Wrapped0?, Wrapped1?, Wrapped2?, Wrapped3?))
+  static func zip<Wrapped0, Wrapped1, Wrapped2, Wrapped3>(_ optionals: (Wrapped0?, Wrapped1?, Wrapped2?, Wrapped3?)) -> Self
   where Wrapped == (Wrapped0, Wrapped1, Wrapped2, Wrapped3) {
     switch optionals {
-    case let (wrapped0?, wrapped1?, wrapped2?, wrapped3?):
-      self = (wrapped0, wrapped1, wrapped2, wrapped3)
-    default:
-      self = nil
+    case let (wrapped0?, wrapped1?, wrapped2?, wrapped3?): (wrapped0, wrapped1, wrapped2, wrapped3)
+    default: nil
     }
   }
 

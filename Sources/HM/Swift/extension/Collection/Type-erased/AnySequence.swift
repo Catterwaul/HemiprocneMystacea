@@ -41,6 +41,6 @@ public extension AnySequence {
     _ zipped0: Sequence0, _ zipped1: Sequence1
   ) -> some Sequence<(Sequence0.Element?, Sequence1.Element?)>
   where Element == (Sequence0.Element?, Sequence1.Element?) {
-    zipForever(zipped0, zipped1).prefix { !($0 == nil && $1 == nil) }
+    Swift.zip(zipped0.padded, zipped1.padded).prefix { !($0 == nil && $1 == nil) }
   }
 }

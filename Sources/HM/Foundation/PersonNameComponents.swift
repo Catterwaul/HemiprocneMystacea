@@ -4,7 +4,7 @@ extension PersonNameComponents: Comparable {
   public static func < (components0: Self, components1: Self) -> Bool {
     var fallback: Bool {
       [\PersonNameComponents.givenName, \.middleName].contains {
-        Optional(components0[keyPath: $0], components1[keyPath: $0])
+        Optional.zip(components0[keyPath: $0], components1[keyPath: $0])
         .map { $0.lowercased().isLessThan($1.lowercased(), whenEqual: false) }
         ?? false
       }
