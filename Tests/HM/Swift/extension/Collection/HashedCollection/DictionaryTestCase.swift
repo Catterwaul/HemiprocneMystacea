@@ -32,26 +32,15 @@ final class DictionaryTestCase: XCTestCase {
 
   func test_init_grouping_KeyValuePairs() {
     let dictionary = [
-      "🔑": [
-        "🐅",
-        "🐆",
-        "🐈"
-      ],
-      "🗝": [
-        "🦖",
-        "🦕"
-      ]
+      "🔑": [ "🐅", "🐆", "🐈"],
+      "🗝": ["🦖", "🦕"]
     ]
 
     XCTAssertEqual(
       Dictionary(
         grouping: [
-          ("🔑", "🐅"),
-          ("🔑", "🐆"),
-          ("🔑", "🐈"),
-
-          ("🗝", "🦖"),
-          ("🗝", "🦕")
+          ("🔑", "🐅"), ("🔑", "🐆"), ("🔑", "🐈"),
+          ("🗝", "🦖"), ("🗝", "🦕")
         ]
       ),
       dictionary
@@ -60,12 +49,8 @@ final class DictionaryTestCase: XCTestCase {
     XCTAssertEqual(
       Dictionary(
         grouping: [
-          "🔑": "🐅",
-          "🔑": "🐆",
-          "🔑": "🐈",
-
-          "🗝": "🦖",
-          "🗝": "🦕"
+          "🔑": "🐅", "🔑": "🐆", "🔑": "🐈",
+          "🗝": "🦖", "🗝": "🦕"
         ] as KeyValuePairs
       ),
       dictionary
