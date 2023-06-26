@@ -19,7 +19,7 @@ final class ErrorTestCase: XCTestCase {
     do {
       let result: Result<_, Error> = .success(true)
 
-      guard let success = `do`(
+      guard let success = try? `do`(
         result.get,
         catch: { _ in XCTFail() }
       ) else { return }
@@ -35,10 +35,21 @@ final class ErrorTestCase: XCTestCase {
     do {
       let result: Result<Void, _> = .failure(Error())
 
-      guard let _ = result.get({ XCTAssert($0.property == "😫") })
-      else { return }
+      XCTAssertThrowsError(
+        try result.get { XCTAssert($0.property == "😫") }
+      )
+    }
 
-      XCTFail()
+    do {
+      let result: Result<String, _> = .failure(Error())
+      XCTAssertEqual(
+        `do` {
+          try result.get()
+        } catch: {
+          ($0 as! Error).property
+        },
+        "😫"
+      )
     }
   }
 

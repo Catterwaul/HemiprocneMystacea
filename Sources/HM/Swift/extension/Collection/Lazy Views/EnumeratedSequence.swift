@@ -8,7 +8,7 @@ public extension EnumeratedSequence {
   func mapElements<Transformed>(
     _ transform: (Base.Element) throws -> Transformed
   ) throws -> [Transformed] {
-    try self.map {
+    try map {
       do { return try transform($0.element) }
       catch { throw Error(index: $0.offset, error: error) }
     }

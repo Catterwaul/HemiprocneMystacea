@@ -52,18 +52,8 @@ public extension AnyError {
 extension Array: Error where Element: Error { }
 extension Set: Error where Element: Error { }
 
-public func `do`<Success>(
-  _ success: () throws -> Success,
-  catch: (any Error) -> Void
-) -> Success? {
-  do {
-    return try success()
-  } catch {
-    `catch`(error)
-    return nil
-  }
-}
-
+/// A workaround for missing [`do` expressions](https://github.com/apple/swift-evolution/blob/main/proposals/0380-if-switch-expressions.md#do-expressions).
+/// - Throws: The error processed by `catch` is forwarded along for further handling.
 public func `do`<Success>(
   _ success: () throws -> Success,
   catch: (any Error) -> Void
@@ -73,5 +63,17 @@ public func `do`<Success>(
   } catch {
     `catch`(error)
     throw error
+  }
+}
+
+/// A workaround for missing [`do` expressions](https://github.com/apple/swift-evolution/blob/main/proposals/0380-if-switch-expressions.md#do-expressions).
+public func `do`<Success>(
+  _ success: () throws -> Success,
+  catch: (any Error) -> Success
+) -> Success {
+  do {
+    return try success()
+  } catch {
+    return `catch`(error)
   }
 }

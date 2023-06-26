@@ -15,7 +15,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     do {
       let dictionary: [Never: Never]? = nil
       XCTAssert(dictionary…?.isEmpty)
-      for (never: Never, 🧚: Never) in dictionary…? { }
+      for (_, _) in dictionary…? { }
     }
   }
 }
