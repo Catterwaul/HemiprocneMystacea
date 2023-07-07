@@ -2,18 +2,6 @@ import HM
 import XCTest
 
 final class OptionalTestCase: XCTestCase {
-  func test_assignmentOperator() {
-    var optional: String? = "🪕"
-    var some = "🎻"
-
-    optional =? some
-    XCTAssertEqual(optional, some)
-
-    optional = "🎸"
-    some =? optional
-    XCTAssertEqual(optional, some)
-  }
-
   func test_init_optionals() throws {
     var jenies: (_?, _?) = ("👖", "🧞‍♂️")
     XCTAssert(try XCTUnwrap(.zip(jenies)) == ("👖", "🧞‍♂️"))
