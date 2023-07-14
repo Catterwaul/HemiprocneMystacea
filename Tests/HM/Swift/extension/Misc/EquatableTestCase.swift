@@ -3,7 +3,7 @@ import XCTest
 
 final class EquatableTestCase: XCTestCase {
   func test_equate() {
-    let int: some Any = Int.random(in: .min...(.max))
+    let int: some Any = Int.random
     let bool: any Any = Bool.random()
 
     XCTAssertTrue(Int.equate(int, int))

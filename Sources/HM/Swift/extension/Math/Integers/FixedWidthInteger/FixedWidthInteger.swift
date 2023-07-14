@@ -1,3 +1,8 @@
+public extension FixedWidthInteger {
+  /// A random value between `min` and `max`, inclusive.
+  static var random: Self { random(in: min...max) }
+}
+
 public extension Sequence where Element: FixedWidthInteger {
   func joined(radix: Int = 10) -> Int? {
     Int(
