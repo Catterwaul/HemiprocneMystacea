@@ -135,14 +135,6 @@ public extension Sequence {
     try lazy.filter(getIsIncluded).count
   }
 
-  /// The number of elements that match a predicate.
-  func count<Wrapped>(
-    where getIsIncluded: (Wrapped) throws -> Bool
-  ) rethrows -> Int
-  where Element == Wrapped? {
-    try count { try $0.map(getIsIncluded) == true }
-  }
-  
   /// Distribute the elements as uniformly as possible, as if dealing one-by-one into shares.
   /// - Note: Later shares will be one smaller if the element count is not a multiple of `shareCount`.
   @inlinable func distributedUniformly(shareCount: Int)
