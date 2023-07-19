@@ -2,6 +2,11 @@ import HM
 import XCTest
 
 final class ComparableTestCase: XCTestCase {
+  func test_rangeOperators() {
+    XCTAssertEqual(1...{ $0 + 2 }, 1...3)
+    XCTAssertEqual(1..<{ $0 * 2 }, 1..<2)
+  }
+
   func test_getMaxProperties() throws {
     struct Subject {
       let one = 1

@@ -1,6 +1,16 @@
 import Algorithms
 
 public extension Comparable {
+  /// - Parameters maximum: A transformation of `minimum`.
+  static func ... (minimum: Self, maximum: (Self) -> Self) -> ClosedRange<Self> {
+    minimum...maximum(minimum)
+  }
+
+  /// - Parameters maximum: A transformation of `minimum`.
+  static func ..< (minimum: Self, maximum: (Self) -> Self) -> Range<Self> {
+    minimum..<maximum(minimum)
+  }
+
   /// The properties with the maximum value.
   /// - Parameter subject: An instance of any type.
   /// - Returns: `nil` if no value matches the `Comparable` type.
