@@ -5,7 +5,7 @@ import PackageDescription
 
 _ = Package(
   name: "HemiprocneMystacea",
-  platforms: [.iOS(.v16), .tvOS(.v16), .macOS(.v13), .watchOS(.v9)],
+  platforms: [.iOS(.v17), .tvOS(.v17), .macOS(.v14), .watchOS(.v10)],
   products: Product.Library.HM.allCases.map(\.library),
   dependencies: Package.Apple.allCases.map(\.package),
   targets: Product.Library.HM.allCases.flatMap(\.targets)

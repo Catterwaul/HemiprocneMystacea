@@ -24,8 +24,9 @@ final class ClosedRangeTestCase: XCTestCase {
   }
 
   func test_accumulated() {
+    let wontCompileWithoutThisConstant = [6...7, 0...1, 4...5, 1...2, 4...4, -3...0].accumulated()
     XCTAssertEqual(
-      Array([6...7, 0...1, 4...5, 1...2, 4...4, -3...0].accumulated()),
+      Array(wontCompileWithoutThisConstant),
       [-3...2, 4...5, 6...7]
     )
 
