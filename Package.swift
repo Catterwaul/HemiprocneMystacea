@@ -15,7 +15,7 @@ _ = Package(
 
 extension Product.Library {
   enum HM: CaseIterable {
-    case hm, swiftUI, uiKit, xcTest
+    case hm, realityKit, swiftUI, uiKit, xcTest
   }
 }
 
@@ -67,6 +67,8 @@ extension Product.Library.HM {
     switch self {
     case .hm:
       return "HM"
+    case .realityKit:
+      return "RealityKit"
     case .swiftUI:
       return "SwiftUI"
     case .uiKit:
