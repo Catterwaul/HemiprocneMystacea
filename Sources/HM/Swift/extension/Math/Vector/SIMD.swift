@@ -1,4 +1,31 @@
-import CoreGraphics
+// TODO: Use macros to support all SIMD types.
+public extension SIMD where Scalar: SIMDScalar {
+  /// The ".xy" of a vector.
+  ///
+  /// - Note: Acts as a default for the subscript that accesses elements based on a `SIMD2<Index>`,
+  ///   and adds write capability to it.
+  subscript(index0: Int = 0, index1: Int = 1) -> SIMD2<Scalar> {
+    get { self[[index0, index1]] }
+    set {
+      for index in [index0, index1].indexed() {
+        self[index.element] = newValue[index.index]
+      }
+    }
+  }
+
+  /// The ".xyz" of a vector.
+  ///
+  /// - Note: Acts as a default for the subscript that accesses elements based on a `SIMD3<Index>`,
+  ///   and adds write capability to it.
+  subscript(index0: Int = 0, index1: Int = 1, index2: Int = 2) -> SIMD3<Scalar> {
+    get { self[[index0, index1, index2]] }
+    set {
+      for index in [index0, index1, index2].indexed() {
+        self[index.element] = newValue[index.index]
+      }
+    }
+  }
+}
 
 public extension SIMD where Scalar: Numeric {
   var squareMagnitude: Scalar { dot(self) }
@@ -26,76 +53,5 @@ public extension SIMD where Scalar: FloatingPoint {
   /// Convert integers to floating point vectors.
   init<Integer: BinaryInteger>(_ integers: Integer...) {
     self.init(integers.map(Scalar.init))
-  }
-}
-
-public extension CommonOperable
-where Operand: SIMD, Operand.Scalar: FloatingPoint {
-  static func + <Result: CommonOperable<Operand>>
-  (operable0: Self, operable1: some CommonOperable<Operand>) -> Result {
-    operate(operable0, +, operable1)
-  }
-
-  static func + (operable0: Self, operable1: Self) -> Self {
-    operate(operable0, +, operable1)
-  }
-
-  static func += (operable0: inout Self, operable1: some CommonOperable<Operand>) {
-    operable0 = operable0 + operable1
-  }
-
-// MARK: -
-
-  static func - <Result: CommonOperable<Operand>>
-  (operable0: Self, operable1: some CommonOperable<Operand>) -> Result {
-    operate(operable0, -, operable1)
-  }
-
-  static func - (operable0: Self, operable1: Self) -> Self {
-    operate(operable0, -, operable1)
-  }
-
-  static func -= (operable0: inout Self, operable1: some CommonOperable<Operand>) {
-    operable0 = operable0 - operable1
-  }
-
-// MARK: -
-
-  static func / <Result: CommonOperable<Operand>>
-  (dividend: Self, divisor: some CommonOperable<Operand>) -> Result {
-    operate(dividend, /, divisor)
-  }
-
-  static func / (dividend: Self, divisor: Self) -> Self {
-    operate(dividend, /, divisor)
-  }
-
-  static func /= (dividend: inout Self, divisor: some CommonOperable<Operand>) {
-    dividend = dividend / divisor
-  }
-}
-
-public extension CommonOperable where Operand == SIMD2<CGFloat.NativeType> {
-  func clamped<Result: CommonOperable>(within bounds: CGRect) -> Result
-  where Operand == Result.Operand {
-    performMethod(Operand.clamped(within:), bounds)
-  }
-}
-
-public extension CommonVectorOperable where Operand.Scalar: FloatingPoint {
-  static func * (vector: Self, scalar: Scalar) -> Self {
-    operate(vector, *, scalar)
-  }
-
-  static func / (dividend: Self, divisor: Scalar) -> Self {
-    operate(dividend, /, divisor)
-  }
-}
-
-public extension CommonVectorOperable where Operand == SIMD2<CGFloat.NativeType> {
-  /// Distance to the closest point on the rectangle's boundary.
-  /// - Note: Negative if inside the rectangle.
-  func signedDistance(to rect: CGRect) -> CGFloat.NativeType {
-    performMethod(Operand.signedDistance(to:), rect)
   }
 }
