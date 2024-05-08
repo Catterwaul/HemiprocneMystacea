@@ -51,7 +51,7 @@ final class OptionalTestCase: XCTestCase {
 
     XCTAssertNoThrow(try iterate())
     XCTAssertThrowsError(try iterate(nil)) {
-      XCTAssert($0 is Optional<Any>.UnwrapError)
+      XCTAssert($0 is Any?.UnwrapError)
     }
   }
 
@@ -75,11 +75,11 @@ final class OptionalTestCase: XCTestCase {
       var s = S()
       assert(
         try s[""],
-        throws: Optional<Any>.UnwrapError.self
+        throws: Any?.UnwrapError.self
       )
       assert(
         try s["property"],
-        throws: Optional<Any?>.UnwrapError.self
+        throws: Any??.UnwrapError.self
       )
       s.property = 0
       XCTAssertEqual(try s["property"] as! Int, 0)

@@ -16,7 +16,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
     let turKey = "🦃"
     assert(
       try serializableDictionary[turKey] as Any,
-      throws: Optional<Any>.UnwrapError.self
+      throws: Any?.UnwrapError.self
     )
 		
     XCTAssertThrowsError(
@@ -51,7 +51,7 @@ final class SerializableDictionaryTestCase: XCTestCase {
         dictionary: dictionary,
         key: turKeyboard
       ),
-      throws: Optional<Any>.UnwrapError.self
+      throws: Any?.UnwrapError.self
     )
   }
 	

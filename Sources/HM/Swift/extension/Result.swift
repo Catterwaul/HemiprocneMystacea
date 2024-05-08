@@ -125,7 +125,7 @@ public extension Result where Success == Void {
   }
 }
 
-extension Result: ExpressibleByNilLiteral where Failure == Optional<Success>.UnwrapError {
+extension Result: ExpressibleByNilLiteral where Failure == Success?.UnwrapError {
   public init(nilLiteral: ()) {
     self = .failure(.init())
   }
