@@ -5,9 +5,11 @@ public func ?! <Success>(
   _ success: @autoclosure () throws -> Success,
   _ error: @autoclosure () -> some Error
 )  throws -> Success {
-  try Result(catching: success)
-    .mapError { _ in error() }
-    .get()
+  do {
+    return try success()
+  } catch(_) {
+    throw error()
+  }
 }
 
 /// Map one `Error` to another upon failure, disregarding the original.
@@ -15,9 +17,11 @@ public func ?! <Success>(
   _ success: () async throws -> Success,
   _ error: @autoclosure () -> some Error
 ) async throws -> Success {
-  try await Result(catching: success)
-    .mapError { _ in error() }
-    .get()
+  do {
+    return try await success()
+  } catch(_) {
+    throw error()
+  }
 }
 
 public extension Error {

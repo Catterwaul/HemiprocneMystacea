@@ -30,6 +30,26 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     }
   }
 
+  func test_errorMapping() {
+    Optional: do {
+      let none: Never? = .none
+      XCTAssertThrowsError(
+        try none.wrappedValue ?! AnyError()
+      ) { error in
+        XCTAssert(error is AnyError)
+      }
+    }
+
+    Result: do {
+      let result = Result<Never, _>.failure(Never?.UnwrapError())
+      XCTAssertThrowsError(
+        try result.wrappedValue ?! AnyError()
+      ) { error in
+        XCTAssert(error is AnyError)
+      }
+    }
+  }
+
   func test_sequenceOperator() {
     do {
       let array = [1, 3, 5]
