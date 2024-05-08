@@ -72,8 +72,8 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     let value = "🪕"
 
     Optional: do {
+      // @Possible var optional = value
       var optional = Possible(value)
-      optional = nil
 
       // optional = value
       optional.setWrappedValue(value)
@@ -83,7 +83,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
 
       // try? optional = none
       try? optional.setWrappedValue(none.wrappedValue)
-      XCTAssertNotNil(optional)
+      XCTAssertEqual(try optional.wrappedValue, value)
 
       var some = "🎻"
       // try? some = optional
@@ -93,12 +93,16 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
 
     Result: do {
       struct Error: Swift.Error { }
-      var result = Possible<_, Error>(value)
+      // @Possible<_, Error> var result = value
+      var result = Possible<_, Error>(wrappedValue: value)
 
       // result = value
       result.setWrappedValue(value)
 
-      let failure = Possible<String, _>(Error())
+      var failure = result
+      // $failure = { throw Error() }
+      failure.projectedValue = { throw Error() }
+
       // try? result = failure
       try? result.setWrappedValue(failure.wrappedValue)
       XCTAssertEqual(try result.wrappedValue, value)
@@ -123,12 +127,8 @@ private struct Possible<Value, Error: Swift.Error> {
 
   var projectedValue: () throws -> Value
 
-  init(_ value: Value) {
-    projectedValue = { value }
-  }
-
-  init(_ error: Error) {
-    projectedValue = { throw error }
+  init(wrappedValue: Value) {
+    projectedValue = { wrappedValue }
   }
 }
 
