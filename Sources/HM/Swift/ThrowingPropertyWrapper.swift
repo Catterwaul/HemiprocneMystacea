@@ -50,21 +50,19 @@ public extension ThrowingPropertyWrapper {
     .init(compacting: self)
   }
 
-  /// Modify a wrapped value if not `nil`.
+  /// Modify a wrapped value.
   /// - Parameters:
-  ///   - makeResult: arguments: (`resultWhenNil`, `self!`)
-  /// - Returns: An unmodified value, when `nil`.
+  ///   - makeResult: arguments: (`errorResult`, `wrappedValue!`)
+  /// - Returns: An unmodified value, when `wrappedValue` `throw`s.
   func reduce<Result>(
-    _ resultWhenNil: Result,
-    _ makeResult: (_ resultWhenNil: Result, _ wrappedValue: Value) throws -> Result
+    _ errorResult: Result,
+    _ makeResult: (_ errorResult: Result, _ wrappedValue: Value) throws -> Result
   ) rethrows -> Result {
-    let wrappedValue: Value
     do {
-      wrappedValue = try self.wrappedValue
+      return try makeResult(errorResult, wrappedValue)
     } catch {
-      return resultWhenNil
+      return errorResult
     }
-    return try makeResult(resultWhenNil, wrappedValue)
   }
 }
 

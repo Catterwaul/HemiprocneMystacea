@@ -50,6 +50,29 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     }
   }
 
+  func test_reduce() {
+    var int: Int? = nil
+    XCTAssertEqual(int.reduce(1, +), 1)
+
+    int = 2
+    XCTAssertEqual(int.reduce(1, +), 3)
+
+    struct Error: Swift.Error { }
+    var arrayResult = Result<[Int], _>.failure(Error())
+    let array: [Int] = [1, 2]
+
+    XCTAssertEqual(
+      arrayResult.reduce(array) { $1 + $0 },
+      array
+    )
+
+    arrayResult = .success([0])
+    XCTAssertEqual(
+      arrayResult.reduce(array) { $1 + $0 },
+      [0, 1, 2]
+    )
+  }
+
   func test_sequenceOperator() {
     do {
       let array = [1, 3, 5]
