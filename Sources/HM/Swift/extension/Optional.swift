@@ -1,11 +1,6 @@
 import Algorithms
 
 public extension Optional {
-  /// Represents that an `Optional` was `nil`.
-  struct UnwrapError: Error & Equatable {
-    public init() { }
-  }
-
   /// Exchange two optionals for a single optional tuple.
   /// - Returns: `nil` if either tuple element is `nil`.
   static func zip<Wrapped0, Wrapped1>(_ optional0: Wrapped0?, _ optional1: Wrapped1?) -> Self

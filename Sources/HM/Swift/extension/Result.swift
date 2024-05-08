@@ -37,6 +37,10 @@ public extension Result {
     }
   }
 
+  @available(
+    swift, deprecated: 6,
+    message: "Use typed throw instead of `cast`"
+  )
   /// Create a `Result` based on a throwing operation.
   /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`.
   init(_ getSuccess: @autoclosure () throws -> Success) throws {
@@ -77,7 +81,7 @@ public extension Result {
   }
 }
 
-public extension Result where Failure == Error {
+public extension Result where Failure == Swift.Error {
   init(catching success: () async throws -> Success) async {
     do {
       self = .success(try await success())

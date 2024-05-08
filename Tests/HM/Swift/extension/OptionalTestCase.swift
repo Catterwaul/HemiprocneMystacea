@@ -9,7 +9,7 @@ final class OptionalTestCase: XCTestCase {
     XCTAssertNil(_?.zip(jenies))
   }
 
-  func test_map() {
+  func test_compacted() {
     XCTAssertEqual(
       ["💿🗺"],
       ("💿🗺" as Optional).compacted()
