@@ -3,7 +3,7 @@
 /// Limitations of Swift's computed property accessors:
 /// 1. They are not mutable.
 /// 2. They cannot be referenced as closures.
-@propertyWrapper public struct Computed<Value> {
+@propertyWrapper public struct GetNonmutatingSet<Value> {
   public typealias Get = () -> Value
   public typealias Set = (Value) -> Void
 
@@ -30,7 +30,7 @@
 }
 
 // MARK: - public
-public extension Computed {
+public extension GetNonmutatingSet {
   init(
     wrappedValue: Value,
     get: @escaping Get = {

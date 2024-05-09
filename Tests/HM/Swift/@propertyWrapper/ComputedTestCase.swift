@@ -6,7 +6,7 @@ final class ComputedTestCase: XCTestCase {
     struct Structure {
       private(set) static var value: Int = 0
 
-      @Computed(set: { value = $0 }) var property = 1
+      @GetNonmutatingSet(set: { value = $0 }) var property = 1
     }
 
     var value: Int = .random
@@ -37,7 +37,7 @@ final class ComputedTestCase: XCTestCase {
     }
 
     var value = 0
-    @Computed(get: { value }, set: { value = $0 }) var property;
+    @GetNonmutatingSet(get: { value }, set: { value = $0 }) var property;
     setValue(
       property: &property,
       value: 777

@@ -96,13 +96,13 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
 
     Optional: do {
       // @Possible var optional = value
-      var optional = Possible(value)
+      var optional = GetThrowsMutatingSet(value)
 
       // optional = value
       optional.setWrappedValue(value)
 
       // let none: String? = nil
-      let none: Possible<String, _> = nil
+      let none: GetThrowsMutatingSet<String, _> = nil
 
       // try? optional = none
       try? optional.setWrappedValue(none.wrappedValue)
@@ -117,7 +117,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     Result: do {
       struct Error: Swift.Error { }
       // @Possible<_, Error> var result = value
-      var result = Possible<_, Error>(wrappedValue: value)
+      var result = GetThrowsMutatingSet<_, Error>(wrappedValue: value)
 
       // result = value
       result.setWrappedValue(value)
@@ -139,33 +139,18 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
 }
 
 // MARK: -
-private struct Possible<Value, Error: Swift.Error> {
-  var wrappedValue: Value {
-    get throws { try projectedValue() }
-  }
-
-  mutating func setWrappedValue(_ newValue: Value) {
-    projectedValue = { newValue }
-  }
-
-  var projectedValue: () throws -> Value
-
-  init(wrappedValue: Value) {
-    projectedValue = { wrappedValue }
-  }
-}
 
 /// Represents that a value was not assigned.
-struct PossibleUnwrapError<Value>: Swift.Error & Equatable {
+public struct PossibleUnwrapError<Value>: Swift.Error & Equatable {
   init() { }
 }
 
-extension Possible: ExpressibleByNilLiteral where Error == PossibleUnwrapError<Value> {
-  init(nilLiteral: Void) {
-    projectedValue = { throw Error() }
+extension GetThrowsMutatingSet: ExpressibleByNilLiteral where Error == PossibleUnwrapError<Value> {
+  public init(nilLiteral: Void) {
+    self.init { throw Error() }
   }
 
   init(_ value: Value) {
-    projectedValue = { value }
+    self.init { value }
   }
 }

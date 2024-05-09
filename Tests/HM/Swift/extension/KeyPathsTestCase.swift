@@ -24,7 +24,7 @@ final class KeyPathsTestCase: XCTestCase {
 
     let mangoat = "👨🐐"
 
-    @Computed(root: Class(), keyPath: \.mango) var mango;
+    @GetNonmutatingSet(root: Class(), keyPath: \.mango) var mango;
     mango = mangoat
     XCTAssertEqual(mango, mangoat)
   }

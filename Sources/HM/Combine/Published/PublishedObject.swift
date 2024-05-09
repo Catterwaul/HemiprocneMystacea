@@ -19,7 +19,7 @@ extension PublishedObject {
   ) -> WrappedValue
   where Parent.ObjectWillChangePublisher == ObservableObjectPublisher {
     get {
-      @Computed(root: parent, keyPath: keyPath) var `self`
+      @GetNonmutatingSet(root: parent, keyPath: keyPath) var `self`
 
       // It's `nil` until a parent can be provided.
       if self.objectWillChangeSubscription == nil {
@@ -29,7 +29,7 @@ extension PublishedObject {
       return self.value
     }
     set {
-      @Computed(root: parent, keyPath: keyPath) var `self`
+      @GetNonmutatingSet(root: parent, keyPath: keyPath) var `self`
       self.value = newValue
       self.setParent(parent)
       parent.objectWillChange.send()

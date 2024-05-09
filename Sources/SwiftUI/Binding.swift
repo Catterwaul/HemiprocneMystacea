@@ -6,8 +6,7 @@ public extension Binding {
   static func ?? (optional: Binding<Value?>, default: Value) -> Self {
     .init(
       get: { optional.wrappedValue ?? `default`},
-      set: { optional.wrappedValue = $0
-      }
+      set: { optional.wrappedValue = $0 }
     )
   }
 

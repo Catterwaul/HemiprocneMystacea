@@ -1,4 +1,4 @@
-/// A type that represents a `get throws` accessor.
+/// A type that could be a property wrapper if `get throws` were supported for `wrappedValue`.
 public protocol ThrowingPropertyWrapper<Value, Error> {
   associatedtype Value
   associatedtype Error: Swift.Error
