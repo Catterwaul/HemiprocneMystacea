@@ -39,7 +39,6 @@ extension Result: ThrowingPropertyWrapper {
 }
 
 // MARK: - public
-
 public extension ThrowingPropertyWrapper {
   /// Create a single-element array literal, or an empty one.
   /// - Returns: `[wrappedValue]` or `[]`
@@ -62,6 +61,32 @@ public extension ThrowingPropertyWrapper {
       return try makeResult(errorResult, wrappedValue)
     } catch {
       return errorResult
+    }
+  }
+}
+
+/// - Note: Should be in an extension of `ThrowingPropertyWrapper`,
+///   but that will result in incorrect overloading.
+public extension Result {
+  static func ?? (value: Self, default: Self) -> Self {
+    do {
+      _ = try value.wrappedValue
+      return value
+    } catch {
+      return `default`
+    }
+  }
+}
+
+/// - Note: Should be in an extension of `ThrowingPropertyWrapper`,
+///   but that will result in incorrect overloading.
+public extension GetThrowsMutatingSet {
+  static func ?? (value: Self, default: Self) -> Self {
+    do {
+      _ = try value.wrappedValue
+      return value
+    } catch {
+      return `default`
     }
   }
 }

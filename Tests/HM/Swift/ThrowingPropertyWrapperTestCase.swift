@@ -50,6 +50,22 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     }
   }
 
+  func test_coalescing() {
+    Result: do {
+      typealias Result = Swift.Result<Bool, AnyError>
+      let success = Result.success(true)
+      let failure = Result.failure(.init())
+      XCTAssertEqual(failure ?? failure ?? success, success)
+    }
+
+    GetThrowsMutatingSet: do {
+      typealias Property = GetThrowsMutatingSet<Bool, AnyError>
+      let success = Property { true }
+      let failure = Property { throw AnyError() }
+      XCTAssertTrue(try (failure ?? failure ?? success).wrappedValue)
+    }
+  }
+
   func test_reduce() {
     var int: Int? = nil
     XCTAssertEqual(int.reduce(1, +), 1)
