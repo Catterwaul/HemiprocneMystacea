@@ -1,7 +1,7 @@
 import HM
 import XCTest
 
-final class ComputedTestCase: XCTestCase {
+final class GetNonmutatingSetTestCase: XCTestCase {
   func test_wrapper() {
     struct Structure {
       private(set) static var value: Int = 0

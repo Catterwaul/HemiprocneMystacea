@@ -15,10 +15,6 @@ public struct GetThrowsMutatingSet<Value, Error: Swift.Error> {
   public var projectedValue: () throws -> Value
 }
 
-extension GetThrowsMutatingSet: ThrowingPropertyWrapper {
-  
-}
-
 // MARK: - public
 public extension GetThrowsMutatingSet {
   init(wrappedValue: Value) {
@@ -32,4 +28,40 @@ public extension GetThrowsMutatingSet {
   mutating func setWrappedValue(_ newValue: Value) {
     projectedValue = { newValue }
   }
+
+  @available(
+    swift, deprecated: 6,
+    message: "Use typed throw instead of `as!`."
+  )
+  @inlinable func map<NewValue, NewError>(
+    _ transformValue: @escaping (Value) throws -> NewValue,
+    error transformError: @escaping (Error) -> NewError
+  ) -> GetThrowsMutatingSet<NewValue, NewError> {
+    .init {
+      do {
+        return try transformValue(wrappedValue)
+      } catch {
+        throw transformError(error as! Error)
+      }
+    }
+  }
+
+  @inlinable func map<NewValue>(
+    _ transformValue: @escaping (Value) throws -> NewValue
+  ) -> GetThrowsMutatingSet<NewValue, Error> {
+    map(transformValue) { $0 }
+  }
+
+  @available(
+    swift, deprecated: 6,
+    message: "Use typed throw instead of `as!`."
+  )
+  @inlinable func map<NewError>(
+    error transformError: @escaping (Error) -> NewError
+  ) -> GetThrowsMutatingSet<Value, NewError> {
+    map({ $0 }, error: transformError)
+  }
 }
+
+// MARK: - ThrowingPropertyWrapper
+extension GetThrowsMutatingSet: ThrowingPropertyWrapper { }
