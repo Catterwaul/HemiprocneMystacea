@@ -7,7 +7,7 @@ public protocol DictionaryLike<Key, Value> {
 }
 
 public extension DictionaryLike {
-  /// `self[key].unwrap()`
+  /// `self[key].wrappedValue`
   subscript<Value>(key: Key) -> Value {
     get throws { try cast(self[key].wrappedValue) }
   }

@@ -102,7 +102,7 @@ public extension ThrowingPropertyWrapper where Value: Sequence {
   ///   ```
   @available(
     swift, deprecated: 6,
-    message: "`-> some Sequence<WrappedValue.Element>` causes test to fail."
+    message: "`-> some Sequence<Value.Element>` causes test to fail."
   )
   static postfix func …?(_ self: Self) -> UnfoldSequence<Value.Element, Value.Iterator?> {
     sequence(state: (try? self.wrappedValue)?.makeIterator()) { $0?.next() }

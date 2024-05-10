@@ -20,8 +20,7 @@ public func makeProcess<Intermediate, Final>(
 ) -> ProcessGet<Intermediate> {
   { getIntermediate in
     do {
-      let intermediate = try getIntermediate()
-      try processIntermediate(intermediate)
+      try processIntermediate(getIntermediate())
     } catch {
       processGetError { throw error }
     }
