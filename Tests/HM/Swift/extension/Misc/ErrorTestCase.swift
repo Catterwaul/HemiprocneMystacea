@@ -53,9 +53,10 @@ final class ErrorTestCase: XCTestCase {
     }
   }
 
-  func test_map() async {
+  func test_coalesce() async {
     do {
-      try await { try await AnyError().throw() as Void } ?! AnyError()
+      let `throw` = async { throw AnyError() }
+      try await (try await `throw`()) ?? (try await `throw`())
       XCTFail()
     } catch { }
   }

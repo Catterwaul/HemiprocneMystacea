@@ -34,7 +34,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     Optional: do {
       let none: Never? = .none
       XCTAssertThrowsError(
-        try none.wrappedValue ?! AnyError()
+        try none.wrappedValue ?? AnyError().throw()
       ) { error in
         XCTAssert(error is AnyError)
       }
@@ -43,7 +43,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     Result: do {
       let result = Result<Never, _>.failure(Never?.UnwrapError())
       XCTAssertThrowsError(
-        try result.wrappedValue ?! AnyError()
+        try result.wrappedValue ?? AnyError().throw()
       ) { error in
         XCTAssert(error is AnyError)
       }
@@ -51,6 +51,20 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
   }
 
   func test_coalescing() {
+    Error: do {
+      let value: Optional = "🪙"
+      let none = nil as String?
+
+      XCTAssertEqual(
+        try none.wrappedValue ?? value.wrappedValue,
+        value
+      )
+
+      XCTAssertThrowsError(
+        try none.wrappedValue ?? AnyError().throw()
+      )
+    }
+
     Result: do {
       typealias Result = Swift.Result<Bool, AnyError>
       let success = Result.success(true)
