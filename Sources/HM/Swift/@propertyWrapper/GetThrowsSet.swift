@@ -37,7 +37,7 @@ public extension GetThrowsMutatingSet {
   }
 
   /// A new wrapper around transformed `wrappedValue`s.
-  @inlinable func map<NewValue>(
+  @inlinable func mapValue<NewValue>(
     _ transform: @escaping (Value) throws -> NewValue
   ) -> GetThrowsMutatingSet<NewValue, Error> {
     .init { try transform(wrappedValue) }

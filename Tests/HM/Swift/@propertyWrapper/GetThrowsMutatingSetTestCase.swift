@@ -11,7 +11,7 @@ final class GetThrowsMutatingSetTestCase: XCTestCase {
 
   func test_map() {
     var boolError = GetThrowsMutatingSet(wrappedValue: true )
-    XCTAssertEqual(try boolError.map { String($0) }.wrappedValue, "true")
+    XCTAssertEqual(try boolError.mapValue { String($0) }.wrappedValue, "true")
 
     let boolAnyError = boolError.mapError { _ in AnyError() }
     boolError = boolAnyError.map { try $0() }
