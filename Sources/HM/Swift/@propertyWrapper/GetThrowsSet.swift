@@ -29,37 +29,35 @@ public extension GetThrowsMutatingSet {
     projectedValue = { newValue }
   }
 
+  /// A new wrapper around transformed `wrappedValue`s and `Error`s.
+  @inlinable func map<NewValue, NewError>(
+    _ transform: @escaping (() throws -> Value) throws -> NewValue
+  ) -> GetThrowsMutatingSet<NewValue, NewError> {
+    .init { try transform(projectedValue) }
+  }
+
+  /// A new wrapper around transformed `wrappedValue`s.
+  @inlinable func map<NewValue>(
+    _ transform: @escaping (Value) throws -> NewValue
+  ) -> GetThrowsMutatingSet<NewValue, Error> {
+    .init { try transform(wrappedValue) }
+  }
+
+  /// A new wrapper around transformed `Error`s.
   @available(
     swift, deprecated: 6,
     message: "Use typed throw instead of `as!`."
   )
-  @inlinable func map<NewValue, NewError>(
-    _ transformValue: @escaping (Value) throws -> NewValue,
-    error transformError: @escaping (Error) -> NewError
-  ) -> GetThrowsMutatingSet<NewValue, NewError> {
+  @inlinable func mapError<NewError>(
+    _ transform: @escaping (Error) -> NewError
+  ) -> GetThrowsMutatingSet<Value, NewError> {
     .init {
       do {
-        return try transformValue(wrappedValue)
+        return try wrappedValue
       } catch {
-        throw transformError(error as! Error)
+        throw transform(error as! Error)
       }
     }
-  }
-
-  @inlinable func map<NewValue>(
-    _ transformValue: @escaping (Value) throws -> NewValue
-  ) -> GetThrowsMutatingSet<NewValue, Error> {
-    map(transformValue) { $0 }
-  }
-
-  @available(
-    swift, deprecated: 6,
-    message: "Use typed throw instead of `as!`."
-  )
-  @inlinable func map<NewError>(
-    error transformError: @escaping (Error) -> NewError
-  ) -> GetThrowsMutatingSet<Value, NewError> {
-    map({ $0 }, error: transformError)
   }
 }
 

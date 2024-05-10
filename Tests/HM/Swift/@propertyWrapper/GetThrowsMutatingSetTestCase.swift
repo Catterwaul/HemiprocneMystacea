@@ -10,11 +10,11 @@ final class GetThrowsMutatingSetTestCase: XCTestCase {
   }
 
   func test_map() {
-    let property = GetThrowsMutatingSet(wrappedValue: true )
-    XCTAssertEqual(try property.map { String($0) }.wrappedValue, "true")
+    var boolError = GetThrowsMutatingSet(wrappedValue: true )
+    XCTAssertEqual(try boolError.map { String($0) }.wrappedValue, "true")
 
-    var property2 = property.map { _ in AnyError() }
-    property2 = property2.map { _ in throw AnyError() }
-    XCTAssertThrowsError(try property2.wrappedValue)
+    let boolAnyError = boolError.mapError { _ in AnyError() }
+    boolError = boolAnyError.map { try $0() }
+    XCTAssertTrue(try boolError.wrappedValue)
   }
 }
