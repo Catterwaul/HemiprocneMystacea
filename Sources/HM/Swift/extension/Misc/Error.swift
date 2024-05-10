@@ -47,18 +47,6 @@ public struct AnyError: Error & Equatable {
   public init() { }
 }
 
-public extension AnyError {
-  /// Initialize an `AnyError` if a closure throws an error.
-  init?(_ value: () throws -> some Any) {
-    do {
-      _ = try value()
-      return nil
-    } catch {
-      self.init()
-    }
-  }
-}
-
 extension Array: Error where Element: Error { }
 extension Set: Error where Element: Error { }
 
