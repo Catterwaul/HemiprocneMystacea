@@ -63,5 +63,19 @@ public extension GetThrowsMutatingSet {
   }
 }
 
+@available(
+  swift, deprecated: 6,
+  message: "Use typed `throw`s."
+)
+public extension GetThrowsMutatingSet where Error == Swift.Error {
+  init(projectedValue: @escaping () throws -> Value) {
+    self.projectedValue = projectedValue
+  }
+
+  init(wrappedValue: Value) {
+    self.init { wrappedValue }
+  }
+}
+
 // MARK: - ThrowingPropertyWrapper
 extension GetThrowsMutatingSet: ThrowingPropertyWrapper { }

@@ -42,6 +42,10 @@ public extension Error {
   }
 }
 
+@available(
+  swift, deprecated: 6,
+  message: "Nest this as `Error.Any`."
+)
 /// A nondescript error.
 public struct AnyError: Error & Equatable {
   public init() { }
