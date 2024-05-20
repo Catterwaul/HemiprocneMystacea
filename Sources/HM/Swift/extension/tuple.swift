@@ -1,3 +1,73 @@
+public typealias Tuple2<Element> = (Element, Element)
+public typealias Tuple3<Element> = (Element, Element, Element)
+public typealias Tuple4<Element> = (Element, Element, Element, Element)
+
+// MARK: - append
+
+/// Create a new tuple with one more element.
+@inlinable public func append<Element0, Element1, Element2>(
+  _ elements: (Element0, Element1), _ element: Element2
+) -> (Element0, Element1, Element2) {
+  (elements.0, elements.1, element)
+}
+
+/// Create a new tuple with one more element.
+@inlinable public func append<Element0, Element1, Element2, Element3>(
+  _ elements: (Element0, Element1, Element2), _ element: Element3
+) -> (Element0, Element1, Element2, Element3) {
+  (elements.0, elements.1, elements.2, element)
+}
+
+// MARK: - map
+
+/// Transform each tuple element.
+@inlinable public func map<Element, Transformed>(
+  _ elements: Tuple2<Element>,
+  _ transform: (Element) throws -> Transformed
+) rethrows -> Tuple2<Transformed> {
+  try (transform(elements.0), transform(elements.1))
+}
+
+/// Transform each tuple element.
+@inlinable public func map<Element, Transformed>(
+  _ elements: Tuple3<Element>,
+  _ transform: (Element) throws -> Transformed
+) rethrows -> Tuple3<Transformed> {
+  try append(
+    map(prefix(elements), transform), 
+    transform(elements.2)
+  )
+}
+
+/// Transform each tuple element.
+@inlinable public func map<Element, Transformed>(
+  _ elements: Tuple4<Element>,
+  _ transform: (Element) throws -> Transformed
+) rethrows -> Tuple4<Transformed> {
+  try append(
+    map(prefix(elements), transform),
+    transform(elements.3)
+  )
+}
+
+// MARK: - prefix
+
+/// The first 2 elements.
+@inlinable public func prefix<Element0, Element1>(
+  _ elements: (Element0, Element1, some Any)
+) -> (Element0, Element1) {
+  (elements.0, elements.1)
+}
+
+/// The first 3 elements.
+@inlinable public func prefix<Element0, Element1, Element2>(
+  _ elements: (Element0, Element1, Element2, some Any)
+) -> (Element0, Element1, Element2) {
+  (elements.0, elements.1, elements.2)
+}
+
+// MARK: -
+
 /// Reverse the order of the elements in the tuple.
 @inlinable public func reverse<Element0, Element1>(
   _ element0: Element0, _ element1: Element1
@@ -127,9 +197,9 @@ public extension Tuple {
 }
 
 public extension Sequence {
-  typealias Tuple2 = (Element, Element)
-  typealias Tuple3 = (Element, Element, Element)
-  typealias Tuple4 = (Element, Element, Element, Element)
+  typealias Tuple2 = HM.Tuple2<Element>
+  typealias Tuple3 = HM.Tuple3<Element>
+  typealias Tuple4 = HM.Tuple4<Element>
 
   var tuple2: Tuple2? { makeTuple2()?.tuple }
   var tuple3: Tuple3? { makeTuple3()?.tuple }

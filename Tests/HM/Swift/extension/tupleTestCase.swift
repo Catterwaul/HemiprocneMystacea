@@ -2,6 +2,18 @@ import HM
 import XCTest
 
 final class TupleTestCase: XCTestCase {
+  func test_map() {
+    XCTAssert(
+      map((0, 1)) { $0 + 1 } == (1, 2)
+    )
+    XCTAssert(
+      map((0, 1, 2)) { $0 + 1 } == (1, 2, 3)
+    )
+    XCTAssert(
+      map((0, 1, 2, 3)) { $0 + 1 } == (1, 2, 3, 4)
+    )
+  }
+
   func test_reverse() {
     XCTAssert(reverse(1, 2) == (2, 1))
   }
