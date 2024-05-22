@@ -63,14 +63,32 @@ final class TupleTestCase: XCTestCase {
     }
   }
 
-  func test_Sequence() {
+  func test_Sequence() throws {
     let array = [0, 1, 2, 3]
-    XCTAssert(array.tuple2! == (0, 1))
-    XCTAssert(array.tuple3! == (0, 1, 2))
-    XCTAssert(array.tuple4! == (0, 1, 2, 3))
+    XCTAssert(try array.tuple2 == (0, 1))
+    XCTAssert(try array.tuple3 == (0, 1, 2))
+    XCTAssert(try array.tuple4 == (0, 1, 2, 3))
 
-    XCTAssertNil([Never]().tuple2)
-    XCTAssertNil([Never]().tuple3)
-    XCTAssertNil([Never]().tuple4)
+    XCTAssertThrowsError(try [Never]().tuple2) { error in
+      guard case TupleError.incorrectElementCount(let expected, let actual) = error
+      else { return XCTFail() }
+
+      XCTAssertEqual(expected, 2)
+      XCTAssertEqual(actual, 0)
+    }
+    XCTAssertThrowsError(try [Never]().tuple3) { error in
+      guard case TupleError.incorrectElementCount(let expected, let actual) = error
+      else { return XCTFail() }
+
+      XCTAssertEqual(expected, 3)
+      XCTAssertEqual(actual, 0)
+    }
+    XCTAssertThrowsError(try [Never]().tuple4) { error in
+      guard case TupleError.incorrectElementCount(let expected, let actual) = error
+      else { return XCTFail() }
+
+      XCTAssertEqual(expected, 4)
+      XCTAssertEqual(actual, 0)
+    }
   }
 }

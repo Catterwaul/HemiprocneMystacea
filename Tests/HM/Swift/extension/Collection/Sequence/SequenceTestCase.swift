@@ -315,12 +315,10 @@ final class SequenceTestCase: XCTestCase {
     XCTAssertThrowsError(
       try [1, 2, 1, 2, 3].uniqueMin { $0 }
     ) { error in
-      switch error {
-      case Extremum<Int>.UniqueError.notUnique(let extremum):
-        XCTAssertEqual(extremum.count, 2)
-      default:
-        XCTFail()
-      }
+      guard case Extremum<Int>.UniqueError.notUnique(let extremum) = error 
+      else { return XCTFail() }
+
+      XCTAssertEqual(extremum.count, 2)
     }
 
     do {

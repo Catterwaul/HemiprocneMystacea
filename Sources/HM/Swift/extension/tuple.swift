@@ -111,51 +111,63 @@ public extension Tuple {
   }
 }
 
+public enum TupleError: Error {
+  case incorrectElementCount(expected: Int, actual: Int)
+}
+
 public extension Sequence {
   typealias Tuple2 = Tuplé.Tuple2<Element>
   typealias Tuple3 = Tuplé.Tuple3<Element>
   typealias Tuple4 = Tuplé.Tuple4<Element>
 
-  var tuple2: Tuple2? { makeTuple2()?.tuple }
-  var tuple3: Tuple3? { makeTuple3()?.tuple }
-  var tuple4: Tuple4? { makeTuple4()?.tuple }
+  var tuple2: Tuple2 { get throws { try makeTuple2().tuple } }
+  var tuple3: Tuple3 { get throws { try makeTuple3().tuple } }
+  var tuple4: Tuple4 { get throws { try makeTuple4().tuple } }
 
-  private func makeTuple2() -> (
+  private func makeTuple2() throws -> (
     tuple: Tuple2,
     getNext: () -> Element?
-  )? {
+  ) {
     var iterator = makeIterator()
     let getNext = { iterator.next() }
 
-    guard
-      let _0 = getNext(),
-      let _1 = getNext()
-    else { return nil }
+    guard let _0 = getNext()
+    else { throw TupleError.incorrectElementCount(expected: 2, actual: 0) }
+    guard let _1 = getNext()
+    else { throw TupleError.incorrectElementCount(expected: 2, actual: 1) }
 
     return ((_0, _1), getNext)
   }
 
-  private func makeTuple3() -> (
+  private func makeTuple3() throws -> (
     tuple: Tuple3,
     getNext: () -> Element?
-  )? {
-    guard
-      let (tuple, getNext) = makeTuple2(),
-      let element = getNext()
-    else { return nil }
-
-    return (append(tuple, element), getNext)
+  ) {
+    do {
+      let (tuple, getNext) = try makeTuple2()
+      
+      guard let element = getNext()
+      else { throw TupleError.incorrectElementCount(expected: 3, actual: 2) }
+      
+      return (append(tuple, element), getNext)
+    } catch TupleError.incorrectElementCount(_, let actual) {
+      throw TupleError.incorrectElementCount(expected: 3, actual: actual)
+    }
   }
 
-  private func makeTuple4() -> (
+  private func makeTuple4() throws -> (
     tuple: Tuple4,
     getNext: () -> Element?
-  )? {
-    guard
-      let (tuple, getNext) = makeTuple3(),
-      let element = getNext()
-    else { return nil }
+  ) {
+    do {
+      let (tuple, getNext) = try makeTuple3()
 
-    return (append(tuple, element), getNext)
+      guard let element = getNext()
+      else { throw TupleError.incorrectElementCount(expected: 4, actual: 3) }
+
+      return (append(tuple, element), getNext)
+    } catch TupleError.incorrectElementCount(_, let actual) {
+      throw TupleError.incorrectElementCount(expected: 4, actual: actual)
+    }
   }
 }
