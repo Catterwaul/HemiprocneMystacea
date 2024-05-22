@@ -1,4 +1,5 @@
 import typealias OrderedCollections.OrderedDictionary
+import Tuplé
 
 public protocol DictionaryProtocol<Key, Value>: Sequence where Element == (key: Key, value: Value) {
   associatedtype Key
@@ -125,7 +126,7 @@ public extension DictionaryProtocol {
 
   /// `merge`, with labeled tuples.
   ///
-  /// - Parameter pairs: Either `KeyValuePairs<Key, Value.Element>`
+  /// - Parameter pairs: Either `KeyValuePairs<Key, Value>`
   ///   or a `Sequence` with the same element type as that.
   @inlinable mutating func merge(
     _ pairs: some Sequence<Element>,

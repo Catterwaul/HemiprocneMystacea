@@ -9,7 +9,7 @@ public extension float3x3 {
 
   /// Creates a new matrix with the specified columns.
   init(columns: Tuple3<SIMD3<some BinaryFloatingPoint>>) {
-    self.init(columns: map(columns, SIMD3.init))
+    self.init(columns: map(columns)(SIMD3.init))
   }
 
   init(_ quaternion: simd_quatd) {

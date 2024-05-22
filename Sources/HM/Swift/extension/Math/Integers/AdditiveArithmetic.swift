@@ -1,3 +1,5 @@
+import Tuplé
+
 /// - Remark: option+
 infix operator ±: AdditionPrecedence
 
