@@ -1,4 +1,5 @@
 import HM
+import Tuplé
 import XCTest
 
 final class TupleTestCase: XCTestCase {

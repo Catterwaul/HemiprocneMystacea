@@ -1,4 +1,5 @@
 import simd
+import Tuplé
 
 public extension float4x4 {
   /// Reduces the precision of a `double4x4`.

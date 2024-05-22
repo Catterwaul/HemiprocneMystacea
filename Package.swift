@@ -7,7 +7,7 @@ _ = Package(
   name: "HemiprocneMystacea",
   platforms: [.iOS(.v17), .tvOS(.v17), .macOS(.v14), .watchOS(.v10)],
   products: Product.Library.HM.allCases.map(\.library),
-  dependencies: Package.Apple.allCases.map(\.package),
+  dependencies: dependencies.map(\.package),
   targets: Product.Library.HM.allCases.flatMap(\.targets)
 )
 
@@ -50,10 +50,7 @@ extension Product.Library.HM {
     switch self {
     case .hm:
       return [
-        .target(
-          name: name,
-          dependencies: Package.Apple.allCases.map(\.product)
-        ),
+        .target(name: name, dependencies: dependencies.map(\.product)),
         testTarget
       ]
     case .xcTest:
@@ -88,27 +85,41 @@ extension Product.Library.HM {
   }
 }
 
-// MARK: -
+// MARK: - Dependency
 
-extension Package {
-  enum Apple: String, CaseIterable {
-    case algorithms
-    case asyncAlgorithms = "async-algorithms"
-    case collections
-  }
+var dependencies: [Dependency]  {
+  [ .apple(repositoryName: "algorithms"),
+    .apple(repositoryName: "async-algorithms"),
+    .apple(repositoryName: "collections"),
+    .catterwaul(name: "Tuplé", repositoryName: "Tuplay")
+  ]
 }
 
-extension Package.Apple {
-  var package: Package.Dependency {
-   .package(url: "https://github.com/apple/" + swiftPrefixedName, branch: "main")
-  }
+struct Dependency {
+  let package: Package.Dependency
+  let product: Target.Dependency
+}
 
-  var product: Target.Dependency {
-    .product(
-      name: rawValue.split(separator: "-").map(\.capitalized).joined(),
-      package: swiftPrefixedName
+extension Dependency {
+  static func apple(repositoryName: String) -> Self {
+    .init(
+      organization: "apple",
+      name: repositoryName.split(separator: "-").map(\.capitalized).joined(),
+      repositoryName: "swift-\(repositoryName)"
     )
   }
 
-  private var swiftPrefixedName: String { "swift-" + rawValue }
+  static func catterwaul(name: String, repositoryName: String? = nil) -> Self {
+    .init(organization: "Catterwaul", name: name, repositoryName: repositoryName ?? name)
+  }
+
+  private init(organization: String, name: String, repositoryName: String) {
+    self.init(
+      package: .package(
+        url: "https://github.com/\(organization)/\(repositoryName)",
+        branch: "main"
+      ),
+      product: .product(name: name, package: repositoryName)
+    )
+  }
 }

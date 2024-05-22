@@ -1,4 +1,5 @@
 import Spatial
+import Tuplé
 
 public extension float3x3 {
   /// Reduces the precision of a `double4x4`.

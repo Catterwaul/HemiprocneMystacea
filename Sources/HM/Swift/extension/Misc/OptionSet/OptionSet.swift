@@ -1,3 +1,5 @@
+import Tuplé
+
 public extension OptionSet {
   init(_ compatibleRawRepresentable: some RawRepresentable<RawValue>) {
     self.init(rawValue: compatibleRawRepresentable.rawValue)
@@ -37,10 +39,10 @@ public extension OptionSet where RawValue: BinaryInteger {
     Self, Self,
     Self
   ) {
-    Tuple[
+    append(
       Self[startingFlagIndex: startingFlagIndex],
       .init(flagIndex: startingFlagIndex + 2)
-    ]
+    )
   }
   
   /// Provides four options.
@@ -50,10 +52,10 @@ public extension OptionSet where RawValue: BinaryInteger {
     Self, Self, Self,
     Self
   ) {
-    Tuple[
+    append(
       Self[startingFlagIndex: startingFlagIndex],
       .init(flagIndex: startingFlagIndex + 3)
-    ]
+    )
   }
   
   /// Provides five options.
