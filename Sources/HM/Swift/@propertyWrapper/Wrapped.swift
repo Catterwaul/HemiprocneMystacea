@@ -47,19 +47,17 @@ public extension Wrapped where Value: AnyObject {
   }
 }
 
-infix operator …
+infix operator …: DotsPrecedence
 
-public func … <Value, Transformed>(
-  value: Value,
-  transform: (Value) -> Transformed
-) -> Transformed {
-  transform(value)
+precedencegroup DotsPrecedence {
+  higherThan: BitwiseShiftPrecedence
+  associativity: left
 }
 
 public func … <Value, Transformed>(
   value: Value,
   transform: (Value) throws -> Transformed
-) throws -> Transformed {
+) rethrows -> Transformed {
   try transform(value)
 }
 
