@@ -4,6 +4,10 @@ import enum Foundation.SortOrder
 public extension Sequence {
 // MARK:- Operators
 
+  @available(
+    swift, deprecated: 6,
+    message: "Use `elementsEqual`. Tuples should be `Equatable` now."
+  )
   /// Equates two `Sequence`s of 2-tuples.
   static func == <
     Equatable0: Equatable, Equatable1: Equatable
@@ -12,6 +16,10 @@ public extension Sequence {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+  @available(
+    swift, deprecated: 6,
+    message: "Use `elementsEqual`. Tuples should be `Equatable` now."
+  )
   /// Equates two `Sequence`s of 3-tuples.
   static func == <
     Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable
@@ -20,6 +28,10 @@ public extension Sequence {
     tuples0.elementsEqual(tuples1, by: ==)
   }
 
+  @available(
+    swift, deprecated: 6,
+    message: "Use `elementsEqual`. Tuples should be `Equatable` now."
+  )
   /// Equates two `Sequence`s of 4-tuples.
   static func == <
     Equatable0: Equatable, Equatable1: Equatable, Equatable2: Equatable, Equatable3: Equatable
