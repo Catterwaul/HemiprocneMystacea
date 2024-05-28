@@ -43,7 +43,7 @@ public extension DictionaryProtocol {
   ///     This can't support *all* labels, but it does support `(key:value:)` specifically,
   ///     which `Dictionary` and `KeyValuePairs` use for their elements.
   @inlinable init(uniqueKeysWithValues keysAndValues: some Sequence<Element>) {
-    self.init(uniqueKeysWithValues: keysAndValues.lazy.map(removeLabels))
+    self.init(uniqueKeysWithValues: keysAndValues.lazy.map(unlabeled))
   }
 
   // MARK: Subscripts
@@ -132,7 +132,7 @@ public extension DictionaryProtocol {
     _ pairs: some Sequence<Element>,
     uniquingKeysWith combine: (Value, Value) throws -> Value
   ) rethrows {
-    try merge(pairs.lazy.map(removeLabels), uniquingKeysWith: combine)
+    try merge(pairs.lazy.map(unlabeled), uniquingKeysWith: combine)
   }
 }
 

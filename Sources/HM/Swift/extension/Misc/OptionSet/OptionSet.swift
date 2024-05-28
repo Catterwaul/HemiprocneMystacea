@@ -39,8 +39,7 @@ public extension OptionSet where RawValue: BinaryInteger {
     Self, Self,
     Self
   ) {
-    append(
-      Self[startingFlagIndex: startingFlagIndex],
+    appending(Self[startingFlagIndex: startingFlagIndex])(
       .init(flagIndex: startingFlagIndex + 2)
     )
   }
@@ -52,8 +51,7 @@ public extension OptionSet where RawValue: BinaryInteger {
     Self, Self, Self,
     Self
   ) {
-    append(
-      Self[startingFlagIndex: startingFlagIndex],
+    appending(Self[startingFlagIndex: startingFlagIndex])(
       .init(flagIndex: startingFlagIndex + 3)
     )
   }

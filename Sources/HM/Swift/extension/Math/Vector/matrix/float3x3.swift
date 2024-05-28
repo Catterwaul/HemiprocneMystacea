@@ -8,7 +8,7 @@ public extension float3x3 {
   }
 
   /// Creates a new matrix with the specified columns.
-  init(columns: Tuple3<SIMD3<some BinaryFloatingPoint>>) {
+  init(columns: Vectuple3<SIMD3<some BinaryFloatingPoint>>) {
     self.init(columns: map(columns)(SIMD3.init))
   }
 
