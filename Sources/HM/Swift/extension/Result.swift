@@ -37,10 +37,7 @@ public extension Result {
     }
   }
 
-  @available(
-    swift, deprecated: 6,
-    message: "Use typed throw instead of `cast`"
-  )
+  @available(swift, deprecated: 6)
   /// Create a `Result` based on a throwing operation.
   /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`.
   init(_ getSuccess: @autoclosure () throws -> Success) throws {
@@ -69,6 +66,7 @@ public extension Result {
     }
   }
 
+  @available(swift, deprecated: 6)
   /// A version of `get` that allows for processing a strongly-typed error, upon failure.
   func get(_ catch: (Failure) -> Void) throws -> Success {
     switch self {
