@@ -71,7 +71,7 @@ final class CKRecordTestCase: XCTestCase {
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
     assert(
       try IntEnum(record: record),
-      throws: IntEnum?.UnwrapError.self
+      throws: IntEnum?.Nil.self
     )
   }
   
@@ -91,13 +91,13 @@ final class CKRecordTestCase: XCTestCase {
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
     assert(
       try StringEnum(record: record),
-      throws: StringEnum?.UnwrapError.self
+      throws: StringEnum?.Nil.self
     )
 
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
     assert(
       try StringEnum(record: record),
-      throws: CKRecord.Value?.UnwrapError.self
+      throws: CKRecord.Value?.Nil.self
     )
   }
 }

@@ -41,7 +41,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     }
 
     Result: do {
-      let result = Result<Never, _>.failure(Never?.UnwrapError())
+      let result = Result<Never, _>.failure(Never?.nil)
       XCTAssertThrowsError(
         try result.wrappedValue ?? AnyError().throw()
       ) { error in
@@ -148,11 +148,11 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
 // MARK: -
 
 /// Represents that a value was not assigned.
-public struct PossibleUnwrapError<Value>: Swift.Error & Equatable {
+public struct PossibleNil<Value>: Swift.Error & Equatable {
   init() { }
 }
 
-extension GetThrowsMutatingSet: ExpressibleByNilLiteral where Error == PossibleUnwrapError<Value> {
+extension GetThrowsMutatingSet: ExpressibleByNilLiteral where Error == PossibleNil<Value> {
   public init(nilLiteral: Void) {
     self.init { throw Error() }
   }

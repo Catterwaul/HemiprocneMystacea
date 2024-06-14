@@ -37,17 +37,17 @@ public extension Any? {
   }
 
   /// The wrapped value, whether `Wrapped` is an `Optional` or not.
-  /// - Throws: `Any?.UnwrapError` when `nil`,
-  ///   or  `Any??.UnwrapError` when wrapping another `Optional` that is `nil`.
+  /// - Throws: `Any?.Nil` when `nil`,
+  ///   or  `Any??.Nil` when wrapping another `Optional` that is `nil`.
   var doublyUnwrapped: Wrapped {
     get throws {
       switch self {
       case let doubleWrapped?? as Self?:
         return doubleWrapped
       case _?:
-        throw Self?.UnwrapError()
+        throw Self?.nil
       case nil:
-        throw UnwrapError()
+        throw .nil
       }
     }
   }
