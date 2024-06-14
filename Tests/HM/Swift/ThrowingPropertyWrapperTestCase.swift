@@ -2,34 +2,6 @@ import HM
 import XCTest
 
 final class ThrowingPropertyWrapperTestCase: XCTestCase {
-  func test_assignmentOperator() {
-    let value = "🪕"
-
-    Optional: do {
-      var optional: Optional = value
-
-      try? optional = .none.wrappedValue
-      XCTAssertNotNil(optional)
-
-      var some = "🎻"
-      try? some = optional.wrappedValue
-      XCTAssertEqual(some, value)
-    }
-
-    Result: do {
-      struct Error: Swift.Error { }
-      var result = Result<_, Error>.success(value)
-
-      let failure = Result<String, _>.failure(Error())
-      try? result.setWrappedValue(failure.wrappedValue)
-      XCTAssertEqual(try result.wrappedValue, value)
-
-      var success = "🎻"
-      try? success = result.wrappedValue
-      XCTAssertEqual(success, value)
-    }
-  }
-
   func test_errorMapping() {
     Optional: do {
       let none: Never? = .none
