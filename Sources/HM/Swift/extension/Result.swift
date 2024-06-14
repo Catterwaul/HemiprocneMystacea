@@ -37,17 +37,6 @@ public extension Result {
     }
   }
 
-  @available(swift, deprecated: 6)
-  /// Create a `Result` based on a throwing operation.
-  /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`.
-  init(_ getSuccess: @autoclosure () throws -> Success) throws {
-    do {
-      self = .success(try getSuccess())
-    } catch {
-      self = .failure(try cast(error))
-    }
-  }
-
   /// `success` for `Optional.some`s; `failure` for `.none`s.
   init(
     success: Success?,
@@ -120,11 +109,5 @@ public extension Result where Success == Void {
   /// `.success` only when `failure` is `nil`.
   init(failure: Failure?) {
     self = failure.map(Self.failure) ?? .success
-  }
-}
-
-extension Result: ExpressibleByNilLiteral where Failure == Success?.UnwrapError {
-  public init(nilLiteral: ()) {
-    self = .failure(.init())
   }
 }

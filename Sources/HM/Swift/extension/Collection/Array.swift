@@ -1,3 +1,5 @@
+import Thrappture
+
 public extension Array {
   // MARK: - Initializers
 
@@ -46,7 +48,7 @@ public extension ExpressibleByArrayLiteral {
   /// as Swift doesn't employ  universal non-optional defaults.
   init(compacting wrapper: some ThrowingPropertyWrapper<ArrayLiteralElement, some Error>) {
     do {
-      self = [try wrapper.wrappedValue]
+      self = [try wrapper.wrappedValue()]
     } catch {
       self = []
     }

@@ -1,3 +1,5 @@
+import Thrappture
+
 // MARK: - public
 public extension ThrowingPropertyWrapper {
   /// Create a single-element array literal, or an empty one.
@@ -7,21 +9,6 @@ public extension ThrowingPropertyWrapper {
   func compacted<ExpressibleByArrayLiteral: Swift.ExpressibleByArrayLiteral>() -> ExpressibleByArrayLiteral
   where ExpressibleByArrayLiteral.ArrayLiteralElement == Value {
     .init(compacting: self)
-  }
-
-  /// Modify a wrapped value.
-  /// - Parameters:
-  ///   - makeResult: arguments: (`errorResult`, `wrappedValue!`)
-  /// - Returns: An unmodified value, when `wrappedValue` `throw`s.
-  func reduce<Result>(
-    _ errorResult: Result,
-    _ makeResult: (_ errorResult: Result, _ wrappedValue: Value) throws -> Result
-  ) rethrows -> Result {
-    do {
-      return try makeResult(errorResult, wrappedValue)
-    } catch {
-      return errorResult
-    }
   }
 }
 
@@ -65,6 +52,6 @@ public extension ThrowingPropertyWrapper where Value: Sequence {
     message: "`-> some Sequence<Value.Element>` causes test to fail."
   )
   static postfix func …?(_ self: Self) -> UnfoldSequence<Value.Element, Value.Iterator?> {
-    sequence(state: (try? self.wrappedValue)?.makeIterator()) { $0?.next() }
+    sequence(state: (try? self.wrappedValue())?.makeIterator()) { $0?.next() }
   }
 }

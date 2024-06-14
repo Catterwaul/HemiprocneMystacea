@@ -91,6 +91,7 @@ var dependencies: [Dependency]  {
   [ .apple(repositoryName: "algorithms"),
     .apple(repositoryName: "async-algorithms"),
     .apple(repositoryName: "collections"),
+    .catterwaul(name: "Thrappture"),
     .catterwaul(name: "Tuplé", repositoryName: "Tuplay")
   ]
 }
