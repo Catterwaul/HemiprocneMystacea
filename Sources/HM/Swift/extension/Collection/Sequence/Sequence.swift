@@ -140,13 +140,6 @@ public extension Sequence {
     (0..<count).map(Array(self).dropFirst).transposed
   }
 
-  /// The number of elements that match a predicate.
-  func count(
-    where getIsIncluded: (Element) throws -> Bool
-  ) rethrows -> Int {
-    try lazy.filter(getIsIncluded).count
-  }
-
   /// Distribute the elements as uniformly as possible, as if dealing one-by-one into shares.
   /// - Note: Later shares will be one smaller if the element count is not a multiple of `shareCount`.
   @inlinable func distributedUniformly(shareCount: Int)

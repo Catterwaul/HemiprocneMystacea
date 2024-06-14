@@ -121,13 +121,6 @@ final class SequenceTestCase: XCTestCase {
     XCTAssert(["🐯", "🐯"].containsOnly("🐯"))
   }
 
-  func test_getCount() throws {
-    XCTAssertEqual(
-      (1...3).count { $0 < 3 },
-      2
-    )
-  }
-
   func test_grouped() {
     XCTAssert(
       (0...4).grouped { $0 % 3 }
