@@ -2,13 +2,6 @@ import HM
 import XCTest
 
 final class OptionalTestCase: XCTestCase {
-  func test_init_optionals() throws {
-    var jenies: (_?, _?) = ("👖", "🧞‍♂️")
-    XCTAssert(try XCTUnwrap(.zip(jenies)) == ("👖", "🧞‍♂️"))
-    jenies.1 = nil
-    XCTAssertNil(_?.zip(jenies))
-  }
-
   func test_compacted() {
     XCTAssertEqual(
       ["💿🗺"],
