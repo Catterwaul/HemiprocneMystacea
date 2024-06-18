@@ -25,11 +25,11 @@ public extension Sequence where Element: Sendable {
   /// Transform a sequence asynchronously, and potentially in parallel.
   /// - Returns: An `AsyncSequence` which returns transformed elements, in their original order,
   /// as soon as they become available.
-  func mapWithTaskGroup<Transformed: Sendable>(
+  func mapWithTaskGroup<Transformed: Sendable, Error: Swift.Error>(
     priority: TaskPriority? = nil,
-    _ transform: @escaping @Sendable (Element) async throws -> Transformed
-  ) -> AsyncThrowingChannel<Transformed, Error> {
-    let channel = AsyncThrowingChannel<Transformed, Error>()
+    _ transform: @escaping @Sendable (Element) async throws(Error) -> Transformed
+  ) -> AsyncThrowingChannel<Transformed, any Swift.Error> {
+    let channel = AsyncThrowingChannel<Transformed, any Swift.Error>()
     Task {
       do {
         try await mapWithTaskGroup(channel: channel, transform)
@@ -42,8 +42,15 @@ public extension Sequence where Element: Sendable {
   
   func compactMapWithTaskGroup<Transformed: Sendable>(
     priority: TaskPriority? = nil,
-    _ transform: @escaping @Sendable (Element) async throws -> Transformed?
-  ) async rethrows -> [Transformed] {
+    _ transform: @escaping @Sendable (Element) async -> Transformed?
+  ) async -> [Transformed] {
+    await .init(mapWithTaskGroup(transform).compacted())
+  }
+
+  func compactMapWithTaskGroup<Transformed: Sendable, Error: Swift.Error>(
+    priority: TaskPriority? = nil,
+    _ transform: @escaping @Sendable (Element) async throws(Error) -> Transformed?
+  ) async throws(any Swift.Error) -> [Transformed] {
     try await .init(mapWithTaskGroup(transform).compacted())
   }
 }
@@ -59,10 +66,10 @@ extension AsyncChannel: AsyncChannelProtocol { }
 extension AsyncThrowingChannel: AsyncChannelProtocol { }
 
 private extension Sequence where Element: Sendable {
-  private func mapWithTaskGroup<Transformed: Sendable>(
+  private func mapWithTaskGroup<Transformed: Sendable, Error: Swift.Error>(
     channel: some AsyncChannelProtocol<Transformed>,
     priority: TaskPriority? = nil,
-    _ transform: @escaping @Sendable (Element) async throws -> Transformed
+    _ transform: @escaping @Sendable (Element) async throws(Error) -> Transformed
   ) async rethrows {
     typealias ChildTaskResult = Heap<Int>.ElementValuePair<Transformed>
     try await withThrowingTaskGroup(of: ChildTaskResult.self) { group in
@@ -77,7 +84,7 @@ private extension Sequence where Element: Sendable {
       for try await childTaskResult in group {
         heap.insert(childTaskResult)
         // Send as many in-order `Transformed`s as possible.
-        while heap.min()?.delegate == lastSentOffset + 1 {
+        while heap.min?.delegate == lastSentOffset + 1 {
           await channel.send(heap.removeMin().value)
           lastSentOffset += 1
         }
