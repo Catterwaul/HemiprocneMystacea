@@ -47,7 +47,7 @@ public extension Any? {
       case _?:
         throw Self?.nil
       case nil:
-        throw .nil
+        throw Self.nil
       }
     }
   }

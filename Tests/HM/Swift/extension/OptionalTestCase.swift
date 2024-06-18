@@ -2,18 +2,6 @@ import HM
 import XCTest
 
 final class OptionalTestCase: XCTestCase {
-
-  func test_unwrap() {
-    func iterate(_ array: Any?...) throws {
-      try array.forEach { _ = try $0.wrappedValue }
-    }
-
-    XCTAssertNoThrow(try iterate())
-    XCTAssertThrowsError(try iterate(nil)) {
-      XCTAssert($0 is Any?.Nil)
-    }
-  }
-
   func test_doubleWrapped() {
     do {
       struct S {

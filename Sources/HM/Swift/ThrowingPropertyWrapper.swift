@@ -18,7 +18,7 @@ public extension Result {
 public extension GetThrowsMutatingSet {
   static func ?? (value: Self, default: Self) -> Self {
     do {
-      _ = try value.wrappedValue
+      _ = try value.wrappedValue()
       return value
     } catch {
       return `default`

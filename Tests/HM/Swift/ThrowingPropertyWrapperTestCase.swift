@@ -34,7 +34,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
       )
 
       XCTAssertThrowsError(
-        try none.wrappedValue ?? AnyError().throw()
+        try none.wrappedValue() ?? AnyError().throw()
       )
     }
 
