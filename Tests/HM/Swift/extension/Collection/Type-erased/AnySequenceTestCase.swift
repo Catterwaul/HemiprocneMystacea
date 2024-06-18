@@ -10,6 +10,13 @@ final class AnySequenceTestCase: XCTestCase {
   }
 
   func test_init_zip() {
+    let sequences = (
+      1...5,
+      ["🇨🇦", "🐝", "🌊"],
+      stride(from: 20, through: 80, by: 20),
+      AnyIterator { "😺" }
+    )
+
     XCTAssert(
       AnySequence.zip(sequences.0, sequences.1)
       ==
