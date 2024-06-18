@@ -12,6 +12,6 @@ public extension RawRepresentableWithCKRecordValue {
 public extension RawRepresentableWithCKRecordValue {
   /// - Throws: `Nil`s
   init(record: CKRecord, key: some RawRepresentable<CKRecord.FieldKey>) throws {
-    self = try Self(rawValue: record[key]).wrappedValue
+    self = try Self(rawValue: record[key]).wrappedValue()
   }
 }

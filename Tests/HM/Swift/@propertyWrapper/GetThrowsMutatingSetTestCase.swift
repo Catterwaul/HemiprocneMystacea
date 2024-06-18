@@ -4,9 +4,9 @@ import XCTest
 final class GetThrowsMutatingSetTestCase: XCTestCase {
   func test_setWrappedValue() {
     var property = GetThrowsMutatingSet(wrappedValue: 0)
-    XCTAssertEqual(try property.wrappedValue, 0)
+    XCTAssertEqual(try property.wrappedValue(), 0)
     property.setWrappedValue(1)
-    XCTAssertEqual(try property.wrappedValue, 1)
+    XCTAssertEqual(try property.wrappedValue(), 1)
   }
 
   func test_map() {

@@ -8,7 +8,7 @@ public extension CaseIterable where Self: Equatable {
   /// - Throws: `AllCasesError<Self>.noIndex`
   var caseIndex: AllCases.Index {
     get throws {
-      do { return try Self.allCases.firstIndex(of: self).wrappedValue }
+      do { return try Self.allCases.firstIndex(of: self).wrappedValue() }
       catch { throw AllCasesError.noIndex(self) }
     }
   }

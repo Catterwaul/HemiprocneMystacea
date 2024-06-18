@@ -1,4 +1,5 @@
 import HM
+import Thrappture
 import XCTest
 
 final class ThrowingPropertyWrapperTestCase: XCTestCase {
@@ -6,7 +7,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     Optional: do {
       let none: Never? = .none
       XCTAssertThrowsError(
-        try none.wrappedValue ?? AnyError().throw()
+        try none.wrappedValue() ?? AnyError().throw()
       ) { error in
         XCTAssert(error is AnyError)
       }
@@ -15,7 +16,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     Result: do {
       let result = Result<Never, _>.failure(Never?.nil)
       XCTAssertThrowsError(
-        try result.wrappedValue ?? AnyError().throw()
+        try result.wrappedValue() ?? AnyError().throw()
       ) { error in
         XCTAssert(error is AnyError)
       }
@@ -28,7 +29,7 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
       let none = nil as String?
 
       XCTAssertEqual(
-        try none.wrappedValue ?? value.wrappedValue,
+        try none.wrappedValue() ?? value.wrappedValue(),
         value
       )
 
@@ -106,12 +107,12 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
       failure.projectedValue = { throw Error() }
 
       // try? result = failure
-      try? result.setWrappedValue(failure.wrappedValue)
-      XCTAssertEqual(try result.wrappedValue, value)
+      try? result.setWrappedValue(failure.wrappedValue())
+      XCTAssertEqual(try result.wrappedValue(), value)
 
       var success = "🎻"
       // try? success = result
-      try? success = result.wrappedValue
+      try? success = result.wrappedValue()
       XCTAssertEqual(success, value)
     }
   }

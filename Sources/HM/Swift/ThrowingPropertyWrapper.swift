@@ -17,7 +17,7 @@ public extension ThrowingPropertyWrapper {
 public extension Result {
   static func ?? (value: Self, default: Self) -> Self {
     do {
-      _ = try value.wrappedValue
+      _ = try value.wrappedValue()
       return value
     } catch {
       return `default`
