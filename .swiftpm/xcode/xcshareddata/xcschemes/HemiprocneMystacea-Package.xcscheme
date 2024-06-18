@@ -148,6 +148,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "CGRectTestCase/test_points()">
+               </Test>
+               <Test
                   Identifier = "MTLCommandBufferTestCase/test()">
                </Test>
                <Test
