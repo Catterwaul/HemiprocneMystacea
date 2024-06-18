@@ -39,18 +39,3 @@ public extension Array where Element: Equatable {
       .map(Self.init)
   }
 }
-
-// MARK: - ExpressibleByArrayLiteral
-public extension ExpressibleByArrayLiteral {
-  /// Create a single-element array literal, or an empty one.
-  /// - Returns: `[wrapper.wrappedValue]`, or  `[]`, if it `throw`s.
-  /// - Note: This cannot be generalized to all types,
-  /// as Swift doesn't employ  universal non-optional defaults.
-  init(compacting wrapper: some ThrowingPropertyWrapper<ArrayLiteralElement, some Error>) {
-    do {
-      self = [try wrapper.wrappedValue()]
-    } catch {
-      self = []
-    }
-  }
-}

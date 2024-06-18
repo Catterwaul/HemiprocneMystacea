@@ -2,17 +2,6 @@ import HM
 import XCTest
 
 final class OptionalTestCase: XCTestCase {
-  func test_compacted() {
-    XCTAssertEqual(
-      ["💿🗺"],
-      ("💿🗺" as Optional).compacted()
-    )
-
-    XCTAssertEqual(
-      Set(),
-      Int?.none.compacted()
-    )
-  }
 
   func test_unwrap() {
     func iterate(_ array: Any?...) throws {

@@ -1,17 +1,5 @@
 import Thrappture
 
-// MARK: - public
-public extension ThrowingPropertyWrapper {
-  /// Create a single-element array literal, or an empty one.
-  /// - Returns: `[wrappedValue]` or `[]`
-  /// - Note: This cannot be generalized to all types,
-  /// as Swift doesn't employ  universal non-optional defaults.
-  func compacted<ExpressibleByArrayLiteral: Swift.ExpressibleByArrayLiteral>() -> ExpressibleByArrayLiteral
-  where ExpressibleByArrayLiteral.ArrayLiteralElement == Value {
-    .init(compacting: self)
-  }
-}
-
 /// - Note: Should be in an extension of `ThrowingPropertyWrapper`,
 ///   but that will result in incorrect overloading.
 public extension Result {
