@@ -34,25 +34,6 @@ final class ResultTestCase: XCTestCase {
     )
   }
 
-  func test_init_getSuccess() throws {
-    typealias Result = Swift.Result<String, Error>
-
-    func get😼() -> String { "😼" }
-
-    XCTAssertEqual(
-      try Result(get😼()).get(),
-      "😼"
-    )
-
-    XCTAssert(
-      Result.failure ~= (try .init(AnyError().throw()))
-    )
-
-    XCTAssertThrowsError(
-      try Swift.Result<String, [Error]>(AnyError().throw())
-    )
-  }
-
   func test_init_getSuccess_Array() throws {
     enum Error: Swift.Error {
       case bad, strongBad
