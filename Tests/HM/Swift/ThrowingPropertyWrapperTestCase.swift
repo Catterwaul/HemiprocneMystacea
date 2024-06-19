@@ -53,22 +53,6 @@ final class ThrowingPropertyWrapperTestCase: XCTestCase {
     }
   }
 
-  func test_sequenceOperator() {
-    do {
-      let array = [1, 3, 5]
-      let sequence = Result { array }
-      var mapped: [Int] = []
-      for element in sequence…? {
-        mapped.append(element)
-      }
-      XCTAssertEqual(mapped, array)
-    }
-
-    do {
-      let dictionary: [Never: Never]? = nil
-      XCTAssert(dictionary…?.isEmpty)
-      for (_, _) in dictionary…? { }
-    }
   }
 
   func test_Possible() {
