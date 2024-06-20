@@ -15,7 +15,7 @@ public extension Result {
 
 /// - Note: Should be in an extension of `ThrowingPropertyWrapper`,
 ///   but that will result in incorrect overloading.
-public extension GetThrowsMutatingSet {
+public extension GetMutatingSet {
   static func ?? (value: Self, default: Self) -> Self {
     do {
       _ = try value.wrappedValue()
