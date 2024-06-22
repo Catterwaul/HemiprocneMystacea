@@ -9,7 +9,7 @@ public extension SceneStorage {
 }
 
 // MARK: - wrappedValue_nonmutating_set
-extension SceneStorage: wrappedValue_nonmutating_set {
+extension SceneStorage: @retroactive wrappedValue_nonmutating_set {
   public typealias WrappedValue = Value
 }
 

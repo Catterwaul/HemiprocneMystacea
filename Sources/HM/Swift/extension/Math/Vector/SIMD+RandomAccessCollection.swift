@@ -3,10 +3,10 @@ public extension SIMD where Self: RandomAccessCollection {
   var endIndex: Int { scalarCount }
 }
 
-extension SIMD2: RandomAccessCollection { }
-extension SIMD3: RandomAccessCollection { }
-extension SIMD4: RandomAccessCollection { }
-extension SIMD8: RandomAccessCollection { }
-extension SIMD16: RandomAccessCollection { }
-extension SIMD32: RandomAccessCollection { }
-extension SIMD64: RandomAccessCollection { }
+extension SIMD2: @retroactive RandomAccessCollection { }
+extension SIMD3: @retroactive RandomAccessCollection { }
+extension SIMD4: @retroactive RandomAccessCollection { }
+extension SIMD8: @retroactive RandomAccessCollection { }
+extension SIMD16: @retroactive RandomAccessCollection { }
+extension SIMD32: @retroactive RandomAccessCollection { }
+extension SIMD64: @retroactive RandomAccessCollection { }

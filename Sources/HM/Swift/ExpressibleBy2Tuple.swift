@@ -12,7 +12,7 @@ public protocol ExpressibleByKeyValuePair: ExpressibleBy2Tuple {
   typealias Value = Element1
 }
 
-extension Array: ExpressibleByDictionaryLiteral where Element: ExpressibleByKeyValuePair {
+extension Array: @retroactive ExpressibleByDictionaryLiteral where Element: ExpressibleByKeyValuePair {
   public init(dictionaryLiteral elements: (Element.Key, Element.Value)...) {
     self = elements.map(Element.init)
   }

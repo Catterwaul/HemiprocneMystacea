@@ -9,7 +9,7 @@ public extension AppStorage {
 }
 
 // MARK: - wrappedValue_nonmutating_set
-extension AppStorage: wrappedValue_nonmutating_set {
+extension AppStorage: @retroactive wrappedValue_nonmutating_set {
   public typealias WrappedValue = Value
 }
 

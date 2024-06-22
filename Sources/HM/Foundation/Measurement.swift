@@ -5,7 +5,7 @@ public extension Measurement where UnitType: Dimension {
   var baseValue: Double { value * unit.baseValue }
 }
 
-extension Measurement: AdditiveArithmetic where UnitType: Dimension {
+extension Measurement: @retroactive AdditiveArithmetic where UnitType: Dimension {
   public static var zero: Self {
     .init(value: 0, unit: .baseUnit())
   }

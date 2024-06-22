@@ -58,4 +58,4 @@ public extension Binding<Bool> {
 }
 
 // MARK: - ReconstitutablePropertyWrapper
-extension Binding: ReconstitutablePropertyWrapper { }
+extension Binding: @retroactive ReconstitutablePropertyWrapper { }

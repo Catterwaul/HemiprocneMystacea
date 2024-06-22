@@ -3,7 +3,7 @@ import Combine
 /// The simplest way to forward one `objectWillChange` through another
 /// is to make `ObservableObjectPublisher` be a `Subject`,
 /// so that `Publisher.subscribe` can be used with it.
-extension ObservableObjectPublisher: Subject {
+extension ObservableObjectPublisher: @retroactive Subject {
   public func send(subscription: any Subscription) {
     subscription.request(.unlimited)
   }

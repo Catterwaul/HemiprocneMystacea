@@ -7,7 +7,7 @@ public extension MKCoordinateRegion {
   }
 }
 
-extension MKCoordinateRegion: Decodable {
+extension MKCoordinateRegion: @retroactive Decodable {
   public init(from decoder: Decoder) throws {
     try self.init(
       Self.init, (CodingKey.center, .span),
@@ -16,7 +16,7 @@ extension MKCoordinateRegion: Decodable {
   }
 }
 
-extension MKCoordinateRegion: Encodable {
+extension MKCoordinateRegion: @retroactive Encodable {
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKey.self)
     try container.encode(center, forKey: .center)
@@ -24,4 +24,6 @@ extension MKCoordinateRegion: Encodable {
   }
 }
 
+extension MKCoordinateRegion: @retroactive Hashable {}
+extension MKCoordinateRegion: @retroactive Equatable {}
 extension MKCoordinateRegion: HashableSynthesizable { }

@@ -22,6 +22,7 @@ public extension CGFloat2 {
   static var convertToOperandScalar: (CGFloat) -> Operand.Scalar { \.native }
 }
 
+extension CGPoint: @retroactive ExpressibleByArrayLiteral {}
 extension CGPoint: CGFloat2 {
   public init(_ x: CGFloat.NativeType, _ y: CGFloat.NativeType) {
     self.init(x: x, y: y)
@@ -30,6 +31,7 @@ extension CGPoint: CGFloat2 {
   public var convertedToOperand: SIMD2<CGFloat.NativeType> { .init(x, y) }
 }
 
+extension CGSize: @retroactive ExpressibleByArrayLiteral {}
 extension CGSize: CGFloat2 {
   public init(_ width: CGFloat.NativeType, _ height: CGFloat.NativeType) {
     self.init(width: width, height: height)
@@ -38,6 +40,7 @@ extension CGSize: CGFloat2 {
   public var convertedToOperand: SIMD2<CGFloat.NativeType> { .init(width, height) }
 }
 
+extension CGVector: @retroactive ExpressibleByArrayLiteral {}
 extension CGVector: CGFloat2 {
   public init(_ dx: CGFloat.NativeType, _ dy: CGFloat.NativeType) {
     self.init(dx: dx, dy: dy)

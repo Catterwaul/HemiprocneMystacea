@@ -5,25 +5,25 @@ public extension CollectionOfOne<Never?> {
   }
 }
 
-extension CollectionOfOne: ExpressibleByIntegerLiteral where Element: _ExpressibleByBuiltinIntegerLiteral {
+extension CollectionOfOne: @retroactive ExpressibleByIntegerLiteral where Element: _ExpressibleByBuiltinIntegerLiteral {
   public init(integerLiteral element: Element) {
     self.init(element)
   }
 }
 
-extension CollectionOfOne: ExpressibleByUnicodeScalarLiteral where Element: _ExpressibleByBuiltinUnicodeScalarLiteral {
+extension CollectionOfOne: @retroactive ExpressibleByUnicodeScalarLiteral where Element: _ExpressibleByBuiltinUnicodeScalarLiteral {
   public init(unicodeScalarLiteral element: Element) {
     self.init(element)
   }
 }
 
-extension CollectionOfOne: ExpressibleByExtendedGraphemeClusterLiteral where Element: _ExpressibleByBuiltinExtendedGraphemeClusterLiteral {
+extension CollectionOfOne: @retroactive ExpressibleByExtendedGraphemeClusterLiteral where Element: _ExpressibleByBuiltinExtendedGraphemeClusterLiteral {
   public init(extendedGraphemeClusterLiteral cluster: Element) {
     self.init(cluster)
   }
 }
 
-extension CollectionOfOne: ExpressibleByStringLiteral where Element: _ExpressibleByBuiltinStringLiteral {
+extension CollectionOfOne: @retroactive ExpressibleByStringLiteral where Element: _ExpressibleByBuiltinStringLiteral {
   public init(stringLiteral element: Element) {
     self.init(element)
   }

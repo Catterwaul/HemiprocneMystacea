@@ -14,13 +14,13 @@ public extension Published {
   }
 }
 
-extension Published: Encodable where Value: Encodable {
+extension Published: @retroactive Encodable where Value: Encodable {
   public func encode(to encoder: Encoder) throws {
     try value.encode(to: encoder)
   }
 }
 
-extension Published: Decodable where Value: Decodable {
+extension Published: @retroactive Decodable where Value: Decodable {
   public init(from decoder: Decoder) throws {
     self.init(initialValue: try .init(from: decoder))
   }
