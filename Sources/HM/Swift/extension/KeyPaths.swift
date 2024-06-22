@@ -26,8 +26,8 @@ public extension ReferenceWritableKeyPath {
   ///
   /// Typical usage: `accessors(root)`
   var accessors: (Root) -> (
-    get: () -> Value,
-    set: (Value) -> Void
+    get: @Sendable () -> Value,
+    set: @Sendable (Value) -> Void
   ) {
     { root in
       ( get: { root[keyPath: self] },

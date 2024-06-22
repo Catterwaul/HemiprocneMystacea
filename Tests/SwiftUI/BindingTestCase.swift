@@ -4,7 +4,7 @@ import SwiftUI_HM
 import XCTest
 
 final class BindingTestCase: XCTestCase {
-  func test_nilCoalesing() {
+  @MainActor func test_nilCoalesing() {
     var wrappedValue: String? = "📬"
     @Binding(
       get: { wrappedValue },
@@ -43,7 +43,7 @@ final class BindingTestCase: XCTestCase {
     XCTAssertFalse(model.bool)
   }
   
-  func test_subscript_default() {
+  @MainActor func test_subscript_default() {
     var gummies: [String: String] = [:]
     Binding(
       get: { gummies },
