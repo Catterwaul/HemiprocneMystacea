@@ -2,8 +2,7 @@ public extension Mirror {
   /// Recursively searches first `Children` for a value of matching type.
   static func peel<Value>(_ subject: some Any) -> Value? {
     Mirror(reflecting: subject).children.first.flatMap {
-      $0.value as? Value
-        ?? peel($0.value)
+      $0.value as? Value ?? peel($0.value)
     }
   }
 
