@@ -5,7 +5,10 @@ public extension Sequence {
     on projection: (Element) throws -> some Hashable,
     uniquingWith combine: (Element, Element) throws -> Element
   ) rethrows -> [Element] {
-    try OrderedDictionary(keyed(by: projection), uniquingKeysWith: combine)
+    try OrderedDictionary(
+      try map { (try projection($0), $0) },
+      uniquingKeysWith: combine
+    )
       .values
       .elements
   }
