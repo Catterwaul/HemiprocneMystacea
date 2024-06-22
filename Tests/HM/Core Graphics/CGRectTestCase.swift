@@ -38,6 +38,7 @@ final class CGRectTestCase: XCTestCase {
     )
   }
 
+  @available(macOS 15, iOS 18, watchOS 11, *)
   func test_points() {
     XCTAssertEqual(
       CGRect(x: 0, y: 0, width: 1, height: 1).points,

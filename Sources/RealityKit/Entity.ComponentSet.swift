@@ -1,3 +1,4 @@
+#if canImport(RealityKit)
 import RealityKit
 
 extension Entity.ComponentSet {
@@ -19,3 +20,4 @@ extension ComponentMetatypeProvider<PhysicsBodyComponent> {
 extension ComponentMetatypeProvider<ModelComponent> {
   static var model: Self { .init() }
 }
+#endif

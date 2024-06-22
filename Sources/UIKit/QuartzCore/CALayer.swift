@@ -1,4 +1,5 @@
-#if canImport(QuartzCore)
+#if !(os(watchOS))
+import HM
 import QuartzCore
 
 public extension CALayer {	

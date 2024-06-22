@@ -1,4 +1,4 @@
-#if canImport(QuartzCore)
+#if !(os(watchOS))
 import HM
 import XCTest
 

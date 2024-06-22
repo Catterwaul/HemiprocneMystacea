@@ -18,6 +18,7 @@ public extension CGRect {
   var center: CGPoint { .init(x: midX, y: midY) }
   var max: CGPoint { .init(x: maxX, y: maxY) }
 
+  @available(macOS 15, iOS 18, watchOS 11, *)
   var points: Set<CGPoint> {
     [ [minX, maxY], [maxX, maxY],
       [minX, minY], [maxX, minY]

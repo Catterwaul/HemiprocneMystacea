@@ -1,5 +1,6 @@
-#if canImport(QuartzCore)
+#if !(os(watchOS))
 import HM
+import UIKit_HM
 import XCTest
 
 final class CALayerTestCase: XCTestCase {

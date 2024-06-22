@@ -1,5 +1,6 @@
 #if !(os(macOS) || os(watchOS))
 import HM
+import Thrappture
 import UIKit
 
 public protocol UIScrollViewWithCells: UIScrollView {
@@ -57,7 +58,7 @@ public extension UIScrollViewWithCells {
     guard let baseCell = cellForItem(at: indexPath)
     else { throw Error.noVisisbleCell }
 
-    return try (baseCell as? Cell).wrappedValue ?? Error.incorrectType.throw()
+    return try (baseCell as? Cell).wrappedValue() ¿? Error.incorrectType.throw()
   }
 }
 

@@ -1,5 +1,6 @@
 #if !(os(macOS) || os(watchOS))
 import HM
+import UIKit_HM
 import XCTest
 
 final class UICollectionViewTestCase: XCTestCase {

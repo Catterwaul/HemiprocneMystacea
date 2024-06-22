@@ -1,3 +1,4 @@
+#if !(os(watchOS))
 import typealias Foundation.FileManager
 import HM
 import XCTest
@@ -22,3 +23,4 @@ final class FileManagerTestCase: XCTestCase {
     XCTAssertFalse(fileExists)
   }
 }
+#endif
