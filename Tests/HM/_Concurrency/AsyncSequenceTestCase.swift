@@ -1,9 +1,11 @@
 import AsyncAlgorithms
 import HM
+import Testing
 import XCTest
 
 final class AsyncSequenceTestCase: XCTestCase {
-  func test_forEach() async {
+  @available(macOS 15, iOS 18, watchOS 11, *)
+  @Test func forEach() async {
     var 🐱 = "🐱"
     await [()].async.forEach { 🐱 = "😺" }
     XCTAssertEqual(🐱, "😺")

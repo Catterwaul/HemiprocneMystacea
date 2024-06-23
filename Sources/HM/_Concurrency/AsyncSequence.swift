@@ -2,7 +2,8 @@ import AsyncAlgorithms
 import HeapModule
 
 public extension AsyncSequence {
-  @inlinable func forEach(_ body: (Element) async throws -> Void) async rethrows {
+  @available(macOS 15, iOS 18, watchOS 11, *)
+  @inlinable func forEach(_ body: (Element) async throws(Failure) -> Void) async throws(Failure) {
     for try await element in self {
       try await body(element)
     }
