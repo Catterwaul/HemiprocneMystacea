@@ -1,8 +1,8 @@
 import HM
-import XCTest
+import Testing
 
-final class OptionalTestCase: XCTestCase {
-  func test_doubleWrapped() {
+struct OptionalTests {
+  @Test func test_doubleWrapped() throws {
     do {
       struct S {
         var property: Int? = nil
@@ -20,16 +20,10 @@ final class OptionalTestCase: XCTestCase {
       }
 
       var s = S()
-      assert(
-        try s[""],
-        throws: Any?.Nil.self
-      )
-      assert(
-        try s["property"],
-        throws: Any??.Nil.self
-      )
+      #expect(throws: Any?.Nil.self) { try s[""] }
+      #expect(throws: Any??.Nil.self) { try s["property"] }
       s.property = 0
-      XCTAssertEqual(try s["property"] as! Int, 0)
+      #expect(try s["property"] as! Int == 0)
     }
 
     do {
@@ -44,13 +38,13 @@ final class OptionalTestCase: XCTestCase {
       }
 
       var s = S()
-      XCTAssertNil(s[""])
-      XCTAssertNil(s["property"])
+      #expect(s[""] == nil)
+      #expect(s["property"] == nil)
       s.property = 0
-      XCTAssertEqual(s["property"] as! Int, 0)
+      #expect(s["property"] as! Int == 0)
     }
 
-    XCTAssertEqual(Any?(flattening: 0) as? Int, 0)
-    XCTAssertEqual(Any?(flattening: Optional(0) as Any) as? Int, 0)
+    #expect(Any?(flattening: 0) as? Int == 0)
+    #expect(Any?(flattening: Optional(0) as Any) as? Int == 0)
   }
 }

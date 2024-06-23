@@ -1,32 +1,23 @@
 import HM
-import XCTest
+import Testing
+import class Foundation.JSONSerialization
 
-final class SerializableDictionaryTestCase: XCTestCase {
-  func test_getValue() {
+struct SerializableDictionaryTests {
+  @Test func getValue() throws {
     let
       oldKey = "🗝",
       dictionary = [oldKey: "🔑"],
       serializableDictionary = SerializableDictionary(dictionary)
     
-    XCTAssertEqual(
-      try serializableDictionary[oldKey],
-      "🔑"
-    )
+    #expect(try serializableDictionary[oldKey] == "🔑")
     
     let turKey = "🦃"
-    assert(
-      try serializableDictionary[turKey] as Any,
-      throws: Any?.Nil.self
-    )
-		
-    XCTAssertThrowsError(
-      try serializableDictionary[oldKey] as Bool
-    ) { error in
-      XCTAssertEqual(error as? CastError, .impossible)
-    }
+    #expect(throws: Any?.Nil.self) { try serializableDictionary[turKey] as Any }
+
+    #expect(throws: CastError.impossible) { try serializableDictionary[oldKey] as Bool }
   }
 	
-  func test_InitializableWithSerializableDictionaryArray_init() throws {
+  @Test func InitializableWithSerializableDictionaryArray_init() throws {
     let dictionary = [
       "instruments": [
         [visualizationKey: "🎹"],
@@ -40,30 +31,24 @@ final class SerializableDictionaryTestCase: XCTestCase {
       dictionary: dictionary,
       key: "instruments"
     )
-    XCTAssertEqual(
-      instruments.compactMap(\.visualization),
-      ["🎹", "🎸", "🎷"]
-    )
+    #expect(instruments.compactMap(\.visualization) == ["🎹", "🎸", "🎷"])
     
     let turKeyboard = "🦃⌨️"
-    assert(
-      try [Instrument](
-        dictionary: dictionary,
-        key: turKeyboard
-      ),
-      throws: Any?.Nil.self
-    )
+    #expect(throws: Any?.Nil.self) {
+      try [Instrument](dictionary: dictionary, key: turKeyboard)
+    }
   }
 	
-	func test_convertInitializableWithSerializableDictionaryArray() {
+  @Test func convertInitializableWithSerializableDictionaryArray() throws {
 		let instruments = [
 			[visualizationKey: "🎹"],
 			[visualizationKey: "🎸"],
 			[visualizationKey: "🎷"],
 			[visualizationKey: nil]
 		]
-		XCTAssertEqual(
-			try [Instrument](instruments),
+    #expect(
+			try [Instrument](instruments)
+      ==
 			[	Instrument(visualization: "🎹"),
 				Instrument(visualization: "🎸"),
 				Instrument(visualization: "🎷"),
@@ -72,30 +57,24 @@ final class SerializableDictionaryTestCase: XCTestCase {
 		)
 	}
 	
-  func test_InitializationError() {
-    XCTAssertThrowsError(
+  @Test func InitializationError() {
+    #expect(throws: (any Error).self) {
       try Instrument(
-        jsonData: try JSONSerialization.data(
-          withJSONObject: ["👿"]
-        )
+        jsonData: try JSONSerialization.data(withJSONObject: ["👿"])
       )
-    )
-    
-    XCTAssertThrowsError(
-      try [Instrument](["👿"])
-    )
+    }
+
+    #expect(throws: (any Error).self) { try [Instrument](["👿"]) }
   }
 	
-  func test_jsonDataNotConvertibleToDictionaries() {
+  @Test func jsonDataNotConvertibleToDictionaries() throws {
     let jsonData = try! JSONSerialization.data(
       withJSONObject: ["🐈": "🐈"],
       options: []
     )
     
-    XCTAssertThrowsError(
+    #expect(throws: InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries) {
       try [Instrument](jsonData: jsonData)
-    ) {	error in
-      XCTAssert(InitializableWithSerializableDictionaryExtensions.Error.dataNotConvertibleToDictionaries ~= error)
     }
   }
 	

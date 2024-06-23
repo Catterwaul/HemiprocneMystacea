@@ -1,9 +1,8 @@
 import CloudKit
 import HM
-import XCTest
-import XCTest_HM
+import Testing
 
-final class CKRecordTestCase: XCTestCase {
+struct CKRecordTests {
   struct Pumpkin {
     let eyesCount: Int?
     let halloween: Date?
@@ -12,7 +11,7 @@ final class CKRecordTestCase: XCTestCase {
     let nonCloudKitProperty = "⛈"
   }
 
-  func test_RawRepresentableWithCKRecordValue() {
+  @Test func RawRepresentableWithCKRecordValue() throws {
     struct CakeBox: ConvertibleToCloudKitRecord, Equatable {
       enum Cake: String, RawRepresentableWithCKRecordValue {
         case 🥮, 🧁, 🍰, 🍥, 🎂
@@ -26,16 +25,17 @@ final class CKRecordTestCase: XCTestCase {
     }
 
     let cakeBox = CakeBox(cake: .🥮)
-    XCTAssertEqual(
+    #expect(
       try CakeBox.Cake(
         record: CKRecord(cakeBox),
         key: CakeBox.CloudKitRecordKey.cake
-      ),
+      )
+      ==
       cakeBox.cake
     )
   }
   
-  func test_initializeCKRecord() {
+  @Test func initializeCKRecord() {
     let
       spookyOldHalloween = Date.distantPast,
       mrPumpkin = Pumpkin(
@@ -49,60 +49,51 @@ final class CKRecordTestCase: XCTestCase {
       ),
       unSmashingPumpkin = try! Pumpkin(record: CKRecord(mrPumpkin))
 
-    XCTAssertEqual(unSmashingPumpkin.eyesCount, 2)
-    XCTAssertEqual(unSmashingPumpkin.halloween, spookyOldHalloween)
-    XCTAssertEqual(unSmashingPumpkin.vine, "🐛")
-    XCTAssertEqual(unSmashingPumpkin.weight, mrPumpkin.weight)
+    #expect(unSmashingPumpkin.eyesCount == 2)
+    #expect(unSmashingPumpkin.halloween == spookyOldHalloween)
+    #expect(unSmashingPumpkin.vine == "🐛")
+    #expect(unSmashingPumpkin.weight == mrPumpkin.weight)
   }
   
-  func test_IntEnum() {
+  @Test func IntEnum() throws {
     enum IntEnum: Int, CloudKitEnumeration {
       case zero
       case one
     }
 
     let record = CKRecord(IntEnum.one)
-    XCTAssertEqual(try record["rawValue"], 1)
-    XCTAssertEqual(try IntEnum(record: record), .one)
-    
+    #expect(try record["rawValue"] == 1)
+    #expect(try IntEnum(record: record) == .one)
+
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = 0.ckRecordValue
-    XCTAssertEqual(try IntEnum(record: record), .zero)
-    
+    #expect(try IntEnum(record: record) == .zero)
+
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = (-1).ckRecordValue
-    assert(
-      try IntEnum(record: record),
-      throws: IntEnum?.Nil.self
-    )
+    #expect(throws: IntEnum?.Nil.self) { try IntEnum(record: record) }
   }
   
-  func test_StringEnum() {
+  @Test func StringEnum() throws {
     enum StringEnum: String, CloudKitEnumeration {
       case a
       case eh = "🇨🇦"
     }
 
     let record = CKRecord(StringEnum.eh)
-    XCTAssertEqual(try record["rawValue"], "🇨🇦")
-    XCTAssertEqual(try StringEnum(record: record), .eh)
-    
+    #expect(try record["rawValue"] == "🇨🇦")
+    #expect(try StringEnum(record: record) == .eh)
+
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "a".ckRecordValue
-    XCTAssertEqual(try StringEnum(record: record), .a)
-    
+    #expect(try StringEnum(record: record) == .a)
+
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "eh".ckRecordValue
-    assert(
-      try StringEnum(record: record),
-      throws: StringEnum?.Nil.self
-    )
+    #expect(throws: StringEnum?.Nil.self) { try StringEnum(record: record) }
 
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = nil
-    assert(
-      try StringEnum(record: record),
-      throws: CKRecord.Value?.Nil.self
-    )
+    #expect(throws: CKRecord.Value?.Nil.self) { try StringEnum(record: record) }
   }
 }
 
-extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
+extension CKRecordTests.Pumpkin: ConvertibleToCloudKitRecord {
   enum CloudKitRecordKey: String {
     case eyesCount
     case halloween
@@ -117,7 +108,7 @@ extension CKRecordTestCase.Pumpkin: ConvertibleToCloudKitRecord {
   }
 }
 
-extension CKRecordTestCase.Pumpkin {
+extension CKRecordTests.Pumpkin {
   init(record: CKRecord) throws {
     let weightValue: Double = try record[CloudKitRecordKey.weight]
     self.init(
