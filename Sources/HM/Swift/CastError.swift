@@ -38,8 +38,10 @@ public extension CastError {
 }
 
 /// Like a throwing version of `as?`.
-/// - Throws: `CastError.impossible`
-public func cast<Cast>(_ value: some Any) throws -> Cast {
-  guard case let value as Cast = value else { throw CastError.impossible }
+///
+/// The return type can be inferred, which the various forms of `as` do not support.
+/// - Throws: `.impossible`
+public func cast<Cast>(_ value: some Any) throws(CastError) -> Cast {
+  guard case let value as Cast = value else { throw .impossible }
   return value
 }

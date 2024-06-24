@@ -9,12 +9,8 @@ struct SerializableDictionaryTests {
       dictionary = [oldKey: "🔑"],
       serializableDictionary = SerializableDictionary(dictionary)
     
-    #expect(try serializableDictionary[oldKey] == "🔑")
-    
-    let turKey = "🦃"
-    #expect(throws: Any?.Nil.self) { try serializableDictionary[turKey] as Any }
-
-    #expect(throws: CastError.impossible) { try serializableDictionary[oldKey] as Bool }
+    #expect(try cast(serializableDictionary[oldKey]) == "🔑")
+    #expect(throws: CastError.impossible) { try cast(serializableDictionary[oldKey]) as Bool }
   }
 	
   @Test func InitializableWithSerializableDictionaryArray_init() throws {
@@ -34,7 +30,7 @@ struct SerializableDictionaryTests {
     #expect(instruments.compactMap(\.visualization) == ["🎹", "🎸", "🎷"])
     
     let turKeyboard = "🦃⌨️"
-    #expect(throws: Any?.Nil.self) {
+    #expect(throws: (any Error).self) {
       try [Instrument](dictionary: dictionary, key: turKeyboard)
     }
   }
@@ -92,6 +88,6 @@ private struct Instrument: Equatable {
 
 extension Instrument: InitializableWithSerializableDictionary {
   init(serializableDictionary dictionary: SerializableDictionary) throws {
-    visualization = try dictionary[SerializableDictionaryKey.visualization]
+    visualization = try cast(dictionary[SerializableDictionaryKey.visualization])
   }
 }

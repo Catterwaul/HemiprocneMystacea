@@ -7,14 +7,9 @@ public protocol DictionaryLike<Key, Value> {
 }
 
 public extension DictionaryLike {
-  /// `self[key].wrappedValue`
-  subscript<Value>(key: Key) -> Value {
-    get throws { try cast(self[key].wrappedValue()) }
-  }
-
   /// Allows lookup by enumeration cases backed by `Key`s,
   /// instead of having to manually use their raw values.
-  subscript<Value>(key: some RawRepresentable<Key>) -> Value {
-    get throws { try self[key.rawValue] }
+  subscript(key: some RawRepresentable<Key>) -> Value {
+    get throws { try self[key.rawValue].wrappedValue() }
   }
 }

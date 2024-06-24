@@ -82,7 +82,7 @@ public extension Array where Element: InitializableWithSerializableDictionary {
     key: String
   ) throws {
     try self.init(
-      dictionaries: try SerializableDictionary(dictionary)[key] as DictionaryArray
+      dictionaries: try cast(SerializableDictionary(dictionary)[key]) as DictionaryArray
     )
   }
 	

@@ -62,7 +62,7 @@ struct CKRecordTests {
     }
 
     let record = CKRecord(IntEnum.one)
-    #expect(try record["rawValue"] == 1)
+    #expect(record["rawValue"] == 1)
     #expect(try IntEnum(record: record) == .one)
 
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = 0.ckRecordValue
@@ -79,7 +79,7 @@ struct CKRecordTests {
     }
 
     let record = CKRecord(StringEnum.eh)
-    #expect(try record["rawValue"] == "🇨🇦")
+    #expect(record["rawValue"] == "🇨🇦")
     #expect(try StringEnum(record: record) == .eh)
 
     record[CloudKitEnumerationRecordKey.rawValue.rawValue] = "a".ckRecordValue
@@ -110,11 +110,11 @@ extension CKRecordTests.Pumpkin: ConvertibleToCloudKitRecord {
 
 extension CKRecordTests.Pumpkin {
   init(record: CKRecord) throws {
-    let weightValue: Double = try record[CloudKitRecordKey.weight]
+    let weightValue: Double = try cast(record[CloudKitRecordKey.weight])
     self.init(
-      eyesCount: try record[CloudKitRecordKey.eyesCount],
-      halloween: try record[CloudKitRecordKey.halloween],
-      vine: try record[CloudKitRecordKey.vine],
+      eyesCount: try cast(record[CloudKitRecordKey.eyesCount]),
+      halloween: try cast(record[CloudKitRecordKey.halloween]),
+      vine: try cast(record[CloudKitRecordKey.vine]),
       weight: Measurement(
         value: weightValue,
         unit: .kilograms

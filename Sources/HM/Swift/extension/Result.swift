@@ -44,9 +44,9 @@ public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
   ///
   /// If only one element is thrown, it will be turned into a `Success Sequence`.
   ///
-  /// - Throws: `CastError.impossible` if the error thrown is not a `Failure`,
+  /// - Throws: `.impossible` if the error thrown is not a `Failure`,
   /// or a `Failure.ArrayLiteralElement`.
-  init(groupingFailures getSuccess: @autoclosure () throws -> Success) throws {
+  init(groupingFailures getSuccess: @autoclosure () throws -> Success) throws(CastError) {
     do {
       let success = try getSuccess()
       self = .success(success)
@@ -57,7 +57,7 @@ public extension Result where Failure: Sequence & ExpressibleByArrayLiteral {
       case let element as Failure.ArrayLiteralElement:
         self = .failure([element])
       default:
-        throw CastError.impossible
+        throw .impossible
       }
     }
   }

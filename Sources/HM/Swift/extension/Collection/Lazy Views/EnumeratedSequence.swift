@@ -4,13 +4,13 @@ public extension EnumeratedSequence {
     public let error: Swift.Error
   }
 
-  /// - Throws: EnumeratedSequenceError
+  /// - Throws: EnumeratedSequence.Error
   func mapElements<Transformed>(
     _ transform: (Base.Element) throws -> Transformed
   ) throws -> [Transformed] {
-    try map {
-      do { return try transform($0.element) }
-      catch { throw Error(index: $0.offset, error: error) }
+    try map { enumeratedElement throws(Error) in
+      do { return try transform(enumeratedElement.element) }
+      catch { throw Error(index: enumeratedElement.offset, error: error) }
     }
   }
 }

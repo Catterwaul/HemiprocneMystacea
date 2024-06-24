@@ -70,7 +70,7 @@ private final class Class: SuperClass, Protocol { }
 private func cast(
   _ instance: some Any,
   to desiredCastType: (some Any).Type
-) throws {
+) throws(CastError) {
   if let error = CastError(instance, desired: desiredCastType)
   { throw error }
 }
@@ -78,7 +78,7 @@ private func cast(
 private func failCast(
   of instance: some Any,
   to undesiredCastType: (some Any).Type
-) throws {
+) throws(CastError) {
   if let error = CastError(instance, undesired: undesiredCastType)
   { throw error }
 }
