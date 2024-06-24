@@ -4,8 +4,8 @@ public extension Optional {
   /// Transform `.some` into `.none`, if a condition fails.
   /// - Parameters:
   ///   - isSome: The condition that will result in `nil`, when evaluated to `false`.
-  func filter(_ isSome: (Wrapped) throws -> Bool) rethrows -> Self {
-    try flatMap { try isSome($0) ? $0 : nil }
+  func filter<Error>(_ isSome: (Wrapped) throws(Error) -> Bool) throws(Error) -> Self {
+    try flatMap { wrapped throws(Error) in try isSome(wrapped) ? wrapped : nil }
   }
 }
 
