@@ -26,7 +26,9 @@ public extension Bool {
   /// ```
   /// Result(catching: success) is case .success
   /// ```
-  static func success(catching success: @autoclosure () throws -> some Any) -> Self {
+  static func success<Error: Swift.Error>(
+    catching success: @autoclosure () throws(Error) -> some Any
+  ) -> Self {
     do {
       _ = try success()
       return true
@@ -37,10 +39,10 @@ public extension Bool {
 
   /// Modify a value if `true`.
   /// - Returns: An unmodified value, when false.
-  @inlinable func reduce<Result>(
+  @inlinable func reduce<Result, Error: Swift.Error>(
     _ resultWhenFalse: Result,
-    _ makeResult: (_ resultWhenFalse: Result) throws -> Result
-  ) rethrows -> Result {
+    _ makeResult: (_ resultWhenFalse: Result) throws(Error) -> Result
+  ) throws(Error) -> Result {
     self ? try makeResult(resultWhenFalse) : resultWhenFalse
   }
 

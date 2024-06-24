@@ -31,9 +31,9 @@ public extension View {
 }
 
 /// A workaround for `do/catch` statements not working with result builders.
-@ViewBuilder public func `do`(
-  @ViewBuilder try success: () throws -> some View,
-  @ViewBuilder catch failure: (any Error) -> some View
+@ViewBuilder public func `do`<Error: Swift.Error>(
+  @ViewBuilder try success: () throws(Error) -> some View,
+  @ViewBuilder catch failure: (Error) -> some View
 ) -> some View {
   switch Result(catching: success) {
   case .success(let success): success
