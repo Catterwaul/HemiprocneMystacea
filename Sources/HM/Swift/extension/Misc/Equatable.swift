@@ -20,9 +20,9 @@ public extension Equatable {
   /// A closure that equates another instance to this intance.
   /// - Parameters:
   ///   - _: Use the metatype for `Castable` to avoid explicit typing.
-  /// - Throws: `.impossible` if a `Castable` can't be cast to `Self`.
+  /// - Throws: if a `Castable` can't be cast to `Self`.
   func getEquals<Castable>(_: Castable.Type = Castable.self) throws(CastError) -> (Castable) -> Bool {
-    if let error = CastError(self, desired: Castable.self) { throw error }
+    _ = try cast(self) as Castable
     return { self == $0 as? Self }
   }
 }

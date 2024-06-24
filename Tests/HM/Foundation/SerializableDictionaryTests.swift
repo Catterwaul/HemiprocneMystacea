@@ -10,7 +10,7 @@ struct SerializableDictionaryTests {
       serializableDictionary = SerializableDictionary(dictionary)
     
     #expect(try cast(serializableDictionary[oldKey]) == "🔑")
-    #expect(throws: CastError.impossible) { try cast(serializableDictionary[oldKey]) as Bool }
+    #expect(throws: CastError.self) { try cast(serializableDictionary[oldKey]) as Bool }
   }
 	
   @Test func InitializableWithSerializableDictionaryArray_init() throws {
