@@ -27,9 +27,7 @@ final class EquatableTestCase: XCTestCase {
     let cupcake = "🧁"
     let notCake = 0xca_e
 
-    let cupcakeEquals: (Any) -> Bool = try XCTSkip.uponFailure(
-      of: cupcake.getEquals()
-    )
+    let cupcakeEquals: (Any) -> Bool = try cupcake.getEquals()
     XCTAssert(cupcakeEquals(cupcake))
     XCTAssertFalse(cupcakeEquals(notCake))
 

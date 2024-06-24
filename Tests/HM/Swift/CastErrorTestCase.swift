@@ -25,30 +25,26 @@ final class CastErrorTestCase: XCTestCase {
   }
 
   func test_protocol() throws {
-    try XCTSkip.uponFailure(
-      of: try cast(Class(), to: Protocol.self)
-    )
-
+    try cast(Class(), to: Protocol.self)
     XCTAssertThrowsError(
       try failCast(of: Class(), to: Protocol.self)
     )
   }
 
   func test_AnyObject() throws {
-    XCTAssertThrowsError(
+    XCTAssertNoThrow(
       try cast(0, to: AnyObject.self)
     )
-    XCTAssertNoThrow(
+    XCTAssertThrowsError(
       try failCast(of: true, to: AnyObject.self)
     )
-
-    try XCTSkip.uponFailure(
-      of: try failCast(of: Class(), to: AnyObject.self)
-    )
-    XCTAssertNoThrow(
-      try failCast(of: Class() as Protocol, to: AnyObject.self)
+    XCTAssertThrowsError(
+      try failCast(of: Class(), to: AnyObject.self)
     )
     XCTAssertThrowsError(
+      try failCast(of: Class() as Protocol, to: AnyObject.self)
+    )
+    XCTAssertNoThrow(
       try cast(Class() as Protocol, to: AnyObject.self)
     )
   }

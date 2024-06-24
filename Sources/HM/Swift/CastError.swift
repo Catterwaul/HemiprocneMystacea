@@ -9,8 +9,10 @@ public enum CastError: Error {
 
 public extension CastError {
   /// `nil` if  an `Instance` can be cast to `Desired`. Otherwise, `.impossible`.
-  init?<Instance, Desired>(_: Instance, desired _: Desired.Type) {
-    self.init(Instance.self, desired: Desired.self)
+  init?<Instance, Desired>(_ instance: Instance, desired _: Desired.Type) {
+    if instance is Desired { return nil }
+
+    self = .impossible
   }
 
   /// `nil` if  a `Source` can be cast to `Desired`. Otherwise, `.impossible`.
@@ -21,8 +23,10 @@ public extension CastError {
   }
 
   /// `nil` if  an `Instance` cannot be cast to `Undesired`. Otherwise, `.possible`.
-  init?<Instance, Undesired>(_: Instance, undesired _: Undesired.Type) {
-    self.init(Instance.self, undesired: Undesired.self)
+  init?<Instance, Undesired>(_ instance: Instance, undesired _: Undesired.Type) {
+    guard instance is Undesired else { return nil }
+
+    self = .possible
   }
 
   /// `nil` if  a `Source` cannot be cast to `Undesired`. Otherwise, `.possible`.
