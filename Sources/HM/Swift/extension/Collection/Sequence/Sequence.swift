@@ -228,11 +228,13 @@ public extension Sequence {
     : zip(self, sequence).lazy.flatMap { [$0, $1] }
   }
 
-  func max(
-    by getComparable: (Element) throws -> some Comparable
-  ) rethrows -> Element? {
-    try self.max {
-      try getComparable($0) < getComparable($1)
+  func max<Error>(
+    by getComparable: (Element) throws(Error) -> some Comparable
+  ) throws(Error) -> Element? {
+    try forceCastError(Error.self) {
+      try self.max {
+        try getComparable($0) < getComparable($1)
+      }
     }
   }
 
