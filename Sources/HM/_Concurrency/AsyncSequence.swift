@@ -2,7 +2,7 @@ import AsyncAlgorithms
 import HeapModule
 
 public extension AsyncSequence {
-  @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+  @available(iOS 18, macOS 15, tvOS 18, visionOS 2, watchOS 11, *)
   @inlinable func forEach(_ body: (Element) async throws(Failure) -> Void) async throws(Failure) {
     for try await element in self {
       try await body(element)
@@ -26,7 +26,7 @@ public extension AsyncSequence {
   }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+@available(iOS 18, macOS 15, tvOS 18, visionOS 2, watchOS 11, *)
 public extension Sequence where Element: Sendable {
   /// Transform a sequence asynchronously, and potentially in parallel.
   /// - Returns: An `AsyncSequence` which returns transformed elements, in their original order,

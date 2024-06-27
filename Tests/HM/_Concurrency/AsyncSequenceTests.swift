@@ -3,14 +3,14 @@ import HM
 import Testing
 
 struct AsyncSequenceTests {
-  @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+  @available(iOS 18, macOS 15, tvOS 18, visionOS 2, watchOS 11, *)
   @Test func forEach() async {
     var 🐱 = "🐱"
     await [()].async.forEach { 🐱 = "😺" }
     #expect(🐱 == "😺")
   }
 
-  @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+  @available(iOS 18, macOS 15, tvOS 18, visionOS 2, watchOS 11, *)
   @Test func mapWithTaskGroup() async throws {
     let array = [0, 100, 200]
 
@@ -32,7 +32,7 @@ struct AsyncSequenceTests {
     }
   }
   
-  @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+  @available(iOS 18, macOS 15, tvOS 18, visionOS 2, watchOS 11, *)
   @Test func compactMap() async throws {
     let array = ["0", nil, "2"]
     let compacted = Array(array.compacted())

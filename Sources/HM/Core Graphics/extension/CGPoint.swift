@@ -1,4 +1,4 @@
 import CoreGraphics
 
-@available(macOS 15, iOS 18, watchOS 11, *)
+@available(iOS 18, macOS 15, tvOS 18, visionOS 2, watchOS 11, *)
 extension CGPoint: HashableSynthesizable { }
